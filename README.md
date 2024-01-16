@@ -15,7 +15,7 @@ Documentation is available at the respective folder.
 
 ### Java
 
-The project is develop using Java 11.
+The project is develop using Java 17.
 So you need to have a compliant JRE/JDK installed and set up in your eclipse environment.
 
 ### Tooling
@@ -45,13 +45,13 @@ From other update sites:
 
 #### Java
 
-The project is developed using Java 11.
+The project is developed using Java 17.
 So you need to have a compliant JRE/JDK installed and set up in your eclipse environment.
 
 #### Maven
 
 You need an installation of Maven.
-To avoid any problem we recommend a version >= 3.6.3 and that the java version used by Maven to be 11 or above.
+To avoid any problem we recommend a version >= 4.0.4 and that the java version used by Maven to be 17 or above.
 
 
 ### Set up
@@ -66,8 +66,8 @@ This command will automatically import/download the required dependencies in way
 
 ### Set up the workspace
 
-* Set up a Java 11 jre/jdk in eclipse
-* Set up eclipse compiler to Java 11
+* Set up a Java 17 jre/jdk in eclipse
+* Set up eclipse compiler to Java 17
 * Import all projects
 * Load the target plaform _/dsm.TRADES.parent/tp/dev.target_
 
