@@ -27,4 +27,5 @@ SPDX-License-Identifier: EPL-2.0
 		<relativePath>../../releng/dsm.TRADES.parent/</relativePath>
 	</parent>
 
+	<groupId>TRADES</groupId>
 </project>

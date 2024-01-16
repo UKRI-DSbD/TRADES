@@ -17,9 +17,9 @@
 	<name>TRADES Parent</name>
 
 	<properties>
-		<tycho.version>2.3.0</tycho.version>
+		<tycho.version>4.0.4</tycho.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<xtend.version>2.25.0</xtend.version>
+		<xtend.version>2.30.0</xtend.version>
 	</properties>
 
 	<build>
@@ -130,7 +130,7 @@
 								<classifier>tp/target</classifier>
 							</artifact>
 						</target>
-						<executionEnvironment>org.eclipse.justj.openjdk.hotspot.jre.full-11</executionEnvironment>
+						<executionEnvironment>org.eclipse.justj.openjdk.hotspot.jre.full-17</executionEnvironment>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -162,8 +162,8 @@
 		<module>../../bundles/dsm.TRADES.m2doc/</module>
 		<module>../../bundles/dsm.TRADES.rcp/</module>
 		<module>../../bundles/dsm.TRADES.testlib/</module>
-		<module>../../bundles/dsm.TRADES.tests/</module>
-		<module>../../bundles/TRADES.design.test/</module>
+		<module>../../bundles/dsm.TRADES.tests/</module>				
+		<module>../../bundles/TRADES.design.test</module>
 		<module>../../bundles/dsm.TRADES.rcp.mitre/</module>
 		<module>../../bundles/dsm.TRADES.rcp.capec/</module>
 

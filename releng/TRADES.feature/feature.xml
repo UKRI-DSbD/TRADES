@@ -49,14 +49,14 @@ ELTA Ltd - initial API and implementation
       <import plugin="org.eclipse.jdt.core"/>
       <import plugin="org.eclipse.jface"/>
       <import plugin="org.eclipse.pde.core"/>
-      <import plugin="org.eclipse.sirius" version="6.0.0" match="compatible"/>
-      <import plugin="org.eclipse.sirius.common" version="6.0.0" match="compatible"/>
-      <import plugin="org.eclipse.sirius.common.ui" version="6.0.0" match="compatible"/>
-      <import plugin="org.eclipse.sirius.diagram" version="6.0.0" match="compatible"/>
-      <import plugin="org.eclipse.sirius.diagram.ui" version="6.0.0" match="compatible"/>
-      <import plugin="org.eclipse.sirius.ecore.extender" version="6.0.0" match="compatible"/>
-      <import plugin="org.eclipse.sirius.ext.base" version="6.0.0" match="compatible"/>
-      <import plugin="org.eclipse.sirius.ui" version="6.0.0" match="compatible"/>
+      <import plugin="org.eclipse.sirius" version="6.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.common" version="6.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.common.ui" version="6.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.diagram" version="6.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.diagram.ui" version="6.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.ecore.extender" version="6.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.ext.base" version="6.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.ui" version="6.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.ui.ide"/>
       <import plugin="org.eclipse.ui.navigator"/>

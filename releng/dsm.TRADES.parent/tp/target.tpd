@@ -1,19 +1,27 @@
 target "TRADES"
 
-environment JavaSE-11
+environment JavaSE-17
 
 with requirements,source
 
-location "https://download.eclipse.org/releases/2020-12/" {
-	org.eclipse.platform.sdk lazy
+//location "https://download.eclipse.org/releases/2020-12/" {
+location "https://download.eclipse.org/releases/2023-12/" {
+	//org.eclipse.platform.sdk lazy //Replaced with org.eclipse.sdk.feature.group
+	org.eclipse.sdk.feature.group lazy
 	org.eclipse.emf lazy
 	org.eclipse.emf.codegen.ecore.feature.group lazy
 	org.eclipse.pde.feature.group lazy
+	
 	org.eclipse.rcp.feature.group lazy
 	org.eclipse.osgi.services lazy
 	org.eclipse.equinox.executable.feature.group lazy
 	org.eclipse.equinox.core.feature.feature.group lazy
 	org.eclipse.collections.feature.feature.group lazy
+}
+
+location "https://download.eclipse.org/releases/2020-12/" {
+	//location "https://download.eclipse.org/releases/2020-12/"
+	org.eclipse.pde.ds.lib lazy
 }
 
 location Eclipse-Shared-License "http://download.eclipse.org/cbi/updates/license" {
@@ -22,7 +30,7 @@ location Eclipse-Shared-License "http://download.eclipse.org/cbi/updates/license
 
 location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.2.2/repository"{ //"https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository" {
 	org.obeonetwork.m2doc.feature.feature.group lazy
-	org.obeonetwork.m2doc.sirius.feature.feature.group lazy
+	//org.obeonetwork.m2doc.sirius.feature.feature.group lazy
 	org.obeonetwork.m2doc.ui.feature.feature.group lazy
 	org.obeonetwork.m2doc.html.feature.feature.group lazy
 	org.eclipse.acceleo.query.feature.group lazy
@@ -42,7 +50,7 @@ location "https://www.obeo.fr/download/release/designer/11.3/community/latest/re
 }
 
 
-location "https://download.eclipse.org/sirius/updates/releases/6.5.1/2020-09/" {
+location "https://download.eclipse.org/sirius/updates/releases/7.3.0/2023-03/" {
 	//Sirius
 	org.eclipse.sirius.specifier.feature.group lazy
 	org.eclipse.sirius.properties.feature.feature.group lazy
@@ -82,6 +90,6 @@ location  "https://download.eclipse.org/tools/orbit/downloads/drops/R20200529191
 }
 
 
-location "https://download.eclipse.org/justj/jres/11/updates/release/11.0.2" {
+location "https://download.eclipse.org/justj/jres/17/updates/release/latest" {
 	org.eclipse.justj.openjdk.hotspot.jre.full.feature.group lazy
 }
