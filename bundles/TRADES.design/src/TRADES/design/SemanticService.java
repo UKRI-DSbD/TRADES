@@ -38,7 +38,7 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.AbstractDNode;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
-import org.eclipse.sirius.viewpoint.SiriusPlugin;
+import org.eclipse.sirius.tools.api.SiriusPlugin;
 import org.eclipse.ui.PlatformUI;
 
 import dsm.TRADES.AbstractControlOwner;

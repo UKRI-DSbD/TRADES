@@ -50,7 +50,7 @@ import org.obeonetwork.m2doc.genconf.Generation;
 import org.obeonetwork.m2doc.genconf.ModelDefinition;
 import org.obeonetwork.m2doc.genconf.Option;
 import org.obeonetwork.m2doc.properties.TemplateCustomProperties;
-import org.obeonetwork.m2doc.sirius.M2DocSiriusUtils;
+// import org.obeonetwork.m2doc.sirius.M2DocSiriusUtils; //need fix
 import org.obeonetwork.m2doc.util.M2DocUtils;
 
 import dsm.trades.m2doc.IM2DocTemplate;
@@ -167,7 +167,7 @@ public class NewTemplateAction extends Action {
 		generation.getDefinitions().add(selfDef);
 
 		Option siriusOpt = GenconfFactory.eINSTANCE.createOption();
-		siriusOpt.setName(M2DocSiriusUtils.SIRIUS_SESSION_OPTION);
+		//siriusOpt.setName(M2DocSiriusUtils.SIRIUS_SESSION_OPTION); //need fix
 		siriusOpt.setValue(sessionURI.lastSegment());
 
 		generation.getOptions().add(siriusOpt);
