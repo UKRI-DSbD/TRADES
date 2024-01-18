@@ -28,9 +28,11 @@ location Eclipse-Shared-License "http://download.eclipse.org/cbi/updates/license
 	org.eclipse.license.feature.group lazy
 }
 
-location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.3.2/repository"{ //"https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository" {
+location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository" {//Switched to nightly build due to M2Doc bug I reported in current version and now solved, until the new version is available "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.3.2/repository"{ 
 	org.obeonetwork.m2doc.feature.feature.group lazy
-	//org.obeonetwork.m2doc.sirius.feature.group lazy
+	org.obeonetwork.m2doc.sirius.feature.feature.group lazy
+	org.obeonetwork.m2doc.sirius lazy
+	org.obeonetwork.m2doc.sirius.ui lazy
 	org.obeonetwork.m2doc.ui.feature.feature.group lazy
 	org.obeonetwork.m2doc.html.feature.feature.group lazy
 	org.eclipse.acceleo.query.feature.group lazy
