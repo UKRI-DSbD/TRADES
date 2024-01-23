@@ -196,6 +196,9 @@
     <genClasses ecoreClass="TRADES.ecore#//AbstractThreatOwner">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AbstractThreatOwner/threatOwner"/>
     </genClasses>
+    <genClasses ecoreClass="TRADES.ecore#//AbstractVulnerabilityOwner">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AbstractVulnerabilityOwner/vulnerabilityOwner"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="TRADES.ecore#//IThreatDefinition">
       <genOperations ecoreOperation="TRADES.ecore#//IThreatDefinition/getId"/>
       <genOperations ecoreOperation="TRADES.ecore#//IThreatDefinition/getDescription"/>

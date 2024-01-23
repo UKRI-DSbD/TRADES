@@ -4,7 +4,7 @@
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="TRADES model, by Israel Aerospace Industries. All rights reserved.&#xD;&#xA;&#xD;&#xA;The TRADES model, based on Threat and Risk assessment ontology and the TRADES model-based methodology."/>
   </eAnnotations>
-  <eClassifiers xsi:type="ecore:EClass" name="Analysis" eSuperTypes="#//ComponentOwner #//DataOwnerElement #//NamedElement #//AbstractControlOwner #//AbstractThreatOwner #//ElementWithId #//VulnerabilityOwner #//ComponentTypeOwner #//VAOwner">
+  <eClassifiers xsi:type="ecore:EClass" name="Analysis" eSuperTypes="#//ComponentOwner #//DataOwnerElement #//NamedElement #//AbstractControlOwner #//AbstractThreatOwner #//ElementWithId #//AbstractVulnerabilityOwner #//ComponentTypeOwner #//VAOwner">
     <eOperations name="getExternalThreats" upperBound="-1" eType="#//ExternalThreat">
       <eParameters name="id" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
       <eParameters name="catalogIdentifier" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
@@ -229,6 +229,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="threatOwner" lowerBound="1"
         eType="#//ThreatsOwner" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractVulnerabilityOwner" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vulnerabilityOwner" lowerBound="1"
+        eType="#//VulnerabilityOwner" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IThreatDefinition" abstract="true" interface="true"
       eSuperTypes="#//IElementWithSource">
     <eOperations name="getId" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
@@ -283,7 +287,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="category" upperBound="-1"
         eType="#//ComponentCategoryENUM"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VulnerabilityOwner" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="VulnerabilityOwner">
     <eStructuralFeatures xsi:type="ecore:EReference" name="vulnerabilities" upperBound="-1"
         eType="#//Vulnerability" containment="true"/>
   </eClassifiers>
