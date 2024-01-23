@@ -240,6 +240,15 @@ public interface TRADESFactory extends EFactory {
 	DomainAsset createDomainAsset();
 
 	/**
+	 * Returns a new object of class '<em>Vulnerability Owner</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Vulnerability Owner</em>'.
+	 * @generated
+	 */
+	VulnerabilityOwner createVulnerabilityOwner();
+
+	/**
 	 * Returns a new object of class '<em>Vulnerability</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

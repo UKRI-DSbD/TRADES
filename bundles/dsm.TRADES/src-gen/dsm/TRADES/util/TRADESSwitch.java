@@ -93,7 +93,7 @@ public class TRADESSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseElementWithId(analysis);
 			if (result == null)
-				result = caseVulnerabilityOwner(analysis);
+				result = caseAbstractVulnerabilityOwner(analysis);
 			if (result == null)
 				result = caseComponentTypeOwner(analysis);
 			if (result == null)
@@ -375,6 +375,13 @@ public class TRADESSwitch<T> extends Switch<T> {
 		case TRADESPackage.ABSTRACT_THREAT_OWNER: {
 			AbstractThreatOwner abstractThreatOwner = (AbstractThreatOwner) theEObject;
 			T result = caseAbstractThreatOwner(abstractThreatOwner);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case TRADESPackage.ABSTRACT_VULNERABILITY_OWNER: {
+			AbstractVulnerabilityOwner abstractVulnerabilityOwner = (AbstractVulnerabilityOwner) theEObject;
+			T result = caseAbstractVulnerabilityOwner(abstractVulnerabilityOwner);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -924,6 +931,21 @@ public class TRADESSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAbstractThreatOwner(AbstractThreatOwner object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Vulnerability Owner</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Vulnerability Owner</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractVulnerabilityOwner(AbstractVulnerabilityOwner object) {
 		return null;
 	}
 

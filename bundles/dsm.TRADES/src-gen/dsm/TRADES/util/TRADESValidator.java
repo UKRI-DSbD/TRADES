@@ -185,6 +185,8 @@ public class TRADESValidator extends EObjectValidator {
 			return validateCatalog((Catalog) value, diagnostics, context);
 		case TRADESPackage.ABSTRACT_THREAT_OWNER:
 			return validateAbstractThreatOwner((AbstractThreatOwner) value, diagnostics, context);
+		case TRADESPackage.ABSTRACT_VULNERABILITY_OWNER:
+			return validateAbstractVulnerabilityOwner((AbstractVulnerabilityOwner) value, diagnostics, context);
 		case TRADESPackage.ITHREAT_DEFINITION:
 			return validateIThreatDefinition((IThreatDefinition) value, diagnostics, context);
 		case TRADESPackage.ICONTROL_DEFINITION:
@@ -643,6 +645,16 @@ public class TRADESValidator extends EObjectValidator {
 	public boolean validateAbstractThreatOwner(AbstractThreatOwner abstractThreatOwner, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(abstractThreatOwner, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAbstractVulnerabilityOwner(AbstractVulnerabilityOwner abstractVulnerabilityOwner,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(abstractVulnerabilityOwner, diagnostics, context);
 	}
 
 	/**

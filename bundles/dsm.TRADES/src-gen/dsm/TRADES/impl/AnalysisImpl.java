@@ -15,6 +15,7 @@ package dsm.TRADES.impl;
 
 import dsm.TRADES.AbstractControlOwner;
 import dsm.TRADES.AbstractThreatOwner;
+import dsm.TRADES.AbstractVulnerabilityOwner;
 import dsm.TRADES.Analysis;
 import dsm.TRADES.ComponentType;
 import dsm.TRADES.ComponentTypeOwner;
@@ -33,7 +34,6 @@ import dsm.TRADES.TRADESPackage;
 import dsm.TRADES.ThreatsOwner;
 
 import dsm.TRADES.VAOwner;
-import dsm.TRADES.Vulnerability;
 import dsm.TRADES.VulnerabilityOwner;
 import dsm.TRADES.VulnerableAsset;
 import java.lang.reflect.InvocationTargetException;
@@ -66,7 +66,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getControlOwner <em>Control Owner</em>}</li>
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getThreatOwner <em>Threat Owner</em>}</li>
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getId <em>Id</em>}</li>
- *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getVulnerabilities <em>Vulnerabilities</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getVulnerabilityOwner <em>Vulnerability Owner</em>}</li>
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getComponenttype <em>Componenttype</em>}</li>
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getVulnerableasset <em>Vulnerableasset</em>}</li>
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getScoreSystem <em>Score System</em>}</li>
@@ -147,14 +147,14 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 	protected String id = ID_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getVulnerabilities() <em>Vulnerabilities</em>}' containment reference list.
+	 * The cached value of the '{@link #getVulnerabilityOwner() <em>Vulnerability Owner</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVulnerabilities()
+	 * @see #getVulnerabilityOwner()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Vulnerability> vulnerabilities;
+	protected VulnerabilityOwner vulnerabilityOwner;
 
 	/**
 	 * The cached value of the '{@link #getComponenttype() <em>Componenttype</em>}' containment reference list.
@@ -488,12 +488,51 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 	 * @generated
 	 */
 	@Override
-	public EList<Vulnerability> getVulnerabilities() {
-		if (vulnerabilities == null) {
-			vulnerabilities = new EObjectContainmentEList<Vulnerability>(Vulnerability.class, this,
-					TRADESPackage.ANALYSIS__VULNERABILITIES);
+	public VulnerabilityOwner getVulnerabilityOwner() {
+		return vulnerabilityOwner;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetVulnerabilityOwner(VulnerabilityOwner newVulnerabilityOwner,
+			NotificationChain msgs) {
+		VulnerabilityOwner oldVulnerabilityOwner = vulnerabilityOwner;
+		vulnerabilityOwner = newVulnerabilityOwner;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					TRADESPackage.ANALYSIS__VULNERABILITY_OWNER, oldVulnerabilityOwner, newVulnerabilityOwner);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
-		return vulnerabilities;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setVulnerabilityOwner(VulnerabilityOwner newVulnerabilityOwner) {
+		if (newVulnerabilityOwner != vulnerabilityOwner) {
+			NotificationChain msgs = null;
+			if (vulnerabilityOwner != null)
+				msgs = ((InternalEObject) vulnerabilityOwner).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - TRADESPackage.ANALYSIS__VULNERABILITY_OWNER, null, msgs);
+			if (newVulnerabilityOwner != null)
+				msgs = ((InternalEObject) newVulnerabilityOwner).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - TRADESPackage.ANALYSIS__VULNERABILITY_OWNER, null, msgs);
+			msgs = basicSetVulnerabilityOwner(newVulnerabilityOwner, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.ANALYSIS__VULNERABILITY_OWNER,
+					newVulnerabilityOwner, newVulnerabilityOwner));
 	}
 
 	/**
@@ -610,8 +649,8 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 			return basicSetControlOwner(null, msgs);
 		case TRADESPackage.ANALYSIS__THREAT_OWNER:
 			return basicSetThreatOwner(null, msgs);
-		case TRADESPackage.ANALYSIS__VULNERABILITIES:
-			return ((InternalEList<?>) getVulnerabilities()).basicRemove(otherEnd, msgs);
+		case TRADESPackage.ANALYSIS__VULNERABILITY_OWNER:
+			return basicSetVulnerabilityOwner(null, msgs);
 		case TRADESPackage.ANALYSIS__COMPONENTTYPE:
 			return ((InternalEList<?>) getComponenttype()).basicRemove(otherEnd, msgs);
 		case TRADESPackage.ANALYSIS__VULNERABLEASSET:
@@ -642,8 +681,8 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 			return getThreatOwner();
 		case TRADESPackage.ANALYSIS__ID:
 			return getId();
-		case TRADESPackage.ANALYSIS__VULNERABILITIES:
-			return getVulnerabilities();
+		case TRADESPackage.ANALYSIS__VULNERABILITY_OWNER:
+			return getVulnerabilityOwner();
 		case TRADESPackage.ANALYSIS__COMPONENTTYPE:
 			return getComponenttype();
 		case TRADESPackage.ANALYSIS__VULNERABLEASSET:
@@ -680,9 +719,8 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 		case TRADESPackage.ANALYSIS__ID:
 			setId((String) newValue);
 			return;
-		case TRADESPackage.ANALYSIS__VULNERABILITIES:
-			getVulnerabilities().clear();
-			getVulnerabilities().addAll((Collection<? extends Vulnerability>) newValue);
+		case TRADESPackage.ANALYSIS__VULNERABILITY_OWNER:
+			setVulnerabilityOwner((VulnerabilityOwner) newValue);
 			return;
 		case TRADESPackage.ANALYSIS__COMPONENTTYPE:
 			getComponenttype().clear();
@@ -726,8 +764,8 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 		case TRADESPackage.ANALYSIS__ID:
 			setId(ID_EDEFAULT);
 			return;
-		case TRADESPackage.ANALYSIS__VULNERABILITIES:
-			getVulnerabilities().clear();
+		case TRADESPackage.ANALYSIS__VULNERABILITY_OWNER:
+			setVulnerabilityOwner((VulnerabilityOwner) null);
 			return;
 		case TRADESPackage.ANALYSIS__COMPONENTTYPE:
 			getComponenttype().clear();
@@ -763,8 +801,8 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 			return threatOwner != null;
 		case TRADESPackage.ANALYSIS__ID:
 			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-		case TRADESPackage.ANALYSIS__VULNERABILITIES:
-			return vulnerabilities != null && !vulnerabilities.isEmpty();
+		case TRADESPackage.ANALYSIS__VULNERABILITY_OWNER:
+			return vulnerabilityOwner != null;
 		case TRADESPackage.ANALYSIS__COMPONENTTYPE:
 			return componenttype != null && !componenttype.isEmpty();
 		case TRADESPackage.ANALYSIS__VULNERABLEASSET:
@@ -824,10 +862,10 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 				return -1;
 			}
 		}
-		if (baseClass == VulnerabilityOwner.class) {
+		if (baseClass == AbstractVulnerabilityOwner.class) {
 			switch (derivedFeatureID) {
-			case TRADESPackage.ANALYSIS__VULNERABILITIES:
-				return TRADESPackage.VULNERABILITY_OWNER__VULNERABILITIES;
+			case TRADESPackage.ANALYSIS__VULNERABILITY_OWNER:
+				return TRADESPackage.ABSTRACT_VULNERABILITY_OWNER__VULNERABILITY_OWNER;
 			default:
 				return -1;
 			}
@@ -898,10 +936,10 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 				return -1;
 			}
 		}
-		if (baseClass == VulnerabilityOwner.class) {
+		if (baseClass == AbstractVulnerabilityOwner.class) {
 			switch (baseFeatureID) {
-			case TRADESPackage.VULNERABILITY_OWNER__VULNERABILITIES:
-				return TRADESPackage.ANALYSIS__VULNERABILITIES;
+			case TRADESPackage.ABSTRACT_VULNERABILITY_OWNER__VULNERABILITY_OWNER:
+				return TRADESPackage.ANALYSIS__VULNERABILITY_OWNER;
 			default:
 				return -1;
 			}
@@ -972,7 +1010,7 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 				return -1;
 			}
 		}
-		if (baseClass == VulnerabilityOwner.class) {
+		if (baseClass == AbstractVulnerabilityOwner.class) {
 			switch (baseOperationID) {
 			default:
 				return -1;

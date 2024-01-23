@@ -218,6 +218,11 @@ public class TRADESAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseAbstractVulnerabilityOwner(AbstractVulnerabilityOwner object) {
+			return createAbstractVulnerabilityOwnerAdapter();
+		}
+
+		@Override
 		public Adapter caseIThreatDefinition(IThreatDefinition object) {
 			return createIThreatDefinitionAdapter();
 		}
@@ -700,6 +705,20 @@ public class TRADESAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAbstractThreatOwnerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link dsm.TRADES.AbstractVulnerabilityOwner <em>Abstract Vulnerability Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see dsm.TRADES.AbstractVulnerabilityOwner
+	 * @generated
+	 */
+	public Adapter createAbstractVulnerabilityOwnerAdapter() {
 		return null;
 	}
 

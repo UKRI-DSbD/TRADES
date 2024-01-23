@@ -631,6 +631,29 @@ public class TRADESItemProviderAdapterFactory extends TRADESAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link dsm.TRADES.VulnerabilityOwner} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VulnerabilityOwnerItemProviderCustomImpl vulnerabilityOwnerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link dsm.TRADES.VulnerabilityOwner}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVulnerabilityOwnerAdapter() {
+		if (vulnerabilityOwnerItemProvider == null) {
+			vulnerabilityOwnerItemProvider = new VulnerabilityOwnerItemProviderCustomImpl(this);
+		}
+
+		return vulnerabilityOwnerItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link dsm.TRADES.Vulnerability} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -871,6 +894,8 @@ public class TRADESItemProviderAdapterFactory extends TRADESAdapterFactory
 			catalogItemProvider.dispose();
 		if (domainAssetItemProvider != null)
 			domainAssetItemProvider.dispose();
+		if (vulnerabilityOwnerItemProvider != null)
+			vulnerabilityOwnerItemProvider.dispose();
 		if (vulnerabilityItemProvider != null)
 			vulnerabilityItemProvider.dispose();
 		if (componentTypeItemProvider != null)

@@ -15,6 +15,7 @@ package dsm.TRADES.impl;
 
 import dsm.TRADES.AbstractControlOwner;
 import dsm.TRADES.AbstractThreatOwner;
+import dsm.TRADES.AbstractVulnerabilityOwner;
 import dsm.TRADES.AffectRelation;
 import dsm.TRADES.AffectedENUM;
 import dsm.TRADES.Analysis;
@@ -282,6 +283,13 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	private EClass abstractThreatOwnerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass abstractVulnerabilityOwnerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1578,6 +1586,26 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getAbstractVulnerabilityOwner() {
+		return abstractVulnerabilityOwnerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getAbstractVulnerabilityOwner_VulnerabilityOwner() {
+		return (EReference) abstractVulnerabilityOwnerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getIThreatDefinition() {
 		return iThreatDefinitionEClass;
 	}
@@ -2247,6 +2275,9 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		abstractThreatOwnerEClass = createEClass(ABSTRACT_THREAT_OWNER);
 		createEReference(abstractThreatOwnerEClass, ABSTRACT_THREAT_OWNER__THREAT_OWNER);
 
+		abstractVulnerabilityOwnerEClass = createEClass(ABSTRACT_VULNERABILITY_OWNER);
+		createEReference(abstractVulnerabilityOwnerEClass, ABSTRACT_VULNERABILITY_OWNER__VULNERABILITY_OWNER);
+
 		iThreatDefinitionEClass = createEClass(ITHREAT_DEFINITION);
 		createEOperation(iThreatDefinitionEClass, ITHREAT_DEFINITION___GET_ID);
 		createEOperation(iThreatDefinitionEClass, ITHREAT_DEFINITION___GET_DESCRIPTION);
@@ -2356,7 +2387,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		analysisEClass.getESuperTypes().add(this.getAbstractControlOwner());
 		analysisEClass.getESuperTypes().add(this.getAbstractThreatOwner());
 		analysisEClass.getESuperTypes().add(this.getElementWithId());
-		analysisEClass.getESuperTypes().add(this.getVulnerabilityOwner());
+		analysisEClass.getESuperTypes().add(this.getAbstractVulnerabilityOwner());
 		analysisEClass.getESuperTypes().add(this.getComponentTypeOwner());
 		analysisEClass.getESuperTypes().add(this.getVAOwner());
 		threatEClass.getESuperTypes().add(this.getNamedElement());
@@ -2721,6 +2752,12 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 				AbstractThreatOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(abstractVulnerabilityOwnerEClass, AbstractVulnerabilityOwner.class, "AbstractVulnerabilityOwner",
+				IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAbstractVulnerabilityOwner_VulnerabilityOwner(), this.getVulnerabilityOwner(), null,
+				"vulnerabilityOwner", null, 1, 1, AbstractVulnerabilityOwner.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(iThreatDefinitionEClass, IThreatDefinition.class, "IThreatDefinition", IS_ABSTRACT, IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
@@ -2805,8 +2842,8 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 				DomainAsset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
-		initEClass(vulnerabilityOwnerEClass, VulnerabilityOwner.class, "VulnerabilityOwner", IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(vulnerabilityOwnerEClass, VulnerabilityOwner.class, "VulnerabilityOwner", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVulnerabilityOwner_Vulnerabilities(), this.getVulnerability(), null, "vulnerabilities", null,
 				0, -1, VulnerabilityOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

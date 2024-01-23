@@ -114,6 +114,8 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 			return createCatalog();
 		case TRADESPackage.DOMAIN_ASSET:
 			return createDomainAsset();
+		case TRADESPackage.VULNERABILITY_OWNER:
+			return createVulnerabilityOwner();
 		case TRADESPackage.VULNERABILITY:
 			return createVulnerability();
 		case TRADESPackage.COMPONENT_TYPE:
@@ -430,6 +432,17 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 	public DomainAsset createDomainAsset() {
 		DomainAssetImpl domainAsset = new DomainAssetImpl();
 		return domainAsset;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public VulnerabilityOwner createVulnerabilityOwner() {
+		VulnerabilityOwnerImpl vulnerabilityOwner = new VulnerabilityOwnerImpl();
+		return vulnerabilityOwner;
 	}
 
 	/**
