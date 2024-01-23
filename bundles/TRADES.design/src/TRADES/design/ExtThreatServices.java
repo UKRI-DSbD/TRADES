@@ -105,7 +105,7 @@ public class ExtThreatServices {
 	 * @param source   the source to copy
 	 * @return the result
 	 */
-	public Threat copyTreat(Analysis analysis, ExternalThreat source) {
+	public Threat copyThreat(Analysis analysis, ExternalThreat source) {
 
 		if (!analysis.getExternalThreats(source.getId(), source.getSourceID()).isEmpty()) {
 			if (!confirm("Existing External Threat", MessageFormat.format(

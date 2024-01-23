@@ -103,7 +103,7 @@
               class="org.eclipse.core.resources.IProject">
         </selection>
         <description>
-           Import an embeded OSCAL library
+           Import an embedded OSCAL library
         </description>
      </wizard>
   </extension>
