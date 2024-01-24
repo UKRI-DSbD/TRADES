@@ -132,7 +132,7 @@ public class CatalogSelectionPage extends WizardPage {
 
 			}
 		});
-		emCatalogView.setInput(EmbeddedCatalogRegistry.getInstance().getAvailableLibraries());
+		emCatalogView.setInput(EmbeddedCatalogRegistry.getInstance().getAvailableNISTLibraries());
 	}
 
 	public void createButtonGroup(Composite parent) {

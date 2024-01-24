@@ -26,17 +26,17 @@ import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 
 /**
- * Registry that give access to all the embedded OSCAL catalogs
- * 
- * @author Arthur Daussy
- *
+ * Registry that give access to all the embedded catalogs
  */
 public class EmbeddedCatalogRegistry {
 
 	private Map<String, String> nameToPath = new HashMap<>();
+	private String nistCatalogName = "NIST_SP-800-53_rev5_catalog";
+	private String cweCatalogName = "cwec_v4.13";
 
 	private EmbeddedCatalogRegistry() {
-		nameToPath.put("NIST_SP-800-53_rev5_catalog", "catalog/NIST_SP-800-53_rev5_catalog.xml");
+		nameToPath.put(nistCatalogName, "catalog/" + nistCatalogName + ".xml");
+		nameToPath.put(cweCatalogName, "catalog/" + cweCatalogName + ".xml");
 	}
 
 	/** Holder */
@@ -50,8 +50,12 @@ public class EmbeddedCatalogRegistry {
 		return SingletonHolder.instance;
 	}
 
-	public List<String> getAvailableLibraries() {
-		return nameToPath.keySet().stream().sorted().collect(toList());
+	public List<String> getAvailableNISTLibraries() {
+		return nameToPath.keySet().stream().filter(c -> c.startsWith("NIST")).sorted().collect(toList());
+	}
+
+	public List<String> getAvailableCWELibraries() {
+		return nameToPath.keySet().stream().filter(c -> c.startsWith("cwe")).sorted().collect(toList());
 	}
 
 	public InputStream getCatalog(String name) throws IOException {
