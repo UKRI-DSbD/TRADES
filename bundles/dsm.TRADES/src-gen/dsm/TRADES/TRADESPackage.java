@@ -3243,6 +3243,308 @@ public interface TRADESPackage extends EPackage {
 	int VA_OWNER_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link dsm.TRADES.impl.WeaknessCatalogImpl <em>Weakness Catalog</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see dsm.TRADES.impl.WeaknessCatalogImpl
+	 * @see dsm.TRADES.impl.TRADESPackageImpl#getWeaknessCatalog()
+	 * @generated
+	 */
+	int WEAKNESS_CATALOG = 44;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEAKNESS_CATALOG__VERSION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Weaknesses</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEAKNESS_CATALOG__WEAKNESSES = 1;
+
+	/**
+	 * The feature id for the '<em><b>Categories</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEAKNESS_CATALOG__CATEGORIES = 2;
+
+	/**
+	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEAKNESS_CATALOG__VIEWS = 3;
+
+	/**
+	 * The feature id for the '<em><b>External References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEAKNESS_CATALOG__EXTERNAL_REFERENCES = 4;
+
+	/**
+	 * The number of structural features of the '<em>Weakness Catalog</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEAKNESS_CATALOG_FEATURE_COUNT = 5;
+
+	/**
+	 * The number of operations of the '<em>Weakness Catalog</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEAKNESS_CATALOG_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link dsm.TRADES.impl.WeaknessImpl <em>Weakness</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see dsm.TRADES.impl.WeaknessImpl
+	 * @see dsm.TRADES.impl.TRADESPackageImpl#getWeakness()
+	 * @generated
+	 */
+	int WEAKNESS = 45;
+
+	/**
+	 * The feature id for the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEAKNESS__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEAKNESS__VALUE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Abstraction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEAKNESS__ABSTRACTION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Structure</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEAKNESS__STRUCTURE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEAKNESS__STATUS = 4;
+
+	/**
+	 * The number of structural features of the '<em>Weakness</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEAKNESS_FEATURE_COUNT = 5;
+
+	/**
+	 * The number of operations of the '<em>Weakness</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEAKNESS_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link dsm.TRADES.impl.CategoryImpl <em>Category</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see dsm.TRADES.impl.CategoryImpl
+	 * @see dsm.TRADES.impl.TRADESPackageImpl#getCategory()
+	 * @generated
+	 */
+	int CATEGORY = 46;
+
+	/**
+	 * The feature id for the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__STATUS = 2;
+
+	/**
+	 * The number of structural features of the '<em>Category</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Category</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link dsm.TRADES.impl.ViewImpl <em>View</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see dsm.TRADES.impl.ViewImpl
+	 * @see dsm.TRADES.impl.TRADESPackageImpl#getView()
+	 * @generated
+	 */
+	int VIEW = 47;
+
+	/**
+	 * The feature id for the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW__TYPE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW__STATUS = 3;
+
+	/**
+	 * The number of structural features of the '<em>View</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>View</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link dsm.TRADES.impl.ExternalReferenceImpl <em>External Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see dsm.TRADES.impl.ExternalReferenceImpl
+	 * @see dsm.TRADES.impl.TRADESPackageImpl#getExternalReference()
+	 * @generated
+	 */
+	int EXTERNAL_REFERENCE = 48;
+
+	/**
+	 * The feature id for the '<em><b>Reference ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_REFERENCE__REFERENCE_ID = 0;
+
+	/**
+	 * The number of structural features of the '<em>External Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_REFERENCE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>External Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_REFERENCE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link dsm.TRADES.AssessmentENUM <em>Assessment ENUM</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3250,7 +3552,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getAssessmentENUM()
 	 * @generated
 	 */
-	int ASSESSMENT_ENUM = 44;
+	int ASSESSMENT_ENUM = 49;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.AffectedENUM <em>Affected ENUM</em>}' enum.
@@ -3260,7 +3562,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getAffectedENUM()
 	 * @generated
 	 */
-	int AFFECTED_ENUM = 45;
+	int AFFECTED_ENUM = 50;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.threatTypeENUM <em>threat Type ENUM</em>}' enum.
@@ -3270,7 +3572,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getthreatTypeENUM()
 	 * @generated
 	 */
-	int THREAT_TYPE_ENUM = 46;
+	int THREAT_TYPE_ENUM = 51;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.ControlStatusENUM <em>Control Status ENUM</em>}' enum.
@@ -3280,7 +3582,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getControlStatusENUM()
 	 * @generated
 	 */
-	int CONTROL_STATUS_ENUM = 47;
+	int CONTROL_STATUS_ENUM = 52;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.ComponentCategoryENUM <em>Component Category ENUM</em>}' enum.
@@ -3290,7 +3592,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getComponentCategoryENUM()
 	 * @generated
 	 */
-	int COMPONENT_CATEGORY_ENUM = 48;
+	int COMPONENT_CATEGORY_ENUM = 53;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.SecurityObjectiveENUM <em>Security Objective ENUM</em>}' enum.
@@ -3300,7 +3602,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getSecurityObjectiveENUM()
 	 * @generated
 	 */
-	int SECURITY_OBJECTIVE_ENUM = 49;
+	int SECURITY_OBJECTIVE_ENUM = 54;
 
 	/**
 	 * The meta object id for the '<em>RGB Color</em>' data type.
@@ -3310,7 +3612,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getRGBColor()
 	 * @generated
 	 */
-	int RGB_COLOR = 50;
+	int RGB_COLOR = 55;
 
 	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.Analysis <em>Analysis</em>}'.
@@ -4913,6 +5215,254 @@ public interface TRADESPackage extends EPackage {
 	EReference getVAOwner_Vulnerableasset();
 
 	/**
+	 * Returns the meta object for class '{@link dsm.TRADES.WeaknessCatalog <em>Weakness Catalog</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Weakness Catalog</em>'.
+	 * @see dsm.TRADES.WeaknessCatalog
+	 * @generated
+	 */
+	EClass getWeaknessCatalog();
+
+	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.WeaknessCatalog#getVersion <em>Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Version</em>'.
+	 * @see dsm.TRADES.WeaknessCatalog#getVersion()
+	 * @see #getWeaknessCatalog()
+	 * @generated
+	 */
+	EAttribute getWeaknessCatalog_Version();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link dsm.TRADES.WeaknessCatalog#getWeaknesses <em>Weaknesses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Weaknesses</em>'.
+	 * @see dsm.TRADES.WeaknessCatalog#getWeaknesses()
+	 * @see #getWeaknessCatalog()
+	 * @generated
+	 */
+	EReference getWeaknessCatalog_Weaknesses();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link dsm.TRADES.WeaknessCatalog#getCategories <em>Categories</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Categories</em>'.
+	 * @see dsm.TRADES.WeaknessCatalog#getCategories()
+	 * @see #getWeaknessCatalog()
+	 * @generated
+	 */
+	EReference getWeaknessCatalog_Categories();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link dsm.TRADES.WeaknessCatalog#getViews <em>Views</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Views</em>'.
+	 * @see dsm.TRADES.WeaknessCatalog#getViews()
+	 * @see #getWeaknessCatalog()
+	 * @generated
+	 */
+	EReference getWeaknessCatalog_Views();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link dsm.TRADES.WeaknessCatalog#getExternalReferences <em>External References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>External References</em>'.
+	 * @see dsm.TRADES.WeaknessCatalog#getExternalReferences()
+	 * @see #getWeaknessCatalog()
+	 * @generated
+	 */
+	EReference getWeaknessCatalog_ExternalReferences();
+
+	/**
+	 * Returns the meta object for class '{@link dsm.TRADES.Weakness <em>Weakness</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Weakness</em>'.
+	 * @see dsm.TRADES.Weakness
+	 * @generated
+	 */
+	EClass getWeakness();
+
+	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.Weakness#getID <em>ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>ID</em>'.
+	 * @see dsm.TRADES.Weakness#getID()
+	 * @see #getWeakness()
+	 * @generated
+	 */
+	EAttribute getWeakness_ID();
+
+	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.Weakness#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see dsm.TRADES.Weakness#getValue()
+	 * @see #getWeakness()
+	 * @generated
+	 */
+	EAttribute getWeakness_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.Weakness#getAbstraction <em>Abstraction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Abstraction</em>'.
+	 * @see dsm.TRADES.Weakness#getAbstraction()
+	 * @see #getWeakness()
+	 * @generated
+	 */
+	EAttribute getWeakness_Abstraction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.Weakness#getStructure <em>Structure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Structure</em>'.
+	 * @see dsm.TRADES.Weakness#getStructure()
+	 * @see #getWeakness()
+	 * @generated
+	 */
+	EAttribute getWeakness_Structure();
+
+	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.Weakness#getStatus <em>Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Status</em>'.
+	 * @see dsm.TRADES.Weakness#getStatus()
+	 * @see #getWeakness()
+	 * @generated
+	 */
+	EAttribute getWeakness_Status();
+
+	/**
+	 * Returns the meta object for class '{@link dsm.TRADES.Category <em>Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Category</em>'.
+	 * @see dsm.TRADES.Category
+	 * @generated
+	 */
+	EClass getCategory();
+
+	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.Category#getID <em>ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>ID</em>'.
+	 * @see dsm.TRADES.Category#getID()
+	 * @see #getCategory()
+	 * @generated
+	 */
+	EAttribute getCategory_ID();
+
+	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.Category#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see dsm.TRADES.Category#getName()
+	 * @see #getCategory()
+	 * @generated
+	 */
+	EAttribute getCategory_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.Category#getStatus <em>Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Status</em>'.
+	 * @see dsm.TRADES.Category#getStatus()
+	 * @see #getCategory()
+	 * @generated
+	 */
+	EAttribute getCategory_Status();
+
+	/**
+	 * Returns the meta object for class '{@link dsm.TRADES.View <em>View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>View</em>'.
+	 * @see dsm.TRADES.View
+	 * @generated
+	 */
+	EClass getView();
+
+	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.View#getID <em>ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>ID</em>'.
+	 * @see dsm.TRADES.View#getID()
+	 * @see #getView()
+	 * @generated
+	 */
+	EAttribute getView_ID();
+
+	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.View#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see dsm.TRADES.View#getName()
+	 * @see #getView()
+	 * @generated
+	 */
+	EAttribute getView_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.View#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see dsm.TRADES.View#getType()
+	 * @see #getView()
+	 * @generated
+	 */
+	EAttribute getView_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.View#getStatus <em>Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Status</em>'.
+	 * @see dsm.TRADES.View#getStatus()
+	 * @see #getView()
+	 * @generated
+	 */
+	EAttribute getView_Status();
+
+	/**
+	 * Returns the meta object for class '{@link dsm.TRADES.ExternalReference <em>External Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>External Reference</em>'.
+	 * @see dsm.TRADES.ExternalReference
+	 * @generated
+	 */
+	EClass getExternalReference();
+
+	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.ExternalReference#getReference_ID <em>Reference ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reference ID</em>'.
+	 * @see dsm.TRADES.ExternalReference#getReference_ID()
+	 * @see #getExternalReference()
+	 * @generated
+	 */
+	EAttribute getExternalReference_Reference_ID();
+
+	/**
 	 * Returns the meta object for enum '{@link dsm.TRADES.AssessmentENUM <em>Assessment ENUM</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6326,6 +6876,200 @@ public interface TRADESPackage extends EPackage {
 		 * @generated
 		 */
 		EReference VA_OWNER__VULNERABLEASSET = eINSTANCE.getVAOwner_Vulnerableasset();
+
+		/**
+		 * The meta object literal for the '{@link dsm.TRADES.impl.WeaknessCatalogImpl <em>Weakness Catalog</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see dsm.TRADES.impl.WeaknessCatalogImpl
+		 * @see dsm.TRADES.impl.TRADESPackageImpl#getWeaknessCatalog()
+		 * @generated
+		 */
+		EClass WEAKNESS_CATALOG = eINSTANCE.getWeaknessCatalog();
+
+		/**
+		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WEAKNESS_CATALOG__VERSION = eINSTANCE.getWeaknessCatalog_Version();
+
+		/**
+		 * The meta object literal for the '<em><b>Weaknesses</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WEAKNESS_CATALOG__WEAKNESSES = eINSTANCE.getWeaknessCatalog_Weaknesses();
+
+		/**
+		 * The meta object literal for the '<em><b>Categories</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WEAKNESS_CATALOG__CATEGORIES = eINSTANCE.getWeaknessCatalog_Categories();
+
+		/**
+		 * The meta object literal for the '<em><b>Views</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WEAKNESS_CATALOG__VIEWS = eINSTANCE.getWeaknessCatalog_Views();
+
+		/**
+		 * The meta object literal for the '<em><b>External References</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WEAKNESS_CATALOG__EXTERNAL_REFERENCES = eINSTANCE.getWeaknessCatalog_ExternalReferences();
+
+		/**
+		 * The meta object literal for the '{@link dsm.TRADES.impl.WeaknessImpl <em>Weakness</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see dsm.TRADES.impl.WeaknessImpl
+		 * @see dsm.TRADES.impl.TRADESPackageImpl#getWeakness()
+		 * @generated
+		 */
+		EClass WEAKNESS = eINSTANCE.getWeakness();
+
+		/**
+		 * The meta object literal for the '<em><b>ID</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WEAKNESS__ID = eINSTANCE.getWeakness_ID();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WEAKNESS__VALUE = eINSTANCE.getWeakness_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Abstraction</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WEAKNESS__ABSTRACTION = eINSTANCE.getWeakness_Abstraction();
+
+		/**
+		 * The meta object literal for the '<em><b>Structure</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WEAKNESS__STRUCTURE = eINSTANCE.getWeakness_Structure();
+
+		/**
+		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WEAKNESS__STATUS = eINSTANCE.getWeakness_Status();
+
+		/**
+		 * The meta object literal for the '{@link dsm.TRADES.impl.CategoryImpl <em>Category</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see dsm.TRADES.impl.CategoryImpl
+		 * @see dsm.TRADES.impl.TRADESPackageImpl#getCategory()
+		 * @generated
+		 */
+		EClass CATEGORY = eINSTANCE.getCategory();
+
+		/**
+		 * The meta object literal for the '<em><b>ID</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CATEGORY__ID = eINSTANCE.getCategory_ID();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CATEGORY__NAME = eINSTANCE.getCategory_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CATEGORY__STATUS = eINSTANCE.getCategory_Status();
+
+		/**
+		 * The meta object literal for the '{@link dsm.TRADES.impl.ViewImpl <em>View</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see dsm.TRADES.impl.ViewImpl
+		 * @see dsm.TRADES.impl.TRADESPackageImpl#getView()
+		 * @generated
+		 */
+		EClass VIEW = eINSTANCE.getView();
+
+		/**
+		 * The meta object literal for the '<em><b>ID</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIEW__ID = eINSTANCE.getView_ID();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIEW__NAME = eINSTANCE.getView_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIEW__TYPE = eINSTANCE.getView_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIEW__STATUS = eINSTANCE.getView_Status();
+
+		/**
+		 * The meta object literal for the '{@link dsm.TRADES.impl.ExternalReferenceImpl <em>External Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see dsm.TRADES.impl.ExternalReferenceImpl
+		 * @see dsm.TRADES.impl.TRADESPackageImpl#getExternalReference()
+		 * @generated
+		 */
+		EClass EXTERNAL_REFERENCE = eINSTANCE.getExternalReference();
+
+		/**
+		 * The meta object literal for the '<em><b>Reference ID</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXTERNAL_REFERENCE__REFERENCE_ID = eINSTANCE.getExternalReference_Reference_ID();
 
 		/**
 		 * The meta object literal for the '{@link dsm.TRADES.AssessmentENUM <em>Assessment ENUM</em>}' enum.

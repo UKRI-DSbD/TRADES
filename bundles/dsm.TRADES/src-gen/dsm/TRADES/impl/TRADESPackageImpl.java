@@ -24,6 +24,7 @@ import dsm.TRADES.Asset;
 import dsm.TRADES.AttackChain;
 import dsm.TRADES.AttackChainStep;
 import dsm.TRADES.Catalog;
+import dsm.TRADES.Category;
 import dsm.TRADES.ColoredElement;
 import dsm.TRADES.Component;
 import dsm.TRADES.ComponentCategoryENUM;
@@ -41,6 +42,7 @@ import dsm.TRADES.DomainAsset;
 import dsm.TRADES.ElementWithId;
 import dsm.TRADES.ExternalControl;
 import dsm.TRADES.ExternalElement;
+import dsm.TRADES.ExternalReference;
 import dsm.TRADES.ExternalThreat;
 import dsm.TRADES.ICatalogDefinition;
 import dsm.TRADES.IControlDefinition;
@@ -62,9 +64,12 @@ import dsm.TRADES.ThreatAllocationRelation;
 import dsm.TRADES.ThreatMitigationRelation;
 import dsm.TRADES.ThreatsOwner;
 import dsm.TRADES.VAOwner;
+import dsm.TRADES.View;
 import dsm.TRADES.Vulnerability;
 import dsm.TRADES.VulnerabilityOwner;
 import dsm.TRADES.VulnerableAsset;
+import dsm.TRADES.Weakness;
+import dsm.TRADES.WeaknessCatalog;
 import dsm.TRADES.threatTypeENUM;
 
 import dsm.TRADES.util.TRADESValidator;
@@ -395,6 +400,41 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	private EClass vaOwnerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass weaknessCatalogEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass weaknessEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass categoryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass viewEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass externalReferenceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2046,6 +2086,236 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getWeaknessCatalog() {
+		return weaknessCatalogEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getWeaknessCatalog_Version() {
+		return (EAttribute) weaknessCatalogEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getWeaknessCatalog_Weaknesses() {
+		return (EReference) weaknessCatalogEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getWeaknessCatalog_Categories() {
+		return (EReference) weaknessCatalogEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getWeaknessCatalog_Views() {
+		return (EReference) weaknessCatalogEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getWeaknessCatalog_ExternalReferences() {
+		return (EReference) weaknessCatalogEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getWeakness() {
+		return weaknessEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getWeakness_ID() {
+		return (EAttribute) weaknessEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getWeakness_Value() {
+		return (EAttribute) weaknessEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getWeakness_Abstraction() {
+		return (EAttribute) weaknessEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getWeakness_Structure() {
+		return (EAttribute) weaknessEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getWeakness_Status() {
+		return (EAttribute) weaknessEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getCategory() {
+		return categoryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCategory_ID() {
+		return (EAttribute) categoryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCategory_Name() {
+		return (EAttribute) categoryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCategory_Status() {
+		return (EAttribute) categoryEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getView() {
+		return viewEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getView_ID() {
+		return (EAttribute) viewEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getView_Name() {
+		return (EAttribute) viewEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getView_Type() {
+		return (EAttribute) viewEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getView_Status() {
+		return (EAttribute) viewEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getExternalReference() {
+		return externalReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getExternalReference_Reference_ID() {
+		return (EAttribute) externalReferenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getAssessmentENUM() {
 		return assessmentENUMEEnum;
 	}
@@ -2336,6 +2606,34 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 
 		vaOwnerEClass = createEClass(VA_OWNER);
 		createEReference(vaOwnerEClass, VA_OWNER__VULNERABLEASSET);
+
+		weaknessCatalogEClass = createEClass(WEAKNESS_CATALOG);
+		createEAttribute(weaknessCatalogEClass, WEAKNESS_CATALOG__VERSION);
+		createEReference(weaknessCatalogEClass, WEAKNESS_CATALOG__WEAKNESSES);
+		createEReference(weaknessCatalogEClass, WEAKNESS_CATALOG__CATEGORIES);
+		createEReference(weaknessCatalogEClass, WEAKNESS_CATALOG__VIEWS);
+		createEReference(weaknessCatalogEClass, WEAKNESS_CATALOG__EXTERNAL_REFERENCES);
+
+		weaknessEClass = createEClass(WEAKNESS);
+		createEAttribute(weaknessEClass, WEAKNESS__ID);
+		createEAttribute(weaknessEClass, WEAKNESS__VALUE);
+		createEAttribute(weaknessEClass, WEAKNESS__ABSTRACTION);
+		createEAttribute(weaknessEClass, WEAKNESS__STRUCTURE);
+		createEAttribute(weaknessEClass, WEAKNESS__STATUS);
+
+		categoryEClass = createEClass(CATEGORY);
+		createEAttribute(categoryEClass, CATEGORY__ID);
+		createEAttribute(categoryEClass, CATEGORY__NAME);
+		createEAttribute(categoryEClass, CATEGORY__STATUS);
+
+		viewEClass = createEClass(VIEW);
+		createEAttribute(viewEClass, VIEW__ID);
+		createEAttribute(viewEClass, VIEW__NAME);
+		createEAttribute(viewEClass, VIEW__TYPE);
+		createEAttribute(viewEClass, VIEW__STATUS);
+
+		externalReferenceEClass = createEClass(EXTERNAL_REFERENCE);
+		createEAttribute(externalReferenceEClass, EXTERNAL_REFERENCE__REFERENCE_ID);
 
 		// Create enums
 		assessmentENUMEEnum = createEEnum(ASSESSMENT_ENUM);
@@ -2887,6 +3185,62 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		initEReference(getVAOwner_Vulnerableasset(), this.getVulnerableAsset(), null, "vulnerableasset", null, 0, -1,
 				VAOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(weaknessCatalogEClass, WeaknessCatalog.class, "WeaknessCatalog", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getWeaknessCatalog_Version(), ecorePackage.getEString(), "version", null, 0, 1,
+				WeaknessCatalog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getWeaknessCatalog_Weaknesses(), this.getWeakness(), null, "weaknesses", null, 0, -1,
+				WeaknessCatalog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getWeaknessCatalog_Categories(), this.getCategory(), null, "categories", null, 0, -1,
+				WeaknessCatalog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getWeaknessCatalog_Views(), this.getView(), null, "views", null, 0, -1, WeaknessCatalog.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getWeaknessCatalog_ExternalReferences(), this.getExternalReference(), null, "externalReferences",
+				null, 0, -1, WeaknessCatalog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(weaknessEClass, Weakness.class, "Weakness", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getWeakness_ID(), ecorePackage.getEString(), "iD", null, 0, 1, Weakness.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWeakness_Value(), ecorePackage.getEString(), "value", null, 0, 1, Weakness.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWeakness_Abstraction(), ecorePackage.getEString(), "abstraction", null, 0, 1, Weakness.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWeakness_Structure(), ecorePackage.getEString(), "structure", null, 0, 1, Weakness.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWeakness_Status(), ecorePackage.getEString(), "status", null, 0, 1, Weakness.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(categoryEClass, Category.class, "Category", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCategory_ID(), ecorePackage.getEString(), "iD", null, 0, 1, Category.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCategory_Name(), ecorePackage.getEString(), "name", null, 0, 1, Category.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCategory_Status(), ecorePackage.getEString(), "status", null, 0, 1, Category.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(viewEClass, View.class, "View", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getView_ID(), ecorePackage.getEString(), "iD", null, 0, 1, View.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getView_Name(), ecorePackage.getEString(), "name", null, 0, 1, View.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getView_Type(), ecorePackage.getEString(), "type", null, 0, 1, View.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getView_Status(), ecorePackage.getEString(), "status", null, 0, 1, View.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(externalReferenceEClass, ExternalReference.class, "ExternalReference", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getExternalReference_Reference_ID(), ecorePackage.getEString(), "reference_ID", null, 0, 1,
+				ExternalReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(assessmentENUMEEnum, AssessmentENUM.class, "AssessmentENUM");
