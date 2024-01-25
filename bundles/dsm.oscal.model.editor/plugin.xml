@@ -101,4 +101,31 @@
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated cwe -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="dsm.oscal.model.CWECatalog.presentation.CWECatalogModelWizardID"
+            name="%_UI_CWECatalogModelWizard_label"
+            class="dsm.oscal.model.CWECatalog.presentation.CWECatalogModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CWECatalogModelFile.gif">
+         <description>%_UI_CWECatalogModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated cwe -->
+      <editor
+            id="dsm.oscal.model.CWECatalog.presentation.CWECatalogEditorID"
+            name="%_UI_CWECatalogEditor_label"
+            icon="icons/full/obj16/CWECatalogModelFile.gif"
+            extensions="cwe"
+            class="dsm.oscal.model.CWECatalog.presentation.CWECatalogEditor"
+            contributorClass="dsm.oscal.model.CWECatalog.presentation.CWECatalogActionBarContributor">
+      </editor>
+   </extension>
 </plugin>
