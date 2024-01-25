@@ -261,5 +261,31 @@
     <genClasses ecoreClass="TRADES.ecore#//VAOwner">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//VAOwner/vulnerableasset"/>
     </genClasses>
+    <genClasses ecoreClass="TRADES.ecore#//WeaknessCatalog">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//WeaknessCatalog/weaknesses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//WeaknessCatalog/categories"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//WeaknessCatalog/views"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//WeaknessCatalog/externalReferences"/>
+    </genClasses>
+    <genClasses ecoreClass="TRADES.ecore#//Weakness">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Weakness/iD"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Weakness/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Weakness/abstraction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Weakness/status"/>
+    </genClasses>
+    <genClasses ecoreClass="TRADES.ecore#//Category">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Category/iD"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Category/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Category/status"/>
+    </genClasses>
+    <genClasses ecoreClass="TRADES.ecore#//View">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//View/iD"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//View/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//View/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//View/status"/>
+    </genClasses>
+    <genClasses ecoreClass="TRADES.ecore#//ExternalReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//ExternalReference/reference_ID"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
