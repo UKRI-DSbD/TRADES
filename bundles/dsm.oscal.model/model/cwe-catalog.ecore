@@ -15,7 +15,7 @@
         eType="#//ExternalReferences" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Weaknesses">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="weakness" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="weaknesses" upperBound="-1"
         eType="#//Weakness" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Weakness">
@@ -36,7 +36,7 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Categories">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="category" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="categories" upperBound="-1"
         eType="#//Category" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Category">
@@ -51,7 +51,7 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Views">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="view" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="views" upperBound="-1"
         eType="#//View" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="View">
@@ -69,11 +69,11 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalReferences">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="externalReference" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="externalReferences" upperBound="-1"
         eType="#//ExternalReference" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalReference">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reference_ID">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="referenceID">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
   </eClassifiers>

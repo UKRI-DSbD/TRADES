@@ -17,7 +17,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cwe-catalog.ecore#//WeaknessCatalog/externalReferences"/>
     </genClasses>
     <genClasses ecoreClass="cwe-catalog.ecore#//Weaknesses">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cwe-catalog.ecore#//Weaknesses/weakness"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cwe-catalog.ecore#//Weaknesses/weaknesses"/>
     </genClasses>
     <genClasses ecoreClass="cwe-catalog.ecore#//Weakness">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//Weakness/iD"/>
@@ -26,7 +26,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//Weakness/status"/>
     </genClasses>
     <genClasses ecoreClass="cwe-catalog.ecore#//Categories">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cwe-catalog.ecore#//Categories/category"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cwe-catalog.ecore#//Categories/categories"/>
     </genClasses>
     <genClasses ecoreClass="cwe-catalog.ecore#//Category">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//Category/iD"/>
@@ -34,7 +34,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//Category/status"/>
     </genClasses>
     <genClasses ecoreClass="cwe-catalog.ecore#//Views">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cwe-catalog.ecore#//Views/view"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cwe-catalog.ecore#//Views/views"/>
     </genClasses>
     <genClasses ecoreClass="cwe-catalog.ecore#//View">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//View/iD"/>
@@ -43,10 +43,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//View/status"/>
     </genClasses>
     <genClasses ecoreClass="cwe-catalog.ecore#//ExternalReferences">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cwe-catalog.ecore#//ExternalReferences/externalReference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cwe-catalog.ecore#//ExternalReferences/externalReferences"/>
     </genClasses>
     <genClasses ecoreClass="cwe-catalog.ecore#//ExternalReference">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//ExternalReference/reference_ID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//ExternalReference/referenceID"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
