@@ -18,7 +18,10 @@ Export-Package: dsm.oscal.model,
  dsm.oscal.model.OscalMetadata,
  dsm.oscal.model.OscalMetadata.impl,
  dsm.oscal.model.OscalMetadata.util,
- dsm.oscal.model.transform
+ dsm.oscal.model.transform,
+ dsm.oscal.model.CWECatalog,
+ dsm.oscal.model.CWECatalog.impl,
+ dsm.oscal.model.CWECatalog.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  dsm.TRADES;visibility:=reexport,
  org.eclipse.core.runtime,
