@@ -127,7 +127,7 @@ public class CWETransformer {
 							weakness.setAbstraction(abstraction);
 							weakness.setStructure(structure);
 							weakness.setStatus(status);
-							weaknesses.getWeakness().add(weakness);
+							weaknesses.getWeaknesses().add(weakness);
 						}
 					}
 				}
@@ -164,7 +164,7 @@ public class CWETransformer {
 							category.setID(iD);
 							category.setName(name);
 							category.setStatus(status);
-							categories.getCategory().add(category);
+							categories.getCategories().add(category);
 						}
 					}
 				}
@@ -203,7 +203,7 @@ public class CWETransformer {
 							view.setName(name);
 							view.setType(type);
 							view.setStatus(status);
-							views.getView().add(view);
+							views.getViews().add(view);
 						}
 					}
 				}
@@ -235,8 +235,8 @@ public class CWETransformer {
 						if(externalReferenceNode.getNodeType() != Node.TEXT_NODE) {
 							String referenceID = externalReferenceNode.getAttributes().getNamedItem("Reference_ID").getNodeValue();
 							ExternalReference externalReference = catalogFactory.createExternalReference();
-							externalReference.setReference_ID(referenceID);
-							externalReferences.getExternalReference().add(externalReference);
+							externalReference.setReferenceID(referenceID);
+							externalReferences.getExternalReferences().add(externalReference);
 						}
 					}
 				}

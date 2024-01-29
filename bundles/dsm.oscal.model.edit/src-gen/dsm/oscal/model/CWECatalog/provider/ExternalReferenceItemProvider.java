@@ -73,7 +73,7 @@ public class ExternalReferenceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addReference_IDPropertyDescriptor(object);
+			addReferenceIDPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -84,13 +84,13 @@ public class ExternalReferenceItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addReference_IDPropertyDescriptor(Object object) {
+	protected void addReferenceIDPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExternalReference_reference_ID_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalReference_reference_ID_feature", "_UI_ExternalReference_type"),
+				 getString("_UI_ExternalReference_referenceID_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalReference_referenceID_feature", "_UI_ExternalReference_type"),
 				 CWECatalogPackage.Literals.EXTERNAL_REFERENCE__REFERENCE_ID,
 				 true,
 				 false,
@@ -119,7 +119,7 @@ public class ExternalReferenceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ExternalReference)object).getReference_ID();
+		String label = ((ExternalReference)object).getReferenceID();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ExternalReference_type") :
 			getString("_UI_ExternalReference_type") + " " + label;

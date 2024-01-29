@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link dsm.oscal.model.CWECatalog.Categories#getCategory <em>Category</em>}</li>
+ *   <li>{@link dsm.oscal.model.CWECatalog.Categories#getCategories <em>Categories</em>}</li>
  * </ul>
  *
  * @see dsm.oscal.model.CWECatalog.CWECatalogPackage#getCategories()
@@ -37,15 +37,15 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Categories extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Categories</b></em>' containment reference list.
 	 * The list contents are of type {@link dsm.oscal.model.CWECatalog.Category}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Category</em>' containment reference list.
-	 * @see dsm.oscal.model.CWECatalog.CWECatalogPackage#getCategories_Category()
+	 * @return the value of the '<em>Categories</em>' containment reference list.
+	 * @see dsm.oscal.model.CWECatalog.CWECatalogPackage#getCategories_Categories()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Category> getCategory();
+	EList<Category> getCategories();
 
 } // Categories

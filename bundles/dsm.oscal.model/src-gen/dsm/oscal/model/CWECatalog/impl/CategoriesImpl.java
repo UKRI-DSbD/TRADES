@@ -41,22 +41,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dsm.oscal.model.CWECatalog.impl.CategoriesImpl#getCategory <em>Category</em>}</li>
+ *   <li>{@link dsm.oscal.model.CWECatalog.impl.CategoriesImpl#getCategories <em>Categories</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class CategoriesImpl extends MinimalEObjectImpl.Container implements Categories {
 	/**
-	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
+	 * The cached value of the '{@link #getCategories() <em>Categories</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCategory()
+	 * @see #getCategories()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Category> category;
-
+	protected EList<Category> categories;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,11 +81,11 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	 * @generated
 	 */
 	@Override
-	public EList<Category> getCategory() {
-		if (category == null) {
-			category = new EObjectContainmentEList<Category>(Category.class, this, CWECatalogPackage.CATEGORIES__CATEGORY);
+	public EList<Category> getCategories() {
+		if (categories == null) {
+			categories = new EObjectContainmentEList<Category>(Category.class, this, CWECatalogPackage.CATEGORIES__CATEGORIES);
 		}
-		return category;
+		return categories;
 	}
 
 	/**
@@ -97,8 +96,8 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CWECatalogPackage.CATEGORIES__CATEGORY:
-				return ((InternalEList<?>)getCategory()).basicRemove(otherEnd, msgs);
+			case CWECatalogPackage.CATEGORIES__CATEGORIES:
+				return ((InternalEList<?>)getCategories()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -111,8 +110,8 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CWECatalogPackage.CATEGORIES__CATEGORY:
-				return getCategory();
+			case CWECatalogPackage.CATEGORIES__CATEGORIES:
+				return getCategories();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -126,9 +125,9 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CWECatalogPackage.CATEGORIES__CATEGORY:
-				getCategory().clear();
-				getCategory().addAll((Collection<? extends Category>)newValue);
+			case CWECatalogPackage.CATEGORIES__CATEGORIES:
+				getCategories().clear();
+				getCategories().addAll((Collection<? extends Category>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -142,8 +141,8 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CWECatalogPackage.CATEGORIES__CATEGORY:
-				getCategory().clear();
+			case CWECatalogPackage.CATEGORIES__CATEGORIES:
+				getCategories().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -157,8 +156,8 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CWECatalogPackage.CATEGORIES__CATEGORY:
-				return category != null && !category.isEmpty();
+			case CWECatalogPackage.CATEGORIES__CATEGORIES:
+				return categories != null && !categories.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

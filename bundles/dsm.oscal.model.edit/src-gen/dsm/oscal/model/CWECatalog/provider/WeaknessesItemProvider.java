@@ -90,7 +90,7 @@ public class WeaknessesItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CWECatalogPackage.Literals.WEAKNESSES__WEAKNESS);
+			childrenFeatures.add(CWECatalogPackage.Literals.WEAKNESSES__WEAKNESSES);
 		}
 		return childrenFeatures;
 	}
@@ -143,7 +143,7 @@ public class WeaknessesItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Weaknesses.class)) {
-			case CWECatalogPackage.WEAKNESSES__WEAKNESS:
+			case CWECatalogPackage.WEAKNESSES__WEAKNESSES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -163,7 +163,7 @@ public class WeaknessesItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CWECatalogPackage.Literals.WEAKNESSES__WEAKNESS,
+				(CWECatalogPackage.Literals.WEAKNESSES__WEAKNESSES,
 				 CWECatalogFactory.eINSTANCE.createWeakness()));
 	}
 

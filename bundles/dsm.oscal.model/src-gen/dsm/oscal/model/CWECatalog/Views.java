@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link dsm.oscal.model.CWECatalog.Views#getView <em>View</em>}</li>
+ *   <li>{@link dsm.oscal.model.CWECatalog.Views#getViews <em>Views</em>}</li>
  * </ul>
  *
  * @see dsm.oscal.model.CWECatalog.CWECatalogPackage#getViews()
@@ -37,15 +37,15 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Views extends EObject {
 	/**
-	 * Returns the value of the '<em><b>View</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Views</b></em>' containment reference list.
 	 * The list contents are of type {@link dsm.oscal.model.CWECatalog.View}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>View</em>' containment reference list.
-	 * @see dsm.oscal.model.CWECatalog.CWECatalogPackage#getViews_View()
+	 * @return the value of the '<em>Views</em>' containment reference list.
+	 * @see dsm.oscal.model.CWECatalog.CWECatalogPackage#getViews_Views()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<View> getView();
+	EList<View> getViews();
 
 } // Views

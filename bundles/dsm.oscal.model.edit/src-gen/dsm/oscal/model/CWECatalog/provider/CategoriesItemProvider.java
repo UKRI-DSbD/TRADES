@@ -90,7 +90,7 @@ public class CategoriesItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CWECatalogPackage.Literals.CATEGORIES__CATEGORY);
+			childrenFeatures.add(CWECatalogPackage.Literals.CATEGORIES__CATEGORIES);
 		}
 		return childrenFeatures;
 	}
@@ -143,7 +143,7 @@ public class CategoriesItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Categories.class)) {
-			case CWECatalogPackage.CATEGORIES__CATEGORY:
+			case CWECatalogPackage.CATEGORIES__CATEGORIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -163,7 +163,7 @@ public class CategoriesItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CWECatalogPackage.Literals.CATEGORIES__CATEGORY,
+				(CWECatalogPackage.Literals.CATEGORIES__CATEGORIES,
 				 CWECatalogFactory.eINSTANCE.createCategory()));
 	}
 

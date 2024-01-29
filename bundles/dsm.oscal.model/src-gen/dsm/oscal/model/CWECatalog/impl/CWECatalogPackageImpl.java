@@ -247,7 +247,7 @@ public class CWECatalogPackageImpl extends EPackageImpl implements CWECatalogPac
 	 * @generated
 	 */
 	@Override
-	public EReference getWeaknesses_Weakness() {
+	public EReference getWeaknesses_Weaknesses() {
 		return (EReference)weaknessesEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -327,7 +327,7 @@ public class CWECatalogPackageImpl extends EPackageImpl implements CWECatalogPac
 	 * @generated
 	 */
 	@Override
-	public EReference getCategories_Category() {
+	public EReference getCategories_Categories() {
 		return (EReference)categoriesEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -387,7 +387,7 @@ public class CWECatalogPackageImpl extends EPackageImpl implements CWECatalogPac
 	 * @generated
 	 */
 	@Override
-	public EReference getViews_View() {
+	public EReference getViews_Views() {
 		return (EReference)viewsEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -457,7 +457,7 @@ public class CWECatalogPackageImpl extends EPackageImpl implements CWECatalogPac
 	 * @generated
 	 */
 	@Override
-	public EReference getExternalReferences_ExternalReference() {
+	public EReference getExternalReferences_ExternalReferences() {
 		return (EReference)externalReferencesEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -477,7 +477,7 @@ public class CWECatalogPackageImpl extends EPackageImpl implements CWECatalogPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getExternalReference_Reference_ID() {
+	public EAttribute getExternalReference_ReferenceID() {
 		return (EAttribute)externalReferenceEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -518,7 +518,7 @@ public class CWECatalogPackageImpl extends EPackageImpl implements CWECatalogPac
 		createEReference(weaknessCatalogEClass, WEAKNESS_CATALOG__EXTERNAL_REFERENCES);
 
 		weaknessesEClass = createEClass(WEAKNESSES);
-		createEReference(weaknessesEClass, WEAKNESSES__WEAKNESS);
+		createEReference(weaknessesEClass, WEAKNESSES__WEAKNESSES);
 
 		weaknessEClass = createEClass(WEAKNESS);
 		createEAttribute(weaknessEClass, WEAKNESS__ID);
@@ -528,7 +528,7 @@ public class CWECatalogPackageImpl extends EPackageImpl implements CWECatalogPac
 		createEAttribute(weaknessEClass, WEAKNESS__STATUS);
 
 		categoriesEClass = createEClass(CATEGORIES);
-		createEReference(categoriesEClass, CATEGORIES__CATEGORY);
+		createEReference(categoriesEClass, CATEGORIES__CATEGORIES);
 
 		categoryEClass = createEClass(CATEGORY);
 		createEAttribute(categoryEClass, CATEGORY__ID);
@@ -536,7 +536,7 @@ public class CWECatalogPackageImpl extends EPackageImpl implements CWECatalogPac
 		createEAttribute(categoryEClass, CATEGORY__STATUS);
 
 		viewsEClass = createEClass(VIEWS);
-		createEReference(viewsEClass, VIEWS__VIEW);
+		createEReference(viewsEClass, VIEWS__VIEWS);
 
 		viewEClass = createEClass(VIEW);
 		createEAttribute(viewEClass, VIEW__ID);
@@ -545,7 +545,7 @@ public class CWECatalogPackageImpl extends EPackageImpl implements CWECatalogPac
 		createEAttribute(viewEClass, VIEW__STATUS);
 
 		externalReferencesEClass = createEClass(EXTERNAL_REFERENCES);
-		createEReference(externalReferencesEClass, EXTERNAL_REFERENCES__EXTERNAL_REFERENCE);
+		createEReference(externalReferencesEClass, EXTERNAL_REFERENCES__EXTERNAL_REFERENCES);
 
 		externalReferenceEClass = createEClass(EXTERNAL_REFERENCE);
 		createEAttribute(externalReferenceEClass, EXTERNAL_REFERENCE__REFERENCE_ID);
@@ -589,7 +589,7 @@ public class CWECatalogPackageImpl extends EPackageImpl implements CWECatalogPac
 		initEReference(getWeaknessCatalog_ExternalReferences(), this.getExternalReferences(), null, "externalReferences", null, 0, 1, WeaknessCatalog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(weaknessesEClass, Weaknesses.class, "Weaknesses", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getWeaknesses_Weakness(), this.getWeakness(), null, "weakness", null, 0, -1, Weaknesses.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getWeaknesses_Weaknesses(), this.getWeakness(), null, "weaknesses", null, 0, -1, Weaknesses.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(weaknessEClass, Weakness.class, "Weakness", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getWeakness_ID(), ecorePackage.getEString(), "iD", null, 0, 1, Weakness.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -599,7 +599,7 @@ public class CWECatalogPackageImpl extends EPackageImpl implements CWECatalogPac
 		initEAttribute(getWeakness_Status(), ecorePackage.getEString(), "status", null, 0, 1, Weakness.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(categoriesEClass, Categories.class, "Categories", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCategories_Category(), this.getCategory(), null, "category", null, 0, -1, Categories.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCategories_Categories(), this.getCategory(), null, "categories", null, 0, -1, Categories.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(categoryEClass, Category.class, "Category", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCategory_ID(), ecorePackage.getEString(), "iD", null, 0, 1, Category.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -607,7 +607,7 @@ public class CWECatalogPackageImpl extends EPackageImpl implements CWECatalogPac
 		initEAttribute(getCategory_Status(), ecorePackage.getEString(), "status", null, 0, 1, Category.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(viewsEClass, Views.class, "Views", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getViews_View(), this.getView(), null, "view", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getViews_Views(), this.getView(), null, "views", null, 0, -1, Views.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(viewEClass, View.class, "View", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getView_ID(), ecorePackage.getEString(), "iD", null, 0, 1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -616,10 +616,10 @@ public class CWECatalogPackageImpl extends EPackageImpl implements CWECatalogPac
 		initEAttribute(getView_Status(), ecorePackage.getEString(), "status", null, 0, 1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(externalReferencesEClass, ExternalReferences.class, "ExternalReferences", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getExternalReferences_ExternalReference(), this.getExternalReference(), null, "externalReference", null, 0, -1, ExternalReferences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExternalReferences_ExternalReferences(), this.getExternalReference(), null, "externalReferences", null, 0, -1, ExternalReferences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(externalReferenceEClass, ExternalReference.class, "ExternalReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExternalReference_Reference_ID(), ecorePackage.getEString(), "reference_ID", null, 0, 1, ExternalReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExternalReference_ReferenceID(), ecorePackage.getEString(), "referenceID", null, 0, 1, ExternalReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

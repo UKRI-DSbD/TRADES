@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link dsm.oscal.model.CWECatalog.ExternalReferences#getExternalReference <em>External Reference</em>}</li>
+ *   <li>{@link dsm.oscal.model.CWECatalog.ExternalReferences#getExternalReferences <em>External References</em>}</li>
  * </ul>
  *
  * @see dsm.oscal.model.CWECatalog.CWECatalogPackage#getExternalReferences()
@@ -37,15 +37,15 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ExternalReferences extends EObject {
 	/**
-	 * Returns the value of the '<em><b>External Reference</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>External References</b></em>' containment reference list.
 	 * The list contents are of type {@link dsm.oscal.model.CWECatalog.ExternalReference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>External Reference</em>' containment reference list.
-	 * @see dsm.oscal.model.CWECatalog.CWECatalogPackage#getExternalReferences_ExternalReference()
+	 * @return the value of the '<em>External References</em>' containment reference list.
+	 * @see dsm.oscal.model.CWECatalog.CWECatalogPackage#getExternalReferences_ExternalReferences()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ExternalReference> getExternalReference();
+	EList<ExternalReference> getExternalReferences();
 
 } // ExternalReferences

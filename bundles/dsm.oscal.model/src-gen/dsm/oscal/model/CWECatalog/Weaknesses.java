@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link dsm.oscal.model.CWECatalog.Weaknesses#getWeakness <em>Weakness</em>}</li>
+ *   <li>{@link dsm.oscal.model.CWECatalog.Weaknesses#getWeaknesses <em>Weaknesses</em>}</li>
  * </ul>
  *
  * @see dsm.oscal.model.CWECatalog.CWECatalogPackage#getWeaknesses()
@@ -37,15 +37,15 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Weaknesses extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Weakness</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Weaknesses</b></em>' containment reference list.
 	 * The list contents are of type {@link dsm.oscal.model.CWECatalog.Weakness}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Weakness</em>' containment reference list.
-	 * @see dsm.oscal.model.CWECatalog.CWECatalogPackage#getWeaknesses_Weakness()
+	 * @return the value of the '<em>Weaknesses</em>' containment reference list.
+	 * @see dsm.oscal.model.CWECatalog.CWECatalogPackage#getWeaknesses_Weaknesses()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Weakness> getWeakness();
+	EList<Weakness> getWeaknesses();
 
 } // Weaknesses

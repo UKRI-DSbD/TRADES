@@ -41,22 +41,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dsm.oscal.model.CWECatalog.impl.WeaknessesImpl#getWeakness <em>Weakness</em>}</li>
+ *   <li>{@link dsm.oscal.model.CWECatalog.impl.WeaknessesImpl#getWeaknesses <em>Weaknesses</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class WeaknessesImpl extends MinimalEObjectImpl.Container implements Weaknesses {
 	/**
-	 * The cached value of the '{@link #getWeakness() <em>Weakness</em>}' containment reference list.
+	 * The cached value of the '{@link #getWeaknesses() <em>Weaknesses</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getWeakness()
+	 * @see #getWeaknesses()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Weakness> weakness;
-
+	protected EList<Weakness> weaknesses;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,11 +81,11 @@ public class WeaknessesImpl extends MinimalEObjectImpl.Container implements Weak
 	 * @generated
 	 */
 	@Override
-	public EList<Weakness> getWeakness() {
-		if (weakness == null) {
-			weakness = new EObjectContainmentEList<Weakness>(Weakness.class, this, CWECatalogPackage.WEAKNESSES__WEAKNESS);
+	public EList<Weakness> getWeaknesses() {
+		if (weaknesses == null) {
+			weaknesses = new EObjectContainmentEList<Weakness>(Weakness.class, this, CWECatalogPackage.WEAKNESSES__WEAKNESSES);
 		}
-		return weakness;
+		return weaknesses;
 	}
 
 	/**
@@ -97,8 +96,8 @@ public class WeaknessesImpl extends MinimalEObjectImpl.Container implements Weak
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CWECatalogPackage.WEAKNESSES__WEAKNESS:
-				return ((InternalEList<?>)getWeakness()).basicRemove(otherEnd, msgs);
+			case CWECatalogPackage.WEAKNESSES__WEAKNESSES:
+				return ((InternalEList<?>)getWeaknesses()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -111,8 +110,8 @@ public class WeaknessesImpl extends MinimalEObjectImpl.Container implements Weak
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CWECatalogPackage.WEAKNESSES__WEAKNESS:
-				return getWeakness();
+			case CWECatalogPackage.WEAKNESSES__WEAKNESSES:
+				return getWeaknesses();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -126,9 +125,9 @@ public class WeaknessesImpl extends MinimalEObjectImpl.Container implements Weak
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CWECatalogPackage.WEAKNESSES__WEAKNESS:
-				getWeakness().clear();
-				getWeakness().addAll((Collection<? extends Weakness>)newValue);
+			case CWECatalogPackage.WEAKNESSES__WEAKNESSES:
+				getWeaknesses().clear();
+				getWeaknesses().addAll((Collection<? extends Weakness>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -142,8 +141,8 @@ public class WeaknessesImpl extends MinimalEObjectImpl.Container implements Weak
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CWECatalogPackage.WEAKNESSES__WEAKNESS:
-				getWeakness().clear();
+			case CWECatalogPackage.WEAKNESSES__WEAKNESSES:
+				getWeaknesses().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -157,8 +156,8 @@ public class WeaknessesImpl extends MinimalEObjectImpl.Container implements Weak
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CWECatalogPackage.WEAKNESSES__WEAKNESS:
-				return weakness != null && !weakness.isEmpty();
+			case CWECatalogPackage.WEAKNESSES__WEAKNESSES:
+				return weaknesses != null && !weaknesses.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

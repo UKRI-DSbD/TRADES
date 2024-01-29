@@ -90,7 +90,7 @@ public class ExternalReferencesItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CWECatalogPackage.Literals.EXTERNAL_REFERENCES__EXTERNAL_REFERENCE);
+			childrenFeatures.add(CWECatalogPackage.Literals.EXTERNAL_REFERENCES__EXTERNAL_REFERENCES);
 		}
 		return childrenFeatures;
 	}
@@ -143,7 +143,7 @@ public class ExternalReferencesItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ExternalReferences.class)) {
-			case CWECatalogPackage.EXTERNAL_REFERENCES__EXTERNAL_REFERENCE:
+			case CWECatalogPackage.EXTERNAL_REFERENCES__EXTERNAL_REFERENCES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -163,7 +163,7 @@ public class ExternalReferencesItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CWECatalogPackage.Literals.EXTERNAL_REFERENCES__EXTERNAL_REFERENCE,
+				(CWECatalogPackage.Literals.EXTERNAL_REFERENCES__EXTERNAL_REFERENCES,
 				 CWECatalogFactory.eINSTANCE.createExternalReference()));
 	}
 

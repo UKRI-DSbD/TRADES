@@ -153,13 +153,13 @@ public interface CWECatalogPackage extends EPackage {
 	int WEAKNESSES = 1;
 
 	/**
-	 * The feature id for the '<em><b>Weakness</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Weaknesses</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WEAKNESSES__WEAKNESS = 0;
+	int WEAKNESSES__WEAKNESSES = 0;
 
 	/**
 	 * The number of structural features of the '<em>Weaknesses</em>' class.
@@ -263,13 +263,13 @@ public interface CWECatalogPackage extends EPackage {
 	int CATEGORIES = 3;
 
 	/**
-	 * The feature id for the '<em><b>Category</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Categories</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORIES__CATEGORY = 0;
+	int CATEGORIES__CATEGORIES = 0;
 
 	/**
 	 * The number of structural features of the '<em>Categories</em>' class.
@@ -355,13 +355,13 @@ public interface CWECatalogPackage extends EPackage {
 	int VIEWS = 5;
 
 	/**
-	 * The feature id for the '<em><b>View</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEWS__VIEW = 0;
+	int VIEWS__VIEWS = 0;
 
 	/**
 	 * The number of structural features of the '<em>Views</em>' class.
@@ -456,13 +456,13 @@ public interface CWECatalogPackage extends EPackage {
 	int EXTERNAL_REFERENCES = 7;
 
 	/**
-	 * The feature id for the '<em><b>External Reference</b></em>' containment reference list.
+	 * The feature id for the '<em><b>External References</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_REFERENCES__EXTERNAL_REFERENCE = 0;
+	int EXTERNAL_REFERENCES__EXTERNAL_REFERENCES = 0;
 
 	/**
 	 * The number of structural features of the '<em>External References</em>' class.
@@ -596,15 +596,15 @@ public interface CWECatalogPackage extends EPackage {
 	EClass getWeaknesses();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link dsm.oscal.model.CWECatalog.Weaknesses#getWeakness <em>Weakness</em>}'.
+	 * Returns the meta object for the containment reference list '{@link dsm.oscal.model.CWECatalog.Weaknesses#getWeaknesses <em>Weaknesses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Weakness</em>'.
-	 * @see dsm.oscal.model.CWECatalog.Weaknesses#getWeakness()
+	 * @return the meta object for the containment reference list '<em>Weaknesses</em>'.
+	 * @see dsm.oscal.model.CWECatalog.Weaknesses#getWeaknesses()
 	 * @see #getWeaknesses()
 	 * @generated
 	 */
-	EReference getWeaknesses_Weakness();
+	EReference getWeaknesses_Weaknesses();
 
 	/**
 	 * Returns the meta object for class '{@link dsm.oscal.model.CWECatalog.Weakness <em>Weakness</em>}'.
@@ -682,15 +682,15 @@ public interface CWECatalogPackage extends EPackage {
 	EClass getCategories();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link dsm.oscal.model.CWECatalog.Categories#getCategory <em>Category</em>}'.
+	 * Returns the meta object for the containment reference list '{@link dsm.oscal.model.CWECatalog.Categories#getCategories <em>Categories</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Category</em>'.
-	 * @see dsm.oscal.model.CWECatalog.Categories#getCategory()
+	 * @return the meta object for the containment reference list '<em>Categories</em>'.
+	 * @see dsm.oscal.model.CWECatalog.Categories#getCategories()
 	 * @see #getCategories()
 	 * @generated
 	 */
-	EReference getCategories_Category();
+	EReference getCategories_Categories();
 
 	/**
 	 * Returns the meta object for class '{@link dsm.oscal.model.CWECatalog.Category <em>Category</em>}'.
@@ -746,15 +746,15 @@ public interface CWECatalogPackage extends EPackage {
 	EClass getViews();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link dsm.oscal.model.CWECatalog.Views#getView <em>View</em>}'.
+	 * Returns the meta object for the containment reference list '{@link dsm.oscal.model.CWECatalog.Views#getViews <em>Views</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>View</em>'.
-	 * @see dsm.oscal.model.CWECatalog.Views#getView()
+	 * @return the meta object for the containment reference list '<em>Views</em>'.
+	 * @see dsm.oscal.model.CWECatalog.Views#getViews()
 	 * @see #getViews()
 	 * @generated
 	 */
-	EReference getViews_View();
+	EReference getViews_Views();
 
 	/**
 	 * Returns the meta object for class '{@link dsm.oscal.model.CWECatalog.View <em>View</em>}'.
@@ -821,15 +821,15 @@ public interface CWECatalogPackage extends EPackage {
 	EClass getExternalReferences();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link dsm.oscal.model.CWECatalog.ExternalReferences#getExternalReference <em>External Reference</em>}'.
+	 * Returns the meta object for the containment reference list '{@link dsm.oscal.model.CWECatalog.ExternalReferences#getExternalReferences <em>External References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>External Reference</em>'.
-	 * @see dsm.oscal.model.CWECatalog.ExternalReferences#getExternalReference()
+	 * @return the meta object for the containment reference list '<em>External References</em>'.
+	 * @see dsm.oscal.model.CWECatalog.ExternalReferences#getExternalReferences()
 	 * @see #getExternalReferences()
 	 * @generated
 	 */
-	EReference getExternalReferences_ExternalReference();
+	EReference getExternalReferences_ExternalReferences();
 
 	/**
 	 * Returns the meta object for class '{@link dsm.oscal.model.CWECatalog.ExternalReference <em>External Reference</em>}'.
@@ -842,15 +842,15 @@ public interface CWECatalogPackage extends EPackage {
 	EClass getExternalReference();
 
 	/**
-	 * Returns the meta object for the attribute '{@link dsm.oscal.model.CWECatalog.ExternalReference#getReference_ID <em>Reference ID</em>}'.
+	 * Returns the meta object for the attribute '{@link dsm.oscal.model.CWECatalog.ExternalReference#getReferenceID <em>Reference ID</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Reference ID</em>'.
-	 * @see dsm.oscal.model.CWECatalog.ExternalReference#getReference_ID()
+	 * @see dsm.oscal.model.CWECatalog.ExternalReference#getReferenceID()
 	 * @see #getExternalReference()
 	 * @generated
 	 */
-	EAttribute getExternalReference_Reference_ID();
+	EAttribute getExternalReference_ReferenceID();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -936,12 +936,12 @@ public interface CWECatalogPackage extends EPackage {
 		EClass WEAKNESSES = eINSTANCE.getWeaknesses();
 
 		/**
-		 * The meta object literal for the '<em><b>Weakness</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Weaknesses</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference WEAKNESSES__WEAKNESS = eINSTANCE.getWeaknesses_Weakness();
+		EReference WEAKNESSES__WEAKNESSES = eINSTANCE.getWeaknesses_Weaknesses();
 
 		/**
 		 * The meta object literal for the '{@link dsm.oscal.model.CWECatalog.impl.WeaknessImpl <em>Weakness</em>}' class.
@@ -1004,12 +1004,12 @@ public interface CWECatalogPackage extends EPackage {
 		EClass CATEGORIES = eINSTANCE.getCategories();
 
 		/**
-		 * The meta object literal for the '<em><b>Category</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Categories</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CATEGORIES__CATEGORY = eINSTANCE.getCategories_Category();
+		EReference CATEGORIES__CATEGORIES = eINSTANCE.getCategories_Categories();
 
 		/**
 		 * The meta object literal for the '{@link dsm.oscal.model.CWECatalog.impl.CategoryImpl <em>Category</em>}' class.
@@ -1056,12 +1056,12 @@ public interface CWECatalogPackage extends EPackage {
 		EClass VIEWS = eINSTANCE.getViews();
 
 		/**
-		 * The meta object literal for the '<em><b>View</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Views</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference VIEWS__VIEW = eINSTANCE.getViews_View();
+		EReference VIEWS__VIEWS = eINSTANCE.getViews_Views();
 
 		/**
 		 * The meta object literal for the '{@link dsm.oscal.model.CWECatalog.impl.ViewImpl <em>View</em>}' class.
@@ -1116,12 +1116,12 @@ public interface CWECatalogPackage extends EPackage {
 		EClass EXTERNAL_REFERENCES = eINSTANCE.getExternalReferences();
 
 		/**
-		 * The meta object literal for the '<em><b>External Reference</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>External References</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EXTERNAL_REFERENCES__EXTERNAL_REFERENCE = eINSTANCE.getExternalReferences_ExternalReference();
+		EReference EXTERNAL_REFERENCES__EXTERNAL_REFERENCES = eINSTANCE.getExternalReferences_ExternalReferences();
 
 		/**
 		 * The meta object literal for the '{@link dsm.oscal.model.CWECatalog.impl.ExternalReferenceImpl <em>External Reference</em>}' class.
@@ -1139,7 +1139,7 @@ public interface CWECatalogPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EXTERNAL_REFERENCE__REFERENCE_ID = eINSTANCE.getExternalReference_Reference_ID();
+		EAttribute EXTERNAL_REFERENCE__REFERENCE_ID = eINSTANCE.getExternalReference_ReferenceID();
 
 	}
 

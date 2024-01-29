@@ -33,31 +33,31 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dsm.oscal.model.CWECatalog.impl.ExternalReferenceImpl#getReference_ID <em>Reference ID</em>}</li>
+ *   <li>{@link dsm.oscal.model.CWECatalog.impl.ExternalReferenceImpl#getReferenceID <em>Reference ID</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ExternalReferenceImpl extends MinimalEObjectImpl.Container implements ExternalReference {
 	/**
-	 * The default value of the '{@link #getReference_ID() <em>Reference ID</em>}' attribute.
+	 * The default value of the '{@link #getReferenceID() <em>Reference ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReference_ID()
+	 * @see #getReferenceID()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String REFERENCE_ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getReference_ID() <em>Reference ID</em>}' attribute.
+	 * The cached value of the '{@link #getReferenceID() <em>Reference ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReference_ID()
+	 * @see #getReferenceID()
 	 * @generated
 	 * @ordered
 	 */
-	protected String reference_ID = REFERENCE_ID_EDEFAULT;
+	protected String referenceID = REFERENCE_ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -84,8 +84,8 @@ public class ExternalReferenceImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public String getReference_ID() {
-		return reference_ID;
+	public String getReferenceID() {
+		return referenceID;
 	}
 
 	/**
@@ -94,11 +94,11 @@ public class ExternalReferenceImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public void setReference_ID(String newReference_ID) {
-		String oldReference_ID = reference_ID;
-		reference_ID = newReference_ID;
+	public void setReferenceID(String newReferenceID) {
+		String oldReferenceID = referenceID;
+		referenceID = newReferenceID;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CWECatalogPackage.EXTERNAL_REFERENCE__REFERENCE_ID, oldReference_ID, reference_ID));
+			eNotify(new ENotificationImpl(this, Notification.SET, CWECatalogPackage.EXTERNAL_REFERENCE__REFERENCE_ID, oldReferenceID, referenceID));
 	}
 
 	/**
@@ -110,7 +110,7 @@ public class ExternalReferenceImpl extends MinimalEObjectImpl.Container implemen
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CWECatalogPackage.EXTERNAL_REFERENCE__REFERENCE_ID:
-				return getReference_ID();
+				return getReferenceID();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -124,7 +124,7 @@ public class ExternalReferenceImpl extends MinimalEObjectImpl.Container implemen
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CWECatalogPackage.EXTERNAL_REFERENCE__REFERENCE_ID:
-				setReference_ID((String)newValue);
+				setReferenceID((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -139,7 +139,7 @@ public class ExternalReferenceImpl extends MinimalEObjectImpl.Container implemen
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CWECatalogPackage.EXTERNAL_REFERENCE__REFERENCE_ID:
-				setReference_ID(REFERENCE_ID_EDEFAULT);
+				setReferenceID(REFERENCE_ID_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -154,7 +154,7 @@ public class ExternalReferenceImpl extends MinimalEObjectImpl.Container implemen
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CWECatalogPackage.EXTERNAL_REFERENCE__REFERENCE_ID:
-				return REFERENCE_ID_EDEFAULT == null ? reference_ID != null : !REFERENCE_ID_EDEFAULT.equals(reference_ID);
+				return REFERENCE_ID_EDEFAULT == null ? referenceID != null : !REFERENCE_ID_EDEFAULT.equals(referenceID);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -169,8 +169,8 @@ public class ExternalReferenceImpl extends MinimalEObjectImpl.Container implemen
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (reference_ID: ");
-		result.append(reference_ID);
+		result.append(" (referenceID: ");
+		result.append(referenceID);
 		result.append(')');
 		return result.toString();
 	}

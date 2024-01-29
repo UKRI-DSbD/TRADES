@@ -90,7 +90,7 @@ public class ViewsItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CWECatalogPackage.Literals.VIEWS__VIEW);
+			childrenFeatures.add(CWECatalogPackage.Literals.VIEWS__VIEWS);
 		}
 		return childrenFeatures;
 	}
@@ -143,7 +143,7 @@ public class ViewsItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Views.class)) {
-			case CWECatalogPackage.VIEWS__VIEW:
+			case CWECatalogPackage.VIEWS__VIEWS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -163,7 +163,7 @@ public class ViewsItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CWECatalogPackage.Literals.VIEWS__VIEW,
+				(CWECatalogPackage.Literals.VIEWS__VIEWS,
 				 CWECatalogFactory.eINSTANCE.createView()));
 	}
 

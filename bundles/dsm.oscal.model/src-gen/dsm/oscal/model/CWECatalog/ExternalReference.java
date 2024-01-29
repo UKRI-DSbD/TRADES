@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link dsm.oscal.model.CWECatalog.ExternalReference#getReference_ID <em>Reference ID</em>}</li>
+ *   <li>{@link dsm.oscal.model.CWECatalog.ExternalReference#getReferenceID <em>Reference ID</em>}</li>
  * </ul>
  *
  * @see dsm.oscal.model.CWECatalog.CWECatalogPackage#getExternalReference()
@@ -39,21 +39,21 @@ public interface ExternalReference extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Reference ID</em>' attribute.
-	 * @see #setReference_ID(String)
-	 * @see dsm.oscal.model.CWECatalog.CWECatalogPackage#getExternalReference_Reference_ID()
+	 * @see #setReferenceID(String)
+	 * @see dsm.oscal.model.CWECatalog.CWECatalogPackage#getExternalReference_ReferenceID()
 	 * @model
 	 * @generated
 	 */
-	String getReference_ID();
+	String getReferenceID();
 
 	/**
-	 * Sets the value of the '{@link dsm.oscal.model.CWECatalog.ExternalReference#getReference_ID <em>Reference ID</em>}' attribute.
+	 * Sets the value of the '{@link dsm.oscal.model.CWECatalog.ExternalReference#getReferenceID <em>Reference ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Reference ID</em>' attribute.
-	 * @see #getReference_ID()
+	 * @see #getReferenceID()
 	 * @generated
 	 */
-	void setReference_ID(String value);
+	void setReferenceID(String value);
 
 } // ExternalReference

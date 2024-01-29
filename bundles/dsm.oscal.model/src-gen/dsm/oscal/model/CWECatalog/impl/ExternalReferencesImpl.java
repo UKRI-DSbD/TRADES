@@ -41,22 +41,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dsm.oscal.model.CWECatalog.impl.ExternalReferencesImpl#getExternalReference <em>External Reference</em>}</li>
+ *   <li>{@link dsm.oscal.model.CWECatalog.impl.ExternalReferencesImpl#getExternalReferences <em>External References</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ExternalReferencesImpl extends MinimalEObjectImpl.Container implements ExternalReferences {
 	/**
-	 * The cached value of the '{@link #getExternalReference() <em>External Reference</em>}' containment reference list.
+	 * The cached value of the '{@link #getExternalReferences() <em>External References</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExternalReference()
+	 * @see #getExternalReferences()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ExternalReference> externalReference;
-
+	protected EList<ExternalReference> externalReferences;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,11 +81,11 @@ public class ExternalReferencesImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 */
 	@Override
-	public EList<ExternalReference> getExternalReference() {
-		if (externalReference == null) {
-			externalReference = new EObjectContainmentEList<ExternalReference>(ExternalReference.class, this, CWECatalogPackage.EXTERNAL_REFERENCES__EXTERNAL_REFERENCE);
+	public EList<ExternalReference> getExternalReferences() {
+		if (externalReferences == null) {
+			externalReferences = new EObjectContainmentEList<ExternalReference>(ExternalReference.class, this, CWECatalogPackage.EXTERNAL_REFERENCES__EXTERNAL_REFERENCES);
 		}
-		return externalReference;
+		return externalReferences;
 	}
 
 	/**
@@ -97,8 +96,8 @@ public class ExternalReferencesImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CWECatalogPackage.EXTERNAL_REFERENCES__EXTERNAL_REFERENCE:
-				return ((InternalEList<?>)getExternalReference()).basicRemove(otherEnd, msgs);
+			case CWECatalogPackage.EXTERNAL_REFERENCES__EXTERNAL_REFERENCES:
+				return ((InternalEList<?>)getExternalReferences()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -111,8 +110,8 @@ public class ExternalReferencesImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CWECatalogPackage.EXTERNAL_REFERENCES__EXTERNAL_REFERENCE:
-				return getExternalReference();
+			case CWECatalogPackage.EXTERNAL_REFERENCES__EXTERNAL_REFERENCES:
+				return getExternalReferences();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -126,9 +125,9 @@ public class ExternalReferencesImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CWECatalogPackage.EXTERNAL_REFERENCES__EXTERNAL_REFERENCE:
-				getExternalReference().clear();
-				getExternalReference().addAll((Collection<? extends ExternalReference>)newValue);
+			case CWECatalogPackage.EXTERNAL_REFERENCES__EXTERNAL_REFERENCES:
+				getExternalReferences().clear();
+				getExternalReferences().addAll((Collection<? extends ExternalReference>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -142,8 +141,8 @@ public class ExternalReferencesImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CWECatalogPackage.EXTERNAL_REFERENCES__EXTERNAL_REFERENCE:
-				getExternalReference().clear();
+			case CWECatalogPackage.EXTERNAL_REFERENCES__EXTERNAL_REFERENCES:
+				getExternalReferences().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -157,8 +156,8 @@ public class ExternalReferencesImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CWECatalogPackage.EXTERNAL_REFERENCES__EXTERNAL_REFERENCE:
-				return externalReference != null && !externalReference.isEmpty();
+			case CWECatalogPackage.EXTERNAL_REFERENCES__EXTERNAL_REFERENCES:
+				return externalReferences != null && !externalReferences.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

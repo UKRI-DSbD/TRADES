@@ -41,22 +41,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dsm.oscal.model.CWECatalog.impl.ViewsImpl#getView <em>View</em>}</li>
+ *   <li>{@link dsm.oscal.model.CWECatalog.impl.ViewsImpl#getViews <em>Views</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ViewsImpl extends MinimalEObjectImpl.Container implements Views {
 	/**
-	 * The cached value of the '{@link #getView() <em>View</em>}' containment reference list.
+	 * The cached value of the '{@link #getViews() <em>Views</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getView()
+	 * @see #getViews()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<View> view;
-
+	protected EList<View> views;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,11 +81,11 @@ public class ViewsImpl extends MinimalEObjectImpl.Container implements Views {
 	 * @generated
 	 */
 	@Override
-	public EList<View> getView() {
-		if (view == null) {
-			view = new EObjectContainmentEList<View>(View.class, this, CWECatalogPackage.VIEWS__VIEW);
+	public EList<View> getViews() {
+		if (views == null) {
+			views = new EObjectContainmentEList<View>(View.class, this, CWECatalogPackage.VIEWS__VIEWS);
 		}
-		return view;
+		return views;
 	}
 
 	/**
@@ -97,8 +96,8 @@ public class ViewsImpl extends MinimalEObjectImpl.Container implements Views {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CWECatalogPackage.VIEWS__VIEW:
-				return ((InternalEList<?>)getView()).basicRemove(otherEnd, msgs);
+			case CWECatalogPackage.VIEWS__VIEWS:
+				return ((InternalEList<?>)getViews()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -111,8 +110,8 @@ public class ViewsImpl extends MinimalEObjectImpl.Container implements Views {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CWECatalogPackage.VIEWS__VIEW:
-				return getView();
+			case CWECatalogPackage.VIEWS__VIEWS:
+				return getViews();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -126,9 +125,9 @@ public class ViewsImpl extends MinimalEObjectImpl.Container implements Views {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CWECatalogPackage.VIEWS__VIEW:
-				getView().clear();
-				getView().addAll((Collection<? extends View>)newValue);
+			case CWECatalogPackage.VIEWS__VIEWS:
+				getViews().clear();
+				getViews().addAll((Collection<? extends View>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -142,8 +141,8 @@ public class ViewsImpl extends MinimalEObjectImpl.Container implements Views {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CWECatalogPackage.VIEWS__VIEW:
-				getView().clear();
+			case CWECatalogPackage.VIEWS__VIEWS:
+				getViews().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -157,8 +156,8 @@ public class ViewsImpl extends MinimalEObjectImpl.Container implements Views {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CWECatalogPackage.VIEWS__VIEW:
-				return view != null && !view.isEmpty();
+			case CWECatalogPackage.VIEWS__VIEWS:
+				return views != null && !views.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
