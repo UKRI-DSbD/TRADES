@@ -15,15 +15,13 @@
  */
 package dsm.oscal.model.CWECatalog.impl;
 
-import dsm.oscal.model.CWECatalog.CWECatalogPackage;
-import dsm.oscal.model.CWECatalog.Weakness;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import dsm.oscal.model.CWECatalog.CWECatalogPackage;
+import dsm.oscal.model.CWECatalog.Weakness;
 
 /**
  * <!-- begin-user-doc -->

@@ -15,11 +15,11 @@
  */
 package dsm.oscal.model.OscalMetadata;
 
-import gov.nist.secauto.metaschema.datatypes.markup.MarkupLine;
-
 import java.time.ZonedDateTime;
 
 import org.eclipse.emf.common.util.EList;
+
+import gov.nist.secauto.metaschema.datatypes.markup.MarkupLine;
 
 /**
  * <!-- begin-user-doc -->

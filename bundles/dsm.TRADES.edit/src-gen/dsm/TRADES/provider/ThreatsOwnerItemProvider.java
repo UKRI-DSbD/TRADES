@@ -13,20 +13,13 @@
  */
 package dsm.TRADES.provider;
 
-import dsm.TRADES.TRADESFactory;
-import dsm.TRADES.TRADESPackage;
-import dsm.TRADES.ThreatsOwner;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -37,6 +30,10 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import dsm.TRADES.TRADESFactory;
+import dsm.TRADES.TRADESPackage;
+import dsm.TRADES.ThreatsOwner;
 
 /**
  * This is the item provider adapter for a {@link dsm.TRADES.ThreatsOwner} object.

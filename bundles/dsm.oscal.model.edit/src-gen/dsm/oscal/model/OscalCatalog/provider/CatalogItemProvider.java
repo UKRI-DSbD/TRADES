@@ -16,34 +16,27 @@
 package dsm.oscal.model.OscalCatalog.provider;
 
 
-import dsm.oscal.model.OscalCatalog.Catalog;
-import dsm.oscal.model.OscalCatalog.OscalCatalogFactory;
-import dsm.oscal.model.OscalCatalog.OscalCatalogPackage;
-
-import dsm.oscal.model.OscalCatalogCommon.OscalCatalogCommonFactory;
-
-import dsm.oscal.model.OscalCatalogCommon.provider.OscalEditPlugin;
-
-import dsm.oscal.model.OscalMetadata.OscalMetadataFactory;
-import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
-
-import dsm.oscal.model.OscalMetadata.provider.OscalElementItemProvider;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import dsm.oscal.model.OscalCatalog.Catalog;
+import dsm.oscal.model.OscalCatalog.OscalCatalogFactory;
+import dsm.oscal.model.OscalCatalog.OscalCatalogPackage;
+import dsm.oscal.model.OscalCatalogCommon.OscalCatalogCommonFactory;
+import dsm.oscal.model.OscalCatalogCommon.provider.OscalEditPlugin;
+import dsm.oscal.model.OscalMetadata.OscalMetadataFactory;
+import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
+import dsm.oscal.model.OscalMetadata.provider.OscalElementItemProvider;
 
 /**
  * This is the item provider adapter for a {@link dsm.oscal.model.OscalCatalog.Catalog} object.

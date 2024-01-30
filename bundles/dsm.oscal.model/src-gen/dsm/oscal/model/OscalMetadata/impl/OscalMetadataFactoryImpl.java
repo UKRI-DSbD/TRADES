@@ -15,30 +15,54 @@
  */
 package dsm.oscal.model.OscalMetadata.impl;
 
-import dsm.oscal.model.OscalMetadata.*;
-
-import gov.nist.secauto.metaschema.datatypes.Date;
-import gov.nist.secauto.metaschema.datatypes.DateTime;
-import gov.nist.secauto.metaschema.datatypes.IPv4;
-import gov.nist.secauto.metaschema.datatypes.IPv6;
-
-import gov.nist.secauto.metaschema.datatypes.markup.MarkupLine;
-import gov.nist.secauto.metaschema.datatypes.markup.MarkupMultiline;
-
 import java.net.URI;
-
 import java.time.ZonedDateTime;
-
 import java.util.UUID;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import dsm.oscal.model.OscalMetadata.Address;
+import dsm.oscal.model.OscalMetadata.BackMatter;
+import dsm.oscal.model.OscalMetadata.BackMatterResource;
+import dsm.oscal.model.OscalMetadata.Base64;
+import dsm.oscal.model.OscalMetadata.ControlOwner;
+import dsm.oscal.model.OscalMetadata.DocumentId;
+import dsm.oscal.model.OscalMetadata.ElementWithClazz;
+import dsm.oscal.model.OscalMetadata.ElementWithId;
+import dsm.oscal.model.OscalMetadata.ElementWithRemarks;
+import dsm.oscal.model.OscalMetadata.ElementWithValue;
+import dsm.oscal.model.OscalMetadata.ExternalId;
+import dsm.oscal.model.OscalMetadata.Hash;
+import dsm.oscal.model.OscalMetadata.Link;
+import dsm.oscal.model.OscalMetadata.LinkOwner;
+import dsm.oscal.model.OscalMetadata.Location;
+import dsm.oscal.model.OscalMetadata.Metadata;
+import dsm.oscal.model.OscalMetadata.OscalMetadataFactory;
+import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
+import dsm.oscal.model.OscalMetadata.ParameterOwner;
+import dsm.oscal.model.OscalMetadata.PartOwner;
+import dsm.oscal.model.OscalMetadata.Party;
+import dsm.oscal.model.OscalMetadata.Property;
+import dsm.oscal.model.OscalMetadata.PropertyOwner;
+import dsm.oscal.model.OscalMetadata.ResourceCitation;
+import dsm.oscal.model.OscalMetadata.ResourceRlink;
+import dsm.oscal.model.OscalMetadata.ResponsibleParty;
+import dsm.oscal.model.OscalMetadata.ResponsibleRole;
+import dsm.oscal.model.OscalMetadata.Revision;
+import dsm.oscal.model.OscalMetadata.Role;
+import dsm.oscal.model.OscalMetadata.TelephoneNumber;
+import dsm.oscal.model.OscalMetadata.UUIDElement;
+import gov.nist.secauto.metaschema.datatypes.Date;
+import gov.nist.secauto.metaschema.datatypes.DateTime;
+import gov.nist.secauto.metaschema.datatypes.IPv4;
+import gov.nist.secauto.metaschema.datatypes.IPv6;
+import gov.nist.secauto.metaschema.datatypes.markup.MarkupLine;
+import gov.nist.secauto.metaschema.datatypes.markup.MarkupMultiline;
 
 /**
  * <!-- begin-user-doc -->

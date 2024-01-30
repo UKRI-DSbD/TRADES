@@ -15,8 +15,14 @@
  */
 package dsm.oscal.model.CWECatalog.impl;
 
-import dsm.TRADES.TRADESPackage;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import dsm.TRADES.TRADESPackage;
 import dsm.oscal.model.CWECatalog.CWECatalogFactory;
 import dsm.oscal.model.CWECatalog.CWECatalogPackage;
 import dsm.oscal.model.CWECatalog.Categories;
@@ -28,14 +34,6 @@ import dsm.oscal.model.CWECatalog.Views;
 import dsm.oscal.model.CWECatalog.Weakness;
 import dsm.oscal.model.CWECatalog.WeaknessCatalog;
 import dsm.oscal.model.CWECatalog.Weaknesses;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EcorePackage;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->

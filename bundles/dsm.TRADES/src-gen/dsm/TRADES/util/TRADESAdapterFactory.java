@@ -13,14 +13,56 @@
  */
 package dsm.TRADES.util;
 
-import dsm.TRADES.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import dsm.TRADES.AbstractControlOwner;
+import dsm.TRADES.AbstractThreatOwner;
+import dsm.TRADES.AbstractVulnerabilityOwner;
+import dsm.TRADES.AffectRelation;
+import dsm.TRADES.Analysis;
+import dsm.TRADES.Asset;
+import dsm.TRADES.AttackChain;
+import dsm.TRADES.AttackChainStep;
+import dsm.TRADES.Catalog;
+import dsm.TRADES.ColoredElement;
+import dsm.TRADES.Component;
+import dsm.TRADES.ComponentOwner;
+import dsm.TRADES.ComponentType;
+import dsm.TRADES.ComponentTypeOwner;
+import dsm.TRADES.Control;
+import dsm.TRADES.ControlOwner;
+import dsm.TRADES.Data;
+import dsm.TRADES.DataOwner;
+import dsm.TRADES.DataOwnerElement;
+import dsm.TRADES.DifficultyScore;
+import dsm.TRADES.DomainAsset;
+import dsm.TRADES.ElementWithId;
+import dsm.TRADES.ExternalControl;
+import dsm.TRADES.ExternalElement;
+import dsm.TRADES.ExternalThreat;
+import dsm.TRADES.ICatalogDefinition;
+import dsm.TRADES.IControlDefinition;
+import dsm.TRADES.IElementWithSource;
+import dsm.TRADES.IMitigationLink;
+import dsm.TRADES.IThreatDefinition;
+import dsm.TRADES.ImpactConfiguration;
+import dsm.TRADES.ImpactScore;
+import dsm.TRADES.Link;
+import dsm.TRADES.LinkType;
+import dsm.TRADES.NamedElement;
+import dsm.TRADES.ScoreSystem;
+import dsm.TRADES.TRADESPackage;
+import dsm.TRADES.Threat;
+import dsm.TRADES.ThreatAllocationRelation;
+import dsm.TRADES.ThreatMitigationRelation;
+import dsm.TRADES.ThreatsOwner;
+import dsm.TRADES.VAOwner;
+import dsm.TRADES.Vulnerability;
+import dsm.TRADES.VulnerabilityOwner;
+import dsm.TRADES.VulnerableAsset;
 
 /**
  * <!-- begin-user-doc -->

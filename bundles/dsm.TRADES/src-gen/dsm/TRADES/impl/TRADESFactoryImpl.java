@@ -13,16 +13,49 @@
  */
 package dsm.TRADES.impl;
 
-import dsm.TRADES.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import dsm.TRADES.AffectRelation;
+import dsm.TRADES.AffectedENUM;
+import dsm.TRADES.Analysis;
+import dsm.TRADES.AssessmentENUM;
+import dsm.TRADES.AttackChain;
+import dsm.TRADES.AttackChainStep;
+import dsm.TRADES.Catalog;
+import dsm.TRADES.Component;
+import dsm.TRADES.ComponentCategoryENUM;
+import dsm.TRADES.ComponentType;
+import dsm.TRADES.Control;
+import dsm.TRADES.ControlOwner;
+import dsm.TRADES.ControlStatusENUM;
+import dsm.TRADES.Data;
+import dsm.TRADES.DataOwner;
+import dsm.TRADES.DifficultyScore;
+import dsm.TRADES.DomainAsset;
+import dsm.TRADES.ExternalControl;
+import dsm.TRADES.ExternalThreat;
+import dsm.TRADES.ImpactConfiguration;
+import dsm.TRADES.ImpactScore;
+import dsm.TRADES.Link;
+import dsm.TRADES.LinkType;
+import dsm.TRADES.RGBColor;
+import dsm.TRADES.ScoreSystem;
+import dsm.TRADES.SecurityObjectiveENUM;
+import dsm.TRADES.TRADESFactory;
+import dsm.TRADES.TRADESPackage;
+import dsm.TRADES.Threat;
+import dsm.TRADES.ThreatAllocationRelation;
+import dsm.TRADES.ThreatMitigationRelation;
+import dsm.TRADES.ThreatsOwner;
+import dsm.TRADES.Vulnerability;
+import dsm.TRADES.VulnerabilityOwner;
+import dsm.TRADES.VulnerableAsset;
+import dsm.TRADES.threatTypeENUM;
 
 /**
  * <!-- begin-user-doc -->

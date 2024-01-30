@@ -14,6 +14,7 @@
 package dsm.oscal.model.OscalCatalog.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
+
 import dsm.oscal.model.OscalCatalog.Group;
 
 public class GroupItemProviderBaseCustomImpl extends GroupItemProvider {

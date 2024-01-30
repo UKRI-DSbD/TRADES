@@ -15,16 +15,15 @@
  */
 package dsm.oscal.model.OscalCatalog;
 
-import dsm.TRADES.ICatalogDefinition;
+import org.eclipse.emf.common.util.EList;
 
+import dsm.TRADES.ICatalogDefinition;
 import dsm.oscal.model.OscalMetadata.BackMatter;
 import dsm.oscal.model.OscalMetadata.ControlOwner;
 import dsm.oscal.model.OscalMetadata.Metadata;
 import dsm.oscal.model.OscalMetadata.OscalElement;
 import dsm.oscal.model.OscalMetadata.ParameterOwner;
 import dsm.oscal.model.OscalMetadata.UUIDElement;
-
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->

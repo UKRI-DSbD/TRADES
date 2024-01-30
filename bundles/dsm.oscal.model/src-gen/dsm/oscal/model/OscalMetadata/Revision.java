@@ -15,9 +15,9 @@
  */
 package dsm.oscal.model.OscalMetadata;
 
-import gov.nist.secauto.metaschema.datatypes.markup.MarkupLine;
-
 import java.time.ZonedDateTime;
+
+import gov.nist.secauto.metaschema.datatypes.markup.MarkupLine;
 
 /**
  * <!-- begin-user-doc -->

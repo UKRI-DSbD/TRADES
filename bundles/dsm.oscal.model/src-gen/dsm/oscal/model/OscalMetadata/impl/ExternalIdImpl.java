@@ -15,17 +15,15 @@
  */
 package dsm.oscal.model.OscalMetadata.impl;
 
-import dsm.oscal.model.OscalMetadata.ElementWithValue;
-import dsm.oscal.model.OscalMetadata.ExternalId;
-import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
-
 import java.net.URI;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import dsm.oscal.model.OscalMetadata.ElementWithValue;
+import dsm.oscal.model.OscalMetadata.ExternalId;
+import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
 
 /**
  * <!-- begin-user-doc -->

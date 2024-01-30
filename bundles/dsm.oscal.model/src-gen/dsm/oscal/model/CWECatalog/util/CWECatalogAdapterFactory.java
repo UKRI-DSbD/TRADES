@@ -15,14 +15,21 @@
  */
 package dsm.oscal.model.CWECatalog.util;
 
-import dsm.oscal.model.CWECatalog.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import dsm.oscal.model.CWECatalog.CWECatalogPackage;
+import dsm.oscal.model.CWECatalog.Categories;
+import dsm.oscal.model.CWECatalog.Category;
+import dsm.oscal.model.CWECatalog.ExternalReference;
+import dsm.oscal.model.CWECatalog.ExternalReferences;
+import dsm.oscal.model.CWECatalog.View;
+import dsm.oscal.model.CWECatalog.Views;
+import dsm.oscal.model.CWECatalog.Weakness;
+import dsm.oscal.model.CWECatalog.WeaknessCatalog;
+import dsm.oscal.model.CWECatalog.Weaknesses;
 
 /**
  * <!-- begin-user-doc -->

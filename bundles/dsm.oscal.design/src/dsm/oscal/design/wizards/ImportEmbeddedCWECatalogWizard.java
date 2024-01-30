@@ -44,12 +44,12 @@ import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.ui.IImportWizard;
 import org.eclipse.ui.IWorkbench;
 
-import dsm.oscal.model.CWECatalog.WeaknessCatalog;
-import dsm.trades.rcp.TRADESRCPActivator;
-import dsm.trades.rcp.utils.CatalogUtils;
 import dsm.oscal.design.EmbeddedCatalogRegistry;
-import dsm.trades.rcp.internal.wizards.ProjectSelectionPage;
+import dsm.oscal.model.CWECatalog.WeaknessCatalog;
 import dsm.oscal.model.transform.CWETransformer;
+import dsm.trades.rcp.TRADESRCPActivator;
+import dsm.trades.rcp.internal.wizards.ProjectSelectionPage;
+import dsm.trades.rcp.utils.CatalogUtils;
 /**
  * Wizard used to import MITRE CWE catalog
  */

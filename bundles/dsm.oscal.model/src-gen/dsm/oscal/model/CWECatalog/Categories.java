@@ -16,7 +16,6 @@
 package dsm.oscal.model.CWECatalog;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**

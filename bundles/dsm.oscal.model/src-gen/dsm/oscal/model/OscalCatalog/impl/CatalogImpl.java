@@ -15,45 +15,36 @@
  */
 package dsm.oscal.model.OscalCatalog.impl;
 
-import dsm.TRADES.ICatalogDefinition;
-import dsm.TRADES.IControlDefinition;
-import dsm.TRADES.IThreatDefinition;
-import dsm.TRADES.TRADESPackage;
-
-import dsm.oscal.model.OscalCatalog.Catalog;
-import dsm.oscal.model.OscalCatalog.Control;
-import dsm.oscal.model.OscalCatalog.Group;
-import dsm.oscal.model.OscalCatalog.OscalCatalogPackage;
-
-import dsm.oscal.model.OscalCatalogCommon.Parameter;
-
-import dsm.oscal.model.OscalMetadata.BackMatter;
-import dsm.oscal.model.OscalMetadata.ControlOwner;
-import dsm.oscal.model.OscalMetadata.Metadata;
-import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
-import dsm.oscal.model.OscalMetadata.ParameterOwner;
-import dsm.oscal.model.OscalMetadata.UUIDElement;
-
-import dsm.oscal.model.OscalMetadata.impl.OscalElementCustomImpl;
-
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 import java.util.Map;
 import java.util.UUID;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import dsm.TRADES.ICatalogDefinition;
+import dsm.TRADES.IControlDefinition;
+import dsm.TRADES.IThreatDefinition;
+import dsm.TRADES.TRADESPackage;
+import dsm.oscal.model.OscalCatalog.Catalog;
+import dsm.oscal.model.OscalCatalog.Control;
+import dsm.oscal.model.OscalCatalog.Group;
+import dsm.oscal.model.OscalCatalog.OscalCatalogPackage;
+import dsm.oscal.model.OscalCatalogCommon.Parameter;
+import dsm.oscal.model.OscalMetadata.BackMatter;
+import dsm.oscal.model.OscalMetadata.ControlOwner;
+import dsm.oscal.model.OscalMetadata.Metadata;
+import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
+import dsm.oscal.model.OscalMetadata.ParameterOwner;
+import dsm.oscal.model.OscalMetadata.UUIDElement;
+import dsm.oscal.model.OscalMetadata.impl.OscalElementCustomImpl;
 
 /**
  * <!-- begin-user-doc -->

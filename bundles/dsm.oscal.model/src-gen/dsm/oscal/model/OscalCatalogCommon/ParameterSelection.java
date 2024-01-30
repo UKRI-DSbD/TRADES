@@ -15,11 +15,10 @@
  */
 package dsm.oscal.model.OscalCatalogCommon;
 
-import dsm.oscal.model.OscalMetadata.OscalElement;
-
-import gov.nist.secauto.metaschema.datatypes.markup.MarkupLine;
-
 import org.eclipse.emf.common.util.EList;
+
+import dsm.oscal.model.OscalMetadata.OscalElement;
+import gov.nist.secauto.metaschema.datatypes.markup.MarkupLine;
 
 /**
  * <!-- begin-user-doc -->

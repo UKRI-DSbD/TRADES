@@ -15,12 +15,12 @@
  */
 package dsm.oscal.model.OscalCatalog;
 
-import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
+import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
 
 /**
  * <!-- begin-user-doc -->

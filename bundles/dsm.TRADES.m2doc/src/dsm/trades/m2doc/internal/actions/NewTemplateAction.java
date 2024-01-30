@@ -52,6 +52,7 @@ import org.obeonetwork.m2doc.genconf.Option;
 import org.obeonetwork.m2doc.properties.TemplateCustomProperties;
 import org.obeonetwork.m2doc.sirius.M2DocSiriusUtils;
 import org.obeonetwork.m2doc.util.M2DocUtils;
+
 import dsm.trades.m2doc.IM2DocTemplate;
 import dsm.trades.m2doc.TradesM2docActivator;
 import dsm.trades.m2doc.internal.DynamicTemplateProvider;

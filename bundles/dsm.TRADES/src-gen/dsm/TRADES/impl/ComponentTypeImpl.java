@@ -13,16 +13,15 @@
  */
 package dsm.TRADES.impl;
 
-import dsm.TRADES.ComponentType;
-import dsm.TRADES.TRADESPackage;
-
-import dsm.TRADES.Threat;
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+import dsm.TRADES.ComponentType;
+import dsm.TRADES.TRADESPackage;
+import dsm.TRADES.Threat;
 
 /**
  * <!-- begin-user-doc -->

@@ -16,7 +16,6 @@
 package dsm.oscal.model.OscalMetadata;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**

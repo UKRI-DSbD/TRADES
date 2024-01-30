@@ -15,12 +15,16 @@
  */
 package dsm.oscal.model.OscalCatalogCommon.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import dsm.TRADES.TRADESPackage;
-
 import dsm.oscal.model.OscalCatalog.OscalCatalogPackage;
-
 import dsm.oscal.model.OscalCatalog.impl.OscalCatalogPackageImpl;
-
 import dsm.oscal.model.OscalCatalogCommon.OscalCatalogCommonFactory;
 import dsm.oscal.model.OscalCatalogCommon.OscalCatalogCommonPackage;
 import dsm.oscal.model.OscalCatalogCommon.Parameter;
@@ -29,18 +33,8 @@ import dsm.oscal.model.OscalCatalogCommon.ParameterConstraintTest;
 import dsm.oscal.model.OscalCatalogCommon.ParameterGuideline;
 import dsm.oscal.model.OscalCatalogCommon.ParameterSelection;
 import dsm.oscal.model.OscalCatalogCommon.Part;
-
 import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
-
 import dsm.oscal.model.OscalMetadata.impl.OscalMetadataPackageImpl;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EcorePackage;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->

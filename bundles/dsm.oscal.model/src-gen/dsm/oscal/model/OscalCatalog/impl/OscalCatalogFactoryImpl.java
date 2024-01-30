@@ -15,15 +15,17 @@
  */
 package dsm.oscal.model.OscalCatalog.impl;
 
-import dsm.oscal.model.OscalCatalog.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import dsm.oscal.model.OscalCatalog.Catalog;
+import dsm.oscal.model.OscalCatalog.Control;
+import dsm.oscal.model.OscalCatalog.Group;
+import dsm.oscal.model.OscalCatalog.OscalCatalogFactory;
+import dsm.oscal.model.OscalCatalog.OscalCatalogPackage;
 
 /**
  * <!-- begin-user-doc -->

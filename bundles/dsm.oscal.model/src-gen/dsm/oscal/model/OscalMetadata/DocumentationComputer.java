@@ -15,11 +15,10 @@
  */
 package dsm.oscal.model.OscalMetadata;
 
-import dsm.oscal.model.OscalCatalogCommon.Parameter;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
+
+import dsm.oscal.model.OscalCatalogCommon.Parameter;
 
 /**
  * <!-- begin-user-doc -->

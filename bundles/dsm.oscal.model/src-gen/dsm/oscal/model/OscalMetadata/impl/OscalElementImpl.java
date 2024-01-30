@@ -15,19 +15,16 @@
  */
 package dsm.oscal.model.OscalMetadata.impl;
 
-import dsm.oscal.model.OscalMetadata.OscalElement;
-import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
-
 import java.lang.reflect.InvocationTargetException;
-
 import java.net.URI;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import dsm.oscal.model.OscalMetadata.OscalElement;
+import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
 
 /**
  * <!-- begin-user-doc -->

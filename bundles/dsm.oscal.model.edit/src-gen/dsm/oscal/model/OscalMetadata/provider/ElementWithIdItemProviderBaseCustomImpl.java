@@ -14,6 +14,7 @@
 package dsm.oscal.model.OscalMetadata.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
+
 import dsm.oscal.model.OscalMetadata.ElementWithId;
 
 public class ElementWithIdItemProviderBaseCustomImpl extends ElementWithIdItemProvider {

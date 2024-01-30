@@ -15,44 +15,28 @@
  */
 package dsm.oscal.model.transform;
 
-import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStreamReader;
-import java.nio.file.Path;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.DocumentBuilder;
 import java.io.InputStream;
-import java.io.IOException;
+import java.nio.file.Path;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
-import dsm.oscal.model.OSCALModelActivator;
-import dsm.oscal.model.OscalCatalog.Catalog;
-import dsm.oscal.model.transform.mappers.CatalogMapper;
-import gov.nist.secauto.metaschema.binding.BindingContext;
-import gov.nist.secauto.metaschema.binding.io.BindingException;
-import gov.nist.secauto.metaschema.binding.io.Feature;
-import gov.nist.secauto.metaschema.binding.io.Format;
-import gov.nist.secauto.metaschema.binding.io.MutableConfiguration;
-import gov.nist.secauto.metaschema.binding.io.Serializer;
-import gov.nist.secauto.oscal.java.OscalLoader;
-import dsm.oscal.model.CWECatalog.WeaknessCatalog;
-import dsm.oscal.model.CWECatalog.Weaknesses;
-import dsm.oscal.model.CWECatalog.Weakness;
-import dsm.oscal.model.CWECatalog.Category;
+import dsm.oscal.model.CWECatalog.CWECatalogFactory;
 import dsm.oscal.model.CWECatalog.Categories;
-import dsm.oscal.model.CWECatalog.View;
-import dsm.oscal.model.CWECatalog.Views;
+import dsm.oscal.model.CWECatalog.Category;
 import dsm.oscal.model.CWECatalog.ExternalReference;
 import dsm.oscal.model.CWECatalog.ExternalReferences;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.BasicEList;
-import dsm.oscal.model.CWECatalog.impl.CWECatalogFactoryImpl;
-import dsm.oscal.model.CWECatalog.CWECatalogFactory;
+import dsm.oscal.model.CWECatalog.View;
+import dsm.oscal.model.CWECatalog.Views;
+import dsm.oscal.model.CWECatalog.Weakness;
+import dsm.oscal.model.CWECatalog.WeaknessCatalog;
+import dsm.oscal.model.CWECatalog.Weaknesses;
+import dsm.oscal.model.OscalCatalog.Catalog;
 
 /**
  * Transformer in charge of importing CWE catalog

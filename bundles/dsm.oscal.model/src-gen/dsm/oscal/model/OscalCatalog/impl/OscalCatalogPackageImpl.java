@@ -15,29 +15,23 @@
  */
 package dsm.oscal.model.OscalCatalog.impl;
 
-import dsm.TRADES.TRADESPackage;
-
-import dsm.oscal.model.OscalCatalog.Catalog;
-import dsm.oscal.model.OscalCatalog.Control;
-import dsm.oscal.model.OscalCatalog.Group;
-import dsm.oscal.model.OscalCatalog.OscalCatalogFactory;
-import dsm.oscal.model.OscalCatalog.OscalCatalogPackage;
-
-import dsm.oscal.model.OscalCatalogCommon.OscalCatalogCommonPackage;
-
-import dsm.oscal.model.OscalCatalogCommon.impl.OscalCatalogCommonPackageImpl;
-
-import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
-
-import dsm.oscal.model.OscalMetadata.impl.OscalMetadataPackageImpl;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import dsm.TRADES.TRADESPackage;
+import dsm.oscal.model.OscalCatalog.Catalog;
+import dsm.oscal.model.OscalCatalog.Control;
+import dsm.oscal.model.OscalCatalog.Group;
+import dsm.oscal.model.OscalCatalog.OscalCatalogFactory;
+import dsm.oscal.model.OscalCatalog.OscalCatalogPackage;
+import dsm.oscal.model.OscalCatalogCommon.OscalCatalogCommonPackage;
+import dsm.oscal.model.OscalCatalogCommon.impl.OscalCatalogCommonPackageImpl;
+import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
+import dsm.oscal.model.OscalMetadata.impl.OscalMetadataPackageImpl;
 
 /**
  * <!-- begin-user-doc -->

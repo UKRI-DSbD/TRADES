@@ -13,23 +13,19 @@
  */
 package dsm.TRADES.impl;
 
-import dsm.TRADES.TRADESPackage;
-import dsm.TRADES.VAOwner;
-import dsm.TRADES.VulnerableAsset;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import dsm.TRADES.TRADESPackage;
+import dsm.TRADES.VAOwner;
+import dsm.TRADES.VulnerableAsset;
 
 /**
  * <!-- begin-user-doc -->

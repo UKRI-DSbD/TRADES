@@ -15,16 +15,25 @@
  */
 package dsm.oscal.model.OscalMetadata.impl;
 
+import java.net.URI;
+import java.time.ZonedDateTime;
+import java.util.UUID;
+
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import dsm.TRADES.TRADESPackage;
-
 import dsm.oscal.model.OscalCatalog.OscalCatalogPackage;
-
 import dsm.oscal.model.OscalCatalog.impl.OscalCatalogPackageImpl;
-
 import dsm.oscal.model.OscalCatalogCommon.OscalCatalogCommonPackage;
-
 import dsm.oscal.model.OscalCatalogCommon.impl.OscalCatalogCommonPackageImpl;
-
 import dsm.oscal.model.OscalMetadata.Address;
 import dsm.oscal.model.OscalMetadata.BackMatter;
 import dsm.oscal.model.OscalMetadata.BackMatterResource;
@@ -58,31 +67,12 @@ import dsm.oscal.model.OscalMetadata.Revision;
 import dsm.oscal.model.OscalMetadata.Role;
 import dsm.oscal.model.OscalMetadata.TelephoneNumber;
 import dsm.oscal.model.OscalMetadata.UUIDElement;
-
 import gov.nist.secauto.metaschema.datatypes.Date;
 import gov.nist.secauto.metaschema.datatypes.DateTime;
 import gov.nist.secauto.metaschema.datatypes.IPv4;
 import gov.nist.secauto.metaschema.datatypes.IPv6;
-
 import gov.nist.secauto.metaschema.datatypes.markup.MarkupLine;
 import gov.nist.secauto.metaschema.datatypes.markup.MarkupMultiline;
-
-import java.net.URI;
-
-import java.time.ZonedDateTime;
-
-import java.util.UUID;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
-import org.eclipse.emf.ecore.EGenericType;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EcorePackage;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->

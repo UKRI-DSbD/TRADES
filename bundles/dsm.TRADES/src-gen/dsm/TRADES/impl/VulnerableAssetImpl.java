@@ -13,16 +13,17 @@
  */
 package dsm.TRADES.impl;
 
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
 import dsm.TRADES.ComponentType;
 import dsm.TRADES.Control;
 import dsm.TRADES.TRADESPackage;
 import dsm.TRADES.Vulnerability;
 import dsm.TRADES.VulnerableAsset;
-
-import java.util.Collection;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->

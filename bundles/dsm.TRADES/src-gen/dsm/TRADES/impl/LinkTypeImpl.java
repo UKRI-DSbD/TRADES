@@ -13,17 +13,15 @@
  */
 package dsm.TRADES.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import dsm.TRADES.ColoredElement;
 import dsm.TRADES.LinkType;
 import dsm.TRADES.RGBColor;
 import dsm.TRADES.TRADESFactory;
 import dsm.TRADES.TRADESPackage;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
