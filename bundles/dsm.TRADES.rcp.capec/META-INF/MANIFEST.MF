@@ -11,7 +11,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.jobs,
  org.eclipse.equinox.common,
  org.eclipse.osgi
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: dsm.TRADES.rcp.capec
 Bundle-ActivationPolicy: lazy
 Service-Component: OSGI-INF/dsm.trades.rcp.capec.CapecCatalogProvider.xml

@@ -16,7 +16,7 @@ Require-Bundle: org.eclipse.ui,
  com.fasterxml.jackson.core.jackson-databind;bundle-version="2.10.3",
  com.fasterxml.jackson.core.jackson-annotations;bundle-version="2.10.3",
  TRADES.design;bundle-version="2.5.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: dsm.TRADES.debug
 Import-Package: com.google.common.base;version="27.1.0",
  com.google.common.hash;version="27.1.0",
