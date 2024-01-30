@@ -122,16 +122,6 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 			return createComponentType();
 		case TRADESPackage.VULNERABLE_ASSET:
 			return createVulnerableAsset();
-		case TRADESPackage.WEAKNESS_CATALOG:
-			return createWeaknessCatalog();
-		case TRADESPackage.WEAKNESS:
-			return createWeakness();
-		case TRADESPackage.CATEGORY:
-			return createCategory();
-		case TRADESPackage.VIEW:
-			return createView();
-		case TRADESPackage.EXTERNAL_REFERENCE:
-			return createExternalReference();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -486,61 +476,6 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 	public VulnerableAsset createVulnerableAsset() {
 		VulnerableAssetImpl vulnerableAsset = new VulnerableAssetImpl();
 		return vulnerableAsset;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public WeaknessCatalog createWeaknessCatalog() {
-		WeaknessCatalogImpl weaknessCatalog = new WeaknessCatalogImpl();
-		return weaknessCatalog;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Weakness createWeakness() {
-		WeaknessImpl weakness = new WeaknessImpl();
-		return weakness;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Category createCategory() {
-		CategoryImpl category = new CategoryImpl();
-		return category;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public View createView() {
-		ViewImpl view = new ViewImpl();
-		return view;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ExternalReference createExternalReference() {
-		ExternalReferenceImpl externalReference = new ExternalReferenceImpl();
-		return externalReference;
 	}
 
 	/**

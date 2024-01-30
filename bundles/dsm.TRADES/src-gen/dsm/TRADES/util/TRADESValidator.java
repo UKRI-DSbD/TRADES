@@ -217,16 +217,6 @@ public class TRADESValidator extends EObjectValidator {
 			return validateVulnerableAsset((VulnerableAsset) value, diagnostics, context);
 		case TRADESPackage.VA_OWNER:
 			return validateVAOwner((VAOwner) value, diagnostics, context);
-		case TRADESPackage.WEAKNESS_CATALOG:
-			return validateWeaknessCatalog((WeaknessCatalog) value, diagnostics, context);
-		case TRADESPackage.WEAKNESS:
-			return validateWeakness((Weakness) value, diagnostics, context);
-		case TRADESPackage.CATEGORY:
-			return validateCategory((Category) value, diagnostics, context);
-		case TRADESPackage.VIEW:
-			return validateView((View) value, diagnostics, context);
-		case TRADESPackage.EXTERNAL_REFERENCE:
-			return validateExternalReference((ExternalReference) value, diagnostics, context);
 		case TRADESPackage.ASSESSMENT_ENUM:
 			return validateAssessmentENUM((AssessmentENUM) value, diagnostics, context);
 		case TRADESPackage.AFFECTED_ENUM:
@@ -813,53 +803,6 @@ public class TRADESValidator extends EObjectValidator {
 	 */
 	public boolean validateVAOwner(VAOwner vaOwner, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(vaOwner, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateWeaknessCatalog(WeaknessCatalog weaknessCatalog, DiagnosticChain diagnostics,
-			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(weaknessCatalog, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateWeakness(Weakness weakness, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(weakness, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateCategory(Category category, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(category, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateView(View view, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(view, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateExternalReference(ExternalReference externalReference, DiagnosticChain diagnostics,
-			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(externalReference, diagnostics, context);
 	}
 
 	/**

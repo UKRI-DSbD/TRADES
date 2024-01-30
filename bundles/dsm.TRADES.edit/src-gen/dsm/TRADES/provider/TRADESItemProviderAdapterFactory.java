@@ -723,121 +723,6 @@ public class TRADESItemProviderAdapterFactory extends TRADESAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link dsm.TRADES.WeaknessCatalog} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected WeaknessCatalogItemProvider weaknessCatalogItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link dsm.TRADES.WeaknessCatalog}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createWeaknessCatalogAdapter() {
-		if (weaknessCatalogItemProvider == null) {
-			weaknessCatalogItemProvider = new WeaknessCatalogItemProvider(this);
-		}
-
-		return weaknessCatalogItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link dsm.TRADES.Weakness} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected WeaknessItemProvider weaknessItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link dsm.TRADES.Weakness}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createWeaknessAdapter() {
-		if (weaknessItemProvider == null) {
-			weaknessItemProvider = new WeaknessItemProvider(this);
-		}
-
-		return weaknessItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link dsm.TRADES.Category} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CategoryItemProvider categoryItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link dsm.TRADES.Category}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCategoryAdapter() {
-		if (categoryItemProvider == null) {
-			categoryItemProvider = new CategoryItemProvider(this);
-		}
-
-		return categoryItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link dsm.TRADES.View} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ViewItemProvider viewItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link dsm.TRADES.View}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createViewAdapter() {
-		if (viewItemProvider == null) {
-			viewItemProvider = new ViewItemProvider(this);
-		}
-
-		return viewItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link dsm.TRADES.ExternalReference} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ExternalReferenceItemProvider externalReferenceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link dsm.TRADES.ExternalReference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createExternalReferenceAdapter() {
-		if (externalReferenceItemProvider == null) {
-			externalReferenceItemProvider = new ExternalReferenceItemProvider(this);
-		}
-
-		return externalReferenceItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1017,16 +902,6 @@ public class TRADESItemProviderAdapterFactory extends TRADESAdapterFactory
 			componentTypeItemProvider.dispose();
 		if (vulnerableAssetItemProvider != null)
 			vulnerableAssetItemProvider.dispose();
-		if (weaknessCatalogItemProvider != null)
-			weaknessCatalogItemProvider.dispose();
-		if (weaknessItemProvider != null)
-			weaknessItemProvider.dispose();
-		if (categoryItemProvider != null)
-			categoryItemProvider.dispose();
-		if (viewItemProvider != null)
-			viewItemProvider.dispose();
-		if (externalReferenceItemProvider != null)
-			externalReferenceItemProvider.dispose();
 	}
 
 }

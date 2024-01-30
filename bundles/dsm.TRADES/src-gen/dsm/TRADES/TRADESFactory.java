@@ -276,51 +276,6 @@ public interface TRADESFactory extends EFactory {
 	VulnerableAsset createVulnerableAsset();
 
 	/**
-	 * Returns a new object of class '<em>Weakness Catalog</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Weakness Catalog</em>'.
-	 * @generated
-	 */
-	WeaknessCatalog createWeaknessCatalog();
-
-	/**
-	 * Returns a new object of class '<em>Weakness</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Weakness</em>'.
-	 * @generated
-	 */
-	Weakness createWeakness();
-
-	/**
-	 * Returns a new object of class '<em>Category</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Category</em>'.
-	 * @generated
-	 */
-	Category createCategory();
-
-	/**
-	 * Returns a new object of class '<em>View</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>View</em>'.
-	 * @generated
-	 */
-	View createView();
-
-	/**
-	 * Returns a new object of class '<em>External Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>External Reference</em>'.
-	 * @generated
-	 */
-	ExternalReference createExternalReference();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

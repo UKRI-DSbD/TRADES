@@ -298,31 +298,6 @@ public class TRADESAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseWeaknessCatalog(WeaknessCatalog object) {
-			return createWeaknessCatalogAdapter();
-		}
-
-		@Override
-		public Adapter caseWeakness(Weakness object) {
-			return createWeaknessAdapter();
-		}
-
-		@Override
-		public Adapter caseCategory(Category object) {
-			return createCategoryAdapter();
-		}
-
-		@Override
-		public Adapter caseView(View object) {
-			return createViewAdapter();
-		}
-
-		@Override
-		public Adapter caseExternalReference(ExternalReference object) {
-			return createExternalReferenceAdapter();
-		}
-
-		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -954,76 +929,6 @@ public class TRADESAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createVAOwnerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link dsm.TRADES.WeaknessCatalog <em>Weakness Catalog</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see dsm.TRADES.WeaknessCatalog
-	 * @generated
-	 */
-	public Adapter createWeaknessCatalogAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link dsm.TRADES.Weakness <em>Weakness</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see dsm.TRADES.Weakness
-	 * @generated
-	 */
-	public Adapter createWeaknessAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link dsm.TRADES.Category <em>Category</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see dsm.TRADES.Category
-	 * @generated
-	 */
-	public Adapter createCategoryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link dsm.TRADES.View <em>View</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see dsm.TRADES.View
-	 * @generated
-	 */
-	public Adapter createViewAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link dsm.TRADES.ExternalReference <em>External Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see dsm.TRADES.ExternalReference
-	 * @generated
-	 */
-	public Adapter createExternalReferenceAdapter() {
 		return null;
 	}
 
