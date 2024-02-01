@@ -11,8 +11,7 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: dsm.oscal.model.OscalCatalog.presentation,
  dsm.oscal.model.OscalCatalogCommon.presentation,
- dsm.oscal.model.OscalMetadata.presentation,
- dsm.oscal.model.CWECatalog.presentation
+ dsm.oscal.model.OscalMetadata.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  dsm.oscal.model.edit;visibility:=reexport,

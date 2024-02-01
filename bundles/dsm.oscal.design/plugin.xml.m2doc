@@ -79,11 +79,6 @@
            wizardId="dsm.oscal.design.importoscalcatalog">
         <enablement></enablement>
      </commonWizard>
-     <commonWizard
-           type="import"
-           wizardId="dsm.oscal.design.importcwecatalog">
-        <enablement></enablement>
-     </commonWizard>
   </extension>
   <extension
         point="org.eclipse.ui.navigator.viewer">
@@ -109,22 +104,6 @@
         </selection>
         <description>
            Import an embedded OSCAL library
-        </description>
-     </wizard>
-  </extension>
-  <extension
-        point="org.eclipse.ui.importWizards">
-     <wizard
-           category="dsm.TRADES.rcp.import"
-           class="dsm.oscal.design.wizards.ImportEmbeddedCWECatalogWizard"
-           icon="icons/bookmarks_view.png"
-           id="dsm.oscal.design.importcwecatalog"
-           name="Import MITRE CWE Catalog">
-        <selection
-              class="org.eclipse.core.resources.IProject">
-        </selection>
-        <description>
-           Import an embedded MITRE CWE library
         </description>
      </wizard>
   </extension>

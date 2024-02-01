@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright Israel Aerospace Industries, Eclipse contributors and others 2021. All rights reserved.
+ This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License 2.0
+ which accompanies this distribution, and is available at
+ https://www.eclipse.org/legal/epl-2.0/
+ 
+ SPDX-License-Identifier: EPL-2.0
+ 
+ Contributors:
+     ELTA Ltd - initial API and implementation
+ 
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated cwe -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="dsm.cwe.model.CWECatalog.presentation.CWECatalogModelWizardID"
+            name="%_UI_CWECatalogModelWizard_label"
+            class="dsm.cwe.model.CWECatalog.presentation.CWECatalogModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CWECatalogModelFile.gif">
+         <description>%_UI_CWECatalogModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated cwe -->
+      <editor
+            id="dsm.cwe.model.CWECatalog.presentation.CWECatalogEditorID"
+            name="%_UI_CWECatalogEditor_label"
+            icon="icons/full/obj16/CWECatalogModelFile.gif"
+            extensions="cwe"
+            class="dsm.cwe.model.CWECatalog.presentation.CWECatalogEditor"
+            contributorClass="dsm.cwe.model.CWECatalog.presentation.CWECatalogActionBarContributor">
+      </editor>
+   </extension>
+</plugin>
