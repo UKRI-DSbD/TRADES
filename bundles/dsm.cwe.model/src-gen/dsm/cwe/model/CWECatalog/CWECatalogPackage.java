@@ -199,13 +199,13 @@ public interface CWECatalogPackage extends EPackage {
 	int WEAKNESS__ID = 0;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WEAKNESS__VALUE = 1;
+	int WEAKNESS__NAME = 1;
 
 	/**
 	 * The feature id for the '<em><b>Abstraction</b></em>' attribute.
@@ -628,15 +628,15 @@ public interface CWECatalogPackage extends EPackage {
 	EAttribute getWeakness_ID();
 
 	/**
-	 * Returns the meta object for the attribute '{@link dsm.cwe.model.CWECatalog.Weakness#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link dsm.cwe.model.CWECatalog.Weakness#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see dsm.cwe.model.CWECatalog.Weakness#getValue()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see dsm.cwe.model.CWECatalog.Weakness#getName()
 	 * @see #getWeakness()
 	 * @generated
 	 */
-	EAttribute getWeakness_Value();
+	EAttribute getWeakness_Name();
 
 	/**
 	 * Returns the meta object for the attribute '{@link dsm.cwe.model.CWECatalog.Weakness#getAbstraction <em>Abstraction</em>}'.
@@ -962,12 +962,12 @@ public interface CWECatalogPackage extends EPackage {
 		EAttribute WEAKNESS__ID = eINSTANCE.getWeakness_ID();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute WEAKNESS__VALUE = eINSTANCE.getWeakness_Value();
+		EAttribute WEAKNESS__NAME = eINSTANCE.getWeakness_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Abstraction</b></em>' attribute feature.

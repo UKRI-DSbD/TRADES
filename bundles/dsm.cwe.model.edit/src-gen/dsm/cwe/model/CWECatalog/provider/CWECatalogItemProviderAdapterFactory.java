@@ -90,7 +90,7 @@ public class CWECatalogItemProviderAdapterFactory extends CWECatalogAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected WeaknessCatalogItemProvider weaknessCatalogItemProvider;
+	protected WeaknessCatalogItemProviderCustomImpl weaknessCatalogItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link dsm.cwe.model.CWECatalog.WeaknessCatalog}.
@@ -101,7 +101,7 @@ public class CWECatalogItemProviderAdapterFactory extends CWECatalogAdapterFacto
 	@Override
 	public Adapter createWeaknessCatalogAdapter() {
 		if (weaknessCatalogItemProvider == null) {
-			weaknessCatalogItemProvider = new WeaknessCatalogItemProvider(this);
+			weaknessCatalogItemProvider = new WeaknessCatalogItemProviderCustomImpl(this);
 		}
 
 		return weaknessCatalogItemProvider;
@@ -113,7 +113,7 @@ public class CWECatalogItemProviderAdapterFactory extends CWECatalogAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected WeaknessesItemProvider weaknessesItemProvider;
+	protected WeaknessesItemProviderCustomImpl weaknessesItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link dsm.cwe.model.CWECatalog.Weaknesses}.
@@ -124,7 +124,7 @@ public class CWECatalogItemProviderAdapterFactory extends CWECatalogAdapterFacto
 	@Override
 	public Adapter createWeaknessesAdapter() {
 		if (weaknessesItemProvider == null) {
-			weaknessesItemProvider = new WeaknessesItemProvider(this);
+			weaknessesItemProvider = new WeaknessesItemProviderCustomImpl(this);
 		}
 
 		return weaknessesItemProvider;
@@ -136,7 +136,7 @@ public class CWECatalogItemProviderAdapterFactory extends CWECatalogAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected WeaknessItemProvider weaknessItemProvider;
+	protected WeaknessItemProviderCustomImpl weaknessItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link dsm.cwe.model.CWECatalog.Weakness}.
@@ -147,7 +147,7 @@ public class CWECatalogItemProviderAdapterFactory extends CWECatalogAdapterFacto
 	@Override
 	public Adapter createWeaknessAdapter() {
 		if (weaknessItemProvider == null) {
-			weaknessItemProvider = new WeaknessItemProvider(this);
+			weaknessItemProvider = new WeaknessItemProviderCustomImpl(this);
 		}
 
 		return weaknessItemProvider;
@@ -159,7 +159,7 @@ public class CWECatalogItemProviderAdapterFactory extends CWECatalogAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CategoriesItemProvider categoriesItemProvider;
+	protected CategoriesItemProviderCustomImpl categoriesItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link dsm.cwe.model.CWECatalog.Categories}.
@@ -170,7 +170,7 @@ public class CWECatalogItemProviderAdapterFactory extends CWECatalogAdapterFacto
 	@Override
 	public Adapter createCategoriesAdapter() {
 		if (categoriesItemProvider == null) {
-			categoriesItemProvider = new CategoriesItemProvider(this);
+			categoriesItemProvider = new CategoriesItemProviderCustomImpl(this);
 		}
 
 		return categoriesItemProvider;
@@ -182,7 +182,7 @@ public class CWECatalogItemProviderAdapterFactory extends CWECatalogAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CategoryItemProvider categoryItemProvider;
+	protected CategoryItemProviderCustomImpl categoryItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link dsm.cwe.model.CWECatalog.Category}.
@@ -193,7 +193,7 @@ public class CWECatalogItemProviderAdapterFactory extends CWECatalogAdapterFacto
 	@Override
 	public Adapter createCategoryAdapter() {
 		if (categoryItemProvider == null) {
-			categoryItemProvider = new CategoryItemProvider(this);
+			categoryItemProvider = new CategoryItemProviderCustomImpl(this);
 		}
 
 		return categoryItemProvider;
@@ -205,7 +205,7 @@ public class CWECatalogItemProviderAdapterFactory extends CWECatalogAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ViewsItemProvider viewsItemProvider;
+	protected ViewsItemProviderCustomImpl viewsItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link dsm.cwe.model.CWECatalog.Views}.
@@ -216,7 +216,7 @@ public class CWECatalogItemProviderAdapterFactory extends CWECatalogAdapterFacto
 	@Override
 	public Adapter createViewsAdapter() {
 		if (viewsItemProvider == null) {
-			viewsItemProvider = new ViewsItemProvider(this);
+			viewsItemProvider = new ViewsItemProviderCustomImpl(this);
 		}
 
 		return viewsItemProvider;
@@ -228,7 +228,7 @@ public class CWECatalogItemProviderAdapterFactory extends CWECatalogAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ViewItemProvider viewItemProvider;
+	protected ViewItemProviderCustomImpl viewItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link dsm.cwe.model.CWECatalog.View}.
@@ -239,7 +239,7 @@ public class CWECatalogItemProviderAdapterFactory extends CWECatalogAdapterFacto
 	@Override
 	public Adapter createViewAdapter() {
 		if (viewItemProvider == null) {
-			viewItemProvider = new ViewItemProvider(this);
+			viewItemProvider = new ViewItemProviderCustomImpl(this);
 		}
 
 		return viewItemProvider;
@@ -251,7 +251,7 @@ public class CWECatalogItemProviderAdapterFactory extends CWECatalogAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ExternalReferencesItemProvider externalReferencesItemProvider;
+	protected ExternalReferencesItemProviderCustomImpl externalReferencesItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link dsm.cwe.model.CWECatalog.ExternalReferences}.
@@ -262,7 +262,7 @@ public class CWECatalogItemProviderAdapterFactory extends CWECatalogAdapterFacto
 	@Override
 	public Adapter createExternalReferencesAdapter() {
 		if (externalReferencesItemProvider == null) {
-			externalReferencesItemProvider = new ExternalReferencesItemProvider(this);
+			externalReferencesItemProvider = new ExternalReferencesItemProviderCustomImpl(this);
 		}
 
 		return externalReferencesItemProvider;
@@ -274,7 +274,7 @@ public class CWECatalogItemProviderAdapterFactory extends CWECatalogAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ExternalReferenceItemProvider externalReferenceItemProvider;
+	protected ExternalReferenceItemProviderCustomImpl externalReferenceItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link dsm.cwe.model.CWECatalog.ExternalReference}.
@@ -285,7 +285,7 @@ public class CWECatalogItemProviderAdapterFactory extends CWECatalogAdapterFacto
 	@Override
 	public Adapter createExternalReferenceAdapter() {
 		if (externalReferenceItemProvider == null) {
-			externalReferenceItemProvider = new ExternalReferenceItemProvider(this);
+			externalReferenceItemProvider = new ExternalReferenceItemProviderCustomImpl(this);
 		}
 
 		return externalReferenceItemProvider;

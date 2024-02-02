@@ -74,7 +74,7 @@ public class WeaknessItemProvider
 			super.getPropertyDescriptors(object);
 
 			addIDPropertyDescriptor(object);
-			addValuePropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 			addAbstractionPropertyDescriptor(object);
 			addStructurePropertyDescriptor(object);
 			addStatusPropertyDescriptor(object);
@@ -105,19 +105,19 @@ public class WeaknessItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Value feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addValuePropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Weakness_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Weakness_value_feature", "_UI_Weakness_type"),
-				 CWECatalogPackage.Literals.WEAKNESS__VALUE,
+				 getString("_UI_Weakness_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Weakness_name_feature", "_UI_Weakness_type"),
+				 CWECatalogPackage.Literals.WEAKNESS__NAME,
 				 true,
 				 false,
 				 false,
@@ -211,7 +211,7 @@ public class WeaknessItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Weakness)object).getID();
+		String label = ((Weakness)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Weakness_type") :
 			getString("_UI_Weakness_type") + " " + label;
@@ -231,7 +231,7 @@ public class WeaknessItemProvider
 
 		switch (notification.getFeatureID(Weakness.class)) {
 			case CWECatalogPackage.WEAKNESS__ID:
-			case CWECatalogPackage.WEAKNESS__VALUE:
+			case CWECatalogPackage.WEAKNESS__NAME:
 			case CWECatalogPackage.WEAKNESS__ABSTRACTION:
 			case CWECatalogPackage.WEAKNESS__STRUCTURE:
 			case CWECatalogPackage.WEAKNESS__STATUS:

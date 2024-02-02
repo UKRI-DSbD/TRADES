@@ -106,7 +106,7 @@ public class CWETransformer {
 							String status = weaknessNode.getAttributes().getNamedItem("Status").getNodeValue();
 							Weakness weakness = catalogFactory.createWeakness();
 							weakness.setID(iD);
-							weakness.setValue(name);
+							weakness.setName(name);
 							weakness.setAbstraction(abstraction);
 							weakness.setStructure(structure);
 							weakness.setStatus(status);

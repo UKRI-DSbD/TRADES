@@ -11,19 +11,19 @@
 *     ELTA Ltd - initial API and implementation
 * 
 *******************************************************************************************************/
-package dsm.cwe.model.edit;
+package dsm.cwe.model.CWECatalog.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
-import dsm.cwe.model.CWECatalog.provider.ExternalReferencesItemProvider;
+import dsm.cwe.model.CWECatalog.provider.WeaknessesItemProvider;
 
-public class ExternalReferencesItemProviderCustomImpl extends ExternalReferencesItemProvider {
+public class WeaknessesItemProviderCustomImpl extends WeaknessesItemProvider {
 
-	public ExternalReferencesItemProviderCustomImpl(AdapterFactory adapterFactory) {
+	public WeaknessesItemProviderCustomImpl(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExternalReferences.png"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Weaknesses.png"));
 	}
 }

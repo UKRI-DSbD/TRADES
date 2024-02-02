@@ -11,19 +11,19 @@
 *     ELTA Ltd - initial API and implementation
 * 
 *******************************************************************************************************/
-package dsm.cwe.model.edit;
+package dsm.cwe.model.CWECatalog.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
-import dsm.cwe.model.CWECatalog.provider.ViewsItemProvider;
+import dsm.cwe.model.CWECatalog.provider.ExternalReferencesItemProvider;
 
-public class ViewsItemProviderCustomImpl extends ViewsItemProvider {
+public class ExternalReferencesItemProviderCustomImpl extends ExternalReferencesItemProvider {
 
-	public ViewsItemProviderCustomImpl(AdapterFactory adapterFactory) {
+	public ExternalReferencesItemProviderCustomImpl(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Views.png"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExternalReferences.png"));
 	}
 }

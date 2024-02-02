@@ -21,8 +21,9 @@
     </genClasses>
     <genClasses ecoreClass="cwe-catalog.ecore#//Weakness">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//Weakness/iD"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//Weakness/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//Weakness/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//Weakness/abstraction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//Weakness/structure"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//Weakness/status"/>
     </genClasses>
     <genClasses ecoreClass="cwe-catalog.ecore#//Categories">

@@ -277,7 +277,7 @@ public class CWECatalogPackageImpl extends EPackageImpl implements CWECatalogPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getWeakness_Value() {
+	public EAttribute getWeakness_Name() {
 		return (EAttribute)weaknessEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -522,7 +522,7 @@ public class CWECatalogPackageImpl extends EPackageImpl implements CWECatalogPac
 
 		weaknessEClass = createEClass(WEAKNESS);
 		createEAttribute(weaknessEClass, WEAKNESS__ID);
-		createEAttribute(weaknessEClass, WEAKNESS__VALUE);
+		createEAttribute(weaknessEClass, WEAKNESS__NAME);
 		createEAttribute(weaknessEClass, WEAKNESS__ABSTRACTION);
 		createEAttribute(weaknessEClass, WEAKNESS__STRUCTURE);
 		createEAttribute(weaknessEClass, WEAKNESS__STATUS);
@@ -593,7 +593,7 @@ public class CWECatalogPackageImpl extends EPackageImpl implements CWECatalogPac
 
 		initEClass(weaknessEClass, Weakness.class, "Weakness", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getWeakness_ID(), ecorePackage.getEString(), "iD", null, 0, 1, Weakness.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getWeakness_Value(), ecorePackage.getEString(), "value", null, 0, 1, Weakness.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWeakness_Name(), ecorePackage.getEString(), "name", null, 0, 1, Weakness.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWeakness_Abstraction(), ecorePackage.getEString(), "abstraction", null, 0, 1, Weakness.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWeakness_Structure(), ecorePackage.getEString(), "structure", null, 0, 1, Weakness.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWeakness_Status(), ecorePackage.getEString(), "status", null, 0, 1, Weakness.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
