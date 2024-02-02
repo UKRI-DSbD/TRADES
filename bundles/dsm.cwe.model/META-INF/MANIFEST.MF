@@ -7,7 +7,7 @@ Bundle-Version: 3.7.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: dsm.cwe.model.CWECatalog,
  dsm.cwe.model.CWECatalog.impl,
  dsm.cwe.model.CWECatalog.util,

@@ -8,7 +8,7 @@ Bundle-ClassPath: .
 Bundle-Activator: dsm.cwe.model.CWECatalog.provider.CWEEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: dsm.cwe.model.CWECatalog.provider
 Require-Bundle: org.eclipse.core.runtime,
  dsm.cwe.model;visibility:=reexport,
