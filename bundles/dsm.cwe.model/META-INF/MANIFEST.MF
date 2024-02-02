@@ -11,7 +11,8 @@ Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: dsm.cwe.model.CWECatalog,
  dsm.cwe.model.CWECatalog.impl,
  dsm.cwe.model.CWECatalog.util,
- dsm.cwe.model.transform
+ dsm.cwe.model.transform,
+ dsm.cwe.model
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  dsm.TRADES;visibility:=reexport,
  org.eclipse.core.runtime

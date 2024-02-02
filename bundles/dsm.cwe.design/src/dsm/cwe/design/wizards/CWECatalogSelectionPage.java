@@ -49,7 +49,7 @@
      private Group browseGroup;
      private Text fileSelectionLabel;
  
-     protected CWECatalogSelectionPage() {
+     public CWECatalogSelectionPage() {
          super("CWE Catalog selection page");
          setMessage("Select an import type and choose a catalog.");
      }

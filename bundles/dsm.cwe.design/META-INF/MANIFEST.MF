@@ -18,9 +18,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.transaction;bundle-version="1.9.1",
  dsm.TRADES;bundle-version="2.5.2",
  dsm.TRADES.edit;bundle-version="2.5.2",
- TRADES.design;bundle-version="2.5.2",
  org.eclipse.eef.ide.ui;bundle-version="2.1.5",
- dsm.TRADES.rcp;bundle-version="2.5.2",
  org.eclipse.acceleo.query,
  org.apache.poi,
  org.eclipse.sirius.ext.emf.edit,
@@ -29,3 +27,5 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: %providerName
 Automatic-Module-Name: dsm.cwe.design
+Export-Package: dsm.cwe.design,
+ dsm.cwe.design.wizards

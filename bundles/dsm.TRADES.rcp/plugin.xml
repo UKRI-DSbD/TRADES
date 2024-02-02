@@ -56,4 +56,19 @@
             name="TRADES">
       </category>
    </extension>
+  <extension
+        point="org.eclipse.ui.importWizards">
+     <wizard
+           class="dsm.trades.rcp.internal.wizards.ImportEmbeddedCWECatalogWizard"
+           icon="icons/bookmarks_view.png"
+           id="dsm.cwe.design.importcwecatalog"
+           name="Import MITRE CWE Catalog">
+        <selection
+              class="org.eclipse.core.resources.IProject">
+        </selection>
+        <description>
+           Import an embedded MITRE CWE library
+        </description>
+     </wizard>
+  </extension>
 </plugin>

@@ -12,7 +12,7 @@
  * 
  */
 
-package dsm.cwe.design.wizards;
+package dsm.trades.rcp.internal.wizards;
 
 import static java.util.stream.Collectors.toList;
 
@@ -45,6 +45,7 @@ import org.eclipse.ui.IImportWizard;
 import org.eclipse.ui.IWorkbench;
 
 import dsm.cwe.design.EmbeddedCatalogRegistry;
+import dsm.cwe.design.wizards.CWECatalogSelectionPage;
 import dsm.cwe.model.CWECatalog.WeaknessCatalog;
 import dsm.cwe.model.transform.CWETransformer;
 import dsm.trades.rcp.TRADESRCPActivator;
