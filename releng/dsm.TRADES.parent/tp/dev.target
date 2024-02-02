@@ -1,30 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
-<!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl --><target name="TRADES" sequenceNumber="1705408041">
+<!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
+<target name="TRADES" sequenceNumber="1706874332">
   <locations>
-    <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.pde.ds.lib" version="0.0.0"/>
+      <repository location="https://download.eclipse.org/releases/2020-12/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.license.feature.group" version="0.0.0"/>
       <repository id="Eclipse-Shared-License" location="http://download.eclipse.org/cbi/updates/license"/>
     </location>
-    <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.obeonetwork.m2doc.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.m2doc.sirius.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.m2doc.sirius" version="0.0.0"/>
+      <unit id="org.obeonetwork.m2doc.sirius.ui" version="0.0.0"/>
       <unit id="org.obeonetwork.m2doc.ui.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.m2doc.html.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.acceleo.query.feature.group" version="0.0.0"/>
       <unit id="org.apache.poi" version="0.0.0"/>
-      <repository location="https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.2.2/repository"/>
+      <repository location="https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository"/>
     </location>
-    <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.e4.tools.bundle.spy.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.e4.tools.model.spy.feature.feature.group" version="0.0.0"/>
       <repository location="http://download.eclipse.org/e4/snapshots/org.eclipse.e4.tools/latest/"/>
     </location>
-    <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="fr.obeo.dsl.designer.gen.html.feature.feature.group" version="0.0.0"/>
       <repository location="https://www.obeo.fr/download/release/designer/11.3/community/latest/repository"/>
     </location>
-    <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.sirius.specifier.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.properties.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.runtime.ide.ui.feature.group" version="0.0.0"/>
@@ -32,7 +39,7 @@
       <unit id="org.eclipse.eef.ide" version="0.0.0"/>
       <unit id="org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.interpreter.feature.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.sirius.properties.feature.source.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.properties.feature.source.feature.group" version="7.3.0.202311270829"/>
       <unit id="org.eclipse.sirius.runtime.acceleo.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.runtime.aql.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.runtime.ide.eef.feature.group" version="0.0.0"/>
@@ -43,9 +50,9 @@
       <unit id="org.eclipse.sirius.specifier.properties.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.diagram.elk.sdk.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.eef.sdk.feature.feature.group" version="0.0.0"/>
-      <repository location="https://download.eclipse.org/sirius/updates/releases/6.5.1/2020-09/"/>
+      <repository location="https://download.eclipse.org/sirius/updates/releases/7.3.0/2023-03/"/>
     </location>
-    <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.jsoup" version="0.0.0"/>
       <unit id="com.fasterxml.jackson.core.jackson-core" version="0.0.0"/>
       <unit id="com.fasterxml.jackson.core.jackson-databind" version="0.0.0"/>
@@ -58,15 +65,16 @@
       <unit id="org.junit" version="0.0.0"/>
       <repository location="https://download.eclipse.org/tools/orbit/downloads/drops/R20200529191137/repository"/>
     </location>
-    <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.justj.openjdk.hotspot.jre.full.feature.group" version="0.0.0"/>
       <repository location="https://download.eclipse.org/justj/jres/17/updates/release/latest"/>
     </location>
-    <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.egit.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.sdk.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sdk.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf" version="0.0.0"/>
+      <unit id="org.eclipse.emf.codegen.ecore.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.pde.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.rcp.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.osgi.services" version="0.0.0"/>
@@ -75,7 +83,7 @@
       <unit id="org.eclipse.collections.feature.feature.group" version="0.0.0"/>
       <repository location="https://download.eclipse.org/releases/2023-12/"/>
     </location>
-    <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.amalgam.explorer.contextual.sirius.feature.group" version="0.0.0"/>
       <repository location="https://download.eclipse.org/modeling/amalgam/updates/stable/1.11.0-S20191007/capella/"/>
     </location>

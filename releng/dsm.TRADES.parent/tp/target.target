@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="TRADES" sequenceNumber="1705602813">
+<target name="TRADES" sequenceNumber="1706874463">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.sdk.feature.group" version="0.0.0"/>
@@ -27,6 +27,7 @@
       <unit id="org.obeonetwork.m2doc.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.m2doc.sirius.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.m2doc.sirius" version="0.0.0"/>
+      <unit id="org.obeonetwork.m2doc.sirius.ui" version="0.0.0"/>
       <unit id="org.obeonetwork.m2doc.ui.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.m2doc.html.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.acceleo.query.feature.group" version="0.0.0"/>
