@@ -673,6 +673,29 @@ public class TRADESItemProviderAdapterFactory extends TRADESAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link dsm.TRADES.ComponentTypeOwner} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ComponentTypeOwnerItemProviderCustomImpl componentTypeOwnerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link dsm.TRADES.ComponentTypeOwner}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createComponentTypeOwnerAdapter() {
+		if (componentTypeOwnerItemProvider == null) {
+			componentTypeOwnerItemProvider = new ComponentTypeOwnerItemProviderCustomImpl(this);
+		}
+
+		return componentTypeOwnerItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link dsm.TRADES.ComponentType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -693,6 +716,29 @@ public class TRADESItemProviderAdapterFactory extends TRADESAdapterFactory
 		}
 
 		return componentTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link dsm.TRADES.VulnerableAssetOwner} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VulnerableAssetOwnerItemProviderCustomImpl vulnerableAssetOwnerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link dsm.TRADES.VulnerableAssetOwner}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVulnerableAssetOwnerAdapter() {
+		if (vulnerableAssetOwnerItemProvider == null) {
+			vulnerableAssetOwnerItemProvider = new VulnerableAssetOwnerItemProviderCustomImpl(this);
+		}
+
+		return vulnerableAssetOwnerItemProvider;
 	}
 
 	/**
@@ -894,8 +940,12 @@ public class TRADESItemProviderAdapterFactory extends TRADESAdapterFactory
 			vulnerabilityOwnerItemProvider.dispose();
 		if (vulnerabilityItemProvider != null)
 			vulnerabilityItemProvider.dispose();
+		if (componentTypeOwnerItemProvider != null)
+			componentTypeOwnerItemProvider.dispose();
 		if (componentTypeItemProvider != null)
 			componentTypeItemProvider.dispose();
+		if (vulnerableAssetOwnerItemProvider != null)
+			vulnerableAssetOwnerItemProvider.dispose();
 		if (vulnerableAssetItemProvider != null)
 			vulnerableAssetItemProvider.dispose();
 	}

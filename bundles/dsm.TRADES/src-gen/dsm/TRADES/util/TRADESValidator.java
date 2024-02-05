@@ -13,6 +13,7 @@
  */
 package dsm.TRADES.util;
 
+import dsm.TRADES.*;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -234,8 +235,6 @@ public class TRADESValidator extends EObjectValidator {
 			return validateCatalog((Catalog) value, diagnostics, context);
 		case TRADESPackage.ABSTRACT_THREAT_OWNER:
 			return validateAbstractThreatOwner((AbstractThreatOwner) value, diagnostics, context);
-		case TRADESPackage.ABSTRACT_VULNERABILITY_OWNER:
-			return validateAbstractVulnerabilityOwner((AbstractVulnerabilityOwner) value, diagnostics, context);
 		case TRADESPackage.ITHREAT_DEFINITION:
 			return validateIThreatDefinition((IThreatDefinition) value, diagnostics, context);
 		case TRADESPackage.ICONTROL_DEFINITION:
@@ -252,16 +251,24 @@ public class TRADESValidator extends EObjectValidator {
 			return validateElementWithId((ElementWithId) value, diagnostics, context);
 		case TRADESPackage.DOMAIN_ASSET:
 			return validateDomainAsset((DomainAsset) value, diagnostics, context);
+		case TRADESPackage.ABSTRACT_VULNERABILITY_OWNER:
+			return validateAbstractVulnerabilityOwner((AbstractVulnerabilityOwner) value, diagnostics, context);
 		case TRADESPackage.VULNERABILITY_OWNER:
 			return validateVulnerabilityOwner((VulnerabilityOwner) value, diagnostics, context);
 		case TRADESPackage.VULNERABILITY:
 			return validateVulnerability((Vulnerability) value, diagnostics, context);
+		case TRADESPackage.ABSTRACT_COMPONENT_TYPE_OWNER:
+			return validateAbstractComponentTypeOwner((AbstractComponentTypeOwner) value, diagnostics, context);
 		case TRADESPackage.COMPONENT_TYPE_OWNER:
 			return validateComponentTypeOwner((ComponentTypeOwner) value, diagnostics, context);
 		case TRADESPackage.COMPONENT_TYPE:
 			return validateComponentType((ComponentType) value, diagnostics, context);
 		case TRADESPackage.ASSET:
 			return validateAsset((Asset) value, diagnostics, context);
+		case TRADESPackage.ABSTRACT_VULNERABLE_ASSET_OWNER:
+			return validateAbstractVulnerableAssetOwner((AbstractVulnerableAssetOwner) value, diagnostics, context);
+		case TRADESPackage.VULNERABLE_ASSET_OWNER:
+			return validateVulnerableAssetOwner((VulnerableAssetOwner) value, diagnostics, context);
 		case TRADESPackage.VULNERABLE_ASSET:
 			return validateVulnerableAsset((VulnerableAsset) value, diagnostics, context);
 		case TRADESPackage.VA_OWNER:
@@ -811,6 +818,16 @@ public class TRADESValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateAbstractComponentTypeOwner(AbstractComponentTypeOwner abstractComponentTypeOwner,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(abstractComponentTypeOwner, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateComponentTypeOwner(ComponentTypeOwner componentTypeOwner, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(componentTypeOwner, diagnostics, context);
@@ -833,6 +850,26 @@ public class TRADESValidator extends EObjectValidator {
 	 */
 	public boolean validateAsset(Asset asset, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(asset, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAbstractVulnerableAssetOwner(AbstractVulnerableAssetOwner abstractVulnerableAssetOwner,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(abstractVulnerableAssetOwner, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateVulnerableAssetOwner(VulnerableAssetOwner vulnerableAssetOwner, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(vulnerableAssetOwner, diagnostics, context);
 	}
 
 	/**

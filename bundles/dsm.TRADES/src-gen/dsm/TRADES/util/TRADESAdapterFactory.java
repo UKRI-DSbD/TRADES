@@ -13,6 +13,7 @@
  */
 package dsm.TRADES.util;
 
+import dsm.TRADES.*;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -260,11 +261,6 @@ public class TRADESAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseAbstractVulnerabilityOwner(AbstractVulnerabilityOwner object) {
-			return createAbstractVulnerabilityOwnerAdapter();
-		}
-
-		@Override
 		public Adapter caseIThreatDefinition(IThreatDefinition object) {
 			return createIThreatDefinitionAdapter();
 		}
@@ -305,6 +301,11 @@ public class TRADESAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseAbstractVulnerabilityOwner(AbstractVulnerabilityOwner object) {
+			return createAbstractVulnerabilityOwnerAdapter();
+		}
+
+		@Override
 		public Adapter caseVulnerabilityOwner(VulnerabilityOwner object) {
 			return createVulnerabilityOwnerAdapter();
 		}
@@ -312,6 +313,11 @@ public class TRADESAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseVulnerability(Vulnerability object) {
 			return createVulnerabilityAdapter();
+		}
+
+		@Override
+		public Adapter caseAbstractComponentTypeOwner(AbstractComponentTypeOwner object) {
+			return createAbstractComponentTypeOwnerAdapter();
 		}
 
 		@Override
@@ -327,6 +333,16 @@ public class TRADESAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseAsset(Asset object) {
 			return createAssetAdapter();
+		}
+
+		@Override
+		public Adapter caseAbstractVulnerableAssetOwner(AbstractVulnerableAssetOwner object) {
+			return createAbstractVulnerableAssetOwnerAdapter();
+		}
+
+		@Override
+		public Adapter caseVulnerableAssetOwner(VulnerableAssetOwner object) {
+			return createVulnerableAssetOwnerAdapter();
 		}
 
 		@Override
@@ -905,6 +921,20 @@ public class TRADESAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link dsm.TRADES.AbstractComponentTypeOwner <em>Abstract Component Type Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see dsm.TRADES.AbstractComponentTypeOwner
+	 * @generated
+	 */
+	public Adapter createAbstractComponentTypeOwnerAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link dsm.TRADES.ComponentTypeOwner <em>Component Type Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -943,6 +973,34 @@ public class TRADESAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAssetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link dsm.TRADES.AbstractVulnerableAssetOwner <em>Abstract Vulnerable Asset Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see dsm.TRADES.AbstractVulnerableAssetOwner
+	 * @generated
+	 */
+	public Adapter createAbstractVulnerableAssetOwnerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link dsm.TRADES.VulnerableAssetOwner <em>Vulnerable Asset Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see dsm.TRADES.VulnerableAssetOwner
+	 * @generated
+	 */
+	public Adapter createVulnerableAssetOwnerAdapter() {
 		return null;
 	}
 

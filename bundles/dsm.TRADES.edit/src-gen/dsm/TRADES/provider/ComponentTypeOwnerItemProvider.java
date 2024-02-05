@@ -79,7 +79,7 @@ public class ComponentTypeOwnerItemProvider extends ItemProviderAdapter implemen
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TRADESPackage.Literals.COMPONENT_TYPE_OWNER__COMPONENTTYPE);
+			childrenFeatures.add(TRADESPackage.Literals.COMPONENT_TYPE_OWNER__COMPONENT_TYPES);
 		}
 		return childrenFeatures;
 	}
@@ -141,7 +141,7 @@ public class ComponentTypeOwnerItemProvider extends ItemProviderAdapter implemen
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ComponentTypeOwner.class)) {
-		case TRADESPackage.COMPONENT_TYPE_OWNER__COMPONENTTYPE:
+		case TRADESPackage.COMPONENT_TYPE_OWNER__COMPONENT_TYPES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -159,7 +159,7 @@ public class ComponentTypeOwnerItemProvider extends ItemProviderAdapter implemen
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.COMPONENT_TYPE_OWNER__COMPONENTTYPE,
+		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.COMPONENT_TYPE_OWNER__COMPONENT_TYPES,
 				TRADESFactory.eINSTANCE.createComponentType()));
 	}
 

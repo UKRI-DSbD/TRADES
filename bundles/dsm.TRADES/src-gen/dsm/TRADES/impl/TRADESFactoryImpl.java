@@ -13,6 +13,7 @@
  */
 package dsm.TRADES.impl;
 
+import dsm.TRADES.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -151,8 +152,12 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 			return createVulnerabilityOwner();
 		case TRADESPackage.VULNERABILITY:
 			return createVulnerability();
+		case TRADESPackage.COMPONENT_TYPE_OWNER:
+			return createComponentTypeOwner();
 		case TRADESPackage.COMPONENT_TYPE:
 			return createComponentType();
+		case TRADESPackage.VULNERABLE_ASSET_OWNER:
+			return createVulnerableAssetOwner();
 		case TRADESPackage.VULNERABLE_ASSET:
 			return createVulnerableAsset();
 		default:
@@ -495,9 +500,31 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 	 * @generated
 	 */
 	@Override
+	public ComponentTypeOwner createComponentTypeOwner() {
+		ComponentTypeOwnerImpl componentTypeOwner = new ComponentTypeOwnerImpl();
+		return componentTypeOwner;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ComponentType createComponentType() {
 		ComponentTypeImpl componentType = new ComponentTypeImpl();
 		return componentType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public VulnerableAssetOwner createVulnerableAssetOwner() {
+		VulnerableAssetOwnerImpl vulnerableAssetOwner = new VulnerableAssetOwnerImpl();
+		return vulnerableAssetOwner;
 	}
 
 	/**

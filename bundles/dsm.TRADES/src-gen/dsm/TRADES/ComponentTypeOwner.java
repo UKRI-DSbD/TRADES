@@ -25,24 +25,24 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link dsm.TRADES.ComponentTypeOwner#getComponenttype <em>Componenttype</em>}</li>
+ *   <li>{@link dsm.TRADES.ComponentTypeOwner#getComponentTypes <em>Component Types</em>}</li>
  * </ul>
  *
  * @see dsm.TRADES.TRADESPackage#getComponentTypeOwner()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface ComponentTypeOwner extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Componenttype</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Component Types</b></em>' containment reference list.
 	 * The list contents are of type {@link dsm.TRADES.ComponentType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Componenttype</em>' containment reference list.
-	 * @see dsm.TRADES.TRADESPackage#getComponentTypeOwner_Componenttype()
+	 * @return the value of the '<em>Component Types</em>' containment reference list.
+	 * @see dsm.TRADES.TRADESPackage#getComponentTypeOwner_ComponentTypes()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ComponentType> getComponenttype();
+	EList<ComponentType> getComponentTypes();
 
 } // ComponentTypeOwner
