@@ -55,6 +55,12 @@ public class SemanticUtil {
 		VulnerabilityOwner vulnerabilityOwner = TRADESFactory.eINSTANCE.createVulnerabilityOwner();
 		analysis.setVulnerabilityOwner(vulnerabilityOwner);
 
+		ComponentTypeOwner componentTypeOwner = TRADESFactory.eINSTANCE.createComponentTypeOwner();
+		analysis.setComponentTypeOwner(componentTypeOwner);
+
+		VulnerableAssetOwner vulnerableAssetOwner = TRADESFactory.eINSTANCE.createVulnerableAssetOwner();
+		analysis.setVulnerableAssetOwner(vulnerableAssetOwner);
+
 		createControlOwner(analysis);
 
 		createDataOwner(analysis);
