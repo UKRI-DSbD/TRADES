@@ -290,10 +290,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="VulnerabilityOwner">
     <eStructuralFeatures xsi:type="ecore:EReference" name="vulnerabilities" upperBound="-1"
         eType="#//Vulnerability" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IconLicence" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        changeable="false" defaultValueLiteral="Creative Commons Attribution License (CC BY 3.0) https://creativecommons.org/licenses/by/3.0/. Credit: icelliod / the Noun Project"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Vulnerability" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="refines" upperBound="-1"
         eType="#//Vulnerability"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IconLicence" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        changeable="false" defaultValueLiteral="Creative Commons Attribution License (CC BY 3.0) https://creativecommons.org/licenses/by/3.0/. Credit: icelliod / the Noun Project"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ComponentCategoryENUM">
     <eLiterals name="Data"/>

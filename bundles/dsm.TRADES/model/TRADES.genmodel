@@ -196,15 +196,6 @@
     <genClasses ecoreClass="TRADES.ecore#//AbstractThreatOwner">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AbstractThreatOwner/threatOwner"/>
     </genClasses>
-    <genClasses ecoreClass="TRADES.ecore#//AbstractVulnerabilityOwner">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AbstractVulnerabilityOwner/vulnerabilityOwner"/>
-    </genClasses>
-    <genClasses ecoreClass="TRADES.ecore#//AbstractVulnerableAssetOwner">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AbstractVulnerableAssetOwner/vulnerableAssetOwner"/>
-    </genClasses>
-    <genClasses ecoreClass="TRADES.ecore#//AbstractComponentTypeOwner">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AbstractComponentTypeOwner/componentTypeOwner"/>
-    </genClasses>
     <genClasses image="false" ecoreClass="TRADES.ecore#//IThreatDefinition">
       <genOperations ecoreOperation="TRADES.ecore#//IThreatDefinition/getId"/>
       <genOperations ecoreOperation="TRADES.ecore#//IThreatDefinition/getDescription"/>
@@ -245,11 +236,19 @@
     <genClasses ecoreClass="TRADES.ecore#//DomainAsset">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//DomainAsset/category"/>
     </genClasses>
+    <genClasses ecoreClass="TRADES.ecore#//AbstractVulnerabilityOwner">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AbstractVulnerabilityOwner/vulnerabilityOwner"/>
+    </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//VulnerabilityOwner">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//VulnerabilityOwner/vulnerabilities"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//VulnerabilityOwner/IconLicence"/>
     </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//Vulnerability">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Vulnerability/refines"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Vulnerability/IconLicence"/>
+    </genClasses>
+    <genClasses ecoreClass="TRADES.ecore#//AbstractComponentTypeOwner">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AbstractComponentTypeOwner/componentTypeOwner"/>
     </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//ComponentTypeOwner">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//ComponentTypeOwner/componentTypes"/>
@@ -259,6 +258,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//ComponentType/subjectToThreats"/>
     </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//Asset"/>
+    <genClasses ecoreClass="TRADES.ecore#//AbstractVulnerableAssetOwner">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AbstractVulnerableAssetOwner/vulnerableAssetOwner"/>
+    </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//VulnerableAssetOwner">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//VulnerableAssetOwner/vulnerableAssets"/>
     </genClasses>

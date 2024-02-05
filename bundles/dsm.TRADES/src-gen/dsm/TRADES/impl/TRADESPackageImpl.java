@@ -1928,6 +1928,16 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getVulnerabilityOwner_IconLicence() {
+		return (EAttribute) vulnerabilityOwnerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getVulnerability() {
 		return vulnerabilityEClass;
 	}
@@ -1940,6 +1950,16 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	@Override
 	public EReference getVulnerability_Refines() {
 		return (EReference) vulnerabilityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getVulnerability_IconLicence() {
+		return (EAttribute) vulnerabilityEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2398,9 +2418,11 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 
 		vulnerabilityOwnerEClass = createEClass(VULNERABILITY_OWNER);
 		createEReference(vulnerabilityOwnerEClass, VULNERABILITY_OWNER__VULNERABILITIES);
+		createEAttribute(vulnerabilityOwnerEClass, VULNERABILITY_OWNER__ICON_LICENCE);
 
 		vulnerabilityEClass = createEClass(VULNERABILITY);
 		createEReference(vulnerabilityEClass, VULNERABILITY__REFINES);
+		createEAttribute(vulnerabilityEClass, VULNERABILITY__ICON_LICENCE);
 
 		abstractComponentTypeOwnerEClass = createEClass(ABSTRACT_COMPONENT_TYPE_OWNER);
 		createEReference(abstractComponentTypeOwnerEClass, ABSTRACT_COMPONENT_TYPE_OWNER__COMPONENT_TYPE_OWNER);
@@ -2939,12 +2961,20 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		initEReference(getVulnerabilityOwner_Vulnerabilities(), this.getVulnerability(), null, "vulnerabilities", null,
 				0, -1, VulnerabilityOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVulnerabilityOwner_IconLicence(), theEcorePackage.getEString(), "IconLicence",
+				"Creative Commons Attribution License (CC BY 3.0) https://creativecommons.org/licenses/by/3.0/. Credit: icelliod / the Noun Project",
+				0, 1, VulnerabilityOwner.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(vulnerabilityEClass, Vulnerability.class, "Vulnerability", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVulnerability_Refines(), this.getVulnerability(), null, "refines", null, 0, -1,
 				Vulnerability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVulnerability_IconLicence(), theEcorePackage.getEString(), "IconLicence",
+				"Creative Commons Attribution License (CC BY 3.0) https://creativecommons.org/licenses/by/3.0/. Credit: icelliod / the Noun Project",
+				0, 1, Vulnerability.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(abstractComponentTypeOwnerEClass, AbstractComponentTypeOwner.class, "AbstractComponentTypeOwner",
 				IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

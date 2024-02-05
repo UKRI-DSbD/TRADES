@@ -2995,13 +2995,22 @@ public interface TRADESPackage extends EPackage {
 	int VULNERABILITY_OWNER__VULNERABILITIES = 0;
 
 	/**
+	 * The feature id for the '<em><b>Icon Licence</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VULNERABILITY_OWNER__ICON_LICENCE = 1;
+
+	/**
 	 * The number of structural features of the '<em>Vulnerability Owner</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY_OWNER_FEATURE_COUNT = 1;
+	int VULNERABILITY_OWNER_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Vulnerability Owner</em>' class.
@@ -3041,13 +3050,22 @@ public interface TRADESPackage extends EPackage {
 	int VULNERABILITY__REFINES = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Icon Licence</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VULNERABILITY__ICON_LICENCE = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Vulnerability</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int VULNERABILITY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Vulnerability</em>' class.
@@ -4885,6 +4903,17 @@ public interface TRADESPackage extends EPackage {
 	EReference getVulnerabilityOwner_Vulnerabilities();
 
 	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.VulnerabilityOwner#getIconLicence <em>Icon Licence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Icon Licence</em>'.
+	 * @see dsm.TRADES.VulnerabilityOwner#getIconLicence()
+	 * @see #getVulnerabilityOwner()
+	 * @generated
+	 */
+	EAttribute getVulnerabilityOwner_IconLicence();
+
+	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.Vulnerability <em>Vulnerability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4904,6 +4933,17 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getVulnerability_Refines();
+
+	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.Vulnerability#getIconLicence <em>Icon Licence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Icon Licence</em>'.
+	 * @see dsm.TRADES.Vulnerability#getIconLicence()
+	 * @see #getVulnerability()
+	 * @generated
+	 */
+	EAttribute getVulnerability_IconLicence();
 
 	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.AbstractComponentTypeOwner <em>Abstract Component Type Owner</em>}'.
@@ -6387,6 +6427,14 @@ public interface TRADESPackage extends EPackage {
 		EReference VULNERABILITY_OWNER__VULNERABILITIES = eINSTANCE.getVulnerabilityOwner_Vulnerabilities();
 
 		/**
+		 * The meta object literal for the '<em><b>Icon Licence</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VULNERABILITY_OWNER__ICON_LICENCE = eINSTANCE.getVulnerabilityOwner_IconLicence();
+
+		/**
 		 * The meta object literal for the '{@link dsm.TRADES.impl.VulnerabilityImpl <em>Vulnerability</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6403,6 +6451,14 @@ public interface TRADESPackage extends EPackage {
 		 * @generated
 		 */
 		EReference VULNERABILITY__REFINES = eINSTANCE.getVulnerability_Refines();
+
+		/**
+		 * The meta object literal for the '<em><b>Icon Licence</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VULNERABILITY__ICON_LICENCE = eINSTANCE.getVulnerability_IconLicence();
 
 		/**
 		 * The meta object literal for the '{@link dsm.TRADES.impl.AbstractComponentTypeOwnerImpl <em>Abstract Component Type Owner</em>}' class.
