@@ -159,6 +159,12 @@
 		<module>../../bundles/dsm.cwe.model.edit/</module>
 		<module>../../bundles/dsm.cwe.model.editor/</module>
 		<module>../../bundles/dsm.cwe.design/</module>
+		
+		<!-- CVE -->
+		<module>../../bundles/dsm.cve.model/</module>
+		<module>../../bundles/dsm.cve.model.edit/</module>
+		<module>../../bundles/dsm.cve.model.editor/</module>
+		<module>../../bundles/dsm.cve.design/</module>
 
 		<!-- Base plugins -->
 		<module>../../bundles/dsm.TRADES/</module>
