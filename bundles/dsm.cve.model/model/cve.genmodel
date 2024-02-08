@@ -10,44 +10,9 @@
   <foreignModel>../../dsm.TRADES/model/TRADES.ecore</foreignModel>
   <genPackages prefix="CVECatalog" basePackage="dsm.cve.model" disposableProviderFactory="true"
       fileExtensions="cve" ecorePackage="cve-catalog.ecore#/">
-    <genClasses ecoreClass="cve-catalog.ecore#//WeaknessCatalog">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cve-catalog.ecore#//WeaknessCatalog/weaknesses"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cve-catalog.ecore#//WeaknessCatalog/categories"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cve-catalog.ecore#//WeaknessCatalog/views"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cve-catalog.ecore#//WeaknessCatalog/externalReferences"/>
-    </genClasses>
-    <genClasses ecoreClass="cve-catalog.ecore#//Weaknesses">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cve-catalog.ecore#//Weaknesses/weaknesses"/>
-    </genClasses>
-    <genClasses ecoreClass="cve-catalog.ecore#//Weakness">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cve-catalog.ecore#//Weakness/iD"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cve-catalog.ecore#//Weakness/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cve-catalog.ecore#//Weakness/abstraction"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cve-catalog.ecore#//Weakness/structure"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cve-catalog.ecore#//Weakness/status"/>
-    </genClasses>
-    <genClasses ecoreClass="cve-catalog.ecore#//Categories">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cve-catalog.ecore#//Categories/categories"/>
-    </genClasses>
-    <genClasses ecoreClass="cve-catalog.ecore#//Category">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cve-catalog.ecore#//Category/iD"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cve-catalog.ecore#//Category/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cve-catalog.ecore#//Category/status"/>
-    </genClasses>
-    <genClasses ecoreClass="cve-catalog.ecore#//Views">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cve-catalog.ecore#//Views/views"/>
-    </genClasses>
-    <genClasses ecoreClass="cve-catalog.ecore#//View">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cve-catalog.ecore#//View/iD"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cve-catalog.ecore#//View/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cve-catalog.ecore#//View/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cve-catalog.ecore#//View/status"/>
-    </genClasses>
-    <genClasses ecoreClass="cve-catalog.ecore#//ExternalReferences">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cve-catalog.ecore#//ExternalReferences/externalReferences"/>
-    </genClasses>
-    <genClasses ecoreClass="cve-catalog.ecore#//ExternalReference">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cve-catalog.ecore#//ExternalReference/referenceID"/>
+    <genClasses ecoreClass="cve-catalog.ecore#//Vulnerability">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cve-catalog.ecore#//Vulnerability/refines"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cve-catalog.ecore#//Vulnerability/id"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
