@@ -16,7 +16,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.edit.ui,
  org.eclipse.emf.transaction,
  dsm.cwe.design,
- dsm.cwe.model
+ dsm.cwe.model,
+ dsm.cve.design,
+ dsm.cve.model
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: dsm.TRADES.rcp
 Bundle-ActivationPolicy: lazy
@@ -25,3 +27,4 @@ Export-Package: dsm.trades.rcp,
  dsm.trades.rcp.databases,
  dsm.trades.rcp.internal.wizards;x-friends:="dsm.oscal.design",
  dsm.trades.rcp.utils
+Import-Package: dsm.cve.design.wizards

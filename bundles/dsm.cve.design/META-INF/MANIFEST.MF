@@ -22,7 +22,10 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.acceleo.query,
  org.apache.poi,
  org.eclipse.sirius.ext.emf.edit,
- org.eclipse.emf.edit.ui;bundle-version="2.19.0"
+ org.eclipse.emf.edit.ui;bundle-version="2.19.0",
+ com.fasterxml.jackson.core.jackson-core;bundle-version="2.10.3",
+ com.fasterxml.jackson.core.jackson-databind;bundle-version="2.10.3",
+ com.fasterxml.jackson.core.jackson-annotations;bundle-version="2.10.3"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: %providerName

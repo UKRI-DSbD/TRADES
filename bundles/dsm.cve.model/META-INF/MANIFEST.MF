@@ -10,8 +10,7 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: dsm.cve.model.CVECatalog,
  dsm.cve.model.CVECatalog.impl,
- dsm.cve.model.CVECatalog.util,
- dsm.cve.model.transform
+ dsm.cve.model.CVECatalog.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  dsm.TRADES;visibility:=reexport,
  org.eclipse.core.runtime
