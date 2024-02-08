@@ -15,12 +15,12 @@
  */
 package dsm.cve.model.CVECatalog.util;
 
-import dsm.cve.model.CVECatalog.*;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
+
+import dsm.cve.model.CVECatalog.CVECatalogPackage;
+import dsm.cve.model.CVECatalog.Vulnerability;
 
 /**
  * <!-- begin-user-doc -->

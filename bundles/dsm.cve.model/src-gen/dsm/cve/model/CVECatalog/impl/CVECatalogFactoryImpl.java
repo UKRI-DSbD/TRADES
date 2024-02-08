@@ -15,15 +15,15 @@
  */
 package dsm.cve.model.CVECatalog.impl;
 
-import dsm.cve.model.CVECatalog.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import dsm.cve.model.CVECatalog.CVECatalogFactory;
+import dsm.cve.model.CVECatalog.CVECatalogPackage;
+import dsm.cve.model.CVECatalog.Vulnerability;
 
 /**
  * <!-- begin-user-doc -->

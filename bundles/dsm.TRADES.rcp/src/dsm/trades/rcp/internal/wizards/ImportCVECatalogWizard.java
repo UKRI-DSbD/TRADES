@@ -16,13 +16,8 @@ package dsm.trades.rcp.internal.wizards;
 
 import static java.util.stream.Collectors.toList;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
@@ -44,11 +39,8 @@ import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.ui.IImportWizard;
 import org.eclipse.ui.IWorkbench;
 
-import dsm.cve.design.EmbeddedCatalogRegistry;
 import dsm.cve.design.wizards.CVECatalogSelectionPage;
-import dsm.cve.model.CVECatalog.WeaknessCatalog;
 import dsm.trades.rcp.TRADESRCPActivator;
-import dsm.trades.rcp.internal.wizards.ProjectSelectionPage;
 import dsm.trades.rcp.utils.CatalogUtils;
 /**
  * Wizard used to import MITRE CVE catalog

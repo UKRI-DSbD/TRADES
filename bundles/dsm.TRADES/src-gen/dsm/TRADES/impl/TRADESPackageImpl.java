@@ -13,7 +13,6 @@
  */
 package dsm.TRADES.impl;
 
-import dsm.TRADES.AbstractComponentTypeOwner;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -25,6 +24,7 @@ import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import dsm.TRADES.AbstractComponentTypeOwner;
 import dsm.TRADES.AbstractControlOwner;
 import dsm.TRADES.AbstractThreatOwner;
 import dsm.TRADES.AbstractVulnerabilityOwner;

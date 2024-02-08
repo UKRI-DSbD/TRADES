@@ -14,16 +14,11 @@
 
 package dsm.cwe.design.actions;
 
-import java.util.List;
-
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuListener2;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
-
-import dsm.TRADES.Control;
-import dsm.TRADES.ExternalControl;
 
 /**
  * Provide some trades action

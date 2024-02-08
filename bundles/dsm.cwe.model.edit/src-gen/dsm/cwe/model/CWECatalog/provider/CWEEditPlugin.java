@@ -15,13 +15,11 @@
  */
 package dsm.cwe.model.CWECatalog.provider;
 
-import dsm.TRADES.provider.TRADESEditPlugin;
-
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
+
+import dsm.TRADES.provider.TRADESEditPlugin;
 
 /**
  * This is the central singleton for the CWE edit plugin.

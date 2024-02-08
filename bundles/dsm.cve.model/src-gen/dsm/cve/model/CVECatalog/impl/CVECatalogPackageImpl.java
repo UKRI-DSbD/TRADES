@@ -15,19 +15,17 @@
  */
 package dsm.cve.model.CVECatalog.impl;
 
-import dsm.TRADES.TRADESPackage;
-
-import dsm.cve.model.CVECatalog.CVECatalogFactory;
-import dsm.cve.model.CVECatalog.CVECatalogPackage;
-import dsm.cve.model.CVECatalog.Vulnerability;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import dsm.TRADES.TRADESPackage;
+import dsm.cve.model.CVECatalog.CVECatalogFactory;
+import dsm.cve.model.CVECatalog.CVECatalogPackage;
+import dsm.cve.model.CVECatalog.Vulnerability;
 
 /**
  * <!-- begin-user-doc -->

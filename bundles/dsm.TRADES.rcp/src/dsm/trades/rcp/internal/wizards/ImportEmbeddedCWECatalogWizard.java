@@ -49,7 +49,6 @@ import dsm.cwe.design.wizards.CWECatalogSelectionPage;
 import dsm.cwe.model.CWECatalog.WeaknessCatalog;
 import dsm.cwe.model.transform.CWETransformer;
 import dsm.trades.rcp.TRADESRCPActivator;
-import dsm.trades.rcp.internal.wizards.ProjectSelectionPage;
 import dsm.trades.rcp.utils.CatalogUtils;
 /**
  * Wizard used to import MITRE CWE catalog

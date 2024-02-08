@@ -13,7 +13,6 @@
  */
 package dsm.TRADES.util;
 
-import dsm.TRADES.*;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -21,9 +20,11 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
+import dsm.TRADES.AbstractComponentTypeOwner;
 import dsm.TRADES.AbstractControlOwner;
 import dsm.TRADES.AbstractThreatOwner;
 import dsm.TRADES.AbstractVulnerabilityOwner;
+import dsm.TRADES.AbstractVulnerableAssetOwner;
 import dsm.TRADES.AffectRelation;
 import dsm.TRADES.AffectedENUM;
 import dsm.TRADES.Analysis;
@@ -72,6 +73,7 @@ import dsm.TRADES.VAOwner;
 import dsm.TRADES.Vulnerability;
 import dsm.TRADES.VulnerabilityOwner;
 import dsm.TRADES.VulnerableAsset;
+import dsm.TRADES.VulnerableAssetOwner;
 import dsm.TRADES.threatTypeENUM;
 
 /**

@@ -15,12 +15,20 @@
  */
 package dsm.cwe.model.CWECatalog.util;
 
-import dsm.cwe.model.CWECatalog.*;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
+
+import dsm.cwe.model.CWECatalog.CWECatalogPackage;
+import dsm.cwe.model.CWECatalog.Categories;
+import dsm.cwe.model.CWECatalog.Category;
+import dsm.cwe.model.CWECatalog.ExternalReference;
+import dsm.cwe.model.CWECatalog.ExternalReferences;
+import dsm.cwe.model.CWECatalog.View;
+import dsm.cwe.model.CWECatalog.Views;
+import dsm.cwe.model.CWECatalog.Weakness;
+import dsm.cwe.model.CWECatalog.WeaknessCatalog;
+import dsm.cwe.model.CWECatalog.Weaknesses;
 
 /**
  * <!-- begin-user-doc -->

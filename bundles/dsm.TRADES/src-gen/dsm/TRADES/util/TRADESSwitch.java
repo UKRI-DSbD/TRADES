@@ -13,14 +13,15 @@
  */
 package dsm.TRADES.util;
 
-import dsm.TRADES.*;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
+import dsm.TRADES.AbstractComponentTypeOwner;
 import dsm.TRADES.AbstractControlOwner;
 import dsm.TRADES.AbstractThreatOwner;
 import dsm.TRADES.AbstractVulnerabilityOwner;
+import dsm.TRADES.AbstractVulnerableAssetOwner;
 import dsm.TRADES.AffectRelation;
 import dsm.TRADES.Analysis;
 import dsm.TRADES.Asset;
@@ -63,6 +64,7 @@ import dsm.TRADES.VAOwner;
 import dsm.TRADES.Vulnerability;
 import dsm.TRADES.VulnerabilityOwner;
 import dsm.TRADES.VulnerableAsset;
+import dsm.TRADES.VulnerableAssetOwner;
 
 /**
  * <!-- begin-user-doc -->

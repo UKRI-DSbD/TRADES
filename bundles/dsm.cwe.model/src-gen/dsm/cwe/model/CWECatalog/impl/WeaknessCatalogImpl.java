@@ -15,21 +15,19 @@
  */
 package dsm.cwe.model.CWECatalog.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import dsm.cwe.model.CWECatalog.CWECatalogPackage;
 import dsm.cwe.model.CWECatalog.Categories;
 import dsm.cwe.model.CWECatalog.ExternalReferences;
 import dsm.cwe.model.CWECatalog.Views;
 import dsm.cwe.model.CWECatalog.WeaknessCatalog;
 import dsm.cwe.model.CWECatalog.Weaknesses;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->

@@ -14,6 +14,7 @@
 package dsm.cwe.model.CWECatalog.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
+
 import dsm.cwe.model.CWECatalog.WeaknessCatalog;
 
 public class WeaknessCatalogItemProviderCustomImpl extends WeaknessCatalogItemProvider {

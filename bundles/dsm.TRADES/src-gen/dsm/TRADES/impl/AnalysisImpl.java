@@ -13,7 +13,6 @@
  */
 package dsm.TRADES.impl;
 
-import dsm.TRADES.AbstractComponentTypeOwner;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
@@ -26,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import dsm.TRADES.AbstractComponentTypeOwner;
 import dsm.TRADES.AbstractControlOwner;
 import dsm.TRADES.AbstractThreatOwner;
 import dsm.TRADES.AbstractVulnerabilityOwner;
