@@ -79,57 +79,9 @@ public class CVECatalogSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case CVECatalogPackage.WEAKNESS_CATALOG: {
-				WeaknessCatalog weaknessCatalog = (WeaknessCatalog)theEObject;
-				T result = caseWeaknessCatalog(weaknessCatalog);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CVECatalogPackage.WEAKNESSES: {
-				Weaknesses weaknesses = (Weaknesses)theEObject;
-				T result = caseWeaknesses(weaknesses);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CVECatalogPackage.WEAKNESS: {
-				Weakness weakness = (Weakness)theEObject;
-				T result = caseWeakness(weakness);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CVECatalogPackage.CATEGORIES: {
-				Categories categories = (Categories)theEObject;
-				T result = caseCategories(categories);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CVECatalogPackage.CATEGORY: {
-				Category category = (Category)theEObject;
-				T result = caseCategory(category);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CVECatalogPackage.VIEWS: {
-				Views views = (Views)theEObject;
-				T result = caseViews(views);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CVECatalogPackage.VIEW: {
-				View view = (View)theEObject;
-				T result = caseView(view);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CVECatalogPackage.EXTERNAL_REFERENCES: {
-				ExternalReferences externalReferences = (ExternalReferences)theEObject;
-				T result = caseExternalReferences(externalReferences);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CVECatalogPackage.EXTERNAL_REFERENCE: {
-				ExternalReference externalReference = (ExternalReference)theEObject;
-				T result = caseExternalReference(externalReference);
+			case CVECatalogPackage.VULNERABILITY: {
+				Vulnerability vulnerability = (Vulnerability)theEObject;
+				T result = caseVulnerability(vulnerability);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -138,137 +90,17 @@ public class CVECatalogSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Weakness Catalog</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Vulnerability</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Weakness Catalog</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Vulnerability</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseWeaknessCatalog(WeaknessCatalog object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Weaknesses</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Weaknesses</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseWeaknesses(Weaknesses object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Weakness</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Weakness</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseWeakness(Weakness object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Categories</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Categories</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCategories(Categories object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Category</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Category</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCategory(Category object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Views</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Views</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseViews(Views object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>View</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>View</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseView(View object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>External References</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>External References</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseExternalReferences(ExternalReferences object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>External Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>External Reference</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseExternalReference(ExternalReference object) {
+	public T caseVulnerability(Vulnerability object) {
 		return null;
 	}
 

@@ -69,15 +69,7 @@ public class CVECatalogFactoryImpl extends EFactoryImpl implements CVECatalogFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case CVECatalogPackage.WEAKNESS_CATALOG: return createWeaknessCatalog();
-			case CVECatalogPackage.WEAKNESSES: return createWeaknesses();
-			case CVECatalogPackage.WEAKNESS: return createWeakness();
-			case CVECatalogPackage.CATEGORIES: return createCategories();
-			case CVECatalogPackage.CATEGORY: return createCategory();
-			case CVECatalogPackage.VIEWS: return createViews();
-			case CVECatalogPackage.VIEW: return createView();
-			case CVECatalogPackage.EXTERNAL_REFERENCES: return createExternalReferences();
-			case CVECatalogPackage.EXTERNAL_REFERENCE: return createExternalReference();
+			case CVECatalogPackage.VULNERABILITY: return createVulnerability();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -89,97 +81,9 @@ public class CVECatalogFactoryImpl extends EFactoryImpl implements CVECatalogFac
 	 * @generated
 	 */
 	@Override
-	public WeaknessCatalog createWeaknessCatalog() {
-		WeaknessCatalogImpl weaknessCatalog = new WeaknessCatalogImpl();
-		return weaknessCatalog;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Weaknesses createWeaknesses() {
-		WeaknessesImpl weaknesses = new WeaknessesImpl();
-		return weaknesses;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Weakness createWeakness() {
-		WeaknessImpl weakness = new WeaknessImpl();
-		return weakness;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Categories createCategories() {
-		CategoriesImpl categories = new CategoriesImpl();
-		return categories;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Category createCategory() {
-		CategoryImpl category = new CategoryImpl();
-		return category;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Views createViews() {
-		ViewsImpl views = new ViewsImpl();
-		return views;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public View createView() {
-		ViewImpl view = new ViewImpl();
-		return view;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ExternalReferences createExternalReferences() {
-		ExternalReferencesImpl externalReferences = new ExternalReferencesImpl();
-		return externalReferences;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ExternalReference createExternalReference() {
-		ExternalReferenceImpl externalReference = new ExternalReferenceImpl();
-		return externalReference;
+	public Vulnerability createVulnerability() {
+		VulnerabilityImpl vulnerability = new VulnerabilityImpl();
+		return vulnerability;
 	}
 
 	/**

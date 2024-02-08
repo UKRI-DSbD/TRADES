@@ -81,40 +81,8 @@ public class CVECatalogAdapterFactory extends AdapterFactoryImpl {
 	protected CVECatalogSwitch<Adapter> modelSwitch =
 		new CVECatalogSwitch<Adapter>() {
 			@Override
-			public Adapter caseWeaknessCatalog(WeaknessCatalog object) {
-				return createWeaknessCatalogAdapter();
-			}
-			@Override
-			public Adapter caseWeaknesses(Weaknesses object) {
-				return createWeaknessesAdapter();
-			}
-			@Override
-			public Adapter caseWeakness(Weakness object) {
-				return createWeaknessAdapter();
-			}
-			@Override
-			public Adapter caseCategories(Categories object) {
-				return createCategoriesAdapter();
-			}
-			@Override
-			public Adapter caseCategory(Category object) {
-				return createCategoryAdapter();
-			}
-			@Override
-			public Adapter caseViews(Views object) {
-				return createViewsAdapter();
-			}
-			@Override
-			public Adapter caseView(View object) {
-				return createViewAdapter();
-			}
-			@Override
-			public Adapter caseExternalReferences(ExternalReferences object) {
-				return createExternalReferencesAdapter();
-			}
-			@Override
-			public Adapter caseExternalReference(ExternalReference object) {
-				return createExternalReferenceAdapter();
+			public Adapter caseVulnerability(Vulnerability object) {
+				return createVulnerabilityAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -137,128 +105,16 @@ public class CVECatalogAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link dsm.cve.model.CVECatalog.WeaknessCatalog <em>Weakness Catalog</em>}'.
+	 * Creates a new adapter for an object of class '{@link dsm.cve.model.CVECatalog.Vulnerability <em>Vulnerability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see dsm.cve.model.CVECatalog.WeaknessCatalog
+	 * @see dsm.cve.model.CVECatalog.Vulnerability
 	 * @generated
 	 */
-	public Adapter createWeaknessCatalogAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link dsm.cve.model.CVECatalog.Weaknesses <em>Weaknesses</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see dsm.cve.model.CVECatalog.Weaknesses
-	 * @generated
-	 */
-	public Adapter createWeaknessesAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link dsm.cve.model.CVECatalog.Weakness <em>Weakness</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see dsm.cve.model.CVECatalog.Weakness
-	 * @generated
-	 */
-	public Adapter createWeaknessAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link dsm.cve.model.CVECatalog.Categories <em>Categories</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see dsm.cve.model.CVECatalog.Categories
-	 * @generated
-	 */
-	public Adapter createCategoriesAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link dsm.cve.model.CVECatalog.Category <em>Category</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see dsm.cve.model.CVECatalog.Category
-	 * @generated
-	 */
-	public Adapter createCategoryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link dsm.cve.model.CVECatalog.Views <em>Views</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see dsm.cve.model.CVECatalog.Views
-	 * @generated
-	 */
-	public Adapter createViewsAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link dsm.cve.model.CVECatalog.View <em>View</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see dsm.cve.model.CVECatalog.View
-	 * @generated
-	 */
-	public Adapter createViewAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link dsm.cve.model.CVECatalog.ExternalReferences <em>External References</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see dsm.cve.model.CVECatalog.ExternalReferences
-	 * @generated
-	 */
-	public Adapter createExternalReferencesAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link dsm.cve.model.CVECatalog.ExternalReference <em>External Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see dsm.cve.model.CVECatalog.ExternalReference
-	 * @generated
-	 */
-	public Adapter createExternalReferenceAdapter() {
+	public Adapter createVulnerabilityAdapter() {
 		return null;
 	}
 

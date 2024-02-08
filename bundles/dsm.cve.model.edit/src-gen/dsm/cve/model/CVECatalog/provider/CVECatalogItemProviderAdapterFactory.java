@@ -85,210 +85,26 @@ public class CVECatalogItemProviderAdapterFactory extends CVECatalogAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link dsm.cve.model.CVECatalog.WeaknessCatalog} instances.
+	 * This keeps track of the one adapter used for all {@link dsm.cve.model.CVECatalog.Vulnerability} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected WeaknessCatalogItemProvider weaknessCatalogItemProvider;
+	protected VulnerabilityItemProvider vulnerabilityItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link dsm.cve.model.CVECatalog.WeaknessCatalog}.
+	 * This creates an adapter for a {@link dsm.cve.model.CVECatalog.Vulnerability}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createWeaknessCatalogAdapter() {
-		if (weaknessCatalogItemProvider == null) {
-			weaknessCatalogItemProvider = new WeaknessCatalogItemProvider(this);
+	public Adapter createVulnerabilityAdapter() {
+		if (vulnerabilityItemProvider == null) {
+			vulnerabilityItemProvider = new VulnerabilityItemProvider(this);
 		}
 
-		return weaknessCatalogItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link dsm.cve.model.CVECatalog.Weaknesses} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected WeaknessesItemProvider weaknessesItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link dsm.cve.model.CVECatalog.Weaknesses}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createWeaknessesAdapter() {
-		if (weaknessesItemProvider == null) {
-			weaknessesItemProvider = new WeaknessesItemProvider(this);
-		}
-
-		return weaknessesItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link dsm.cve.model.CVECatalog.Weakness} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected WeaknessItemProvider weaknessItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link dsm.cve.model.CVECatalog.Weakness}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createWeaknessAdapter() {
-		if (weaknessItemProvider == null) {
-			weaknessItemProvider = new WeaknessItemProvider(this);
-		}
-
-		return weaknessItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link dsm.cve.model.CVECatalog.Categories} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CategoriesItemProvider categoriesItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link dsm.cve.model.CVECatalog.Categories}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCategoriesAdapter() {
-		if (categoriesItemProvider == null) {
-			categoriesItemProvider = new CategoriesItemProvider(this);
-		}
-
-		return categoriesItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link dsm.cve.model.CVECatalog.Category} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CategoryItemProvider categoryItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link dsm.cve.model.CVECatalog.Category}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCategoryAdapter() {
-		if (categoryItemProvider == null) {
-			categoryItemProvider = new CategoryItemProvider(this);
-		}
-
-		return categoryItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link dsm.cve.model.CVECatalog.Views} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ViewsItemProvider viewsItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link dsm.cve.model.CVECatalog.Views}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createViewsAdapter() {
-		if (viewsItemProvider == null) {
-			viewsItemProvider = new ViewsItemProvider(this);
-		}
-
-		return viewsItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link dsm.cve.model.CVECatalog.View} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ViewItemProvider viewItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link dsm.cve.model.CVECatalog.View}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createViewAdapter() {
-		if (viewItemProvider == null) {
-			viewItemProvider = new ViewItemProvider(this);
-		}
-
-		return viewItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link dsm.cve.model.CVECatalog.ExternalReferences} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ExternalReferencesItemProvider externalReferencesItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link dsm.cve.model.CVECatalog.ExternalReferences}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createExternalReferencesAdapter() {
-		if (externalReferencesItemProvider == null) {
-			externalReferencesItemProvider = new ExternalReferencesItemProvider(this);
-		}
-
-		return externalReferencesItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link dsm.cve.model.CVECatalog.ExternalReference} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ExternalReferenceItemProvider externalReferenceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link dsm.cve.model.CVECatalog.ExternalReference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createExternalReferenceAdapter() {
-		if (externalReferenceItemProvider == null) {
-			externalReferenceItemProvider = new ExternalReferenceItemProvider(this);
-		}
-
-		return externalReferenceItemProvider;
+		return vulnerabilityItemProvider;
 	}
 
 	/**
@@ -390,15 +206,7 @@ public class CVECatalogItemProviderAdapterFactory extends CVECatalogAdapterFacto
 	 * @generated
 	 */
 	public void dispose() {
-		if (weaknessCatalogItemProvider != null) weaknessCatalogItemProvider.dispose();
-		if (weaknessesItemProvider != null) weaknessesItemProvider.dispose();
-		if (weaknessItemProvider != null) weaknessItemProvider.dispose();
-		if (categoriesItemProvider != null) categoriesItemProvider.dispose();
-		if (categoryItemProvider != null) categoryItemProvider.dispose();
-		if (viewsItemProvider != null) viewsItemProvider.dispose();
-		if (viewItemProvider != null) viewItemProvider.dispose();
-		if (externalReferencesItemProvider != null) externalReferencesItemProvider.dispose();
-		if (externalReferenceItemProvider != null) externalReferenceItemProvider.dispose();
+		if (vulnerabilityItemProvider != null) vulnerabilityItemProvider.dispose();
 	}
 
 }

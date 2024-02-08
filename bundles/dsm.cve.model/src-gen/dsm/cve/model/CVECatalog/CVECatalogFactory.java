@@ -35,85 +35,13 @@ public interface CVECatalogFactory extends EFactory {
 	CVECatalogFactory eINSTANCE = dsm.cve.model.CVECatalog.impl.CVECatalogFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Weakness Catalog</em>'.
+	 * Returns a new object of class '<em>Vulnerability</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Weakness Catalog</em>'.
+	 * @return a new object of class '<em>Vulnerability</em>'.
 	 * @generated
 	 */
-	WeaknessCatalog createWeaknessCatalog();
-
-	/**
-	 * Returns a new object of class '<em>Weaknesses</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Weaknesses</em>'.
-	 * @generated
-	 */
-	Weaknesses createWeaknesses();
-
-	/**
-	 * Returns a new object of class '<em>Weakness</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Weakness</em>'.
-	 * @generated
-	 */
-	Weakness createWeakness();
-
-	/**
-	 * Returns a new object of class '<em>Categories</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Categories</em>'.
-	 * @generated
-	 */
-	Categories createCategories();
-
-	/**
-	 * Returns a new object of class '<em>Category</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Category</em>'.
-	 * @generated
-	 */
-	Category createCategory();
-
-	/**
-	 * Returns a new object of class '<em>Views</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Views</em>'.
-	 * @generated
-	 */
-	Views createViews();
-
-	/**
-	 * Returns a new object of class '<em>View</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>View</em>'.
-	 * @generated
-	 */
-	View createView();
-
-	/**
-	 * Returns a new object of class '<em>External References</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>External References</em>'.
-	 * @generated
-	 */
-	ExternalReferences createExternalReferences();
-
-	/**
-	 * Returns a new object of class '<em>External Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>External Reference</em>'.
-	 * @generated
-	 */
-	ExternalReference createExternalReference();
+	Vulnerability createVulnerability();
 
 	/**
 	 * Returns the package supported by this factory.
