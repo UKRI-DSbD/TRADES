@@ -67,7 +67,6 @@ public class CWETransformer {
 
 	private void extractVersion(Path path, CWECatalogFactory catalogFactory, WeaknessCatalog weaknessCatalog) {
 		DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
-		documentFactory.setIgnoringElementContentWhitespace(true);
 
 		try (InputStream input = new FileInputStream(path.toString())) {
 			DocumentBuilder builder = documentFactory.newDocumentBuilder();
@@ -84,7 +83,6 @@ public class CWETransformer {
 	private void extractWeaknesses(Path path, CWECatalogFactory catalogFactory, WeaknessCatalog weaknessCatalog) {
 		Weaknesses weaknesses = catalogFactory.createWeaknesses();
 		DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
-		documentFactory.setIgnoringElementContentWhitespace(true);
 
 		try (InputStream input = new FileInputStream(path.toString())) {
 			DocumentBuilder builder = documentFactory.newDocumentBuilder();
@@ -98,7 +96,8 @@ public class CWETransformer {
 					NodeList weaknessesNodeList = weaknessCatalogChild.getChildNodes();
 					for (int j = 0; j < weaknessesNodeList.getLength(); j++) {
 						Node weaknessNode = weaknessesNodeList.item(j);
-						if(weaknessNode.getNodeType() != Node.TEXT_NODE) {
+						//ignore text nodes
+						if (weaknessNode.getNodeType() != Node.TEXT_NODE) {
 							String iD = weaknessNode.getAttributes().getNamedItem("ID").getNodeValue();
 							String name = weaknessNode.getAttributes().getNamedItem("Name").getNodeValue();
 							String abstraction = weaknessNode.getAttributes().getNamedItem("Abstraction").getNodeValue();
@@ -125,7 +124,6 @@ public class CWETransformer {
 	private void extractCategories(Path path, CWECatalogFactory catalogFactory, WeaknessCatalog weaknessCatalog) {
 		Categories categories = catalogFactory.createCategories();
 		DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
-		documentFactory.setIgnoringElementContentWhitespace(true);
 
 		try (InputStream input = new FileInputStream(path.toString())) {
 			DocumentBuilder builder = documentFactory.newDocumentBuilder();
@@ -139,7 +137,8 @@ public class CWETransformer {
 					NodeList categoriesNodeList = weaknessCatalogChild.getChildNodes();
 					for (int j = 0; j < categoriesNodeList.getLength(); j++) {
 						Node categoryNode = categoriesNodeList.item(j);
-						if(categoryNode.getNodeType() != Node.TEXT_NODE) {
+						//ignore text nodes
+						if (categoryNode.getNodeType() != Node.TEXT_NODE) {
 							String iD = categoryNode.getAttributes().getNamedItem("ID").getNodeValue();
 							String name = categoryNode.getAttributes().getNamedItem("Name").getNodeValue();
 							String status = categoryNode.getAttributes().getNamedItem("Status").getNodeValue();
@@ -162,7 +161,6 @@ public class CWETransformer {
 	private void extractViews(Path path, CWECatalogFactory catalogFactory, WeaknessCatalog weaknessCatalog) {
 		Views views = catalogFactory.createViews();
 		DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
-		documentFactory.setIgnoringElementContentWhitespace(true);
 
 		try (InputStream input = new FileInputStream(path.toString())) {
 			DocumentBuilder builder = documentFactory.newDocumentBuilder();
@@ -176,7 +174,8 @@ public class CWETransformer {
 					NodeList viewsNodeList = weaknessCatalogChild.getChildNodes();
 					for (int j = 0; j < viewsNodeList.getLength(); j++) {
 						Node viewNode = viewsNodeList.item(j);
-						if(viewNode.getNodeType() != Node.TEXT_NODE) {
+						//ignore text nodes
+						if (viewNode.getNodeType() != Node.TEXT_NODE) {
 							String iD = viewNode.getAttributes().getNamedItem("ID").getNodeValue();
 							String name = viewNode.getAttributes().getNamedItem("Name").getNodeValue();
 							String type = viewNode.getAttributes().getNamedItem("Type").getNodeValue();
@@ -201,7 +200,6 @@ public class CWETransformer {
 	private void extractExternalReferences(Path path, CWECatalogFactory catalogFactory, WeaknessCatalog weaknessCatalog) {
 		ExternalReferences externalReferences = catalogFactory.createExternalReferences();
 		DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
-		documentFactory.setIgnoringElementContentWhitespace(true);
 
 		try (InputStream input = new FileInputStream(path.toString())) {
 			DocumentBuilder builder = documentFactory.newDocumentBuilder();
@@ -215,7 +213,8 @@ public class CWETransformer {
 					NodeList externalReferencesNodeList = weaknessCatalogChild.getChildNodes();
 					for (int j = 0; j < externalReferencesNodeList.getLength(); j++) {
 						Node externalReferenceNode = externalReferencesNodeList.item(j);
-						if(externalReferenceNode.getNodeType() != Node.TEXT_NODE) {
+						//ignore text nodes
+						if (externalReferenceNode.getNodeType() != Node.TEXT_NODE) {
 							String referenceID = externalReferenceNode.getAttributes().getNamedItem("Reference_ID").getNodeValue();
 							ExternalReference externalReference = catalogFactory.createExternalReference();
 							externalReference.setReferenceID(referenceID);
