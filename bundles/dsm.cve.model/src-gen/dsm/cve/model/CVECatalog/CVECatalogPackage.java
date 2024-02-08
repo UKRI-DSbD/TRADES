@@ -51,7 +51,7 @@ public interface CVECatalogPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "null";
+	String eNS_URI = "dsm.cve";
 
 	/**
 	 * The package namespace name.

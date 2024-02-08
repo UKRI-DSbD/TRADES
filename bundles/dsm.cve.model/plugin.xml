@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated cve -->
       <package
-            uri="null"
+            uri="dsm.cve"
             class="dsm.cve.model.CVECatalog.CVECatalogPackage"
             genModel="model/cve.genmodel"/>
    </extension>
