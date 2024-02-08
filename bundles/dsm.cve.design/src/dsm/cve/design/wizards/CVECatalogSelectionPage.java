@@ -22,6 +22,8 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.List;
 
 import org.eclipse.jface.viewers.ArrayContentProvider;
@@ -46,6 +48,7 @@ import org.eclipse.swt.widgets.Text;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.JsonNodeType;
  
 /**
  * Page used to select an CVE catalog to import
@@ -54,10 +57,11 @@ public class CVECatalogSelectionPage extends WizardPage {
 
     private boolean embedded = true;
     private Group embeddedGroup;
-    private List<String> chosenCWEs;
+    private List<String> chosenCVEs;
     private Group browseGroup;
     private Text fileSelectionLabel;
     private ListViewer emCatalogView;
+    private Dictionary<String, List<String>> vulnerabilityDictionary = new Hashtable<>();
 
     public CVECatalogSelectionPage() {
         super("CVE Catalog selection page");
@@ -128,9 +132,9 @@ public class CVECatalogSelectionPage extends WizardPage {
             public void selectionChanged(SelectionChangedEvent event) {
                 IStructuredSelection structuredSelection = emCatalogView.getStructuredSelection();
                 if (!structuredSelection.isEmpty()) {
-                	chosenCWEs = structuredSelection.toList();
+                	chosenCVEs = structuredSelection.toList();
                 } else {
-                	chosenCWEs = null;
+                	chosenCVEs = null;
                 }
                 getContainer().updateButtons();
 
@@ -150,27 +154,42 @@ public class CVECatalogSelectionPage extends WizardPage {
         }
     }
 
-    public List<String> getChosenCWEs() {
-        return chosenCWEs;
+    public List<String> getchosenCVEs() {
+        return chosenCVEs;
+    }
+
+    public Dictionary<String, List<String>> getVulnerabilityDictionary() {
+        return vulnerabilityDictionary;
     }
 
     private void queryCVEEndpoint(Composite parent, String cpeName) {
     	List<String> output = new ArrayList<String>();
     	if (cpeName != "") {
             String jsonString = getJsonString(cpeName);
-        	
-            try {
-                ObjectMapper objectMapper = new ObjectMapper();
-                JsonNode jsonNode = objectMapper.readTree(jsonString);
-                //int numberOfResults = jsonNode.get("resultsPerPage").asInt();
-                ArrayNode vulnerabilities = (ArrayNode) jsonNode.get("vulnerabilities");
-                for (int i = 0; i < vulnerabilities.size(); i++) {
-                	output.add(vulnerabilities.get(i).get("cve").get("id").asText());
-                }
-                emCatalogView.setInput(output);
-            } catch (Exception e) {
-    	    	e.printStackTrace();
-    	    }
+        	if (jsonString != "") {
+        		try {
+                    ObjectMapper objectMapper = new ObjectMapper();
+                    JsonNode jsonNode = objectMapper.readTree(jsonString);
+                    //int numberOfResults = jsonNode.get("resultsPerPage").asInt();
+                    ArrayNode vulnerabilities = (ArrayNode) jsonNode.get("vulnerabilities");
+                    for (int i = 0; i < vulnerabilities.size(); i++) {
+                    	List<String> weaknessList = new ArrayList<String>();
+                        String cveId = vulnerabilities.get(i).get("cve").get("id").asText();
+                        output.add(cveId);
+                        ArrayNode weaknesses = (ArrayNode) vulnerabilities.get(i).get("cve").get("weaknesses").get(0).get("description");
+                        for (int j = 0; j < weaknesses.size(); j++) {
+                        	if (weaknesses.get(j).getNodeType() == JsonNodeType.OBJECT) {
+                            	String cweId = weaknesses.get(j).get("value").asText();
+                            	weaknessList.add(cweId);
+                        	}
+                        }
+                    	vulnerabilityDictionary.put(cveId, weaknessList);
+                    }
+                    emCatalogView.setInput(output);
+                } catch (Exception e) {
+        	    	e.printStackTrace();
+        	    }
+        	}
         }
     }
 
@@ -181,12 +200,12 @@ public class CVECatalogSelectionPage extends WizardPage {
         try {
             URL url = new URL(cveUrl);
             InputStream input = url.openStream();
-            InputStreamReader isr = new InputStreamReader(input);
-            BufferedReader reader = new BufferedReader(isr);
+            InputStreamReader streamReader = new InputStreamReader(input);
+            BufferedReader reader = new BufferedReader(streamReader);
             StringBuilder jsonString = new StringBuilder();
-            int c;
-            while ((c = reader.read()) != -1) {
-                jsonString.append((char) c);
+            
+            while (reader.ready()) {
+                jsonString.append(reader.readLine());
             }
             input.close();
             return jsonString.toString();

@@ -89,7 +89,7 @@ public class CVECatalogItemProviderAdapterFactory extends CVECatalogAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected VulnerabilityItemProvider vulnerabilityItemProvider;
+	protected VulnerabilityItemProviderCustomImpl vulnerabilityItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link dsm.cve.model.CVECatalog.Vulnerability}.
@@ -100,7 +100,7 @@ public class CVECatalogItemProviderAdapterFactory extends CVECatalogAdapterFacto
 	@Override
 	public Adapter createVulnerabilityAdapter() {
 		if (vulnerabilityItemProvider == null) {
-			vulnerabilityItemProvider = new VulnerabilityItemProvider(this);
+			vulnerabilityItemProvider = new VulnerabilityItemProviderCustomImpl(this);
 		}
 
 		return vulnerabilityItemProvider;

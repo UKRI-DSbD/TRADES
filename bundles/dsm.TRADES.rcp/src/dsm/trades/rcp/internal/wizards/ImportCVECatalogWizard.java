@@ -16,9 +16,16 @@ package dsm.trades.rcp.internal.wizards;
 
 import static java.util.stream.Collectors.toList;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Collections;
+import java.util.Dictionary;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -42,6 +49,13 @@ import org.eclipse.ui.IWorkbench;
 import dsm.cve.design.wizards.CVECatalogSelectionPage;
 import dsm.trades.rcp.TRADESRCPActivator;
 import dsm.trades.rcp.utils.CatalogUtils;
+import dsm.cve.model.CVECatalog.Vulnerability;
+import dsm.cve.model.CVECatalog.CVECatalogFactory;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+
 /**
  * Wizard used to import MITRE CVE catalog
  */
@@ -104,17 +118,17 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 	}
 
 	private boolean importCatalog(URI repUri, Session session) {
-		List<String> chosenCWEs = catalogSelectionPage.getChosenCWEs();
-		if (chosenCWEs.size() > 0) {
-			return importCVECatalog(repUri, session, chosenCWEs);
+		List<String> chosenCVEs = catalogSelectionPage.getchosenCVEs();
+		if (chosenCVEs.size() > 0) {
+			return importCVECatalog(repUri, session, chosenCVEs);
 		}
 		return false;
 	}
 
-	private boolean importCVECatalog(URI repUri, Session session, List<String> chosenCWEs) {
+	private boolean importCVECatalog(URI repUri, Session session, List<String> chosenCVEs) {
 
 		URI cveLibURI = CatalogUtils.getCatalogFolderURI(repUri)
-				.appendSegment("Relevant CVEs");
+				.appendSegment(URI.encodeSegment("Relevant CVEs", false));
 		TransactionalEditingDomain transactionalEditingDomain = session.getTransactionalEditingDomain();
 
 		try {
@@ -134,7 +148,7 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 							existingResource.getContents().clear();
 						}
 						monitor.setTaskName("Converting to EMF Model");
-						transformCVEs(existingResource, chosenCWEs);
+						transformCVEs(existingResource, chosenCVEs);
 
 						session.addSemanticResource(cveLibURI, new NullProgressMonitor());
 						monitor.worked(1);
@@ -161,7 +175,7 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 
 	@Override
 	public boolean canFinish() {
-		return projectSelectionPage.getSelectedProject() != null && catalogSelectionPage.getChosenCWEs() != null;
+		return projectSelectionPage.getSelectedProject() != null && catalogSelectionPage.getchosenCVEs() != null;
 	}
 
 	private IProject getSelectedProject(IStructuredSelection selection) {
@@ -178,10 +192,22 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 		return null;
 	}
 
-	private void transformCVEs(Resource existingResource, List<String> chosenCWEs) {
-		//make API call
-		//run a for loop 
-		//transform to EMF class
-		//existingResource.getContents().add(migratedCatalog);
+	private void transformCVEs(Resource existingResource, List<String> chosenCVEs) {
+		for (String cveId : chosenCVEs) {
+			Dictionary<String, List<String>> vulnerabilityDictionary = catalogSelectionPage.getVulnerabilityDictionary();
+			List<String> weaknesses = vulnerabilityDictionary.get(cveId);
+			CVECatalogFactory catalogFactory = CVECatalogFactory.eINSTANCE;
+			Vulnerability cve = catalogFactory.createVulnerability();
+			cve.setId(cveId);
+			if (weaknesses.size() > 0) {
+				for (int i = 0; i < weaknesses.size(); i++) {
+					Vulnerability cwe = catalogFactory.createVulnerability();
+					cwe.setId(weaknesses.get(i));
+					existingResource.getContents().add(cwe);
+					cve.getRefines().add(cwe);
+				}
+			}
+			existingResource.getContents().add(cve);
+		}
 	}
 }

@@ -18,7 +18,10 @@ Require-Bundle: org.eclipse.ui,
  dsm.cwe.design,
  dsm.cwe.model,
  dsm.cve.design,
- dsm.cve.model
+ dsm.cve.model,
+ com.fasterxml.jackson.core.jackson-core;bundle-version="2.10.3",
+ com.fasterxml.jackson.core.jackson-databind;bundle-version="2.10.3",
+ com.fasterxml.jackson.core.jackson-annotations;bundle-version="2.10.3"
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: dsm.TRADES.rcp
 Bundle-ActivationPolicy: lazy
