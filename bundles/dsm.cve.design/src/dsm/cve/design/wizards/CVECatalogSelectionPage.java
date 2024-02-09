@@ -25,13 +25,14 @@ import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.List;
-
 import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -49,7 +50,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeType;
- 
+
 /**
  * Page used to select an CVE catalog to import
  */
@@ -186,6 +187,8 @@ public class CVECatalogSelectionPage extends WizardPage {
                     	vulnerabilityDictionary.put(cveId, weaknessList);
                     }
                     emCatalogView.setInput(output);
+                    ISelection selection = new StructuredSelection(output); 
+                    emCatalogView.setSelection(selection);
                 } catch (Exception e) {
         	    	e.printStackTrace();
         	    }
