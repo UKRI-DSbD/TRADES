@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated cwe -->
       <package
-            uri="dsm.cwe"
+            uri="dsm.cwe.model"
             class="dsm.cwe.model.CWECatalog.CWECatalogPackage"
             genModel="model/cwe.genmodel"/>
    </extension>

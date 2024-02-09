@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated cve -->
       <factory
-            uri="dsm.cve"
+            uri="dsm.cve.model"
             class="dsm.cve.model.CVECatalog.provider.CVECatalogItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider

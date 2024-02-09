@@ -51,7 +51,7 @@ public interface CWECatalogPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "dsm.cwe";
+	String eNS_URI = "dsm.cwe.model";
 
 	/**
 	 * The package namespace name.
