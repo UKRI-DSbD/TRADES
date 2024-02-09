@@ -201,9 +201,7 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 			cve.setId(cveId);
 			if (weaknesses.size() > 0) {
 				for (int i = 0; i < weaknesses.size(); i++) {
-					Vulnerability cwe = catalogFactory.createVulnerability();
-					cwe.setId(weaknesses.get(i));
-					existingResource.getContents().add(cwe);
+					String cwe = weaknesses.get(i);
 					cve.getRefines().add(cwe);
 				}
 			}

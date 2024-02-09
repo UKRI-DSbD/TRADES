@@ -18,7 +18,6 @@ package dsm.cve.model.CVECatalog;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,7 +79,7 @@ public interface CVECatalogPackage extends EPackage {
 	int VULNERABILITY = 0;
 
 	/**
-	 * The feature id for the '<em><b>Refines</b></em>' reference list.
+	 * The feature id for the '<em><b>Refines</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -127,15 +126,15 @@ public interface CVECatalogPackage extends EPackage {
 	EClass getVulnerability();
 
 	/**
-	 * Returns the meta object for the reference list '{@link dsm.cve.model.CVECatalog.Vulnerability#getRefines <em>Refines</em>}'.
+	 * Returns the meta object for the attribute list '{@link dsm.cve.model.CVECatalog.Vulnerability#getRefines <em>Refines</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Refines</em>'.
+	 * @return the meta object for the attribute list '<em>Refines</em>'.
 	 * @see dsm.cve.model.CVECatalog.Vulnerability#getRefines()
 	 * @see #getVulnerability()
 	 * @generated
 	 */
-	EReference getVulnerability_Refines();
+	EAttribute getVulnerability_Refines();
 
 	/**
 	 * Returns the meta object for the attribute '{@link dsm.cve.model.CVECatalog.Vulnerability#getId <em>Id</em>}'.
@@ -182,12 +181,12 @@ public interface CVECatalogPackage extends EPackage {
 		EClass VULNERABILITY = eINSTANCE.getVulnerability();
 
 		/**
-		 * The meta object literal for the '<em><b>Refines</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Refines</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference VULNERABILITY__REFINES = eINSTANCE.getVulnerability_Refines();
+		EAttribute VULNERABILITY__REFINES = eINSTANCE.getVulnerability_Refines();
 
 		/**
 		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.

@@ -18,7 +18,6 @@ package dsm.cve.model.CVECatalog.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -121,8 +120,8 @@ public class CVECatalogPackageImpl extends EPackageImpl implements CVECatalogPac
 	 * @generated
 	 */
 	@Override
-	public EReference getVulnerability_Refines() {
-		return (EReference)vulnerabilityEClass.getEStructuralFeatures().get(0);
+	public EAttribute getVulnerability_Refines() {
+		return (EAttribute)vulnerabilityEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -165,7 +164,7 @@ public class CVECatalogPackageImpl extends EPackageImpl implements CVECatalogPac
 
 		// Create classes and their features
 		vulnerabilityEClass = createEClass(VULNERABILITY);
-		createEReference(vulnerabilityEClass, VULNERABILITY__REFINES);
+		createEAttribute(vulnerabilityEClass, VULNERABILITY__REFINES);
 		createEAttribute(vulnerabilityEClass, VULNERABILITY__ID);
 	}
 
@@ -200,7 +199,7 @@ public class CVECatalogPackageImpl extends EPackageImpl implements CVECatalogPac
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(vulnerabilityEClass, Vulnerability.class, "Vulnerability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVulnerability_Refines(), this.getVulnerability(), null, "refines", null, 0, -1, Vulnerability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVulnerability_Refines(), ecorePackage.getEString(), "refines", null, 0, -1, Vulnerability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVulnerability_Id(), ecorePackage.getEString(), "id", null, 0, 1, Vulnerability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
