@@ -18,7 +18,9 @@ import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuListener2;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
 
+import dsm.TRADES.ComponentType;
 /**
  * Provide some trades action
  * 
@@ -27,21 +29,36 @@ import org.eclipse.jface.viewers.ISelection;
  */
 public class ContextMenuFiller implements IMenuListener, IMenuListener2 {
 
-	@Override
-	public void menuAboutToHide(IMenuManager manager) {
-	}
+	private IStructuredSelection selection;
 
 	@Override
+	public void menuAboutToHide(IMenuManager manager) {
+		selection = null;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
 	public void menuAboutToShow(IMenuManager manager) {
+
+		if (selection != null) {
+			Object first = selection.getFirstElement();
+			if (first instanceof ComponentType) {
+				manager.add(new ActionFetchCVEs((ComponentType) first));
+			}
+		}
 
 	}
 
 	public void fillContextMenu(IMenuManager menu, ISelection selection) {
+		if (selection instanceof IStructuredSelection) {
+			this.selection = (IStructuredSelection) selection;
+		}
 		menu.addMenuListener(this);
 
 	}
 
 	public void dispose() {
+		selection = null;
 	}
 
 }

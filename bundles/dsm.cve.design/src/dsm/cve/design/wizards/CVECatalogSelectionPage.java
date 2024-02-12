@@ -25,6 +25,10 @@ import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.List;
+
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -34,6 +38,7 @@ import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.WizardPage;
+import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -51,22 +56,37 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeType;
 
+import dsm.TRADES.Analysis;
+import dsm.TRADES.ComponentType;
+
 /**
  * Page used to select an CVE catalog to import
  */
 public class CVECatalogSelectionPage extends WizardPage {
 
     private boolean embedded = true;
+    private String singleCPE = null;
     private Group embeddedGroup;
     private List<String> chosenCVEs;
+    private List<String> chosenCPEs;
     private Group browseGroup;
     private Text fileSelectionLabel;
+    private ListViewer cpeViewer;
     private ListViewer emCatalogView;
     private Dictionary<String, List<String>> vulnerabilityDictionary = new Hashtable<>();
+    private final Session session;
 
-    public CVECatalogSelectionPage() {
+    public CVECatalogSelectionPage(Session session) {
         super("CVE Catalog selection page");
-        setMessage("Type a CPE name to search for its vulnerabilities.");
+        setMessage("Select a CPE name to search for its vulnerabilities.");
+        this.session = session;
+    }
+
+    public CVECatalogSelectionPage(String singleCPE, Session session) {
+        super("CVE Catalog selection page");
+        setMessage("Vulnerabilities for '" + singleCPE + "'.");
+        this.singleCPE = singleCPE;
+        this.session = session;
     }
 
     @Override
@@ -75,7 +95,9 @@ public class CVECatalogSelectionPage extends WizardPage {
         composite.setLayout(new GridLayout(1, true));
 
         // Type and browse button
-        createBrowseGroup(composite);
+        if (singleCPE == null) {
+            createBrowseGroup(composite);
+        }
         
         // Search Results
         createSearchResultsViewer(composite);
@@ -86,16 +108,42 @@ public class CVECatalogSelectionPage extends WizardPage {
  
     public void createBrowseGroup(Composite parent) {
         browseGroup = new Group(parent, SWT.NONE);
-        browseGroup.setText("CPE name :");
+        browseGroup.setText("CPEs found :");
         browseGroup.setLayout(new GridLayout(2, false));
         browseGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-        //browseGroup.setLayout(new RowLayout(SWT.HORIZONTAL));
-        //browseGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
-        this.fileSelectionLabel = new Text(browseGroup, SWT.COLOR_WHITE);
-        fileSelectionLabel.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-        fileSelectionLabel.setText("cpe:2.3:o:microsoft:windows_10:1607");
+        this.cpeViewer = new ListViewer(browseGroup);
+        cpeViewer.setContentProvider(ArrayContentProvider.getInstance());
+        cpeViewer.setLabelProvider(new LabelProvider() {
+            @Override
+            public String getText(Object element) {
+                return (String) element;
+            }
+        });
+        
+        cpeViewer.addSelectionChangedListener(new ISelectionChangedListener() {
 
+            @SuppressWarnings("unchecked")
+			@Override
+            public void selectionChanged(SelectionChangedEvent event) {
+                IStructuredSelection structuredSelection = cpeViewer.getStructuredSelection();
+                if (!structuredSelection.isEmpty()) {
+                	chosenCPEs = structuredSelection.toList();
+                } else {
+                	chosenCPEs = null;
+                }
+                getContainer().updateButtons();
+            }
+        });
+        
+        getAllCPEsFromDisplayedComponentTypes();
+
+        //select single CPE
+        if (singleCPE != null) {
+            ISelection cpeSelection = new StructuredSelection(singleCPE); 
+            cpeViewer.setSelection(cpeSelection);
+        }
+        
         Button browseButton = new Button(browseGroup, SWT.PUSH);
         browseButton.setLayoutData(new GridData(GridData.END));
         browseButton.setText("Browse");
@@ -103,8 +151,7 @@ public class CVECatalogSelectionPage extends WizardPage {
 
             @Override
             public void widgetSelected(SelectionEvent e) {
-               String cpeName = fileSelectionLabel.getText();
-               queryCVEEndpoint(parent, cpeName);
+               queryCVEEndpoint();
                getContainer().updateButtons();
             }
         });
@@ -163,9 +210,9 @@ public class CVECatalogSelectionPage extends WizardPage {
         return vulnerabilityDictionary;
     }
 
-    private void queryCVEEndpoint(Composite parent, String cpeName) {
+    private void queryCVEEndpoint() {
     	List<String> output = new ArrayList<String>();
-    	if (cpeName != "") {
+    	for (String cpeName : chosenCPEs) {
             String jsonString = getJsonString(cpeName);
         	if (jsonString != "") {
         		try {
@@ -212,10 +259,35 @@ public class CVECatalogSelectionPage extends WizardPage {
             }
             input.close();
             return jsonString.toString();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return "";
         }
     }
+
+    //populate cpeViewer
+    private void getAllCPEsFromDisplayedComponentTypes() {
+        List<String> displayedCPEs = new ArrayList<String>();
+        //search for all CPEs in ComponentType.Name
+        List<ComponentType> componentTypes = new ArrayList<>();
+		for (Resource r : session.getSemanticResources()) {
+			for (EObject root : r.getContents()) {
+				if (root instanceof Analysis) {
+					TreeIterator<EObject> ite = root.eAllContents();
+					while (ite.hasNext()) {
+						EObject eObject = (EObject) ite.next();
+						if (eObject instanceof ComponentType) {
+							componentTypes.add((ComponentType) eObject);
+						}
+					}
+				}
+			}
+		}
+
+        for (ComponentType componentType : componentTypes) {
+            displayedCPEs.add(componentType.getName());
+        }
+
+        cpeViewer.setInput(displayedCPEs);
+    }
 }
- 

@@ -24,6 +24,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Dictionary;
 import java.util.List;
@@ -33,6 +34,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.transaction.RecordingCommand;
@@ -78,7 +80,9 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 				.filter(p -> ModelingProject.asModelingProject(p).some()).collect(toList());
 		this.projectSelectionPage = new ProjectSelectionPage(modelingProjects, getSelectedProject(selection));
 		addPage(projectSelectionPage);
-		this.catalogSelectionPage = new CVECatalogSelectionPage();
+		URI sessionResourceURI = URI.createPlatformResourceURI(getSelectedProject(selection).getFullPath() + "/representations.aird", true);
+		Session existingSession = SessionManager.INSTANCE.getExistingSession(sessionResourceURI);
+		this.catalogSelectionPage = new CVECatalogSelectionPage(existingSession);
 		addPage(catalogSelectionPage);
 	}
 
@@ -108,7 +112,6 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 					}
 
 					return importCatalog(repUri, session[0]);
-
 				}
 			}
 		}
@@ -121,8 +124,9 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 		List<String> chosenCVEs = catalogSelectionPage.getchosenCVEs();
 		if (chosenCVEs.size() > 0) {
 			return importCVECatalog(repUri, session, chosenCVEs);
+		} else {
+			return false;
 		}
-		return false;
 	}
 
 	private boolean importCVECatalog(URI repUri, Session session, List<String> chosenCVEs) {
@@ -201,8 +205,9 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 			cve.setId(cveId);
 			if (weaknesses.size() > 0) {
 				for (int i = 0; i < weaknesses.size(); i++) {
-					String cwe = weaknesses.get(i);
-					cve.getRefines().add(cwe);
+					//Vulnerability cwe = catalogFactory.createVulnerability();
+					//cwe.setName(weaknesses.get(i));
+					//cve.getRefines().add(cwe);
 				}
 			}
 			existingResource.getContents().add(cve);
