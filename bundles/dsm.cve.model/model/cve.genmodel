@@ -11,7 +11,6 @@
   <genPackages prefix="CVECatalog" basePackage="dsm.cve.model" disposableProviderFactory="true"
       fileExtensions="cve" ecorePackage="cve-catalog.ecore#/">
     <genClasses ecoreClass="cve-catalog.ecore#//Vulnerability">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cve-catalog.ecore#//Vulnerability/refines"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cve-catalog.ecore#//Vulnerability/id"/>
     </genClasses>
   </genPackages>

@@ -11,6 +11,7 @@
   <genPackages prefix="CWECatalog" basePackage="dsm.cwe.model" disposableProviderFactory="true"
       fileExtensions="cwe" ecorePackage="cwe-catalog.ecore#/">
     <genClasses ecoreClass="cwe-catalog.ecore#//WeaknessCatalog">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//WeaknessCatalog/version"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cwe-catalog.ecore#//WeaknessCatalog/weaknesses"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cwe-catalog.ecore#//WeaknessCatalog/categories"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cwe-catalog.ecore#//WeaknessCatalog/views"/>
@@ -21,7 +22,6 @@
     </genClasses>
     <genClasses ecoreClass="cwe-catalog.ecore#//Weakness">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//Weakness/iD"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//Weakness/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//Weakness/abstraction"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//Weakness/structure"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//Weakness/status"/>
