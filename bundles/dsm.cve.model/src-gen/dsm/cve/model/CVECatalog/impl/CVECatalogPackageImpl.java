@@ -17,6 +17,7 @@ package dsm.cve.model.CVECatalog.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -25,6 +26,7 @@ import dsm.TRADES.TRADESPackage;
 import dsm.cve.model.CVECatalog.CVECatalogFactory;
 import dsm.cve.model.CVECatalog.CVECatalogPackage;
 import dsm.cve.model.CVECatalog.Vulnerability;
+import dsm.cve.model.CVECatalog.VulnerabilityTypeENUM;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,6 +41,13 @@ public class CVECatalogPackageImpl extends EPackageImpl implements CVECatalogPac
 	 * @generated
 	 */
 	private EClass vulnerabilityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum vulnerabilityTypeENUMEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -130,6 +139,26 @@ public class CVECatalogPackageImpl extends EPackageImpl implements CVECatalogPac
 	 * @generated
 	 */
 	@Override
+	public EAttribute getVulnerability_VulnerabilityType() {
+		return (EAttribute)vulnerabilityEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getVulnerabilityTypeENUM() {
+		return vulnerabilityTypeENUMEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public CVECatalogFactory getCVECatalogFactory() {
 		return (CVECatalogFactory)getEFactoryInstance();
 	}
@@ -155,6 +184,10 @@ public class CVECatalogPackageImpl extends EPackageImpl implements CVECatalogPac
 		// Create classes and their features
 		vulnerabilityEClass = createEClass(VULNERABILITY);
 		createEAttribute(vulnerabilityEClass, VULNERABILITY__ID);
+		createEAttribute(vulnerabilityEClass, VULNERABILITY__VULNERABILITY_TYPE);
+
+		// Create enums
+		vulnerabilityTypeENUMEEnum = createEEnum(VULNERABILITY_TYPE_ENUM);
 	}
 
 	/**
@@ -194,6 +227,12 @@ public class CVECatalogPackageImpl extends EPackageImpl implements CVECatalogPac
 		// Initialize classes, features, and operations; add parameters
 		initEClass(vulnerabilityEClass, Vulnerability.class, "Vulnerability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVulnerability_Id(), theEcorePackage.getEString(), "id", null, 0, 1, Vulnerability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVulnerability_VulnerabilityType(), this.getVulnerabilityTypeENUM(), "vulnerabilityType", null, 0, 1, Vulnerability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(vulnerabilityTypeENUMEEnum, VulnerabilityTypeENUM.class, "VulnerabilityTypeENUM");
+		addEEnumLiteral(vulnerabilityTypeENUMEEnum, VulnerabilityTypeENUM.CVE);
+		addEEnumLiteral(vulnerabilityTypeENUMEEnum, VulnerabilityTypeENUM.CWE);
 
 		// Create resource
 		createResource(eNS_URI);

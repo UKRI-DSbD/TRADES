@@ -16,7 +16,6 @@
 package dsm.cve.model.CVECatalog.util;
 
 import dsm.TRADES.NamedElement;
-import dsm.cve.model.CVECatalog.*;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
