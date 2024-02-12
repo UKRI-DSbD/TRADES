@@ -15,6 +15,8 @@
  */
 package dsm.cwe.model.CWECatalog.util;
 
+import dsm.TRADES.NamedElement;
+import dsm.TRADES.Vulnerability;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -122,6 +124,14 @@ public class CWECatalogAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseExternalReference(ExternalReference object) {
 				return createExternalReferenceAdapter();
+			}
+			@Override
+			public Adapter caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseVulnerability(Vulnerability object) {
+				return createVulnerabilityAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -266,6 +276,34 @@ public class CWECatalogAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createExternalReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link dsm.TRADES.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see dsm.TRADES.NamedElement
+	 * @generated
+	 */
+	public Adapter createNamedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link dsm.TRADES.Vulnerability <em>Vulnerability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see dsm.TRADES.Vulnerability
+	 * @generated
+	 */
+	public Adapter createVulnerabilityAdapter() {
 		return null;
 	}
 

@@ -15,11 +15,10 @@
  */
 package dsm.cwe.model.CWECatalog.impl;
 
+import dsm.TRADES.impl.VulnerabilityImpl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import dsm.cwe.model.CWECatalog.CWECatalogPackage;
 import dsm.cwe.model.CWECatalog.Weakness;
 
@@ -32,7 +31,6 @@ import dsm.cwe.model.CWECatalog.Weakness;
  * </p>
  * <ul>
  *   <li>{@link dsm.cwe.model.CWECatalog.impl.WeaknessImpl#getID <em>ID</em>}</li>
- *   <li>{@link dsm.cwe.model.CWECatalog.impl.WeaknessImpl#getName <em>Name</em>}</li>
  *   <li>{@link dsm.cwe.model.CWECatalog.impl.WeaknessImpl#getAbstraction <em>Abstraction</em>}</li>
  *   <li>{@link dsm.cwe.model.CWECatalog.impl.WeaknessImpl#getStructure <em>Structure</em>}</li>
  *   <li>{@link dsm.cwe.model.CWECatalog.impl.WeaknessImpl#getStatus <em>Status</em>}</li>
@@ -40,7 +38,7 @@ import dsm.cwe.model.CWECatalog.Weakness;
  *
  * @generated
  */
-public class WeaknessImpl extends MinimalEObjectImpl.Container implements Weakness {
+public class WeaknessImpl extends VulnerabilityImpl implements Weakness {
 	/**
 	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -60,26 +58,6 @@ public class WeaknessImpl extends MinimalEObjectImpl.Container implements Weakne
 	 * @ordered
 	 */
 	protected String iD = ID_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getAbstraction() <em>Abstraction</em>}' attribute.
@@ -189,29 +167,6 @@ public class WeaknessImpl extends MinimalEObjectImpl.Container implements Weakne
 	 * @generated
 	 */
 	@Override
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CWECatalogPackage.WEAKNESS__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public String getAbstraction() {
 		return abstraction;
 	}
@@ -285,8 +240,6 @@ public class WeaknessImpl extends MinimalEObjectImpl.Container implements Weakne
 		switch (featureID) {
 			case CWECatalogPackage.WEAKNESS__ID:
 				return getID();
-			case CWECatalogPackage.WEAKNESS__NAME:
-				return getName();
 			case CWECatalogPackage.WEAKNESS__ABSTRACTION:
 				return getAbstraction();
 			case CWECatalogPackage.WEAKNESS__STRUCTURE:
@@ -307,9 +260,6 @@ public class WeaknessImpl extends MinimalEObjectImpl.Container implements Weakne
 		switch (featureID) {
 			case CWECatalogPackage.WEAKNESS__ID:
 				setID((String)newValue);
-				return;
-			case CWECatalogPackage.WEAKNESS__NAME:
-				setName((String)newValue);
 				return;
 			case CWECatalogPackage.WEAKNESS__ABSTRACTION:
 				setAbstraction((String)newValue);
@@ -335,9 +285,6 @@ public class WeaknessImpl extends MinimalEObjectImpl.Container implements Weakne
 			case CWECatalogPackage.WEAKNESS__ID:
 				setID(ID_EDEFAULT);
 				return;
-			case CWECatalogPackage.WEAKNESS__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case CWECatalogPackage.WEAKNESS__ABSTRACTION:
 				setAbstraction(ABSTRACTION_EDEFAULT);
 				return;
@@ -361,8 +308,6 @@ public class WeaknessImpl extends MinimalEObjectImpl.Container implements Weakne
 		switch (featureID) {
 			case CWECatalogPackage.WEAKNESS__ID:
 				return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
-			case CWECatalogPackage.WEAKNESS__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case CWECatalogPackage.WEAKNESS__ABSTRACTION:
 				return ABSTRACTION_EDEFAULT == null ? abstraction != null : !ABSTRACTION_EDEFAULT.equals(abstraction);
 			case CWECatalogPackage.WEAKNESS__STRUCTURE:
@@ -385,8 +330,6 @@ public class WeaknessImpl extends MinimalEObjectImpl.Container implements Weakne
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (iD: ");
 		result.append(iD);
-		result.append(", name: ");
-		result.append(name);
 		result.append(", abstraction: ");
 		result.append(abstraction);
 		result.append(", structure: ");

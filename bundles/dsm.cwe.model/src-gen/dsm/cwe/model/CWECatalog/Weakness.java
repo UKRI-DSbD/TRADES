@@ -15,7 +15,7 @@
  */
 package dsm.cwe.model.CWECatalog;
 
-import org.eclipse.emf.ecore.EObject;
+import dsm.TRADES.Vulnerability;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +27,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link dsm.cwe.model.CWECatalog.Weakness#getID <em>ID</em>}</li>
- *   <li>{@link dsm.cwe.model.CWECatalog.Weakness#getName <em>Name</em>}</li>
  *   <li>{@link dsm.cwe.model.CWECatalog.Weakness#getAbstraction <em>Abstraction</em>}</li>
  *   <li>{@link dsm.cwe.model.CWECatalog.Weakness#getStructure <em>Structure</em>}</li>
  *   <li>{@link dsm.cwe.model.CWECatalog.Weakness#getStatus <em>Status</em>}</li>
@@ -37,7 +36,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Weakness extends EObject {
+public interface Weakness extends Vulnerability {
 	/**
 	 * Returns the value of the '<em><b>ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -59,28 +58,6 @@ public interface Weakness extends EObject {
 	 * @generated
 	 */
 	void setID(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see dsm.cwe.model.CWECatalog.CWECatalogPackage#getWeakness_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link dsm.cwe.model.CWECatalog.Weakness#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Abstraction</b></em>' attribute.

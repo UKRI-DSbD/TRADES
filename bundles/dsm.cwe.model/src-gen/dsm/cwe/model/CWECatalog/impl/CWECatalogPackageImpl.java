@@ -275,7 +275,7 @@ public class CWECatalogPackageImpl extends EPackageImpl implements CWECatalogPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getWeakness_Name() {
+	public EAttribute getWeakness_Abstraction() {
 		return (EAttribute)weaknessEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -285,7 +285,7 @@ public class CWECatalogPackageImpl extends EPackageImpl implements CWECatalogPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getWeakness_Abstraction() {
+	public EAttribute getWeakness_Structure() {
 		return (EAttribute)weaknessEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -295,18 +295,8 @@ public class CWECatalogPackageImpl extends EPackageImpl implements CWECatalogPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getWeakness_Structure() {
-		return (EAttribute)weaknessEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getWeakness_Status() {
-		return (EAttribute)weaknessEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)weaknessEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -520,7 +510,6 @@ public class CWECatalogPackageImpl extends EPackageImpl implements CWECatalogPac
 
 		weaknessEClass = createEClass(WEAKNESS);
 		createEAttribute(weaknessEClass, WEAKNESS__ID);
-		createEAttribute(weaknessEClass, WEAKNESS__NAME);
 		createEAttribute(weaknessEClass, WEAKNESS__ABSTRACTION);
 		createEAttribute(weaknessEClass, WEAKNESS__STRUCTURE);
 		createEAttribute(weaknessEClass, WEAKNESS__STATUS);
@@ -572,11 +561,15 @@ public class CWECatalogPackageImpl extends EPackageImpl implements CWECatalogPac
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		TRADESPackage theTRADESPackage = (TRADESPackage)EPackage.Registry.INSTANCE.getEPackage(TRADESPackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		weaknessEClass.getESuperTypes().add(theTRADESPackage.getVulnerability());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(weaknessCatalogEClass, WeaknessCatalog.class, "WeaknessCatalog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -591,7 +584,6 @@ public class CWECatalogPackageImpl extends EPackageImpl implements CWECatalogPac
 
 		initEClass(weaknessEClass, Weakness.class, "Weakness", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getWeakness_ID(), ecorePackage.getEString(), "iD", null, 0, 1, Weakness.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getWeakness_Name(), ecorePackage.getEString(), "name", null, 0, 1, Weakness.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWeakness_Abstraction(), ecorePackage.getEString(), "abstraction", null, 0, 1, Weakness.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWeakness_Structure(), ecorePackage.getEString(), "structure", null, 0, 1, Weakness.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWeakness_Status(), ecorePackage.getEString(), "status", null, 0, 1, Weakness.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

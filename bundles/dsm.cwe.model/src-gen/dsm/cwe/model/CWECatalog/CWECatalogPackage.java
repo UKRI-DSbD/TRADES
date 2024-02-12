@@ -15,6 +15,7 @@
  */
 package dsm.cwe.model.CWECatalog;
 
+import dsm.TRADES.TRADESPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -190,22 +191,31 @@ public interface CWECatalogPackage extends EPackage {
 	int WEAKNESS = 2;
 
 	/**
-	 * The feature id for the '<em><b>ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WEAKNESS__ID = 0;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WEAKNESS__NAME = 1;
+	int WEAKNESS__NAME = TRADESPackage.VULNERABILITY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Refines</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEAKNESS__REFINES = TRADESPackage.VULNERABILITY__REFINES;
+
+	/**
+	 * The feature id for the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEAKNESS__ID = TRADESPackage.VULNERABILITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Abstraction</b></em>' attribute.
@@ -214,7 +224,7 @@ public interface CWECatalogPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WEAKNESS__ABSTRACTION = 2;
+	int WEAKNESS__ABSTRACTION = TRADESPackage.VULNERABILITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Structure</b></em>' attribute.
@@ -223,7 +233,7 @@ public interface CWECatalogPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WEAKNESS__STRUCTURE = 3;
+	int WEAKNESS__STRUCTURE = TRADESPackage.VULNERABILITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
@@ -232,7 +242,7 @@ public interface CWECatalogPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WEAKNESS__STATUS = 4;
+	int WEAKNESS__STATUS = TRADESPackage.VULNERABILITY_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Weakness</em>' class.
@@ -241,7 +251,7 @@ public interface CWECatalogPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WEAKNESS_FEATURE_COUNT = 5;
+	int WEAKNESS_FEATURE_COUNT = TRADESPackage.VULNERABILITY_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Weakness</em>' class.
@@ -250,7 +260,7 @@ public interface CWECatalogPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WEAKNESS_OPERATION_COUNT = 0;
+	int WEAKNESS_OPERATION_COUNT = TRADESPackage.VULNERABILITY_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link dsm.cwe.model.CWECatalog.impl.CategoriesImpl <em>Categories</em>}' class.
@@ -628,17 +638,6 @@ public interface CWECatalogPackage extends EPackage {
 	EAttribute getWeakness_ID();
 
 	/**
-	 * Returns the meta object for the attribute '{@link dsm.cwe.model.CWECatalog.Weakness#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see dsm.cwe.model.CWECatalog.Weakness#getName()
-	 * @see #getWeakness()
-	 * @generated
-	 */
-	EAttribute getWeakness_Name();
-
-	/**
 	 * Returns the meta object for the attribute '{@link dsm.cwe.model.CWECatalog.Weakness#getAbstraction <em>Abstraction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -960,14 +959,6 @@ public interface CWECatalogPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute WEAKNESS__ID = eINSTANCE.getWeakness_ID();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute WEAKNESS__NAME = eINSTANCE.getWeakness_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Abstraction</b></em>' attribute feature.

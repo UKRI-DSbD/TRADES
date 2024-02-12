@@ -15,6 +15,9 @@
  */
 package dsm.cwe.model.CWECatalog.util;
 
+import dsm.TRADES.NamedElement;
+import dsm.TRADES.Vulnerability;
+import dsm.cwe.model.CWECatalog.*;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
@@ -102,6 +105,8 @@ public class CWECatalogSwitch<T> extends Switch<T> {
 			case CWECatalogPackage.WEAKNESS: {
 				Weakness weakness = (Weakness)theEObject;
 				T result = caseWeakness(weakness);
+				if (result == null) result = caseVulnerability(weakness);
+				if (result == null) result = caseNamedElement(weakness);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -277,6 +282,36 @@ public class CWECatalogSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseExternalReference(ExternalReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNamedElement(NamedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Vulnerability</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Vulnerability</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVulnerability(Vulnerability object) {
 		return null;
 	}
 

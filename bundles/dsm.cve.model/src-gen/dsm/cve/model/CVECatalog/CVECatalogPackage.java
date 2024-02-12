@@ -15,6 +15,7 @@
  */
 package dsm.cve.model.CVECatalog;
 
+import dsm.TRADES.TRADESPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -79,13 +80,22 @@ public interface CVECatalogPackage extends EPackage {
 	int VULNERABILITY = 0;
 
 	/**
-	 * The feature id for the '<em><b>Refines</b></em>' attribute list.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY__REFINES = 0;
+	int VULNERABILITY__NAME = TRADESPackage.VULNERABILITY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Refines</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VULNERABILITY__REFINES = TRADESPackage.VULNERABILITY__REFINES;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -94,7 +104,7 @@ public interface CVECatalogPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY__ID = 1;
+	int VULNERABILITY__ID = TRADESPackage.VULNERABILITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Vulnerability</em>' class.
@@ -103,7 +113,7 @@ public interface CVECatalogPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY_FEATURE_COUNT = 2;
+	int VULNERABILITY_FEATURE_COUNT = TRADESPackage.VULNERABILITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Vulnerability</em>' class.
@@ -112,7 +122,7 @@ public interface CVECatalogPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY_OPERATION_COUNT = 0;
+	int VULNERABILITY_OPERATION_COUNT = TRADESPackage.VULNERABILITY_OPERATION_COUNT + 0;
 
 
 	/**
@@ -124,17 +134,6 @@ public interface CVECatalogPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getVulnerability();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link dsm.cve.model.CVECatalog.Vulnerability#getRefines <em>Refines</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Refines</em>'.
-	 * @see dsm.cve.model.CVECatalog.Vulnerability#getRefines()
-	 * @see #getVulnerability()
-	 * @generated
-	 */
-	EAttribute getVulnerability_Refines();
 
 	/**
 	 * Returns the meta object for the attribute '{@link dsm.cve.model.CVECatalog.Vulnerability#getId <em>Id</em>}'.
@@ -179,14 +178,6 @@ public interface CVECatalogPackage extends EPackage {
 		 * @generated
 		 */
 		EClass VULNERABILITY = eINSTANCE.getVulnerability();
-
-		/**
-		 * The meta object literal for the '<em><b>Refines</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VULNERABILITY__REFINES = eINSTANCE.getVulnerability_Refines();
 
 		/**
 		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
