@@ -1938,7 +1938,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getVulnerability_Refines() {
+	public EReference getVulnerability_Manifests() {
 		return (EReference) vulnerabilityEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2400,7 +2400,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		createEReference(vulnerabilityOwnerEClass, VULNERABILITY_OWNER__VULNERABILITIES);
 
 		vulnerabilityEClass = createEClass(VULNERABILITY);
-		createEReference(vulnerabilityEClass, VULNERABILITY__REFINES);
+		createEReference(vulnerabilityEClass, VULNERABILITY__MANIFESTS);
 
 		abstractComponentTypeOwnerEClass = createEClass(ABSTRACT_COMPONENT_TYPE_OWNER);
 		createEReference(abstractComponentTypeOwnerEClass, ABSTRACT_COMPONENT_TYPE_OWNER__COMPONENT_TYPE_OWNER);
@@ -2942,7 +2942,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 
 		initEClass(vulnerabilityEClass, Vulnerability.class, "Vulnerability", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVulnerability_Refines(), this.getVulnerability(), null, "refines", null, 0, -1,
+		initEReference(getVulnerability_Manifests(), this.getVulnerability(), null, "manifests", null, 0, -1,
 				Vulnerability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

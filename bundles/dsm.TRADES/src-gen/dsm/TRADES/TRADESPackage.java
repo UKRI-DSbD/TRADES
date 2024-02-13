@@ -3032,13 +3032,13 @@ public interface TRADESPackage extends EPackage {
 	int VULNERABILITY__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Refines</b></em>' reference list.
+	 * The feature id for the '<em><b>Manifests</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY__REFINES = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int VULNERABILITY__MANIFESTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Vulnerability</em>' class.
@@ -4895,15 +4895,15 @@ public interface TRADESPackage extends EPackage {
 	EClass getVulnerability();
 
 	/**
-	 * Returns the meta object for the reference list '{@link dsm.TRADES.Vulnerability#getRefines <em>Refines</em>}'.
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.Vulnerability#getManifests <em>Manifests</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Refines</em>'.
-	 * @see dsm.TRADES.Vulnerability#getRefines()
+	 * @return the meta object for the reference list '<em>Manifests</em>'.
+	 * @see dsm.TRADES.Vulnerability#getManifests()
 	 * @see #getVulnerability()
 	 * @generated
 	 */
-	EReference getVulnerability_Refines();
+	EReference getVulnerability_Manifests();
 
 	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.AbstractComponentTypeOwner <em>Abstract Component Type Owner</em>}'.
@@ -6397,12 +6397,12 @@ public interface TRADESPackage extends EPackage {
 		EClass VULNERABILITY = eINSTANCE.getVulnerability();
 
 		/**
-		 * The meta object literal for the '<em><b>Refines</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Manifests</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference VULNERABILITY__REFINES = eINSTANCE.getVulnerability_Refines();
+		EReference VULNERABILITY__MANIFESTS = eINSTANCE.getVulnerability_Manifests();
 
 		/**
 		 * The meta object literal for the '{@link dsm.TRADES.impl.AbstractComponentTypeOwnerImpl <em>Abstract Component Type Owner</em>}' class.
