@@ -18,6 +18,10 @@ package dsm.cwe.model.transform;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -42,6 +46,7 @@ import dsm.cwe.model.CWECatalog.Weaknesses;
  */
 public class CWETransformer {
 
+	private HashMap<String, List<String>> relatedWeaknessDictionary = new HashMap<String, List<String>>();
 	/**
 	 * Imports the catalog located at the given path
 	 * 
@@ -61,7 +66,8 @@ public class CWETransformer {
 		extractCategories(path, catalogFactory, weaknessCatalog);
 		extractViews(path, catalogFactory, weaknessCatalog);
 		extractExternalReferences(path, catalogFactory, weaknessCatalog);
-		
+		addRelatedWeaknesses(weaknessCatalog);
+
 		return weaknessCatalog;
 	}
 
@@ -110,6 +116,8 @@ public class CWETransformer {
 							weakness.setStructure(structure);
 							weakness.setStatus(status);
 							weaknesses.getWeaknesses().add(weakness);
+
+							extractRelatedWeakness(weaknessNode);
 						}
 					}
 				}
@@ -228,5 +236,42 @@ public class CWETransformer {
 		}
 		
 		weaknessCatalog.setExternalReferences(externalReferences);
+	}
+
+	private void extractRelatedWeakness(Node weaknessNode) {
+		String id = weaknessNode.getAttributes().getNamedItem("ID").getNodeValue();
+		List<String> parents = new ArrayList<String>();
+		NodeList weaknessChildList = weaknessNode.getChildNodes();
+		for (int i = 0; i < weaknessChildList.getLength(); i++) {
+			Node weaknessChild = weaknessChildList.item(i);
+			if (weaknessChild.getNodeName() == "Related_Weaknesses") {
+				NodeList relatedWeaknessNodeList = weaknessChild.getChildNodes();
+				for (int j = 0; j < relatedWeaknessNodeList.getLength(); j++) {
+					Node relatedWeaknessNode = relatedWeaknessNodeList.item(j);
+					//ignore text nodes
+					if (relatedWeaknessNode.getNodeType() != Node.TEXT_NODE) {
+						String nature = relatedWeaknessNode.getAttributes().getNamedItem("Nature").getNodeValue();
+						if (nature.contains("ChildOf")) {
+							parents.add(relatedWeaknessNode.getAttributes().getNamedItem("CWE_ID").getNodeValue());
+						}
+					}
+				}
+			}
+		}
+		relatedWeaknessDictionary.put(id, parents);
+	}
+
+	private void addRelatedWeaknesses(WeaknessCatalog weaknessCatalog) {
+		List<Weakness> weaknesses = weaknessCatalog.getWeaknesses().getWeaknesses();
+		for (Weakness weakness : weaknesses) {
+			if (relatedWeaknessDictionary.containsKey(weakness.getID())) {
+				List<String> parentStrings = relatedWeaknessDictionary.get(weakness.getID());
+				for (Weakness parentWeakness : weaknesses) {
+					if (parentStrings.contains(parentWeakness.getID())) {
+						weakness.getRefines().add(parentWeakness);
+					}
+				}
+			}
+		}
 	}
 }
