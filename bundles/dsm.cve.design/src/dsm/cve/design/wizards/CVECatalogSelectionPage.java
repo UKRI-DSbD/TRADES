@@ -69,7 +69,7 @@ public class CVECatalogSelectionPage extends WizardPage {
     private Group embeddedGroup;
     private List<String> chosenCVEs;
     private List<String> chosenCPEs;
-    private Group browseGroup;
+    private Group fetchGroup;
     private Text fileSelectionLabel;
     private ListViewer cpeViewer;
     private ListViewer emCatalogView;
@@ -94,9 +94,9 @@ public class CVECatalogSelectionPage extends WizardPage {
         Composite composite = new Composite(parent, SWT.None);
         composite.setLayout(new GridLayout(1, true));
 
-        // Type and browse button
+        // Type and fetch button
         if (singleCPE == null) {
-            createBrowseGroup(composite);
+            createFetchGroup(composite);
         }
         
         // Search Results
@@ -106,13 +106,13 @@ public class CVECatalogSelectionPage extends WizardPage {
 
     }
  
-    public void createBrowseGroup(Composite parent) {
-        browseGroup = new Group(parent, SWT.NONE);
-        browseGroup.setText("CPEs found :");
-        browseGroup.setLayout(new GridLayout(2, false));
-        browseGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+    public void createFetchGroup(Composite parent) {
+        fetchGroup = new Group(parent, SWT.NONE);
+        fetchGroup.setText("CPEs found :");
+        fetchGroup.setLayout(new GridLayout(2, false));
+        fetchGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
-        this.cpeViewer = new ListViewer(browseGroup);
+        this.cpeViewer = new ListViewer(fetchGroup);
         cpeViewer.setContentProvider(ArrayContentProvider.getInstance());
         cpeViewer.setLabelProvider(new LabelProvider() {
             @Override
@@ -144,10 +144,10 @@ public class CVECatalogSelectionPage extends WizardPage {
             cpeViewer.setSelection(cpeSelection);
         }
         
-        Button browseButton = new Button(browseGroup, SWT.PUSH);
-        browseButton.setLayoutData(new GridData(GridData.END));
-        browseButton.setText("Browse");
-        browseButton.addSelectionListener(new SelectionAdapter() {
+        Button fetchButton = new Button(fetchGroup, SWT.PUSH);
+        fetchButton.setLayoutData(new GridData(GridData.END));
+        fetchButton.setText("Fetch");
+        fetchButton.addSelectionListener(new SelectionAdapter() {
 
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -155,7 +155,7 @@ public class CVECatalogSelectionPage extends WizardPage {
                getContainer().updateButtons();
             }
         });
-        enableGroup(browseGroup, true);
+        enableGroup(fetchGroup, true);
     }
 
     public void createSearchResultsViewer(Composite parent) {
