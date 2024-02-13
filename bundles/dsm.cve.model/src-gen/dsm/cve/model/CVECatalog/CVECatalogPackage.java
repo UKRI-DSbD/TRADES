@@ -90,13 +90,13 @@ public interface CVECatalogPackage extends EPackage {
 	int VULNERABILITY__NAME = TRADESPackage.VULNERABILITY__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Refines</b></em>' reference list.
+	 * The feature id for the '<em><b>Manifests</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY__REFINES = TRADESPackage.VULNERABILITY__REFINES;
+	int VULNERABILITY__MANIFESTS = TRADESPackage.VULNERABILITY__MANIFESTS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
