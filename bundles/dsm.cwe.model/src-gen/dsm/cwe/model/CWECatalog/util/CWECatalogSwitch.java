@@ -17,7 +17,6 @@ package dsm.cwe.model.CWECatalog.util;
 
 import dsm.TRADES.NamedElement;
 import dsm.TRADES.Vulnerability;
-import dsm.cwe.model.CWECatalog.*;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;

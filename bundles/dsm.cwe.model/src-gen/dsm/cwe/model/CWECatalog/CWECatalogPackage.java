@@ -200,13 +200,13 @@ public interface CWECatalogPackage extends EPackage {
 	int WEAKNESS__NAME = TRADESPackage.VULNERABILITY__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Refines</b></em>' reference list.
+	 * The feature id for the '<em><b>Manifests</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WEAKNESS__REFINES = TRADESPackage.VULNERABILITY__REFINES;
+	int WEAKNESS__MANIFESTS = TRADESPackage.VULNERABILITY__MANIFESTS;
 
 	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
