@@ -60,17 +60,15 @@ import dsm.TRADES.Analysis;
 import dsm.TRADES.ComponentType;
 
 /**
- * Page used to select an CVE catalog to import
+ * Page used to select an CVE catalogue to import
  */
 public class CVECatalogSelectionPage extends WizardPage {
 
-    private boolean embedded = true;
     private String singleCPE = null;
     private Group embeddedGroup;
     private List<String> chosenCVEs;
     private List<String> chosenCPEs;
     private Group fetchGroup;
-    private Text fileSelectionLabel;
     private TableViewer cpeViewer;
     private TableViewer emCatalogView;
     private Dictionary<String, List<String>> vulnerabilityDictionary = new Hashtable<>();
@@ -209,49 +207,43 @@ public class CVECatalogSelectionPage extends WizardPage {
 
     private void queryCVEEndpoint(SelectionEvent event) {
     	List<String> output = new ArrayList<String>();
-    	if (output.size() == 0) {
-            //popup to say nothing found
-            MessageDialog.openError(
-                event.display.getActiveShell(), 
-                "CPE Not Found", 
-                "The CPE you fetched was not found. Please check for typing errors in the CPE name.");
-        } else {
-            for (String cpeName : chosenCPEs) {
-                String jsonString = getJsonString(cpeName);
-                if (jsonString != "") {
-                    try {
-                        ObjectMapper objectMapper = new ObjectMapper();
-                        JsonNode jsonNode = objectMapper.readTree(jsonString);
-                        //int numberOfResults = jsonNode.get("resultsPerPage").asInt();
-                        ArrayNode vulnerabilities = (ArrayNode) jsonNode.get("vulnerabilities");
-                        for (int i = 0; i < vulnerabilities.size(); i++) {
-                            List<String> weaknessList = new ArrayList<String>();
-                            String cveId = vulnerabilities.get(i).get("cve").get("id").asText();
-                            output.add(cveId);
-                            ArrayNode weaknesses = (ArrayNode) vulnerabilities.get(i).get("cve").get("weaknesses").get(0).get("description");
-                            for (int j = 0; j < weaknesses.size(); j++) {
-                                if (weaknesses.get(j).getNodeType() == JsonNodeType.OBJECT) {
-                                    String cweId = weaknesses.get(j).get("value").asText();
-                                    weaknessList.add(cweId);
-                                }
+    	for (String cpeName : chosenCPEs) {
+            String jsonString = requestJsonString(cpeName, event);
+            if (jsonString != "") {
+            	try {
+            		ObjectMapper objectMapper = new ObjectMapper();
+                	JsonNode jsonNode = objectMapper.readTree(jsonString);
+                    //int numberOfResults = jsonNode.get("resultsPerPage").asInt();
+                    ArrayNode vulnerabilities = (ArrayNode) jsonNode.get("vulnerabilities");
+                    for (int i = 0; i < vulnerabilities.size(); i++) {
+                        List<String> weaknessList = new ArrayList<String>();
+                        String cveId = vulnerabilities.get(i).get("cve").get("id").asText();
+                        output.add(cveId);
+                        ArrayNode weaknesses = (ArrayNode) vulnerabilities.get(i).get("cve").get("weaknesses").get(0).get("description");
+                        for (int j = 0; j < weaknesses.size(); j++) {
+                            if (weaknesses.get(j).getNodeType() == JsonNodeType.OBJECT) {
+                                String cweId = weaknesses.get(j).get("value").asText();
+                                weaknessList.add(cweId);
                             }
-                            vulnerabilityDictionary.put(cveId, weaknessList);
                         }
-                        emCatalogView.setInput(output);
-                        ISelection selection = new StructuredSelection(output); 
-                        emCatalogView.setSelection(selection);
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                        vulnerabilityDictionary.put(cveId, weaknessList);
                     }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
         
+        if (output.size() > 0) {
+            emCatalogView.setInput(output);
+            ISelection selection = new StructuredSelection(output); 
+            emCatalogView.setSelection(selection);
+        }        
     }
 
-    private String getJsonString(String cpeName) {
+    private String requestJsonString(String cpeName, SelectionEvent event) {
         String cveUrl = "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=" + 
-        URLEncoder.encode(cpeName, StandardCharsets.UTF_8) + "&resultsPerPage=20&startIndex=0";
+            URLEncoder.encode(cpeName, StandardCharsets.UTF_8) + "&resultsPerPage=20&startIndex=0";
 
         try {
             URL url = new URL(cveUrl);
@@ -267,6 +259,10 @@ public class CVECatalogSelectionPage extends WizardPage {
             return jsonString.toString();
         } catch (Exception e) {
             e.printStackTrace();
+            MessageDialog.openError(
+                event.display.getActiveShell(), 
+                "No CVEs affecting CPE found", 
+                "No CVEs found that affect the selected CPE. Please check for typing errors in the CPE name.");
             return "";
         }
     }
