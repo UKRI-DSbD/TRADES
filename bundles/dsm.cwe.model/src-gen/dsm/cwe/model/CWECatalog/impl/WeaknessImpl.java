@@ -15,10 +15,11 @@
  */
 package dsm.cwe.model.CWECatalog.impl;
 
-import dsm.TRADES.impl.VulnerabilityImpl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import dsm.TRADES.impl.VulnerabilityImpl;
 import dsm.cwe.model.CWECatalog.CWECatalogPackage;
 import dsm.cwe.model.CWECatalog.Weakness;
 

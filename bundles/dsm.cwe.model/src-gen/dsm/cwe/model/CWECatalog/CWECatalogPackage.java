@@ -15,11 +15,12 @@
  */
 package dsm.cwe.model.CWECatalog;
 
-import dsm.TRADES.TRADESPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
+import dsm.TRADES.TRADESPackage;
 
 /**
  * <!-- begin-user-doc -->

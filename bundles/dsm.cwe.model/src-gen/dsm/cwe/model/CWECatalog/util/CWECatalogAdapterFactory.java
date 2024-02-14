@@ -15,13 +15,13 @@
  */
 package dsm.cwe.model.CWECatalog.util;
 
-import dsm.TRADES.NamedElement;
-import dsm.TRADES.Vulnerability;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
+import dsm.TRADES.NamedElement;
+import dsm.TRADES.Vulnerability;
 import dsm.cwe.model.CWECatalog.CWECatalogPackage;
 import dsm.cwe.model.CWECatalog.Categories;
 import dsm.cwe.model.CWECatalog.Category;

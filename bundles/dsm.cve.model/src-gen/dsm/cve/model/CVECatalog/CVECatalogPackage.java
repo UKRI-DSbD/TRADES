@@ -15,11 +15,12 @@
  */
 package dsm.cve.model.CVECatalog;
 
-import dsm.TRADES.TRADESPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
+
+import dsm.TRADES.TRADESPackage;
 
 /**
  * <!-- begin-user-doc -->

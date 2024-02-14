@@ -14,24 +14,13 @@
 
  package TRADES.design.actions;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.Path;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.transaction.RecordingCommand;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.action.Action;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.wizard.WizardDialog;
-import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.swt.widgets.Event;
 
-import dsm.TRADES.ComponentType;
 import TRADES.design.Activator;
 import TRADES.design.wizards.FetchCVEsForComponentTypeWizard;
+import dsm.TRADES.ComponentType;
  
  /**
   * Action that deletes the selected catalog from the project (and it matching

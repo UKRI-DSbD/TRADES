@@ -16,7 +16,6 @@
 package dsm.cwe.model.CWECatalog.provider;
 
 
-import dsm.TRADES.provider.VulnerabilityItemProvider;
 import java.util.Collection;
 import java.util.List;
 
@@ -28,6 +27,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import dsm.TRADES.provider.VulnerabilityItemProvider;
 import dsm.cwe.model.CWECatalog.CWECatalogPackage;
 import dsm.cwe.model.CWECatalog.Weakness;
 
