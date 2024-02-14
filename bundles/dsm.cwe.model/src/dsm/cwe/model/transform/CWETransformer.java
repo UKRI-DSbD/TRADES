@@ -268,7 +268,7 @@ public class CWETransformer {
 				List<String> parentStrings = relatedWeaknessDictionary.get(weakness.getID());
 				for (Weakness parentWeakness : weaknesses) {
 					if (parentStrings.contains(parentWeakness.getID())) {
-						weakness.getRefines().add(parentWeakness);
+						weakness.getManifests().add(parentWeakness);
 					}
 				}
 			}
