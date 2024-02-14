@@ -23,18 +23,14 @@ import TRADES.design.wizards.FetchCVEsForComponentTypeWizard;
 import dsm.TRADES.ComponentType;
  
  /**
-  * Action that deletes the selected catalog from the project (and it matching
-  * file)
-  * 
-  * @author Arthur Daussy
-  *
+  * Action that fetches CVEs from remote repository and adds them to the catalog
   */
 public class ActionFetchCVEs extends Action {
 
     private ComponentType componentType;
 
     public ActionFetchCVEs(ComponentType componentType) {
-        super("Fetch CVEs", Activator.getDefault().getImageDescriptor("icons/Vulnerability.gif"));
+        super("Fetch CVEs", Activator.getDefault().getImageDescriptor("Images/Vulnerability.png"));
         this.componentType = componentType;
     }
 
