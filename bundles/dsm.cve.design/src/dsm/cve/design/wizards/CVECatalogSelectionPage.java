@@ -59,11 +59,10 @@ import dsm.TRADES.Analysis;
 import dsm.TRADES.ComponentType;
 
 /**
- * Page used to select an CVE catalogue to import
+ * Page used to select an CVE catalog to import
  */
 public class CVECatalogSelectionPage extends WizardPage {
 
-    private String singleCPE = null;
     private Group embeddedGroup;
     private List<String> chosenCVEs;
     private List<String> chosenCPEs;
@@ -75,14 +74,8 @@ public class CVECatalogSelectionPage extends WizardPage {
 
     public CVECatalogSelectionPage(Session session) {
         super("CVE Catalog selection page");
-        setMessage("Select a CPE name to search for its vulnerabilities.");
-        this.session = session;
-    }
-
-    public CVECatalogSelectionPage(String singleCPE, Session session) {
-        super("CVE Catalog selection page");
-        setMessage("Vulnerabilities for '" + singleCPE + "'.");
-        this.singleCPE = singleCPE;
+        setMessage("Select a CPE name to search for its vulnerabilities." + System.lineSeparator() + 
+            "This product uses data from the NVD API but is not endorsed or certified by the NVD.");
         this.session = session;
     }
 
@@ -92,9 +85,7 @@ public class CVECatalogSelectionPage extends WizardPage {
         composite.setLayout(new GridLayout(1, true));
 
         // Type and fetch button
-        if (singleCPE == null) {
-            createFetchGroup(composite);
-        }
+        createFetchGroup(composite);
         
         // Search Results
         createSearchResultsViewer(composite);
@@ -266,7 +257,7 @@ public class CVECatalogSelectionPage extends WizardPage {
             MessageDialog.openError(
                 event.display.getActiveShell(), 
                 "No CVEs affecting CPE found", 
-                "No CVEs found that affect the selected CPE. Please check for typing errors in the CPE name.");
+                "No CVEs found that affect " + cpeName + ". Please check for typing errors in the CPE name.");
             return "";
         }
     }
