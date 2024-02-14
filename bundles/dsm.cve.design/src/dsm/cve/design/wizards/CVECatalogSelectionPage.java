@@ -35,7 +35,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.jface.viewers.ListViewer;
+import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.WizardPage;
@@ -73,8 +73,8 @@ public class CVECatalogSelectionPage extends WizardPage {
     private List<String> chosenCPEs;
     private Group fetchGroup;
     private Text fileSelectionLabel;
-    private ListViewer cpeViewer;
-    private ListViewer emCatalogView;
+    private TableViewer cpeViewer;
+    private TableViewer emCatalogView;
     private Dictionary<String, List<String>> vulnerabilityDictionary = new Hashtable<>();
     private final Session session;
 
@@ -114,7 +114,7 @@ public class CVECatalogSelectionPage extends WizardPage {
         fetchGroup.setLayout(new GridLayout(2, false));
         fetchGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
-        this.cpeViewer = new ListViewer(fetchGroup);
+        this.cpeViewer = new TableViewer(fetchGroup);
         GridData gridData = new GridData();
         gridData.widthHint = 500;
         cpeViewer.getControl().setLayoutData(gridData);
@@ -163,7 +163,7 @@ public class CVECatalogSelectionPage extends WizardPage {
         embeddedGroup.setLayout(new FillLayout());
         embeddedGroup.setLayoutData(new GridData(GridData.FILL_BOTH));
 
-        this.emCatalogView = new ListViewer(embeddedGroup);
+        this.emCatalogView = new TableViewer(embeddedGroup);
         emCatalogView.setContentProvider(ArrayContentProvider.getInstance());
         emCatalogView.setLabelProvider(new LabelProvider() {
             @Override
