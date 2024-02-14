@@ -29,6 +29,7 @@ import java.util.List;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -45,6 +46,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -113,6 +115,9 @@ public class CVECatalogSelectionPage extends WizardPage {
         fetchGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
         this.cpeViewer = new ListViewer(fetchGroup);
+        GridData gridData = new GridData();
+        gridData.widthHint = 500;
+        cpeViewer.getControl().setLayoutData(gridData);
         cpeViewer.setContentProvider(ArrayContentProvider.getInstance());
         cpeViewer.setLabelProvider(new LabelProvider() {
             @Override
@@ -138,12 +143,6 @@ public class CVECatalogSelectionPage extends WizardPage {
         
         getAllCPEsFromDisplayedComponentTypes();
 
-        //select single CPE
-        if (singleCPE != null) {
-            ISelection cpeSelection = new StructuredSelection(singleCPE); 
-            cpeViewer.setSelection(cpeSelection);
-        }
-        
         Button fetchButton = new Button(fetchGroup, SWT.PUSH);
         fetchButton.setLayoutData(new GridData(GridData.END));
         fetchButton.setText("Fetch");
@@ -151,7 +150,7 @@ public class CVECatalogSelectionPage extends WizardPage {
 
             @Override
             public void widgetSelected(SelectionEvent e) {
-               queryCVEEndpoint();
+               queryCVEEndpoint(e);
                getContainer().updateButtons();
             }
         });
@@ -210,37 +209,46 @@ public class CVECatalogSelectionPage extends WizardPage {
         return vulnerabilityDictionary;
     }
 
-    private void queryCVEEndpoint() {
+    private void queryCVEEndpoint(SelectionEvent event) {
     	List<String> output = new ArrayList<String>();
-    	for (String cpeName : chosenCPEs) {
-            String jsonString = getJsonString(cpeName);
-        	if (jsonString != "") {
-        		try {
-                    ObjectMapper objectMapper = new ObjectMapper();
-                    JsonNode jsonNode = objectMapper.readTree(jsonString);
-                    //int numberOfResults = jsonNode.get("resultsPerPage").asInt();
-                    ArrayNode vulnerabilities = (ArrayNode) jsonNode.get("vulnerabilities");
-                    for (int i = 0; i < vulnerabilities.size(); i++) {
-                    	List<String> weaknessList = new ArrayList<String>();
-                        String cveId = vulnerabilities.get(i).get("cve").get("id").asText();
-                        output.add(cveId);
-                        ArrayNode weaknesses = (ArrayNode) vulnerabilities.get(i).get("cve").get("weaknesses").get(0).get("description");
-                        for (int j = 0; j < weaknesses.size(); j++) {
-                        	if (weaknesses.get(j).getNodeType() == JsonNodeType.OBJECT) {
-                            	String cweId = weaknesses.get(j).get("value").asText();
-                            	weaknessList.add(cweId);
-                        	}
+    	if (output.size() == 0) {
+            //popup to say nothing found
+            MessageDialog.openError(
+                event.display.getActiveShell(), 
+                "CPE Not Found", 
+                "The CPE you fetched was not found. Please check for typing errors in the CPE name.");
+        } else {
+            for (String cpeName : chosenCPEs) {
+                String jsonString = getJsonString(cpeName);
+                if (jsonString != "") {
+                    try {
+                        ObjectMapper objectMapper = new ObjectMapper();
+                        JsonNode jsonNode = objectMapper.readTree(jsonString);
+                        //int numberOfResults = jsonNode.get("resultsPerPage").asInt();
+                        ArrayNode vulnerabilities = (ArrayNode) jsonNode.get("vulnerabilities");
+                        for (int i = 0; i < vulnerabilities.size(); i++) {
+                            List<String> weaknessList = new ArrayList<String>();
+                            String cveId = vulnerabilities.get(i).get("cve").get("id").asText();
+                            output.add(cveId);
+                            ArrayNode weaknesses = (ArrayNode) vulnerabilities.get(i).get("cve").get("weaknesses").get(0).get("description");
+                            for (int j = 0; j < weaknesses.size(); j++) {
+                                if (weaknesses.get(j).getNodeType() == JsonNodeType.OBJECT) {
+                                    String cweId = weaknesses.get(j).get("value").asText();
+                                    weaknessList.add(cweId);
+                                }
+                            }
+                            vulnerabilityDictionary.put(cveId, weaknessList);
                         }
-                    	vulnerabilityDictionary.put(cveId, weaknessList);
+                        emCatalogView.setInput(output);
+                        ISelection selection = new StructuredSelection(output); 
+                        emCatalogView.setSelection(selection);
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
-                    emCatalogView.setInput(output);
-                    ISelection selection = new StructuredSelection(output); 
-                    emCatalogView.setSelection(selection);
-                } catch (Exception e) {
-        	    	e.printStackTrace();
-        	    }
-        	}
+                }
+            }
         }
+        
     }
 
     private String getJsonString(String cpeName) {
