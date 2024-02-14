@@ -16,15 +16,8 @@ package dsm.trades.rcp.internal.wizards;
 
 import static java.util.stream.Collectors.toList;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Dictionary;
 import java.util.List;
@@ -34,7 +27,6 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.transaction.RecordingCommand;
@@ -49,14 +41,11 @@ import org.eclipse.ui.IImportWizard;
 import org.eclipse.ui.IWorkbench;
 
 import dsm.cve.design.wizards.CVECatalogSelectionPage;
+import dsm.cve.model.CVECatalog.CVECatalogFactory;
+import dsm.cwe.model.CWECatalog.Weakness;
+import dsm.cwe.model.CWECatalog.WeaknessCatalog;
 import dsm.trades.rcp.TRADESRCPActivator;
 import dsm.trades.rcp.utils.CatalogUtils;
-import dsm.cve.model.CVECatalog.Vulnerability;
-import dsm.cve.model.CVECatalog.CVECatalogFactory;
-
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 
 /**
  * Wizard used to import MITRE CVE catalog
@@ -148,8 +137,6 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 						Resource existingResource = resourceSet.getResource(cveLibURI, false);
 						if (existingResource == null) {
 							existingResource = resourceSet.createResource(cveLibURI);
-						} else {
-							existingResource.getContents().clear();
 						}
 						monitor.setTaskName("Converting to EMF Model");
 						transformCVEs(existingResource, chosenCVEs);
@@ -200,17 +187,40 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 		for (String cveId : chosenCVEs) {
 			Dictionary<String, List<String>> vulnerabilityDictionary = catalogSelectionPage.getVulnerabilityDictionary();
 			List<String> weaknesses = vulnerabilityDictionary.get(cveId);
-			CVECatalogFactory catalogFactory = CVECatalogFactory.eINSTANCE;
-			Vulnerability cve = catalogFactory.createVulnerability();
+			CVECatalogFactory cveCatalogFactory = CVECatalogFactory.eINSTANCE;
+			dsm.cve.model.CVECatalog.Vulnerability cve = cveCatalogFactory.createVulnerability();			
 			cve.setId(cveId);
 			if (weaknesses.size() > 0) {
 				for (int i = 0; i < weaknesses.size(); i++) {
-					//Vulnerability cwe = catalogFactory.createVulnerability();
-					//cwe.setName(weaknesses.get(i));
-					//cve.getRefines().add(cwe);
+					//assume CWEs already loaded
+					try {
+						dsm.TRADES.Vulnerability cwe = getCWEByID(weaknesses.get(i), existingResource);
+						if (cwe != null) {
+							cve.getManifests().add(cwe);
+						}						
+					} catch (Exception ex) {
+						ex.printStackTrace();
+					}					
 				}
 			}
 			existingResource.getContents().add(cve);
 		}
+	}
+
+	private dsm.TRADES.Vulnerability getCWEByID(String cweId, Resource existingCVEResource) {
+		for (Resource resource : existingCVEResource.getResourceSet().getResources()) {
+			URI uri = resource.getURI();
+			if (uri.segments().length >= 4) {
+				if (uri.segments()[3].endsWith("cwe")) {
+					WeaknessCatalog weaknessCatalog = (WeaknessCatalog) resource.getContents().get(0);
+					for (Weakness weakness : weaknessCatalog.getWeaknesses().getWeaknesses()) {
+						if (weakness.getID().equals(cweId)) {
+							return (dsm.TRADES.Vulnerability) weakness;
+						}
+					}
+				}
+			}
+		}
+		return null;
 	}
 }

@@ -49,7 +49,6 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
-import org.eclipse.swt.widgets.Text;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -223,7 +222,12 @@ public class CVECatalogSelectionPage extends WizardPage {
                         for (int j = 0; j < weaknesses.size(); j++) {
                             if (weaknesses.get(j).getNodeType() == JsonNodeType.OBJECT) {
                                 String cweId = weaknesses.get(j).get("value").asText();
-                                weaknessList.add(cweId);
+                                if (cweId.startsWith("CWE-")) {
+                                    weaknessList.add(cweId.substring(4));
+                                } else {
+                                    weaknessList.add(cweId);
+                                }
+                                
                             }
                         }
                         vulnerabilityDictionary.put(cveId, weaknessList);
@@ -244,19 +248,19 @@ public class CVECatalogSelectionPage extends WizardPage {
     private String requestJsonString(String cpeName, SelectionEvent event) {
         String cveUrl = "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=" + 
             URLEncoder.encode(cpeName, StandardCharsets.UTF_8) + "&resultsPerPage=20&startIndex=0";
-
         try {
-            URL url = new URL(cveUrl);
-            InputStream input = url.openStream();
-            InputStreamReader streamReader = new InputStreamReader(input);
-            BufferedReader reader = new BufferedReader(streamReader);
-            StringBuilder jsonString = new StringBuilder();
+        	URL url = new URL(cveUrl);
+               
+        	try (InputStream input = url.openStream()) {
+        		InputStreamReader streamReader = new InputStreamReader(input);
+        		BufferedReader reader = new BufferedReader(streamReader);
+        		StringBuilder jsonString = new StringBuilder();
             
-            while (reader.ready()) {
-                jsonString.append(reader.readLine());
-            }
-            input.close();
-            return jsonString.toString();
+        		while (reader.ready()) {
+        			jsonString.append(reader.readLine());
+        		}
+        		return jsonString.toString();
+        	}
         } catch (Exception e) {
             e.printStackTrace();
             MessageDialog.openError(

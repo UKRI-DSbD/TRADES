@@ -250,7 +250,7 @@ public class CWETransformer {
 					//ignore text nodes
 					if (relatedWeaknessNode.getNodeType() != Node.TEXT_NODE) {
 						String nature = relatedWeaknessNode.getAttributes().getNamedItem("Nature").getNodeValue();
-						if (nature.contains("ChildOf")) {
+						if (nature.equals("ChildOf")) {
 							parents.add(relatedWeaknessNode.getAttributes().getNamedItem("CWE_ID").getNodeValue());
 						}
 					}
