@@ -43,6 +43,7 @@ import org.eclipse.ui.IWorkbench;
 import dsm.TRADES.ComponentType;
 import dsm.cve.design.wizards.CVECatalogSelectionPage;
 import dsm.cve.model.CVECatalog.CVECatalogFactory;
+import dsm.cve.model.CVECatalog.VulnerabilityTypeENUM;
 import dsm.cwe.model.CWECatalog.Weakness;
 import dsm.cwe.model.CWECatalog.WeaknessCatalog;
 import dsm.trades.rcp.TRADESRCPActivator;
@@ -186,6 +187,7 @@ public class FetchCVEsForComponentTypeWizard extends Wizard implements IImportWi
 			CVECatalogFactory cveCatalogFactory = CVECatalogFactory.eINSTANCE;
 			dsm.cve.model.CVECatalog.Vulnerability cve = cveCatalogFactory.createVulnerability();			
 			cve.setId(cveId);
+            cve.setVulnerabilityType(VulnerabilityTypeENUM.CVE);
 			if (weaknesses.size() > 0) {
 				for (int i = 0; i < weaknesses.size(); i++) {
 					//assume CWEs already loaded

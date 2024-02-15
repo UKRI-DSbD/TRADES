@@ -294,6 +294,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Vulnerability" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="manifests" upperBound="-1"
         eType="#//Vulnerability"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="affects" upperBound="-1"
+        eType="#//ComponentType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ComponentCategoryENUM">
     <eLiterals name="Data"/>

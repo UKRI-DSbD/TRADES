@@ -3041,13 +3041,22 @@ public interface TRADESPackage extends EPackage {
 	int VULNERABILITY__MANIFESTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Affects</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VULNERABILITY__AFFECTS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Vulnerability</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int VULNERABILITY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Vulnerability</em>' class.
@@ -4906,6 +4915,17 @@ public interface TRADESPackage extends EPackage {
 	EReference getVulnerability_Manifests();
 
 	/**
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.Vulnerability#getAffects <em>Affects</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Affects</em>'.
+	 * @see dsm.TRADES.Vulnerability#getAffects()
+	 * @see #getVulnerability()
+	 * @generated
+	 */
+	EReference getVulnerability_Affects();
+
+	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.AbstractComponentTypeOwner <em>Abstract Component Type Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6403,6 +6423,14 @@ public interface TRADESPackage extends EPackage {
 		 * @generated
 		 */
 		EReference VULNERABILITY__MANIFESTS = eINSTANCE.getVulnerability_Manifests();
+
+		/**
+		 * The meta object literal for the '<em><b>Affects</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VULNERABILITY__AFFECTS = eINSTANCE.getVulnerability_Affects();
 
 		/**
 		 * The meta object literal for the '{@link dsm.TRADES.impl.AbstractComponentTypeOwnerImpl <em>Abstract Component Type Owner</em>}' class.
