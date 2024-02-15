@@ -100,6 +100,15 @@ public interface CVECatalogPackage extends EPackage {
 	int VULNERABILITY__MANIFESTS = TRADESPackage.VULNERABILITY__MANIFESTS;
 
 	/**
+	 * The feature id for the '<em><b>Affects</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VULNERABILITY__AFFECTS = TRADESPackage.VULNERABILITY__AFFECTS;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

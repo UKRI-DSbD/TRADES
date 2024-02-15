@@ -210,6 +210,15 @@ public interface CWECatalogPackage extends EPackage {
 	int WEAKNESS__MANIFESTS = TRADESPackage.VULNERABILITY__MANIFESTS;
 
 	/**
+	 * The feature id for the '<em><b>Affects</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEAKNESS__AFFECTS = TRADESPackage.VULNERABILITY__AFFECTS;
+
+	/**
 	 * The feature id for the '<em><b>ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
