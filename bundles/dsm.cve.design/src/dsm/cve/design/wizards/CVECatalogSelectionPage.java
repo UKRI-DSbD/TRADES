@@ -54,6 +54,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.Label;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -81,8 +82,7 @@ public class CVECatalogSelectionPage extends WizardPage {
 
     public CVECatalogSelectionPage(Session session) {
         super("CVE Catalog selection page");
-        setMessage("Select a CPE name to search for its vulnerabilities." + System.lineSeparator() + 
-            "This product uses data from the NVD API but is not endorsed or certified by the NVD.");
+        setMessage("Select a CPE name to search for its vulnerabilities.");
         this.session = session;
     }
 
@@ -99,6 +99,10 @@ public class CVECatalogSelectionPage extends WizardPage {
         
         // Search Results
         createSearchResultsViewer(composite);
+        
+        Label disclaimerText = new Label(composite, SWT.COLOR_TRANSPARENT);
+        disclaimerText.setText(System.lineSeparator() + 
+        	"This product uses data from the NVD API but is not endorsed or certified by the NVD.");
 
         setControl(composite);
 
