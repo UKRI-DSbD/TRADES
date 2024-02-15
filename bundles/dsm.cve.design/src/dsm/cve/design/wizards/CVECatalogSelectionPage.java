@@ -279,7 +279,7 @@ public class CVECatalogSelectionPage extends WizardPage {
 
     private String requestJsonString(String cpeName, SelectionEvent event) {
         String cveUrl = "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=" + 
-            URLEncoder.encode(cpeName, StandardCharsets.UTF_8) + "&resultsPerPage=20&startIndex=0";
+            URLEncoder.encode(cpeName, StandardCharsets.UTF_8);
         try {
         	URL url = new URL(cveUrl);
                
