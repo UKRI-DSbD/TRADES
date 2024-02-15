@@ -37,9 +37,13 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.FillLayout;
@@ -49,6 +53,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Text;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -68,7 +73,9 @@ public class CVECatalogSelectionPage extends WizardPage {
     private List<String> chosenCPEs;
     private Group fetchGroup;
     private TableViewer cpeViewer;
-    private TableViewer emCatalogView;
+    private TableViewer cveViewer;
+    private Text filterText;
+    private ViewerFilter filterViewer;
     private Dictionary<String, List<String>> vulnerabilityDictionary = new Hashtable<>();
     private final Session session;
 
@@ -84,6 +91,9 @@ public class CVECatalogSelectionPage extends WizardPage {
         Composite composite = new Composite(parent, SWT.None);
         composite.setLayout(new GridLayout(1, true));
 
+        //Filter existing CPEs
+        createFilterGroup(composite);
+
         // Type and fetch button
         createFetchGroup(composite);
         
@@ -91,6 +101,35 @@ public class CVECatalogSelectionPage extends WizardPage {
         createSearchResultsViewer(composite);
 
         setControl(composite);
+
+    }
+
+    public void createFilterGroup(Composite parent) {
+        Group filterGroup = new Group(parent, SWT.NONE);
+        filterGroup.setText("Enter the first few characters of a CPE to filter the below list :");
+        filterGroup.setLayout(new GridLayout(1, false));
+        filterGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+
+        this.filterText = new Text(filterGroup, SWT.COLOR_WHITE);
+        filterText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+
+        filterText.addModifyListener(new ModifyListener() {
+            @Override
+            public void modifyText(ModifyEvent arg0) {
+                cpeViewer.refresh();
+            }
+        });
+
+        this.filterViewer = new ViewerFilter() {
+            @Override
+            public boolean select(Viewer viewer, Object parentElement, Object element) {
+                if (element.toString().regionMatches(true, 0, filterText.getText(), 0, filterText.getText().length())) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        };
 
     }
  
@@ -140,6 +179,9 @@ public class CVECatalogSelectionPage extends WizardPage {
                getContainer().updateButtons();
             }
         });
+
+        cpeViewer.addFilter(this.filterViewer);
+
         enableGroup(fetchGroup, true);
     }
 
@@ -149,21 +191,21 @@ public class CVECatalogSelectionPage extends WizardPage {
         embeddedGroup.setLayout(new FillLayout());
         embeddedGroup.setLayoutData(new GridData(GridData.FILL_BOTH));
 
-        this.emCatalogView = new TableViewer(embeddedGroup);
-        emCatalogView.setContentProvider(ArrayContentProvider.getInstance());
-        emCatalogView.setLabelProvider(new LabelProvider() {
+        this.cveViewer = new TableViewer(embeddedGroup);
+        cveViewer.setContentProvider(ArrayContentProvider.getInstance());
+        cveViewer.setLabelProvider(new LabelProvider() {
             @Override
             public String getText(Object element) {
                 return (String) element;
             }
         });
         
-        emCatalogView.addSelectionChangedListener(new ISelectionChangedListener() {
+        cveViewer.addSelectionChangedListener(new ISelectionChangedListener() {
 
             @SuppressWarnings("unchecked")
 			@Override
             public void selectionChanged(SelectionChangedEvent event) {
-                IStructuredSelection structuredSelection = emCatalogView.getStructuredSelection();
+                IStructuredSelection structuredSelection = cveViewer.getStructuredSelection();
                 if (!structuredSelection.isEmpty()) {
                 	chosenCVEs = structuredSelection.toList();
                 } else {
@@ -173,7 +215,6 @@ public class CVECatalogSelectionPage extends WizardPage {
 
             }
         });
-        
         
         enableGroup(embeddedGroup, true);
     }
@@ -230,9 +271,9 @@ public class CVECatalogSelectionPage extends WizardPage {
         }
         
         if (output.size() > 0) {
-            emCatalogView.setInput(output);
+            cveViewer.setInput(output);
             ISelection selection = new StructuredSelection(output); 
-            emCatalogView.setSelection(selection);
+            cveViewer.setSelection(selection);
         }        
     }
 
