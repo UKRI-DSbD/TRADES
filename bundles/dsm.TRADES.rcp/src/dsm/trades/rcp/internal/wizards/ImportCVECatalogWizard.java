@@ -18,6 +18,7 @@ import static java.util.stream.Collectors.toList;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Dictionary;
 import java.util.List;
@@ -27,6 +28,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.transaction.RecordingCommand;
@@ -205,7 +207,8 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 					}					
 				}
 			}
-			existingResource.getContents().add(cve);
+
+			addCVE(existingResource, cve);
 		}
 	}
 
@@ -224,5 +227,17 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 			}
 		}
 		return null;
+	}
+
+	private void addCVE(Resource existingResource, dsm.cve.model.CVECatalog.Vulnerability cve) {
+		List<String> existingIds = new ArrayList<String>();
+
+		for (EObject item : existingResource.getContents()) {
+			dsm.cve.model.CVECatalog.Vulnerability vulnerability = (dsm.cve.model.CVECatalog.Vulnerability) item;
+			existingIds.add(vulnerability.getId());
+		}
+		if(!existingIds.contains(cve.getId())) {
+			existingResource.getContents().add(cve);
+		}
 	}
 }
