@@ -29,6 +29,6 @@ public class WeaknessItemProviderCustomImpl extends WeaknessItemProvider {
 		String name = ((Weakness)object).getName();
 		return id == null || id.length() == 0 ?
 			getString("_UI_Weakness_type") :
-			id + ": " + name;
+			"CWE-" + id + ": " + name;
 	}
 }
