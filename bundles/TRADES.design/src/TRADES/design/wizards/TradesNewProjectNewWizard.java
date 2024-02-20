@@ -59,6 +59,7 @@ import dsm.TRADES.SemanticUtil;
 public class TradesNewProjectNewWizard extends BasicNewProjectResourceWizard implements INewWizard {
 
 	protected WizardNewProjectCreationPage newProjectPage;
+	protected NVDAPIKeyInputPage nvdAPIKeyInputPage;
 
 	public TradesNewProjectNewWizard() {
 		super();
@@ -77,6 +78,8 @@ public class TradesNewProjectNewWizard extends BasicNewProjectResourceWizard imp
 		newProjectPage.setTitle("Create a TRADES Modeling project"); //$NON-NLS-1$
 		newProjectPage.setDescription("Enter a project name"); //$NON-NLS-1$
 		addPage(newProjectPage);
+		this.nvdAPIKeyInputPage = new NVDAPIKeyInputPage();
+		addPage(nvdAPIKeyInputPage);
 	}
 
 	@Override
@@ -161,6 +164,7 @@ public class TradesNewProjectNewWizard extends BasicNewProjectResourceWizard imp
 		final Option<ModelingProject> modelingProject = ModelingProject.asModelingProject(project);
 		final Session session = modelingProject.get().getSession();
 		final String platformPath = getNewModelFilePath(project, newUmlFileName);
+		final String apiKey = this.nvdAPIKeyInputPage.getAPIKey();
 		session.getTransactionalEditingDomain().getCommandStack()
 				.execute(new RecordingCommand(session.getTransactionalEditingDomain()) {
 					@Override
@@ -170,7 +174,7 @@ public class TradesNewProjectNewWizard extends BasicNewProjectResourceWizard imp
 						final Resource res = new ResourceSetImpl().createResource(semanticModelURI);
 
 						/* Add the initial model object to the contents. */
-						final EObject rootObject = SemanticUtil.createInitialModel(rootObjectName);
+						final EObject rootObject = SemanticUtil.createInitialModel(rootObjectName, apiKey);
 
 						if (rootObject != null) {
 							res.getContents().add(rootObject);

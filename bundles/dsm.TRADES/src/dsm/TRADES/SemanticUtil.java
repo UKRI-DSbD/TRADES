@@ -37,10 +37,11 @@ public class SemanticUtil {
 		return control;
 	}
 
-	public static Analysis createInitialModel(String rootObjectName) {
+	public static Analysis createInitialModel(String rootObjectName, String nvdAPIKey) {
 		Analysis analysis = TRADESFactory.eINSTANCE.createAnalysis();
 		analysis.setName(rootObjectName);
 		analysis.setId(UUID.randomUUID().toString());
+		analysis.setNVDAPIKey(nvdAPIKey);
 
 		Component root = TRADESFactory.eINSTANCE.createComponent();
 		analysis.getComponents().add(root);
