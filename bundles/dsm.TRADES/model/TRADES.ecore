@@ -13,6 +13,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="linkTypes" upperBound="-1"
         eType="#//LinkType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nVDAPIKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Threat" eSuperTypes="#//NamedElement #//IThreatDefinition #//ElementWithId">
     <eOperations name="checkIsUsed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
