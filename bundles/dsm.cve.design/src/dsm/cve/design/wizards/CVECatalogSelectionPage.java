@@ -17,13 +17,21 @@ package dsm.cve.design.wizards;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
+import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.http.HttpResponse.BodyHandlers;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
@@ -77,13 +85,21 @@ public class CVECatalogSelectionPage extends WizardPage {
     private TableViewer cveViewer;
     private Text filterText;
     private ViewerFilter filterViewer;
-    private Dictionary<String, List<String>> vulnerabilityDictionary = new Hashtable<>();
+    private Hashtable<String, List<String>> vulnerabilityDictionary = new Hashtable<String, List<String>>();
     private final Session session;
+    private String apiKey;
 
     public CVECatalogSelectionPage(Session session) {
         super("CVE Catalog selection page");
         setMessage("Select a CPE name to search for its vulnerabilities.");
         this.session = session;
+        for (Resource r : session.getSemanticResources()) {
+			for (EObject root : r.getContents()) {
+				if (root instanceof Analysis) {
+                    this.apiKey = ((Analysis) root).getNVDAPIKey();
+                }
+            }
+        }
     }
 
     @Override
@@ -241,61 +257,103 @@ public class CVECatalogSelectionPage extends WizardPage {
     }
 
     private void queryCVEEndpoint(SelectionEvent event) {
-    	List<String> output = new ArrayList<String>();
+    	List<String> cvesToDisplay = new ArrayList<String>();
     	for (String cpeName : chosenCPEs) {
-            String jsonString = requestJsonString(cpeName, event);
-            if (jsonString != "") {
-            	try {
-            		ObjectMapper objectMapper = new ObjectMapper();
-                	JsonNode jsonNode = objectMapper.readTree(jsonString);
-                    //int numberOfResults = jsonNode.get("resultsPerPage").asInt();
-                    ArrayNode vulnerabilities = (ArrayNode) jsonNode.get("vulnerabilities");
-                    for (int i = 0; i < vulnerabilities.size(); i++) {
-                        List<String> weaknessList = new ArrayList<String>();
-                        String cveId = vulnerabilities.get(i).get("cve").get("id").asText();
-                        output.add(cveId);
-                        ArrayNode weaknesses = (ArrayNode) vulnerabilities.get(i).get("cve").get("weaknesses").get(0).get("description");
-                        for (int j = 0; j < weaknesses.size(); j++) {
-                            if (weaknesses.get(j).getNodeType() == JsonNodeType.OBJECT) {
-                                String cweId = weaknesses.get(j).get("value").asText();
-                                if (cweId.startsWith("CWE-")) {
-                                    weaknessList.add(cweId.substring(4));
-                                } else {
-                                    weaknessList.add(cweId);
-                                }
-                                
-                            }
-                        }
-                        vulnerabilityDictionary.put(cveId, weaknessList);
-                    }
+            int pageNumber = 0;
+            int returnedVulnerabilities = extractVulnerabilitiesAndWeaknessesPage(cpeName, event, 0, cvesToDisplay);
+            while (returnedVulnerabilities == 2000) {
+                try { 
+                	//artificial delay per NIST NVD documentation
+                	TimeUnit.SECONDS.sleep(1);
                 } catch (Exception e) {
-                    e.printStackTrace();
+                	e.printStackTrace();
                 }
+            	pageNumber = pageNumber + 1;
+                returnedVulnerabilities = extractVulnerabilitiesAndWeaknessesPage(cpeName, event, pageNumber, cvesToDisplay);
             }
         }
-        
-        if (output.size() > 0) {
-            cveViewer.setInput(output);
-            ISelection selection = new StructuredSelection(output); 
+
+        if (cvesToDisplay.size() > 0) {
+            cveViewer.setInput(cvesToDisplay);
+            ISelection selection = new StructuredSelection(cvesToDisplay); 
             cveViewer.setSelection(selection);
         }        
     }
 
-    private String requestJsonString(String cpeName, SelectionEvent event) {
+    private int extractVulnerabilitiesAndWeaknessesPage(String cpeName, SelectionEvent event, int pageNumber, List<String> cvesToDisplay) {
+        String jsonString = requestJsonString(cpeName, event, pageNumber);
+        if (jsonString != "") {
+            try {
+                ObjectMapper objectMapper = new ObjectMapper();
+                JsonNode jsonNode = objectMapper.readTree(jsonString);
+                
+                ArrayNode vulnerabilities = (ArrayNode) jsonNode.get("vulnerabilities");
+                for (int i = 0; i < vulnerabilities.size(); i++) {
+                    String cveId = vulnerabilities.get(i).get("cve").get("id").asText();
+                    if (!cvesToDisplay.contains(cveId)) {
+                        cvesToDisplay.add(cveId);
+                    }
+                    if (!vulnerabilityDictionary.containsKey(cveId)) {
+                        vulnerabilityDictionary.put(cveId, new ArrayList<String>());
+                    }
+
+                    ArrayNode weaknesses = (ArrayNode) vulnerabilities.get(i).get("cve").get("weaknesses").get(0).get("description");
+                    for (int j = 0; j < weaknesses.size(); j++) {
+                        if (weaknesses.get(j).getNodeType() == JsonNodeType.OBJECT) {
+                            String cweId = weaknesses.get(j).get("value").asText();
+                            if (cweId.startsWith("CWE-")) {
+                                vulnerabilityDictionary.get(cveId).add(cweId.substring(4));
+                            } else {
+                                vulnerabilityDictionary.get(cveId).add(cweId);
+                            }
+                            
+                        }
+                    }
+                    
+                }
+                return jsonNode.get("resultsPerPage").asInt();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return -1;
+            }
+        } else {
+            return -1;
+        }
+    }
+
+    private String requestJsonString(String cpeName, SelectionEvent event, int pageNumber) {
         String cveUrl = "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=" + 
-            URLEncoder.encode(cpeName, StandardCharsets.UTF_8);
+            URLEncoder.encode(cpeName, StandardCharsets.UTF_8) + "&startIndex=" + pageNumber;
         try {
-        	URL url = new URL(cveUrl);
-               
-        	try (InputStream input = url.openStream()) {
-        		InputStreamReader streamReader = new InputStreamReader(input);
-        		BufferedReader reader = new BufferedReader(streamReader);
-        		StringBuilder jsonString = new StringBuilder();
+        	HttpRequest request = HttpRequest.newBuilder()
+        		.uri(new URI(cveUrl))
+        		.headers("apiKey", this.apiKey)
+        		.GET()
+        		.build();
             
-        		while (reader.ready()) {
-        			jsonString.append(reader.readLine());
-        		}
-        		return jsonString.toString();
+        	HttpClient client = HttpClient.newHttpClient();
+        	
+        	HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+        	
+        	if (response.statusCode() == 200) {
+        		return response.body();
+        	} else {
+        		String numberOfPages = "";
+        		
+        		if (pageNumber == 2) {
+        			numberOfPages = "1 CVE page of length 2000 was returned successfully." + System.lineSeparator();
+                } else if (pageNumber > 2) {
+                	numberOfPages = String.valueOf(pageNumber - 1) + " CVE pages of length 2000 were returned successfully." + System.lineSeparator();
+                }
+        		
+        		MessageDialog.openError(
+                    event.display.getActiveShell(), 
+                    "CVE load aborted", 
+                    "The NVD API returned HTTP Status Code " + response.statusCode() + "." + System.lineSeparator() + 
+                    numberOfPages +                     
+                    "Please try again later.");
+        		
+        		return "";
         	}
         } catch (Exception e) {
             e.printStackTrace();
