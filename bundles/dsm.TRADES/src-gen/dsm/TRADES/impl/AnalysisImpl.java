@@ -69,6 +69,7 @@ import dsm.TRADES.VulnerableAssetOwner;
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getVulnerableasset <em>Vulnerableasset</em>}</li>
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getScoreSystem <em>Score System</em>}</li>
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getLinkTypes <em>Link Types</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getNVDAPIKey <em>NVDAPI Key</em>}</li>
  * </ul>
  *
  * @generated
@@ -203,6 +204,26 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 	 * @ordered
 	 */
 	protected EList<LinkType> linkTypes;
+
+	/**
+	 * The default value of the '{@link #getNVDAPIKey() <em>NVDAPI Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNVDAPIKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NVDAPI_KEY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getNVDAPIKey() <em>NVDAPI Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNVDAPIKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected String nVDAPIKey = NVDAPI_KEY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -465,6 +486,30 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 			linkTypes = new EObjectContainmentEList<LinkType>(LinkType.class, this, TRADESPackage.ANALYSIS__LINK_TYPES);
 		}
 		return linkTypes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getNVDAPIKey() {
+		return nVDAPIKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNVDAPIKey(String newNVDAPIKey) {
+		String oldNVDAPIKey = nVDAPIKey;
+		nVDAPIKey = newNVDAPIKey;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.ANALYSIS__NVDAPI_KEY, oldNVDAPIKey,
+					nVDAPIKey));
 	}
 
 	/**
@@ -795,6 +840,8 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 			return getScoreSystem();
 		case TRADESPackage.ANALYSIS__LINK_TYPES:
 			return getLinkTypes();
+		case TRADESPackage.ANALYSIS__NVDAPI_KEY:
+			return getNVDAPIKey();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -843,6 +890,9 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 			getLinkTypes().clear();
 			getLinkTypes().addAll((Collection<? extends LinkType>) newValue);
 			return;
+		case TRADESPackage.ANALYSIS__NVDAPI_KEY:
+			setNVDAPIKey((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -888,6 +938,9 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 		case TRADESPackage.ANALYSIS__LINK_TYPES:
 			getLinkTypes().clear();
 			return;
+		case TRADESPackage.ANALYSIS__NVDAPI_KEY:
+			setNVDAPIKey(NVDAPI_KEY_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -922,6 +975,8 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 			return scoreSystem != null;
 		case TRADESPackage.ANALYSIS__LINK_TYPES:
 			return linkTypes != null && !linkTypes.isEmpty();
+		case TRADESPackage.ANALYSIS__NVDAPI_KEY:
+			return NVDAPI_KEY_EDEFAULT == null ? nVDAPIKey != null : !NVDAPI_KEY_EDEFAULT.equals(nVDAPIKey);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1203,6 +1258,8 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 		result.append(name);
 		result.append(", id: ");
 		result.append(id);
+		result.append(", nVDAPIKey: ");
+		result.append(nVDAPIKey);
 		result.append(')');
 		return result.toString();
 	}

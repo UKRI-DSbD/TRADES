@@ -231,13 +231,22 @@ public interface TRADESPackage extends EPackage {
 	int ANALYSIS__LINK_TYPES = COMPONENT_OWNER_FEATURE_COUNT + 10;
 
 	/**
+	 * The feature id for the '<em><b>NVDAPI Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS__NVDAPI_KEY = COMPONENT_OWNER_FEATURE_COUNT + 11;
+
+	/**
 	 * The number of structural features of the '<em>Analysis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_FEATURE_COUNT = COMPONENT_OWNER_FEATURE_COUNT + 11;
+	int ANALYSIS_FEATURE_COUNT = COMPONENT_OWNER_FEATURE_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Get Datas</em>' operation.
@@ -3474,6 +3483,17 @@ public interface TRADESPackage extends EPackage {
 	EReference getAnalysis_LinkTypes();
 
 	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.Analysis#getNVDAPIKey <em>NVDAPI Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>NVDAPI Key</em>'.
+	 * @see dsm.TRADES.Analysis#getNVDAPIKey()
+	 * @see #getAnalysis()
+	 * @generated
+	 */
+	EAttribute getAnalysis_NVDAPIKey();
+
+	/**
 	 * Returns the meta object for the '{@link dsm.TRADES.Analysis#getExternalThreats(java.lang.String, java.lang.String) <em>Get External Threats</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5234,6 +5254,14 @@ public interface TRADESPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ANALYSIS__LINK_TYPES = eINSTANCE.getAnalysis_LinkTypes();
+
+		/**
+		 * The meta object literal for the '<em><b>NVDAPI Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANALYSIS__NVDAPI_KEY = eINSTANCE.getAnalysis_NVDAPIKey();
 
 		/**
 		 * The meta object literal for the '<em><b>Get External Threats</b></em>' operation.

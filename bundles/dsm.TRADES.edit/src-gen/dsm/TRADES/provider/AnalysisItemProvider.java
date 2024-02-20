@@ -58,6 +58,7 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 
 			addNamePropertyDescriptor(object);
 			addIdPropertyDescriptor(object);
+			addNVDAPIKeyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -91,6 +92,22 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_ElementWithId_id_feature",
 								"_UI_ElementWithId_type"),
 						TRADESPackage.Literals.ELEMENT_WITH_ID__ID, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the NVDAPI Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNVDAPIKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Analysis_nVDAPIKey_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Analysis_nVDAPIKey_feature",
+								"_UI_Analysis_type"),
+						TRADESPackage.Literals.ANALYSIS__NVDAPI_KEY, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -180,6 +197,7 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 		switch (notification.getFeatureID(Analysis.class)) {
 		case TRADESPackage.ANALYSIS__NAME:
 		case TRADESPackage.ANALYSIS__ID:
+		case TRADESPackage.ANALYSIS__NVDAPI_KEY:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case TRADESPackage.ANALYSIS__DATA_OWNER:

@@ -578,6 +578,16 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getAnalysis_NVDAPIKey() {
+		return (EAttribute) analysisEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getAnalysis__GetExternalThreats__String_String() {
 		return analysisEClass.getEOperations().get(0);
 	}
@@ -2235,6 +2245,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		analysisEClass = createEClass(ANALYSIS);
 		createEReference(analysisEClass, ANALYSIS__SCORE_SYSTEM);
 		createEReference(analysisEClass, ANALYSIS__LINK_TYPES);
+		createEAttribute(analysisEClass, ANALYSIS__NVDAPI_KEY);
 		createEOperation(analysisEClass, ANALYSIS___GET_EXTERNAL_THREATS__STRING_STRING);
 
 		threatEClass = createEClass(THREAT);
@@ -2542,6 +2553,8 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		initEReference(getAnalysis_LinkTypes(), this.getLinkType(), null, "linkTypes", null, 0, -1, Analysis.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysis_NVDAPIKey(), ecorePackage.getEString(), "nVDAPIKey", null, 0, 1, Analysis.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getAnalysis__GetExternalThreats__String_String(), this.getExternalThreat(),
 				"getExternalThreats", 0, -1, IS_UNIQUE, IS_ORDERED);

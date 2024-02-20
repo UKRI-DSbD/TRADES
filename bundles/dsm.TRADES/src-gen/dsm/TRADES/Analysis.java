@@ -26,6 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link dsm.TRADES.Analysis#getScoreSystem <em>Score System</em>}</li>
  *   <li>{@link dsm.TRADES.Analysis#getLinkTypes <em>Link Types</em>}</li>
+ *   <li>{@link dsm.TRADES.Analysis#getNVDAPIKey <em>NVDAPI Key</em>}</li>
  * </ul>
  *
  * @see dsm.TRADES.TRADESPackage#getAnalysis()
@@ -68,6 +69,28 @@ public interface Analysis
 	 * @generated
 	 */
 	EList<LinkType> getLinkTypes();
+
+	/**
+	 * Returns the value of the '<em><b>NVDAPI Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>NVDAPI Key</em>' attribute.
+	 * @see #setNVDAPIKey(String)
+	 * @see dsm.TRADES.TRADESPackage#getAnalysis_NVDAPIKey()
+	 * @model
+	 * @generated
+	 */
+	String getNVDAPIKey();
+
+	/**
+	 * Sets the value of the '{@link dsm.TRADES.Analysis#getNVDAPIKey <em>NVDAPI Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>NVDAPI Key</em>' attribute.
+	 * @see #getNVDAPIKey()
+	 * @generated
+	 */
+	void setNVDAPIKey(String value);
 
 	/**
 	 * <!-- begin-user-doc -->
