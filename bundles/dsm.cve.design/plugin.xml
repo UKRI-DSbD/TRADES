@@ -79,6 +79,11 @@
            wizardId="dsm.cve.design.importcvecatalog">
         <enablement></enablement>
      </commonWizard>
+     <commonWizard
+           type="import"
+           wizardId="dsm.cve.design.importcveviaparameters">
+        <enablement></enablement>
+     </commonWizard>
   </extension>
   <extension
         point="org.eclipse.ui.navigator.viewer">

@@ -17,17 +17,14 @@ package dsm.cve.design.wizards;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URI;
-import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -43,12 +40,8 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.ModifyEvent;
-import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.FillLayout;
@@ -62,44 +55,26 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeType;
 
-/**
- * Page used to select an CVE catalog to import
- */
-public class CVECatalogSelectionPage extends WizardPage {
+public class CVEParameterSearchPage extends WizardPage {
 
-    private Group embeddedGroup;
+    private Group cveGroup;
     private List<String> chosenCVEs;
-    private List<String> chosenCPEs;
-    private Group fetchGroup;
-    private TableViewer cpeViewer;
     private TableViewer cveViewer;
-    private Text filterText;
-    private ViewerFilter filterViewer;
+    private Text searchText;
     private Hashtable<String, List<String>> vulnerabilityDictionary = new Hashtable<String, List<String>>();
     private String apiKey;
     private IProject project;
-    private String cpeFromComponentType;
-    private List<String> cpeList;
 
-    public CVECatalogSelectionPage(IProject project) {
+    public CVEParameterSearchPage(IProject project) {
         super("CVE Catalog selection page");
         setMessage("Select a CPE name to search for its vulnerabilities.");
         this.project = project;
-    }
-
-    public CVECatalogSelectionPage(String cpeFromComponentType, String apiKey, List<String> cpeList) {
-        super("CVE Catalog selection page");
-        setMessage("Select a CPE name to search for its vulnerabilities.");
-        this.apiKey = apiKey;
-        this.cpeFromComponentType = cpeFromComponentType;
-        this.cpeList = cpeList;
     }
 
     @Override
@@ -107,13 +82,8 @@ public class CVECatalogSelectionPage extends WizardPage {
         Composite composite = new Composite(parent, SWT.None);
         composite.setLayout(new GridLayout(1, true));
 
-        //Filter existing CPEs
-        createFilterGroup(composite);
+        createURLSearchGroup(composite);
 
-        // Type and fetch button
-        createFetchGroup(composite);
-        
-        // Search Results
         createSearchResultsViewer(composite);
         
         Label disclaimerText = new Label(composite, SWT.COLOR_TRANSPARENT);
@@ -121,81 +91,23 @@ public class CVECatalogSelectionPage extends WizardPage {
         	"This product uses data from the NVD API but is not endorsed or certified by the NVD.");
 
         setControl(composite);
-        
-        if (cpeFromComponentType == null) {
-            setupPage();
-        } else {
-            cpeViewer.setInput(cpeList);
-            List<String> singleCPE = new ArrayList<String>();
-            singleCPE.add(cpeFromComponentType);
-            ISelection selection = new StructuredSelection(singleCPE); 
-            cpeViewer.setSelection(selection);
-        }
+
+        setupPage();
     }
 
-    private void createFilterGroup(Composite parent) {
-        Group filterGroup = new Group(parent, SWT.NONE);
-        filterGroup.setText("Enter the first few characters of a CPE to filter the below list :");
-        filterGroup.setLayout(new GridLayout(1, false));
-        filterGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+    private void createURLSearchGroup(Composite parent) {
+        Group searchGroup = new Group(parent, SWT.NONE);
+        searchGroup.setText("Enter the URL parameters below.");
+        searchGroup.setLayout(new GridLayout(1, false));
+        searchGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
-        this.filterText = new Text(filterGroup, SWT.COLOR_WHITE);
-        filterText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-
-        filterText.addModifyListener(new ModifyListener() {
-            @Override
-            public void modifyText(ModifyEvent arg0) {
-                cpeViewer.refresh();
-            }
-        });
-
-        this.filterViewer = new ViewerFilter() {
-            @Override
-            public boolean select(Viewer viewer, Object parentElement, Object element) {
-                if (element.toString().regionMatches(true, 0, filterText.getText(), 0, filterText.getText().length())) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        };
-
-    }
- 
-    private void createFetchGroup(Composite parent) {
-        fetchGroup = new Group(parent, SWT.NONE);
-        fetchGroup.setText("CPEs found :");
-        fetchGroup.setLayout(new GridLayout(2, false));
-        fetchGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-
-        this.cpeViewer = new TableViewer(fetchGroup);
-        GridData gridData = new GridData();
-        gridData.widthHint = 500;
-        cpeViewer.getControl().setLayoutData(gridData);
-        cpeViewer.setContentProvider(ArrayContentProvider.getInstance());
-        cpeViewer.setLabelProvider(new LabelProvider() {
-            @Override
-            public String getText(Object element) {
-                return (String) element;
-            }
-        });
-
-        cpeViewer.addSelectionChangedListener(new ISelectionChangedListener() {
-
-            @SuppressWarnings("unchecked")
-			@Override
-            public void selectionChanged(SelectionChangedEvent event) {
-                IStructuredSelection structuredSelection = cpeViewer.getStructuredSelection();
-                if (!structuredSelection.isEmpty()) {
-                	chosenCPEs = structuredSelection.toList();
-                } else {
-                	chosenCPEs = null;
-                }
-                getContainer().updateButtons();
-            }
-        });
+        Label disclaimerText = new Label(searchGroup, SWT.COLOR_TRANSPARENT);
+        disclaimerText.setText("https://services.nvd.nist.gov/rest/json/cves/2.0?");
         
-        Button fetchButton = new Button(fetchGroup, SWT.PUSH);
+        this.searchText = new Text(searchGroup, SWT.COLOR_WHITE);
+        searchText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+
+        Button fetchButton = new Button(searchGroup, SWT.PUSH);
         fetchButton.setLayoutData(new GridData(GridData.END));
         fetchButton.setText("Fetch");
         fetchButton.addSelectionListener(new SelectionAdapter() {
@@ -207,18 +119,20 @@ public class CVECatalogSelectionPage extends WizardPage {
             }
         });
 
-        cpeViewer.addFilter(this.filterViewer);
+        Label searchHelpText = new Label(parent, SWT.COLOR_TRANSPARENT);
+        searchHelpText.setText(System.lineSeparator() + 
+        	"For help constructing the url parameters, please visit https://nvd.nist.gov/developers/vulnerabilities");
 
-        enableGroup(fetchGroup, true);
+        enableGroup(searchGroup, true);
     }
 
     private void createSearchResultsViewer(Composite parent) {
-        this.embeddedGroup = new Group(parent, SWT.NONE);
-        embeddedGroup.setText("Select CVEs from below : ");
-        embeddedGroup.setLayout(new FillLayout());
-        embeddedGroup.setLayoutData(new GridData(GridData.FILL_BOTH));
+        this.cveGroup = new Group(parent, SWT.NONE);
+        cveGroup.setText("Select CVEs from below : ");
+        cveGroup.setLayout(new FillLayout());
+        cveGroup.setLayoutData(new GridData(GridData.FILL_BOTH));
 
-        this.cveViewer = new TableViewer(embeddedGroup);
+        this.cveViewer = new TableViewer(cveGroup);
         cveViewer.setContentProvider(ArrayContentProvider.getInstance());
         cveViewer.setLabelProvider(new LabelProvider() {
             @Override
@@ -242,7 +156,7 @@ public class CVECatalogSelectionPage extends WizardPage {
             }
         });
         
-        enableGroup(embeddedGroup, true);
+        enableGroup(cveGroup, true);
     }
 
     private void enableGroup(Composite c, boolean value) {
@@ -264,20 +178,7 @@ public class CVECatalogSelectionPage extends WizardPage {
 
     private void queryCVEEndpoint(SelectionEvent event) {
     	List<String> cvesToDisplay = new ArrayList<String>();
-    	for (String cpeName : chosenCPEs) {
-            int pageNumber = 0;
-            int returnedVulnerabilities = extractVulnerabilitiesAndWeaknessesPage(cpeName, event, 0, cvesToDisplay);
-            while (returnedVulnerabilities == 2000) {
-                try { 
-                	//artificial delay per NIST NVD documentation
-                	TimeUnit.SECONDS.sleep(1);
-                } catch (Exception e) {
-                	e.printStackTrace();
-                }
-            	pageNumber = pageNumber + 1;
-                returnedVulnerabilities = extractVulnerabilitiesAndWeaknessesPage(cpeName, event, pageNumber, cvesToDisplay);
-            }
-        }
+    	extractVulnerabilitiesAndWeaknessesPage(event, cvesToDisplay);
 
         if (cvesToDisplay.size() > 0) {
             cveViewer.setInput(cvesToDisplay);
@@ -286,8 +187,8 @@ public class CVECatalogSelectionPage extends WizardPage {
         }        
     }
 
-    private int extractVulnerabilitiesAndWeaknessesPage(String cpeName, SelectionEvent event, int pageNumber, List<String> cvesToDisplay) {
-        String jsonString = requestJsonString(cpeName, event, pageNumber);
+    private void extractVulnerabilitiesAndWeaknessesPage(SelectionEvent event, List<String> cvesToDisplay) {
+        String jsonString = requestJsonString(event);
         if (jsonString != "") {
             try {
                 ObjectMapper objectMapper = new ObjectMapper();
@@ -315,21 +216,16 @@ public class CVECatalogSelectionPage extends WizardPage {
                             
                         }
                     }
-                    
                 }
-                return jsonNode.get("resultsPerPage").asInt();
             } catch (Exception e) {
                 e.printStackTrace();
-                return -1;
             }
-        } else {
-            return -1;
         }
     }
 
-    private String requestJsonString(String cpeName, SelectionEvent event, int pageNumber) {
-        String cveUrl = "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=" + 
-            URLEncoder.encode(cpeName, StandardCharsets.UTF_8) + "&startIndex=" + pageNumber;
+    private String requestJsonString(SelectionEvent event) {
+        String cveUrl = "https://services.nvd.nist.gov/rest/json/cves/2.0?" + 
+            this.searchText.getText();
         try {
         	HttpRequest request = HttpRequest.newBuilder()
         		.uri(new URI(cveUrl))
@@ -344,19 +240,10 @@ public class CVECatalogSelectionPage extends WizardPage {
         	if (response.statusCode() == 200) {
         		return response.body();
         	} else {
-        		String numberOfPages = "";
-        		
-        		if (pageNumber == 2) {
-        			numberOfPages = "1 CVE page of length 2000 was returned successfully." + System.lineSeparator();
-                } else if (pageNumber > 2) {
-                	numberOfPages = String.valueOf(pageNumber - 1) + " CVE pages of length 2000 were returned successfully." + System.lineSeparator();
-                }
-        		
         		MessageDialog.openError(
                     event.display.getActiveShell(), 
                     "CVE load aborted", 
                     "The NVD API returned HTTP Status Code " + response.statusCode() + "." + System.lineSeparator() + 
-                    numberOfPages +                     
                     "Please try again later.");
         		
         		return "";
@@ -365,8 +252,8 @@ public class CVECatalogSelectionPage extends WizardPage {
             e.printStackTrace();
             MessageDialog.openError(
                 event.display.getActiveShell(), 
-                "No CVEs affecting CPE found", 
-                "No CVEs found that affect " + cpeName + ". Please check for typing errors in the CPE name.");
+                "No CVEs found", 
+                "No CVEs found for " + this.searchText.getText() + ". Please check for typing errors in the parameters.");
             return "";
         }
     }
@@ -383,7 +270,7 @@ public class CVECatalogSelectionPage extends WizardPage {
         		}
         		
         		if (resourceExtension.endsWith("trades")) {
-        			extractAPIKeyAndCPEs(resource.getLocationURI().getPath().toString());
+        			extractAPIKey(resource.getLocationURI().getPath().toString());
         		}
 			}
 
@@ -392,53 +279,20 @@ public class CVECatalogSelectionPage extends WizardPage {
 		}
     }
     
-    private void extractAPIKeyAndCPEs(String filePath) {
+    private void extractAPIKey(String filePath) {
 		DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
 		try (InputStream input = new FileInputStream(filePath)) {
 			DocumentBuilder builder = documentFactory.newDocumentBuilder();
 			Document doc = builder.parse(input);
 			Node analysisNode = doc.getDocumentElement();
-			extractAPIKey(analysisNode);
-			extractCPEs(analysisNode);			
+			Node attribute = analysisNode.getAttributes().getNamedItem("nVDAPIKey");
+		    if (attribute != null) {
+		    	this.apiKey = attribute.getNodeValue();
+		    } else {
+		    	this.apiKey = null;
+		    }			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-    }
-    
-    private void extractAPIKey(Node analysisNode) {
-    	Node attribute = analysisNode.getAttributes().getNamedItem("nVDAPIKey");
-		if (attribute != null) {
-			this.apiKey = attribute.getNodeValue();
-		} else {
-			this.apiKey = null;
-		}
-    }
-    
-    private void extractCPEs(Node analysisNode) {
-    	if (this.apiKey != null) {
-    		List<String> displayedCPEs = new ArrayList<String>();
-        	NodeList analysisChildList = analysisNode.getChildNodes();
-    		for (int i = 0; i < analysisChildList.getLength(); i++) {
-    			Node analysisChild = analysisChildList.item(i);
-    			if (analysisChild.getNodeName() == "componentTypeOwner") {
-    				NodeList componentTypeList = analysisChild.getChildNodes();
-    				for (int j = 0; j < componentTypeList.getLength(); j++) {
-    					Node componentType = componentTypeList.item(j);
-    					//ignore text nodes
-						if (componentType.getNodeType() != Node.TEXT_NODE) {
-    						Node cpeAttribute = componentType.getAttributes().getNamedItem("name");
-    						if (cpeAttribute != null) {
-    							displayedCPEs.add(cpeAttribute.getNodeValue());
-    						}
-    					}
-    				}
-    			}
-    		}
-    		cpeViewer.setInput(displayedCPEs);
-    		if (cpeFromComponentType == null) {
-                ISelection selection = new StructuredSelection(displayedCPEs); 
-                cpeViewer.setSelection(selection);
-            }
-    	}    	
     }
 }
