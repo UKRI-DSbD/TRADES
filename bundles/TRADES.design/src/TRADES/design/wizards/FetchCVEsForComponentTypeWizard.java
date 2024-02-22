@@ -42,7 +42,6 @@ import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.ui.IImportWizard;
 import org.eclipse.ui.IWorkbench;
 
-import dsm.TRADES.ComponentType;
 import dsm.cve.design.wizards.CVECatalogSelectionPage;
 import dsm.cve.model.CVECatalog.CVECatalogFactory;
 import dsm.cve.model.CVECatalog.VulnerabilityTypeENUM;
@@ -56,24 +55,20 @@ import dsm.trades.rcp.utils.CatalogUtils;
  */
 public class FetchCVEsForComponentTypeWizard extends Wizard implements IImportWizard {
 
-    private IStructuredSelection selection;
+    private String apiKey;
+    private List<String> cpeList;
     private CVECatalogSelectionPage catalogSelectionPage;
-    private ComponentType componentType;
- 
-    public FetchCVEsForComponentTypeWizard(ComponentType componentType) {
-    	 this.componentType = componentType;
-    }
+    private String cpe;
 
     @Override
     public void init(IWorkbench workbench, IStructuredSelection selection) {
-        this.selection = selection;
         setNeedsProgressMonitor(true);
     }
  
     @Override
     public void addPages() {
         super.addPages();
-        this.catalogSelectionPage = new CVECatalogSelectionPage(Session.of(componentType).get());
+        this.catalogSelectionPage = new CVECatalogSelectionPage(cpe, apiKey, cpeList);
         addPage(catalogSelectionPage);
     }
  
@@ -168,20 +163,6 @@ public class FetchCVEsForComponentTypeWizard extends Wizard implements IImportWi
         return catalogSelectionPage.getchosenCVEs() != null;
     }
  
-    private IProject getSelectedProject(IStructuredSelection selection) {
-        for (Object o : selection.toArray()) {
-            if (o instanceof IProject) {
-                Option<ModelingProject> opt = ModelingProject.asModelingProject((IProject) o);
-                if (opt.some()) {
-                    return (IProject) o;
-                }
-
-            }
-        }
-
-        return null;
-    }
- 
     private void transformCVEs(Resource existingResource, List<String> chosenCVEs) {
 		for (String cveId : chosenCVEs) {
 			Dictionary<String, List<String>> vulnerabilityDictionary = catalogSelectionPage.getVulnerabilityDictionary();
@@ -236,5 +217,17 @@ public class FetchCVEsForComponentTypeWizard extends Wizard implements IImportWi
 			existingResource.getContents().add(cve);
 		}
 	}
+	
+	public void setCPE(String cpe) {
+		this.cpe = cpe;
+	}
+
+    public void setAPIKey(String apiKey) {
+        this.apiKey = apiKey;
+    }
+
+    public void setCPEList(List<String> cpeList) {
+        this.cpeList = cpeList;
+    }
 }
  

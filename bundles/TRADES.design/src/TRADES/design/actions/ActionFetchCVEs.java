@@ -14,13 +14,18 @@
 
  package TRADES.design.actions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Event;
 
 import TRADES.design.Activator;
 import TRADES.design.wizards.FetchCVEsForComponentTypeWizard;
+import dsm.TRADES.Analysis;
 import dsm.TRADES.ComponentType;
+import dsm.TRADES.ComponentTypeOwner;
  
  /**
   * Action that fetches CVEs from remote repository and adds them to the catalog
@@ -37,7 +42,17 @@ public class ActionFetchCVEs extends Action {
     @Override
     public void runWithEvent(Event event) {
         if (componentType != null) {
-		    FetchCVEsForComponentTypeWizard wizard = new FetchCVEsForComponentTypeWizard(componentType);
+		    FetchCVEsForComponentTypeWizard wizard = new FetchCVEsForComponentTypeWizard();
+            wizard.setCPE(componentType.getName());
+            Analysis analysis = (Analysis) componentType.eContainer().eContainer();
+            String apiKey = analysis.getNVDAPIKey();
+            List<String> cpeList = new ArrayList<String>();
+            ComponentTypeOwner componentTypeOwner = analysis.getComponentTypeOwner();
+            for (ComponentType componentType : componentTypeOwner.getComponentTypes()) {
+            	cpeList.add(componentType.getName());
+            }
+            wizard.setAPIKey(apiKey);
+            wizard.setCPEList(cpeList);
 			WizardDialog dialog = new WizardDialog(event.display.getActiveShell(), wizard);
 			dialog.open();
 		}

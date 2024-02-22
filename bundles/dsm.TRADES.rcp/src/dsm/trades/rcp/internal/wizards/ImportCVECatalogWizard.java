@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
@@ -72,9 +73,7 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 				.filter(p -> ModelingProject.asModelingProject(p).some()).collect(toList());
 		this.projectSelectionPage = new ProjectSelectionPage(modelingProjects, getSelectedProject(selection));
 		addPage(projectSelectionPage);
-		URI sessionResourceURI = URI.createPlatformResourceURI(getSelectedProject(selection).getFullPath() + "/representations.aird", true);
-		Session existingSession = SessionManager.INSTANCE.getExistingSession(sessionResourceURI);
-		this.catalogSelectionPage = new CVECatalogSelectionPage(existingSession);
+		this.catalogSelectionPage = new CVECatalogSelectionPage(getProject(modelingProjects));
 		addPage(catalogSelectionPage);
 	}
 
@@ -183,6 +182,16 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 			}
 		}
 
+		return null;
+	}
+	
+	private IProject getProject(List<IProject> projects) {
+		IResource projectFile = (IResource) selection.getFirstElement();
+		for (IProject project : projects) {
+			if (project.getFullPath().segments()[0] == projectFile.getFullPath().segments()[0]) {
+				return project;
+			}
+		}
 		return null;
 	}
 
