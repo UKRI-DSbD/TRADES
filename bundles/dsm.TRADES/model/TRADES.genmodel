@@ -85,6 +85,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Control/status"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Control/mitigatesVulnerability"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Control/securityObjective"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//Control/characteristics"/>
     </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//ThreatAllocationRelation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//ThreatAllocationRelation/assessment"/>
@@ -271,6 +272,12 @@
     </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//VAOwner">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//VAOwner/vulnerableasset"/>
+    </genClasses>
+    <genClasses ecoreClass="TRADES.ecore#//Characteristic">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Characteristic/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Characteristic/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Characteristic/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Characteristic/description"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
