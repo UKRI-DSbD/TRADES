@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import dsm.TRADES.Characteristic;
 import dsm.TRADES.Control;
 import dsm.TRADES.ControlStatusENUM;
 import dsm.TRADES.ElementWithId;
@@ -56,6 +57,7 @@ import dsm.TRADES.Vulnerability;
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getMitigatesVulnerability <em>Mitigates Vulnerability</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getSecurityObjective <em>Security Objective</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getCharacteristics <em>Characteristics</em>}</li>
  * </ul>
  *
  * @generated
@@ -190,6 +192,16 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 	 * @ordered
 	 */
 	protected SecurityObjectiveENUM securityObjective = SECURITY_OBJECTIVE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCharacteristics() <em>Characteristics</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCharacteristics()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Characteristic> characteristics;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -377,6 +389,20 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 	 * @generated
 	 */
 	@Override
+	public EList<Characteristic> getCharacteristics() {
+		if (characteristics == null) {
+			characteristics = new EObjectResolvingEList<Characteristic>(Characteristic.class, this,
+					TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS);
+		}
+		return characteristics;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<IMitigationLink> getMitigatedThreatDefinitions() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -461,6 +487,8 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 			return getMitigatesVulnerability();
 		case TRADESPackage.EXTERNAL_CONTROL__SECURITY_OBJECTIVE:
 			return getSecurityObjective();
+		case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
+			return getCharacteristics();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -501,6 +529,10 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 		case TRADESPackage.EXTERNAL_CONTROL__SECURITY_OBJECTIVE:
 			setSecurityObjective((SecurityObjectiveENUM) newValue);
 			return;
+		case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
+			getCharacteristics().clear();
+			getCharacteristics().addAll((Collection<? extends Characteristic>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -537,6 +569,9 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 		case TRADESPackage.EXTERNAL_CONTROL__SECURITY_OBJECTIVE:
 			setSecurityObjective(SECURITY_OBJECTIVE_EDEFAULT);
 			return;
+		case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
+			getCharacteristics().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -565,6 +600,8 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 			return mitigatesVulnerability != null && !mitigatesVulnerability.isEmpty();
 		case TRADESPackage.EXTERNAL_CONTROL__SECURITY_OBJECTIVE:
 			return securityObjective != SECURITY_OBJECTIVE_EDEFAULT;
+		case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
+			return characteristics != null && !characteristics.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -618,6 +655,8 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 				return TRADESPackage.CONTROL__MITIGATES_VULNERABILITY;
 			case TRADESPackage.EXTERNAL_CONTROL__SECURITY_OBJECTIVE:
 				return TRADESPackage.CONTROL__SECURITY_OBJECTIVE;
+			case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
+				return TRADESPackage.CONTROL__CHARACTERISTICS;
 			default:
 				return -1;
 			}
@@ -674,6 +713,8 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 				return TRADESPackage.EXTERNAL_CONTROL__MITIGATES_VULNERABILITY;
 			case TRADESPackage.CONTROL__SECURITY_OBJECTIVE:
 				return TRADESPackage.EXTERNAL_CONTROL__SECURITY_OBJECTIVE;
+			case TRADESPackage.CONTROL__CHARACTERISTICS:
+				return TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS;
 			default:
 				return -1;
 			}

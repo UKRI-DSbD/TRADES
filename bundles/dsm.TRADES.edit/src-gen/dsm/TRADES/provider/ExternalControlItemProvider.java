@@ -206,6 +206,7 @@ public class ExternalControlItemProvider extends ExternalElementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(TRADESPackage.Literals.CONTROL__MITIGATION_RELATIONS);
+			childrenFeatures.add(TRADESPackage.Literals.CONTROL__CHARACTERISTICS);
 		}
 		return childrenFeatures;
 	}
@@ -277,6 +278,7 @@ public class ExternalControlItemProvider extends ExternalElementItemProvider {
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case TRADESPackage.EXTERNAL_CONTROL__MITIGATION_RELATIONS:
+		case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -296,6 +298,9 @@ public class ExternalControlItemProvider extends ExternalElementItemProvider {
 
 		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.CONTROL__MITIGATION_RELATIONS,
 				TRADESFactory.eINSTANCE.createThreatMitigationRelation()));
+
+		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.CONTROL__CHARACTERISTICS,
+				TRADESFactory.eINSTANCE.createCharacteristic()));
 	}
 
 }

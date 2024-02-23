@@ -33,6 +33,7 @@ import dsm.TRADES.Asset;
 import dsm.TRADES.AttackChain;
 import dsm.TRADES.AttackChainStep;
 import dsm.TRADES.Catalog;
+import dsm.TRADES.Characteristic;
 import dsm.TRADES.ColoredElement;
 import dsm.TRADES.Component;
 import dsm.TRADES.ComponentCategoryENUM;
@@ -275,6 +276,8 @@ public class TRADESValidator extends EObjectValidator {
 			return validateVulnerableAsset((VulnerableAsset) value, diagnostics, context);
 		case TRADESPackage.VA_OWNER:
 			return validateVAOwner((VAOwner) value, diagnostics, context);
+		case TRADESPackage.CHARACTERISTIC:
+			return validateCharacteristic((Characteristic) value, diagnostics, context);
 		case TRADESPackage.ASSESSMENT_ENUM:
 			return validateAssessmentENUM((AssessmentENUM) value, diagnostics, context);
 		case TRADESPackage.AFFECTED_ENUM:
@@ -891,6 +894,16 @@ public class TRADESValidator extends EObjectValidator {
 	 */
 	public boolean validateVAOwner(VAOwner vaOwner, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(vaOwner, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCharacteristic(Characteristic characteristic, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(characteristic, diagnostics, context);
 	}
 
 	/**

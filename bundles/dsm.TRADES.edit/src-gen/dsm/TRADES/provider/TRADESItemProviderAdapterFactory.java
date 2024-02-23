@@ -765,6 +765,29 @@ public class TRADESItemProviderAdapterFactory extends TRADESAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link dsm.TRADES.Characteristic} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CharacteristicItemProvider characteristicItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link dsm.TRADES.Characteristic}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCharacteristicAdapter() {
+		if (characteristicItemProvider == null) {
+			characteristicItemProvider = new CharacteristicItemProvider(this);
+		}
+
+		return characteristicItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -948,6 +971,8 @@ public class TRADESItemProviderAdapterFactory extends TRADESAdapterFactory
 			vulnerableAssetOwnerItemProvider.dispose();
 		if (vulnerableAssetItemProvider != null)
 			vulnerableAssetItemProvider.dispose();
+		if (characteristicItemProvider != null)
+			characteristicItemProvider.dispose();
 	}
 
 }

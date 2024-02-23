@@ -29,6 +29,7 @@ import dsm.TRADES.Asset;
 import dsm.TRADES.AttackChain;
 import dsm.TRADES.AttackChainStep;
 import dsm.TRADES.Catalog;
+import dsm.TRADES.Characteristic;
 import dsm.TRADES.ColoredElement;
 import dsm.TRADES.Component;
 import dsm.TRADES.ComponentOwner;
@@ -355,6 +356,11 @@ public class TRADESAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseVAOwner(VAOwner object) {
 			return createVAOwnerAdapter();
+		}
+
+		@Override
+		public Adapter caseCharacteristic(Characteristic object) {
+			return createCharacteristicAdapter();
 		}
 
 		@Override
@@ -1031,6 +1037,20 @@ public class TRADESAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createVAOwnerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link dsm.TRADES.Characteristic <em>Characteristic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see dsm.TRADES.Characteristic
+	 * @generated
+	 */
+	public Adapter createCharacteristicAdapter() {
 		return null;
 	}
 

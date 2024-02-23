@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import dsm.TRADES.Characteristic;
 import dsm.TRADES.Control;
 import dsm.TRADES.ControlStatusENUM;
 import dsm.TRADES.ElementWithId;
@@ -53,6 +54,7 @@ import dsm.TRADES.Vulnerability;
  *   <li>{@link dsm.TRADES.impl.ControlImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ControlImpl#getMitigatesVulnerability <em>Mitigates Vulnerability</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ControlImpl#getSecurityObjective <em>Security Objective</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ControlImpl#getCharacteristics <em>Characteristics</em>}</li>
  * </ul>
  *
  * @generated
@@ -167,6 +169,16 @@ public class ControlImpl extends NamedElementImpl implements Control {
 	 * @ordered
 	 */
 	protected SecurityObjectiveENUM securityObjective = SECURITY_OBJECTIVE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCharacteristics() <em>Characteristics</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCharacteristics()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Characteristic> characteristics;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -330,6 +342,20 @@ public class ControlImpl extends NamedElementImpl implements Control {
 	 * @generated
 	 */
 	@Override
+	public EList<Characteristic> getCharacteristics() {
+		if (characteristics == null) {
+			characteristics = new EObjectResolvingEList<Characteristic>(Characteristic.class, this,
+					TRADESPackage.CONTROL__CHARACTERISTICS);
+		}
+		return characteristics;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<IMitigationLink> getMitigatedThreatDefinitions() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -412,6 +438,8 @@ public class ControlImpl extends NamedElementImpl implements Control {
 			return getMitigatesVulnerability();
 		case TRADESPackage.CONTROL__SECURITY_OBJECTIVE:
 			return getSecurityObjective();
+		case TRADESPackage.CONTROL__CHARACTERISTICS:
+			return getCharacteristics();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -449,6 +477,10 @@ public class ControlImpl extends NamedElementImpl implements Control {
 		case TRADESPackage.CONTROL__SECURITY_OBJECTIVE:
 			setSecurityObjective((SecurityObjectiveENUM) newValue);
 			return;
+		case TRADESPackage.CONTROL__CHARACTERISTICS:
+			getCharacteristics().clear();
+			getCharacteristics().addAll((Collection<? extends Characteristic>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -482,6 +514,9 @@ public class ControlImpl extends NamedElementImpl implements Control {
 		case TRADESPackage.CONTROL__SECURITY_OBJECTIVE:
 			setSecurityObjective(SECURITY_OBJECTIVE_EDEFAULT);
 			return;
+		case TRADESPackage.CONTROL__CHARACTERISTICS:
+			getCharacteristics().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -508,6 +543,8 @@ public class ControlImpl extends NamedElementImpl implements Control {
 			return mitigatesVulnerability != null && !mitigatesVulnerability.isEmpty();
 		case TRADESPackage.CONTROL__SECURITY_OBJECTIVE:
 			return securityObjective != SECURITY_OBJECTIVE_EDEFAULT;
+		case TRADESPackage.CONTROL__CHARACTERISTICS:
+			return characteristics != null && !characteristics.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

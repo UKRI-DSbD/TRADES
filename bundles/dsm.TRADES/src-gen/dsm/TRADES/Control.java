@@ -30,6 +30,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link dsm.TRADES.Control#getStatus <em>Status</em>}</li>
  *   <li>{@link dsm.TRADES.Control#getMitigatesVulnerability <em>Mitigates Vulnerability</em>}</li>
  *   <li>{@link dsm.TRADES.Control#getSecurityObjective <em>Security Objective</em>}</li>
+ *   <li>{@link dsm.TRADES.Control#getCharacteristics <em>Characteristics</em>}</li>
  * </ul>
  *
  * @see dsm.TRADES.TRADESPackage#getControl()
@@ -147,5 +148,17 @@ public interface Control extends NamedElement, IControlDefinition, ElementWithId
 	 * @generated
 	 */
 	void setSecurityObjective(SecurityObjectiveENUM value);
+
+	/**
+	 * Returns the value of the '<em><b>Characteristics</b></em>' reference list.
+	 * The list contents are of type {@link dsm.TRADES.Characteristic}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Characteristics</em>' reference list.
+	 * @see dsm.TRADES.TRADESPackage#getControl_Characteristics()
+	 * @model
+	 * @generated
+	 */
+	EList<Characteristic> getCharacteristics();
 
 } // Control

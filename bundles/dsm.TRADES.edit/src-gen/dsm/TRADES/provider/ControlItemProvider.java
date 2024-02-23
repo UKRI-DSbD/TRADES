@@ -189,6 +189,7 @@ public class ControlItemProvider extends NamedElementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(TRADESPackage.Literals.CONTROL__MITIGATION_RELATIONS);
+			childrenFeatures.add(TRADESPackage.Literals.CONTROL__CHARACTERISTICS);
 		}
 		return childrenFeatures;
 	}
@@ -259,6 +260,7 @@ public class ControlItemProvider extends NamedElementItemProvider {
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case TRADESPackage.CONTROL__MITIGATION_RELATIONS:
+		case TRADESPackage.CONTROL__CHARACTERISTICS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -278,6 +280,9 @@ public class ControlItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.CONTROL__MITIGATION_RELATIONS,
 				TRADESFactory.eINSTANCE.createThreatMitigationRelation()));
+
+		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.CONTROL__CHARACTERISTICS,
+				TRADESFactory.eINSTANCE.createCharacteristic()));
 	}
 
 }
