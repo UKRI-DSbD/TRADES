@@ -45,7 +45,6 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.obeonetwork.m2doc.generator.DocumentGenerationException;
 import org.obeonetwork.m2doc.parser.DocumentParserException;
 import org.obeonetwork.m2doc.parser.ValidationMessageLevel;
-import org.obeonetwork.m2doc.sirius.M2DocSiriusUtils; //need fix
 import org.obeonetwork.m2doc.template.DocumentTemplate;
 import org.obeonetwork.m2doc.util.ClassProvider;
 import org.obeonetwork.m2doc.util.M2DocUtils;
@@ -167,7 +166,8 @@ public class GenerationTemplate implements IM2DocTemplate {
 	private IQueryEnvironment initQueryEnv(ResourceSet resourceSet, URI templateURI, URI sessionURI, List<?> services) {
 		final Map<String, String> options = new HashMap<String, String>();
 		options.put(M2DocUtils.TEMPLATE_URI_OPTION, templateURI.toString());
-		options.put(M2DocSiriusUtils.SIRIUS_SESSION_OPTION, sessionURI.toString()); //Need fix
+		//https://github.com/ObeoNetwork/M2Doc/blob/master/plugins/org.obeonetwork.m2doc.sirius/src/org/obeonetwork/m2doc/sirius/M2DocSiriusUtils.java
+		options.put("SiriusSession", sessionURI.toString());
 
 		final IQueryEnvironment queryEnvironment = M2DocUtils.getQueryEnvironment(resourceSet, templateURI, options);
 		for (Object service : services) {

@@ -4,14 +4,12 @@ environment JavaSE-17
 
 with requirements,source
 
-//location "https://download.eclipse.org/releases/2020-12/" {
 location "https://download.eclipse.org/releases/2023-12/" {
 	//org.eclipse.platform.sdk lazy //Replaced with org.eclipse.sdk.feature.group
 	org.eclipse.sdk.feature.group lazy
 	org.eclipse.emf lazy
 	org.eclipse.emf.codegen.ecore.feature.group lazy
-	org.eclipse.pde.feature.group lazy
-	
+	org.eclipse.pde.feature.group lazy	
 	org.eclipse.rcp.feature.group lazy
 	org.eclipse.osgi.services lazy
 	org.eclipse.equinox.executable.feature.group lazy
@@ -28,11 +26,11 @@ location Eclipse-Shared-License "http://download.eclipse.org/cbi/updates/license
 	org.eclipse.license.feature.group lazy
 }
 
-location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository" {//Switched to nightly build due to M2Doc bug I reported in current version and now solved, until the new version is available "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.3.2/repository"{ 
+location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/3.2.2/repository"{
 	org.obeonetwork.m2doc.feature.feature.group lazy
-	org.obeonetwork.m2doc.sirius.feature.feature.group lazy
-	org.obeonetwork.m2doc.sirius lazy
-	org.obeonetwork.m2doc.sirius.ui lazy
+	//org.obeonetwork.m2doc.sirius.feature.feature.group lazy
+	//org.obeonetwork.m2doc.sirius lazy
+	//org.obeonetwork.m2doc.sirius.ui lazy
 	org.obeonetwork.m2doc.ui.feature.feature.group lazy
 	org.obeonetwork.m2doc.html.feature.feature.group lazy
 	org.eclipse.acceleo.query.feature.group lazy
@@ -73,7 +71,7 @@ location "https://download.eclipse.org/sirius/updates/releases/7.3.0/2023-03/" {
 	org.eclipse.sirius.specifier.ide.ui.feature.group lazy
 	org.eclipse.sirius.specifier.properties.feature.feature.group lazy
 	
-	org.eclipse.sirius.diagram.elk.sdk.feature.feature.group lazy	
+	org.eclipse.sirius.diagram.elk.sdk.feature.feature.group lazy
 	org.eclipse.eef.sdk.feature.feature.group lazy
 	
 }

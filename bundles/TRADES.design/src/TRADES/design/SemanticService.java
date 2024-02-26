@@ -38,7 +38,6 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.AbstractDNode;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
-import org.eclipse.sirius.tools.api.SiriusPlugin;
 import org.eclipse.ui.PlatformUI;
 
 import dsm.TRADES.AbstractControlOwner;
@@ -359,7 +358,8 @@ public class SemanticService {
 			.of(TRADESPackage.eINSTANCE.getImpactConfiguration_Impact());
 
 	public static void clearUnusedDifficulties(ScoreSystem scoreSystem) {
-		ECrossReferenceAdapter crossRef = SessionManager.INSTANCE.getSession(scoreSystem).getSemanticCrossReferencer();
+		Session session = SessionManager.INSTANCE.getSession(scoreSystem);
+		ECrossReferenceAdapter crossRef = session.getSemanticCrossReferencer();
 		List<EObject> toRemove = new ArrayList<>();
 
 		for (DifficultyScore diff : scoreSystem.getDifficultyScores()) {
@@ -372,12 +372,13 @@ public class SemanticService {
 		}
 
 		for (EObject rm : toRemove) {
-			SiriusPlugin.getDefault().getModelAccessorRegistry().getModelAccessor(rm).eRemove(rm);
+			session.getModelAccessor().eRemove(rm);
 		}
 	}
 
 	public static void clearUnusedImpacts(ScoreSystem scoreSystem) {
-		ECrossReferenceAdapter crossRef = SessionManager.INSTANCE.getSession(scoreSystem).getSemanticCrossReferencer();
+		Session session = SessionManager.INSTANCE.getSession(scoreSystem);
+		ECrossReferenceAdapter crossRef = session.getSemanticCrossReferencer();
 		List<EObject> toRemove = new ArrayList<>();
 
 		for (ImpactScore impact : scoreSystem.getImpactScores()) {
@@ -388,7 +389,7 @@ public class SemanticService {
 		}
 
 		for (EObject rm : toRemove) {
-			SiriusPlugin.getDefault().getModelAccessorRegistry().getModelAccessor(rm).eRemove(rm);
+			session.getModelAccessor().eRemove(rm);
 		}
 	}
 
