@@ -770,7 +770,7 @@ public class TRADESItemProviderAdapterFactory extends TRADESAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CharacteristicItemProvider characteristicItemProvider;
+	protected CharacteristicItemProviderCustomImpl characteristicItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link dsm.TRADES.Characteristic}.
@@ -781,7 +781,7 @@ public class TRADESItemProviderAdapterFactory extends TRADESAdapterFactory
 	@Override
 	public Adapter createCharacteristicAdapter() {
 		if (characteristicItemProvider == null) {
-			characteristicItemProvider = new CharacteristicItemProvider(this);
+			characteristicItemProvider = new CharacteristicItemProviderCustomImpl(this);
 		}
 
 		return characteristicItemProvider;
