@@ -331,11 +331,19 @@ public class CVECatalogSelectionPage extends WizardPage {
         String cveUrl = "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=" + 
             URLEncoder.encode(cpeName, StandardCharsets.UTF_8) + "&startIndex=" + pageNumber;
         try {
-        	HttpRequest request = HttpRequest.newBuilder()
+        	HttpRequest request;
+            if (this.apiKey == null || this.apiKey == "") {
+                request = HttpRequest.newBuilder()
+        		.uri(new URI(cveUrl))
+        		.GET()
+        		.build();
+            } else {
+                request = HttpRequest.newBuilder()
         		.uri(new URI(cveUrl))
         		.headers("apiKey", this.apiKey)
         		.GET()
         		.build();
+            }
             
         	HttpClient client = HttpClient.newHttpClient();
         	
