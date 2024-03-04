@@ -264,12 +264,20 @@ public class CVECatalogSelectionPage extends WizardPage {
 
     private void queryCVEEndpoint(SelectionEvent event) {
     	List<String> cvesToDisplay = new ArrayList<String>();
+        boolean shouldPause = false;
     	for (String cpeName : chosenCPEs) {
+            if (shouldPause) {
+                //pause before each CPE except the first one
+                TimeUnit.SECONDS.sleep(1);
+            } else {
+                shouldPause = true;
+            }
+
             int pageNumber = 0;
             int returnedVulnerabilities = extractVulnerabilitiesAndWeaknessesPage(cpeName, event, 0, cvesToDisplay);
             while (returnedVulnerabilities == 2000) {
                 try { 
-                	//artificial delay per NIST NVD documentation
+                	//NIST NVD documentation recommends that "your application sleeps for several seconds between requests" 
                 	TimeUnit.SECONDS.sleep(1);
                 } catch (Exception e) {
                 	e.printStackTrace();
@@ -331,19 +339,11 @@ public class CVECatalogSelectionPage extends WizardPage {
         String cveUrl = "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=" + 
             URLEncoder.encode(cpeName, StandardCharsets.UTF_8) + "&startIndex=" + pageNumber;
         try {
-        	HttpRequest request;
-            if (this.apiKey == null || this.apiKey == "") {
-                request = HttpRequest.newBuilder()
-        		.uri(new URI(cveUrl))
-        		.GET()
-        		.build();
-            } else {
-                request = HttpRequest.newBuilder()
-        		.uri(new URI(cveUrl))
-        		.headers("apiKey", this.apiKey)
-        		.GET()
-        		.build();
-            }
+            HttpRequest.Builder requestBuilder = HttpRequest.newBuilder(new URI(cveUrl));
+			if (this.apiKey != null && !this.apiKey.isEmpty()) {
+				requestBuilder.headers("apiKey", this.apiKey);
+			}
+            HttpRequest request = requestBuilder.build();
             
         	HttpClient client = HttpClient.newHttpClient();
         	
