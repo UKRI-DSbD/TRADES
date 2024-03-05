@@ -272,7 +272,7 @@ public class CVECatalogSelectionPage extends WizardPage {
             		TimeUnit.SECONDS.sleep(1);
             	} catch (Exception e) {
             		e.printStackTrace();
-            		}
+            	}
             } else {
                 shouldPause = true;
             }
@@ -286,6 +286,12 @@ public class CVECatalogSelectionPage extends WizardPage {
                 } catch (Exception e) {
                 	e.printStackTrace();
                 }
+
+                if (!MessageDialog.openConfirm(getShell(), "Fetch again",
+						"The query brought back a full page (2000) of CVEs. Would you like to search for another page?")) {
+					break;
+				}
+
             	pageNumber = pageNumber + 1;
                 returnedVulnerabilities = extractVulnerabilitiesAndWeaknessesPage(cpeName, event, pageNumber, cvesToDisplay);
             }
