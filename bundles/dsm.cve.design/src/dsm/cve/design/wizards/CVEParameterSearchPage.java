@@ -102,7 +102,7 @@ public class CVEParameterSearchPage extends WizardPage {
         searchGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
         Label disclaimerText = new Label(searchGroup, SWT.COLOR_TRANSPARENT);
-        disclaimerText.setText("https://services.nvd.nist.gov/rest/json/cves/2.0?");
+        disclaimerText.setText(NVDAPIUtils.urlWithQuestionMark);
         
         this.searchText = new Text(searchGroup, SWT.COLOR_WHITE);
         searchText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
@@ -120,7 +120,7 @@ public class CVEParameterSearchPage extends WizardPage {
         });
 
         Label searchHelpText = new Label(parent, SWT.COLOR_TRANSPARENT);
-        searchHelpText.setText(System.lineSeparator() + 
+        searchHelpText.setText("A maximum of " + String.valueOf(NVDAPIUtils.pageLength) + " results are returned." + System.lineSeparator() + 
         	"For help constructing the url parameters, please visit https://nvd.nist.gov/developers/vulnerabilities");
 
         enableGroup(searchGroup, true);
@@ -217,6 +217,12 @@ public class CVEParameterSearchPage extends WizardPage {
                         }
                     }
                 }
+
+                MessageDialog.openConfirm(
+                    event.display.getActiveShell(), 
+                    "CVEs returned",
+                    "The query returned " + jsonNode.get("resultsPerPage").asText() + " CVEs.");
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -224,19 +230,19 @@ public class CVEParameterSearchPage extends WizardPage {
     }
 
     private String requestJsonString(SelectionEvent event) {
-        String cveUrl = "https://services.nvd.nist.gov/rest/json/cves/2.0?" + 
+        String cveUrl = NVDAPIUtils.urlWithQuestionMark + 
             this.searchText.getText();
         try {
-        	HttpRequest request = HttpRequest.newBuilder()
-        		.uri(new URI(cveUrl))
-        		.headers("apiKey", this.apiKey)
-        		.GET()
-        		.build();
+        	HttpRequest.Builder requestBuilder = HttpRequest.newBuilder(new URI(cveUrl));
+			if (this.apiKey != null && !this.apiKey.isEmpty()) {
+				requestBuilder.headers("apiKey", this.apiKey);
+			}
+            HttpRequest request = requestBuilder.build();
             
         	HttpClient client = HttpClient.newHttpClient();
         	
         	HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
-        	
+            
         	if (response.statusCode() == 200) {
         		return response.body();
         	} else {

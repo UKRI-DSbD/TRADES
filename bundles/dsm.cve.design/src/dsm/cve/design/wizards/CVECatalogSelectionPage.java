@@ -279,7 +279,7 @@ public class CVECatalogSelectionPage extends WizardPage {
 
             int pageNumber = 0;
             int returnedVulnerabilities = extractVulnerabilitiesAndWeaknessesPage(cpeName, event, 0, cvesToDisplay);
-            while (returnedVulnerabilities == 2000) {
+            while (returnedVulnerabilities == NVDAPIUtils.pageLength) {
                 try { 
                 	//NIST NVD documentation recommends that "your application sleeps for several seconds between requests" 
                 	TimeUnit.SECONDS.sleep(1);
@@ -287,8 +287,8 @@ public class CVECatalogSelectionPage extends WizardPage {
                 	e.printStackTrace();
                 }
 
-                if (!MessageDialog.openConfirm(getShell(), "Fetch again",
-						"The query brought back a full page (2000) of CVEs. Would you like to search for another page?")) {
+                if (!MessageDialog.openConfirm(event.display.getActiveShell(), "Fetch again",
+						"The query brought back a full page (" + String.valueOf(NVDAPIUtils.pageLength) + ") of CVEs. Would you like to search for another page?")) {
 					break;
 				}
 
@@ -346,7 +346,7 @@ public class CVECatalogSelectionPage extends WizardPage {
     }
 
     private String requestJsonString(String cpeName, SelectionEvent event, int pageNumber) {
-        String cveUrl = "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=" + 
+        String cveUrl = NVDAPIUtils.urlWithQuestionMark + "cpeName=" + 
             URLEncoder.encode(cpeName, StandardCharsets.UTF_8) + "&startIndex=" + pageNumber;
         try {
             HttpRequest.Builder requestBuilder = HttpRequest.newBuilder(new URI(cveUrl));
@@ -365,9 +365,9 @@ public class CVECatalogSelectionPage extends WizardPage {
         		String numberOfPages = "";
         		
         		if (pageNumber == 2) {
-        			numberOfPages = "1 CVE page of length 2000 was returned successfully." + System.lineSeparator();
+        			numberOfPages = "1 CVE page of length " + String.valueOf(NVDAPIUtils.pageLength) + " was returned successfully." + System.lineSeparator();
                 } else if (pageNumber > 2) {
-                	numberOfPages = String.valueOf(pageNumber - 1) + " CVE pages of length 2000 were returned successfully." + System.lineSeparator();
+                	numberOfPages = String.valueOf(pageNumber - 1) + " CVE pages of length " + String.valueOf(NVDAPIUtils.pageLength) + " were returned successfully." + System.lineSeparator();
                 }
         		
         		MessageDialog.openError(
