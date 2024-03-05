@@ -267,8 +267,12 @@ public class CVECatalogSelectionPage extends WizardPage {
         boolean shouldPause = false;
     	for (String cpeName : chosenCPEs) {
             if (shouldPause) {
-                //pause before each CPE except the first one
-                TimeUnit.SECONDS.sleep(1);
+            	try { 
+                	//pause before each CPE except the first one
+            		TimeUnit.SECONDS.sleep(1);
+            	} catch (Exception e) {
+            		e.printStackTrace();
+            		}
             } else {
                 shouldPause = true;
             }
