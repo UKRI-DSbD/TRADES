@@ -234,7 +234,7 @@
           <dropDescriptions href="../../dsm.oscal.design/description/oscal.odesign#//@ownedViewpoints[name='OscalViewPoint']/@ownedRepresentationExtensions[name='TRADES.design']/@layers[name='OscalLayer']/@toolSections.0/@ownedTools[name='DropOScalControl']"/>
           <dropDescriptions href="../../dsm.oscal.design/description/oscal.odesign#//@ownedViewpoints[name='OscalViewPoint']/@ownedRepresentationExtensions[name='TRADES.design']/@layers[name='OscalLayer']/@toolSections.0/@ownedTools[name='DropOScalControl_TDExt']"/>
           <dropDescriptions href="#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ExternalControlDrop_TD']"/>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" tooltipExpression="aql: name" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" tooltipExpression="aql: self.name" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelFormat>underline</labelFormat>
@@ -421,7 +421,7 @@
                           </firstModelOperations>
                         </initialOperation>
                       </buttons>
-                      <page name="Default Page" domainClass="TRADES::Data" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.13/@controls.0/@controls.0/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.0/@page"/>
+                      <page name="Default Page" domainClass="TRADES::Data" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.14/@controls.0/@controls.0/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.0/@page"/>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -1605,7 +1605,7 @@
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql: self.name + '[' + self.componenttype.name->sep(';') + ']'" tooltipExpression="aql: name" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql: self.name + '[' + self.componenttype.name->sep(';') + ']'" tooltipExpression="aql: self.name" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelFormat>underline</labelFormat>
@@ -1792,7 +1792,7 @@
                           </firstModelOperations>
                         </initialOperation>
                       </buttons>
-                      <page name="Default Page" domainClass="TRADES::Data" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.13/@controls.0/@controls.0/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.0/@page"/>
+                      <page name="Default Page" domainClass="TRADES::Data" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.14/@controls.0/@controls.0/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.0/@page"/>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -2034,25 +2034,26 @@
     <metamodels href="dsm.TRADES#/"/>
     <metamodels href="http://www.eclipse.org/emf/2002/Ecore#/"/>
     <categories name="GeneralCategory">
-      <pages name="ThreatGeneralPage" label="Threat General" labelExpression="General" domainClass="TRADES::Threat" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.1 //@extensions.0/@categories.0/@groups.7"/>
-      <pages name="ControlGeneralPage" label="Control General Page" labelExpression="General" domainClass="TRADES::Control" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.8"/>
-      <pages name="ComponentGeneralPage" label="Component General Page" labelExpression="Component" domainClass="TRADES::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.3"/>
-      <pages name="AttackChainStep_Page" labelExpression="Attack chain step" domainClass="TRADES::AttackChainStep" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.15"/>
-      <pages name="AttackChain_Page" labelExpression="Attack chain" domainClass="TRADES::AttackChain" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.14"/>
-      <pages name="ThreatAllocationPage" label="Threat Allocation Page" labelExpression="Threat allocation Relation" domainClass="TRADES::ThreatAllocationRelation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4 //@extensions.0/@categories.0/@groups.16"/>
-      <pages name="ThreatMitigationPage" label="Threat Mitigation Page" labelExpression="General" domainClass="TRADES::ThreatMitigationRelation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.5"/>
-      <pages name="AnalysisPage" label="Analysis Page" labelExpression="General " domainClass="TRADES::Analysis" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.6"/>
-      <pages name="ImpactConfigurationPage" label="Impact Configuration" labelExpression="Impact configuration" domainClass="TRADES::ImpactConfiguration" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.11"/>
-      <pages name="ImpactScorePage" labelExpression="Impact score" domainClass="TRADES::ImpactScore" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.9"/>
-      <pages name="DifficultyPage" labelExpression="Difficulty" domainClass="TRADES::DifficultyScore" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.10"/>
-      <pages name="ScoreSystemPage" labelExpression="Score system" domainClass="TRADES::ScoreSystem" semanticCandidateExpression="aql:Sequence{self,self.eContainer()}" groups="//@extensions.0/@categories.0/@groups.12"/>
-      <pages name="AffectPage" label="Affect Page" labelExpression="Affect" domainClass="TRADES::AffectRelation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.13 //@extensions.0/@categories.0/@groups.19"/>
-      <pages name="LinkeThreatAllocationRelation_Page" label="Linked Threat Allocation" labelExpression="Linked allocation" domainClass="TRADES::ThreatAllocationRelation" semanticCandidateExpression="aql:self.threatAllocationRelation" groups="//@extensions.0/@categories.0/@groups.4" indented="true"/>
+      <pages name="ThreatGeneralPage" label="Threat General" labelExpression="General" domainClass="TRADES::Threat" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.1 //@extensions.0/@categories.0/@groups.8"/>
+      <pages name="ControlGeneralPage" label="Control General Page" labelExpression="General" domainClass="TRADES::Control" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.9"/>
+      <pages name="CharacteristicGeneralPage" label="Characteristic General Page" labelExpression="General" domainClass="TRADES::Characteristic" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.3"/>
+      <pages name="ComponentGeneralPage" label="Component General Page" labelExpression="Component" domainClass="TRADES::Component" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.4"/>
+      <pages name="AttackChainStep_Page" labelExpression="Attack chain step" domainClass="TRADES::AttackChainStep" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.16"/>
+      <pages name="AttackChain_Page" labelExpression="Attack chain" domainClass="TRADES::AttackChain" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.15"/>
+      <pages name="ThreatAllocationPage" label="Threat Allocation Page" labelExpression="Threat allocation Relation" domainClass="TRADES::ThreatAllocationRelation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5 //@extensions.0/@categories.0/@groups.17"/>
+      <pages name="ThreatMitigationPage" label="Threat Mitigation Page" labelExpression="General" domainClass="TRADES::ThreatMitigationRelation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.6"/>
+      <pages name="AnalysisPage" label="Analysis Page" labelExpression="General " domainClass="TRADES::Analysis" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.7"/>
+      <pages name="ImpactConfigurationPage" label="Impact Configuration" labelExpression="Impact configuration" domainClass="TRADES::ImpactConfiguration" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.12"/>
+      <pages name="ImpactScorePage" labelExpression="Impact score" domainClass="TRADES::ImpactScore" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.10"/>
+      <pages name="DifficultyPage" labelExpression="Difficulty" domainClass="TRADES::DifficultyScore" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.11"/>
+      <pages name="ScoreSystemPage" labelExpression="Score system" domainClass="TRADES::ScoreSystem" semanticCandidateExpression="aql:Sequence{self,self.eContainer()}" groups="//@extensions.0/@categories.0/@groups.13"/>
+      <pages name="AffectPage" label="Affect Page" labelExpression="Affect" domainClass="TRADES::AffectRelation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.14 //@extensions.0/@categories.0/@groups.20"/>
+      <pages name="LinkeThreatAllocationRelation_Page" label="Linked Threat Allocation" labelExpression="Linked allocation" domainClass="TRADES::ThreatAllocationRelation" semanticCandidateExpression="aql:self.threatAllocationRelation" groups="//@extensions.0/@categories.0/@groups.5" indented="true"/>
       <pages name="DataPage" labelExpression="Data" domainClass="TRADES::Data" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
-      <pages name="OwnedDataPage" labelExpression="Available Data" domainClass="TRADES::DataOwnerElement" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.17"/>
-      <pages name="LinkPage" label="Link Page" labelExpression="Link" domainClass="TRADES::Link" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.20"/>
-      <pages name="LinkTypePage" label="Link Type Page" labelExpression="Link type" domainClass="TRADES::LinkType" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.21"/>
-      <pages name="CatalogPage" labelExpression="General" domainClass="TRADES::Catalog" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.22"/>
+      <pages name="OwnedDataPage" labelExpression="Available Data" domainClass="TRADES::DataOwnerElement" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.18"/>
+      <pages name="LinkPage" label="Link Page" labelExpression="Link" domainClass="TRADES::Link" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.21"/>
+      <pages name="LinkTypePage" label="Link Type Page" labelExpression="Link type" domainClass="TRADES::LinkType" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.22"/>
+      <pages name="CatalogPage" labelExpression="General" domainClass="TRADES::Catalog" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.23"/>
       <groups name="ModelElementGroup" label="Model element" labelExpression="Basic Properties" domainClass="TRADES::NamedElement" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="ElementNameFiald" label="Name" labelExpression="Name" helpExpression="Name of the element" isEnabledExpression="aql:not(self.oclIsTypeOf(TRADES::ExternalThreat) or self.oclIsTypeOf(TRADES::ExternalControl) or self.oclIsTypeOf(TRADES::ThreatMitigationRelation)" valueExpression="aql:self.name">
           <initialOperation>
@@ -2096,7 +2097,7 @@
         </controls>
       </groups>
       <groups name="ControlGroup" label="Control Details" labelExpression="Control Details" domainClass="TRADES::Control" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:SelectDescription" name="Status" labelExpression="Status" isEnabledExpression="aql:" valueExpression="aql: TRADES::ControlStatusENUM.getEEnumLiteral(self.status.toString())" candidatesExpression="aql: TRADES::ControlStatusENUM.eLiterals" candidateDisplayExpression="aql:candidate.name">
+        <controls xsi:type="properties:SelectDescription" name="Status" labelExpression="Status" isEnabledExpression="aql: true" valueExpression="aql: TRADES::ControlStatusENUM.getEEnumLiteral(self.status.toString())" candidatesExpression="aql: TRADES::ControlStatusENUM.eLiterals" candidateDisplayExpression="aql:candidate.name">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
               <subModelOperations xsi:type="tool_1:SetValue" featureName="status" valueExpression="aql:newValue.instance"/>
@@ -2115,6 +2116,53 @@
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
               <subModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
             </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:ListDescription" name="CharacteristicList" labelExpression="Characteristics" valueExpression="aql:self.characteristics" displayExpression="aql:value.label + ' (' + value.name + '): ' + value.value">
+          <onClickOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+          </onClickOperation>
+          <actions labelExpression="Edit" imageExpression="/TRADES.design/Images/icons/editconfig.png">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:For" expression="var:selection" iteratorName="characteristic">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit characteristic details">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Default Page" labelExpression="Characteristic detail" domainClass="TRADES::Characteristic" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.3"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
+        </controls>
+      </groups>
+      <groups name="CharacteristicGroup" labelExpression="Characteristic" domainClass="TRADES::Characteristic" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="TRADES::Characteristic name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql: false" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('name').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="TRADES::Characteristic label" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('label')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('label'))" isEnabledExpression="aql: false" valueExpression="aql:self.label">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="label" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="TRADES::Characteristic value" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('value')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('value'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('value').changeable" valueExpression="aql:self.value">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="TRADES::Characteristic description" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('description')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
       </groups>
@@ -2159,7 +2207,7 @@
                                   </firstModelOperations>
                                 </initialOperation>
                               </buttons>
-                              <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4/@controls.0/@controls.0/@controls.1/@initialOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
+                              <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5/@controls.0/@controls.0/@controls.1/@initialOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
                               <groups name="Default Group" labelExpression="Group" semanticCandidateExpression="var:self">
                                 <controls xsi:type="properties:TextDescription" name="NewImpactScoreScore_Text" labelExpression="New score" valueExpression="aql:newImpactScore.impact">
                                   <initialOperation>
@@ -2209,7 +2257,7 @@
                               </firstModelOperations>
                             </initialOperation>
                           </buttons>
-                          <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4/@controls.0/@controls.0/@controls.3/@initialOperation/@firstModelOperations/@subModelOperations.2/@subModelOperations.0/@subModelOperations.0/@subModelOperations.1/@groups.0"/>
+                          <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5/@controls.0/@controls.0/@controls.3/@initialOperation/@firstModelOperations/@subModelOperations.2/@subModelOperations.0/@subModelOperations.0/@subModelOperations.1/@groups.0"/>
                           <groups name="Default Group" labelExpression="Group" semanticCandidateExpression="var:self">
                             <controls xsi:type="properties:TextDescription" name="NewDifficultyScoreScore_Text" labelExpression="New score" valueExpression="aql:newDifficultyScore.difficulty">
                               <initialOperation>
@@ -2379,7 +2427,7 @@
                           </firstModelOperations>
                         </initialOperation>
                       </buttons>
-                      <page name="AffectRelation_NewData_Page" domainClass="TRADES::Data" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.13/@controls.0/@controls.0/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.0/@groups.0"/>
+                      <page name="AffectRelation_NewData_Page" domainClass="TRADES::Data" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.14/@controls.0/@controls.0/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.0/@groups.0"/>
                       <groups name="AffectRelation_NewData_Group" domainClass="TRADES::Data" semanticCandidateExpression="var:self">
                         <controls xsi:type="properties:TextDescription" name="DataName" labelExpression="Data Name" valueExpression="aql:self.name">
                           <initialOperation>
@@ -2586,7 +2634,7 @@
                           </firstModelOperations>
                         </initialOperation>
                       </buttons>
-                      <page name="AffectRelation_NewData_Page" domainClass="TRADES::Data" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.18/@controls.0/@controls.1/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.0/@groups.0"/>
+                      <page name="AffectRelation_NewData_Page" domainClass="TRADES::Data" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.19/@controls.0/@controls.1/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.0/@groups.0"/>
                       <groups name="AffectRelation_NewData_Group" domainClass="TRADES::Data" semanticCandidateExpression="var:self">
                         <controls xsi:type="properties:TextDescription" name="DataName" labelExpression="Data Name" valueExpression="aql:self.name">
                           <initialOperation>
@@ -2647,7 +2695,7 @@
                           </firstModelOperations>
                         </initialOperation>
                       </buttons>
-                      <page name="AffectRelation_NewData_Page" domainClass="TRADES::Data" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.18/@controls.0/@controls.2/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.0/@groups.0"/>
+                      <page name="AffectRelation_NewData_Page" domainClass="TRADES::Data" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.19/@controls.0/@controls.2/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.0/@groups.0"/>
                       <groups name="AffectRelation_NewData_Group" domainClass="TRADES::Data" semanticCandidateExpression="var:self">
                         <controls xsi:type="properties:TextDescription" name="DataName" labelExpression="Data Name" valueExpression="aql:self.name">
                           <initialOperation>
@@ -2738,7 +2786,7 @@
                         <buttons labelExpression="Add" default="true" closeDialogOnClick="true">
                           <initialOperation/>
                         </buttons>
-                        <page name="NewLinkType_Page" domainClass="TRADES::LinkType" groups="//@extensions.0/@categories.0/@groups.20/@controls.1/@actions.1/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
+                        <page name="NewLinkType_Page" domainClass="TRADES::LinkType" groups="//@extensions.0/@categories.0/@groups.21/@controls.1/@actions.1/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
                         <groups name="NewTypeGroup" domainClass="TRADES::LinkType" semanticCandidateExpression="var:self">
                           <controls xsi:type="properties:TextDescription" name="LinkTypeName" labelExpression="Link Name" valueExpression="aql: newLinkType.name">
                             <initialOperation>
