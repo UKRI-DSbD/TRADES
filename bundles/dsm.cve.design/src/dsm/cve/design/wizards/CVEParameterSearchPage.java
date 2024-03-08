@@ -70,6 +70,7 @@ public class CVEParameterSearchPage extends WizardPage {
     private Hashtable<String, List<String>> vulnerabilityDictionary = new Hashtable<String, List<String>>();
     private String apiKey;
     private IProject project;
+    private Text resultsText;
 
     public CVEParameterSearchPage(IProject project) {
         super("CVE Catalog selection page");
@@ -86,8 +87,11 @@ public class CVEParameterSearchPage extends WizardPage {
 
         createSearchResultsViewer(composite);
         
+        this.resultsText = new Text(composite, SWT.READ_ONLY);
+        resultsText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+        
         Label disclaimerText = new Label(composite, SWT.COLOR_TRANSPARENT);
-        disclaimerText.setText(System.lineSeparator() + 
+        disclaimerText.setText(
         	"This product uses data from the NVD API but is not endorsed or certified by the NVD.");
 
         setControl(composite);
@@ -218,9 +222,7 @@ public class CVEParameterSearchPage extends WizardPage {
                     }
                 }
 
-                MessageDialog.openConfirm(
-                    event.display.getActiveShell(), 
-                    "CVEs returned",
+                this.resultsText.setText(
                     "The query returned " + jsonNode.get("resultsPerPage").asText() + " CVEs.");
 
             } catch (Exception e) {
