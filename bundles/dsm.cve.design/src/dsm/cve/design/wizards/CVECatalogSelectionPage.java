@@ -202,14 +202,12 @@ public class CVECatalogSelectionPage extends WizardPage {
 
             @Override
             public void widgetSelected(SelectionEvent e) {
-               queryCVEEndpoint(e);
+               NVDAPIUtils.queryCVEEndpoint(e, chosenCPEs, apiKey, cveViewer, vulnerabilityDictionary);
                getContainer().updateButtons();
             }
         });
 
         cpeViewer.addFilter(this.filterViewer);
-
-        enableGroup(fetchGroup, true);
     }
 
     private void createSearchResultsViewer(Composite parent) {
@@ -241,154 +239,8 @@ public class CVECatalogSelectionPage extends WizardPage {
                 getContainer().updateButtons();
             }
         });
-        
-        enableGroup(embeddedGroup, true);
     }
 
-    private void enableGroup(Composite c, boolean value) {
-        if (c != null && !c.isDisposed()) {
-            for (Control control : c.getChildren()) {
-                control.setEnabled(value);
-            }
-            c.setEnabled(value);
-        }
-    }
-
-    public List<String> getchosenCVEs() {
-        return chosenCVEs;
-    }
-
-    public Dictionary<String, List<String>> getVulnerabilityDictionary() {
-        return vulnerabilityDictionary;
-    }
-
-    private void queryCVEEndpoint(SelectionEvent event) {
-    	List<String> cvesToDisplay = new ArrayList<String>();
-        boolean shouldPause = false;
-    	for (String cpeName : chosenCPEs) {
-            if (shouldPause) {
-            	try { 
-                	//pause before each CPE except the first one
-            		TimeUnit.SECONDS.sleep(1);
-            	} catch (Exception e) {
-            		e.printStackTrace();
-            	}
-            } else {
-                shouldPause = true;
-            }
-
-            int pageNumber = 0;
-            int returnedVulnerabilities = extractVulnerabilitiesAndWeaknessesPage(cpeName, event, 0, cvesToDisplay);
-            while (returnedVulnerabilities == NVDAPIUtils.pageLength) {
-                try { 
-                	//NIST NVD documentation recommends that "your application sleeps for several seconds between requests" 
-                	TimeUnit.SECONDS.sleep(1);
-                } catch (Exception e) {
-                	e.printStackTrace();
-                }
-
-                if (!MessageDialog.openConfirm(event.display.getActiveShell(), "Fetch again",
-						"The query brought back a full page (" + String.valueOf(NVDAPIUtils.pageLength) + ") of CVEs. Would you like to search for another page?")) {
-					break;
-				}
-
-            	pageNumber = pageNumber + 1;
-                returnedVulnerabilities = extractVulnerabilitiesAndWeaknessesPage(cpeName, event, pageNumber, cvesToDisplay);
-            }
-        }
-
-        if (cvesToDisplay.size() > 0) {
-            cveViewer.setInput(cvesToDisplay);
-            ISelection selection = new StructuredSelection(cvesToDisplay); 
-            cveViewer.setSelection(selection);
-        }        
-    }
-
-    private int extractVulnerabilitiesAndWeaknessesPage(String cpeName, SelectionEvent event, int pageNumber, List<String> cvesToDisplay) {
-        String jsonString = requestJsonString(cpeName, event, pageNumber);
-        if (jsonString != "") {
-            try {
-                ObjectMapper objectMapper = new ObjectMapper();
-                JsonNode jsonNode = objectMapper.readTree(jsonString);
-                
-                ArrayNode vulnerabilities = (ArrayNode) jsonNode.get("vulnerabilities");
-                for (int i = 0; i < vulnerabilities.size(); i++) {
-                    String cveId = vulnerabilities.get(i).get("cve").get("id").asText();
-                    if (!cvesToDisplay.contains(cveId)) {
-                        cvesToDisplay.add(cveId);
-                    }
-                    if (!vulnerabilityDictionary.containsKey(cveId)) {
-                        vulnerabilityDictionary.put(cveId, new ArrayList<String>());
-                    }
-
-                    ArrayNode weaknesses = (ArrayNode) vulnerabilities.get(i).get("cve").get("weaknesses").get(0).get("description");
-                    for (int j = 0; j < weaknesses.size(); j++) {
-                        if (weaknesses.get(j).getNodeType() == JsonNodeType.OBJECT) {
-                            String cweId = weaknesses.get(j).get("value").asText();
-                            if (cweId.startsWith("CWE-")) {
-                                vulnerabilityDictionary.get(cveId).add(cweId.substring(4));
-                            } else {
-                                vulnerabilityDictionary.get(cveId).add(cweId);
-                            }
-                            
-                        }
-                    }
-                    
-                }
-                return jsonNode.get("resultsPerPage").asInt();
-            } catch (Exception e) {
-                e.printStackTrace();
-                return -1;
-            }
-        } else {
-            return -1;
-        }
-    }
-
-    private String requestJsonString(String cpeName, SelectionEvent event, int pageNumber) {
-        String cveUrl = NVDAPIUtils.urlWithQuestionMark + "cpeName=" + 
-            URLEncoder.encode(cpeName, StandardCharsets.UTF_8) + "&startIndex=" + pageNumber;
-        try {
-            HttpRequest.Builder requestBuilder = HttpRequest.newBuilder(new URI(cveUrl));
-			if (this.apiKey != null && !this.apiKey.isEmpty()) {
-				requestBuilder.headers("apiKey", this.apiKey);
-			}
-            HttpRequest request = requestBuilder.build();
-            
-        	HttpClient client = HttpClient.newHttpClient();
-        	
-        	HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
-        	
-        	if (response.statusCode() == 200) {
-        		return response.body();
-        	} else {
-        		String numberOfPages = "";
-        		
-        		if (pageNumber == 2) {
-        			numberOfPages = "1 CVE page of length " + String.valueOf(NVDAPIUtils.pageLength) + " was returned successfully." + System.lineSeparator();
-                } else if (pageNumber > 2) {
-                	numberOfPages = String.valueOf(pageNumber - 1) + " CVE pages of length " + String.valueOf(NVDAPIUtils.pageLength) + " were returned successfully." + System.lineSeparator();
-                }
-        		
-        		MessageDialog.openError(
-                    event.display.getActiveShell(), 
-                    "CVE load aborted", 
-                    "The NVD API returned HTTP Status Code " + response.statusCode() + "." + System.lineSeparator() + 
-                    numberOfPages +                     
-                    "Please try again later.");
-        		
-        		return "";
-        	}
-        } catch (Exception e) {
-            e.printStackTrace();
-            MessageDialog.openError(
-                event.display.getActiveShell(), 
-                "No CVEs affecting CPE found", 
-                "No CVEs found that affect " + cpeName + ". Please check for typing errors in the CPE name.");
-            return "";
-        }
-    }
-    
     private void setupPage() {
     	try {
 			IResource[] members = this.project.members();
@@ -409,7 +261,7 @@ public class CVECatalogSelectionPage extends WizardPage {
 			e.printStackTrace();
 		}
     }
-    
+
     private void extractAPIKeyAndCPEs(String filePath) {
 		DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
 		try (InputStream input = new FileInputStream(filePath)) {
@@ -458,5 +310,13 @@ public class CVECatalogSelectionPage extends WizardPage {
                 cpeViewer.setSelection(selection);
             }
     	}    	
+    }
+
+    public List<String> getChosenCVEs() {
+        return chosenCVEs;
+    }
+
+    public Dictionary<String, List<String>> getVulnerabilityDictionary() {
+        return vulnerabilityDictionary;
     }
 }

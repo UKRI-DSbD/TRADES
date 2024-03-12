@@ -109,7 +109,7 @@ public class ImportCVEViaParametersWizard extends Wizard implements IImportWizar
 	}
 
 	private boolean importCatalog(URI repUri, Session session) {
-		List<String> chosenCVEs = parameterSearchPage.getchosenCVEs();
+		List<String> chosenCVEs = parameterSearchPage.getChosenCVEs();
 		if (chosenCVEs.size() > 0) {
 			return importCVECatalog(repUri, session, chosenCVEs);
 		} else {
@@ -165,7 +165,7 @@ public class ImportCVEViaParametersWizard extends Wizard implements IImportWizar
 
 	@Override
 	public boolean canFinish() {
-		return projectSelectionPage.getSelectedProject() != null && parameterSearchPage.getchosenCVEs() != null;
+		return projectSelectionPage.getSelectedProject() != null && parameterSearchPage.getChosenCVEs() != null;
 	}
 
 	private IProject getSelectedProject(IStructuredSelection selection) {

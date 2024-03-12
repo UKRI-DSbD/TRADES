@@ -112,7 +112,7 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 	}
 
 	private boolean importCatalog(URI repUri, Session session) {
-		List<String> chosenCVEs = catalogSelectionPage.getchosenCVEs();
+		List<String> chosenCVEs = catalogSelectionPage.getChosenCVEs();
 		if (chosenCVEs.size() > 0) {
 			return importCVECatalog(repUri, session, chosenCVEs);
 		} else {
@@ -168,7 +168,7 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 
 	@Override
 	public boolean canFinish() {
-		return projectSelectionPage.getSelectedProject() != null && catalogSelectionPage.getchosenCVEs() != null;
+		return projectSelectionPage.getSelectedProject() != null && catalogSelectionPage.getChosenCVEs() != null;
 	}
 
 	private IProject getSelectedProject(IStructuredSelection selection) {

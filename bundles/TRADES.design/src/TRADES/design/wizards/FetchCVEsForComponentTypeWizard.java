@@ -105,7 +105,7 @@ public class FetchCVEsForComponentTypeWizard extends Wizard implements IImportWi
     }
  
     private boolean importCatalog(URI repUri, Session session) {
-        List<String> chosenCVEs = catalogSelectionPage.getchosenCVEs();
+        List<String> chosenCVEs = catalogSelectionPage.getChosenCVEs();
         if (chosenCVEs.size() > 0) {
             return importCVECatalog(repUri, session, chosenCVEs);
         } else {
@@ -160,7 +160,7 @@ public class FetchCVEsForComponentTypeWizard extends Wizard implements IImportWi
 
     @Override
     public boolean canFinish() {
-        return catalogSelectionPage.getchosenCVEs() != null;
+        return catalogSelectionPage.getChosenCVEs() != null;
     }
  
     private void transformCVEs(Resource existingResource, List<String> chosenCVEs) {
