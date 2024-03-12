@@ -51,14 +51,17 @@ import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.TypedEvent;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.ProgressBar;
 import org.eclipse.swt.widgets.Text;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -87,6 +90,7 @@ public class CVECatalogSelectionPage extends WizardPage {
     private IProject project;
     private String cpeFromComponentType;
     private List<String> cpeList;
+    private ProgressBarWrapper progressBar;
 
     public CVECatalogSelectionPage(IProject project) {
         super("CVE Catalog selection page");
@@ -202,13 +206,19 @@ public class CVECatalogSelectionPage extends WizardPage {
 
             @Override
             public void widgetSelected(SelectionEvent e) {
-               queryCVEEndpoint(e);
-               getContainer().updateButtons();
+            	fetchButton.setEnabled(false);
+            	RunOnBackgroundThread(() -> {
+            		queryCVEEndpoint(e);
+            		//Update the UI on the UI thread
+					RunOnUiThreadSync(e, () -> fetchButton.setEnabled(true));
+            	});
             }
         });
 
         cpeViewer.addFilter(this.filterViewer);
-
+        
+        progressBar = new ProgressBarWrapper(new ProgressBar(parent, SWT.HORIZONTAL));
+        
         enableGroup(fetchGroup, true);
     }
 
@@ -263,8 +273,13 @@ public class CVECatalogSelectionPage extends WizardPage {
     }
 
     private void queryCVEEndpoint(SelectionEvent event) {
+       	
     	List<String> cvesToDisplay = new ArrayList<String>();
         boolean shouldPause = false;
+        int cpeCount = 0;
+        progressBar.setMaximum(chosenCPEs.size());
+        double initialProgress = 0.25; 
+        progressBar.setValue(initialProgress); //Show some pretend progress straight away
     	for (String cpeName : chosenCPEs) {
             if (shouldPause) {
             	try { 
@@ -277,39 +292,43 @@ public class CVECatalogSelectionPage extends WizardPage {
                 shouldPause = true;
             }
 
-            int pageNumber = 0;
-            int returnedVulnerabilities = extractVulnerabilitiesAndWeaknessesPage(cpeName, event, 0, cvesToDisplay);
-            while (returnedVulnerabilities == NVDAPIUtils.pageLength) {
+            FetchProgress fetchProgress = requestAndParseJson(cpeName, event, new FetchProgress(), cvesToDisplay);
+           	while (fetchProgress != null && !fetchProgress.isComplete()) {
+            	progressBar.setValue(Math.max(initialProgress, cpeCount + fetchProgress.fractionalProgress()));
                 try { 
-                	//NIST NVD documentation recommends that "your application sleeps for several seconds between requests" 
-                	TimeUnit.SECONDS.sleep(1);
+                	//NIST NVD documentation recommends that "your application sleeps for several seconds between requests"  and also suggests 6s.
+                	TimeUnit.SECONDS.sleep(6);
                 } catch (Exception e) {
                 	e.printStackTrace();
                 }
 
-                if (!MessageDialog.openConfirm(event.display.getActiveShell(), "Fetch again",
-						"The query brought back a full page (" + String.valueOf(NVDAPIUtils.pageLength) + ") of CVEs. Would you like to search for another page?")) {
-					break;
-				}
-
-            	pageNumber = pageNumber + 1;
-                returnedVulnerabilities = extractVulnerabilitiesAndWeaknessesPage(cpeName, event, pageNumber, cvesToDisplay);
+            	fetchProgress = requestAndParseJson(cpeName, event, fetchProgress, cvesToDisplay);
             }
-        }
+            
+            cpeCount++;
+            progressBar.setValue(cpeCount);
+    	}
 
         if (cvesToDisplay.size() > 0) {
-            cveViewer.setInput(cvesToDisplay);
-            ISelection selection = new StructuredSelection(cvesToDisplay); 
-            cveViewer.setSelection(selection);
+        	RunOnUiThreadSync(event, () -> {
+	            cveViewer.setInput(cvesToDisplay);
+	            ISelection selection = new StructuredSelection(cvesToDisplay); 
+	            cveViewer.setSelection(selection);
+        	});
         }        
     }
 
-    private int extractVulnerabilitiesAndWeaknessesPage(String cpeName, SelectionEvent event, int pageNumber, List<String> cvesToDisplay) {
-        String jsonString = requestJsonString(cpeName, event, pageNumber);
-        if (jsonString != "") {
+    private FetchProgress requestAndParseJson(String cpeName, SelectionEvent event, FetchProgress fetchProgress, List<String> cvesToDisplay) {
+        String jsonString = requestJsonString(cpeName, event, fetchProgress);
+        if (jsonString != null) {
             try {
                 ObjectMapper objectMapper = new ObjectMapper();
                 JsonNode jsonNode = objectMapper.readTree(jsonString);
+                
+                int totalResultsToBeReturned = jsonNode.get("totalResults").asInt();
+                System.out.println("CVE import - Total results to fetch = " + totalResultsToBeReturned);
+                int resultsPerPage = jsonNode.get("resultsPerPage").asInt();
+                System.out.println("CVE import - Results per page = " + resultsPerPage);
                 
                 ArrayNode vulnerabilities = (ArrayNode) jsonNode.get("vulnerabilities");
                 for (int i = 0; i < vulnerabilities.size(); i++) {
@@ -335,19 +354,19 @@ public class CVECatalogSelectionPage extends WizardPage {
                     }
                     
                 }
-                return jsonNode.get("resultsPerPage").asInt();
+                return new FetchProgress(fetchProgress.startIndex + resultsPerPage, totalResultsToBeReturned);
             } catch (Exception e) {
                 e.printStackTrace();
-                return -1;
+                return null;
             }
         } else {
-            return -1;
+            return null;
         }
     }
 
-    private String requestJsonString(String cpeName, SelectionEvent event, int pageNumber) {
-        String cveUrl = NVDAPIUtils.urlWithQuestionMark + "cpeName=" + 
-            URLEncoder.encode(cpeName, StandardCharsets.UTF_8) + "&startIndex=" + pageNumber;
+    private String requestJsonString(String cpeName, SelectionEvent event, FetchProgress fetchProgres ) {
+        String cveUrl = NVDAPIUtils.urlWithQuestionMark + "startIndex=" + fetchProgres.startIndex 
+        		+ "&cpeName=" + URLEncoder.encode(cpeName, StandardCharsets.UTF_8);
         try {
             HttpRequest.Builder requestBuilder = HttpRequest.newBuilder(new URI(cveUrl));
 			if (this.apiKey != null && !this.apiKey.isEmpty()) {
@@ -357,35 +376,32 @@ public class CVECatalogSelectionPage extends WizardPage {
             
         	HttpClient client = HttpClient.newHttpClient();
         	
+        	System.out.println("CVE import - Making request: " + cveUrl + "...");
         	HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
-        	
+        	System.out.println("CVE import - Response received: " + response.statusCode());
         	if (response.statusCode() == 200) {
         		return response.body();
         	} else {
-        		String numberOfPages = "";
-        		
-        		if (pageNumber == 2) {
-        			numberOfPages = "1 CVE page of length " + String.valueOf(NVDAPIUtils.pageLength) + " was returned successfully." + System.lineSeparator();
-                } else if (pageNumber > 2) {
-                	numberOfPages = String.valueOf(pageNumber - 1) + " CVE pages of length " + String.valueOf(NVDAPIUtils.pageLength) + " were returned successfully." + System.lineSeparator();
-                }
-        		
-        		MessageDialog.openError(
-                    event.display.getActiveShell(), 
-                    "CVE load aborted", 
-                    "The NVD API returned HTTP Status Code " + response.statusCode() + "." + System.lineSeparator() + 
-                    numberOfPages +                     
-                    "Please try again later.");
-        		
-        		return "";
+                RunOnUiThreadSync(event, () -> {
+                    String progressMessage = fetchProgres.startIndex + (fetchProgres.totalResultsToFetch > 0 ? "/" + fetchProgres.totalResultsToFetch : "") + " CVEs obtained for CPE " + cpeName;
+                    MessageDialog.openError(
+                        event.display.getActiveShell(), 
+                        "CVE load aborted", 
+                        "The NVD API returned HTTP Status Code " + response.statusCode() + "." + System.lineSeparator()
+                            + progressMessage + System.lineSeparator()                  
+                            + "Please try again later.");
+                    });
+        		return null;
         	}
         } catch (Exception e) {
-            e.printStackTrace();
-            MessageDialog.openError(
-                event.display.getActiveShell(), 
-                "No CVEs affecting CPE found", 
-                "No CVEs found that affect " + cpeName + ". Please check for typing errors in the CPE name.");
-            return "";
+            e.printStackTrace(); 
+            RunOnUiThreadSync(event, () -> {
+	            MessageDialog.openError(
+	                event.display.getActiveShell(), 
+	                "No CVEs affecting CPE found", 
+	                "No CVEs found that affect " + cpeName + ". Please check for typing errors in the CPE name.");
+	            });
+            return null;
         }
     }
     
@@ -459,4 +475,87 @@ public class CVECatalogSelectionPage extends WizardPage {
             }
     	}    	
     }
+    
+    private static void RunOnBackgroundThread(Runnable runnable)
+    {
+    	var workerThread = new Thread(runnable);
+    	workerThread.start();
+    }
+    
+    private static void RunOnUiThreadSync(TypedEvent event, Runnable runnable)
+    {
+    	RunOnUiThreadSync(event.display, runnable);
+    }
+    
+    private static void RunOnUiThreadSync(Display display, Runnable runable)
+    {
+    	display.syncExec(runable);
+    }
+    
+    /**
+     * A simple object encapsulating the startIndex and total result count
+     * of an API fetch. 
+     */
+    private class FetchProgress {
+    	int startIndex;
+    	int totalResultsToFetch;
+    	
+    	public FetchProgress()
+    	{
+    		this.startIndex = 0;
+    		this.totalResultsToFetch = 0;
+    	}
+    	
+    	public FetchProgress(int startIndex, int totalResultsToFetch)
+    	{
+    		this.startIndex = startIndex;
+    		this.totalResultsToFetch = totalResultsToFetch;
+    	}
+    	
+    	public boolean isComplete() 
+    	{
+    		return !(startIndex < totalResultsToFetch);
+    	}
+    	
+    	public double fractionalProgress()
+    	{
+    		return (startIndex - 1) * 1.0 / totalResultsToFetch;
+    	}
+    }
+    
+    /**
+     * Wraps a SWT ProgressBar object to allow for doubles to be sent as progress measures
+     * and for updates to be handled on the UI thread without reading to explicitly code that.
+     */
+    private class ProgressBarWrapper {
+
+		private ProgressBar progressBar;
+
+		private double max;
+		private double value;
+		private int displayMax = 100; //The granularity of the display
+
+		public ProgressBarWrapper(ProgressBar control) {
+			progressBar = control;
+			progressBar.setState(SWT.NORMAL);
+			progressBar.setMinimum(0);
+			progressBar.setMaximum(displayMax);
+		}
+
+		public void setMaximum(double maximum) {
+			max = maximum;
+		}
+
+		public void setValue(double currentValue)
+    	{
+			value = currentValue;
+    		progressBar.getDisplay().syncExec(new Runnable() {
+    			@Override
+    			public void run() {
+    				if(!progressBar.isDisposed())
+    					progressBar.setSelection((int)Math.floor(value*displayMax/max));
+    			}
+    		});
+    	}
+	}
 }
