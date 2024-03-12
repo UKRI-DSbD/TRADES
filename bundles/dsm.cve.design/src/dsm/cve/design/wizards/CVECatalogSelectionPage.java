@@ -17,6 +17,7 @@ package dsm.cve.design.wizards;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Hashtable;
 import java.util.List;
 
@@ -109,7 +110,7 @@ public class CVECatalogSelectionPage extends WizardPage {
         if (cpeFromComponentType == null) {
             setupPage();
         } else {
-            cpeViewer.setInput(cpeToComponentTypeDictionary.keys());
+            cpeViewer.setInput(Collections.list(cpeToComponentTypeDictionary.keys()));
             List<String> singleCPE = new ArrayList<String>();
             singleCPE.add(cpeFromComponentType);
             ISelection selection = new StructuredSelection(singleCPE); 
@@ -287,7 +288,7 @@ public class CVECatalogSelectionPage extends WizardPage {
     				}
     			}
     		}
-    		cpeViewer.setInput(cpeToComponentTypeDictionary.keys());
+    		cpeViewer.setInput(Collections.list(cpeToComponentTypeDictionary.keys()));
     		if (cpeFromComponentType == null) {
                 ISelection selection = new StructuredSelection(cpeToComponentTypeDictionary.keys()); 
                 cpeViewer.setSelection(selection);
