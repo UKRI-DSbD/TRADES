@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -42,6 +42,7 @@ import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.ui.IImportWizard;
 import org.eclipse.ui.IWorkbench;
 
+import dsm.TRADES.ComponentType;
 import dsm.cve.design.wizards.CVECatalogSelectionPage;
 import dsm.cve.model.CVECatalog.CVECatalogFactory;
 import dsm.cve.model.CVECatalog.VulnerabilityTypeENUM;

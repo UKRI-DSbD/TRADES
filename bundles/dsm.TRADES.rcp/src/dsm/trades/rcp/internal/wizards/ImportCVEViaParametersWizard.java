@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.stream.Stream;
 

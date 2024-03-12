@@ -14,8 +14,7 @@
 
  package TRADES.design.actions;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Hashtable;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.wizard.WizardDialog;
