@@ -150,7 +150,7 @@ class NVDAPIUtils {
 
     static void extractVulnerabilitiesAndWeaknessesPage(SelectionEvent event, 
     		List<String> cvesToDisplay, Text searchText, String apiKey, Text resultsText, 
-    		Hashtable<String, List<String>> vulnerabilityDictionary) {
+    		Hashtable<String, List<String>> cveToCWEDictionary) {
         String jsonString = requestJsonString(event, searchText, apiKey);
         if (jsonString != "") {
             try {
@@ -163,8 +163,8 @@ class NVDAPIUtils {
                     if (!cvesToDisplay.contains(cveId)) {
                         cvesToDisplay.add(cveId);
                     }
-                    if (!vulnerabilityDictionary.containsKey(cveId)) {
-                        vulnerabilityDictionary.put(cveId, new ArrayList<String>());
+                    if (!cveToCWEDictionary.containsKey(cveId)) {
+                        cveToCWEDictionary.put(cveId, new ArrayList<String>());
                     }
 
                     ArrayNode weaknesses = (ArrayNode) vulnerabilities.get(i).get("cve").get("weaknesses").get(0).get("description");
@@ -172,9 +172,9 @@ class NVDAPIUtils {
                         if (weaknesses.get(j).getNodeType() == JsonNodeType.OBJECT) {
                             String cweId = weaknesses.get(j).get("value").asText();
                             if (cweId.startsWith("CWE-")) {
-                                vulnerabilityDictionary.get(cveId).add(cweId.substring(4));
+                                cveToCWEDictionary.get(cveId).add(cweId.substring(4));
                             } else {
-                                vulnerabilityDictionary.get(cveId).add(cweId);
+                                cveToCWEDictionary.get(cveId).add(cweId);
                             }
                             
                         }
@@ -192,7 +192,8 @@ class NVDAPIUtils {
 
     static int extractVulnerabilitiesAndWeaknessesPage(String cpeName, SelectionEvent event, 
     		int startIndex, List<String> cvesToDisplay, String apiKey, 
-    		Hashtable<String, List<String>> vulnerabilityDictionary) {
+    		Hashtable<String, List<String>> cveToCWEDictionary,
+            Hashtable<String, String> cveToCPEDictionary) {
         String jsonString = requestJsonString(cpeName, event, startIndex, apiKey);
         if (jsonString != "") {
             try {
@@ -205,8 +206,11 @@ class NVDAPIUtils {
                     if (!cvesToDisplay.contains(cveId)) {
                         cvesToDisplay.add(cveId);
                     }
-                    if (!vulnerabilityDictionary.containsKey(cveId)) {
-                        vulnerabilityDictionary.put(cveId, new ArrayList<String>());
+                    if (!cveToCWEDictionary.containsKey(cveId)) {
+                        cveToCWEDictionary.put(cveId, new ArrayList<String>());
+                    }
+                    if (!cveToCPEDictionary.containsKey(cveId)) {
+                        cveToCPEDictionary.put(cveId, cpeName);
                     }
 
                     ArrayNode weaknesses = (ArrayNode) vulnerabilities.get(i).get("cve").get("weaknesses").get(0).get("description");
@@ -214,9 +218,9 @@ class NVDAPIUtils {
                         if (weaknesses.get(j).getNodeType() == JsonNodeType.OBJECT) {
                             String cweId = weaknesses.get(j).get("value").asText();
                             if (cweId.startsWith("CWE-")) {
-                                vulnerabilityDictionary.get(cveId).add(cweId.substring(4));
+                                cveToCWEDictionary.get(cveId).add(cweId.substring(4));
                             } else {
-                                vulnerabilityDictionary.get(cveId).add(cweId);
+                                cveToCWEDictionary.get(cveId).add(cweId);
                             }
                             
                         }
@@ -234,9 +238,9 @@ class NVDAPIUtils {
     }
 
     static void queryCVEEndpoint(SelectionEvent event, Text searchText, String apiKey, Text resultsText, TableViewer cveViewer, 
-    		Hashtable<String, List<String>> vulnerabilityDictionary) {
+    		Hashtable<String, List<String>> cveToCWEDictionary) {
     	List<String> cvesToDisplay = new ArrayList<String>();
-    	extractVulnerabilitiesAndWeaknessesPage(event, cvesToDisplay, searchText, apiKey, resultsText, vulnerabilityDictionary);
+    	extractVulnerabilitiesAndWeaknessesPage(event, cvesToDisplay, searchText, apiKey, resultsText, cveToCWEDictionary);
 
         if (cvesToDisplay.size() > 0) {
             cveViewer.setInput(cvesToDisplay);
@@ -246,7 +250,8 @@ class NVDAPIUtils {
     }
 
     static void queryCVEEndpoint(SelectionEvent event, List<String> chosenCPEs, String apiKey, TableViewer cveViewer, 
-    		Hashtable<String, List<String>> vulnerabilityDictionary) {
+    		Hashtable<String, List<String>> cveToCWEDictionary,
+            Hashtable<String, String> cveToCPEDictionary) {
     	List<String> cvesToDisplay = new ArrayList<String>();
         boolean shouldPause = false;
         for (String cpeName : chosenCPEs) {
@@ -262,7 +267,8 @@ class NVDAPIUtils {
             }
 
             int startIndex = 0;
-            int returnedVulnerabilities = extractVulnerabilitiesAndWeaknessesPage(cpeName, event, 0, cvesToDisplay, apiKey, vulnerabilityDictionary);
+            int returnedVulnerabilities = extractVulnerabilitiesAndWeaknessesPage(
+                cpeName, event, 0, cvesToDisplay, apiKey, cveToCWEDictionary, cveToCPEDictionary);
             while (returnedVulnerabilities == NVDAPIUtils.pageLength) {
                 try { 
                     //NIST NVD documentation recommends that "your application sleeps for several seconds between requests" 
@@ -276,8 +282,9 @@ class NVDAPIUtils {
                     break;
                 }
 
-                startIndex = pageLength * startIndex + 1;
-                returnedVulnerabilities = extractVulnerabilitiesAndWeaknessesPage(cpeName, event, startIndex, cvesToDisplay, apiKey, vulnerabilityDictionary);
+                startIndex = startIndex + pageLength;
+                returnedVulnerabilities = extractVulnerabilitiesAndWeaknessesPage(
+                    cpeName, event, startIndex, cvesToDisplay, apiKey, cveToCWEDictionary, cveToCPEDictionary);
             }
         }
 

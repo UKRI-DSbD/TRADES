@@ -82,7 +82,7 @@ public class CWETransformer {
 			weaknessCatalog.setVersion(version);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}	
+		}
 	}
 
 	private void extractWeaknesses(Path path, CWECatalogFactory catalogFactory, WeaknessCatalog weaknessCatalog) {

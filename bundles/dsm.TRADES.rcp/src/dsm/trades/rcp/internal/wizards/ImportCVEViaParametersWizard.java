@@ -194,8 +194,8 @@ public class ImportCVEViaParametersWizard extends Wizard implements IImportWizar
 
 	private void transformCVEs(Resource existingResource, List<String> chosenCVEs) {
 		for (String cveId : chosenCVEs) {
-			Dictionary<String, List<String>> vulnerabilityDictionary = parameterSearchPage.getVulnerabilityDictionary();
-			List<String> weaknesses = vulnerabilityDictionary.get(cveId);
+			Hashtable<String, List<String>> cveToCWEDictionary = parameterSearchPage.getCVEToCWEDictionary();
+			List<String> weaknesses = cveToCWEDictionary.get(cveId);
 			CVECatalogFactory cveCatalogFactory = CVECatalogFactory.eINSTANCE;
 			dsm.cve.model.CVECatalog.Vulnerability cve = cveCatalogFactory.createVulnerability();			
 			cve.setId(cveId);
@@ -207,10 +207,10 @@ public class ImportCVEViaParametersWizard extends Wizard implements IImportWizar
 						dsm.TRADES.Vulnerability cwe = getCWEByID(weaknesses.get(i), existingResource);
 						if (cwe != null) {
 							cve.getManifests().add(cwe);
-						}						
+						}
 					} catch (Exception ex) {
 						ex.printStackTrace();
-					}					
+					}
 				}
 			}
 

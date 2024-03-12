@@ -69,24 +69,24 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeType;
 
+import dsm.TRADES.ComponentType;
+
 /**
  * Page used to select an CVE catalog to import
  */
 public class CVECatalogSelectionPage extends WizardPage {
 
-    private Group embeddedGroup;
     private List<String> chosenCVEs;
     private List<String> chosenCPEs;
-    private Group fetchGroup;
     private TableViewer cpeViewer;
     private TableViewer cveViewer;
-    private Text filterText;
     private ViewerFilter filterViewer;
-    private Hashtable<String, List<String>> vulnerabilityDictionary = new Hashtable<String, List<String>>();
+    private Hashtable<String, List<String>> cveToCWEDictionary = new Hashtable<String, List<String>>();
+    private Hashtable<String, ComponentType> cpeToComponentTypeDictionary = new Hashtable<String, ComponentType>();
+    private Hashtable<String, String> cveToCPEDictionary = new Hashtable<String, String>();
     private String apiKey;
     private IProject project;
     private String cpeFromComponentType;
-    private List<String> cpeList;
 
     public CVECatalogSelectionPage(IProject project) {
         super("CVE Catalog selection page");
@@ -94,12 +94,12 @@ public class CVECatalogSelectionPage extends WizardPage {
         this.project = project;
     }
 
-    public CVECatalogSelectionPage(String cpeFromComponentType, String apiKey, List<String> cpeList) {
+    public CVECatalogSelectionPage(String cpeFromComponentType, String apiKey, Hashtable<String, ComponentType> cpeToComponentTypeDictionary) {
         super("CVE Catalog selection page");
         setMessage("Select a CPE name to search for its vulnerabilities.");
         this.apiKey = apiKey;
         this.cpeFromComponentType = cpeFromComponentType;
-        this.cpeList = cpeList;
+        this.cpeToComponentTypeDictionary = cpeToComponentTypeDictionary;
     }
 
     @Override
@@ -125,7 +125,7 @@ public class CVECatalogSelectionPage extends WizardPage {
         if (cpeFromComponentType == null) {
             setupPage();
         } else {
-            cpeViewer.setInput(cpeList);
+            cpeViewer.setInput(cpeToComponentTypeDictionary.keys());
             List<String> singleCPE = new ArrayList<String>();
             singleCPE.add(cpeFromComponentType);
             ISelection selection = new StructuredSelection(singleCPE); 
@@ -139,7 +139,7 @@ public class CVECatalogSelectionPage extends WizardPage {
         filterGroup.setLayout(new GridLayout(1, false));
         filterGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
-        this.filterText = new Text(filterGroup, SWT.COLOR_WHITE);
+        Text filterText = new Text(filterGroup, SWT.COLOR_WHITE);
         filterText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
         filterText.addModifyListener(new ModifyListener() {
@@ -163,7 +163,7 @@ public class CVECatalogSelectionPage extends WizardPage {
     }
  
     private void createFetchGroup(Composite parent) {
-        fetchGroup = new Group(parent, SWT.NONE);
+        Group fetchGroup = new Group(parent, SWT.NONE);
         fetchGroup.setText("CPEs found :");
         fetchGroup.setLayout(new GridLayout(2, false));
         fetchGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
@@ -202,7 +202,7 @@ public class CVECatalogSelectionPage extends WizardPage {
 
             @Override
             public void widgetSelected(SelectionEvent e) {
-               NVDAPIUtils.queryCVEEndpoint(e, chosenCPEs, apiKey, cveViewer, vulnerabilityDictionary);
+               NVDAPIUtils.queryCVEEndpoint(e, chosenCPEs, apiKey, cveViewer, cveToCWEDictionary, cveToCPEDictionary);
                getContainer().updateButtons();
             }
         });
@@ -211,7 +211,7 @@ public class CVECatalogSelectionPage extends WizardPage {
     }
 
     private void createSearchResultsViewer(Composite parent) {
-        this.embeddedGroup = new Group(parent, SWT.NONE);
+        Group embeddedGroup = new Group(parent, SWT.NONE);
         embeddedGroup.setText("Select CVEs from below : ");
         embeddedGroup.setLayout(new FillLayout());
         embeddedGroup.setLayoutData(new GridData(GridData.FILL_BOTH));
@@ -286,8 +286,7 @@ public class CVECatalogSelectionPage extends WizardPage {
     
     private void extractCPEs(Node analysisNode) {
     	if (this.apiKey != null) {
-    		List<String> displayedCPEs = new ArrayList<String>();
-        	NodeList analysisChildList = analysisNode.getChildNodes();
+    		NodeList analysisChildList = analysisNode.getChildNodes();
     		for (int i = 0; i < analysisChildList.getLength(); i++) {
     			Node analysisChild = analysisChildList.item(i);
     			if (analysisChild.getNodeName() == "componentTypeOwner") {
@@ -298,25 +297,33 @@ public class CVECatalogSelectionPage extends WizardPage {
 						if (componentType.getNodeType() != Node.TEXT_NODE) {
     						Node cpeAttribute = componentType.getAttributes().getNamedItem("name");
     						if (cpeAttribute != null) {
-    							displayedCPEs.add(cpeAttribute.getNodeValue());
+    							cpeToComponentTypeDictionary.put(cpeAttribute.getNodeValue(), (ComponentType) componentType);
     						}
     					}
     				}
     			}
     		}
-    		cpeViewer.setInput(displayedCPEs);
+    		cpeViewer.setInput(cpeToComponentTypeDictionary.keys());
     		if (cpeFromComponentType == null) {
-                ISelection selection = new StructuredSelection(displayedCPEs); 
+                ISelection selection = new StructuredSelection(cpeToComponentTypeDictionary.keys()); 
                 cpeViewer.setSelection(selection);
             }
-    	}    	
+    	}
     }
 
     public List<String> getChosenCVEs() {
         return chosenCVEs;
     }
 
-    public Dictionary<String, List<String>> getVulnerabilityDictionary() {
-        return vulnerabilityDictionary;
+    public Hashtable<String, List<String>> getCVEToCWEDictionary() {
+        return cveToCWEDictionary;
+    }
+
+    public Hashtable<String, ComponentType> getCPEToComponentTypeDictionary() {
+        return cpeToComponentTypeDictionary;
+    }
+
+    public Hashtable<String, String> getCVEToCPEDictionary() {
+        return cveToCPEDictionary;
     }
 }

@@ -67,7 +67,7 @@ public class CVEParameterSearchPage extends WizardPage {
     private List<String> chosenCVEs;
     private TableViewer cveViewer;
     private Text searchText;
-    private Hashtable<String, List<String>> vulnerabilityDictionary = new Hashtable<String, List<String>>();
+    private Hashtable<String, List<String>> cveToCWEDictionary = new Hashtable<String, List<String>>();
     private String apiKey;
     private IProject project;
     private Text resultsText;
@@ -118,7 +118,7 @@ public class CVEParameterSearchPage extends WizardPage {
 
             @Override
             public void widgetSelected(SelectionEvent e) {
-               NVDAPIUtils.queryCVEEndpoint(e, searchText, apiKey, resultsText, cveViewer, vulnerabilityDictionary);
+               NVDAPIUtils.queryCVEEndpoint(e, searchText, apiKey, resultsText, cveViewer, cveToCWEDictionary);
                getContainer().updateButtons();
             }
         });
@@ -191,7 +191,7 @@ public class CVEParameterSearchPage extends WizardPage {
 		    	this.apiKey = attribute.getNodeValue();
 		    } else {
 		    	this.apiKey = null;
-		    }			
+		    }
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -201,7 +201,7 @@ public class CVEParameterSearchPage extends WizardPage {
         return chosenCVEs;
     }
 
-    public Dictionary<String, List<String>> getVulnerabilityDictionary() {
-        return vulnerabilityDictionary;
+    public Hashtable<String, List<String>> getCVEToCWEDictionary() {
+        return cveToCWEDictionary;
     }
 }

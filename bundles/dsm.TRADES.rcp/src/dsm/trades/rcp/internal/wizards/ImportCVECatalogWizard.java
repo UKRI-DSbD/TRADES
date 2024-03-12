@@ -197,8 +197,8 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 
 	private void transformCVEs(Resource existingResource, List<String> chosenCVEs) {
 		for (String cveId : chosenCVEs) {
-			Dictionary<String, List<String>> vulnerabilityDictionary = catalogSelectionPage.getVulnerabilityDictionary();
-			List<String> weaknesses = vulnerabilityDictionary.get(cveId);
+			Hashtable<String, List<String>> cveToCWEDictionary = catalogSelectionPage.getCVEToCWEDictionary();
+			List<String> weaknesses = cveToCWEDictionary.get(cveId);
 			CVECatalogFactory cveCatalogFactory = CVECatalogFactory.eINSTANCE;
 			dsm.cve.model.CVECatalog.Vulnerability cve = cveCatalogFactory.createVulnerability();			
 			cve.setId(cveId);
@@ -208,15 +208,20 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 					//assume CWEs already loaded
 					try {
 						dsm.TRADES.Vulnerability cwe = getCWEByID(weaknesses.get(i), existingResource);
+						Hashtable<String, ComponentType> cpeToComponentTypeDictionary = catalogSelectionPage.getCPEToComponentTypeDictionary();
+						Hashtable<String, String> cveToCPEDictionary = catalogSelectionPage.getCVEToCPEDictionary();
+						ComponentType cpe = cpeToComponentTypeDictionary.get(cveToCPEDictionary.get(cveId));
 						if (cwe != null) {
 							cve.getManifests().add(cwe);
-						}						
+						}
+                        if (cpe !=  null) {
+							cve.getAffects().add(cpe);
+                        }
 					} catch (Exception ex) {
 						ex.printStackTrace();
-					}					
+					}
 				}
 			}
-
 			addCVE(existingResource, cve);
 		}
 	}
