@@ -53,7 +53,7 @@ import dsm.trades.rcp.utils.CatalogUtils;
 /**
  * Wizard used to import MITRE CWE catalog
  */
-public class ImportEmbeddedCWECatalogWizard extends Wizard implements IImportWizard {
+public class ImportCWECatalogWizard extends Wizard implements IImportWizard {
 
 	private IStructuredSelection selection;
 	private ProjectSelectionPage projectSelectionPage;

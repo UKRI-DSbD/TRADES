@@ -60,7 +60,7 @@
         point="org.eclipse.ui.importWizards">
      <wizard
            category="dsm.TRADES.rcp.import"
-           class="dsm.trades.rcp.internal.wizards.ImportEmbeddedCWECatalogWizard"
+           class="dsm.trades.rcp.internal.wizards.ImportCWECatalogWizard"
            icon="icons/bookmarks_view.png"
            id="dsm.cwe.design.importcwecatalog"
            name="Import MITRE CWE Catalog">

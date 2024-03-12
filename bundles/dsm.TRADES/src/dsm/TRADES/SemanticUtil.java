@@ -37,6 +37,7 @@ public class SemanticUtil {
 		return control;
 	}
 
+	//Building an initial (default) model upon new project creation
 	public static Analysis createInitialModel(String rootObjectName, String nvdAPIKey) {
 		Analysis analysis = TRADESFactory.eINSTANCE.createAnalysis();
 		analysis.setName(rootObjectName);

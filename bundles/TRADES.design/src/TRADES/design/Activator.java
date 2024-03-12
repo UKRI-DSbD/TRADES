@@ -147,6 +147,7 @@ public class Activator extends AbstractUIPlugin {
 		getLog().log(new Status(IStatus.ERROR, PLUGIN_ID, string, e));
 	}
 
+	//get image icon in right-click menu
 	public ImageDescriptor getImageDescriptor(String path) {
 		ImageDescriptor img = getImageRegistry().getDescriptor(path);
 		if (img == null) {
