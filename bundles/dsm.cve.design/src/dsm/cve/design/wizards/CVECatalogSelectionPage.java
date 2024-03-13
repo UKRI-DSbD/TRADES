@@ -152,7 +152,6 @@ public class CVECatalogSelectionPage extends WizardPage {
                 }
             }
         };
-
     }
  
     private void createFetchGroup(Composite parent) {
