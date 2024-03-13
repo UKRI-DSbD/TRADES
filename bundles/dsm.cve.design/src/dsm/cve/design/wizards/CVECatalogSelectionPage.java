@@ -26,6 +26,10 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -54,7 +58,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import dsm.TRADES.Analysis;
 import dsm.TRADES.ComponentType;
+import dsm.TRADES.ComponentTypeOwner;
 
 /**
  * Page used to select an CVE catalog to import
@@ -238,7 +244,12 @@ public class CVECatalogSelectionPage extends WizardPage {
         		}
         		
         		if (resourceExtension.endsWith("trades")) {
-        			extractAPIKeyAndCPEs(resource.getLocationURI().getPath().toString());
+        			String platformPath = '/' + project.getName() + '/' + resource.getName().toLowerCase();
+        			ResourceSet resourceSet = new ResourceSetImpl();
+    				Resource tradesResource = resourceSet
+    						.getResource(URI.createFileURI(platformPath), true);
+    				Analysis analysis = (Analysis) tradesResource.getContents().get(0);
+                    extractAPIKeyAndCPEs(resource.getLocationURI().getPath().toString(), analysis);
         		}
 			}
 
@@ -247,14 +258,14 @@ public class CVECatalogSelectionPage extends WizardPage {
 		}
     }
 
-    private void extractAPIKeyAndCPEs(String filePath) {
+    private void extractAPIKeyAndCPEs(String filePath, Analysis analysis) {
 		DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
 		try (InputStream input = new FileInputStream(filePath)) {
 			DocumentBuilder builder = documentFactory.newDocumentBuilder();
 			Document doc = builder.parse(input);
 			Node analysisNode = doc.getDocumentElement();
 			extractAPIKey(analysisNode);
-			extractCPEs(analysisNode);			
+			extractCPEs(analysisNode, analysis);			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -269,7 +280,7 @@ public class CVECatalogSelectionPage extends WizardPage {
 		}
     }
     
-    private void extractCPEs(Node analysisNode) {
+    private void extractCPEs(Node analysisNode, Analysis analysis) {
     	if (this.apiKey != null) {
     		NodeList analysisChildList = analysisNode.getChildNodes();
     		for (int i = 0; i < analysisChildList.getLength(); i++) {
@@ -277,12 +288,14 @@ public class CVECatalogSelectionPage extends WizardPage {
     			if (analysisChild.getNodeName() == "componentTypeOwner") {
     				NodeList componentTypeList = analysisChild.getChildNodes();
     				for (int j = 0; j < componentTypeList.getLength(); j++) {
-    					Node componentType = componentTypeList.item(j);
+    					Node componentTypeNode = componentTypeList.item(j);
     					//ignore text nodes
-						if (componentType.getNodeType() != Node.TEXT_NODE) {
-    						Node cpeAttribute = componentType.getAttributes().getNamedItem("name");
+						if (componentTypeNode.getNodeType() != Node.TEXT_NODE) {
+    						Node cpeAttribute = componentTypeNode.getAttributes().getNamedItem("name");
     						if (cpeAttribute != null) {
-    							cpeToComponentTypeDictionary.put(cpeAttribute.getNodeValue(), (ComponentType) componentType);
+                                String cpeName = cpeAttribute.getNodeValue();
+    							addComponentTypeToDictionary(cpeName, analysis);
+                                
     						}
     					}
     				}
@@ -294,6 +307,15 @@ public class CVECatalogSelectionPage extends WizardPage {
                 cpeViewer.setSelection(selection);
             }
     	}
+    }
+
+    private void addComponentTypeToDictionary(String cpeName, Analysis analysis) {
+    	ComponentTypeOwner componentTypeOwner = analysis.getComponentTypeOwner();
+        for (ComponentType componentType : componentTypeOwner.getComponentTypes()) {
+        	if (componentType.getName().equals(cpeName)) {
+        		cpeToComponentTypeDictionary.put(cpeName, componentType);
+        	}
+        }
     }
 
     public List<String> getChosenCVEs() {
