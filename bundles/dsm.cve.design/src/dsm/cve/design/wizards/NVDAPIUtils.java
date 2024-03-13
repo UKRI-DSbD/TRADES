@@ -32,6 +32,8 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.TypedEvent;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Text;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -43,9 +45,10 @@ class NVDAPIUtils {
     public static String urlWithQuestionMark = "https://services.nvd.nist.gov/rest/json/cves/2.0?";
     public static int pageLength = 2000; //JSON pages seem to have a maximum size of 2000.
 
-    static String requestJsonString(String cpeName, SelectionEvent event, int startIndex, String apiKey) {
-        String cveUrl = urlWithQuestionMark + "cpeName=" + 
-            URLEncoder.encode(cpeName, StandardCharsets.UTF_8) + "&startIndex=" + startIndex;
+    static String requestJsonString(String cpeName, SelectionEvent event, FetchProgress fetchProgress, String apiKey) {
+        String cveUrl = urlWithQuestionMark
+        	+ "startIndex=" + fetchProgress.startIndex
+            + "&cpeName=" + URLEncoder.encode(cpeName, StandardCharsets.UTF_8);
         try {
             HttpRequest.Builder requestBuilder = HttpRequest.newBuilder(new URI(cveUrl));
             if (apiKey != null && !apiKey.isEmpty()) {
@@ -53,37 +56,41 @@ class NVDAPIUtils {
             }
             HttpRequest request = requestBuilder.build();
             HttpClient client = HttpClient.newHttpClient();
+            System.out.println("CVE import - Making request: " + cveUrl + "...");
+            System.out.println(fetchProgress.startIndex);
             HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+            System.out.println("CVE import - Response received: " + response.statusCode());
 
             if (response.statusCode() == 200) {
                 return response.body();
             } else {
-                String numberOfPages = "";
+                RunOnUiThreadSync(event, () -> {
+                    String progressMessage = fetchProgress.startIndex + 
+                        (fetchProgress.totalResultsToFetch > 0 ? "/" + 
+                        fetchProgress.totalResultsToFetch : "") + " CVEs obtained for CPE " + cpeName;
 
-                if (startIndex == 2) {
-                    numberOfPages = "1 CVE page of length " + String.valueOf(pageLength) + " was returned successfully." + System.lineSeparator();
-                } else if (startIndex > 2) {
-                    numberOfPages = String.valueOf(startIndex - 1) + " CVE pages of length " + String.valueOf(pageLength) + " were returned successfully." + System.lineSeparator();
-                }
-
-                MessageDialog.openError(
-                    event.display.getActiveShell(), 
-                    "CVE load aborted", 
-                    "The NVD API returned HTTP Status Code " + response.statusCode() + "." + System.lineSeparator() + 
-                    numberOfPages + 
-                    "Please try again later.");
-                return "";
+                    MessageDialog.openError(
+                        event.display.getActiveShell(), 
+                        "CVE load aborted", 
+                        "The NVD API returned HTTP Status Code " + response.statusCode() + "." + System.lineSeparator()
+                            + progressMessage + System.lineSeparator()                  
+                            + "Please try again later.");
+                    });
+        		return null;
             }
         } catch (Exception e) {
             e.printStackTrace();
-            MessageDialog.openError(
-                event.display.getActiveShell(), 
-                "No CVEs affecting CPE found", 
-                "No CVEs found that affect " + cpeName + ". Please check for typing errors in the CPE name.");
-            return "";
+            RunOnUiThreadSync(event, () -> {
+                MessageDialog.openError(
+                    event.display.getActiveShell(), 
+                    "No CVEs affecting CPE found", 
+                    "No CVEs found that affect " + cpeName + ". Please check for typing errors in the CPE name.");
+	            });
+            return null;
         }
     }
 
+    //parameter query
     static String requestJsonString(SelectionEvent event, Text searchText, String apiKey) {
         String cveUrl = NVDAPIUtils.urlWithQuestionMark + 
         searchText.getText();
@@ -117,6 +124,7 @@ class NVDAPIUtils {
         }
     }
 
+    //parameter query
     static void extractVulnerabilitiesAndWeaknessesPage(SelectionEvent event, 
     		List<String> cvesToDisplay, Text searchText, String apiKey, Text resultsText, 
     		Hashtable<String, List<String>> cveToCWEDictionary) {
@@ -159,15 +167,20 @@ class NVDAPIUtils {
         }
     }
 
-    static int extractVulnerabilitiesAndWeaknessesPage(String cpeName, SelectionEvent event, 
-    		int startIndex, List<String> cvesToDisplay, String apiKey, 
+    static FetchProgress requestAndParseJson(String cpeName, SelectionEvent event, 
+            FetchProgress fetchProgress, List<String> cvesToDisplay, String apiKey, 
     		Hashtable<String, List<String>> cveToCWEDictionary,
             Hashtable<String, String> cveToCPEDictionary) {
-        String jsonString = requestJsonString(cpeName, event, startIndex, apiKey);
-        if (jsonString != "") {
+        String jsonString = requestJsonString(cpeName, event, fetchProgress, apiKey);
+        if (jsonString != null) {
             try {
                 ObjectMapper objectMapper = new ObjectMapper();
                 JsonNode jsonNode = objectMapper.readTree(jsonString);
+
+                int totalResultsToBeReturned = jsonNode.get("totalResults").asInt();
+                System.out.println("CVE import - Total results to fetch = " + totalResultsToBeReturned);
+                int resultsPerPage = jsonNode.get("resultsPerPage").asInt();
+                System.out.println("CVE import - Results per page = " + resultsPerPage);
                 
                 ArrayNode vulnerabilities = (ArrayNode) jsonNode.get("vulnerabilities");
                 for (int i = 0; i < vulnerabilities.size(); i++) {
@@ -196,16 +209,17 @@ class NVDAPIUtils {
                     }
                     
                 }
-                return jsonNode.get("resultsPerPage").asInt();
+                return new FetchProgress(fetchProgress.startIndex + resultsPerPage, totalResultsToBeReturned);
             } catch (Exception e) {
                 e.printStackTrace();
-                return -1;
+                return null;
             }
         } else {
-            return -1;
+            return null;
         }
     }
 
+    //parameter query
     static void queryCVEEndpoint(SelectionEvent event, Text searchText, String apiKey, Text resultsText, TableViewer cveViewer, 
     		Hashtable<String, List<String>> cveToCWEDictionary) {
     	List<String> cvesToDisplay = new ArrayList<String>();
@@ -220,9 +234,14 @@ class NVDAPIUtils {
 
     static void queryCVEEndpoint(SelectionEvent event, List<String> chosenCPEs, String apiKey, TableViewer cveViewer, 
     		Hashtable<String, List<String>> cveToCWEDictionary,
-            Hashtable<String, String> cveToCPEDictionary) {
+            Hashtable<String, String> cveToCPEDictionary,
+            ProgressBarWrapper progressBar) {
     	List<String> cvesToDisplay = new ArrayList<String>();
         boolean shouldPause = false;
+        int cpeCount = 0;
+        progressBar.setMaximum(chosenCPEs.size());
+        double initialProgress = 0.25; 
+        progressBar.setValue(initialProgress); //Show some pretend progress straight away
         for (String cpeName : chosenCPEs) {
             if (shouldPause) {
                 try { 
@@ -235,32 +254,77 @@ class NVDAPIUtils {
                 shouldPause = true;
             }
 
-            int startIndex = 0;
-            int returnedVulnerabilities = extractVulnerabilitiesAndWeaknessesPage(
-                cpeName, event, 0, cvesToDisplay, apiKey, cveToCWEDictionary, cveToCPEDictionary);
-            while (returnedVulnerabilities == NVDAPIUtils.pageLength) {
+            FetchProgress fetchProgress = requestAndParseJson(
+                cpeName, event, new FetchProgress(), cvesToDisplay, 
+                apiKey, cveToCWEDictionary, cveToCPEDictionary);
+           	while (fetchProgress != null && !fetchProgress.isComplete()) {
+            	progressBar.setValue(Math.max(initialProgress, cpeCount + fetchProgress.fractionalProgress()));
                 try { 
-                    //NIST NVD documentation recommends that "your application sleeps for several seconds between requests" 
-                    TimeUnit.SECONDS.sleep(1);
+                    //NIST NVD documentation recommends that "your application sleeps for several seconds between requests" and also suggests 6s.
+                	TimeUnit.SECONDS.sleep(6);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
 
-                if (!MessageDialog.openConfirm(event.display.getActiveShell(), "Fetch again",
-                    "The query brought back a full page (" + String.valueOf(NVDAPIUtils.pageLength) + ") of CVEs. Would you like to search for another page?")) {
-                    break;
-                }
-
-                startIndex = startIndex + pageLength;
-                returnedVulnerabilities = extractVulnerabilitiesAndWeaknessesPage(
-                    cpeName, event, startIndex, cvesToDisplay, apiKey, cveToCWEDictionary, cveToCPEDictionary);
+                fetchProgress = requestAndParseJson(
+                    cpeName, event, fetchProgress, cvesToDisplay, 
+                    apiKey, cveToCWEDictionary, cveToCPEDictionary);
             }
+
+            cpeCount++;
+            progressBar.setValue(cpeCount);
         }
 
         if (cvesToDisplay.size() > 0) {
-            cveViewer.setInput(cvesToDisplay);
-            ISelection selection = new StructuredSelection(cvesToDisplay); 
-            cveViewer.setSelection(selection);
+            RunOnUiThreadSync(event, () -> {
+                cveViewer.setInput(cvesToDisplay);
+                ISelection selection = new StructuredSelection(cvesToDisplay);
+                cveViewer.setSelection(selection);
+        	});
         }
+    }
+    
+    static void RunOnBackgroundThread(Runnable runnable) {
+    	var workerThread = new Thread(runnable);
+    	workerThread.start();
+    }
+    
+    static void RunOnUiThreadSync(TypedEvent event, Runnable runnable) {
+    	RunOnUiThreadSync(event.display, runnable);
+    }
+    
+    static void RunOnUiThreadSync(Display display, Runnable runable) {
+    	display.syncExec(runable);
+    }
+    
+    /**
+     * A simple object encapsulating the startIndex and total result count
+     * of an API fetch. 
+     */
+    private static class FetchProgress {
+    	int startIndex;
+    	int totalResultsToFetch;
+    	
+    	public FetchProgress()
+    	{
+    		this.startIndex = 0;
+    		this.totalResultsToFetch = 0;
+    	}
+    	
+    	public FetchProgress(int startIndex, int totalResultsToFetch)
+    	{
+    		this.startIndex = startIndex;
+    		this.totalResultsToFetch = totalResultsToFetch;
+    	}
+    	
+    	public boolean isComplete() 
+    	{
+    		return !(startIndex < totalResultsToFetch);
+    	}
+    	
+    	public double fractionalProgress()
+    	{
+    		return (startIndex - 1) * 1.0 / totalResultsToFetch;
+    	}
     }
 }

@@ -53,6 +53,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.ProgressBar;
 import org.eclipse.swt.widgets.Text;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -78,6 +79,7 @@ public class CVECatalogSelectionPage extends WizardPage {
     private String apiKey;
     private IProject project;
     private String cpeFromComponentType;
+    private ProgressBarWrapper progressBar;
 
     public CVECatalogSelectionPage(IProject project) {
         super("CVE Catalog selection page");
@@ -193,12 +195,18 @@ public class CVECatalogSelectionPage extends WizardPage {
 
             @Override
             public void widgetSelected(SelectionEvent e) {
-               NVDAPIUtils.queryCVEEndpoint(e, chosenCPEs, apiKey, cveViewer, cveToCWEDictionary, cveToCPEDictionary);
-               getContainer().updateButtons();
+                fetchButton.setEnabled(false);
+                NVDAPIUtils.RunOnBackgroundThread(() -> {
+            		NVDAPIUtils.queryCVEEndpoint(e, chosenCPEs, apiKey, cveViewer, cveToCWEDictionary, cveToCPEDictionary, progressBar);
+                    //Update the UI on the UI thread
+            		NVDAPIUtils.RunOnUiThreadSync(e, () -> fetchButton.setEnabled(true));
+            	});
             }
         });
 
         cpeViewer.addFilter(this.filterViewer);
+
+        progressBar = new ProgressBarWrapper(new ProgressBar(parent, SWT.HORIZONTAL));
     }
 
     private void createSearchResultsViewer(Composite parent) {
