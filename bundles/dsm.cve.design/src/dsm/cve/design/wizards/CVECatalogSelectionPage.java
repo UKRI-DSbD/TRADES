@@ -285,7 +285,7 @@ public class CVECatalogSelectionPage extends WizardPage {
     		NodeList analysisChildList = analysisNode.getChildNodes();
     		for (int i = 0; i < analysisChildList.getLength(); i++) {
     			Node analysisChild = analysisChildList.item(i);
-    			if (analysisChild.getNodeName() == "componentTypeOwner") {
+    			if (analysisChild.getNodeName().equals("componentTypeOwner")) {
     				NodeList componentTypeList = analysisChild.getChildNodes();
     				for (int j = 0; j < componentTypeList.getLength(); j++) {
     					Node componentTypeNode = componentTypeList.item(j);

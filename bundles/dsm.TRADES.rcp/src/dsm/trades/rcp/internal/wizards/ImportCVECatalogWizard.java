@@ -189,7 +189,7 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 	private IProject getProject(List<IProject> projects) {
 		IResource projectFile = (IResource) selection.getFirstElement();
 		for (IProject project : projects) {
-			if (project.getFullPath().segments()[0] == projectFile.getFullPath().segments()[0]) {
+			if (project.getFullPath().segments()[0].equals(projectFile.getFullPath().segments()[0])) {
 				return project;
 			}
 		}
