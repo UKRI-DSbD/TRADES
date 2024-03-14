@@ -172,20 +172,22 @@ public class FetchCVEsForComponentTypeWizard extends Wizard implements IImportWi
 			dsm.cve.model.CVECatalog.Vulnerability cve = cveCatalogFactory.createVulnerability();			
 			cve.setId(cveId);
             cve.setVulnerabilityType(VulnerabilityTypeENUM.CVE);
+			
+            Hashtable<String, ComponentType> cpeToComponentTypeDictionary = catalogSelectionPage.getCPEToComponentTypeDictionary();
+			Hashtable<String, String> cveToCPEDictionary = catalogSelectionPage.getCVEToCPEDictionary();
+			ComponentType cpe = cpeToComponentTypeDictionary.get(cveToCPEDictionary.get(cveId));
+            if (cpe !=  null) {
+                cve.getAffects().add(cpe);
+            }
+
 			if (weaknesses.size() > 0) {
 				for (int i = 0; i < weaknesses.size(); i++) {
 					//assume CWEs already loaded
 					try {
 						dsm.TRADES.Vulnerability cwe = getCWEByID(weaknesses.get(i), existingResource);
-						Hashtable<String, ComponentType> cpeToComponentTypeDictionary = catalogSelectionPage.getCPEToComponentTypeDictionary();
-						Hashtable<String, String> cveToCPEDictionary = catalogSelectionPage.getCVEToCPEDictionary();
-						ComponentType cpe = cpeToComponentTypeDictionary.get(cveToCPEDictionary.get(cveId));
 						if (cwe != null) {
 							cve.getManifests().add(cwe);
 						}
-                        if (cpe !=  null) {
-							cve.getAffects().add(cpe);
-                        }
 					} catch (Exception ex) {
 						ex.printStackTrace();
 					}
@@ -214,13 +216,22 @@ public class FetchCVEsForComponentTypeWizard extends Wizard implements IImportWi
 	}
 
 	private void addCVE(Resource existingResource, dsm.cve.model.CVECatalog.Vulnerability cve) {
-		List<String> existingIds = new ArrayList<String>();
+		boolean foundCVE = false;
 
 		for (EObject item : existingResource.getContents()) {
 			dsm.cve.model.CVECatalog.Vulnerability vulnerability = (dsm.cve.model.CVECatalog.Vulnerability) item;
-			existingIds.add(vulnerability.getId());
+			if (vulnerability.getId().equals(cve.getId())) {
+				foundCVE = true;
+				for (ComponentType componentType : cve.getAffects()) {
+					if (!vulnerability.getAffects().contains(componentType)) {
+						vulnerability.getAffects().add(componentType);
+					}
+				}
+			}
 		}
-		if(!existingIds.contains(cve.getId())) {
+		
+		//check for duplicates
+		if(!foundCVE) {
 			existingResource.getContents().add(cve);
 		}
 	}
