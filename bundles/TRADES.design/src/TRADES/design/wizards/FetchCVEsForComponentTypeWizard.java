@@ -222,15 +222,22 @@ public class FetchCVEsForComponentTypeWizard extends Wizard implements IImportWi
 			dsm.cve.model.CVECatalog.Vulnerability vulnerability = (dsm.cve.model.CVECatalog.Vulnerability) item;
 			if (vulnerability.getId().equals(cve.getId())) {
 				foundCVE = true;
-				for (ComponentType componentType : cve.getAffects()) {
-					if (!vulnerability.getAffects().contains(componentType)) {
-						vulnerability.getAffects().add(componentType);
-					}
+				for (ComponentType newComponentType : cve.getAffects()) {
+					boolean matchExists = false;
+                    for (ComponentType existingComponentType : vulnerability.getAffects()) {
+                        if (existingComponentType.getName().equals(newComponentType.getName())) {
+                            matchExists = true;
+                            break;
+                        }
+                    }
+                    if (!matchExists) {
+                        vulnerability.getAffects().add(newComponentType);
+                    }
 				}
 			}
 		}
 		
-		//check for duplicates
+		//adding new (because it doesn't exist)
 		if(!foundCVE) {
 			existingResource.getContents().add(cve);
 		}
