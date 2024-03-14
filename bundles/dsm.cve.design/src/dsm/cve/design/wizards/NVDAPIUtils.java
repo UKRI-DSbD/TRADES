@@ -57,7 +57,6 @@ class NVDAPIUtils {
             HttpRequest request = requestBuilder.build();
             HttpClient client = HttpClient.newHttpClient();
             System.out.println("CVE import - Making request: " + cveUrl + "...");
-            System.out.println(fetchProgress.startIndex);
             HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
             System.out.println("CVE import - Response received: " + response.statusCode());
 

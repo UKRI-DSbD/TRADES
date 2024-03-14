@@ -254,7 +254,7 @@ public class CVECatalogSelectionPage extends WizardPage {
         			String platformPath = '/' + project.getName() + '/' + resource.getName().toLowerCase();
         			ResourceSet resourceSet = new ResourceSetImpl();
     				Resource tradesResource = resourceSet
-    						.getResource(URI.createFileURI(platformPath), true);
+    						.getResource(URI.createPlatformResourceURI(platformPath), true);
     				Analysis analysis = (Analysis) tradesResource.getContents().get(0);
                     extractAPIKeyAndCPEs(resource.getLocationURI().getPath().toString(), analysis);
         		}
