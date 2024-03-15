@@ -11,8 +11,11 @@
   <genPackages prefix="CVECatalog" basePackage="dsm.cve.model" disposableProviderFactory="true"
       fileExtensions="cve" ecorePackage="cve-catalog.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="cve-catalog.ecore#//VulnerabilityTypeENUM">
-      <genEnumLiterals ecoreEnumLiteral="cve-catalog.ecore#//VulnerabilityTypeENUM/CVE"/>
       <genEnumLiterals ecoreEnumLiteral="cve-catalog.ecore#//VulnerabilityTypeENUM/CWE"/>
+      <genEnumLiterals ecoreEnumLiteral="cve-catalog.ecore#//VulnerabilityTypeENUM/CVE"/>
+      <genEnumLiterals ecoreEnumLiteral="cve-catalog.ecore#//VulnerabilityTypeENUM/Mechanism"/>
+      <genEnumLiterals ecoreEnumLiteral="cve-catalog.ecore#//VulnerabilityTypeENUM/Implementation"/>
+      <genEnumLiterals ecoreEnumLiteral="cve-catalog.ecore#//VulnerabilityTypeENUM/Other"/>
     </genEnums>
     <genClasses ecoreClass="cve-catalog.ecore#//Vulnerability">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cve-catalog.ecore#//Vulnerability/id"/>

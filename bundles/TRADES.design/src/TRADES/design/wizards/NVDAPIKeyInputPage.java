@@ -30,7 +30,7 @@ public class NVDAPIKeyInputPage extends WizardPage {
 
 	public NVDAPIKeyInputPage() {
         super("API key page");
-        setMessage("If you have an API key for the NVD database, Please enter it below :");
+        setMessage("If you have an API key for the NVD database, please enter it below :");
     }
  
     @Override

@@ -82,7 +82,7 @@ public class CWETransformer {
 			weaknessCatalog.setVersion(version);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}	
+		}
 	}
 
 	private void extractWeaknesses(Path path, CWECatalogFactory catalogFactory, WeaknessCatalog weaknessCatalog) {
@@ -97,7 +97,7 @@ public class CWETransformer {
 			NodeList weaknessCatalogChildList = weaknessCatalogNode.getChildNodes();
 			for (int i = 0; i < weaknessCatalogChildList.getLength(); i++) {
 				Node weaknessCatalogChild = weaknessCatalogChildList.item(i);
-				if (weaknessCatalogChild.getNodeName() == "Weaknesses") {
+				if (weaknessCatalogChild.getNodeName().equals("Weaknesses")) {
 					NodeList weaknessesNodeList = weaknessCatalogChild.getChildNodes();
 					for (int j = 0; j < weaknessesNodeList.getLength(); j++) {
 						Node weaknessNode = weaknessesNodeList.item(j);
@@ -140,7 +140,7 @@ public class CWETransformer {
 			NodeList weaknessCatalogChildList = weaknessCatalogNode.getChildNodes();
 			for (int i = 0; i < weaknessCatalogChildList.getLength(); i++) {
 				Node weaknessCatalogChild = weaknessCatalogChildList.item(i);
-				if (weaknessCatalogChild.getNodeName() == "Categories") {
+				if (weaknessCatalogChild.getNodeName().equals("Categories")) {
 					NodeList categoriesNodeList = weaknessCatalogChild.getChildNodes();
 					for (int j = 0; j < categoriesNodeList.getLength(); j++) {
 						Node categoryNode = categoriesNodeList.item(j);
@@ -177,7 +177,7 @@ public class CWETransformer {
 			NodeList weaknessCatalogChildList = weaknessCatalogNode.getChildNodes();
 			for (int i = 0; i < weaknessCatalogChildList.getLength(); i++) {
 				Node weaknessCatalogChild = weaknessCatalogChildList.item(i);
-				if (weaknessCatalogChild.getNodeName() == "Views") {
+				if (weaknessCatalogChild.getNodeName().equals("Views")) {
 					NodeList viewsNodeList = weaknessCatalogChild.getChildNodes();
 					for (int j = 0; j < viewsNodeList.getLength(); j++) {
 						Node viewNode = viewsNodeList.item(j);
@@ -216,7 +216,7 @@ public class CWETransformer {
 			NodeList weaknessCatalogChildList = weaknessCatalogNode.getChildNodes();
 			for (int i = 0; i < weaknessCatalogChildList.getLength(); i++) {
 				Node weaknessCatalogChild = weaknessCatalogChildList.item(i);
-				if (weaknessCatalogChild.getNodeName() == "External_References") {
+				if (weaknessCatalogChild.getNodeName().equals("External_References")) {
 					NodeList externalReferencesNodeList = weaknessCatalogChild.getChildNodes();
 					for (int j = 0; j < externalReferencesNodeList.getLength(); j++) {
 						Node externalReferenceNode = externalReferencesNodeList.item(j);
@@ -243,7 +243,7 @@ public class CWETransformer {
 		NodeList weaknessChildList = weaknessNode.getChildNodes();
 		for (int i = 0; i < weaknessChildList.getLength(); i++) {
 			Node weaknessChild = weaknessChildList.item(i);
-			if (weaknessChild.getNodeName() == "Related_Weaknesses") {
+			if (weaknessChild.getNodeName().equals("Related_Weaknesses")) {
 				NodeList relatedWeaknessNodeList = weaknessChild.getChildNodes();
 				for (int j = 0; j < relatedWeaknessNodeList.getLength(); j++) {
 					Node relatedWeaknessNode = relatedWeaknessNodeList.item(j);

@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -43,6 +43,7 @@ import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.ui.IImportWizard;
 import org.eclipse.ui.IWorkbench;
 
+import dsm.TRADES.ComponentType;
 import dsm.cve.design.wizards.CVECatalogSelectionPage;
 import dsm.cve.model.CVECatalog.CVECatalogFactory;
 import dsm.cve.model.CVECatalog.VulnerabilityTypeENUM;
@@ -112,7 +113,7 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 	}
 
 	private boolean importCatalog(URI repUri, Session session) {
-		List<String> chosenCVEs = catalogSelectionPage.getchosenCVEs();
+		List<String> chosenCVEs = catalogSelectionPage.getChosenCVEs();
 		if (chosenCVEs.size() > 0) {
 			return importCVECatalog(repUri, session, chosenCVEs);
 		} else {
@@ -168,7 +169,7 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 
 	@Override
 	public boolean canFinish() {
-		return projectSelectionPage.getSelectedProject() != null && catalogSelectionPage.getchosenCVEs() != null;
+		return projectSelectionPage.getSelectedProject() != null && catalogSelectionPage.getChosenCVEs() != null;
 	}
 
 	private IProject getSelectedProject(IStructuredSelection selection) {
@@ -188,7 +189,7 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 	private IProject getProject(List<IProject> projects) {
 		IResource projectFile = (IResource) selection.getFirstElement();
 		for (IProject project : projects) {
-			if (project.getFullPath().segments()[0] == projectFile.getFullPath().segments()[0]) {
+			if (project.getFullPath().segments()[0].equals(projectFile.getFullPath().segments()[0])) {
 				return project;
 			}
 		}
@@ -197,26 +198,34 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 
 	private void transformCVEs(Resource existingResource, List<String> chosenCVEs) {
 		for (String cveId : chosenCVEs) {
-			Dictionary<String, List<String>> vulnerabilityDictionary = catalogSelectionPage.getVulnerabilityDictionary();
-			List<String> weaknesses = vulnerabilityDictionary.get(cveId);
+			Hashtable<String, List<String>> cveToCWEDictionary = catalogSelectionPage.getCVEToCWEDictionary();
+			List<String> weaknesses = cveToCWEDictionary.get(cveId);
 			CVECatalogFactory cveCatalogFactory = CVECatalogFactory.eINSTANCE;
 			dsm.cve.model.CVECatalog.Vulnerability cve = cveCatalogFactory.createVulnerability();			
 			cve.setId(cveId);
             cve.setVulnerabilityType(VulnerabilityTypeENUM.CVE);
-			if (weaknesses.size() > 0) {
+            
+			Hashtable<String, ComponentType> cpeToComponentTypeDictionary = catalogSelectionPage.getCPEToComponentTypeDictionary();
+			Hashtable<String, String> cveToCPEDictionary = catalogSelectionPage.getCVEToCPEDictionary();
+			ComponentType cpe = cpeToComponentTypeDictionary.get(cveToCPEDictionary.get(cveId));
+			if (cpe !=  null) {
+				cve.getAffects().add(cpe);
+            }
+
+            if (weaknesses.size() > 0) {
 				for (int i = 0; i < weaknesses.size(); i++) {
 					//assume CWEs already loaded
 					try {
 						dsm.TRADES.Vulnerability cwe = getCWEByID(weaknesses.get(i), existingResource);
 						if (cwe != null) {
 							cve.getManifests().add(cwe);
-						}						
+						}
+                        
 					} catch (Exception ex) {
 						ex.printStackTrace();
-					}					
+					}
 				}
 			}
-
 			addCVE(existingResource, cve);
 		}
 	}
@@ -239,13 +248,29 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 	}
 
 	private void addCVE(Resource existingResource, dsm.cve.model.CVECatalog.Vulnerability cve) {
-		List<String> existingIds = new ArrayList<String>();
+		boolean foundCVE = false;
 
 		for (EObject item : existingResource.getContents()) {
 			dsm.cve.model.CVECatalog.Vulnerability vulnerability = (dsm.cve.model.CVECatalog.Vulnerability) item;
-			existingIds.add(vulnerability.getId());
+			if (vulnerability.getId().equals(cve.getId())) {
+				foundCVE = true;
+				for (ComponentType newComponentType : cve.getAffects()) {
+					boolean matchExists = false;
+                    for (ComponentType existingComponentType : vulnerability.getAffects()) {
+                        if (existingComponentType.getName().equals(newComponentType.getName())) {
+                            matchExists = true;
+                            break;
+                        }
+                    }
+                    if (!matchExists) {
+                        vulnerability.getAffects().add(newComponentType);
+                    }
+				}
+			}
 		}
-		if(!existingIds.contains(cve.getId())) {
+		
+		//adding new (because it doesn't exist)
+		if(!foundCVE) {
 			existingResource.getContents().add(cve);
 		}
 	}

@@ -24,7 +24,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.acceleo.query,
  org.apache.poi,
  org.eclipse.sirius.ext.emf.edit,
- org.eclipse.emf.edit.ui;bundle-version="2.19.0"
+ org.eclipse.emf.edit.ui;bundle-version="2.19.0",
+ org.obeonetwork.m2doc
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: %providerName

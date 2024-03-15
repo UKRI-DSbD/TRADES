@@ -27,6 +27,7 @@ import org.eclipse.core.runtime.Path;
 
 /**
  * Registry that give access to all the embedded catalogs
+ * To register a new catalog, include it in the nameToPath dictionary via class constructor.
  */
 public class EmbeddedCatalogRegistry {
 

@@ -14,8 +14,7 @@
 
  package TRADES.design.actions;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Hashtable;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.wizard.WizardDialog;
@@ -33,6 +32,7 @@ import dsm.TRADES.ComponentTypeOwner;
 public class ActionFetchCVEs extends Action {
 
     private ComponentType componentType;
+    private Hashtable<String, ComponentType> cpeToComponentTypeDictionary = new Hashtable<String, ComponentType>();
 
     public ActionFetchCVEs(ComponentType componentType) {
         super("Fetch CVEs", Activator.getDefault().getImageDescriptor("Images/Vulnerability.png"));
@@ -46,13 +46,12 @@ public class ActionFetchCVEs extends Action {
             wizard.setCPE(componentType.getName());
             Analysis analysis = (Analysis) componentType.eContainer().eContainer();
             String apiKey = analysis.getNVDAPIKey();
-            List<String> cpeList = new ArrayList<String>();
             ComponentTypeOwner componentTypeOwner = analysis.getComponentTypeOwner();
             for (ComponentType componentType : componentTypeOwner.getComponentTypes()) {
-            	cpeList.add(componentType.getName());
+            	cpeToComponentTypeDictionary.put(componentType.getName(), componentType);
             }
             wizard.setAPIKey(apiKey);
-            wizard.setCPEList(cpeList);
+            wizard.setCPEToComponentTypeDictionary(cpeToComponentTypeDictionary);
 			WizardDialog dialog = new WizardDialog(event.display.getActiveShell(), wizard);
 			dialog.open();
 		}

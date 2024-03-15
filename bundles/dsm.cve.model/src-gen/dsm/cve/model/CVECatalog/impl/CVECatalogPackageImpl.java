@@ -231,8 +231,11 @@ public class CVECatalogPackageImpl extends EPackageImpl implements CVECatalogPac
 
 		// Initialize enums and add enum literals
 		initEEnum(vulnerabilityTypeENUMEEnum, VulnerabilityTypeENUM.class, "VulnerabilityTypeENUM");
-		addEEnumLiteral(vulnerabilityTypeENUMEEnum, VulnerabilityTypeENUM.CVE);
 		addEEnumLiteral(vulnerabilityTypeENUMEEnum, VulnerabilityTypeENUM.CWE);
+		addEEnumLiteral(vulnerabilityTypeENUMEEnum, VulnerabilityTypeENUM.CVE);
+		addEEnumLiteral(vulnerabilityTypeENUMEEnum, VulnerabilityTypeENUM.MECHANISM);
+		addEEnumLiteral(vulnerabilityTypeENUMEEnum, VulnerabilityTypeENUM.IMPLEMENTATION);
+		addEEnumLiteral(vulnerabilityTypeENUMEEnum, VulnerabilityTypeENUM.OTHER);
 
 		// Create resource
 		createResource(eNS_URI);

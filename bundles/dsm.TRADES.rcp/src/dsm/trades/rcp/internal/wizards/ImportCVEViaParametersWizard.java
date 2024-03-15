@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -109,7 +109,7 @@ public class ImportCVEViaParametersWizard extends Wizard implements IImportWizar
 	}
 
 	private boolean importCatalog(URI repUri, Session session) {
-		List<String> chosenCVEs = parameterSearchPage.getchosenCVEs();
+		List<String> chosenCVEs = parameterSearchPage.getChosenCVEs();
 		if (chosenCVEs.size() > 0) {
 			return importCVECatalog(repUri, session, chosenCVEs);
 		} else {
@@ -165,7 +165,7 @@ public class ImportCVEViaParametersWizard extends Wizard implements IImportWizar
 
 	@Override
 	public boolean canFinish() {
-		return projectSelectionPage.getSelectedProject() != null && parameterSearchPage.getchosenCVEs() != null;
+		return projectSelectionPage.getSelectedProject() != null && parameterSearchPage.getChosenCVEs() != null;
 	}
 
 	private IProject getSelectedProject(IStructuredSelection selection) {
@@ -185,7 +185,7 @@ public class ImportCVEViaParametersWizard extends Wizard implements IImportWizar
 	private IProject getProject(List<IProject> projects) {
 		IResource projectFile = (IResource) selection.getFirstElement();
 		for (IProject project : projects) {
-			if (project.getFullPath().segments()[0] == projectFile.getFullPath().segments()[0]) {
+			if (project.getFullPath().segments()[0].equals(projectFile.getFullPath().segments()[0])) {
 				return project;
 			}
 		}
@@ -194,8 +194,8 @@ public class ImportCVEViaParametersWizard extends Wizard implements IImportWizar
 
 	private void transformCVEs(Resource existingResource, List<String> chosenCVEs) {
 		for (String cveId : chosenCVEs) {
-			Dictionary<String, List<String>> vulnerabilityDictionary = parameterSearchPage.getVulnerabilityDictionary();
-			List<String> weaknesses = vulnerabilityDictionary.get(cveId);
+			Hashtable<String, List<String>> cveToCWEDictionary = parameterSearchPage.getCVEToCWEDictionary();
+			List<String> weaknesses = cveToCWEDictionary.get(cveId);
 			CVECatalogFactory cveCatalogFactory = CVECatalogFactory.eINSTANCE;
 			dsm.cve.model.CVECatalog.Vulnerability cve = cveCatalogFactory.createVulnerability();			
 			cve.setId(cveId);
@@ -207,10 +207,10 @@ public class ImportCVEViaParametersWizard extends Wizard implements IImportWizar
 						dsm.TRADES.Vulnerability cwe = getCWEByID(weaknesses.get(i), existingResource);
 						if (cwe != null) {
 							cve.getManifests().add(cwe);
-						}						
+						}
 					} catch (Exception ex) {
 						ex.printStackTrace();
-					}					
+					}
 				}
 			}
 
