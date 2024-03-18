@@ -206,11 +206,14 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
             cve.setVulnerabilityType(VulnerabilityTypeENUM.CVE);
             
 			Hashtable<String, ComponentType> cpeToComponentTypeDictionary = catalogSelectionPage.getCPEToComponentTypeDictionary();
-			Hashtable<String, String> cveToCPEDictionary = catalogSelectionPage.getCVEToCPEDictionary();
-			ComponentType cpe = cpeToComponentTypeDictionary.get(cveToCPEDictionary.get(cveId));
-			if (cpe !=  null) {
-				cve.getAffects().add(cpe);
-            }
+			Hashtable<String, List<String>> cveToCPEDictionary = catalogSelectionPage.getCVEToCPEDictionary();
+			List<String> cpeList = cveToCPEDictionary.get(cveId);
+			for (String cpeName : cpeList) {
+				ComponentType cpe = cpeToComponentTypeDictionary.get(cpeName);
+				if (cpe !=  null) {
+					cve.getAffects().add(cpe);
+				}
+			}
 
             if (weaknesses.size() > 0) {
 				for (int i = 0; i < weaknesses.size(); i++) {
