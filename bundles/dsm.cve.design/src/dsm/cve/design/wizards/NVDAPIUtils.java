@@ -169,7 +169,7 @@ class NVDAPIUtils {
     static FetchProgress requestAndParseJson(String cpeName, SelectionEvent event, 
             FetchProgress fetchProgress, List<String> cvesToDisplay, String apiKey, 
     		Hashtable<String, List<String>> cveToCWEDictionary,
-            Hashtable<String, String> cveToCPEDictionary) {
+            Hashtable<String, List<String>> cveToCPEDictionary) {
         String jsonString = requestJsonString(cpeName, event, fetchProgress, apiKey);
         if (jsonString != null) {
             try {
@@ -191,7 +191,12 @@ class NVDAPIUtils {
                         cveToCWEDictionary.put(cveId, new ArrayList<String>());
                     }
                     if (!cveToCPEDictionary.containsKey(cveId)) {
-                        cveToCPEDictionary.put(cveId, cpeName);
+                        ArrayList<String> cpeList = new ArrayList<String>();
+                        cpeList.add(cpeName);
+                        cveToCPEDictionary.put(cveId, cpeList);
+                    }
+                    if (cveToCPEDictionary.containsKey(cveId) && !cveToCPEDictionary.get(cveId).contains(cpeName)) {
+                        cveToCPEDictionary.get(cveId).add(cpeName);
                     }
 
                     ArrayNode weaknesses = (ArrayNode) vulnerabilities.get(i).get("cve").get("weaknesses").get(0).get("description");
@@ -233,7 +238,7 @@ class NVDAPIUtils {
 
     static void queryCVEEndpoint(SelectionEvent event, List<String> chosenCPEs, String apiKey, TableViewer cveViewer, 
     		Hashtable<String, List<String>> cveToCWEDictionary,
-            Hashtable<String, String> cveToCPEDictionary,
+            Hashtable<String, List<String>> cveToCPEDictionary,
             ProgressBarWrapper progressBar) {
     	List<String> cvesToDisplay = new ArrayList<String>();
         boolean shouldPause = false;

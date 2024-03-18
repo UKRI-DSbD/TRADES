@@ -75,7 +75,7 @@ public class CVECatalogSelectionPage extends WizardPage {
     private ViewerFilter filterViewer;
     private Hashtable<String, List<String>> cveToCWEDictionary = new Hashtable<String, List<String>>();
     private Hashtable<String, ComponentType> cpeToComponentTypeDictionary = new Hashtable<String, ComponentType>();
-    private Hashtable<String, String> cveToCPEDictionary = new Hashtable<String, String>();
+    private Hashtable<String, List<String>> cveToCPEDictionary = new Hashtable<String, List<String>>();
     private String apiKey;
     private IProject project;
     private String cpeFromComponentType;
@@ -337,7 +337,7 @@ public class CVECatalogSelectionPage extends WizardPage {
         return cpeToComponentTypeDictionary;
     }
 
-    public Hashtable<String, String> getCVEToCPEDictionary() {
+    public Hashtable<String, List<String>> getCVEToCPEDictionary() {
         return cveToCPEDictionary;
     }
 }
