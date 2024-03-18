@@ -16,7 +16,6 @@
 package dsm.oscal.model.OscalCatalog;
 
 import dsm.TRADES.IControlDefinition;
-
 import dsm.oscal.model.OscalMetadata.ControlOwner;
 import dsm.oscal.model.OscalMetadata.ElementWithClazz;
 import dsm.oscal.model.OscalMetadata.ElementWithId;
@@ -25,7 +24,6 @@ import dsm.oscal.model.OscalMetadata.OscalElement;
 import dsm.oscal.model.OscalMetadata.ParameterOwner;
 import dsm.oscal.model.OscalMetadata.PartOwner;
 import dsm.oscal.model.OscalMetadata.PropertyOwner;
-
 import gov.nist.secauto.metaschema.datatypes.markup.MarkupLine;
 
 /**

@@ -37,10 +37,12 @@ public class SemanticUtil {
 		return control;
 	}
 
-	public static Analysis createInitialModel(String rootObjectName) {
+	//Building an initial (default) model upon new project creation
+	public static Analysis createInitialModel(String rootObjectName, String nvdAPIKey) {
 		Analysis analysis = TRADESFactory.eINSTANCE.createAnalysis();
 		analysis.setName(rootObjectName);
 		analysis.setId(UUID.randomUUID().toString());
+		analysis.setNVDAPIKey(nvdAPIKey);
 
 		Component root = TRADESFactory.eINSTANCE.createComponent();
 		analysis.getComponents().add(root);
@@ -51,6 +53,15 @@ public class SemanticUtil {
 
 		ThreatsOwner threatOwner = TRADESFactory.eINSTANCE.createThreatsOwner();
 		analysis.setThreatOwner(threatOwner);
+
+		VulnerabilityOwner vulnerabilityOwner = TRADESFactory.eINSTANCE.createVulnerabilityOwner();
+		analysis.setVulnerabilityOwner(vulnerabilityOwner);
+
+		ComponentTypeOwner componentTypeOwner = TRADESFactory.eINSTANCE.createComponentTypeOwner();
+		analysis.setComponentTypeOwner(componentTypeOwner);
+
+		VulnerableAssetOwner vulnerableAssetOwner = TRADESFactory.eINSTANCE.createVulnerableAssetOwner();
+		analysis.setVulnerableAssetOwner(vulnerableAssetOwner);
 
 		createControlOwner(analysis);
 

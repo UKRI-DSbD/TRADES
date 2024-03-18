@@ -13,16 +13,51 @@
  */
 package dsm.TRADES.impl;
 
-import dsm.TRADES.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import dsm.TRADES.AffectRelation;
+import dsm.TRADES.AffectedENUM;
+import dsm.TRADES.Analysis;
+import dsm.TRADES.AssessmentENUM;
+import dsm.TRADES.AttackChain;
+import dsm.TRADES.AttackChainStep;
+import dsm.TRADES.Catalog;
+import dsm.TRADES.Component;
+import dsm.TRADES.ComponentCategoryENUM;
+import dsm.TRADES.ComponentType;
+import dsm.TRADES.ComponentTypeOwner;
+import dsm.TRADES.Control;
+import dsm.TRADES.ControlOwner;
+import dsm.TRADES.ControlStatusENUM;
+import dsm.TRADES.Data;
+import dsm.TRADES.DataOwner;
+import dsm.TRADES.DifficultyScore;
+import dsm.TRADES.DomainAsset;
+import dsm.TRADES.ExternalControl;
+import dsm.TRADES.ExternalThreat;
+import dsm.TRADES.ImpactConfiguration;
+import dsm.TRADES.ImpactScore;
+import dsm.TRADES.Link;
+import dsm.TRADES.LinkType;
+import dsm.TRADES.RGBColor;
+import dsm.TRADES.ScoreSystem;
+import dsm.TRADES.SecurityObjectiveENUM;
+import dsm.TRADES.TRADESFactory;
+import dsm.TRADES.TRADESPackage;
+import dsm.TRADES.Threat;
+import dsm.TRADES.ThreatAllocationRelation;
+import dsm.TRADES.ThreatMitigationRelation;
+import dsm.TRADES.ThreatsOwner;
+import dsm.TRADES.Vulnerability;
+import dsm.TRADES.VulnerabilityOwner;
+import dsm.TRADES.VulnerableAsset;
+import dsm.TRADES.VulnerableAssetOwner;
+import dsm.TRADES.threatTypeENUM;
 
 /**
  * <!-- begin-user-doc -->
@@ -114,10 +149,16 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 			return createCatalog();
 		case TRADESPackage.DOMAIN_ASSET:
 			return createDomainAsset();
+		case TRADESPackage.VULNERABILITY_OWNER:
+			return createVulnerabilityOwner();
 		case TRADESPackage.VULNERABILITY:
 			return createVulnerability();
+		case TRADESPackage.COMPONENT_TYPE_OWNER:
+			return createComponentTypeOwner();
 		case TRADESPackage.COMPONENT_TYPE:
 			return createComponentType();
+		case TRADESPackage.VULNERABLE_ASSET_OWNER:
+			return createVulnerableAssetOwner();
 		case TRADESPackage.VULNERABLE_ASSET:
 			return createVulnerableAsset();
 		default:
@@ -438,6 +479,17 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 	 * @generated
 	 */
 	@Override
+	public VulnerabilityOwner createVulnerabilityOwner() {
+		VulnerabilityOwnerImpl vulnerabilityOwner = new VulnerabilityOwnerImpl();
+		return vulnerabilityOwner;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Vulnerability createVulnerability() {
 		VulnerabilityImpl vulnerability = new VulnerabilityImpl();
 		return vulnerability;
@@ -449,9 +501,31 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 	 * @generated
 	 */
 	@Override
+	public ComponentTypeOwner createComponentTypeOwner() {
+		ComponentTypeOwnerImpl componentTypeOwner = new ComponentTypeOwnerImpl();
+		return componentTypeOwner;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ComponentType createComponentType() {
 		ComponentTypeImpl componentType = new ComponentTypeImpl();
 		return componentType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public VulnerableAssetOwner createVulnerableAssetOwner() {
+		VulnerableAssetOwnerImpl vulnerableAssetOwner = new VulnerableAssetOwnerImpl();
+		return vulnerableAssetOwner;
 	}
 
 	/**

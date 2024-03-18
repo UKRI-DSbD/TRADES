@@ -13,10 +13,6 @@
  */
 package dsm.TRADES.provider;
 
-import dsm.TRADES.TRADESPackage;
-
-import dsm.TRADES.util.TRADESAdapterFactory;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -24,11 +20,8 @@ import java.util.List;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.domain.EditingDomain;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ChildCreationExtenderManager;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -42,6 +35,9 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import dsm.TRADES.TRADESPackage;
+import dsm.TRADES.util.TRADESAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -631,6 +627,29 @@ public class TRADESItemProviderAdapterFactory extends TRADESAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link dsm.TRADES.VulnerabilityOwner} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VulnerabilityOwnerItemProviderCustomImpl vulnerabilityOwnerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link dsm.TRADES.VulnerabilityOwner}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVulnerabilityOwnerAdapter() {
+		if (vulnerabilityOwnerItemProvider == null) {
+			vulnerabilityOwnerItemProvider = new VulnerabilityOwnerItemProviderCustomImpl(this);
+		}
+
+		return vulnerabilityOwnerItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link dsm.TRADES.Vulnerability} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -654,6 +673,29 @@ public class TRADESItemProviderAdapterFactory extends TRADESAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link dsm.TRADES.ComponentTypeOwner} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ComponentTypeOwnerItemProviderCustomImpl componentTypeOwnerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link dsm.TRADES.ComponentTypeOwner}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createComponentTypeOwnerAdapter() {
+		if (componentTypeOwnerItemProvider == null) {
+			componentTypeOwnerItemProvider = new ComponentTypeOwnerItemProviderCustomImpl(this);
+		}
+
+		return componentTypeOwnerItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link dsm.TRADES.ComponentType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -674,6 +716,29 @@ public class TRADESItemProviderAdapterFactory extends TRADESAdapterFactory
 		}
 
 		return componentTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link dsm.TRADES.VulnerableAssetOwner} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VulnerableAssetOwnerItemProviderCustomImpl vulnerableAssetOwnerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link dsm.TRADES.VulnerableAssetOwner}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVulnerableAssetOwnerAdapter() {
+		if (vulnerableAssetOwnerItemProvider == null) {
+			vulnerableAssetOwnerItemProvider = new VulnerableAssetOwnerItemProviderCustomImpl(this);
+		}
+
+		return vulnerableAssetOwnerItemProvider;
 	}
 
 	/**
@@ -871,10 +936,16 @@ public class TRADESItemProviderAdapterFactory extends TRADESAdapterFactory
 			catalogItemProvider.dispose();
 		if (domainAssetItemProvider != null)
 			domainAssetItemProvider.dispose();
+		if (vulnerabilityOwnerItemProvider != null)
+			vulnerabilityOwnerItemProvider.dispose();
 		if (vulnerabilityItemProvider != null)
 			vulnerabilityItemProvider.dispose();
+		if (componentTypeOwnerItemProvider != null)
+			componentTypeOwnerItemProvider.dispose();
 		if (componentTypeItemProvider != null)
 			componentTypeItemProvider.dispose();
+		if (vulnerableAssetOwnerItemProvider != null)
+			vulnerableAssetOwnerItemProvider.dispose();
 		if (vulnerableAssetItemProvider != null)
 			vulnerableAssetItemProvider.dispose();
 	}

@@ -15,15 +15,12 @@
  */
 package dsm.oscal.model.OscalCatalog.provider;
 
-import dsm.oscal.model.OscalCatalog.util.OscalCatalogAdapterFactory;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -35,6 +32,8 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import dsm.oscal.model.OscalCatalog.util.OscalCatalogAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.

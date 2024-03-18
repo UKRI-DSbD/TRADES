@@ -67,7 +67,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-clean-plugin</artifactId>
-					<version>3.1.0</version>
+					<version>3.3.2</version>
 				</plugin>
 				<!-- Eclipse tycho -->
 				<plugin> <!-- Lifecycle -->
@@ -104,7 +104,6 @@
 					<artifactId>target-platform-configuration</artifactId>
 					<version>${tycho.version}</version>
 					<configuration>
-						<resolver>p2</resolver>
 						<environments>
 							<environment>
 								<os>win32</os>
@@ -153,6 +152,18 @@
 		<module>../../bundles/dsm.oscal.model.edit/</module>
 		<module>../../bundles/dsm.oscal.model.editor/</module>
 		<module>../../bundles/dsm.oscal.design/</module>
+		
+		<!-- CWE -->
+		<module>../../bundles/dsm.cwe.model/</module>
+		<module>../../bundles/dsm.cwe.model.edit/</module>
+		<module>../../bundles/dsm.cwe.model.editor/</module>
+		<module>../../bundles/dsm.cwe.design/</module>
+		
+		<!-- CVE -->
+		<module>../../bundles/dsm.cve.model/</module>
+		<module>../../bundles/dsm.cve.model.edit/</module>
+		<module>../../bundles/dsm.cve.model.editor/</module>
+		<module>../../bundles/dsm.cve.design/</module>
 
 		<!-- Base plugins -->
 		<module>../../bundles/dsm.TRADES/</module>

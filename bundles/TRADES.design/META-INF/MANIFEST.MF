@@ -40,7 +40,10 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.eef.common.ui,
  org.eclipse.eef.common
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: %providerName
 Export-Package: TRADES.design
 Automatic-Module-Name: TRADES.design
+Import-Package: dsm.cve.design.wizards,
+ dsm.cve.model.CVECatalog,
+ dsm.cwe.model.CWECatalog

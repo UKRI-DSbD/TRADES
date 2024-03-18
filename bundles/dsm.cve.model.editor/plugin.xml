@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright Israel Aerospace Industries, Eclipse contributors and others 2021. All rights reserved.
+ This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License 2.0
+ which accompanies this distribution, and is available at
+ https://www.eclipse.org/legal/epl-2.0/
+ 
+ SPDX-License-Identifier: EPL-2.0
+ 
+ Contributors:
+     ELTA Ltd - initial API and implementation
+ 
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated cve -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="dsm.cve.model.CVECatalog.presentation.CVECatalogModelWizardID"
+            name="%_UI_CVECatalogModelWizard_label"
+            class="dsm.cve.model.CVECatalog.presentation.CVECatalogModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CVECatalogModelFile.gif">
+         <description>%_UI_CVECatalogModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated cve -->
+      <editor
+            id="dsm.cve.model.CVECatalog.presentation.CVECatalogEditorID"
+            name="%_UI_CVECatalogEditor_label"
+            icon="icons/full/obj16/CVECatalogModelFile.gif"
+            extensions="cve"
+            class="dsm.cve.model.CVECatalog.presentation.CVECatalogEditor"
+            contributorClass="dsm.cve.model.CVECatalog.presentation.CVECatalogActionBarContributor">
+      </editor>
+   </extension>
+</plugin>

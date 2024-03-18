@@ -20,7 +20,6 @@ import org.eclipse.ui.PlatformUI;
 
 import dsm.TRADES.ColoredElement;
 import dsm.TRADES.ImpactConfiguration;
-import dsm.TRADES.LinkType;
 import dsm.TRADES.RGBColor;
 
 /**

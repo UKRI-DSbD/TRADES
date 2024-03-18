@@ -15,17 +15,14 @@
  */
 package dsm.oscal.model.OscalMetadata.impl;
 
-import dsm.oscal.model.OscalMetadata.ElementWithRemarks;
-import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
-
-import gov.nist.secauto.metaschema.datatypes.markup.MarkupMultiline;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import dsm.oscal.model.OscalMetadata.ElementWithRemarks;
+import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
+import gov.nist.secauto.metaschema.datatypes.markup.MarkupMultiline;
 
 /**
  * <!-- begin-user-doc -->

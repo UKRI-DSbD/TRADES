@@ -15,6 +15,18 @@
  */
 package dsm.oscal.model.OscalMetadata.impl;
 
+import java.util.Collection;
+import java.util.UUID;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import dsm.oscal.model.OscalMetadata.BackMatterResource;
 import dsm.oscal.model.OscalMetadata.Base64;
 import dsm.oscal.model.OscalMetadata.DocumentId;
@@ -25,25 +37,8 @@ import dsm.oscal.model.OscalMetadata.PropertyOwner;
 import dsm.oscal.model.OscalMetadata.ResourceCitation;
 import dsm.oscal.model.OscalMetadata.ResourceRlink;
 import dsm.oscal.model.OscalMetadata.UUIDElement;
-
 import gov.nist.secauto.metaschema.datatypes.markup.MarkupLine;
 import gov.nist.secauto.metaschema.datatypes.markup.MarkupMultiline;
-
-import java.util.Collection;
-import java.util.UUID;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->

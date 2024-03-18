@@ -15,18 +15,15 @@
  */
 package dsm.oscal.model.OscalMetadata.impl;
 
-import dsm.oscal.model.OscalMetadata.Link;
-import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
-
-import gov.nist.secauto.metaschema.datatypes.markup.MarkupLine;
-
 import java.net.URI;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import dsm.oscal.model.OscalMetadata.Link;
+import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
+import gov.nist.secauto.metaschema.datatypes.markup.MarkupLine;
 
 /**
  * <!-- begin-user-doc -->

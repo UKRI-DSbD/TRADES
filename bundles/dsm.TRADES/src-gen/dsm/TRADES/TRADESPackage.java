@@ -177,22 +177,31 @@ public interface TRADESPackage extends EPackage {
 	int ANALYSIS__ID = COMPONENT_OWNER_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Vulnerabilities</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Vulnerability Owner</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__VULNERABILITIES = COMPONENT_OWNER_FEATURE_COUNT + 5;
+	int ANALYSIS__VULNERABILITY_OWNER = COMPONENT_OWNER_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Componenttype</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Component Type Owner</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__COMPONENTTYPE = COMPONENT_OWNER_FEATURE_COUNT + 6;
+	int ANALYSIS__COMPONENT_TYPE_OWNER = COMPONENT_OWNER_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Vulnerable Asset Owner</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS__VULNERABLE_ASSET_OWNER = COMPONENT_OWNER_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Vulnerableasset</b></em>' containment reference list.
@@ -201,7 +210,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__VULNERABLEASSET = COMPONENT_OWNER_FEATURE_COUNT + 7;
+	int ANALYSIS__VULNERABLEASSET = COMPONENT_OWNER_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Score System</b></em>' containment reference.
@@ -210,7 +219,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__SCORE_SYSTEM = COMPONENT_OWNER_FEATURE_COUNT + 8;
+	int ANALYSIS__SCORE_SYSTEM = COMPONENT_OWNER_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Link Types</b></em>' containment reference list.
@@ -219,7 +228,16 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__LINK_TYPES = COMPONENT_OWNER_FEATURE_COUNT + 9;
+	int ANALYSIS__LINK_TYPES = COMPONENT_OWNER_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>NVDAPI Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS__NVDAPI_KEY = COMPONENT_OWNER_FEATURE_COUNT + 11;
 
 	/**
 	 * The number of structural features of the '<em>Analysis</em>' class.
@@ -228,7 +246,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_FEATURE_COUNT = COMPONENT_OWNER_FEATURE_COUNT + 10;
+	int ANALYSIS_FEATURE_COUNT = COMPONENT_OWNER_FEATURE_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Get Datas</em>' operation.
@@ -2527,6 +2545,16 @@ public interface TRADESPackage extends EPackage {
 	int CATALOG_OPERATION_COUNT = ABSTRACT_THREAT_OWNER_OPERATION_COUNT + 8;
 
 	/**
+	 * The meta object id for the '{@link dsm.TRADES.impl.AbstractVulnerabilityOwnerImpl <em>Abstract Vulnerability Owner</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see dsm.TRADES.impl.AbstractVulnerabilityOwnerImpl
+	 * @see dsm.TRADES.impl.TRADESPackageImpl#getAbstractVulnerabilityOwner()
+	 * @generated
+	 */
+	int ABSTRACT_VULNERABILITY_OWNER = 36;
+
+	/**
 	 * The meta object id for the '{@link dsm.TRADES.IElementWithSource <em>IElement With Source</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2854,7 +2882,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getAsset()
 	 * @generated
 	 */
-	int ASSET = 40;
+	int ASSET = 42;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2930,6 +2958,33 @@ public interface TRADESPackage extends EPackage {
 	int DOMAIN_ASSET_OPERATION_COUNT = ASSET_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Vulnerability Owner</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_VULNERABILITY_OWNER__VULNERABILITY_OWNER = 0;
+
+	/**
+	 * The number of structural features of the '<em>Abstract Vulnerability Owner</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_VULNERABILITY_OWNER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Abstract Vulnerability Owner</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_VULNERABILITY_OWNER_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link dsm.TRADES.impl.VulnerabilityOwnerImpl <em>Vulnerability Owner</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2937,7 +2992,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getVulnerabilityOwner()
 	 * @generated
 	 */
-	int VULNERABILITY_OWNER = 36;
+	int VULNERABILITY_OWNER = 37;
 
 	/**
 	 * The feature id for the '<em><b>Vulnerabilities</b></em>' containment reference list.
@@ -2974,7 +3029,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getVulnerability()
 	 * @generated
 	 */
-	int VULNERABILITY = 37;
+	int VULNERABILITY = 38;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2986,13 +3041,22 @@ public interface TRADESPackage extends EPackage {
 	int VULNERABILITY__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Refines</b></em>' reference list.
+	 * The feature id for the '<em><b>Manifests</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY__REFINES = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int VULNERABILITY__MANIFESTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Affects</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VULNERABILITY__AFFECTS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Vulnerability</em>' class.
@@ -3001,7 +3065,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int VULNERABILITY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Vulnerability</em>' class.
@@ -3013,6 +3077,43 @@ public interface TRADESPackage extends EPackage {
 	int VULNERABILITY_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link dsm.TRADES.impl.AbstractComponentTypeOwnerImpl <em>Abstract Component Type Owner</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see dsm.TRADES.impl.AbstractComponentTypeOwnerImpl
+	 * @see dsm.TRADES.impl.TRADESPackageImpl#getAbstractComponentTypeOwner()
+	 * @generated
+	 */
+	int ABSTRACT_COMPONENT_TYPE_OWNER = 39;
+
+	/**
+	 * The feature id for the '<em><b>Component Type Owner</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_COMPONENT_TYPE_OWNER__COMPONENT_TYPE_OWNER = 0;
+
+	/**
+	 * The number of structural features of the '<em>Abstract Component Type Owner</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_COMPONENT_TYPE_OWNER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Abstract Component Type Owner</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_COMPONENT_TYPE_OWNER_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link dsm.TRADES.impl.ComponentTypeOwnerImpl <em>Component Type Owner</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3020,16 +3121,16 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getComponentTypeOwner()
 	 * @generated
 	 */
-	int COMPONENT_TYPE_OWNER = 38;
+	int COMPONENT_TYPE_OWNER = 40;
 
 	/**
-	 * The feature id for the '<em><b>Componenttype</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Component Types</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_TYPE_OWNER__COMPONENTTYPE = 0;
+	int COMPONENT_TYPE_OWNER__COMPONENT_TYPES = 0;
 
 	/**
 	 * The number of structural features of the '<em>Component Type Owner</em>' class.
@@ -3057,7 +3158,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getComponentType()
 	 * @generated
 	 */
-	int COMPONENT_TYPE = 39;
+	int COMPONENT_TYPE = 41;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3105,6 +3206,80 @@ public interface TRADESPackage extends EPackage {
 	int COMPONENT_TYPE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link dsm.TRADES.impl.AbstractVulnerableAssetOwnerImpl <em>Abstract Vulnerable Asset Owner</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see dsm.TRADES.impl.AbstractVulnerableAssetOwnerImpl
+	 * @see dsm.TRADES.impl.TRADESPackageImpl#getAbstractVulnerableAssetOwner()
+	 * @generated
+	 */
+	int ABSTRACT_VULNERABLE_ASSET_OWNER = 43;
+
+	/**
+	 * The feature id for the '<em><b>Vulnerable Asset Owner</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_VULNERABLE_ASSET_OWNER__VULNERABLE_ASSET_OWNER = 0;
+
+	/**
+	 * The number of structural features of the '<em>Abstract Vulnerable Asset Owner</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_VULNERABLE_ASSET_OWNER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Abstract Vulnerable Asset Owner</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_VULNERABLE_ASSET_OWNER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link dsm.TRADES.impl.VulnerableAssetOwnerImpl <em>Vulnerable Asset Owner</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see dsm.TRADES.impl.VulnerableAssetOwnerImpl
+	 * @see dsm.TRADES.impl.TRADESPackageImpl#getVulnerableAssetOwner()
+	 * @generated
+	 */
+	int VULNERABLE_ASSET_OWNER = 44;
+
+	/**
+	 * The feature id for the '<em><b>Vulnerable Assets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VULNERABLE_ASSET_OWNER__VULNERABLE_ASSETS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Vulnerable Asset Owner</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VULNERABLE_ASSET_OWNER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Vulnerable Asset Owner</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VULNERABLE_ASSET_OWNER_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link dsm.TRADES.impl.VulnerableAssetImpl <em>Vulnerable Asset</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3112,7 +3287,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getVulnerableAsset()
 	 * @generated
 	 */
-	int VULNERABLE_ASSET = 41;
+	int VULNERABLE_ASSET = 45;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3176,7 +3351,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getVAOwner()
 	 * @generated
 	 */
-	int VA_OWNER = 42;
+	int VA_OWNER = 46;
 
 	/**
 	 * The feature id for the '<em><b>Vulnerableasset</b></em>' containment reference list.
@@ -3213,7 +3388,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getAssessmentENUM()
 	 * @generated
 	 */
-	int ASSESSMENT_ENUM = 43;
+	int ASSESSMENT_ENUM = 47;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.AffectedENUM <em>Affected ENUM</em>}' enum.
@@ -3223,7 +3398,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getAffectedENUM()
 	 * @generated
 	 */
-	int AFFECTED_ENUM = 44;
+	int AFFECTED_ENUM = 48;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.threatTypeENUM <em>threat Type ENUM</em>}' enum.
@@ -3233,7 +3408,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getthreatTypeENUM()
 	 * @generated
 	 */
-	int THREAT_TYPE_ENUM = 45;
+	int THREAT_TYPE_ENUM = 49;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.ControlStatusENUM <em>Control Status ENUM</em>}' enum.
@@ -3243,7 +3418,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getControlStatusENUM()
 	 * @generated
 	 */
-	int CONTROL_STATUS_ENUM = 46;
+	int CONTROL_STATUS_ENUM = 50;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.ComponentCategoryENUM <em>Component Category ENUM</em>}' enum.
@@ -3253,7 +3428,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getComponentCategoryENUM()
 	 * @generated
 	 */
-	int COMPONENT_CATEGORY_ENUM = 47;
+	int COMPONENT_CATEGORY_ENUM = 51;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.SecurityObjectiveENUM <em>Security Objective ENUM</em>}' enum.
@@ -3263,7 +3438,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getSecurityObjectiveENUM()
 	 * @generated
 	 */
-	int SECURITY_OBJECTIVE_ENUM = 48;
+	int SECURITY_OBJECTIVE_ENUM = 52;
 
 	/**
 	 * The meta object id for the '<em>RGB Color</em>' data type.
@@ -3273,7 +3448,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getRGBColor()
 	 * @generated
 	 */
-	int RGB_COLOR = 49;
+	int RGB_COLOR = 53;
 
 	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.Analysis <em>Analysis</em>}'.
@@ -3306,6 +3481,17 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAnalysis_LinkTypes();
+
+	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.Analysis#getNVDAPIKey <em>NVDAPI Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>NVDAPI Key</em>'.
+	 * @see dsm.TRADES.Analysis#getNVDAPIKey()
+	 * @see #getAnalysis()
+	 * @generated
+	 */
+	EAttribute getAnalysis_NVDAPIKey();
 
 	/**
 	 * Returns the meta object for the '{@link dsm.TRADES.Analysis#getExternalThreats(java.lang.String, java.lang.String) <em>Get External Threats</em>}' operation.
@@ -4403,6 +4589,27 @@ public interface TRADESPackage extends EPackage {
 	EReference getAbstractThreatOwner_ThreatOwner();
 
 	/**
+	 * Returns the meta object for class '{@link dsm.TRADES.AbstractVulnerabilityOwner <em>Abstract Vulnerability Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract Vulnerability Owner</em>'.
+	 * @see dsm.TRADES.AbstractVulnerabilityOwner
+	 * @generated
+	 */
+	EClass getAbstractVulnerabilityOwner();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link dsm.TRADES.AbstractVulnerabilityOwner#getVulnerabilityOwner <em>Vulnerability Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Vulnerability Owner</em>'.
+	 * @see dsm.TRADES.AbstractVulnerabilityOwner#getVulnerabilityOwner()
+	 * @see #getAbstractVulnerabilityOwner()
+	 * @generated
+	 */
+	EReference getAbstractVulnerabilityOwner_VulnerabilityOwner();
+
+	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.IThreatDefinition <em>IThreat Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4717,15 +4924,47 @@ public interface TRADESPackage extends EPackage {
 	EClass getVulnerability();
 
 	/**
-	 * Returns the meta object for the reference list '{@link dsm.TRADES.Vulnerability#getRefines <em>Refines</em>}'.
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.Vulnerability#getManifests <em>Manifests</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Refines</em>'.
-	 * @see dsm.TRADES.Vulnerability#getRefines()
+	 * @return the meta object for the reference list '<em>Manifests</em>'.
+	 * @see dsm.TRADES.Vulnerability#getManifests()
 	 * @see #getVulnerability()
 	 * @generated
 	 */
-	EReference getVulnerability_Refines();
+	EReference getVulnerability_Manifests();
+
+	/**
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.Vulnerability#getAffects <em>Affects</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Affects</em>'.
+	 * @see dsm.TRADES.Vulnerability#getAffects()
+	 * @see #getVulnerability()
+	 * @generated
+	 */
+	EReference getVulnerability_Affects();
+
+	/**
+	 * Returns the meta object for class '{@link dsm.TRADES.AbstractComponentTypeOwner <em>Abstract Component Type Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract Component Type Owner</em>'.
+	 * @see dsm.TRADES.AbstractComponentTypeOwner
+	 * @generated
+	 */
+	EClass getAbstractComponentTypeOwner();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link dsm.TRADES.AbstractComponentTypeOwner#getComponentTypeOwner <em>Component Type Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Component Type Owner</em>'.
+	 * @see dsm.TRADES.AbstractComponentTypeOwner#getComponentTypeOwner()
+	 * @see #getAbstractComponentTypeOwner()
+	 * @generated
+	 */
+	EReference getAbstractComponentTypeOwner_ComponentTypeOwner();
 
 	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.ComponentTypeOwner <em>Component Type Owner</em>}'.
@@ -4738,15 +4977,15 @@ public interface TRADESPackage extends EPackage {
 	EClass getComponentTypeOwner();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link dsm.TRADES.ComponentTypeOwner#getComponenttype <em>Componenttype</em>}'.
+	 * Returns the meta object for the containment reference list '{@link dsm.TRADES.ComponentTypeOwner#getComponentTypes <em>Component Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Componenttype</em>'.
-	 * @see dsm.TRADES.ComponentTypeOwner#getComponenttype()
+	 * @return the meta object for the containment reference list '<em>Component Types</em>'.
+	 * @see dsm.TRADES.ComponentTypeOwner#getComponentTypes()
 	 * @see #getComponentTypeOwner()
 	 * @generated
 	 */
-	EReference getComponentTypeOwner_Componenttype();
+	EReference getComponentTypeOwner_ComponentTypes();
 
 	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.ComponentType <em>Component Type</em>}'.
@@ -4789,6 +5028,48 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAsset();
+
+	/**
+	 * Returns the meta object for class '{@link dsm.TRADES.AbstractVulnerableAssetOwner <em>Abstract Vulnerable Asset Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract Vulnerable Asset Owner</em>'.
+	 * @see dsm.TRADES.AbstractVulnerableAssetOwner
+	 * @generated
+	 */
+	EClass getAbstractVulnerableAssetOwner();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link dsm.TRADES.AbstractVulnerableAssetOwner#getVulnerableAssetOwner <em>Vulnerable Asset Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Vulnerable Asset Owner</em>'.
+	 * @see dsm.TRADES.AbstractVulnerableAssetOwner#getVulnerableAssetOwner()
+	 * @see #getAbstractVulnerableAssetOwner()
+	 * @generated
+	 */
+	EReference getAbstractVulnerableAssetOwner_VulnerableAssetOwner();
+
+	/**
+	 * Returns the meta object for class '{@link dsm.TRADES.VulnerableAssetOwner <em>Vulnerable Asset Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Vulnerable Asset Owner</em>'.
+	 * @see dsm.TRADES.VulnerableAssetOwner
+	 * @generated
+	 */
+	EClass getVulnerableAssetOwner();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link dsm.TRADES.VulnerableAssetOwner#getVulnerableAssets <em>Vulnerable Assets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Vulnerable Assets</em>'.
+	 * @see dsm.TRADES.VulnerableAssetOwner#getVulnerableAssets()
+	 * @see #getVulnerableAssetOwner()
+	 * @generated
+	 */
+	EReference getVulnerableAssetOwner_VulnerableAssets();
 
 	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.VulnerableAsset <em>Vulnerable Asset</em>}'.
@@ -4973,6 +5254,14 @@ public interface TRADESPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ANALYSIS__LINK_TYPES = eINSTANCE.getAnalysis_LinkTypes();
+
+		/**
+		 * The meta object literal for the '<em><b>NVDAPI Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANALYSIS__NVDAPI_KEY = eINSTANCE.getAnalysis_NVDAPIKey();
 
 		/**
 		 * The meta object literal for the '<em><b>Get External Threats</b></em>' operation.
@@ -5863,6 +6152,25 @@ public interface TRADESPackage extends EPackage {
 		EReference ABSTRACT_THREAT_OWNER__THREAT_OWNER = eINSTANCE.getAbstractThreatOwner_ThreatOwner();
 
 		/**
+		 * The meta object literal for the '{@link dsm.TRADES.impl.AbstractVulnerabilityOwnerImpl <em>Abstract Vulnerability Owner</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see dsm.TRADES.impl.AbstractVulnerabilityOwnerImpl
+		 * @see dsm.TRADES.impl.TRADESPackageImpl#getAbstractVulnerabilityOwner()
+		 * @generated
+		 */
+		EClass ABSTRACT_VULNERABILITY_OWNER = eINSTANCE.getAbstractVulnerabilityOwner();
+
+		/**
+		 * The meta object literal for the '<em><b>Vulnerability Owner</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_VULNERABILITY_OWNER__VULNERABILITY_OWNER = eINSTANCE
+				.getAbstractVulnerabilityOwner_VulnerabilityOwner();
+
+		/**
 		 * The meta object literal for the '{@link dsm.TRADES.IThreatDefinition <em>IThreat Definition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6137,12 +6445,39 @@ public interface TRADESPackage extends EPackage {
 		EClass VULNERABILITY = eINSTANCE.getVulnerability();
 
 		/**
-		 * The meta object literal for the '<em><b>Refines</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Manifests</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference VULNERABILITY__REFINES = eINSTANCE.getVulnerability_Refines();
+		EReference VULNERABILITY__MANIFESTS = eINSTANCE.getVulnerability_Manifests();
+
+		/**
+		 * The meta object literal for the '<em><b>Affects</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VULNERABILITY__AFFECTS = eINSTANCE.getVulnerability_Affects();
+
+		/**
+		 * The meta object literal for the '{@link dsm.TRADES.impl.AbstractComponentTypeOwnerImpl <em>Abstract Component Type Owner</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see dsm.TRADES.impl.AbstractComponentTypeOwnerImpl
+		 * @see dsm.TRADES.impl.TRADESPackageImpl#getAbstractComponentTypeOwner()
+		 * @generated
+		 */
+		EClass ABSTRACT_COMPONENT_TYPE_OWNER = eINSTANCE.getAbstractComponentTypeOwner();
+
+		/**
+		 * The meta object literal for the '<em><b>Component Type Owner</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_COMPONENT_TYPE_OWNER__COMPONENT_TYPE_OWNER = eINSTANCE
+				.getAbstractComponentTypeOwner_ComponentTypeOwner();
 
 		/**
 		 * The meta object literal for the '{@link dsm.TRADES.impl.ComponentTypeOwnerImpl <em>Component Type Owner</em>}' class.
@@ -6155,12 +6490,12 @@ public interface TRADESPackage extends EPackage {
 		EClass COMPONENT_TYPE_OWNER = eINSTANCE.getComponentTypeOwner();
 
 		/**
-		 * The meta object literal for the '<em><b>Componenttype</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Component Types</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPONENT_TYPE_OWNER__COMPONENTTYPE = eINSTANCE.getComponentTypeOwner_Componenttype();
+		EReference COMPONENT_TYPE_OWNER__COMPONENT_TYPES = eINSTANCE.getComponentTypeOwner_ComponentTypes();
 
 		/**
 		 * The meta object literal for the '{@link dsm.TRADES.impl.ComponentTypeImpl <em>Component Type</em>}' class.
@@ -6197,6 +6532,43 @@ public interface TRADESPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ASSET = eINSTANCE.getAsset();
+
+		/**
+		 * The meta object literal for the '{@link dsm.TRADES.impl.AbstractVulnerableAssetOwnerImpl <em>Abstract Vulnerable Asset Owner</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see dsm.TRADES.impl.AbstractVulnerableAssetOwnerImpl
+		 * @see dsm.TRADES.impl.TRADESPackageImpl#getAbstractVulnerableAssetOwner()
+		 * @generated
+		 */
+		EClass ABSTRACT_VULNERABLE_ASSET_OWNER = eINSTANCE.getAbstractVulnerableAssetOwner();
+
+		/**
+		 * The meta object literal for the '<em><b>Vulnerable Asset Owner</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_VULNERABLE_ASSET_OWNER__VULNERABLE_ASSET_OWNER = eINSTANCE
+				.getAbstractVulnerableAssetOwner_VulnerableAssetOwner();
+
+		/**
+		 * The meta object literal for the '{@link dsm.TRADES.impl.VulnerableAssetOwnerImpl <em>Vulnerable Asset Owner</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see dsm.TRADES.impl.VulnerableAssetOwnerImpl
+		 * @see dsm.TRADES.impl.TRADESPackageImpl#getVulnerableAssetOwner()
+		 * @generated
+		 */
+		EClass VULNERABLE_ASSET_OWNER = eINSTANCE.getVulnerableAssetOwner();
+
+		/**
+		 * The meta object literal for the '<em><b>Vulnerable Assets</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VULNERABLE_ASSET_OWNER__VULNERABLE_ASSETS = eINSTANCE.getVulnerableAssetOwner_VulnerableAssets();
 
 		/**
 		 * The meta object literal for the '{@link dsm.TRADES.impl.VulnerableAssetImpl <em>Vulnerable Asset</em>}' class.

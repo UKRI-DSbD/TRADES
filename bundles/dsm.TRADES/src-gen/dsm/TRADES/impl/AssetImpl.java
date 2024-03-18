@@ -13,10 +13,10 @@
  */
 package dsm.TRADES.impl;
 
+import org.eclipse.emf.ecore.EClass;
+
 import dsm.TRADES.Asset;
 import dsm.TRADES.TRADESPackage;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->

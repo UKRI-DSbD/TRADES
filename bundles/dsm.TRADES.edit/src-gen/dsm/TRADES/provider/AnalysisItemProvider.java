@@ -13,22 +13,20 @@
  */
 package dsm.TRADES.provider;
 
-import dsm.TRADES.Analysis;
-import dsm.TRADES.TRADESFactory;
-import dsm.TRADES.TRADESPackage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import dsm.TRADES.Analysis;
+import dsm.TRADES.TRADESFactory;
+import dsm.TRADES.TRADESPackage;
 
 /**
  * This is the item provider adapter for a {@link dsm.TRADES.Analysis} object.
@@ -60,6 +58,7 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 
 			addNamePropertyDescriptor(object);
 			addIdPropertyDescriptor(object);
+			addNVDAPIKeyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -97,6 +96,22 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the NVDAPI Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNVDAPIKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Analysis_nVDAPIKey_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Analysis_nVDAPIKey_feature",
+								"_UI_Analysis_type"),
+						TRADESPackage.Literals.ANALYSIS__NVDAPI_KEY, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -111,8 +126,9 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 			childrenFeatures.add(TRADESPackage.Literals.DATA_OWNER_ELEMENT__DATA_OWNER);
 			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_CONTROL_OWNER__CONTROL_OWNER);
 			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_THREAT_OWNER__THREAT_OWNER);
-			childrenFeatures.add(TRADESPackage.Literals.VULNERABILITY_OWNER__VULNERABILITIES);
-			childrenFeatures.add(TRADESPackage.Literals.COMPONENT_TYPE_OWNER__COMPONENTTYPE);
+			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_VULNERABILITY_OWNER__VULNERABILITY_OWNER);
+			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_COMPONENT_TYPE_OWNER__COMPONENT_TYPE_OWNER);
+			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_VULNERABLE_ASSET_OWNER__VULNERABLE_ASSET_OWNER);
 			childrenFeatures.add(TRADESPackage.Literals.VA_OWNER__VULNERABLEASSET);
 			childrenFeatures.add(TRADESPackage.Literals.ANALYSIS__SCORE_SYSTEM);
 			childrenFeatures.add(TRADESPackage.Literals.ANALYSIS__LINK_TYPES);
@@ -181,13 +197,15 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 		switch (notification.getFeatureID(Analysis.class)) {
 		case TRADESPackage.ANALYSIS__NAME:
 		case TRADESPackage.ANALYSIS__ID:
+		case TRADESPackage.ANALYSIS__NVDAPI_KEY:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case TRADESPackage.ANALYSIS__DATA_OWNER:
 		case TRADESPackage.ANALYSIS__CONTROL_OWNER:
 		case TRADESPackage.ANALYSIS__THREAT_OWNER:
-		case TRADESPackage.ANALYSIS__VULNERABILITIES:
-		case TRADESPackage.ANALYSIS__COMPONENTTYPE:
+		case TRADESPackage.ANALYSIS__VULNERABILITY_OWNER:
+		case TRADESPackage.ANALYSIS__COMPONENT_TYPE_OWNER:
+		case TRADESPackage.ANALYSIS__VULNERABLE_ASSET_OWNER:
 		case TRADESPackage.ANALYSIS__VULNERABLEASSET:
 		case TRADESPackage.ANALYSIS__SCORE_SYSTEM:
 		case TRADESPackage.ANALYSIS__LINK_TYPES:
@@ -217,11 +235,17 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.ABSTRACT_THREAT_OWNER__THREAT_OWNER,
 				TRADESFactory.eINSTANCE.createThreatsOwner()));
 
-		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.VULNERABILITY_OWNER__VULNERABILITIES,
-				TRADESFactory.eINSTANCE.createVulnerability()));
+		newChildDescriptors
+				.add(createChildParameter(TRADESPackage.Literals.ABSTRACT_VULNERABILITY_OWNER__VULNERABILITY_OWNER,
+						TRADESFactory.eINSTANCE.createVulnerabilityOwner()));
 
-		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.COMPONENT_TYPE_OWNER__COMPONENTTYPE,
-				TRADESFactory.eINSTANCE.createComponentType()));
+		newChildDescriptors
+				.add(createChildParameter(TRADESPackage.Literals.ABSTRACT_COMPONENT_TYPE_OWNER__COMPONENT_TYPE_OWNER,
+						TRADESFactory.eINSTANCE.createComponentTypeOwner()));
+
+		newChildDescriptors.add(
+				createChildParameter(TRADESPackage.Literals.ABSTRACT_VULNERABLE_ASSET_OWNER__VULNERABLE_ASSET_OWNER,
+						TRADESFactory.eINSTANCE.createVulnerableAssetOwner()));
 
 		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.VA_OWNER__VULNERABLEASSET,
 				TRADESFactory.eINSTANCE.createVulnerableAsset()));

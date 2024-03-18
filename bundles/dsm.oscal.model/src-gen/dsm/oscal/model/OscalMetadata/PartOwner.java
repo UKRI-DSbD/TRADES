@@ -15,9 +15,9 @@
  */
 package dsm.oscal.model.OscalMetadata;
 
-import dsm.oscal.model.OscalCatalogCommon.Part;
-
 import org.eclipse.emf.common.util.EList;
+
+import dsm.oscal.model.OscalCatalogCommon.Part;
 
 /**
  * <!-- begin-user-doc -->

@@ -15,9 +15,9 @@
  */
 package dsm.oscal.model.OscalMetadata;
 
-import gov.nist.secauto.metaschema.datatypes.markup.MarkupMultiline;
-
 import org.eclipse.emf.ecore.EObject;
+
+import gov.nist.secauto.metaschema.datatypes.markup.MarkupMultiline;
 
 /**
  * <!-- begin-user-doc -->

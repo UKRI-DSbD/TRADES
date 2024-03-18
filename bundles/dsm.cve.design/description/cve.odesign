@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PropertiesMarkupWidgets="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/markupWidgets" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="cve" version="12.0.0.2017041100">
+  <ownedViewpoints name="CVE" modelFileExtension="cve">
+    <ownedJavaExtensions qualifiedClassName="dsm.oscal.design.service.OscalDesignService"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.ext.emf.edit.EditingDomainServices"/>
+    <ownedJavaExtensions qualifiedClassName="dsm.oscal.design.service.URIService"/>
+    <ownedJavaExtensions qualifiedClassName="dsm.oscal.design.service.OscalWidgetUtil"/>
+    <ownedJavaExtensions qualifiedClassName="dsm.oscal.design.service.DateService"/>
+    <ownedJavaExtensions qualifiedClassName="TRADES.design.DebugService"/>
+    <ownedJavaExtensions qualifiedClassName="dsm.oscal.design.service.MarkownService"/>
+  </ownedViewpoints>
+  <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
+    <metamodels href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+    <categories name="CVE">
+      <pages name="WeaknessCatalogPage" labelExpression="General" domainClass="CVECatalog::WeaknessCatalog" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <pages name="WeaknessesPage" labelExpression="General" domainClass="CVECatalog::Weaknesses" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
+      <pages name="CategoriesPage" labelExpression="General" domainClass="CVECatalog::Categories" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2"/>
+      <pages name="ViewsPage" labelExpression="General" domainClass="CVECatalog::Views" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.3"/>
+      <pages name="ExternalReferencesPage" labelExpression="General" domainClass="CVECatalog::ExternalReferences" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4"/>
+      <pages name="WeaknessPage" labelExpression="General" domainClass="CVECatalog::Weakness" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5"/>
+      <pages name="CategoryPage" labelExpression="General" domainClass="CVECatalog::Category" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.6"/>
+      <pages name="ViewPage" labelExpression="General" domainClass="CVECatalog::View" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.7"/>
+      <pages name="ExternalReferencePage" labelExpression="General" domainClass="CVECatalog::ExternalReference" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.8"/>
+      <groups name="WeaknessCatalogGroup" labelExpression="WeaknessCatalog" domainClass="CVECatalog::WeaknessCatalog" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="CVECatalog::WeaknessCatalog version" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('version')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('version'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('version').changeable" valueExpression="aql:self.getMarkupAttribute('version')">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setMarkupAttribute('version',newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('version').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="CVECatalog::WeaknessCatalog weaknesses" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('weaknesses')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('weaknesses'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('weaknesses').changeable" valueExpression="aql:self.getMarkupAttribute('weaknesses')">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setMarkupAttribute('weaknesses',newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('weaknesses').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="CVECatalog::WeaknessCatalog categories" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('categories')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('categories'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('categories').changeable" valueExpression="aql:self.getMarkupAttribute('categories')">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setMarkupAttribute('categories',newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('categories').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="CVECatalog::WeaknessCatalog views" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('views')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('views'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('views').changeable" valueExpression="aql:self.getMarkupAttribute('views')">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setMarkupAttribute('views',newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('views').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="CVECatalog::WeaknessCatalog externalReferences" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('externalReferences')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('externalReferences'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('externalReferences').changeable" valueExpression="aql:self.getMarkupAttribute('externalReferences')">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setMarkupAttribute('externalReferences',newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('externalReferences').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+      </groups>
+      <groups name="WeaknessesGroup" labelExpression="Weaknesses" domainClass="CVECatalog::Weaknesses" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:ListDescription" name="CVECatalog::Weaknesses weaknesses" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('weaknesses')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('weaknesses'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('weaknesses').changeable" valueExpression="aql:self.getMarkupAttribute('weaknesses')">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setMarkupAttribute('weaknesses',newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('weaknesses').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+      </groups>
+      <groups name="CategoriesGroup" labelExpression="Categories" domainClass="CVECatalog::Categories" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:ListDescription" name="CVECatalog::Categories categories" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('categories')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('categories'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('categories').changeable" valueExpression="aql:self.getMarkupAttribute('categories')">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setMarkupAttribute('categories',newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('categories').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+      </groups>
+      <groups name="ViewsGroup" labelExpression="Views" domainClass="CVECatalog::Views" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:ListDescription" name="CVECatalog::Views views" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('views')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('views'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('views').changeable" valueExpression="aql:self.getMarkupAttribute('views')">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setMarkupAttribute('views',newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('views').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+      </groups>
+      <groups name="ExternalReferencesGroup" labelExpression="ExternalReferences" domainClass="CVECatalog::ExternalReferences" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:ListDescription" name="CVECatalog::ExternalReferences externalReferences" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('externalReferences')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('externalReferences'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('externalReferences').changeable" valueExpression="aql:self.getMarkupAttribute('externalReferences')">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setMarkupAttribute('externalReferences',newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('externalReferences').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+      </groups>
+      <groups name="WeaknessGroup" labelExpression="General" domainClass="CVECatalog::Weakness" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="CVECatalog::Weakness iD" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('iD')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('iD'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('iD').changeable" valueExpression="aql:self.getMarkupAttribute('iD')">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setMarkupAttribute('iD',newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('iD').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="CVECatalog::Weakness name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" nameExpression="aql:self.getMarkupAttribute('name')">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setMarkupAttribute('name',newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('name').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="CVECatalog::Weakness abstraction" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('abstraction')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('abstraction'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('abstraction').changeable" valueExpression="aql:self.getMarkupAttribute('abstraction')">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setMarkupAttribute('abstraction',newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('abstraction').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="CVECatalog::Weakness structure" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('structure')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('structure'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('structure').changeable" valueExpression="aql:self.getMarkupAttribute('structure')">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setMarkupAttribute('structure',newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('structure').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="CVECatalog::Weakness status" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('status')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('status'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('status').changeable" valueExpression="aql:self.getMarkupAttribute('status')">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setMarkupAttribute('status',newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('status').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+      </groups>
+      <groups name="CategoryGroup" labelExpression="General" domainClass="CVECatalog::Category" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="CVECatalog::Category iD" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('iD')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('iD'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('iD').changeable" valueExpression="aql:self.getMarkupAttribute('iD')">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setMarkupAttribute('iD',newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('iD').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="CVECatalog::Weakness name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.getMarkupAttribute('name')">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setMarkupAttribute('name',newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('name').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="CVECatalog::Weakness status" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('status')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('status'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('status').changeable" valueExpression="aql:self.getMarkupAttribute('status')">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setMarkupAttribute('status',newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('status').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+      </groups>
+      <groups name="ViewGroup" labelExpression="General" domainClass="CVECatalog::View" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="CVECatalog::View iD" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('iD')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('iD'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('iD').changeable" valueExpression="aql:self.getMarkupAttribute('iD')">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setMarkupAttribute('iD',newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('iD').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="CVECatalog::Weakness name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.getMarkupAttribute('name')">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setMarkupAttribute('name',newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('name').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="CVECatalog::Weakness type" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('type')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('type'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('type').changeable" valueExpression="aql:self.getMarkupAttribute('type')">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setMarkupAttribute('type',newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('type').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="CVECatalog::Weakness status" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('status')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('status'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('status').changeable" valueExpression="aql:self.getMarkupAttribute('status')">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setMarkupAttribute('status',newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('status').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+      </groups>
+      <groups name="ExternalReferenceGroup" labelExpression="General" domainClass="CVECatalog::ExternalReference" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="CVECatalog::ExternalReference referenceID" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('referenceID')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('referenceID'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('referenceID').changeable" valueExpression="aql:self.getMarkupAttribute('referenceID')">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setMarkupAttribute('referenceID',newValue)"/>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('referenceID').lowerBound = 1">
+            <style>
+              <labelFontFormat>bold</labelFontFormat>
+            </style>
+          </conditionalStyles>
+        </controls>
+      </groups>
+    </categories>
+  </extensions>
+</description:Group>

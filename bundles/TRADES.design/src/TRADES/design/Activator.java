@@ -20,9 +20,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -143,6 +145,20 @@ public class Activator extends AbstractUIPlugin {
 
 	private void doLogError(String string, Throwable e) {
 		getLog().log(new Status(IStatus.ERROR, PLUGIN_ID, string, e));
+	}
+
+	//get image icon in right-click menu
+	public ImageDescriptor getImageDescriptor(String path) {
+		ImageDescriptor img = getImageRegistry().getDescriptor(path);
+		if (img == null) {
+
+			URL url = FileLocator.find(getBundle(), new org.eclipse.core.runtime.Path(path), null);
+			if (url != null) {
+				getImageRegistry().put(path, ImageDescriptor.createFromURL(url));
+				img = getImageRegistry().getDescriptor(path);
+			}
+		}
+		return img;
 	}
 
 }

@@ -13,23 +13,19 @@
  */
 package dsm.TRADES.impl;
 
-import dsm.TRADES.ComponentType;
-import dsm.TRADES.ComponentTypeOwner;
-import dsm.TRADES.TRADESPackage;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import dsm.TRADES.ComponentType;
+import dsm.TRADES.ComponentTypeOwner;
+import dsm.TRADES.TRADESPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,21 +35,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dsm.TRADES.impl.ComponentTypeOwnerImpl#getComponenttype <em>Componenttype</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentTypeOwnerImpl#getComponentTypes <em>Component Types</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class ComponentTypeOwnerImpl extends MinimalEObjectImpl.Container implements ComponentTypeOwner {
+public class ComponentTypeOwnerImpl extends MinimalEObjectImpl.Container implements ComponentTypeOwner {
 	/**
-	 * The cached value of the '{@link #getComponenttype() <em>Componenttype</em>}' containment reference list.
+	 * The cached value of the '{@link #getComponentTypes() <em>Component Types</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getComponenttype()
+	 * @see #getComponentTypes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ComponentType> componenttype;
+	protected EList<ComponentType> componentTypes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -80,12 +76,12 @@ public abstract class ComponentTypeOwnerImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 */
 	@Override
-	public EList<ComponentType> getComponenttype() {
-		if (componenttype == null) {
-			componenttype = new EObjectContainmentEList<ComponentType>(ComponentType.class, this,
-					TRADESPackage.COMPONENT_TYPE_OWNER__COMPONENTTYPE);
+	public EList<ComponentType> getComponentTypes() {
+		if (componentTypes == null) {
+			componentTypes = new EObjectContainmentEList<ComponentType>(ComponentType.class, this,
+					TRADESPackage.COMPONENT_TYPE_OWNER__COMPONENT_TYPES);
 		}
-		return componenttype;
+		return componentTypes;
 	}
 
 	/**
@@ -96,8 +92,8 @@ public abstract class ComponentTypeOwnerImpl extends MinimalEObjectImpl.Containe
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case TRADESPackage.COMPONENT_TYPE_OWNER__COMPONENTTYPE:
-			return ((InternalEList<?>) getComponenttype()).basicRemove(otherEnd, msgs);
+		case TRADESPackage.COMPONENT_TYPE_OWNER__COMPONENT_TYPES:
+			return ((InternalEList<?>) getComponentTypes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -110,8 +106,8 @@ public abstract class ComponentTypeOwnerImpl extends MinimalEObjectImpl.Containe
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TRADESPackage.COMPONENT_TYPE_OWNER__COMPONENTTYPE:
-			return getComponenttype();
+		case TRADESPackage.COMPONENT_TYPE_OWNER__COMPONENT_TYPES:
+			return getComponentTypes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -125,9 +121,9 @@ public abstract class ComponentTypeOwnerImpl extends MinimalEObjectImpl.Containe
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TRADESPackage.COMPONENT_TYPE_OWNER__COMPONENTTYPE:
-			getComponenttype().clear();
-			getComponenttype().addAll((Collection<? extends ComponentType>) newValue);
+		case TRADESPackage.COMPONENT_TYPE_OWNER__COMPONENT_TYPES:
+			getComponentTypes().clear();
+			getComponentTypes().addAll((Collection<? extends ComponentType>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -141,8 +137,8 @@ public abstract class ComponentTypeOwnerImpl extends MinimalEObjectImpl.Containe
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TRADESPackage.COMPONENT_TYPE_OWNER__COMPONENTTYPE:
-			getComponenttype().clear();
+		case TRADESPackage.COMPONENT_TYPE_OWNER__COMPONENT_TYPES:
+			getComponentTypes().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -156,8 +152,8 @@ public abstract class ComponentTypeOwnerImpl extends MinimalEObjectImpl.Containe
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TRADESPackage.COMPONENT_TYPE_OWNER__COMPONENTTYPE:
-			return componenttype != null && !componenttype.isEmpty();
+		case TRADESPackage.COMPONENT_TYPE_OWNER__COMPONENT_TYPES:
+			return componentTypes != null && !componentTypes.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

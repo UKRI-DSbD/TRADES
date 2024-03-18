@@ -15,24 +15,20 @@
  */
 package dsm.oscal.model.OscalMetadata.impl;
 
+import java.net.URI;
+import java.util.UUID;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import dsm.oscal.model.OscalMetadata.ElementWithClazz;
 import dsm.oscal.model.OscalMetadata.ElementWithRemarks;
 import dsm.oscal.model.OscalMetadata.ElementWithValue;
 import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
 import dsm.oscal.model.OscalMetadata.Property;
 import dsm.oscal.model.OscalMetadata.UUIDElement;
-
 import gov.nist.secauto.metaschema.datatypes.markup.MarkupMultiline;
-
-import java.net.URI;
-
-import java.util.UUID;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->

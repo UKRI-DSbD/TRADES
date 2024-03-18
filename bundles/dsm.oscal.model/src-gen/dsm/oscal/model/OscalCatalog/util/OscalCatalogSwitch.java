@@ -15,12 +15,17 @@
  */
 package dsm.oscal.model.OscalCatalog.util;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.util.Switch;
+
 import dsm.TRADES.ICatalogDefinition;
 import dsm.TRADES.IControlDefinition;
 import dsm.TRADES.IElementWithSource;
-
-import dsm.oscal.model.OscalCatalog.*;
-
+import dsm.oscal.model.OscalCatalog.Catalog;
+import dsm.oscal.model.OscalCatalog.Control;
+import dsm.oscal.model.OscalCatalog.Group;
+import dsm.oscal.model.OscalCatalog.OscalCatalogPackage;
 import dsm.oscal.model.OscalMetadata.ControlOwner;
 import dsm.oscal.model.OscalMetadata.DocumentationComputer;
 import dsm.oscal.model.OscalMetadata.ElementWithClazz;
@@ -31,11 +36,6 @@ import dsm.oscal.model.OscalMetadata.ParameterOwner;
 import dsm.oscal.model.OscalMetadata.PartOwner;
 import dsm.oscal.model.OscalMetadata.PropertyOwner;
 import dsm.oscal.model.OscalMetadata.UUIDElement;
-
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
-
-import org.eclipse.emf.ecore.util.Switch;
 
 /**
  * <!-- begin-user-doc -->

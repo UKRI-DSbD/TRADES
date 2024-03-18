@@ -13,20 +13,13 @@
  */
 package dsm.TRADES.provider;
 
-import dsm.TRADES.ComponentTypeOwner;
-import dsm.TRADES.TRADESFactory;
-import dsm.TRADES.TRADESPackage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -36,6 +29,10 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import dsm.TRADES.ComponentTypeOwner;
+import dsm.TRADES.TRADESFactory;
+import dsm.TRADES.TRADESPackage;
 
 /**
  * This is the item provider adapter for a {@link dsm.TRADES.ComponentTypeOwner} object.
@@ -82,7 +79,7 @@ public class ComponentTypeOwnerItemProvider extends ItemProviderAdapter implemen
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TRADESPackage.Literals.COMPONENT_TYPE_OWNER__COMPONENTTYPE);
+			childrenFeatures.add(TRADESPackage.Literals.COMPONENT_TYPE_OWNER__COMPONENT_TYPES);
 		}
 		return childrenFeatures;
 	}
@@ -144,7 +141,7 @@ public class ComponentTypeOwnerItemProvider extends ItemProviderAdapter implemen
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ComponentTypeOwner.class)) {
-		case TRADESPackage.COMPONENT_TYPE_OWNER__COMPONENTTYPE:
+		case TRADESPackage.COMPONENT_TYPE_OWNER__COMPONENT_TYPES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -162,7 +159,7 @@ public class ComponentTypeOwnerItemProvider extends ItemProviderAdapter implemen
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.COMPONENT_TYPE_OWNER__COMPONENTTYPE,
+		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.COMPONENT_TYPE_OWNER__COMPONENT_TYPES,
 				TRADESFactory.eINSTANCE.createComponentType()));
 	}
 

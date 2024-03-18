@@ -15,31 +15,29 @@
 
 package dsm.oscal.model;
 
-import gov.nist.secauto.metaschema.datatypes.Base64;
-import gov.nist.secauto.metaschema.datatypes.adapter.types.Base64Adapter;
-import gov.nist.secauto.metaschema.datatypes.Date;
-import gov.nist.secauto.metaschema.datatypes.adapter.types.DateAdapter;
-import gov.nist.secauto.metaschema.datatypes.DateTime;
-import gov.nist.secauto.metaschema.datatypes.adapter.types.DateTimeAdapter;
-import java.time.ZonedDateTime;
-import gov.nist.secauto.metaschema.datatypes.adapter.types.DateTimeWithTZAdapter;
-import java.time.ZonedDateTime;
-import gov.nist.secauto.metaschema.datatypes.adapter.types.DateWithTZAdapter;
-import gov.nist.secauto.metaschema.datatypes.IPv4;
-import gov.nist.secauto.metaschema.datatypes.adapter.types.Ipv4AddressAdapter;
-import gov.nist.secauto.metaschema.datatypes.IPv6;
-import gov.nist.secauto.metaschema.datatypes.adapter.types.IPv6AddressAdapter;
-import gov.nist.secauto.metaschema.datatypes.markup.MarkupLine;
-import gov.nist.secauto.metaschema.datatypes.adapter.types.MarkupLineAdapter;
-import gov.nist.secauto.metaschema.datatypes.markup.MarkupMultiline;
-import gov.nist.secauto.metaschema.datatypes.adapter.types.MarkupMultilineAdapter;
 import java.net.URI;
-import gov.nist.secauto.metaschema.datatypes.adapter.types.UriAdapter;
-import java.net.URI;
-import gov.nist.secauto.metaschema.datatypes.adapter.types.UriReferenceAdapter;
+import java.time.ZonedDateTime;
 import java.util.UUID;
+
+import gov.nist.secauto.metaschema.datatypes.Base64;
+import gov.nist.secauto.metaschema.datatypes.Date;
+import gov.nist.secauto.metaschema.datatypes.DateTime;
+import gov.nist.secauto.metaschema.datatypes.IPv4;
+import gov.nist.secauto.metaschema.datatypes.IPv6;
+import gov.nist.secauto.metaschema.datatypes.adapter.types.Base64Adapter;
+import gov.nist.secauto.metaschema.datatypes.adapter.types.DateAdapter;
+import gov.nist.secauto.metaschema.datatypes.adapter.types.DateTimeAdapter;
+import gov.nist.secauto.metaschema.datatypes.adapter.types.DateTimeWithTZAdapter;
+import gov.nist.secauto.metaschema.datatypes.adapter.types.DateWithTZAdapter;
+import gov.nist.secauto.metaschema.datatypes.adapter.types.IPv6AddressAdapter;
+import gov.nist.secauto.metaschema.datatypes.adapter.types.Ipv4AddressAdapter;
+import gov.nist.secauto.metaschema.datatypes.adapter.types.MarkupLineAdapter;
+import gov.nist.secauto.metaschema.datatypes.adapter.types.MarkupMultilineAdapter;
+import gov.nist.secauto.metaschema.datatypes.adapter.types.UriAdapter;
+import gov.nist.secauto.metaschema.datatypes.adapter.types.UriReferenceAdapter;
 import gov.nist.secauto.metaschema.datatypes.adapter.types.UuidAdapter;
-import java.lang.String;
+import gov.nist.secauto.metaschema.datatypes.markup.MarkupLine;
+import gov.nist.secauto.metaschema.datatypes.markup.MarkupMultiline;
 
 public class OSCALDataTypeHandler {
 	

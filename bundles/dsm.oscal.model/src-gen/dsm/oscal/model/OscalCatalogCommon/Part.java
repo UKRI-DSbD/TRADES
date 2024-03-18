@@ -15,6 +15,8 @@
  */
 package dsm.oscal.model.OscalCatalogCommon;
 
+import java.net.URI;
+
 import dsm.oscal.model.OscalMetadata.DocumentationComputer;
 import dsm.oscal.model.OscalMetadata.ElementWithClazz;
 import dsm.oscal.model.OscalMetadata.ElementWithId;
@@ -22,11 +24,8 @@ import dsm.oscal.model.OscalMetadata.LinkOwner;
 import dsm.oscal.model.OscalMetadata.OscalElement;
 import dsm.oscal.model.OscalMetadata.PartOwner;
 import dsm.oscal.model.OscalMetadata.PropertyOwner;
-
 import gov.nist.secauto.metaschema.datatypes.markup.MarkupLine;
 import gov.nist.secauto.metaschema.datatypes.markup.MarkupMultiline;
-
-import java.net.URI;
 
 /**
  * <!-- begin-user-doc -->

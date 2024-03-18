@@ -14,8 +14,15 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.ext.base,
  org.eclipse.emf.edit;bundle-version="2.16.0",
  org.eclipse.emf.edit.ui,
- org.eclipse.emf.transaction
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+ org.eclipse.emf.transaction,
+ dsm.cwe.design,
+ dsm.cwe.model,
+ dsm.cve.design,
+ dsm.cve.model,
+ com.fasterxml.jackson.core.jackson-core;bundle-version="2.10.3",
+ com.fasterxml.jackson.core.jackson-databind;bundle-version="2.10.3",
+ com.fasterxml.jackson.core.jackson-annotations;bundle-version="2.10.3"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: dsm.TRADES.rcp
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: IAI Cyber Division
@@ -23,3 +30,4 @@ Export-Package: dsm.trades.rcp,
  dsm.trades.rcp.databases,
  dsm.trades.rcp.internal.wizards;x-friends:="dsm.oscal.design",
  dsm.trades.rcp.utils
+Import-Package: dsm.cve.design.wizards

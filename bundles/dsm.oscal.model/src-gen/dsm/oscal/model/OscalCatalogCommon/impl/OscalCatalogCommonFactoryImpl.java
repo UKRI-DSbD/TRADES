@@ -15,15 +15,20 @@
  */
 package dsm.oscal.model.OscalCatalogCommon.impl;
 
-import dsm.oscal.model.OscalCatalogCommon.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import dsm.oscal.model.OscalCatalogCommon.OscalCatalogCommonFactory;
+import dsm.oscal.model.OscalCatalogCommon.OscalCatalogCommonPackage;
+import dsm.oscal.model.OscalCatalogCommon.Parameter;
+import dsm.oscal.model.OscalCatalogCommon.ParameterConstraint;
+import dsm.oscal.model.OscalCatalogCommon.ParameterConstraintTest;
+import dsm.oscal.model.OscalCatalogCommon.ParameterGuideline;
+import dsm.oscal.model.OscalCatalogCommon.ParameterSelection;
+import dsm.oscal.model.OscalCatalogCommon.Part;
 
 /**
  * <!-- begin-user-doc -->

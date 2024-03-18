@@ -14,6 +14,9 @@
 
 package dsm.oscal.ext.sirius.toolins;
 
+import static dsm.oscal.ext.matchers.FeatureMatchers.isAttributeTyped;
+import static dsm.oscal.ext.matchers.FeatureMatchers.isUnique;
+
 import java.text.MessageFormat;
 import java.util.function.Predicate;
 
@@ -29,12 +32,9 @@ import org.eclipse.sirius.properties.TextWidgetStyle;
 import org.eclipse.sirius.viewpoint.FontFormat;
 import org.eclipse.sirius.viewpoint.description.tool.ChangeContext;
 import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
-import org.eclipse.sirius.viewpoint.description.tool.SetValue;
 import org.eclipse.sirius.viewpoint.description.tool.ToolFactory;
 
 import gov.nist.secauto.metaschema.datatypes.markup.MarkupLine;
-
-import static dsm.oscal.ext.matchers.FeatureMatchers.*;
 public class MarkupLineWidget implements IDefaultWidgetDescriptionFactory {
 	
 	private static Predicate<EStructuralFeature> MARKUP_LINE_PRED = isUnique().and(isAttributeTyped(MarkupLine.class.getName()));

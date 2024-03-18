@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ASCII"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="&#xD;&#xA; Copyright Israel Aerospace Industries, Eclipse contributors and others 2021. All rights reserved.&#xD;&#xA; This program and the accompanying materials&#xD;&#xA; are made available under the terms of the Eclipse Public License 2.0&#xD;&#xA; which accompanies this distribution, and is available at&#xD;&#xA; https://www.eclipse.org/legal/epl-2.0/&#xD;&#xA; &#xD;&#xA; SPDX-License-Identifier: EPL-2.0&#xD;&#xA; &#xD;&#xA; Contributors:&#xD;&#xA;     ELTA Ltd - initial API and implementation&#xD;&#xA; &#xD;&#xA;"
+    modelDirectory="/dsm.cwe.model/src-gen" editDirectory="/dsm.cwe.model.edit/src-gen"
+    editorDirectory="/dsm.cwe.model.editor/src-gen" modelPluginID="dsm.cwe.model"
+    modelName="CWE" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="../../dsm.TRADES/model/TRADES.genmodel#//TRADES ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>../../dsm.TRADES/model/TRADES.ecore</foreignModel>
+  <genPackages prefix="CWECatalog" basePackage="dsm.cwe.model" disposableProviderFactory="true"
+      fileExtensions="cwe" ecorePackage="cwe-catalog.ecore#/">
+    <genClasses ecoreClass="cwe-catalog.ecore#//WeaknessCatalog">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//WeaknessCatalog/version"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cwe-catalog.ecore#//WeaknessCatalog/weaknesses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cwe-catalog.ecore#//WeaknessCatalog/categories"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cwe-catalog.ecore#//WeaknessCatalog/views"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cwe-catalog.ecore#//WeaknessCatalog/externalReferences"/>
+    </genClasses>
+    <genClasses ecoreClass="cwe-catalog.ecore#//Weaknesses">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cwe-catalog.ecore#//Weaknesses/weaknesses"/>
+    </genClasses>
+    <genClasses ecoreClass="cwe-catalog.ecore#//Weakness">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//Weakness/iD"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//Weakness/abstraction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//Weakness/structure"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//Weakness/status"/>
+    </genClasses>
+    <genClasses ecoreClass="cwe-catalog.ecore#//Categories">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cwe-catalog.ecore#//Categories/categories"/>
+    </genClasses>
+    <genClasses ecoreClass="cwe-catalog.ecore#//Category">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//Category/iD"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//Category/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//Category/status"/>
+    </genClasses>
+    <genClasses ecoreClass="cwe-catalog.ecore#//Views">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cwe-catalog.ecore#//Views/views"/>
+    </genClasses>
+    <genClasses ecoreClass="cwe-catalog.ecore#//View">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//View/iD"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//View/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//View/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//View/status"/>
+    </genClasses>
+    <genClasses ecoreClass="cwe-catalog.ecore#//ExternalReferences">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cwe-catalog.ecore#//ExternalReferences/externalReferences"/>
+    </genClasses>
+    <genClasses ecoreClass="cwe-catalog.ecore#//ExternalReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cwe-catalog.ecore#//ExternalReference/referenceID"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

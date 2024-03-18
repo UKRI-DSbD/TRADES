@@ -14,6 +14,7 @@
 package dsm.oscal.model.OscalCatalogCommon.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
+
 import dsm.oscal.model.OscalCatalogCommon.Part;
 
 public class PartItemProviderBaseCustomImpl extends PartItemProvider {

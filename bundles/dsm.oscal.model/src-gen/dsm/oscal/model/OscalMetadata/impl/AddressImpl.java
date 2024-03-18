@@ -15,20 +15,16 @@
  */
 package dsm.oscal.model.OscalMetadata.impl;
 
-import dsm.oscal.model.OscalMetadata.Address;
-import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+
+import dsm.oscal.model.OscalMetadata.Address;
+import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
 
 /**
  * <!-- begin-user-doc -->

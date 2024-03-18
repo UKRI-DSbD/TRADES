@@ -13,16 +13,17 @@
  */
 package dsm.TRADES.impl;
 
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+
 import dsm.TRADES.Asset;
 import dsm.TRADES.ComponentCategoryENUM;
 import dsm.TRADES.Data;
 import dsm.TRADES.DomainAsset;
 import dsm.TRADES.TRADESPackage;
-
-import java.util.Collection;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
  * <!-- begin-user-doc -->

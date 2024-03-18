@@ -13,14 +13,59 @@
  */
 package dsm.TRADES.util;
 
-import dsm.TRADES.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import dsm.TRADES.AbstractComponentTypeOwner;
+import dsm.TRADES.AbstractControlOwner;
+import dsm.TRADES.AbstractThreatOwner;
+import dsm.TRADES.AbstractVulnerabilityOwner;
+import dsm.TRADES.AbstractVulnerableAssetOwner;
+import dsm.TRADES.AffectRelation;
+import dsm.TRADES.Analysis;
+import dsm.TRADES.Asset;
+import dsm.TRADES.AttackChain;
+import dsm.TRADES.AttackChainStep;
+import dsm.TRADES.Catalog;
+import dsm.TRADES.ColoredElement;
+import dsm.TRADES.Component;
+import dsm.TRADES.ComponentOwner;
+import dsm.TRADES.ComponentType;
+import dsm.TRADES.ComponentTypeOwner;
+import dsm.TRADES.Control;
+import dsm.TRADES.ControlOwner;
+import dsm.TRADES.Data;
+import dsm.TRADES.DataOwner;
+import dsm.TRADES.DataOwnerElement;
+import dsm.TRADES.DifficultyScore;
+import dsm.TRADES.DomainAsset;
+import dsm.TRADES.ElementWithId;
+import dsm.TRADES.ExternalControl;
+import dsm.TRADES.ExternalElement;
+import dsm.TRADES.ExternalThreat;
+import dsm.TRADES.ICatalogDefinition;
+import dsm.TRADES.IControlDefinition;
+import dsm.TRADES.IElementWithSource;
+import dsm.TRADES.IMitigationLink;
+import dsm.TRADES.IThreatDefinition;
+import dsm.TRADES.ImpactConfiguration;
+import dsm.TRADES.ImpactScore;
+import dsm.TRADES.Link;
+import dsm.TRADES.LinkType;
+import dsm.TRADES.NamedElement;
+import dsm.TRADES.ScoreSystem;
+import dsm.TRADES.TRADESPackage;
+import dsm.TRADES.Threat;
+import dsm.TRADES.ThreatAllocationRelation;
+import dsm.TRADES.ThreatMitigationRelation;
+import dsm.TRADES.ThreatsOwner;
+import dsm.TRADES.VAOwner;
+import dsm.TRADES.Vulnerability;
+import dsm.TRADES.VulnerabilityOwner;
+import dsm.TRADES.VulnerableAsset;
+import dsm.TRADES.VulnerableAssetOwner;
 
 /**
  * <!-- begin-user-doc -->
@@ -258,6 +303,11 @@ public class TRADESAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseAbstractVulnerabilityOwner(AbstractVulnerabilityOwner object) {
+			return createAbstractVulnerabilityOwnerAdapter();
+		}
+
+		@Override
 		public Adapter caseVulnerabilityOwner(VulnerabilityOwner object) {
 			return createVulnerabilityOwnerAdapter();
 		}
@@ -265,6 +315,11 @@ public class TRADESAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseVulnerability(Vulnerability object) {
 			return createVulnerabilityAdapter();
+		}
+
+		@Override
+		public Adapter caseAbstractComponentTypeOwner(AbstractComponentTypeOwner object) {
+			return createAbstractComponentTypeOwnerAdapter();
 		}
 
 		@Override
@@ -280,6 +335,16 @@ public class TRADESAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseAsset(Asset object) {
 			return createAssetAdapter();
+		}
+
+		@Override
+		public Adapter caseAbstractVulnerableAssetOwner(AbstractVulnerableAssetOwner object) {
+			return createAbstractVulnerableAssetOwnerAdapter();
+		}
+
+		@Override
+		public Adapter caseVulnerableAssetOwner(VulnerableAssetOwner object) {
+			return createVulnerableAssetOwnerAdapter();
 		}
 
 		@Override
@@ -704,6 +769,20 @@ public class TRADESAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link dsm.TRADES.AbstractVulnerabilityOwner <em>Abstract Vulnerability Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see dsm.TRADES.AbstractVulnerabilityOwner
+	 * @generated
+	 */
+	public Adapter createAbstractVulnerabilityOwnerAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link dsm.TRADES.IThreatDefinition <em>IThreat Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -844,6 +923,20 @@ public class TRADESAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link dsm.TRADES.AbstractComponentTypeOwner <em>Abstract Component Type Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see dsm.TRADES.AbstractComponentTypeOwner
+	 * @generated
+	 */
+	public Adapter createAbstractComponentTypeOwnerAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link dsm.TRADES.ComponentTypeOwner <em>Component Type Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -882,6 +975,34 @@ public class TRADESAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAssetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link dsm.TRADES.AbstractVulnerableAssetOwner <em>Abstract Vulnerable Asset Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see dsm.TRADES.AbstractVulnerableAssetOwner
+	 * @generated
+	 */
+	public Adapter createAbstractVulnerableAssetOwnerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link dsm.TRADES.VulnerableAssetOwner <em>Vulnerable Asset Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see dsm.TRADES.VulnerableAssetOwner
+	 * @generated
+	 */
+	public Adapter createVulnerableAssetOwnerAdapter() {
 		return null;
 	}
 

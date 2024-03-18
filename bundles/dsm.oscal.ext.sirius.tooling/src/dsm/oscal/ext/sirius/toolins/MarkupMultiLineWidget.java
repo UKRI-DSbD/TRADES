@@ -14,6 +14,9 @@
 
 package dsm.oscal.ext.sirius.toolins;
 
+import static dsm.oscal.ext.matchers.FeatureMatchers.isAttributeTyped;
+import static dsm.oscal.ext.matchers.FeatureMatchers.isUnique;
+
 import java.text.MessageFormat;
 import java.util.function.Predicate;
 
@@ -24,19 +27,14 @@ import org.eclipse.sirius.editor.properties.api.IDefaultWidgetDescriptionFactory
 import org.eclipse.sirius.editor.properties.internal.Messages;
 import org.eclipse.sirius.properties.PropertiesFactory;
 import org.eclipse.sirius.properties.TextAreaDescription;
-import org.eclipse.sirius.properties.TextDescription;
 import org.eclipse.sirius.properties.TextWidgetConditionalStyle;
 import org.eclipse.sirius.properties.TextWidgetStyle;
 import org.eclipse.sirius.viewpoint.FontFormat;
 import org.eclipse.sirius.viewpoint.description.tool.ChangeContext;
 import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
-import org.eclipse.sirius.viewpoint.description.tool.SetValue;
 import org.eclipse.sirius.viewpoint.description.tool.ToolFactory;
 
-import gov.nist.secauto.metaschema.datatypes.markup.MarkupLine;
 import gov.nist.secauto.metaschema.datatypes.markup.MarkupMultiline;
-
-import static dsm.oscal.ext.matchers.FeatureMatchers.*;
 
 public class MarkupMultiLineWidget implements IDefaultWidgetDescriptionFactory {
 

@@ -13,12 +13,58 @@
  */
 package dsm.TRADES.util;
 
-import dsm.TRADES.*;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
+
+import dsm.TRADES.AbstractComponentTypeOwner;
+import dsm.TRADES.AbstractControlOwner;
+import dsm.TRADES.AbstractThreatOwner;
+import dsm.TRADES.AbstractVulnerabilityOwner;
+import dsm.TRADES.AbstractVulnerableAssetOwner;
+import dsm.TRADES.AffectRelation;
+import dsm.TRADES.Analysis;
+import dsm.TRADES.Asset;
+import dsm.TRADES.AttackChain;
+import dsm.TRADES.AttackChainStep;
+import dsm.TRADES.Catalog;
+import dsm.TRADES.ColoredElement;
+import dsm.TRADES.Component;
+import dsm.TRADES.ComponentOwner;
+import dsm.TRADES.ComponentType;
+import dsm.TRADES.ComponentTypeOwner;
+import dsm.TRADES.Control;
+import dsm.TRADES.ControlOwner;
+import dsm.TRADES.Data;
+import dsm.TRADES.DataOwner;
+import dsm.TRADES.DataOwnerElement;
+import dsm.TRADES.DifficultyScore;
+import dsm.TRADES.DomainAsset;
+import dsm.TRADES.ElementWithId;
+import dsm.TRADES.ExternalControl;
+import dsm.TRADES.ExternalElement;
+import dsm.TRADES.ExternalThreat;
+import dsm.TRADES.ICatalogDefinition;
+import dsm.TRADES.IControlDefinition;
+import dsm.TRADES.IElementWithSource;
+import dsm.TRADES.IMitigationLink;
+import dsm.TRADES.IThreatDefinition;
+import dsm.TRADES.ImpactConfiguration;
+import dsm.TRADES.ImpactScore;
+import dsm.TRADES.Link;
+import dsm.TRADES.LinkType;
+import dsm.TRADES.NamedElement;
+import dsm.TRADES.ScoreSystem;
+import dsm.TRADES.TRADESPackage;
+import dsm.TRADES.Threat;
+import dsm.TRADES.ThreatAllocationRelation;
+import dsm.TRADES.ThreatMitigationRelation;
+import dsm.TRADES.ThreatsOwner;
+import dsm.TRADES.VAOwner;
+import dsm.TRADES.Vulnerability;
+import dsm.TRADES.VulnerabilityOwner;
+import dsm.TRADES.VulnerableAsset;
+import dsm.TRADES.VulnerableAssetOwner;
 
 /**
  * <!-- begin-user-doc -->
@@ -93,9 +139,11 @@ public class TRADESSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseElementWithId(analysis);
 			if (result == null)
-				result = caseVulnerabilityOwner(analysis);
+				result = caseAbstractVulnerabilityOwner(analysis);
 			if (result == null)
-				result = caseComponentTypeOwner(analysis);
+				result = caseAbstractComponentTypeOwner(analysis);
+			if (result == null)
+				result = caseAbstractVulnerableAssetOwner(analysis);
 			if (result == null)
 				result = caseVAOwner(analysis);
 			if (result == null)
@@ -443,6 +491,13 @@ public class TRADESSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case TRADESPackage.ABSTRACT_VULNERABILITY_OWNER: {
+			AbstractVulnerabilityOwner abstractVulnerabilityOwner = (AbstractVulnerabilityOwner) theEObject;
+			T result = caseAbstractVulnerabilityOwner(abstractVulnerabilityOwner);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case TRADESPackage.VULNERABILITY_OWNER: {
 			VulnerabilityOwner vulnerabilityOwner = (VulnerabilityOwner) theEObject;
 			T result = caseVulnerabilityOwner(vulnerabilityOwner);
@@ -455,6 +510,13 @@ public class TRADESSwitch<T> extends Switch<T> {
 			T result = caseVulnerability(vulnerability);
 			if (result == null)
 				result = caseNamedElement(vulnerability);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case TRADESPackage.ABSTRACT_COMPONENT_TYPE_OWNER: {
+			AbstractComponentTypeOwner abstractComponentTypeOwner = (AbstractComponentTypeOwner) theEObject;
+			T result = caseAbstractComponentTypeOwner(abstractComponentTypeOwner);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -480,6 +542,20 @@ public class TRADESSwitch<T> extends Switch<T> {
 			T result = caseAsset(asset);
 			if (result == null)
 				result = caseNamedElement(asset);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case TRADESPackage.ABSTRACT_VULNERABLE_ASSET_OWNER: {
+			AbstractVulnerableAssetOwner abstractVulnerableAssetOwner = (AbstractVulnerableAssetOwner) theEObject;
+			T result = caseAbstractVulnerableAssetOwner(abstractVulnerableAssetOwner);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case TRADESPackage.VULNERABLE_ASSET_OWNER: {
+			VulnerableAssetOwner vulnerableAssetOwner = (VulnerableAssetOwner) theEObject;
+			T result = caseVulnerableAssetOwner(vulnerableAssetOwner);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -928,6 +1004,21 @@ public class TRADESSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Vulnerability Owner</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Vulnerability Owner</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractVulnerabilityOwner(AbstractVulnerabilityOwner object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IThreat Definition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1078,6 +1169,21 @@ public class TRADESSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Component Type Owner</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Component Type Owner</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractComponentTypeOwner(AbstractComponentTypeOwner object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Component Type Owner</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1119,6 +1225,36 @@ public class TRADESSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAsset(Asset object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Vulnerable Asset Owner</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Vulnerable Asset Owner</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractVulnerableAssetOwner(AbstractVulnerableAssetOwner object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Vulnerable Asset Owner</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Vulnerable Asset Owner</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVulnerableAssetOwner(VulnerableAssetOwner object) {
 		return null;
 	}
 

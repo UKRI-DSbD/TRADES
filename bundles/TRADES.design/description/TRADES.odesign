@@ -234,21 +234,21 @@
           <dropDescriptions href="../../dsm.oscal.design/description/oscal.odesign#//@ownedViewpoints[name='OscalViewPoint']/@ownedRepresentationExtensions[name='TRADES.design']/@layers[name='OscalLayer']/@toolSections.0/@ownedTools[name='DropOScalControl']"/>
           <dropDescriptions href="../../dsm.oscal.design/description/oscal.odesign#//@ownedViewpoints[name='OscalViewPoint']/@ownedRepresentationExtensions[name='TRADES.design']/@layers[name='OscalLayer']/@toolSections.0/@ownedTools[name='DropOScalControl_TDExt']"/>
           <dropDescriptions href="#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ExternalControlDrop_TD']"/>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" tooltipExpression="aql: name" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponetBGColor']" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponetBGColor']">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" tooltipExpression="aql: name" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelFormat>underline</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
           <conditionnalStyles predicateExpression="aql: self.vulnerableasset->notEmpty()">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql: 'Deperecated'" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponetBGColor']">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql: 'Deperecated'" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="aql: let AVAD=self.componenttype.eInverse('componentTypeAffected')->select(va | not(va.controls->exists(control | self.controlOwner.internals->includes(control) or self.controlOwner.externals->includes(control)))) AVAD->notEmpty()">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: self.name+' [VADs exist]'" tooltipExpression="aql: 'VADs: ' + self.componenttype.eInverse('componentTypeAffected')->select(va | not(va.controls->exists(control | self.controlOwner.internals->includes(control) or self.controlOwner.externals->includes(control)))).name)" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponetBGColor']">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: self.name+' [VADs exist]'" tooltipExpression="aql: 'VADs: ' + self.componenttype.eInverse('componentTypeAffected')->select(va | not(va.controls->exists(control | self.controlOwner.internals->includes(control) or self.controlOwner.externals->includes(control)))).name)" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -546,7 +546,7 @@
             <element name="element"/>
             <newViewContainer name="newContainerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:newSemanticContainer.copyTreat(element)">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:newSemanticContainer.copyThreat(element)">
                 <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@nodeMappings[name='ThreatNode_TD']" containerViewExpression="aql:newContainerView"/>
               </firstModelOperations>
             </initialOperation>
@@ -568,7 +568,7 @@
             <container name="container"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:For" expression="aql:element.oclAsType(TRADES::ExternalThreat)">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.oclAsType(TRADES::Analysis).copyTreat(i)">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.oclAsType(TRADES::Analysis).copyThreat(i)">
                   <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@nodeMappings[name='ThreatNode_TD']" containerViewExpression="var:containerView"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -697,7 +697,7 @@
           <dropDescriptions href="#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DropCatalogControl_TD']"/>
           <dropDescriptions href="../../dsm.oscal.design/description/oscal.odesign#//@ownedViewpoints[name='OscalViewPoint']/@ownedRepresentationExtensions[name='TRADES.design']/@layers[name='OscalLayer']/@toolSections.0/@ownedTools[name='DropOScalControl_TDExt']"/>
           <dropDescriptions href="#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ExternalControlDrop_TD']"/>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" backgroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponetBGColor']" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponetBGColor']">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" backgroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -735,7 +735,7 @@
             <container name="container"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:For" expression="aql:element.oclAsType(TRADES::ExternalThreat)">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.eContainer(TRADES::Analysis).copyTreat(i)">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.eContainer(TRADES::Analysis).copyThreat(i)">
                   <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@nodeMappings[name='ThreatNode_TD']" containerViewExpression="var:containerView"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -1067,7 +1067,7 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" widthComputationExpression="15" heightComputationExpression="15" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponetBGColor']" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponetBGColor']">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" widthComputationExpression="15" heightComputationExpression="15" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelFormat>underline</labelFormat>
@@ -1199,7 +1199,7 @@
         <containerMappings xsi:type="description_1:ContainerMappingImport" name="FitleredByDataComponent_DFD" semanticCandidatesExpression="aql:self.getRootAffectedComponentsByData()" domainClass="TRADES::Component" importedMapping="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@containerMappings[name='ComponentPackage_TD']">
           <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="FitleredByDataComponentChild_DFD" semanticCandidatesExpression="aql:self.getSubComponentAffectBy(diagram.target)" domainClass="TRADES::Component" reusedContainerMappings="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='DataFlowDiagram']/@defaultLayer/@containerMappings[name='FitleredByDataComponent_DFD']/@subContainerMappings[name='FitleredByDataComponentChild_DFD']" importedMapping="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@containerMappings[name='ComponentPackage_TD']">
             <conditionnalStyles predicateExpression="aql:self.isComponentDataPassThrough(view)">
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderLineStyle="dash" labelSize="12" showIcon="false" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponetBGColor']" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponetBGColor']">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderLineStyle="dash" labelSize="12" showIcon="false" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
                 <labelFormat>bold</labelFormat>
                 <labelFormat>underline</labelFormat>
@@ -1288,14 +1288,14 @@
             </style>
           </subNodeMappings>
           <subContainerMappings name="ComponentPackage_SD" detailDescriptions="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SubComponentDiagramCreation'] //@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ComponentDesignDiagramCreation']" navigationDescriptions="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ComponentDiagNavTool']" preconditionExpression="aql: self->notEmpty() = true" labelDirectEdit="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Change%20name']" semanticCandidatesExpression="aql:self.components" domainClass="TRADES::ComponentOwner" dropDescriptions="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DnDThreatOnComponent_TD'] //@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DropCatalogControl_TD'] //@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ExternalControlDrop_TD']" reusedNodeMappings="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@nodeMappings[name='ControlNode'] //@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='System%20Design']/@defaultLayer/@containerMappings[name='ComponentContainer_SD']/@subNodeMappings[name='componentLinks']" reusedContainerMappings="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='System%20Design']/@defaultLayer/@containerMappings[name='ComponentContainer_SD']/@subContainerMappings[name='ComponentPackage_SD']">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponetBGColor']" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponetBGColor']">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelFormat>underline</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" backgroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponetBGColor']" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponetBGColor']">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" backgroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -1605,21 +1605,21 @@
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql: self.name + '[' + self.componenttype.name->sep(';') + ']'" tooltipExpression="aql: name" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponetBGColor']" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponetBGColor']">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql: self.name + '[' + self.componenttype.name->sep(';') + ']'" tooltipExpression="aql: name" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelFormat>underline</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
           <conditionnalStyles predicateExpression="aql: self.vulnerableasset->notEmpty()">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql: self.name + '[' + self.componenttype.name->sep(';') + ']'" tooltipExpression="aql: 'Deperecated'" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponetBGColor']">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql: self.name + '[' + self.componenttype.name->sep(';') + ']'" tooltipExpression="aql: 'Deperecated'" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="aql: let AVAD=self.componenttype.eInverse('componentTypeAffected')->select(va | not(va.controls->exists(control | self.controlOwner.internals->includes(control) or self.controlOwner.externals->includes(control)))) AVAD->notEmpty()">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql: self.name + '[' + self.componenttype.name->sep(';') + ']'" tooltipExpression="aql: 'VADs: ' + self.componenttype.eInverse('componentTypeAffected')->select(va | not(va.controls->exists(control | self.controlOwner.internals->includes(control) or self.controlOwner.externals->includes(control)))).name)" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponetBGColor']">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql: self.name + '[' + self.componenttype.name->sep(';') + ']'" tooltipExpression="aql: 'VADs: ' + self.componenttype.eInverse('componentTypeAffected')->select(va | not(va.controls->exists(control | self.controlOwner.internals->includes(control) or self.controlOwner.externals->includes(control)))).name)" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -1917,7 +1917,7 @@
             <element name="element"/>
             <newViewContainer name="newContainerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:newSemanticContainer.copyTreat(element)">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:newSemanticContainer.copyThreat(element)">
                 <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@nodeMappings[name='ThreatNode_TD']" containerViewExpression="aql:newContainerView"/>
               </firstModelOperations>
             </initialOperation>
@@ -1939,7 +1939,7 @@
             <container name="container"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:For" expression="aql:element.oclAsType(TRADES::ExternalThreat)">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.oclAsType(TRADES::Analysis).copyTreat(i)">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.oclAsType(TRADES::Analysis).copyThreat(i)">
                   <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@nodeMappings[name='ThreatNode_TD']" containerViewExpression="var:containerView"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -2025,8 +2025,8 @@
   <userColorsPalettes name="Colors">
     <entries xsi:type="description:ComputedColor" name="HeatMapColorBackGround" red="aql:self.color.getRed()" green="aql:self.color.getGreen()" blue="aql:self.color.getBlue()"/>
     <entries xsi:type="description:ComputedColor" name="HeatMapColorForeground" red="aql:self.oclAsType(TRADES::ImpactConfiguration).color.getForegroundColorForColor().getRed()" green="aql:self.oclAsType(TRADES::ImpactConfiguration).color.getForegroundColorForColor().getGreen()" blue="aql:self.oclAsType(TRADES::ImpactConfiguration).color.getForegroundColorForColor().getBlue()"/>
-    <entries xsi:type="description:UserFixedColor" red="245" green="245" blue="245" name="ComponetBGColor"/>
-    <entries xsi:type="description:UserFixedColor" red="230" green="230" blue="230" name="ComponetDiagramBGColor"/>
+    <entries xsi:type="description:UserFixedColor" red="245" green="245" blue="245" name="ComponentBGColor"/>
+    <entries xsi:type="description:UserFixedColor" red="230" green="230" blue="230" name="ComponentDiagramBGColor"/>
     <entries xsi:type="description:ComputedColor" name="LinkTypeColor" red="aql:self.linkType.color.getRed()" green="aql:self.linkType.color.getGreen()" blue="aql:self.linkType.color.getBlue()"/>
     <entries xsi:type="description:ComputedColor" name="ControlStatusColor" red="aql: co" green="aql: self.status*1000" blue="aql: if(columnSemantic.status=TRADES::ControlStatusENUM::Rejected) then 1000 else 0"/>
   </userColorsPalettes>

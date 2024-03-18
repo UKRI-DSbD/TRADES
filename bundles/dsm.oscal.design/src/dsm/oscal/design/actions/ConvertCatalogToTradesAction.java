@@ -90,7 +90,7 @@ public class ConvertCatalogToTradesAction extends Action {
 							resource = rs.createResource(uri);
 						}
 
-						Analysis analysis = SemanticUtil.createInitialModel(analysisName);
+						Analysis analysis = SemanticUtil.createInitialModel(analysisName, "");
 						resource.getContents().add(analysis);
 						analysis.getControlOwner().getExternals().addAll(collectControl(catalog,analysisName));
 

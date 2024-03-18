@@ -15,8 +15,17 @@
  */
 package dsm.oscal.model.OscalCatalogCommon.util;
 
-import dsm.oscal.model.OscalCatalogCommon.*;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.util.Switch;
 
+import dsm.oscal.model.OscalCatalogCommon.OscalCatalogCommonPackage;
+import dsm.oscal.model.OscalCatalogCommon.Parameter;
+import dsm.oscal.model.OscalCatalogCommon.ParameterConstraint;
+import dsm.oscal.model.OscalCatalogCommon.ParameterConstraintTest;
+import dsm.oscal.model.OscalCatalogCommon.ParameterGuideline;
+import dsm.oscal.model.OscalCatalogCommon.ParameterSelection;
+import dsm.oscal.model.OscalCatalogCommon.Part;
 import dsm.oscal.model.OscalMetadata.DocumentationComputer;
 import dsm.oscal.model.OscalMetadata.ElementWithClazz;
 import dsm.oscal.model.OscalMetadata.ElementWithId;
@@ -25,11 +34,6 @@ import dsm.oscal.model.OscalMetadata.LinkOwner;
 import dsm.oscal.model.OscalMetadata.OscalElement;
 import dsm.oscal.model.OscalMetadata.PartOwner;
 import dsm.oscal.model.OscalMetadata.PropertyOwner;
-
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
-
-import org.eclipse.emf.ecore.util.Switch;
 
 /**
  * <!-- begin-user-doc -->

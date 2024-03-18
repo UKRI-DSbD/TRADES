@@ -15,17 +15,15 @@
  */
 package dsm.oscal.model.OscalMetadata.impl;
 
-import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
-import dsm.oscal.model.OscalMetadata.UUIDElement;
-
 import java.util.UUID;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
+import dsm.oscal.model.OscalMetadata.UUIDElement;
 
 /**
  * <!-- begin-user-doc -->

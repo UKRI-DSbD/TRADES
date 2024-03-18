@@ -56,4 +56,46 @@
             name="TRADES">
       </category>
    </extension>
+  <extension
+        point="org.eclipse.ui.importWizards">
+     <wizard
+           category="dsm.TRADES.rcp.import"
+           class="dsm.trades.rcp.internal.wizards.ImportCWECatalogWizard"
+           icon="icons/bookmarks_view.png"
+           id="dsm.cwe.design.importcwecatalog"
+           name="Import MITRE CWE Catalog">
+        <selection
+              class="org.eclipse.core.resources.IProject">
+        </selection>
+        <description>
+           Import an embedded MITRE CWE library
+        </description>
+     </wizard>
+  </extension>
+  <extension
+        point="org.eclipse.ui.importWizards">
+     <wizard
+           category="dsm.TRADES.rcp.import"
+           class="dsm.trades.rcp.internal.wizards.ImportCVECatalogWizard"
+           icon="icons/bookmarks_view.png"
+           id="dsm.cve.design.importcvecatalog"
+           name="Import CVEs from Component Types">
+        <selection
+              class="org.eclipse.core.resources.IProject">
+        </selection>
+     </wizard>
+  </extension>
+  <extension
+        point="org.eclipse.ui.importWizards">
+     <wizard
+           category="dsm.TRADES.rcp.import"
+           class="dsm.trades.rcp.internal.wizards.ImportCVEViaParametersWizard"
+           icon="icons/bookmarks_view.png"
+           id="dsm.cve.design.importcveviaparameters"
+           name="Import CVEs via URL Parameters">
+        <selection
+              class="org.eclipse.core.resources.IProject">
+        </selection>
+     </wizard>
+  </extension>
 </plugin>

@@ -54,7 +54,7 @@ public class CatalogSelectionPage extends WizardPage {
 
 	protected CatalogSelectionPage() {
 		super("Catalog selection page");
-		setMessage("Select a import type and choose a catalog.");
+		setMessage("Select an import type and choose a catalog.");
 	}
 
 	@Override

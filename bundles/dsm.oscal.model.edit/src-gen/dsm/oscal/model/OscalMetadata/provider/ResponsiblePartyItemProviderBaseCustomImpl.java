@@ -14,7 +14,6 @@
 package dsm.oscal.model.OscalMetadata.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
-import dsm.oscal.model.OscalMetadata.ResponsibleParty;
 
 public class ResponsiblePartyItemProviderBaseCustomImpl extends ResponsiblePartyItemProvider {
 	
