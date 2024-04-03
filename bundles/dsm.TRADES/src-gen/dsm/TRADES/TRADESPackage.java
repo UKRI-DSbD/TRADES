@@ -757,7 +757,7 @@ public interface TRADESPackage extends EPackage {
 	int CONTROL__SECURITY_OBJECTIVE = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Characteristics</b></em>' reference list.
+	 * The feature id for the '<em><b>Characteristics</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2006,7 +2006,7 @@ public interface TRADESPackage extends EPackage {
 	int EXTERNAL_CONTROL__SECURITY_OBJECTIVE = EXTERNAL_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Characteristics</b></em>' reference list.
+	 * The feature id for the '<em><b>Characteristics</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3824,10 +3824,10 @@ public interface TRADESPackage extends EPackage {
 	EAttribute getControl_SecurityObjective();
 
 	/**
-	 * Returns the meta object for the reference list '{@link dsm.TRADES.Control#getCharacteristics <em>Characteristics</em>}'.
+	 * Returns the meta object for the containment reference list '{@link dsm.TRADES.Control#getCharacteristics <em>Characteristics</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Characteristics</em>'.
+	 * @return the meta object for the containment reference list '<em>Characteristics</em>'.
 	 * @see dsm.TRADES.Control#getCharacteristics()
 	 * @see #getControl()
 	 * @generated
@@ -5603,7 +5603,7 @@ public interface TRADESPackage extends EPackage {
 		EAttribute CONTROL__SECURITY_OBJECTIVE = eINSTANCE.getControl_SecurityObjective();
 
 		/**
-		 * The meta object literal for the '<em><b>Characteristics</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Characteristics</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

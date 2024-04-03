@@ -150,13 +150,13 @@ public interface Control extends NamedElement, IControlDefinition, ElementWithId
 	void setSecurityObjective(SecurityObjectiveENUM value);
 
 	/**
-	 * Returns the value of the '<em><b>Characteristics</b></em>' reference list.
+	 * Returns the value of the '<em><b>Characteristics</b></em>' containment reference list.
 	 * The list contents are of type {@link dsm.TRADES.Characteristic}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Characteristics</em>' reference list.
+	 * @return the value of the '<em>Characteristics</em>' containment reference list.
 	 * @see dsm.TRADES.TRADESPackage#getControl_Characteristics()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Characteristic> getCharacteristics();

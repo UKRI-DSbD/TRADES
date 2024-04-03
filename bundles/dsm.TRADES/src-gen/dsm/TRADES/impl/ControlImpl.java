@@ -22,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -171,7 +172,7 @@ public class ControlImpl extends NamedElementImpl implements Control {
 	protected SecurityObjectiveENUM securityObjective = SECURITY_OBJECTIVE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCharacteristics() <em>Characteristics</em>}' reference list.
+	 * The cached value of the '{@link #getCharacteristics() <em>Characteristics</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCharacteristics()
@@ -344,7 +345,7 @@ public class ControlImpl extends NamedElementImpl implements Control {
 	@Override
 	public EList<Characteristic> getCharacteristics() {
 		if (characteristics == null) {
-			characteristics = new EObjectResolvingEList<Characteristic>(Characteristic.class, this,
+			characteristics = new EObjectContainmentEList<Characteristic>(Characteristic.class, this,
 					TRADESPackage.CONTROL__CHARACTERISTICS);
 		}
 		return characteristics;
@@ -412,6 +413,8 @@ public class ControlImpl extends NamedElementImpl implements Control {
 		switch (featureID) {
 		case TRADESPackage.CONTROL__MITIGATION_RELATIONS:
 			return ((InternalEList<?>) getMitigationRelations()).basicRemove(otherEnd, msgs);
+		case TRADESPackage.CONTROL__CHARACTERISTICS:
+			return ((InternalEList<?>) getCharacteristics()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
