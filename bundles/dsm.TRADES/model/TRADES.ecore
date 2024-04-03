@@ -56,7 +56,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="securityObjective" eType="#//SecurityObjectiveENUM"
         defaultValueLiteral="Undefined"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="characteristics" upperBound="-1"
-        eType="#//Characteristic"/>
+        eType="#//Characteristic" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ThreatAllocationRelation">
     <eOperations name="checkComputedDifficultyConstraint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
