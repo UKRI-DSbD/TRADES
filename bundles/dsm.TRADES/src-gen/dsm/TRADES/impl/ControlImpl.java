@@ -51,6 +51,7 @@ import dsm.TRADES.Vulnerability;
  *   <li>{@link dsm.TRADES.impl.ControlImpl#getId <em>Id</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ControlImpl#getMitigatedThreats <em>Mitigated Threats</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ControlImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ControlImpl#getDescriptionWithPlaceholders <em>Description With Placeholders</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ControlImpl#getMitigationRelations <em>Mitigation Relations</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ControlImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ControlImpl#getMitigatesVulnerability <em>Mitigates Vulnerability</em>}</li>
@@ -110,6 +111,26 @@ public class ControlImpl extends NamedElementImpl implements Control {
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDescriptionWithPlaceholders() <em>Description With Placeholders</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescriptionWithPlaceholders()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_WITH_PLACEHOLDERS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescriptionWithPlaceholders() <em>Description With Placeholders</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescriptionWithPlaceholders()
+	 * @generated
+	 * @ordered
+	 */
+	protected String descriptionWithPlaceholders = DESCRIPTION_WITH_PLACEHOLDERS_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getMitigationRelations() <em>Mitigation Relations</em>}' containment reference list.
@@ -259,6 +280,30 @@ public class ControlImpl extends NamedElementImpl implements Control {
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.CONTROL__DESCRIPTION, oldDescription,
 					description));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getDescriptionWithPlaceholders() {
+		return descriptionWithPlaceholders;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDescriptionWithPlaceholders(String newDescriptionWithPlaceholders) {
+		String oldDescriptionWithPlaceholders = descriptionWithPlaceholders;
+		descriptionWithPlaceholders = newDescriptionWithPlaceholders;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.CONTROL__DESCRIPTION_WITH_PLACEHOLDERS,
+					oldDescriptionWithPlaceholders, descriptionWithPlaceholders));
 	}
 
 	/**
@@ -433,6 +478,8 @@ public class ControlImpl extends NamedElementImpl implements Control {
 			return getMitigatedThreats();
 		case TRADESPackage.CONTROL__DESCRIPTION:
 			return getDescription();
+		case TRADESPackage.CONTROL__DESCRIPTION_WITH_PLACEHOLDERS:
+			return getDescriptionWithPlaceholders();
 		case TRADESPackage.CONTROL__MITIGATION_RELATIONS:
 			return getMitigationRelations();
 		case TRADESPackage.CONTROL__STATUS:
@@ -465,6 +512,9 @@ public class ControlImpl extends NamedElementImpl implements Control {
 			return;
 		case TRADESPackage.CONTROL__DESCRIPTION:
 			setDescription((String) newValue);
+			return;
+		case TRADESPackage.CONTROL__DESCRIPTION_WITH_PLACEHOLDERS:
+			setDescriptionWithPlaceholders((String) newValue);
 			return;
 		case TRADESPackage.CONTROL__MITIGATION_RELATIONS:
 			getMitigationRelations().clear();
@@ -505,6 +555,9 @@ public class ControlImpl extends NamedElementImpl implements Control {
 		case TRADESPackage.CONTROL__DESCRIPTION:
 			setDescription(DESCRIPTION_EDEFAULT);
 			return;
+		case TRADESPackage.CONTROL__DESCRIPTION_WITH_PLACEHOLDERS:
+			setDescriptionWithPlaceholders(DESCRIPTION_WITH_PLACEHOLDERS_EDEFAULT);
+			return;
 		case TRADESPackage.CONTROL__MITIGATION_RELATIONS:
 			getMitigationRelations().clear();
 			return;
@@ -538,6 +591,9 @@ public class ControlImpl extends NamedElementImpl implements Control {
 			return mitigatedThreats != null && !mitigatedThreats.isEmpty();
 		case TRADESPackage.CONTROL__DESCRIPTION:
 			return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+		case TRADESPackage.CONTROL__DESCRIPTION_WITH_PLACEHOLDERS:
+			return DESCRIPTION_WITH_PLACEHOLDERS_EDEFAULT == null ? descriptionWithPlaceholders != null
+					: !DESCRIPTION_WITH_PLACEHOLDERS_EDEFAULT.equals(descriptionWithPlaceholders);
 		case TRADESPackage.CONTROL__MITIGATION_RELATIONS:
 			return mitigationRelations != null && !mitigationRelations.isEmpty();
 		case TRADESPackage.CONTROL__STATUS:
@@ -685,6 +741,8 @@ public class ControlImpl extends NamedElementImpl implements Control {
 		result.append(id);
 		result.append(", description: ");
 		result.append(description);
+		result.append(", descriptionWithPlaceholders: ");
+		result.append(descriptionWithPlaceholders);
 		result.append(", status: ");
 		result.append(status);
 		result.append(", securityObjective: ");

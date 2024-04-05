@@ -26,6 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link dsm.TRADES.Control#getMitigatedThreats <em>Mitigated Threats</em>}</li>
  *   <li>{@link dsm.TRADES.Control#getDescription <em>Description</em>}</li>
+ *   <li>{@link dsm.TRADES.Control#getDescriptionWithPlaceholders <em>Description With Placeholders</em>}</li>
  *   <li>{@link dsm.TRADES.Control#getMitigationRelations <em>Mitigation Relations</em>}</li>
  *   <li>{@link dsm.TRADES.Control#getStatus <em>Status</em>}</li>
  *   <li>{@link dsm.TRADES.Control#getMitigatesVulnerability <em>Mitigates Vulnerability</em>}</li>
@@ -71,6 +72,28 @@ public interface Control extends NamedElement, IControlDefinition, ElementWithId
 	 * @generated
 	 */
 	void setDescription(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Description With Placeholders</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description With Placeholders</em>' attribute.
+	 * @see #setDescriptionWithPlaceholders(String)
+	 * @see dsm.TRADES.TRADESPackage#getControl_DescriptionWithPlaceholders()
+	 * @model
+	 * @generated
+	 */
+	String getDescriptionWithPlaceholders();
+
+	/**
+	 * Sets the value of the '{@link dsm.TRADES.Control#getDescriptionWithPlaceholders <em>Description With Placeholders</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description With Placeholders</em>' attribute.
+	 * @see #getDescriptionWithPlaceholders()
+	 * @generated
+	 */
+	void setDescriptionWithPlaceholders(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Mitigation Relations</b></em>' containment reference list.

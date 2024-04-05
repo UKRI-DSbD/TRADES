@@ -721,13 +721,22 @@ public interface TRADESPackage extends EPackage {
 	int CONTROL__DESCRIPTION = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Description With Placeholders</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL__DESCRIPTION_WITH_PLACEHOLDERS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Mitigation Relations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROL__MITIGATION_RELATIONS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int CONTROL__MITIGATION_RELATIONS = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
@@ -736,7 +745,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROL__STATUS = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int CONTROL__STATUS = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Mitigates Vulnerability</b></em>' reference list.
@@ -745,7 +754,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROL__MITIGATES_VULNERABILITY = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int CONTROL__MITIGATES_VULNERABILITY = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Security Objective</b></em>' attribute.
@@ -754,7 +763,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROL__SECURITY_OBJECTIVE = NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int CONTROL__SECURITY_OBJECTIVE = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Characteristics</b></em>' containment reference list.
@@ -763,7 +772,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROL__CHARACTERISTICS = NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int CONTROL__CHARACTERISTICS = NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Control</em>' class.
@@ -772,7 +781,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int CONTROL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Get Source Name</em>' operation.
@@ -1970,13 +1979,22 @@ public interface TRADESPackage extends EPackage {
 	int EXTERNAL_CONTROL__DESCRIPTION = EXTERNAL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Description With Placeholders</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_CONTROL__DESCRIPTION_WITH_PLACEHOLDERS = EXTERNAL_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Mitigation Relations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_CONTROL__MITIGATION_RELATIONS = EXTERNAL_ELEMENT_FEATURE_COUNT + 4;
+	int EXTERNAL_CONTROL__MITIGATION_RELATIONS = EXTERNAL_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
@@ -1985,7 +2003,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_CONTROL__STATUS = EXTERNAL_ELEMENT_FEATURE_COUNT + 5;
+	int EXTERNAL_CONTROL__STATUS = EXTERNAL_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Mitigates Vulnerability</b></em>' reference list.
@@ -1994,7 +2012,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_CONTROL__MITIGATES_VULNERABILITY = EXTERNAL_ELEMENT_FEATURE_COUNT + 6;
+	int EXTERNAL_CONTROL__MITIGATES_VULNERABILITY = EXTERNAL_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Security Objective</b></em>' attribute.
@@ -2003,7 +2021,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_CONTROL__SECURITY_OBJECTIVE = EXTERNAL_ELEMENT_FEATURE_COUNT + 7;
+	int EXTERNAL_CONTROL__SECURITY_OBJECTIVE = EXTERNAL_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Characteristics</b></em>' containment reference list.
@@ -2012,7 +2030,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_CONTROL__CHARACTERISTICS = EXTERNAL_ELEMENT_FEATURE_COUNT + 8;
+	int EXTERNAL_CONTROL__CHARACTERISTICS = EXTERNAL_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>External Control</em>' class.
@@ -2021,7 +2039,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_CONTROL_FEATURE_COUNT = EXTERNAL_ELEMENT_FEATURE_COUNT + 9;
+	int EXTERNAL_CONTROL_FEATURE_COUNT = EXTERNAL_ELEMENT_FEATURE_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Get Source Name</em>' operation.
@@ -3778,6 +3796,17 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getControl_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.Control#getDescriptionWithPlaceholders <em>Description With Placeholders</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description With Placeholders</em>'.
+	 * @see dsm.TRADES.Control#getDescriptionWithPlaceholders()
+	 * @see #getControl()
+	 * @generated
+	 */
+	EAttribute getControl_DescriptionWithPlaceholders();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link dsm.TRADES.Control#getMitigationRelations <em>Mitigation Relations</em>}'.
@@ -5569,6 +5598,14 @@ public interface TRADESPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONTROL__DESCRIPTION = eINSTANCE.getControl_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Description With Placeholders</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTROL__DESCRIPTION_WITH_PLACEHOLDERS = eINSTANCE.getControl_DescriptionWithPlaceholders();
 
 		/**
 		 * The meta object literal for the '<em><b>Mitigation Relations</b></em>' containment reference list feature.

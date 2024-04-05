@@ -786,8 +786,18 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getControl_DescriptionWithPlaceholders() {
+		return (EAttribute) controlEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getControl_MitigationRelations() {
-		return (EReference) controlEClass.getEStructuralFeatures().get(2);
+		return (EReference) controlEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -797,7 +807,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 */
 	@Override
 	public EAttribute getControl_Status() {
-		return (EAttribute) controlEClass.getEStructuralFeatures().get(3);
+		return (EAttribute) controlEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -807,7 +817,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 */
 	@Override
 	public EReference getControl_MitigatesVulnerability() {
-		return (EReference) controlEClass.getEStructuralFeatures().get(4);
+		return (EReference) controlEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -817,7 +827,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 */
 	@Override
 	public EAttribute getControl_SecurityObjective() {
-		return (EAttribute) controlEClass.getEStructuralFeatures().get(5);
+		return (EAttribute) controlEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -827,7 +837,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 */
 	@Override
 	public EReference getControl_Characteristics() {
-		return (EReference) controlEClass.getEStructuralFeatures().get(6);
+		return (EReference) controlEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -2336,6 +2346,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		controlEClass = createEClass(CONTROL);
 		createEReference(controlEClass, CONTROL__MITIGATED_THREATS);
 		createEAttribute(controlEClass, CONTROL__DESCRIPTION);
+		createEAttribute(controlEClass, CONTROL__DESCRIPTION_WITH_PLACEHOLDERS);
 		createEReference(controlEClass, CONTROL__MITIGATION_RELATIONS);
 		createEAttribute(controlEClass, CONTROL__STATUS);
 		createEReference(controlEClass, CONTROL__MITIGATES_VULNERABILITY);
@@ -2688,6 +2699,9 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getControl_Description(), ecorePackage.getEString(), "description", null, 0, 1, Control.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getControl_DescriptionWithPlaceholders(), ecorePackage.getEString(),
+				"descriptionWithPlaceholders", null, 0, 1, Control.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getControl_MitigationRelations(), this.getThreatMitigationRelation(),
 				this.getThreatMitigationRelation_Control(), "mitigationRelations", null, 0, -1, Control.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,

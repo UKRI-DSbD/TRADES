@@ -54,6 +54,7 @@ import dsm.TRADES.Vulnerability;
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getId <em>Id</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getMitigatedThreats <em>Mitigated Threats</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getDescriptionWithPlaceholders <em>Description With Placeholders</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getMitigationRelations <em>Mitigation Relations</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getMitigatesVulnerability <em>Mitigates Vulnerability</em>}</li>
@@ -133,6 +134,26 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDescriptionWithPlaceholders() <em>Description With Placeholders</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescriptionWithPlaceholders()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_WITH_PLACEHOLDERS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescriptionWithPlaceholders() <em>Description With Placeholders</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescriptionWithPlaceholders()
+	 * @generated
+	 * @ordered
+	 */
+	protected String descriptionWithPlaceholders = DESCRIPTION_WITH_PLACEHOLDERS_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getMitigationRelations() <em>Mitigation Relations</em>}' containment reference list.
@@ -313,6 +334,31 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 	 * @generated
 	 */
 	@Override
+	public String getDescriptionWithPlaceholders() {
+		return descriptionWithPlaceholders;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDescriptionWithPlaceholders(String newDescriptionWithPlaceholders) {
+		String oldDescriptionWithPlaceholders = descriptionWithPlaceholders;
+		descriptionWithPlaceholders = newDescriptionWithPlaceholders;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION_WITH_PLACEHOLDERS, oldDescriptionWithPlaceholders,
+					descriptionWithPlaceholders));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<ThreatMitigationRelation> getMitigationRelations() {
 		if (mitigationRelations == null) {
 			mitigationRelations = new EObjectContainmentWithInverseEList<ThreatMitigationRelation>(
@@ -482,6 +528,8 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 			return getMitigatedThreats();
 		case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION:
 			return getDescription();
+		case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION_WITH_PLACEHOLDERS:
+			return getDescriptionWithPlaceholders();
 		case TRADESPackage.EXTERNAL_CONTROL__MITIGATION_RELATIONS:
 			return getMitigationRelations();
 		case TRADESPackage.EXTERNAL_CONTROL__STATUS:
@@ -517,6 +565,9 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 			return;
 		case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION:
 			setDescription((String) newValue);
+			return;
+		case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION_WITH_PLACEHOLDERS:
+			setDescriptionWithPlaceholders((String) newValue);
 			return;
 		case TRADESPackage.EXTERNAL_CONTROL__MITIGATION_RELATIONS:
 			getMitigationRelations().clear();
@@ -560,6 +611,9 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 		case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION:
 			setDescription(DESCRIPTION_EDEFAULT);
 			return;
+		case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION_WITH_PLACEHOLDERS:
+			setDescriptionWithPlaceholders(DESCRIPTION_WITH_PLACEHOLDERS_EDEFAULT);
+			return;
 		case TRADESPackage.EXTERNAL_CONTROL__MITIGATION_RELATIONS:
 			getMitigationRelations().clear();
 			return;
@@ -595,6 +649,9 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 			return mitigatedThreats != null && !mitigatedThreats.isEmpty();
 		case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION:
 			return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+		case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION_WITH_PLACEHOLDERS:
+			return DESCRIPTION_WITH_PLACEHOLDERS_EDEFAULT == null ? descriptionWithPlaceholders != null
+					: !DESCRIPTION_WITH_PLACEHOLDERS_EDEFAULT.equals(descriptionWithPlaceholders);
 		case TRADESPackage.EXTERNAL_CONTROL__MITIGATION_RELATIONS:
 			return mitigationRelations != null && !mitigationRelations.isEmpty();
 		case TRADESPackage.EXTERNAL_CONTROL__STATUS:
@@ -650,6 +707,8 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 				return TRADESPackage.CONTROL__MITIGATED_THREATS;
 			case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION:
 				return TRADESPackage.CONTROL__DESCRIPTION;
+			case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION_WITH_PLACEHOLDERS:
+				return TRADESPackage.CONTROL__DESCRIPTION_WITH_PLACEHOLDERS;
 			case TRADESPackage.EXTERNAL_CONTROL__MITIGATION_RELATIONS:
 				return TRADESPackage.CONTROL__MITIGATION_RELATIONS;
 			case TRADESPackage.EXTERNAL_CONTROL__STATUS:
@@ -708,6 +767,8 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 				return TRADESPackage.EXTERNAL_CONTROL__MITIGATED_THREATS;
 			case TRADESPackage.CONTROL__DESCRIPTION:
 				return TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION;
+			case TRADESPackage.CONTROL__DESCRIPTION_WITH_PLACEHOLDERS:
+				return TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION_WITH_PLACEHOLDERS;
 			case TRADESPackage.CONTROL__MITIGATION_RELATIONS:
 				return TRADESPackage.EXTERNAL_CONTROL__MITIGATION_RELATIONS;
 			case TRADESPackage.CONTROL__STATUS:
@@ -812,6 +873,8 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 		result.append(id);
 		result.append(", description: ");
 		result.append(description);
+		result.append(", descriptionWithPlaceholders: ");
+		result.append(descriptionWithPlaceholders);
 		result.append(", status: ");
 		result.append(status);
 		result.append(", securityObjective: ");

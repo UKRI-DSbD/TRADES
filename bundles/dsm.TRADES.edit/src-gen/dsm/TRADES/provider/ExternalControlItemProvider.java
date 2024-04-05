@@ -60,6 +60,7 @@ public class ExternalControlItemProvider extends ExternalElementItemProvider {
 			addIdPropertyDescriptor(object);
 			addMitigatedThreatsPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
+			addDescriptionWithPlaceholdersPropertyDescriptor(object);
 			addMitigationRelationsPropertyDescriptor(object);
 			addStatusPropertyDescriptor(object);
 			addMitigatesVulnerabilityPropertyDescriptor(object);
@@ -129,6 +130,22 @@ public class ExternalControlItemProvider extends ExternalElementItemProvider {
 								"_UI_Control_type"),
 						TRADESPackage.Literals.CONTROL__DESCRIPTION, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Description With Placeholders feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionWithPlaceholdersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Control_descriptionWithPlaceholders_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Control_descriptionWithPlaceholders_feature",
+						"_UI_Control_type"),
+				TRADESPackage.Literals.CONTROL__DESCRIPTION_WITH_PLACEHOLDERS, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -273,6 +290,7 @@ public class ExternalControlItemProvider extends ExternalElementItemProvider {
 		case TRADESPackage.EXTERNAL_CONTROL__NAME:
 		case TRADESPackage.EXTERNAL_CONTROL__ID:
 		case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION:
+		case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION_WITH_PLACEHOLDERS:
 		case TRADESPackage.EXTERNAL_CONTROL__STATUS:
 		case TRADESPackage.EXTERNAL_CONTROL__SECURITY_OBJECTIVE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

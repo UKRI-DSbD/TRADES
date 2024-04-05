@@ -59,6 +59,7 @@ public class ControlItemProvider extends NamedElementItemProvider {
 			addIdPropertyDescriptor(object);
 			addMitigatedThreatsPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
+			addDescriptionWithPlaceholdersPropertyDescriptor(object);
 			addMitigationRelationsPropertyDescriptor(object);
 			addStatusPropertyDescriptor(object);
 			addMitigatesVulnerabilityPropertyDescriptor(object);
@@ -112,6 +113,22 @@ public class ControlItemProvider extends NamedElementItemProvider {
 								"_UI_Control_type"),
 						TRADESPackage.Literals.CONTROL__DESCRIPTION, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Description With Placeholders feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionWithPlaceholdersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Control_descriptionWithPlaceholders_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Control_descriptionWithPlaceholders_feature",
+						"_UI_Control_type"),
+				TRADESPackage.Literals.CONTROL__DESCRIPTION_WITH_PLACEHOLDERS, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -255,6 +272,7 @@ public class ControlItemProvider extends NamedElementItemProvider {
 		switch (notification.getFeatureID(Control.class)) {
 		case TRADESPackage.CONTROL__ID:
 		case TRADESPackage.CONTROL__DESCRIPTION:
+		case TRADESPackage.CONTROL__DESCRIPTION_WITH_PLACEHOLDERS:
 		case TRADESPackage.CONTROL__STATUS:
 		case TRADESPackage.CONTROL__SECURITY_OBJECTIVE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
