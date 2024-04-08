@@ -92,6 +92,7 @@ public class OscalDesignService {
 				// The user canceled the action
 				return null;
 			}
+			extControl.setDescriptionWithPlaceholders(DocumentationComputer.computeDocumentation(control, false, idToValue));
 			extControl.setDescription(DocumentationComputer.computeDocumentation(control, true, idToValue));
 			// Keeps the entered value in the OSCAL model for next use
 		}
