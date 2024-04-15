@@ -23,40 +23,40 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import dsm.TRADES.Rule;
+import dsm.TRADES.RuleOwner;
 import dsm.TRADES.TRADESPackage;
-import dsm.TRADES.VulnerableAsset;
-import dsm.TRADES.VulnerableAssetOwner;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Vulnerable Asset Owner</b></em>'.
+ * An implementation of the model object '<em><b>Rule Owner</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dsm.TRADES.impl.VulnerableAssetOwnerImpl#getVulnerableAssets <em>Vulnerable Assets</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.RuleOwnerImpl#getRules <em>Rules</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class VulnerableAssetOwnerImpl extends MinimalEObjectImpl.Container implements VulnerableAssetOwner {
+public class RuleOwnerImpl extends MinimalEObjectImpl.Container implements RuleOwner {
 	/**
-	 * The cached value of the '{@link #getVulnerableAssets() <em>Vulnerable Assets</em>}' containment reference list.
+	 * The cached value of the '{@link #getRules() <em>Rules</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVulnerableAssets()
+	 * @see #getRules()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<VulnerableAsset> vulnerableAssets;
+	protected EList<Rule> rules;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected VulnerableAssetOwnerImpl() {
+	protected RuleOwnerImpl() {
 		super();
 	}
 
@@ -67,7 +67,7 @@ public class VulnerableAssetOwnerImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return TRADESPackage.Literals.VULNERABLE_ASSET_OWNER;
+		return TRADESPackage.Literals.RULE_OWNER;
 	}
 
 	/**
@@ -76,12 +76,11 @@ public class VulnerableAssetOwnerImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 */
 	@Override
-	public EList<VulnerableAsset> getVulnerableAssets() {
-		if (vulnerableAssets == null) {
-			vulnerableAssets = new EObjectContainmentEList<VulnerableAsset>(VulnerableAsset.class, this,
-					TRADESPackage.VULNERABLE_ASSET_OWNER__VULNERABLE_ASSETS);
+	public EList<Rule> getRules() {
+		if (rules == null) {
+			rules = new EObjectContainmentEList<Rule>(Rule.class, this, TRADESPackage.RULE_OWNER__RULES);
 		}
-		return vulnerableAssets;
+		return rules;
 	}
 
 	/**
@@ -92,8 +91,8 @@ public class VulnerableAssetOwnerImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case TRADESPackage.VULNERABLE_ASSET_OWNER__VULNERABLE_ASSETS:
-			return ((InternalEList<?>) getVulnerableAssets()).basicRemove(otherEnd, msgs);
+		case TRADESPackage.RULE_OWNER__RULES:
+			return ((InternalEList<?>) getRules()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -106,8 +105,8 @@ public class VulnerableAssetOwnerImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TRADESPackage.VULNERABLE_ASSET_OWNER__VULNERABLE_ASSETS:
-			return getVulnerableAssets();
+		case TRADESPackage.RULE_OWNER__RULES:
+			return getRules();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -121,9 +120,9 @@ public class VulnerableAssetOwnerImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TRADESPackage.VULNERABLE_ASSET_OWNER__VULNERABLE_ASSETS:
-			getVulnerableAssets().clear();
-			getVulnerableAssets().addAll((Collection<? extends VulnerableAsset>) newValue);
+		case TRADESPackage.RULE_OWNER__RULES:
+			getRules().clear();
+			getRules().addAll((Collection<? extends Rule>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -137,8 +136,8 @@ public class VulnerableAssetOwnerImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TRADESPackage.VULNERABLE_ASSET_OWNER__VULNERABLE_ASSETS:
-			getVulnerableAssets().clear();
+		case TRADESPackage.RULE_OWNER__RULES:
+			getRules().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -152,10 +151,10 @@ public class VulnerableAssetOwnerImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TRADESPackage.VULNERABLE_ASSET_OWNER__VULNERABLE_ASSETS:
-			return vulnerableAssets != null && !vulnerableAssets.isEmpty();
+		case TRADESPackage.RULE_OWNER__RULES:
+			return rules != null && !rules.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //VulnerableAssetOwnerImpl
+} //RuleOwnerImpl

@@ -26,9 +26,9 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import dsm.TRADES.AbstractComponentTypeOwner;
 import dsm.TRADES.AbstractControlOwner;
+import dsm.TRADES.AbstractRuleOwner;
 import dsm.TRADES.AbstractThreatOwner;
 import dsm.TRADES.AbstractVulnerabilityOwner;
-import dsm.TRADES.AbstractVulnerableAssetOwner;
 import dsm.TRADES.AffectRelation;
 import dsm.TRADES.AffectedENUM;
 import dsm.TRADES.Analysis;
@@ -67,6 +67,8 @@ import dsm.TRADES.Link;
 import dsm.TRADES.LinkType;
 import dsm.TRADES.NamedElement;
 import dsm.TRADES.RGBColor;
+import dsm.TRADES.Rule;
+import dsm.TRADES.RuleOwner;
 import dsm.TRADES.ScoreSystem;
 import dsm.TRADES.SecurityObjectiveENUM;
 import dsm.TRADES.TRADESFactory;
@@ -75,12 +77,9 @@ import dsm.TRADES.Threat;
 import dsm.TRADES.ThreatAllocationRelation;
 import dsm.TRADES.ThreatMitigationRelation;
 import dsm.TRADES.ThreatsOwner;
-import dsm.TRADES.VAOwner;
 import dsm.TRADES.Vulnerability;
 import dsm.TRADES.VulnerabilityOwner;
 import dsm.TRADES.VulnerabilityTypeENUM;
-import dsm.TRADES.VulnerableAsset;
-import dsm.TRADES.VulnerableAssetOwner;
 import dsm.TRADES.threatTypeENUM;
 import dsm.TRADES.util.TRADESValidator;
 
@@ -397,28 +396,21 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass abstractVulnerableAssetOwnerEClass = null;
+	private EClass abstractRuleOwnerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass vulnerableAssetOwnerEClass = null;
+	private EClass ruleOwnerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass vulnerableAssetEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass vaOwnerEClass = null;
+	private EClass ruleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -814,7 +806,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getComponent_VulnerableAsset() {
+	public EReference getComponent_Rule() {
 		return (EReference) componentEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -2334,8 +2326,8 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getAbstractVulnerableAssetOwner() {
-		return abstractVulnerableAssetOwnerEClass;
+	public EClass getAbstractRuleOwner() {
+		return abstractRuleOwnerEClass;
 	}
 
 	/**
@@ -2344,8 +2336,8 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getAbstractVulnerableAssetOwner_VulnerableAssetOwner() {
-		return (EReference) abstractVulnerableAssetOwnerEClass.getEStructuralFeatures().get(0);
+	public EReference getAbstractRuleOwner_RuleOwner() {
+		return (EReference) abstractRuleOwnerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2354,8 +2346,8 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getVulnerableAssetOwner() {
-		return vulnerableAssetOwnerEClass;
+	public EClass getRuleOwner() {
+		return ruleOwnerEClass;
 	}
 
 	/**
@@ -2364,8 +2356,8 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getVulnerableAssetOwner_VulnerableAssets() {
-		return (EReference) vulnerableAssetOwnerEClass.getEStructuralFeatures().get(0);
+	public EReference getRuleOwner_Rules() {
+		return (EReference) ruleOwnerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2374,8 +2366,8 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getVulnerableAsset() {
-		return vulnerableAssetEClass;
+	public EClass getRule() {
+		return ruleEClass;
 	}
 
 	/**
@@ -2384,8 +2376,8 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getVulnerableAsset_Vulnerability() {
-		return (EReference) vulnerableAssetEClass.getEStructuralFeatures().get(0);
+	public EReference getRule_Vulnerability() {
+		return (EReference) ruleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2394,8 +2386,8 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getVulnerableAsset_ComponentTypeAffected() {
-		return (EReference) vulnerableAssetEClass.getEStructuralFeatures().get(1);
+	public EReference getRule_ComponentTypeAffected() {
+		return (EReference) ruleEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2404,28 +2396,8 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getVulnerableAsset_Controls() {
-		return (EReference) vulnerableAssetEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getVAOwner() {
-		return vaOwnerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getVAOwner_VulnerableAsset() {
-		return (EReference) vaOwnerEClass.getEStructuralFeatures().get(0);
+	public EReference getRule_Controls() {
+		return (EReference) ruleEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2615,7 +2587,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		createEReference(componentEClass, COMPONENT__AFFECT_RELATIONS);
 		createEReference(componentEClass, COMPONENT__LINKS);
 		createEReference(componentEClass, COMPONENT__COMPONENT_TYPE);
-		createEReference(componentEClass, COMPONENT__VULNERABLE_ASSET);
+		createEReference(componentEClass, COMPONENT__RULE);
 		createEReference(componentEClass, COMPONENT__ASSIGNED_CONTROL);
 		createEAttribute(componentEClass, COMPONENT__VULNERABLE);
 		createEReference(componentEClass, COMPONENT__CVA);
@@ -2809,19 +2781,16 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 
 		assetEClass = createEClass(ASSET);
 
-		abstractVulnerableAssetOwnerEClass = createEClass(ABSTRACT_VULNERABLE_ASSET_OWNER);
-		createEReference(abstractVulnerableAssetOwnerEClass, ABSTRACT_VULNERABLE_ASSET_OWNER__VULNERABLE_ASSET_OWNER);
+		abstractRuleOwnerEClass = createEClass(ABSTRACT_RULE_OWNER);
+		createEReference(abstractRuleOwnerEClass, ABSTRACT_RULE_OWNER__RULE_OWNER);
 
-		vulnerableAssetOwnerEClass = createEClass(VULNERABLE_ASSET_OWNER);
-		createEReference(vulnerableAssetOwnerEClass, VULNERABLE_ASSET_OWNER__VULNERABLE_ASSETS);
+		ruleOwnerEClass = createEClass(RULE_OWNER);
+		createEReference(ruleOwnerEClass, RULE_OWNER__RULES);
 
-		vulnerableAssetEClass = createEClass(VULNERABLE_ASSET);
-		createEReference(vulnerableAssetEClass, VULNERABLE_ASSET__VULNERABILITY);
-		createEReference(vulnerableAssetEClass, VULNERABLE_ASSET__COMPONENT_TYPE_AFFECTED);
-		createEReference(vulnerableAssetEClass, VULNERABLE_ASSET__CONTROLS);
-
-		vaOwnerEClass = createEClass(VA_OWNER);
-		createEReference(vaOwnerEClass, VA_OWNER__VULNERABLE_ASSET);
+		ruleEClass = createEClass(RULE);
+		createEReference(ruleEClass, RULE__VULNERABILITY);
+		createEReference(ruleEClass, RULE__COMPONENT_TYPE_AFFECTED);
+		createEReference(ruleEClass, RULE__CONTROLS);
 
 		characteristicEClass = createEClass(CHARACTERISTIC);
 		createEAttribute(characteristicEClass, CHARACTERISTIC__NAME);
@@ -2882,8 +2851,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		analysisEClass.getESuperTypes().add(this.getElementWithId());
 		analysisEClass.getESuperTypes().add(this.getAbstractVulnerabilityOwner());
 		analysisEClass.getESuperTypes().add(this.getAbstractComponentTypeOwner());
-		analysisEClass.getESuperTypes().add(this.getAbstractVulnerableAssetOwner());
-		analysisEClass.getESuperTypes().add(this.getVAOwner());
+		analysisEClass.getESuperTypes().add(this.getAbstractRuleOwner());
 		threatEClass.getESuperTypes().add(this.getNamedElement());
 		threatEClass.getESuperTypes().add(this.getIThreatDefinition());
 		threatEClass.getESuperTypes().add(this.getElementWithId());
@@ -2922,7 +2890,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		vulnerabilityEClass.getESuperTypes().add(this.getNamedElement());
 		componentTypeEClass.getESuperTypes().add(this.getNamedElement());
 		assetEClass.getESuperTypes().add(this.getNamedElement());
-		vulnerableAssetEClass.getESuperTypes().add(this.getAsset());
+		ruleEClass.getESuperTypes().add(this.getAsset());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(analysisEClass, Analysis.class, "Analysis", !IS_ABSTRACT, !IS_INTERFACE,
@@ -3003,9 +2971,9 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		initEReference(getComponent_ComponentType(), this.getComponentType(), null, "componentType", null, 1, -1,
 				Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComponent_VulnerableAsset(), this.getVulnerableAsset(), null, "vulnerableAsset", null, 0, -1,
-				Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_Rule(), this.getRule(), null, "rule", null, 0, -1, Component.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED,
+				IS_ORDERED);
 		initEReference(getComponent_AssignedControl(), this.getControl(), null, "assignedControl", null, 0, -1,
 				Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3463,34 +3431,28 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 
 		initEClass(assetEClass, Asset.class, "Asset", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(abstractVulnerableAssetOwnerEClass, AbstractVulnerableAssetOwner.class,
-				"AbstractVulnerableAssetOwner", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAbstractVulnerableAssetOwner_VulnerableAssetOwner(), this.getVulnerableAssetOwner(), null,
-				"vulnerableAssetOwner", null, 1, 1, AbstractVulnerableAssetOwner.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(vulnerableAssetOwnerEClass, VulnerableAssetOwner.class, "VulnerableAssetOwner", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVulnerableAssetOwner_VulnerableAssets(), this.getVulnerableAsset(), null, "vulnerableAssets",
-				null, 0, -1, VulnerableAssetOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(vulnerableAssetEClass, VulnerableAsset.class, "VulnerableAsset", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(abstractRuleOwnerEClass, AbstractRuleOwner.class, "AbstractRuleOwner", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVulnerableAsset_Vulnerability(), this.getVulnerability(), null, "vulnerability", null, 1, -1,
-				VulnerableAsset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVulnerableAsset_ComponentTypeAffected(), this.getComponentType(), null,
-				"componentTypeAffected", null, 1, -1, VulnerableAsset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVulnerableAsset_Controls(), this.getControl(), null, "controls", null, 0, -1,
-				VulnerableAsset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEReference(getAbstractRuleOwner_RuleOwner(), this.getRuleOwner(), null, "ruleOwner", null, 1, 1,
+				AbstractRuleOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(vaOwnerEClass, VAOwner.class, "VAOwner", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVAOwner_VulnerableAsset(), this.getVulnerableAsset(), null, "vulnerableAsset", null, 0, -1,
-				VAOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+		initEClass(ruleOwnerEClass, RuleOwner.class, "RuleOwner", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRuleOwner_Rules(), this.getRule(), null, "rules", null, 0, -1, RuleOwner.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+
+		initEClass(ruleEClass, Rule.class, "Rule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRule_Vulnerability(), this.getVulnerability(), null, "vulnerability", null, 1, -1, Rule.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRule_ComponentTypeAffected(), this.getComponentType(), null, "componentTypeAffected", null, 1,
+				-1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRule_Controls(), this.getControl(), null, "controls", null, 0, -1, Rule.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(characteristicEClass, Characteristic.class, "Characteristic", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

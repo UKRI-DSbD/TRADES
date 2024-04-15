@@ -240,7 +240,7 @@
             <labelFormat>underline</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
-          <conditionnalStyles predicateExpression="aql: self.vulnerableAsset->notEmpty()">
+          <conditionnalStyles predicateExpression="aql: self.rule->notEmpty()">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql: 'Deperecated'" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
@@ -1590,8 +1590,8 @@
           <dropDescriptions href="../../dsm.oscal.design/description/oscal.odesign#//@ownedViewpoints[name='OscalViewPoint']/@ownedRepresentationExtensions[name='TRADES.design']/@layers[name='OscalLayer']/@toolSections.0/@ownedTools[name='DropOScalControl']"/>
           <dropDescriptions href="../../dsm.oscal.design/description/oscal.odesign#//@ownedViewpoints[name='OscalViewPoint']/@ownedRepresentationExtensions[name='TRADES.design']/@layers[name='OscalLayer']/@toolSections.0/@ownedTools[name='DropOScalControl_TDExt']"/>
           <dropDescriptions href="#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ExternalControlDrop_TD']"/>
-          <subContainerMappings name="Vulnerable Assets" semanticCandidatesExpression="aql: self" domainClass="TRADES::Component" childrenPresentation="List">
-            <subNodeMappings name="VulnerableAssetDefinition" semanticCandidatesExpression="aql: let AVAD=self.componentType.eInverse('componentTypeAffected')->select(va | not(va.controls->exists(control | self.controlOwner.internals->includes(control) or self.controlOwner.externals->includes(control)))) AVAD" domainClass="TRADES::VulnerableAsset">
+          <subContainerMappings name="Rules" semanticCandidatesExpression="aql: self" domainClass="TRADES::Component" childrenPresentation="List">
+            <subNodeMappings name="RuleDefinition" semanticCandidatesExpression="aql: let AVAD=self.componentType.eInverse('componentTypeAffected')->select(va | not(va.controls->exists(control | self.controlOwner.internals->includes(control) or self.controlOwner.externals->includes(control)))) AVAD" domainClass="TRADES::Rule">
               <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" borderLineStyle="dash_dot" labelSize="12" labelExpression="aql: self.name + ' [' + self.vulnerability.name->sep(';')+']'" labelPosition="node" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelFormat>italic</labelFormat>
@@ -1611,7 +1611,7 @@
             <labelFormat>underline</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
-          <conditionnalStyles predicateExpression="aql: self.vulnerableAsset->notEmpty()">
+          <conditionnalStyles predicateExpression="aql: self.rule->notEmpty()">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql: self.name + '[' + self.componentType.name->sep(';') + ']'" tooltipExpression="aql: 'Deperecated'" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>

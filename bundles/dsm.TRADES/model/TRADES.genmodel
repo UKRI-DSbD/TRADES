@@ -98,7 +98,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/affectRelations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/links"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/componentType"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/vulnerableAsset"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/rule"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/assignedControl"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Component/vulnerable"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/cVA"/>
@@ -311,19 +311,16 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//ComponentType/subjectToThreats"/>
     </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//Asset"/>
-    <genClasses ecoreClass="TRADES.ecore#//AbstractVulnerableAssetOwner">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AbstractVulnerableAssetOwner/vulnerableAssetOwner"/>
+    <genClasses image="false" ecoreClass="TRADES.ecore#//AbstractRuleOwner">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AbstractRuleOwner/ruleOwner"/>
     </genClasses>
-    <genClasses ecoreClass="TRADES.ecore#//VulnerableAssetOwner">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//VulnerableAssetOwner/vulnerableAssets"/>
+    <genClasses ecoreClass="TRADES.ecore#//RuleOwner">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//RuleOwner/rules"/>
     </genClasses>
-    <genClasses ecoreClass="TRADES.ecore#//VulnerableAsset">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//VulnerableAsset/vulnerability"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//VulnerableAsset/componentTypeAffected"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//VulnerableAsset/controls"/>
-    </genClasses>
-    <genClasses ecoreClass="TRADES.ecore#//VAOwner">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//VAOwner/vulnerableAsset"/>
+    <genClasses ecoreClass="TRADES.ecore#//Rule">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Rule/vulnerability"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Rule/componentTypeAffected"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Rule/controls"/>
     </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//Characteristic">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Characteristic/name"/>

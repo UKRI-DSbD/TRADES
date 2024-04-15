@@ -46,6 +46,8 @@ import dsm.TRADES.ImpactScore;
 import dsm.TRADES.Link;
 import dsm.TRADES.LinkType;
 import dsm.TRADES.RGBColor;
+import dsm.TRADES.Rule;
+import dsm.TRADES.RuleOwner;
 import dsm.TRADES.ScoreSystem;
 import dsm.TRADES.SecurityObjectiveENUM;
 import dsm.TRADES.TRADESFactory;
@@ -57,8 +59,6 @@ import dsm.TRADES.ThreatsOwner;
 import dsm.TRADES.Vulnerability;
 import dsm.TRADES.VulnerabilityOwner;
 import dsm.TRADES.VulnerabilityTypeENUM;
-import dsm.TRADES.VulnerableAsset;
-import dsm.TRADES.VulnerableAssetOwner;
 import dsm.TRADES.threatTypeENUM;
 
 /**
@@ -159,10 +159,10 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 			return createComponentTypeOwner();
 		case TRADESPackage.COMPONENT_TYPE:
 			return createComponentType();
-		case TRADESPackage.VULNERABLE_ASSET_OWNER:
-			return createVulnerableAssetOwner();
-		case TRADESPackage.VULNERABLE_ASSET:
-			return createVulnerableAsset();
+		case TRADESPackage.RULE_OWNER:
+			return createRuleOwner();
+		case TRADESPackage.RULE:
+			return createRule();
 		case TRADESPackage.CHARACTERISTIC:
 			return createCharacteristic();
 		default:
@@ -531,9 +531,9 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 	 * @generated
 	 */
 	@Override
-	public VulnerableAssetOwner createVulnerableAssetOwner() {
-		VulnerableAssetOwnerImpl vulnerableAssetOwner = new VulnerableAssetOwnerImpl();
-		return vulnerableAssetOwner;
+	public RuleOwner createRuleOwner() {
+		RuleOwnerImpl ruleOwner = new RuleOwnerImpl();
+		return ruleOwner;
 	}
 
 	/**
@@ -542,9 +542,9 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 	 * @generated
 	 */
 	@Override
-	public VulnerableAsset createVulnerableAsset() {
-		VulnerableAssetImpl vulnerableAsset = new VulnerableAssetImpl();
-		return vulnerableAsset;
+	public Rule createRule() {
+		RuleImpl rule = new RuleImpl();
+		return rule;
 	}
 
 	/**

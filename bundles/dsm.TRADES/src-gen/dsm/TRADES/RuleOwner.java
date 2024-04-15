@@ -18,31 +18,31 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Vulnerable Asset Owner</b></em>'.
+ * A representation of the model object '<em><b>Rule Owner</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link dsm.TRADES.VulnerableAssetOwner#getVulnerableAssets <em>Vulnerable Assets</em>}</li>
+ *   <li>{@link dsm.TRADES.RuleOwner#getRules <em>Rules</em>}</li>
  * </ul>
  *
- * @see dsm.TRADES.TRADESPackage#getVulnerableAssetOwner()
+ * @see dsm.TRADES.TRADESPackage#getRuleOwner()
  * @model
  * @generated
  */
-public interface VulnerableAssetOwner extends EObject {
+public interface RuleOwner extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Vulnerable Assets</b></em>' containment reference list.
-	 * The list contents are of type {@link dsm.TRADES.VulnerableAsset}.
+	 * Returns the value of the '<em><b>Rules</b></em>' containment reference list.
+	 * The list contents are of type {@link dsm.TRADES.Rule}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Vulnerable Assets</em>' containment reference list.
-	 * @see dsm.TRADES.TRADESPackage#getVulnerableAssetOwner_VulnerableAssets()
+	 * @return the value of the '<em>Rules</em>' containment reference list.
+	 * @see dsm.TRADES.TRADESPackage#getRuleOwner_Rules()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<VulnerableAsset> getVulnerableAssets();
+	EList<Rule> getRules();
 
-} // VulnerableAssetOwner
+} // RuleOwner

@@ -30,17 +30,17 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import dsm.TRADES.AbstractVulnerableAssetOwner;
+import dsm.TRADES.RuleOwner;
 import dsm.TRADES.TRADESFactory;
 import dsm.TRADES.TRADESPackage;
 
 /**
- * This is the item provider adapter for a {@link dsm.TRADES.AbstractVulnerableAssetOwner} object.
+ * This is the item provider adapter for a {@link dsm.TRADES.RuleOwner} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AbstractVulnerableAssetOwnerItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+public class RuleOwnerItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -48,7 +48,7 @@ public class AbstractVulnerableAssetOwnerItemProvider extends ItemProviderAdapte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractVulnerableAssetOwnerItemProvider(AdapterFactory adapterFactory) {
+	public RuleOwnerItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -79,7 +79,7 @@ public class AbstractVulnerableAssetOwnerItemProvider extends ItemProviderAdapte
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_VULNERABLE_ASSET_OWNER__VULNERABLE_ASSET_OWNER);
+			childrenFeatures.add(TRADESPackage.Literals.RULE_OWNER__RULES);
 		}
 		return childrenFeatures;
 	}
@@ -98,14 +98,14 @@ public class AbstractVulnerableAssetOwnerItemProvider extends ItemProviderAdapte
 	}
 
 	/**
-	 * This returns AbstractVulnerableAssetOwner.gif.
+	 * This returns RuleOwner.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AbstractVulnerableAssetOwner"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RuleOwner"));
 	}
 
 	/**
@@ -126,7 +126,7 @@ public class AbstractVulnerableAssetOwnerItemProvider extends ItemProviderAdapte
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_AbstractVulnerableAssetOwner_type");
+		return getString("_UI_RuleOwner_type");
 	}
 
 	/**
@@ -140,8 +140,8 @@ public class AbstractVulnerableAssetOwnerItemProvider extends ItemProviderAdapte
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(AbstractVulnerableAssetOwner.class)) {
-		case TRADESPackage.ABSTRACT_VULNERABLE_ASSET_OWNER__VULNERABLE_ASSET_OWNER:
+		switch (notification.getFeatureID(RuleOwner.class)) {
+		case TRADESPackage.RULE_OWNER__RULES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -160,8 +160,7 @@ public class AbstractVulnerableAssetOwnerItemProvider extends ItemProviderAdapte
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(
-				createChildParameter(TRADESPackage.Literals.ABSTRACT_VULNERABLE_ASSET_OWNER__VULNERABLE_ASSET_OWNER,
-						TRADESFactory.eINSTANCE.createVulnerableAssetOwner()));
+				createChildParameter(TRADESPackage.Literals.RULE_OWNER__RULES, TRADESFactory.eINSTANCE.createRule()));
 	}
 
 	/**

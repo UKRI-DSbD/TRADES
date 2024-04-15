@@ -60,7 +60,7 @@ public class ComponentItemProvider extends ComponentOwnerItemProvider {
 			addCategoryPropertyDescriptor(object);
 			addThreatAllocationsPropertyDescriptor(object);
 			addComponentTypePropertyDescriptor(object);
-			addVulnerableAssetPropertyDescriptor(object);
+			addRulePropertyDescriptor(object);
 			addAssignedControlPropertyDescriptor(object);
 			addVulnerablePropertyDescriptor(object);
 			addCVAPropertyDescriptor(object);
@@ -132,18 +132,18 @@ public class ComponentItemProvider extends ComponentOwnerItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Vulnerable Asset feature.
+	 * This adds a property descriptor for the Rule feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addVulnerableAssetPropertyDescriptor(Object object) {
+	protected void addRulePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Component_vulnerableAsset_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Component_vulnerableAsset_feature",
+						getResourceLocator(), getString("_UI_Component_rule_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_rule_feature",
 								"_UI_Component_type"),
-						TRADESPackage.Literals.COMPONENT__VULNERABLE_ASSET, true, false, true, null, null, null));
+						TRADESPackage.Literals.COMPONENT__RULE, true, false, true, null, null, null));
 	}
 
 	/**

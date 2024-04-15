@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link dsm.TRADES.Component#getAffectRelations <em>Affect Relations</em>}</li>
  *   <li>{@link dsm.TRADES.Component#getLinks <em>Links</em>}</li>
  *   <li>{@link dsm.TRADES.Component#getComponentType <em>Component Type</em>}</li>
- *   <li>{@link dsm.TRADES.Component#getVulnerableAsset <em>Vulnerable Asset</em>}</li>
+ *   <li>{@link dsm.TRADES.Component#getRule <em>Rule</em>}</li>
  *   <li>{@link dsm.TRADES.Component#getAssignedControl <em>Assigned Control</em>}</li>
  *   <li>{@link dsm.TRADES.Component#isVulnerable <em>Vulnerable</em>}</li>
  *   <li>{@link dsm.TRADES.Component#getCVA <em>CVA</em>}</li>
@@ -93,16 +93,16 @@ public interface Component extends ComponentOwner, DataOwnerElement, NamedElemen
 	EList<ComponentType> getComponentType();
 
 	/**
-	 * Returns the value of the '<em><b>Vulnerable Asset</b></em>' reference list.
-	 * The list contents are of type {@link dsm.TRADES.VulnerableAsset}.
+	 * Returns the value of the '<em><b>Rule</b></em>' reference list.
+	 * The list contents are of type {@link dsm.TRADES.Rule}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Vulnerable Asset</em>' reference list.
-	 * @see dsm.TRADES.TRADESPackage#getComponent_VulnerableAsset()
+	 * @return the value of the '<em>Rule</em>' reference list.
+	 * @see dsm.TRADES.TRADESPackage#getComponent_Rule()
 	 * @model derived="true"
 	 * @generated
 	 */
-	EList<VulnerableAsset> getVulnerableAsset();
+	EList<Rule> getRule();
 
 	/**
 	 * Returns the value of the '<em><b>Assigned Control</b></em>' reference list.
