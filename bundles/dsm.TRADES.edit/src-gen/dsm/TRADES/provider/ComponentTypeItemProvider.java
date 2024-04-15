@@ -52,25 +52,25 @@ public class ComponentTypeItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRefinesPropertyDescriptor(object);
+			addManifestsPropertyDescriptor(object);
 			addSubjectToThreatsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Refines feature.
+	 * This adds a property descriptor for the Manifests feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRefinesPropertyDescriptor(Object object) {
+	protected void addManifestsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_ComponentType_refines_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_ComponentType_refines_feature",
+						getResourceLocator(), getString("_UI_ComponentType_manifests_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ComponentType_manifests_feature",
 								"_UI_ComponentType_type"),
-						TRADESPackage.Literals.COMPONENT_TYPE__REFINES, true, false, true, null, null, null));
+						TRADESPackage.Literals.COMPONENT_TYPE__MANIFESTS, true, false, true, null, null, null));
 	}
 
 	/**

@@ -3431,13 +3431,13 @@ public interface TRADESPackage extends EPackage {
 	int COMPONENT_TYPE__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Refines</b></em>' reference list.
+	 * The feature id for the '<em><b>Manifests</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_TYPE__REFINES = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int COMPONENT_TYPE__MANIFESTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Subject To Threats</b></em>' reference list.
@@ -5614,15 +5614,15 @@ public interface TRADESPackage extends EPackage {
 	EClass getComponentType();
 
 	/**
-	 * Returns the meta object for the reference list '{@link dsm.TRADES.ComponentType#getRefines <em>Refines</em>}'.
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.ComponentType#getManifests <em>Manifests</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Refines</em>'.
-	 * @see dsm.TRADES.ComponentType#getRefines()
+	 * @return the meta object for the reference list '<em>Manifests</em>'.
+	 * @see dsm.TRADES.ComponentType#getManifests()
 	 * @see #getComponentType()
 	 * @generated
 	 */
-	EReference getComponentType_Refines();
+	EReference getComponentType_Manifests();
 
 	/**
 	 * Returns the meta object for the reference list '{@link dsm.TRADES.ComponentType#getSubjectToThreats <em>Subject To Threats</em>}'.
@@ -7409,12 +7409,12 @@ public interface TRADESPackage extends EPackage {
 		EClass COMPONENT_TYPE = eINSTANCE.getComponentType();
 
 		/**
-		 * The meta object literal for the '<em><b>Refines</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Manifests</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPONENT_TYPE__REFINES = eINSTANCE.getComponentType_Refines();
+		EReference COMPONENT_TYPE__MANIFESTS = eINSTANCE.getComponentType_Manifests();
 
 		/**
 		 * The meta object literal for the '<em><b>Subject To Threats</b></em>' reference list feature.

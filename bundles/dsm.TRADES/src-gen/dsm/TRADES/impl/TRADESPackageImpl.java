@@ -2304,7 +2304,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getComponentType_Refines() {
+	public EReference getComponentType_Manifests() {
 		return (EReference) componentTypeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2804,7 +2804,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		createEReference(componentTypeOwnerEClass, COMPONENT_TYPE_OWNER__COMPONENT_TYPES);
 
 		componentTypeEClass = createEClass(COMPONENT_TYPE);
-		createEReference(componentTypeEClass, COMPONENT_TYPE__REFINES);
+		createEReference(componentTypeEClass, COMPONENT_TYPE__MANIFESTS);
 		createEReference(componentTypeEClass, COMPONENT_TYPE__SUBJECT_TO_THREATS);
 
 		assetEClass = createEClass(ASSET);
@@ -3454,7 +3454,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 
 		initEClass(componentTypeEClass, ComponentType.class, "ComponentType", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComponentType_Refines(), this.getComponentType(), null, "refines", null, 0, -1,
+		initEReference(getComponentType_Manifests(), this.getComponentType(), null, "manifests", null, 0, -1,
 				ComponentType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponentType_SubjectToThreats(), this.getThreat(), null, "subjectToThreats", null, 0, -1,

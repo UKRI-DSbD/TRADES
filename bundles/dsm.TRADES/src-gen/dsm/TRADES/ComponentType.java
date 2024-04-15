@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link dsm.TRADES.ComponentType#getRefines <em>Refines</em>}</li>
+ *   <li>{@link dsm.TRADES.ComponentType#getManifests <em>Manifests</em>}</li>
  *   <li>{@link dsm.TRADES.ComponentType#getSubjectToThreats <em>Subject To Threats</em>}</li>
  * </ul>
  *
@@ -34,16 +34,16 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ComponentType extends NamedElement {
 	/**
-	 * Returns the value of the '<em><b>Refines</b></em>' reference list.
+	 * Returns the value of the '<em><b>Manifests</b></em>' reference list.
 	 * The list contents are of type {@link dsm.TRADES.ComponentType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Refines</em>' reference list.
-	 * @see dsm.TRADES.TRADESPackage#getComponentType_Refines()
+	 * @return the value of the '<em>Manifests</em>' reference list.
+	 * @see dsm.TRADES.TRADESPackage#getComponentType_Manifests()
 	 * @model
 	 * @generated
 	 */
-	EList<ComponentType> getRefines();
+	EList<ComponentType> getManifests();
 
 	/**
 	 * Returns the value of the '<em><b>Subject To Threats</b></em>' reference list.

@@ -31,7 +31,7 @@ import dsm.TRADES.Threat;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dsm.TRADES.impl.ComponentTypeImpl#getRefines <em>Refines</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentTypeImpl#getManifests <em>Manifests</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentTypeImpl#getSubjectToThreats <em>Subject To Threats</em>}</li>
  * </ul>
  *
@@ -39,14 +39,14 @@ import dsm.TRADES.Threat;
  */
 public class ComponentTypeImpl extends NamedElementImpl implements ComponentType {
 	/**
-	 * The cached value of the '{@link #getRefines() <em>Refines</em>}' reference list.
+	 * The cached value of the '{@link #getManifests() <em>Manifests</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRefines()
+	 * @see #getManifests()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ComponentType> refines;
+	protected EList<ComponentType> manifests;
 	/**
 	 * The cached value of the '{@link #getSubjectToThreats() <em>Subject To Threats</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -82,12 +82,12 @@ public class ComponentTypeImpl extends NamedElementImpl implements ComponentType
 	 * @generated
 	 */
 	@Override
-	public EList<ComponentType> getRefines() {
-		if (refines == null) {
-			refines = new EObjectResolvingEList<ComponentType>(ComponentType.class, this,
-					TRADESPackage.COMPONENT_TYPE__REFINES);
+	public EList<ComponentType> getManifests() {
+		if (manifests == null) {
+			manifests = new EObjectResolvingEList<ComponentType>(ComponentType.class, this,
+					TRADESPackage.COMPONENT_TYPE__MANIFESTS);
 		}
-		return refines;
+		return manifests;
 	}
 
 	/**
@@ -112,8 +112,8 @@ public class ComponentTypeImpl extends NamedElementImpl implements ComponentType
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TRADESPackage.COMPONENT_TYPE__REFINES:
-			return getRefines();
+		case TRADESPackage.COMPONENT_TYPE__MANIFESTS:
+			return getManifests();
 		case TRADESPackage.COMPONENT_TYPE__SUBJECT_TO_THREATS:
 			return getSubjectToThreats();
 		}
@@ -129,9 +129,9 @@ public class ComponentTypeImpl extends NamedElementImpl implements ComponentType
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TRADESPackage.COMPONENT_TYPE__REFINES:
-			getRefines().clear();
-			getRefines().addAll((Collection<? extends ComponentType>) newValue);
+		case TRADESPackage.COMPONENT_TYPE__MANIFESTS:
+			getManifests().clear();
+			getManifests().addAll((Collection<? extends ComponentType>) newValue);
 			return;
 		case TRADESPackage.COMPONENT_TYPE__SUBJECT_TO_THREATS:
 			getSubjectToThreats().clear();
@@ -149,8 +149,8 @@ public class ComponentTypeImpl extends NamedElementImpl implements ComponentType
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TRADESPackage.COMPONENT_TYPE__REFINES:
-			getRefines().clear();
+		case TRADESPackage.COMPONENT_TYPE__MANIFESTS:
+			getManifests().clear();
 			return;
 		case TRADESPackage.COMPONENT_TYPE__SUBJECT_TO_THREATS:
 			getSubjectToThreats().clear();
@@ -167,8 +167,8 @@ public class ComponentTypeImpl extends NamedElementImpl implements ComponentType
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TRADESPackage.COMPONENT_TYPE__REFINES:
-			return refines != null && !refines.isEmpty();
+		case TRADESPackage.COMPONENT_TYPE__MANIFESTS:
+			return manifests != null && !manifests.isEmpty();
 		case TRADESPackage.COMPONENT_TYPE__SUBJECT_TO_THREATS:
 			return subjectToThreats != null && !subjectToThreats.isEmpty();
 		}
