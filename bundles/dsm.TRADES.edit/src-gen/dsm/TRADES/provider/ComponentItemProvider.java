@@ -59,8 +59,8 @@ public class ComponentItemProvider extends ComponentOwnerItemProvider {
 			addNamePropertyDescriptor(object);
 			addCategoryPropertyDescriptor(object);
 			addThreatAllocationsPropertyDescriptor(object);
-			addComponenttypePropertyDescriptor(object);
-			addVulnerableassetPropertyDescriptor(object);
+			addComponentTypePropertyDescriptor(object);
+			addVulnerableAssetPropertyDescriptor(object);
 			addAssignedControlPropertyDescriptor(object);
 			addVulnerablePropertyDescriptor(object);
 			addCVAPropertyDescriptor(object);
@@ -117,33 +117,33 @@ public class ComponentItemProvider extends ComponentOwnerItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Componenttype feature.
+	 * This adds a property descriptor for the Component Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addComponenttypePropertyDescriptor(Object object) {
+	protected void addComponentTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Component_componenttype_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Component_componenttype_feature",
+						getResourceLocator(), getString("_UI_Component_componentType_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_componentType_feature",
 								"_UI_Component_type"),
-						TRADESPackage.Literals.COMPONENT__COMPONENTTYPE, true, false, true, null, null, null));
+						TRADESPackage.Literals.COMPONENT__COMPONENT_TYPE, true, false, true, null, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Vulnerableasset feature.
+	 * This adds a property descriptor for the Vulnerable Asset feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addVulnerableassetPropertyDescriptor(Object object) {
+	protected void addVulnerableAssetPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Component_vulnerableasset_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Component_vulnerableasset_feature",
+						getResourceLocator(), getString("_UI_Component_vulnerableAsset_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_vulnerableAsset_feature",
 								"_UI_Component_type"),
-						TRADESPackage.Literals.COMPONENT__VULNERABLEASSET, true, false, true, null, null, null));
+						TRADESPackage.Literals.COMPONENT__VULNERABLE_ASSET, true, false, true, null, null, null));
 	}
 
 	/**

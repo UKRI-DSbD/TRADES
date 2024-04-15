@@ -240,15 +240,15 @@
             <labelFormat>underline</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
-          <conditionnalStyles predicateExpression="aql: self.vulnerableasset->notEmpty()">
+          <conditionnalStyles predicateExpression="aql: self.vulnerableAsset->notEmpty()">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql: 'Deperecated'" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </conditionnalStyles>
-          <conditionnalStyles predicateExpression="aql: let AVAD=self.componenttype.eInverse('componentTypeAffected')->select(va | not(va.controls->exists(control | self.controlOwner.internals->includes(control) or self.controlOwner.externals->includes(control)))) AVAD->notEmpty()">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: self.name+' [VADs exist]'" tooltipExpression="aql: 'VADs: ' + self.componenttype.eInverse('componentTypeAffected')->select(va | not(va.controls->exists(control | self.controlOwner.internals->includes(control) or self.controlOwner.externals->includes(control)))).name)" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
+          <conditionnalStyles predicateExpression="aql: let AVAD=self.componentType.eInverse('componentTypeAffected')->select(va | not(va.controls->exists(control | self.controlOwner.internals->includes(control) or self.controlOwner.externals->includes(control)))) AVAD->notEmpty()">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: self.name+' [VADs exist]'" tooltipExpression="aql: 'VADs: ' + self.componentType.eInverse('componentTypeAffected')->select(va | not(va.controls->exists(control | self.controlOwner.internals->includes(control) or self.controlOwner.externals->includes(control)))).name)" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -868,7 +868,7 @@
         </layoutOptions>
       </layout>
       <defaultLayer name="Default">
-        <nodeMappings name="AttackChainStep_ACD" semanticCandidatesExpression="feature:attackchainSteps" domainClass="TRADES::AttackChainStep" dropDescriptions="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='AttackChainDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='DropAllocation']">
+        <nodeMappings name="AttackChainStep_ACD" semanticCandidatesExpression="feature:attackChainSteps" domainClass="TRADES::AttackChainStep" dropDescriptions="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='AttackChainDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='DropAllocation']">
           <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelExpression="aql:self.getAttackChainLabel()" sizeComputationExpression="13" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -888,7 +888,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="TRADES::AttackChainStep" referenceName="attackchainSteps"/>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="TRADES::AttackChainStep" referenceName="attackChainSteps"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:EdgeCreationDescription" name="NextEdgetCreationTool" label="Step link" precondition="aql:preSource.getAllPrevious()->intersection(preTarget.getAllNext())->isEmpty()" edgeMappings="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='AttackChainDiagram']/@defaultLayer/@edgeMappings[name='NextMapping_ACT']">
@@ -950,7 +950,7 @@
         </toolSections>
       </defaultLayer>
       <additionalLayers name="Threats">
-        <nodeMappings name="RelatedThreats" deletionDescription="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='AttackChainDiagram']/@additionalLayers[name='Threats']/@toolSections.0/@ownedTools[name='DeleteRelatedThreat']" semanticCandidatesExpression="aql:self.attackchainSteps.threatAllocationRelation.threat" createElements="false" domainClass="TRADES::Threat">
+        <nodeMappings name="RelatedThreats" deletionDescription="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='AttackChainDiagram']/@additionalLayers[name='Threats']/@toolSections.0/@ownedTools[name='DeleteRelatedThreat']" semanticCandidatesExpression="aql:self.attackChainSteps.threatAllocationRelation.threat" createElements="false" domainClass="TRADES::Threat">
           <style xsi:type="style:EllipseNodeDescription" labelSize="15" tooltipExpression="aql: self.name" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -977,7 +977,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="SelectThreatWizardAndDisplay" candidatesExpression="aql:self.attackchainSteps.threatAllocationRelation.threat" multiple="true">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="SelectThreatWizardAndDisplay" candidatesExpression="aql:self.attackChainSteps.threatAllocationRelation.threat" multiple="true">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
@@ -1591,7 +1591,7 @@
           <dropDescriptions href="../../dsm.oscal.design/description/oscal.odesign#//@ownedViewpoints[name='OscalViewPoint']/@ownedRepresentationExtensions[name='TRADES.design']/@layers[name='OscalLayer']/@toolSections.0/@ownedTools[name='DropOScalControl_TDExt']"/>
           <dropDescriptions href="#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ExternalControlDrop_TD']"/>
           <subContainerMappings name="Vulnerable Assets" semanticCandidatesExpression="aql: self" domainClass="TRADES::Component" childrenPresentation="List">
-            <subNodeMappings name="VulnerableAssetDefinition" semanticCandidatesExpression="aql: let AVAD=self.componenttype.eInverse('componentTypeAffected')->select(va | not(va.controls->exists(control | self.controlOwner.internals->includes(control) or self.controlOwner.externals->includes(control)))) AVAD" domainClass="TRADES::VulnerableAsset">
+            <subNodeMappings name="VulnerableAssetDefinition" semanticCandidatesExpression="aql: let AVAD=self.componentType.eInverse('componentTypeAffected')->select(va | not(va.controls->exists(control | self.controlOwner.internals->includes(control) or self.controlOwner.externals->includes(control)))) AVAD" domainClass="TRADES::VulnerableAsset">
               <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" borderLineStyle="dash_dot" labelSize="12" labelExpression="aql: self.name + ' [' + self.vulnerability.name->sep(';')+']'" labelPosition="node" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelFormat>italic</labelFormat>
@@ -1605,21 +1605,21 @@
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql: self.name + '[' + self.componenttype.name->sep(';') + ']'" tooltipExpression="aql: self.name" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql: self.name + '[' + self.componentType.name->sep(';') + ']'" tooltipExpression="aql: self.name" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelFormat>underline</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
-          <conditionnalStyles predicateExpression="aql: self.vulnerableasset->notEmpty()">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql: self.name + '[' + self.componenttype.name->sep(';') + ']'" tooltipExpression="aql: 'Deperecated'" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
+          <conditionnalStyles predicateExpression="aql: self.vulnerableAsset->notEmpty()">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql: self.name + '[' + self.componentType.name->sep(';') + ']'" tooltipExpression="aql: 'Deperecated'" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </conditionnalStyles>
-          <conditionnalStyles predicateExpression="aql: let AVAD=self.componenttype.eInverse('componentTypeAffected')->select(va | not(va.controls->exists(control | self.controlOwner.internals->includes(control) or self.controlOwner.externals->includes(control)))) AVAD->notEmpty()">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql: self.name + '[' + self.componenttype.name->sep(';') + ']'" tooltipExpression="aql: 'VADs: ' + self.componenttype.eInverse('componentTypeAffected')->select(va | not(va.controls->exists(control | self.controlOwner.internals->includes(control) or self.controlOwner.externals->includes(control)))).name)" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
+          <conditionnalStyles predicateExpression="aql: let AVAD=self.componentType.eInverse('componentTypeAffected')->select(va | not(va.controls->exists(control | self.controlOwner.internals->includes(control) or self.controlOwner.externals->includes(control)))) AVAD->notEmpty()">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql: self.name + '[' + self.componentType.name->sep(';') + ']'" tooltipExpression="aql: 'VADs: ' + self.componentType.eInverse('componentTypeAffected')->select(va | not(va.controls->exists(control | self.controlOwner.internals->includes(control) or self.controlOwner.externals->includes(control)))).name)" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>

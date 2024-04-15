@@ -34,7 +34,7 @@ import dsm.TRADES.TRADESPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dsm.TRADES.impl.AttackChainImpl#getAttackchainSteps <em>Attackchain Steps</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.AttackChainImpl#getAttackChainSteps <em>Attack Chain Steps</em>}</li>
  *   <li>{@link dsm.TRADES.impl.AttackChainImpl#getComputedDifficulty <em>Computed Difficulty</em>}</li>
  * </ul>
  *
@@ -42,14 +42,14 @@ import dsm.TRADES.TRADESPackage;
  */
 public class AttackChainImpl extends NamedElementImpl implements AttackChain {
 	/**
-	 * The cached value of the '{@link #getAttackchainSteps() <em>Attackchain Steps</em>}' containment reference list.
+	 * The cached value of the '{@link #getAttackChainSteps() <em>Attack Chain Steps</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAttackchainSteps()
+	 * @see #getAttackChainSteps()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<AttackChainStep> attackchainSteps;
+	protected EList<AttackChainStep> attackChainSteps;
 
 	/**
 	 * The default value of the '{@link #getComputedDifficulty() <em>Computed Difficulty</em>}' attribute.
@@ -86,12 +86,12 @@ public class AttackChainImpl extends NamedElementImpl implements AttackChain {
 	 * @generated
 	 */
 	@Override
-	public EList<AttackChainStep> getAttackchainSteps() {
-		if (attackchainSteps == null) {
-			attackchainSteps = new EObjectContainmentEList<AttackChainStep>(AttackChainStep.class, this,
-					TRADESPackage.ATTACK_CHAIN__ATTACKCHAIN_STEPS);
+	public EList<AttackChainStep> getAttackChainSteps() {
+		if (attackChainSteps == null) {
+			attackChainSteps = new EObjectContainmentEList<AttackChainStep>(AttackChainStep.class, this,
+					TRADESPackage.ATTACK_CHAIN__ATTACK_CHAIN_STEPS);
 		}
-		return attackchainSteps;
+		return attackChainSteps;
 	}
 
 	/**
@@ -126,8 +126,8 @@ public class AttackChainImpl extends NamedElementImpl implements AttackChain {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case TRADESPackage.ATTACK_CHAIN__ATTACKCHAIN_STEPS:
-			return ((InternalEList<?>) getAttackchainSteps()).basicRemove(otherEnd, msgs);
+		case TRADESPackage.ATTACK_CHAIN__ATTACK_CHAIN_STEPS:
+			return ((InternalEList<?>) getAttackChainSteps()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -140,8 +140,8 @@ public class AttackChainImpl extends NamedElementImpl implements AttackChain {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TRADESPackage.ATTACK_CHAIN__ATTACKCHAIN_STEPS:
-			return getAttackchainSteps();
+		case TRADESPackage.ATTACK_CHAIN__ATTACK_CHAIN_STEPS:
+			return getAttackChainSteps();
 		case TRADESPackage.ATTACK_CHAIN__COMPUTED_DIFFICULTY:
 			return getComputedDifficulty();
 		}
@@ -157,9 +157,9 @@ public class AttackChainImpl extends NamedElementImpl implements AttackChain {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TRADESPackage.ATTACK_CHAIN__ATTACKCHAIN_STEPS:
-			getAttackchainSteps().clear();
-			getAttackchainSteps().addAll((Collection<? extends AttackChainStep>) newValue);
+		case TRADESPackage.ATTACK_CHAIN__ATTACK_CHAIN_STEPS:
+			getAttackChainSteps().clear();
+			getAttackChainSteps().addAll((Collection<? extends AttackChainStep>) newValue);
 			return;
 		case TRADESPackage.ATTACK_CHAIN__COMPUTED_DIFFICULTY:
 			setComputedDifficulty((Integer) newValue);
@@ -176,8 +176,8 @@ public class AttackChainImpl extends NamedElementImpl implements AttackChain {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TRADESPackage.ATTACK_CHAIN__ATTACKCHAIN_STEPS:
-			getAttackchainSteps().clear();
+		case TRADESPackage.ATTACK_CHAIN__ATTACK_CHAIN_STEPS:
+			getAttackChainSteps().clear();
 			return;
 		case TRADESPackage.ATTACK_CHAIN__COMPUTED_DIFFICULTY:
 			setComputedDifficulty(COMPUTED_DIFFICULTY_EDEFAULT);
@@ -194,8 +194,8 @@ public class AttackChainImpl extends NamedElementImpl implements AttackChain {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TRADESPackage.ATTACK_CHAIN__ATTACKCHAIN_STEPS:
-			return attackchainSteps != null && !attackchainSteps.isEmpty();
+		case TRADESPackage.ATTACK_CHAIN__ATTACK_CHAIN_STEPS:
+			return attackChainSteps != null && !attackChainSteps.isEmpty();
 		case TRADESPackage.ATTACK_CHAIN__COMPUTED_DIFFICULTY:
 			return getComputedDifficulty() != COMPUTED_DIFFICULTY_EDEFAULT;
 		}

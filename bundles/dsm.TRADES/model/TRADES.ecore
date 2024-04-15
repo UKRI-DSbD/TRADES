@@ -74,9 +74,9 @@
         eType="#//AffectRelation" containment="true" eOpposite="#//AffectRelation/sourceComponent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
         eType="#//Link" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="componenttype" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="componentType" lowerBound="1"
         upperBound="-1" eType="#//ComponentType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="vulnerableasset" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vulnerableAsset" upperBound="-1"
         eType="#//VulnerableAsset" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="assignedControl" upperBound="-1"
         eType="#//Control"/>
@@ -171,7 +171,7 @@
     <eLiterals name="ConceptualThreat" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AttackChain" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="attackchainSteps" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attackChainSteps" upperBound="-1"
         eType="#//AttackChainStep" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="computedDifficulty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         volatile="true" transient="true" derived="true"/>
@@ -392,7 +392,7 @@
         eType="#//Control"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VAOwner" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="vulnerableasset" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vulnerableAsset" upperBound="-1"
         eType="#//VulnerableAsset" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SecurityObjectiveENUM">

@@ -105,7 +105,7 @@ public class ComponentCustomImpl extends ComponentImpl {
 
 	@Override
 	public boolean ofType(ComponentType type) {
-		for (ComponentType componentType : this.getComponenttype()) {
+		for (ComponentType componentType : this.getComponentType()) {
 			if (type.getName() == componentType.getName()) {
 				return true;
 			}

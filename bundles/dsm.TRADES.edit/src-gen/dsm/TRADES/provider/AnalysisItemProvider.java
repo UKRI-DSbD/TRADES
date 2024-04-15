@@ -197,7 +197,7 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_VULNERABILITY_OWNER__VULNERABILITY_OWNER);
 			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_COMPONENT_TYPE_OWNER__COMPONENT_TYPE_OWNER);
 			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_VULNERABLE_ASSET_OWNER__VULNERABLE_ASSET_OWNER);
-			childrenFeatures.add(TRADESPackage.Literals.VA_OWNER__VULNERABLEASSET);
+			childrenFeatures.add(TRADESPackage.Literals.VA_OWNER__VULNERABLE_ASSET);
 			childrenFeatures.add(TRADESPackage.Literals.ANALYSIS__SCORE_SYSTEM);
 			childrenFeatures.add(TRADESPackage.Literals.ANALYSIS__LINK_TYPES);
 		}
@@ -278,7 +278,7 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 		case TRADESPackage.ANALYSIS__VULNERABILITY_OWNER:
 		case TRADESPackage.ANALYSIS__COMPONENT_TYPE_OWNER:
 		case TRADESPackage.ANALYSIS__VULNERABLE_ASSET_OWNER:
-		case TRADESPackage.ANALYSIS__VULNERABLEASSET:
+		case TRADESPackage.ANALYSIS__VULNERABLE_ASSET:
 		case TRADESPackage.ANALYSIS__SCORE_SYSTEM:
 		case TRADESPackage.ANALYSIS__LINK_TYPES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -319,7 +319,7 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 				createChildParameter(TRADESPackage.Literals.ABSTRACT_VULNERABLE_ASSET_OWNER__VULNERABLE_ASSET_OWNER,
 						TRADESFactory.eINSTANCE.createVulnerableAssetOwner()));
 
-		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.VA_OWNER__VULNERABLEASSET,
+		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.VA_OWNER__VULNERABLE_ASSET,
 				TRADESFactory.eINSTANCE.createVulnerableAsset()));
 
 		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.ANALYSIS__SCORE_SYSTEM,

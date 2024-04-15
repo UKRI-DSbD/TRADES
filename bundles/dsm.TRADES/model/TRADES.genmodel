@@ -97,8 +97,8 @@
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/threatAllocations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/affectRelations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/links"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/componenttype"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/vulnerableasset"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/componentType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/vulnerableAsset"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/assignedControl"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Component/vulnerable"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/cVA"/>
@@ -170,7 +170,7 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//AttackChain">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AttackChain/attackchainSteps"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AttackChain/attackChainSteps"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//AttackChain/computedDifficulty"/>
     </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//AttackChainStep">
@@ -323,7 +323,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//VulnerableAsset/controls"/>
     </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//VAOwner">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//VAOwner/vulnerableasset"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//VAOwner/vulnerableAsset"/>
     </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//Characteristic">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Characteristic/name"/>

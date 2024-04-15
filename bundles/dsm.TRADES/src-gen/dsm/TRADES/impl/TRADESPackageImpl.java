@@ -804,7 +804,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getComponent_Componenttype() {
+	public EReference getComponent_ComponentType() {
 		return (EReference) componentEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -814,7 +814,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getComponent_Vulnerableasset() {
+	public EReference getComponent_VulnerableAsset() {
 		return (EReference) componentEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1324,7 +1324,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getAttackChain_AttackchainSteps() {
+	public EReference getAttackChain_AttackChainSteps() {
 		return (EReference) attackChainEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2424,7 +2424,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getVAOwner_Vulnerableasset() {
+	public EReference getVAOwner_VulnerableAsset() {
 		return (EReference) vaOwnerEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2614,8 +2614,8 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		createEReference(componentEClass, COMPONENT__THREAT_ALLOCATIONS);
 		createEReference(componentEClass, COMPONENT__AFFECT_RELATIONS);
 		createEReference(componentEClass, COMPONENT__LINKS);
-		createEReference(componentEClass, COMPONENT__COMPONENTTYPE);
-		createEReference(componentEClass, COMPONENT__VULNERABLEASSET);
+		createEReference(componentEClass, COMPONENT__COMPONENT_TYPE);
+		createEReference(componentEClass, COMPONENT__VULNERABLE_ASSET);
 		createEReference(componentEClass, COMPONENT__ASSIGNED_CONTROL);
 		createEAttribute(componentEClass, COMPONENT__VULNERABLE);
 		createEReference(componentEClass, COMPONENT__CVA);
@@ -2673,7 +2673,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		createEOperation(affectRelationEClass, AFFECT_RELATION___CHECK_DATA_SCOPE__DIAGNOSTICCHAIN_MAP);
 
 		attackChainEClass = createEClass(ATTACK_CHAIN);
-		createEReference(attackChainEClass, ATTACK_CHAIN__ATTACKCHAIN_STEPS);
+		createEReference(attackChainEClass, ATTACK_CHAIN__ATTACK_CHAIN_STEPS);
 		createEAttribute(attackChainEClass, ATTACK_CHAIN__COMPUTED_DIFFICULTY);
 
 		attackChainStepEClass = createEClass(ATTACK_CHAIN_STEP);
@@ -2821,7 +2821,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		createEReference(vulnerableAssetEClass, VULNERABLE_ASSET__CONTROLS);
 
 		vaOwnerEClass = createEClass(VA_OWNER);
-		createEReference(vaOwnerEClass, VA_OWNER__VULNERABLEASSET);
+		createEReference(vaOwnerEClass, VA_OWNER__VULNERABLE_ASSET);
 
 		characteristicEClass = createEClass(CHARACTERISTIC);
 		createEAttribute(characteristicEClass, CHARACTERISTIC__NAME);
@@ -3000,10 +3000,10 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		initEReference(getComponent_Links(), this.getLink(), null, "links", null, 0, -1, Component.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getComponent_Componenttype(), this.getComponentType(), null, "componenttype", null, 1, -1,
+		initEReference(getComponent_ComponentType(), this.getComponentType(), null, "componentType", null, 1, -1,
 				Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComponent_Vulnerableasset(), this.getVulnerableAsset(), null, "vulnerableasset", null, 0, -1,
+		initEReference(getComponent_VulnerableAsset(), this.getVulnerableAsset(), null, "vulnerableAsset", null, 0, -1,
 				Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_AssignedControl(), this.getControl(), null, "assignedControl", null, 0, -1,
@@ -3162,7 +3162,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 
 		initEClass(attackChainEClass, AttackChain.class, "AttackChain", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAttackChain_AttackchainSteps(), this.getAttackChainStep(), null, "attackchainSteps", null, 0,
+		initEReference(getAttackChain_AttackChainSteps(), this.getAttackChainStep(), null, "attackChainSteps", null, 0,
 				-1, AttackChain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttackChain_ComputedDifficulty(), ecorePackage.getEInt(), "computedDifficulty", null, 0, 1,
@@ -3488,7 +3488,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(vaOwnerEClass, VAOwner.class, "VAOwner", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVAOwner_Vulnerableasset(), this.getVulnerableAsset(), null, "vulnerableasset", null, 0, -1,
+		initEReference(getVAOwner_VulnerableAsset(), this.getVulnerableAsset(), null, "vulnerableAsset", null, 0, -1,
 				VAOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

@@ -68,7 +68,7 @@ import dsm.TRADES.VulnerableAssetOwner;
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getVulnerabilityOwner <em>Vulnerability Owner</em>}</li>
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getComponentTypeOwner <em>Component Type Owner</em>}</li>
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getVulnerableAssetOwner <em>Vulnerable Asset Owner</em>}</li>
- *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getVulnerableasset <em>Vulnerableasset</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getVulnerableAsset <em>Vulnerable Asset</em>}</li>
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getScoreSystem <em>Score System</em>}</li>
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getLinkTypes <em>Link Types</em>}</li>
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getNVDAPIKey <em>NVDAPI Key</em>}</li>
@@ -182,14 +182,14 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 	protected VulnerableAssetOwner vulnerableAssetOwner;
 
 	/**
-	 * The cached value of the '{@link #getVulnerableasset() <em>Vulnerableasset</em>}' containment reference list.
+	 * The cached value of the '{@link #getVulnerableAsset() <em>Vulnerable Asset</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVulnerableasset()
+	 * @see #getVulnerableAsset()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<VulnerableAsset> vulnerableasset;
+	protected EList<VulnerableAsset> vulnerableAsset;
 
 	/**
 	 * The cached value of the '{@link #getScoreSystem() <em>Score System</em>}' containment reference.
@@ -842,12 +842,12 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 	 * @generated
 	 */
 	@Override
-	public EList<VulnerableAsset> getVulnerableasset() {
-		if (vulnerableasset == null) {
-			vulnerableasset = new EObjectContainmentEList<VulnerableAsset>(VulnerableAsset.class, this,
-					TRADESPackage.ANALYSIS__VULNERABLEASSET);
+	public EList<VulnerableAsset> getVulnerableAsset() {
+		if (vulnerableAsset == null) {
+			vulnerableAsset = new EObjectContainmentEList<VulnerableAsset>(VulnerableAsset.class, this,
+					TRADESPackage.ANALYSIS__VULNERABLE_ASSET);
 		}
-		return vulnerableasset;
+		return vulnerableAsset;
 	}
 
 	/**
@@ -978,8 +978,8 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 			return basicSetComponentTypeOwner(null, msgs);
 		case TRADESPackage.ANALYSIS__VULNERABLE_ASSET_OWNER:
 			return basicSetVulnerableAssetOwner(null, msgs);
-		case TRADESPackage.ANALYSIS__VULNERABLEASSET:
-			return ((InternalEList<?>) getVulnerableasset()).basicRemove(otherEnd, msgs);
+		case TRADESPackage.ANALYSIS__VULNERABLE_ASSET:
+			return ((InternalEList<?>) getVulnerableAsset()).basicRemove(otherEnd, msgs);
 		case TRADESPackage.ANALYSIS__SCORE_SYSTEM:
 			return basicSetScoreSystem(null, msgs);
 		case TRADESPackage.ANALYSIS__LINK_TYPES:
@@ -1012,8 +1012,8 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 			return getComponentTypeOwner();
 		case TRADESPackage.ANALYSIS__VULNERABLE_ASSET_OWNER:
 			return getVulnerableAssetOwner();
-		case TRADESPackage.ANALYSIS__VULNERABLEASSET:
-			return getVulnerableasset();
+		case TRADESPackage.ANALYSIS__VULNERABLE_ASSET:
+			return getVulnerableAsset();
 		case TRADESPackage.ANALYSIS__SCORE_SYSTEM:
 			return getScoreSystem();
 		case TRADESPackage.ANALYSIS__LINK_TYPES:
@@ -1065,9 +1065,9 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 		case TRADESPackage.ANALYSIS__VULNERABLE_ASSET_OWNER:
 			setVulnerableAssetOwner((VulnerableAssetOwner) newValue);
 			return;
-		case TRADESPackage.ANALYSIS__VULNERABLEASSET:
-			getVulnerableasset().clear();
-			getVulnerableasset().addAll((Collection<? extends VulnerableAsset>) newValue);
+		case TRADESPackage.ANALYSIS__VULNERABLE_ASSET:
+			getVulnerableAsset().clear();
+			getVulnerableAsset().addAll((Collection<? extends VulnerableAsset>) newValue);
 			return;
 		case TRADESPackage.ANALYSIS__SCORE_SYSTEM:
 			setScoreSystem((ScoreSystem) newValue);
@@ -1127,8 +1127,8 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 		case TRADESPackage.ANALYSIS__VULNERABLE_ASSET_OWNER:
 			setVulnerableAssetOwner((VulnerableAssetOwner) null);
 			return;
-		case TRADESPackage.ANALYSIS__VULNERABLEASSET:
-			getVulnerableasset().clear();
+		case TRADESPackage.ANALYSIS__VULNERABLE_ASSET:
+			getVulnerableAsset().clear();
 			return;
 		case TRADESPackage.ANALYSIS__SCORE_SYSTEM:
 			setScoreSystem((ScoreSystem) null);
@@ -1179,8 +1179,8 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 			return componentTypeOwner != null;
 		case TRADESPackage.ANALYSIS__VULNERABLE_ASSET_OWNER:
 			return vulnerableAssetOwner != null;
-		case TRADESPackage.ANALYSIS__VULNERABLEASSET:
-			return vulnerableasset != null && !vulnerableasset.isEmpty();
+		case TRADESPackage.ANALYSIS__VULNERABLE_ASSET:
+			return vulnerableAsset != null && !vulnerableAsset.isEmpty();
 		case TRADESPackage.ANALYSIS__SCORE_SYSTEM:
 			return scoreSystem != null;
 		case TRADESPackage.ANALYSIS__LINK_TYPES:
@@ -1272,8 +1272,8 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 		}
 		if (baseClass == VAOwner.class) {
 			switch (derivedFeatureID) {
-			case TRADESPackage.ANALYSIS__VULNERABLEASSET:
-				return TRADESPackage.VA_OWNER__VULNERABLEASSET;
+			case TRADESPackage.ANALYSIS__VULNERABLE_ASSET:
+				return TRADESPackage.VA_OWNER__VULNERABLE_ASSET;
 			default:
 				return -1;
 			}
@@ -1354,8 +1354,8 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 		}
 		if (baseClass == VAOwner.class) {
 			switch (baseFeatureID) {
-			case TRADESPackage.VA_OWNER__VULNERABLEASSET:
-				return TRADESPackage.ANALYSIS__VULNERABLEASSET;
+			case TRADESPackage.VA_OWNER__VULNERABLE_ASSET:
+				return TRADESPackage.ANALYSIS__VULNERABLE_ASSET;
 			default:
 				return -1;
 			}

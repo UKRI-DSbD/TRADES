@@ -63,8 +63,8 @@ import dsm.TRADES.VulnerableAsset;
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getThreatAllocations <em>Threat Allocations</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getAffectRelations <em>Affect Relations</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getLinks <em>Links</em>}</li>
- *   <li>{@link dsm.TRADES.impl.ComponentImpl#getComponenttype <em>Componenttype</em>}</li>
- *   <li>{@link dsm.TRADES.impl.ComponentImpl#getVulnerableasset <em>Vulnerableasset</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentImpl#getComponentType <em>Component Type</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentImpl#getVulnerableAsset <em>Vulnerable Asset</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getAssignedControl <em>Assigned Control</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#isVulnerable <em>Vulnerable</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getCVA <em>CVA</em>}</li>
@@ -155,24 +155,24 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 	protected EList<Link> links;
 
 	/**
-	 * The cached value of the '{@link #getComponenttype() <em>Componenttype</em>}' reference list.
+	 * The cached value of the '{@link #getComponentType() <em>Component Type</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getComponenttype()
+	 * @see #getComponentType()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ComponentType> componenttype;
+	protected EList<ComponentType> componentType;
 
 	/**
-	 * The cached value of the '{@link #getVulnerableasset() <em>Vulnerableasset</em>}' reference list.
+	 * The cached value of the '{@link #getVulnerableAsset() <em>Vulnerable Asset</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVulnerableasset()
+	 * @see #getVulnerableAsset()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<VulnerableAsset> vulnerableasset;
+	protected EList<VulnerableAsset> vulnerableAsset;
 
 	/**
 	 * The cached value of the '{@link #getAssignedControl() <em>Assigned Control</em>}' reference list.
@@ -422,12 +422,12 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 	 * @generated
 	 */
 	@Override
-	public EList<ComponentType> getComponenttype() {
-		if (componenttype == null) {
-			componenttype = new EObjectResolvingEList<ComponentType>(ComponentType.class, this,
-					TRADESPackage.COMPONENT__COMPONENTTYPE);
+	public EList<ComponentType> getComponentType() {
+		if (componentType == null) {
+			componentType = new EObjectResolvingEList<ComponentType>(ComponentType.class, this,
+					TRADESPackage.COMPONENT__COMPONENT_TYPE);
 		}
-		return componenttype;
+		return componentType;
 	}
 
 	/**
@@ -436,12 +436,12 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 	 * @generated
 	 */
 	@Override
-	public EList<VulnerableAsset> getVulnerableasset() {
-		if (vulnerableasset == null) {
-			vulnerableasset = new EObjectResolvingEList<VulnerableAsset>(VulnerableAsset.class, this,
-					TRADESPackage.COMPONENT__VULNERABLEASSET);
+	public EList<VulnerableAsset> getVulnerableAsset() {
+		if (vulnerableAsset == null) {
+			vulnerableAsset = new EObjectResolvingEList<VulnerableAsset>(VulnerableAsset.class, this,
+					TRADESPackage.COMPONENT__VULNERABLE_ASSET);
 		}
-		return vulnerableasset;
+		return vulnerableAsset;
 	}
 
 	/**
@@ -714,10 +714,10 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 			return getAffectRelations();
 		case TRADESPackage.COMPONENT__LINKS:
 			return getLinks();
-		case TRADESPackage.COMPONENT__COMPONENTTYPE:
-			return getComponenttype();
-		case TRADESPackage.COMPONENT__VULNERABLEASSET:
-			return getVulnerableasset();
+		case TRADESPackage.COMPONENT__COMPONENT_TYPE:
+			return getComponentType();
+		case TRADESPackage.COMPONENT__VULNERABLE_ASSET:
+			return getVulnerableAsset();
 		case TRADESPackage.COMPONENT__ASSIGNED_CONTROL:
 			return getAssignedControl();
 		case TRADESPackage.COMPONENT__VULNERABLE:
@@ -764,13 +764,13 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 			getLinks().clear();
 			getLinks().addAll((Collection<? extends Link>) newValue);
 			return;
-		case TRADESPackage.COMPONENT__COMPONENTTYPE:
-			getComponenttype().clear();
-			getComponenttype().addAll((Collection<? extends ComponentType>) newValue);
+		case TRADESPackage.COMPONENT__COMPONENT_TYPE:
+			getComponentType().clear();
+			getComponentType().addAll((Collection<? extends ComponentType>) newValue);
 			return;
-		case TRADESPackage.COMPONENT__VULNERABLEASSET:
-			getVulnerableasset().clear();
-			getVulnerableasset().addAll((Collection<? extends VulnerableAsset>) newValue);
+		case TRADESPackage.COMPONENT__VULNERABLE_ASSET:
+			getVulnerableAsset().clear();
+			getVulnerableAsset().addAll((Collection<? extends VulnerableAsset>) newValue);
 			return;
 		case TRADESPackage.COMPONENT__ASSIGNED_CONTROL:
 			getAssignedControl().clear();
@@ -820,11 +820,11 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 		case TRADESPackage.COMPONENT__LINKS:
 			getLinks().clear();
 			return;
-		case TRADESPackage.COMPONENT__COMPONENTTYPE:
-			getComponenttype().clear();
+		case TRADESPackage.COMPONENT__COMPONENT_TYPE:
+			getComponentType().clear();
 			return;
-		case TRADESPackage.COMPONENT__VULNERABLEASSET:
-			getVulnerableasset().clear();
+		case TRADESPackage.COMPONENT__VULNERABLE_ASSET:
+			getVulnerableAsset().clear();
 			return;
 		case TRADESPackage.COMPONENT__ASSIGNED_CONTROL:
 			getAssignedControl().clear();
@@ -864,10 +864,10 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 			return affectRelations != null && !affectRelations.isEmpty();
 		case TRADESPackage.COMPONENT__LINKS:
 			return links != null && !links.isEmpty();
-		case TRADESPackage.COMPONENT__COMPONENTTYPE:
-			return componenttype != null && !componenttype.isEmpty();
-		case TRADESPackage.COMPONENT__VULNERABLEASSET:
-			return vulnerableasset != null && !vulnerableasset.isEmpty();
+		case TRADESPackage.COMPONENT__COMPONENT_TYPE:
+			return componentType != null && !componentType.isEmpty();
+		case TRADESPackage.COMPONENT__VULNERABLE_ASSET:
+			return vulnerableAsset != null && !vulnerableAsset.isEmpty();
 		case TRADESPackage.COMPONENT__ASSIGNED_CONTROL:
 			return assignedControl != null && !assignedControl.isEmpty();
 		case TRADESPackage.COMPONENT__VULNERABLE:

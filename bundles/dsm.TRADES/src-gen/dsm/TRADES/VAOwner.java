@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link dsm.TRADES.VAOwner#getVulnerableasset <em>Vulnerableasset</em>}</li>
+ *   <li>{@link dsm.TRADES.VAOwner#getVulnerableAsset <em>Vulnerable Asset</em>}</li>
  * </ul>
  *
  * @see dsm.TRADES.TRADESPackage#getVAOwner()
@@ -34,15 +34,15 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface VAOwner extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Vulnerableasset</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Vulnerable Asset</b></em>' containment reference list.
 	 * The list contents are of type {@link dsm.TRADES.VulnerableAsset}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Vulnerableasset</em>' containment reference list.
-	 * @see dsm.TRADES.TRADESPackage#getVAOwner_Vulnerableasset()
+	 * @return the value of the '<em>Vulnerable Asset</em>' containment reference list.
+	 * @see dsm.TRADES.TRADESPackage#getVAOwner_VulnerableAsset()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<VulnerableAsset> getVulnerableasset();
+	EList<VulnerableAsset> getVulnerableAsset();
 
 } // VAOwner

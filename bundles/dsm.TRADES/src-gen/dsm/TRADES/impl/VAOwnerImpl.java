@@ -35,21 +35,21 @@ import dsm.TRADES.VulnerableAsset;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dsm.TRADES.impl.VAOwnerImpl#getVulnerableasset <em>Vulnerableasset</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.VAOwnerImpl#getVulnerableAsset <em>Vulnerable Asset</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class VAOwnerImpl extends MinimalEObjectImpl.Container implements VAOwner {
 	/**
-	 * The cached value of the '{@link #getVulnerableasset() <em>Vulnerableasset</em>}' containment reference list.
+	 * The cached value of the '{@link #getVulnerableAsset() <em>Vulnerable Asset</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVulnerableasset()
+	 * @see #getVulnerableAsset()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<VulnerableAsset> vulnerableasset;
+	protected EList<VulnerableAsset> vulnerableAsset;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,12 +76,12 @@ public abstract class VAOwnerImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	@Override
-	public EList<VulnerableAsset> getVulnerableasset() {
-		if (vulnerableasset == null) {
-			vulnerableasset = new EObjectContainmentEList<VulnerableAsset>(VulnerableAsset.class, this,
-					TRADESPackage.VA_OWNER__VULNERABLEASSET);
+	public EList<VulnerableAsset> getVulnerableAsset() {
+		if (vulnerableAsset == null) {
+			vulnerableAsset = new EObjectContainmentEList<VulnerableAsset>(VulnerableAsset.class, this,
+					TRADESPackage.VA_OWNER__VULNERABLE_ASSET);
 		}
-		return vulnerableasset;
+		return vulnerableAsset;
 	}
 
 	/**
@@ -92,8 +92,8 @@ public abstract class VAOwnerImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case TRADESPackage.VA_OWNER__VULNERABLEASSET:
-			return ((InternalEList<?>) getVulnerableasset()).basicRemove(otherEnd, msgs);
+		case TRADESPackage.VA_OWNER__VULNERABLE_ASSET:
+			return ((InternalEList<?>) getVulnerableAsset()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -106,8 +106,8 @@ public abstract class VAOwnerImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TRADESPackage.VA_OWNER__VULNERABLEASSET:
-			return getVulnerableasset();
+		case TRADESPackage.VA_OWNER__VULNERABLE_ASSET:
+			return getVulnerableAsset();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -121,9 +121,9 @@ public abstract class VAOwnerImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TRADESPackage.VA_OWNER__VULNERABLEASSET:
-			getVulnerableasset().clear();
-			getVulnerableasset().addAll((Collection<? extends VulnerableAsset>) newValue);
+		case TRADESPackage.VA_OWNER__VULNERABLE_ASSET:
+			getVulnerableAsset().clear();
+			getVulnerableAsset().addAll((Collection<? extends VulnerableAsset>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -137,8 +137,8 @@ public abstract class VAOwnerImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TRADESPackage.VA_OWNER__VULNERABLEASSET:
-			getVulnerableasset().clear();
+		case TRADESPackage.VA_OWNER__VULNERABLE_ASSET:
+			getVulnerableAsset().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -152,8 +152,8 @@ public abstract class VAOwnerImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TRADESPackage.VA_OWNER__VULNERABLEASSET:
-			return vulnerableasset != null && !vulnerableasset.isEmpty();
+		case TRADESPackage.VA_OWNER__VULNERABLE_ASSET:
+			return vulnerableAsset != null && !vulnerableAsset.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

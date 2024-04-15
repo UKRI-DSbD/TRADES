@@ -79,7 +79,7 @@ public class VAOwnerItemProvider extends ItemProviderAdapter implements IEditing
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TRADESPackage.Literals.VA_OWNER__VULNERABLEASSET);
+			childrenFeatures.add(TRADESPackage.Literals.VA_OWNER__VULNERABLE_ASSET);
 		}
 		return childrenFeatures;
 	}
@@ -141,7 +141,7 @@ public class VAOwnerItemProvider extends ItemProviderAdapter implements IEditing
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(VAOwner.class)) {
-		case TRADESPackage.VA_OWNER__VULNERABLEASSET:
+		case TRADESPackage.VA_OWNER__VULNERABLE_ASSET:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -159,7 +159,7 @@ public class VAOwnerItemProvider extends ItemProviderAdapter implements IEditing
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.VA_OWNER__VULNERABLEASSET,
+		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.VA_OWNER__VULNERABLE_ASSET,
 				TRADESFactory.eINSTANCE.createVulnerableAsset()));
 	}
 

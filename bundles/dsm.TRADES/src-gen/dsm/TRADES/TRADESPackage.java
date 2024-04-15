@@ -204,13 +204,13 @@ public interface TRADESPackage extends EPackage {
 	int ANALYSIS__VULNERABLE_ASSET_OWNER = COMPONENT_OWNER_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Vulnerableasset</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Vulnerable Asset</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__VULNERABLEASSET = COMPONENT_OWNER_FEATURE_COUNT + 8;
+	int ANALYSIS__VULNERABLE_ASSET = COMPONENT_OWNER_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Score System</b></em>' containment reference.
@@ -648,22 +648,22 @@ public interface TRADESPackage extends EPackage {
 	int COMPONENT__LINKS = COMPONENT_OWNER_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Componenttype</b></em>' reference list.
+	 * The feature id for the '<em><b>Component Type</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__COMPONENTTYPE = COMPONENT_OWNER_FEATURE_COUNT + 7;
+	int COMPONENT__COMPONENT_TYPE = COMPONENT_OWNER_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Vulnerableasset</b></em>' reference list.
+	 * The feature id for the '<em><b>Vulnerable Asset</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__VULNERABLEASSET = COMPONENT_OWNER_FEATURE_COUNT + 8;
+	int COMPONENT__VULNERABLE_ASSET = COMPONENT_OWNER_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Assigned Control</b></em>' reference list.
@@ -1447,13 +1447,13 @@ public interface TRADESPackage extends EPackage {
 	int ATTACK_CHAIN__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Attackchain Steps</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Attack Chain Steps</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTACK_CHAIN__ATTACKCHAIN_STEPS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int ATTACK_CHAIN__ATTACK_CHAIN_STEPS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Computed Difficulty</b></em>' attribute.
@@ -3615,13 +3615,13 @@ public interface TRADESPackage extends EPackage {
 	int VA_OWNER = 46;
 
 	/**
-	 * The feature id for the '<em><b>Vulnerableasset</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Vulnerable Asset</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VA_OWNER__VULNERABLEASSET = 0;
+	int VA_OWNER__VULNERABLE_ASSET = 0;
 
 	/**
 	 * The number of structural features of the '<em>VA Owner</em>' class.
@@ -4042,26 +4042,26 @@ public interface TRADESPackage extends EPackage {
 	EReference getComponent_Links();
 
 	/**
-	 * Returns the meta object for the reference list '{@link dsm.TRADES.Component#getComponenttype <em>Componenttype</em>}'.
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.Component#getComponentType <em>Component Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Componenttype</em>'.
-	 * @see dsm.TRADES.Component#getComponenttype()
+	 * @return the meta object for the reference list '<em>Component Type</em>'.
+	 * @see dsm.TRADES.Component#getComponentType()
 	 * @see #getComponent()
 	 * @generated
 	 */
-	EReference getComponent_Componenttype();
+	EReference getComponent_ComponentType();
 
 	/**
-	 * Returns the meta object for the reference list '{@link dsm.TRADES.Component#getVulnerableasset <em>Vulnerableasset</em>}'.
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.Component#getVulnerableAsset <em>Vulnerable Asset</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Vulnerableasset</em>'.
-	 * @see dsm.TRADES.Component#getVulnerableasset()
+	 * @return the meta object for the reference list '<em>Vulnerable Asset</em>'.
+	 * @see dsm.TRADES.Component#getVulnerableAsset()
 	 * @see #getComponent()
 	 * @generated
 	 */
-	EReference getComponent_Vulnerableasset();
+	EReference getComponent_VulnerableAsset();
 
 	/**
 	 * Returns the meta object for the reference list '{@link dsm.TRADES.Component#getAssignedControl <em>Assigned Control</em>}'.
@@ -4593,15 +4593,15 @@ public interface TRADESPackage extends EPackage {
 	EClass getAttackChain();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link dsm.TRADES.AttackChain#getAttackchainSteps <em>Attackchain Steps</em>}'.
+	 * Returns the meta object for the containment reference list '{@link dsm.TRADES.AttackChain#getAttackChainSteps <em>Attack Chain Steps</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Attackchain Steps</em>'.
-	 * @see dsm.TRADES.AttackChain#getAttackchainSteps()
+	 * @return the meta object for the containment reference list '<em>Attack Chain Steps</em>'.
+	 * @see dsm.TRADES.AttackChain#getAttackChainSteps()
 	 * @see #getAttackChain()
 	 * @generated
 	 */
-	EReference getAttackChain_AttackchainSteps();
+	EReference getAttackChain_AttackChainSteps();
 
 	/**
 	 * Returns the meta object for the attribute '{@link dsm.TRADES.AttackChain#getComputedDifficulty <em>Computed Difficulty</em>}'.
@@ -5741,15 +5741,15 @@ public interface TRADESPackage extends EPackage {
 	EClass getVAOwner();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link dsm.TRADES.VAOwner#getVulnerableasset <em>Vulnerableasset</em>}'.
+	 * Returns the meta object for the containment reference list '{@link dsm.TRADES.VAOwner#getVulnerableAsset <em>Vulnerable Asset</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Vulnerableasset</em>'.
-	 * @see dsm.TRADES.VAOwner#getVulnerableasset()
+	 * @return the meta object for the containment reference list '<em>Vulnerable Asset</em>'.
+	 * @see dsm.TRADES.VAOwner#getVulnerableAsset()
 	 * @see #getVAOwner()
 	 * @generated
 	 */
-	EReference getVAOwner_Vulnerableasset();
+	EReference getVAOwner_VulnerableAsset();
 
 	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.Characteristic <em>Characteristic</em>}'.
@@ -6113,20 +6113,20 @@ public interface TRADESPackage extends EPackage {
 		EReference COMPONENT__LINKS = eINSTANCE.getComponent_Links();
 
 		/**
-		 * The meta object literal for the '<em><b>Componenttype</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Component Type</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPONENT__COMPONENTTYPE = eINSTANCE.getComponent_Componenttype();
+		EReference COMPONENT__COMPONENT_TYPE = eINSTANCE.getComponent_ComponentType();
 
 		/**
-		 * The meta object literal for the '<em><b>Vulnerableasset</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Vulnerable Asset</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPONENT__VULNERABLEASSET = eINSTANCE.getComponent_Vulnerableasset();
+		EReference COMPONENT__VULNERABLE_ASSET = eINSTANCE.getComponent_VulnerableAsset();
 
 		/**
 		 * The meta object literal for the '<em><b>Assigned Control</b></em>' reference list feature.
@@ -6547,12 +6547,12 @@ public interface TRADESPackage extends EPackage {
 		EClass ATTACK_CHAIN = eINSTANCE.getAttackChain();
 
 		/**
-		 * The meta object literal for the '<em><b>Attackchain Steps</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Attack Chain Steps</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ATTACK_CHAIN__ATTACKCHAIN_STEPS = eINSTANCE.getAttackChain_AttackchainSteps();
+		EReference ATTACK_CHAIN__ATTACK_CHAIN_STEPS = eINSTANCE.getAttackChain_AttackChainSteps();
 
 		/**
 		 * The meta object literal for the '<em><b>Computed Difficulty</b></em>' attribute feature.
@@ -7516,12 +7516,12 @@ public interface TRADESPackage extends EPackage {
 		EClass VA_OWNER = eINSTANCE.getVAOwner();
 
 		/**
-		 * The meta object literal for the '<em><b>Vulnerableasset</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Vulnerable Asset</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference VA_OWNER__VULNERABLEASSET = eINSTANCE.getVAOwner_Vulnerableasset();
+		EReference VA_OWNER__VULNERABLE_ASSET = eINSTANCE.getVAOwner_VulnerableAsset();
 
 		/**
 		 * The meta object literal for the '{@link dsm.TRADES.impl.CharacteristicImpl <em>Characteristic</em>}' class.
