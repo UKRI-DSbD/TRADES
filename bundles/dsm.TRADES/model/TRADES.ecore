@@ -82,6 +82,10 @@
         eType="#//Control"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="vulnerable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cVA" upperBound="-1" eType="#//Vulnerability"
+        derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cWA" upperBound="-1" eType="#//Vulnerability"
+        derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Control" eSuperTypes="#//NamedElement #//IControlDefinition #//ElementWithId">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mitigatedThreats" upperBound="-1"
