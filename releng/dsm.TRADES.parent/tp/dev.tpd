@@ -6,11 +6,6 @@ environment JavaSE-17
 
 with requirements,source
 
-location "https://download.eclipse.org/releases/2023-12/" {
-	org.eclipse.egit.feature.group lazy
-	org.eclipse.emf.sdk.feature.group lazy
-}
-
 location "https://download.eclipse.org/modeling/amalgam/updates/stable/1.11.0-S20191007/capella/" {
 	org.eclipse.amalgam.explorer.contextual.sirius.feature.group lazy
 }
