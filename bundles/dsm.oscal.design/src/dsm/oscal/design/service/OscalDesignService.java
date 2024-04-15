@@ -27,6 +27,7 @@ import org.eclipse.ui.PlatformUI;
 import TRADES.design.ExtThreatServices;
 import dsm.TRADES.AbstractControlOwner;
 import dsm.TRADES.CatalogElementURI;
+import dsm.TRADES.Characteristic;
 import dsm.TRADES.Control;
 import dsm.TRADES.ControlOwner;
 import dsm.TRADES.ExternalControl;
@@ -83,14 +84,15 @@ public class OscalDesignService {
 		}
 
 		EList<Parameter> usedParameters = control.collectParametersInUse();
+		Map<String, String> idToValue = fillParameterValuesAndUpdate(usedParameters, control);
 		if (usedParameters.isEmpty()) {
 			extControl.setDescription(control.computeDocumentation(true));
 		} else {
-			Map<String, String> idToValue = fillParameterValuesAndUpdate(usedParameters, control);
 			if (idToValue == null) {
 				// The user canceled the action
 				return null;
 			}
+			extControl.setDescriptionWithPlaceholders(DocumentationComputer.computeDocumentation(control, false, idToValue));
 			extControl.setDescription(DocumentationComputer.computeDocumentation(control, true, idToValue));
 			// Keeps the entered value in the OSCAL model for next use
 		}
@@ -107,7 +109,18 @@ public class OscalDesignService {
 			controlOwner = TRADESFactory.eINSTANCE.createControlOwner();
 			owner.setControlOwner(controlOwner);
 		}
+		
+		for (Parameter parameter : control.getParams()) {
+			Characteristic characteristic = TRADESFactory.eINSTANCE.createCharacteristic();
+			characteristic.setName(parameter.getId());
+			characteristic.setLabel(parameter.getLabel().toMarkdown());
+			characteristic.setValue(idToValue.get(parameter.getId()));
+			characteristic.setDescription("");
+			extControl.getCharacteristics().add(characteristic);
+		}
+		
 		controlOwner.getExternals().add(extControl);
+		
 		return extControl;
 	}
 

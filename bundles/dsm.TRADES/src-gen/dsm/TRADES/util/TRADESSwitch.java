@@ -28,6 +28,7 @@ import dsm.TRADES.Asset;
 import dsm.TRADES.AttackChain;
 import dsm.TRADES.AttackChainStep;
 import dsm.TRADES.Catalog;
+import dsm.TRADES.Characteristic;
 import dsm.TRADES.ColoredElement;
 import dsm.TRADES.Component;
 import dsm.TRADES.ComponentOwner;
@@ -574,6 +575,13 @@ public class TRADESSwitch<T> extends Switch<T> {
 		case TRADESPackage.VA_OWNER: {
 			VAOwner vaOwner = (VAOwner) theEObject;
 			T result = caseVAOwner(vaOwner);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case TRADESPackage.CHARACTERISTIC: {
+			Characteristic characteristic = (Characteristic) theEObject;
+			T result = caseCharacteristic(characteristic);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -1285,6 +1293,21 @@ public class TRADESSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseVAOwner(VAOwner object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Characteristic</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Characteristic</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCharacteristic(Characteristic object) {
 		return null;
 	}
 

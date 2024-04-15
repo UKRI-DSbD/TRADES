@@ -294,6 +294,15 @@ public interface TRADESFactory extends EFactory {
 	VulnerableAsset createVulnerableAsset();
 
 	/**
+	 * Returns a new object of class '<em>Characteristic</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Characteristic</em>'.
+	 * @generated
+	 */
+	Characteristic createCharacteristic();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

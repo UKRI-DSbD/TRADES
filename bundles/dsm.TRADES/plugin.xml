@@ -20,4 +20,5 @@
             type="trades"
             class="dsm.TRADES.util.TRADESResourceFactoryCustomImpl"/>
    </extension>
+
 </plugin>

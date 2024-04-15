@@ -15,11 +15,15 @@
 package dsm.TRADES.impl;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
+import dsm.TRADES.Characteristic;
 import dsm.TRADES.IMitigationLink;
 import dsm.TRADES.Threat;
 import dsm.TRADES.ThreatMitigationRelation;
@@ -46,6 +50,35 @@ public class ExternalControlCustomImpl extends ExternalControlImpl {
 	@Override
 	public String getSourceIdentifier() {
 		return getSourceID();
+	}
+
+	@Override
+	public String getDescription() {
+		String descriptionWithPlaceholders = this.getDescriptionWithPlaceholders();
+		Hashtable<String, String> parameterDictionary = new Hashtable<String, String>();
+		for (Characteristic characteristic : getCharacteristics()) {
+			if (characteristic.getName() != null && 
+					!characteristic.getName().isBlank() && 
+					characteristic.getValue() != null && 
+					!characteristic.getValue().isBlank()) {
+				parameterDictionary.put(characteristic.getName(), characteristic.getValue());
+			}
+		}
+		//replace each placeholder in descriptionWithPlaceholders.
+		//copied from dsm.oscal.model.DocumentationComputer.
+		Pattern INSET_PATTERN = Pattern.compile("\\{\\{\\s*insert:\\s*param\\s*,\\s*(\\S*)\\s*\\}\\}");
+		Matcher match = INSET_PATTERN.matcher(descriptionWithPlaceholders);
+
+		String output = match.replaceAll(matchResult -> {
+			String id = matchResult.group(1);
+			String value = parameterDictionary.get(id);
+			if (value != null) {
+				return Matcher.quoteReplacement(value);
+			}
+			return descriptionWithPlaceholders.substring(matchResult.start(), matchResult.end());
+		});
+
+		return output;
 	}
 
 }

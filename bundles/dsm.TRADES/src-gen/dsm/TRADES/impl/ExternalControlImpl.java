@@ -22,10 +22,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import dsm.TRADES.Characteristic;
 import dsm.TRADES.Control;
 import dsm.TRADES.ControlStatusENUM;
 import dsm.TRADES.ElementWithId;
@@ -52,10 +54,12 @@ import dsm.TRADES.Vulnerability;
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getId <em>Id</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getMitigatedThreats <em>Mitigated Threats</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getDescriptionWithPlaceholders <em>Description With Placeholders</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getMitigationRelations <em>Mitigation Relations</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getMitigatesVulnerability <em>Mitigates Vulnerability</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getSecurityObjective <em>Security Objective</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getCharacteristics <em>Characteristics</em>}</li>
  * </ul>
  *
  * @generated
@@ -132,6 +136,26 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getDescriptionWithPlaceholders() <em>Description With Placeholders</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescriptionWithPlaceholders()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_WITH_PLACEHOLDERS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescriptionWithPlaceholders() <em>Description With Placeholders</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescriptionWithPlaceholders()
+	 * @generated
+	 * @ordered
+	 */
+	protected String descriptionWithPlaceholders = DESCRIPTION_WITH_PLACEHOLDERS_EDEFAULT;
+
+	/**
 	 * The cached value of the '{@link #getMitigationRelations() <em>Mitigation Relations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -190,6 +214,16 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 	 * @ordered
 	 */
 	protected SecurityObjectiveENUM securityObjective = SECURITY_OBJECTIVE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCharacteristics() <em>Characteristics</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCharacteristics()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Characteristic> characteristics;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -300,6 +334,31 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 	 * @generated
 	 */
 	@Override
+	public String getDescriptionWithPlaceholders() {
+		return descriptionWithPlaceholders;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDescriptionWithPlaceholders(String newDescriptionWithPlaceholders) {
+		String oldDescriptionWithPlaceholders = descriptionWithPlaceholders;
+		descriptionWithPlaceholders = newDescriptionWithPlaceholders;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION_WITH_PLACEHOLDERS, oldDescriptionWithPlaceholders,
+					descriptionWithPlaceholders));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<ThreatMitigationRelation> getMitigationRelations() {
 		if (mitigationRelations == null) {
 			mitigationRelations = new EObjectContainmentWithInverseEList<ThreatMitigationRelation>(
@@ -377,6 +436,20 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 	 * @generated
 	 */
 	@Override
+	public EList<Characteristic> getCharacteristics() {
+		if (characteristics == null) {
+			characteristics = new EObjectContainmentEList<Characteristic>(Characteristic.class, this,
+					TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS);
+		}
+		return characteristics;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<IMitigationLink> getMitigatedThreatDefinitions() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -433,6 +506,8 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 		switch (featureID) {
 		case TRADESPackage.EXTERNAL_CONTROL__MITIGATION_RELATIONS:
 			return ((InternalEList<?>) getMitigationRelations()).basicRemove(otherEnd, msgs);
+		case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
+			return ((InternalEList<?>) getCharacteristics()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -453,6 +528,8 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 			return getMitigatedThreats();
 		case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION:
 			return getDescription();
+		case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION_WITH_PLACEHOLDERS:
+			return getDescriptionWithPlaceholders();
 		case TRADESPackage.EXTERNAL_CONTROL__MITIGATION_RELATIONS:
 			return getMitigationRelations();
 		case TRADESPackage.EXTERNAL_CONTROL__STATUS:
@@ -461,6 +538,8 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 			return getMitigatesVulnerability();
 		case TRADESPackage.EXTERNAL_CONTROL__SECURITY_OBJECTIVE:
 			return getSecurityObjective();
+		case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
+			return getCharacteristics();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -487,6 +566,9 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 		case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION:
 			setDescription((String) newValue);
 			return;
+		case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION_WITH_PLACEHOLDERS:
+			setDescriptionWithPlaceholders((String) newValue);
+			return;
 		case TRADESPackage.EXTERNAL_CONTROL__MITIGATION_RELATIONS:
 			getMitigationRelations().clear();
 			getMitigationRelations().addAll((Collection<? extends ThreatMitigationRelation>) newValue);
@@ -500,6 +582,10 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 			return;
 		case TRADESPackage.EXTERNAL_CONTROL__SECURITY_OBJECTIVE:
 			setSecurityObjective((SecurityObjectiveENUM) newValue);
+			return;
+		case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
+			getCharacteristics().clear();
+			getCharacteristics().addAll((Collection<? extends Characteristic>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -525,6 +611,9 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 		case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION:
 			setDescription(DESCRIPTION_EDEFAULT);
 			return;
+		case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION_WITH_PLACEHOLDERS:
+			setDescriptionWithPlaceholders(DESCRIPTION_WITH_PLACEHOLDERS_EDEFAULT);
+			return;
 		case TRADESPackage.EXTERNAL_CONTROL__MITIGATION_RELATIONS:
 			getMitigationRelations().clear();
 			return;
@@ -536,6 +625,9 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 			return;
 		case TRADESPackage.EXTERNAL_CONTROL__SECURITY_OBJECTIVE:
 			setSecurityObjective(SECURITY_OBJECTIVE_EDEFAULT);
+			return;
+		case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
+			getCharacteristics().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -557,6 +649,9 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 			return mitigatedThreats != null && !mitigatedThreats.isEmpty();
 		case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION:
 			return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+		case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION_WITH_PLACEHOLDERS:
+			return DESCRIPTION_WITH_PLACEHOLDERS_EDEFAULT == null ? descriptionWithPlaceholders != null
+					: !DESCRIPTION_WITH_PLACEHOLDERS_EDEFAULT.equals(descriptionWithPlaceholders);
 		case TRADESPackage.EXTERNAL_CONTROL__MITIGATION_RELATIONS:
 			return mitigationRelations != null && !mitigationRelations.isEmpty();
 		case TRADESPackage.EXTERNAL_CONTROL__STATUS:
@@ -565,6 +660,8 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 			return mitigatesVulnerability != null && !mitigatesVulnerability.isEmpty();
 		case TRADESPackage.EXTERNAL_CONTROL__SECURITY_OBJECTIVE:
 			return securityObjective != SECURITY_OBJECTIVE_EDEFAULT;
+		case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
+			return characteristics != null && !characteristics.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -610,6 +707,8 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 				return TRADESPackage.CONTROL__MITIGATED_THREATS;
 			case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION:
 				return TRADESPackage.CONTROL__DESCRIPTION;
+			case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION_WITH_PLACEHOLDERS:
+				return TRADESPackage.CONTROL__DESCRIPTION_WITH_PLACEHOLDERS;
 			case TRADESPackage.EXTERNAL_CONTROL__MITIGATION_RELATIONS:
 				return TRADESPackage.CONTROL__MITIGATION_RELATIONS;
 			case TRADESPackage.EXTERNAL_CONTROL__STATUS:
@@ -618,6 +717,8 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 				return TRADESPackage.CONTROL__MITIGATES_VULNERABILITY;
 			case TRADESPackage.EXTERNAL_CONTROL__SECURITY_OBJECTIVE:
 				return TRADESPackage.CONTROL__SECURITY_OBJECTIVE;
+			case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
+				return TRADESPackage.CONTROL__CHARACTERISTICS;
 			default:
 				return -1;
 			}
@@ -666,6 +767,8 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 				return TRADESPackage.EXTERNAL_CONTROL__MITIGATED_THREATS;
 			case TRADESPackage.CONTROL__DESCRIPTION:
 				return TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION;
+			case TRADESPackage.CONTROL__DESCRIPTION_WITH_PLACEHOLDERS:
+				return TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION_WITH_PLACEHOLDERS;
 			case TRADESPackage.CONTROL__MITIGATION_RELATIONS:
 				return TRADESPackage.EXTERNAL_CONTROL__MITIGATION_RELATIONS;
 			case TRADESPackage.CONTROL__STATUS:
@@ -674,6 +777,8 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 				return TRADESPackage.EXTERNAL_CONTROL__MITIGATES_VULNERABILITY;
 			case TRADESPackage.CONTROL__SECURITY_OBJECTIVE:
 				return TRADESPackage.EXTERNAL_CONTROL__SECURITY_OBJECTIVE;
+			case TRADESPackage.CONTROL__CHARACTERISTICS:
+				return TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS;
 			default:
 				return -1;
 			}
@@ -768,6 +873,8 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 		result.append(id);
 		result.append(", description: ");
 		result.append(description);
+		result.append(", descriptionWithPlaceholders: ");
+		result.append(descriptionWithPlaceholders);
 		result.append(", status: ");
 		result.append(status);
 		result.append(", securityObjective: ");

@@ -37,6 +37,7 @@ import dsm.TRADES.Asset;
 import dsm.TRADES.AttackChain;
 import dsm.TRADES.AttackChainStep;
 import dsm.TRADES.Catalog;
+import dsm.TRADES.Characteristic;
 import dsm.TRADES.ColoredElement;
 import dsm.TRADES.Component;
 import dsm.TRADES.ComponentCategoryENUM;
@@ -423,6 +424,13 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass characteristicEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum assessmentENUMEEnum = null;
 
 	/**
@@ -778,8 +786,18 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getControl_DescriptionWithPlaceholders() {
+		return (EAttribute) controlEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getControl_MitigationRelations() {
-		return (EReference) controlEClass.getEStructuralFeatures().get(2);
+		return (EReference) controlEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -789,7 +807,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 */
 	@Override
 	public EAttribute getControl_Status() {
-		return (EAttribute) controlEClass.getEStructuralFeatures().get(3);
+		return (EAttribute) controlEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -799,7 +817,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 */
 	@Override
 	public EReference getControl_MitigatesVulnerability() {
-		return (EReference) controlEClass.getEStructuralFeatures().get(4);
+		return (EReference) controlEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -809,7 +827,17 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 */
 	@Override
 	public EAttribute getControl_SecurityObjective() {
-		return (EAttribute) controlEClass.getEStructuralFeatures().get(5);
+		return (EAttribute) controlEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getControl_Characteristics() {
+		return (EReference) controlEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -2148,6 +2176,56 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getCharacteristic() {
+		return characteristicEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCharacteristic_Name() {
+		return (EAttribute) characteristicEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCharacteristic_Label() {
+		return (EAttribute) characteristicEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCharacteristic_Value() {
+		return (EAttribute) characteristicEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCharacteristic_Description() {
+		return (EAttribute) characteristicEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getAssessmentENUM() {
 		return assessmentENUMEEnum;
 	}
@@ -2268,10 +2346,12 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		controlEClass = createEClass(CONTROL);
 		createEReference(controlEClass, CONTROL__MITIGATED_THREATS);
 		createEAttribute(controlEClass, CONTROL__DESCRIPTION);
+		createEAttribute(controlEClass, CONTROL__DESCRIPTION_WITH_PLACEHOLDERS);
 		createEReference(controlEClass, CONTROL__MITIGATION_RELATIONS);
 		createEAttribute(controlEClass, CONTROL__STATUS);
 		createEReference(controlEClass, CONTROL__MITIGATES_VULNERABILITY);
 		createEAttribute(controlEClass, CONTROL__SECURITY_OBJECTIVE);
+		createEReference(controlEClass, CONTROL__CHARACTERISTICS);
 
 		threatAllocationRelationEClass = createEClass(THREAT_ALLOCATION_RELATION);
 		createEAttribute(threatAllocationRelationEClass, THREAT_ALLOCATION_RELATION__ASSESSMENT);
@@ -2450,6 +2530,12 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		vaOwnerEClass = createEClass(VA_OWNER);
 		createEReference(vaOwnerEClass, VA_OWNER__VULNERABLEASSET);
 
+		characteristicEClass = createEClass(CHARACTERISTIC);
+		createEAttribute(characteristicEClass, CHARACTERISTIC__NAME);
+		createEAttribute(characteristicEClass, CHARACTERISTIC__LABEL);
+		createEAttribute(characteristicEClass, CHARACTERISTIC__VALUE);
+		createEAttribute(characteristicEClass, CHARACTERISTIC__DESCRIPTION);
+
 		// Create enums
 		assessmentENUMEEnum = createEEnum(ASSESSMENT_ENUM);
 		affectedENUMEEnum = createEEnum(AFFECTED_ENUM);
@@ -2613,6 +2699,9 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getControl_Description(), ecorePackage.getEString(), "description", null, 0, 1, Control.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getControl_DescriptionWithPlaceholders(), ecorePackage.getEString(),
+				"descriptionWithPlaceholders", null, 0, 1, Control.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getControl_MitigationRelations(), this.getThreatMitigationRelation(),
 				this.getThreatMitigationRelation_Control(), "mitigationRelations", null, 0, -1, Control.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
@@ -2625,6 +2714,9 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		initEAttribute(getControl_SecurityObjective(), this.getSecurityObjectiveENUM(), "securityObjective",
 				"Undefined", 0, 1, Control.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getControl_Characteristics(), this.getCharacteristic(), null, "characteristics", null, 0, -1,
+				Control.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(threatAllocationRelationEClass, ThreatAllocationRelation.class, "ThreatAllocationRelation",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3024,6 +3116,18 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		initEReference(getVAOwner_Vulnerableasset(), this.getVulnerableAsset(), null, "vulnerableasset", null, 0, -1,
 				VAOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(characteristicEClass, Characteristic.class, "Characteristic", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCharacteristic_Name(), ecorePackage.getEString(), "name", null, 0, 1, Characteristic.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCharacteristic_Label(), ecorePackage.getEString(), "label", null, 0, 1, Characteristic.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCharacteristic_Value(), ecorePackage.getEString(), "value", null, 0, 1, Characteristic.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCharacteristic_Description(), ecorePackage.getEString(), "description", null, 0, 1,
+				Characteristic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(assessmentENUMEEnum, AssessmentENUM.class, "AssessmentENUM");

@@ -27,6 +27,7 @@ import dsm.TRADES.AssessmentENUM;
 import dsm.TRADES.AttackChain;
 import dsm.TRADES.AttackChainStep;
 import dsm.TRADES.Catalog;
+import dsm.TRADES.Characteristic;
 import dsm.TRADES.Component;
 import dsm.TRADES.ComponentCategoryENUM;
 import dsm.TRADES.ComponentType;
@@ -161,6 +162,8 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 			return createVulnerableAssetOwner();
 		case TRADESPackage.VULNERABLE_ASSET:
 			return createVulnerableAsset();
+		case TRADESPackage.CHARACTERISTIC:
+			return createCharacteristic();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -537,6 +540,17 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 	public VulnerableAsset createVulnerableAsset() {
 		VulnerableAssetImpl vulnerableAsset = new VulnerableAssetImpl();
 		return vulnerableAsset;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Characteristic createCharacteristic() {
+		CharacteristicImpl characteristic = new CharacteristicImpl();
+		return characteristic;
 	}
 
 	/**
