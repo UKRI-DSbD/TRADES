@@ -71,6 +71,7 @@ public class ThreatAllocationRelationItemProvider extends ItemProviderAdapter im
 			addThreatPropertyDescriptor(object);
 			addImpactScorePropertyDescriptor(object);
 			addDifficultyScorePropertyDescriptor(object);
+			addMitigatedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -153,6 +154,22 @@ public class ThreatAllocationRelationItemProvider extends ItemProviderAdapter im
 	}
 
 	/**
+	 * This adds a property descriptor for the Mitigated feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMitigatedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ThreatAllocationRelation_mitigated_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_ThreatAllocationRelation_mitigated_feature", "_UI_ThreatAllocationRelation_type"),
+						TRADESPackage.Literals.THREAT_ALLOCATION_RELATION__MITIGATED, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -230,6 +247,7 @@ public class ThreatAllocationRelationItemProvider extends ItemProviderAdapter im
 
 		switch (notification.getFeatureID(ThreatAllocationRelation.class)) {
 		case TRADESPackage.THREAT_ALLOCATION_RELATION__ASSESSMENT:
+		case TRADESPackage.THREAT_ALLOCATION_RELATION__MITIGATED:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case TRADESPackage.THREAT_ALLOCATION_RELATION__ATTACK_CHAIN:

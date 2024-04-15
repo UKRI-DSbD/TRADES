@@ -30,6 +30,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link dsm.TRADES.Component#getComponenttype <em>Componenttype</em>}</li>
  *   <li>{@link dsm.TRADES.Component#getVulnerableasset <em>Vulnerableasset</em>}</li>
  *   <li>{@link dsm.TRADES.Component#getAssignedControl <em>Assigned Control</em>}</li>
+ *   <li>{@link dsm.TRADES.Component#isVulnerable <em>Vulnerable</em>}</li>
  * </ul>
  *
  * @see dsm.TRADES.TRADESPackage#getComponent()
@@ -112,5 +113,83 @@ public interface Component extends ComponentOwner, DataOwnerElement, NamedElemen
 	 * @generated
 	 */
 	EList<Control> getAssignedControl();
+
+	/**
+	 * Returns the value of the '<em><b>Vulnerable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Vulnerable</em>' attribute.
+	 * @see #setVulnerable(boolean)
+	 * @see dsm.TRADES.TRADESPackage#getComponent_Vulnerable()
+	 * @model transient="true" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isVulnerable();
+
+	/**
+	 * Sets the value of the '{@link dsm.TRADES.Component#isVulnerable <em>Vulnerable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Vulnerable</em>' attribute.
+	 * @see #isVulnerable()
+	 * @generated
+	 */
+	void setVulnerable(boolean value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean ofType(ComponentType type);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean mitigatedV(Vulnerability vulnerability);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean mitigatedW(Vulnerability weakness);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean mitigatedByW(Vulnerability vulnerability);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean mitigated(Vulnerability vulnerability);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean vulnerableW();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean vulnerableV();
 
 } // Component

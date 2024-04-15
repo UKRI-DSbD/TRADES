@@ -240,13 +240,49 @@ public interface TRADESPackage extends EPackage {
 	int ANALYSIS__NVDAPI_KEY = COMPONENT_OWNER_FEATURE_COUNT + 11;
 
 	/**
+	 * The feature id for the '<em><b>P1a</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS__P1A = COMPONENT_OWNER_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>P1b</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS__P1B = COMPONENT_OWNER_FEATURE_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>P5a</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS__P5A = COMPONENT_OWNER_FEATURE_COUNT + 14;
+
+	/**
+	 * The feature id for the '<em><b>P5b</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS__P5B = COMPONENT_OWNER_FEATURE_COUNT + 15;
+
+	/**
 	 * The number of structural features of the '<em>Analysis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_FEATURE_COUNT = COMPONENT_OWNER_FEATURE_COUNT + 12;
+	int ANALYSIS_FEATURE_COUNT = COMPONENT_OWNER_FEATURE_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Get Datas</em>' operation.
@@ -303,13 +339,40 @@ public interface TRADESPackage extends EPackage {
 	int ANALYSIS___GET_EXTERNAL_THREATS__STRING_STRING = COMPONENT_OWNER_OPERATION_COUNT + 5;
 
 	/**
+	 * The operation id for the '<em>Direct Rule Exists</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS___DIRECT_RULE_EXISTS__VULNERABILITY_COMPONENTTYPE = COMPONENT_OWNER_OPERATION_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Proxy Rule Exists</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS___PROXY_RULE_EXISTS__VULNERABILITY_COMPONENTTYPE = COMPONENT_OWNER_OPERATION_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Rule Exists</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS___RULE_EXISTS__VULNERABILITY_COMPONENTTYPE = COMPONENT_OWNER_OPERATION_COUNT + 8;
+
+	/**
 	 * The number of operations of the '<em>Analysis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_OPERATION_COUNT = COMPONENT_OWNER_OPERATION_COUNT + 6;
+	int ANALYSIS_OPERATION_COUNT = COMPONENT_OWNER_OPERATION_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -612,13 +675,22 @@ public interface TRADESPackage extends EPackage {
 	int COMPONENT__ASSIGNED_CONTROL = COMPONENT_OWNER_FEATURE_COUNT + 9;
 
 	/**
+	 * The feature id for the '<em><b>Vulnerable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__VULNERABLE = COMPONENT_OWNER_FEATURE_COUNT + 10;
+
+	/**
 	 * The number of structural features of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = COMPONENT_OWNER_FEATURE_COUNT + 10;
+	int COMPONENT_FEATURE_COUNT = COMPONENT_OWNER_FEATURE_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Get Datas</em>' operation.
@@ -666,13 +738,76 @@ public interface TRADESPackage extends EPackage {
 	int COMPONENT___GET_EXTERNAL_CONTROLS__STRING_STRING = COMPONENT_OWNER_OPERATION_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Of Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT___OF_TYPE__COMPONENTTYPE = COMPONENT_OWNER_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Mitigated V</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT___MITIGATED_V__VULNERABILITY = COMPONENT_OWNER_OPERATION_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Mitigated W</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT___MITIGATED_W__VULNERABILITY = COMPONENT_OWNER_OPERATION_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Mitigated By W</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT___MITIGATED_BY_W__VULNERABILITY = COMPONENT_OWNER_OPERATION_COUNT + 8;
+
+	/**
+	 * The operation id for the '<em>Mitigated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT___MITIGATED__VULNERABILITY = COMPONENT_OWNER_OPERATION_COUNT + 9;
+
+	/**
+	 * The operation id for the '<em>Vulnerable W</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT___VULNERABLE_W = COMPONENT_OWNER_OPERATION_COUNT + 10;
+
+	/**
+	 * The operation id for the '<em>Vulnerable V</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT___VULNERABLE_V = COMPONENT_OWNER_OPERATION_COUNT + 11;
+
+	/**
 	 * The number of operations of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_OPERATION_COUNT = COMPONENT_OWNER_OPERATION_COUNT + 5;
+	int COMPONENT_OPERATION_COUNT = COMPONENT_OWNER_OPERATION_COUNT + 12;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.impl.ControlImpl <em>Control</em>}' class.
@@ -911,13 +1046,22 @@ public interface TRADESPackage extends EPackage {
 	int THREAT_ALLOCATION_RELATION__ATTACK_CHAIN = 5;
 
 	/**
+	 * The feature id for the '<em><b>Mitigated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THREAT_ALLOCATION_RELATION__MITIGATED = 6;
+
+	/**
 	 * The number of structural features of the '<em>Threat Allocation Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int THREAT_ALLOCATION_RELATION_FEATURE_COUNT = 6;
+	int THREAT_ALLOCATION_RELATION_FEATURE_COUNT = 7;
 
 	/**
 	 * The operation id for the '<em>Check Computed Difficulty Constraint</em>' operation.
@@ -929,13 +1073,67 @@ public interface TRADESPackage extends EPackage {
 	int THREAT_ALLOCATION_RELATION___CHECK_COMPUTED_DIFFICULTY_CONSTRAINT__DIAGNOSTICCHAIN_MAP = 0;
 
 	/**
+	 * The operation id for the '<em>Mitigated AV</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THREAT_ALLOCATION_RELATION___MITIGATED_AV = 1;
+
+	/**
+	 * The operation id for the '<em>Mitigated AW</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THREAT_ALLOCATION_RELATION___MITIGATED_AW = 2;
+
+	/**
+	 * The operation id for the '<em>Mitigated VSteps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THREAT_ALLOCATION_RELATION___MITIGATED_VSTEPS = 3;
+
+	/**
+	 * The operation id for the '<em>Mitigated WSteps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THREAT_ALLOCATION_RELATION___MITIGATED_WSTEPS = 4;
+
+	/**
+	 * The operation id for the '<em>Mitigated V</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THREAT_ALLOCATION_RELATION___MITIGATED_V = 5;
+
+	/**
+	 * The operation id for the '<em>Mitigated W</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THREAT_ALLOCATION_RELATION___MITIGATED_W = 6;
+
+	/**
 	 * The number of operations of the '<em>Threat Allocation Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int THREAT_ALLOCATION_RELATION_OPERATION_COUNT = 1;
+	int THREAT_ALLOCATION_RELATION_OPERATION_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.IMitigationLink <em>IMitigation Link</em>}' class.
@@ -3095,13 +3293,22 @@ public interface TRADESPackage extends EPackage {
 	int VULNERABILITY__AFFECTS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Vulnerability Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VULNERABILITY__VULNERABILITY_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Vulnerability</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int VULNERABILITY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Vulnerability</em>' class.
@@ -3541,6 +3748,16 @@ public interface TRADESPackage extends EPackage {
 	int SECURITY_OBJECTIVE_ENUM = 53;
 
 	/**
+	 * The meta object id for the '{@link dsm.TRADES.VulnerabilityTypeENUM <em>Vulnerability Type ENUM</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see dsm.TRADES.VulnerabilityTypeENUM
+	 * @see dsm.TRADES.impl.TRADESPackageImpl#getVulnerabilityTypeENUM()
+	 * @generated
+	 */
+	int VULNERABILITY_TYPE_ENUM = 54;
+
+	/**
 	 * The meta object id for the '<em>RGB Color</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3548,7 +3765,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getRGBColor()
 	 * @generated
 	 */
-	int RGB_COLOR = 54;
+	int RGB_COLOR = 55;
 
 	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.Analysis <em>Analysis</em>}'.
@@ -3594,6 +3811,50 @@ public interface TRADESPackage extends EPackage {
 	EAttribute getAnalysis_NVDAPIKey();
 
 	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.Analysis#isP1a <em>P1a</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>P1a</em>'.
+	 * @see dsm.TRADES.Analysis#isP1a()
+	 * @see #getAnalysis()
+	 * @generated
+	 */
+	EAttribute getAnalysis_P1a();
+
+	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.Analysis#isP1b <em>P1b</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>P1b</em>'.
+	 * @see dsm.TRADES.Analysis#isP1b()
+	 * @see #getAnalysis()
+	 * @generated
+	 */
+	EAttribute getAnalysis_P1b();
+
+	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.Analysis#isP5a <em>P5a</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>P5a</em>'.
+	 * @see dsm.TRADES.Analysis#isP5a()
+	 * @see #getAnalysis()
+	 * @generated
+	 */
+	EAttribute getAnalysis_P5a();
+
+	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.Analysis#isP5b <em>P5b</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>P5b</em>'.
+	 * @see dsm.TRADES.Analysis#isP5b()
+	 * @see #getAnalysis()
+	 * @generated
+	 */
+	EAttribute getAnalysis_P5b();
+
+	/**
 	 * Returns the meta object for the '{@link dsm.TRADES.Analysis#getExternalThreats(java.lang.String, java.lang.String) <em>Get External Threats</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3602,6 +3863,36 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getAnalysis__GetExternalThreats__String_String();
+
+	/**
+	 * Returns the meta object for the '{@link dsm.TRADES.Analysis#directRuleExists(dsm.TRADES.Vulnerability, dsm.TRADES.ComponentType) <em>Direct Rule Exists</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Direct Rule Exists</em>' operation.
+	 * @see dsm.TRADES.Analysis#directRuleExists(dsm.TRADES.Vulnerability, dsm.TRADES.ComponentType)
+	 * @generated
+	 */
+	EOperation getAnalysis__DirectRuleExists__Vulnerability_ComponentType();
+
+	/**
+	 * Returns the meta object for the '{@link dsm.TRADES.Analysis#proxyRuleExists(dsm.TRADES.Vulnerability, dsm.TRADES.ComponentType) <em>Proxy Rule Exists</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Proxy Rule Exists</em>' operation.
+	 * @see dsm.TRADES.Analysis#proxyRuleExists(dsm.TRADES.Vulnerability, dsm.TRADES.ComponentType)
+	 * @generated
+	 */
+	EOperation getAnalysis__ProxyRuleExists__Vulnerability_ComponentType();
+
+	/**
+	 * Returns the meta object for the '{@link dsm.TRADES.Analysis#ruleExists(dsm.TRADES.Vulnerability, dsm.TRADES.ComponentType) <em>Rule Exists</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Rule Exists</em>' operation.
+	 * @see dsm.TRADES.Analysis#ruleExists(dsm.TRADES.Vulnerability, dsm.TRADES.ComponentType)
+	 * @generated
+	 */
+	EOperation getAnalysis__RuleExists__Vulnerability_ComponentType();
 
 	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.Threat <em>Threat</em>}'.
@@ -3764,6 +4055,87 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getComponent_AssignedControl();
+
+	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.Component#isVulnerable <em>Vulnerable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Vulnerable</em>'.
+	 * @see dsm.TRADES.Component#isVulnerable()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EAttribute getComponent_Vulnerable();
+
+	/**
+	 * Returns the meta object for the '{@link dsm.TRADES.Component#ofType(dsm.TRADES.ComponentType) <em>Of Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Of Type</em>' operation.
+	 * @see dsm.TRADES.Component#ofType(dsm.TRADES.ComponentType)
+	 * @generated
+	 */
+	EOperation getComponent__OfType__ComponentType();
+
+	/**
+	 * Returns the meta object for the '{@link dsm.TRADES.Component#mitigatedV(dsm.TRADES.Vulnerability) <em>Mitigated V</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Mitigated V</em>' operation.
+	 * @see dsm.TRADES.Component#mitigatedV(dsm.TRADES.Vulnerability)
+	 * @generated
+	 */
+	EOperation getComponent__MitigatedV__Vulnerability();
+
+	/**
+	 * Returns the meta object for the '{@link dsm.TRADES.Component#mitigatedW(dsm.TRADES.Vulnerability) <em>Mitigated W</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Mitigated W</em>' operation.
+	 * @see dsm.TRADES.Component#mitigatedW(dsm.TRADES.Vulnerability)
+	 * @generated
+	 */
+	EOperation getComponent__MitigatedW__Vulnerability();
+
+	/**
+	 * Returns the meta object for the '{@link dsm.TRADES.Component#mitigatedByW(dsm.TRADES.Vulnerability) <em>Mitigated By W</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Mitigated By W</em>' operation.
+	 * @see dsm.TRADES.Component#mitigatedByW(dsm.TRADES.Vulnerability)
+	 * @generated
+	 */
+	EOperation getComponent__MitigatedByW__Vulnerability();
+
+	/**
+	 * Returns the meta object for the '{@link dsm.TRADES.Component#mitigated(dsm.TRADES.Vulnerability) <em>Mitigated</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Mitigated</em>' operation.
+	 * @see dsm.TRADES.Component#mitigated(dsm.TRADES.Vulnerability)
+	 * @generated
+	 */
+	EOperation getComponent__Mitigated__Vulnerability();
+
+	/**
+	 * Returns the meta object for the '{@link dsm.TRADES.Component#vulnerableW() <em>Vulnerable W</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Vulnerable W</em>' operation.
+	 * @see dsm.TRADES.Component#vulnerableW()
+	 * @generated
+	 */
+	EOperation getComponent__VulnerableW();
+
+	/**
+	 * Returns the meta object for the '{@link dsm.TRADES.Component#vulnerableV() <em>Vulnerable V</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Vulnerable V</em>' operation.
+	 * @see dsm.TRADES.Component#vulnerableV()
+	 * @generated
+	 */
+	EOperation getComponent__VulnerableV();
 
 	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.Control <em>Control</em>}'.
@@ -3940,6 +4312,17 @@ public interface TRADESPackage extends EPackage {
 	EReference getThreatAllocationRelation_AttackChain();
 
 	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.ThreatAllocationRelation#isMitigated <em>Mitigated</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mitigated</em>'.
+	 * @see dsm.TRADES.ThreatAllocationRelation#isMitigated()
+	 * @see #getThreatAllocationRelation()
+	 * @generated
+	 */
+	EAttribute getThreatAllocationRelation_Mitigated();
+
+	/**
 	 * Returns the meta object for the '{@link dsm.TRADES.ThreatAllocationRelation#checkComputedDifficultyConstraint(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Check Computed Difficulty Constraint</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3948,6 +4331,66 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getThreatAllocationRelation__CheckComputedDifficultyConstraint__DiagnosticChain_Map();
+
+	/**
+	 * Returns the meta object for the '{@link dsm.TRADES.ThreatAllocationRelation#mitigatedAV() <em>Mitigated AV</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Mitigated AV</em>' operation.
+	 * @see dsm.TRADES.ThreatAllocationRelation#mitigatedAV()
+	 * @generated
+	 */
+	EOperation getThreatAllocationRelation__MitigatedAV();
+
+	/**
+	 * Returns the meta object for the '{@link dsm.TRADES.ThreatAllocationRelation#mitigatedAW() <em>Mitigated AW</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Mitigated AW</em>' operation.
+	 * @see dsm.TRADES.ThreatAllocationRelation#mitigatedAW()
+	 * @generated
+	 */
+	EOperation getThreatAllocationRelation__MitigatedAW();
+
+	/**
+	 * Returns the meta object for the '{@link dsm.TRADES.ThreatAllocationRelation#mitigatedVSteps() <em>Mitigated VSteps</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Mitigated VSteps</em>' operation.
+	 * @see dsm.TRADES.ThreatAllocationRelation#mitigatedVSteps()
+	 * @generated
+	 */
+	EOperation getThreatAllocationRelation__MitigatedVSteps();
+
+	/**
+	 * Returns the meta object for the '{@link dsm.TRADES.ThreatAllocationRelation#mitigatedWSteps() <em>Mitigated WSteps</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Mitigated WSteps</em>' operation.
+	 * @see dsm.TRADES.ThreatAllocationRelation#mitigatedWSteps()
+	 * @generated
+	 */
+	EOperation getThreatAllocationRelation__MitigatedWSteps();
+
+	/**
+	 * Returns the meta object for the '{@link dsm.TRADES.ThreatAllocationRelation#mitigatedV() <em>Mitigated V</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Mitigated V</em>' operation.
+	 * @see dsm.TRADES.ThreatAllocationRelation#mitigatedV()
+	 * @generated
+	 */
+	EOperation getThreatAllocationRelation__MitigatedV();
+
+	/**
+	 * Returns the meta object for the '{@link dsm.TRADES.ThreatAllocationRelation#mitigatedW() <em>Mitigated W</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Mitigated W</em>' operation.
+	 * @see dsm.TRADES.ThreatAllocationRelation#mitigatedW()
+	 * @generated
+	 */
+	EOperation getThreatAllocationRelation__MitigatedW();
 
 	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.ThreatMitigationRelation <em>Threat Mitigation Relation</em>}'.
@@ -5068,6 +5511,17 @@ public interface TRADESPackage extends EPackage {
 	EReference getVulnerability_Affects();
 
 	/**
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.Vulnerability#getVulnerabilityType <em>Vulnerability Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Vulnerability Type</em>'.
+	 * @see dsm.TRADES.Vulnerability#getVulnerabilityType()
+	 * @see #getVulnerability()
+	 * @generated
+	 */
+	EAttribute getVulnerability_VulnerabilityType();
+
+	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.AbstractComponentTypeOwner <em>Abstract Component Type Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5372,6 +5826,16 @@ public interface TRADESPackage extends EPackage {
 	EEnum getSecurityObjectiveENUM();
 
 	/**
+	 * Returns the meta object for enum '{@link dsm.TRADES.VulnerabilityTypeENUM <em>Vulnerability Type ENUM</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Vulnerability Type ENUM</em>'.
+	 * @see dsm.TRADES.VulnerabilityTypeENUM
+	 * @generated
+	 */
+	EEnum getVulnerabilityTypeENUM();
+
+	/**
 	 * Returns the meta object for data type '{@link dsm.TRADES.RGBColor <em>RGB Color</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5440,6 +5904,38 @@ public interface TRADESPackage extends EPackage {
 		EAttribute ANALYSIS__NVDAPI_KEY = eINSTANCE.getAnalysis_NVDAPIKey();
 
 		/**
+		 * The meta object literal for the '<em><b>P1a</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANALYSIS__P1A = eINSTANCE.getAnalysis_P1a();
+
+		/**
+		 * The meta object literal for the '<em><b>P1b</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANALYSIS__P1B = eINSTANCE.getAnalysis_P1b();
+
+		/**
+		 * The meta object literal for the '<em><b>P5a</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANALYSIS__P5A = eINSTANCE.getAnalysis_P5a();
+
+		/**
+		 * The meta object literal for the '<em><b>P5b</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANALYSIS__P5B = eINSTANCE.getAnalysis_P5b();
+
+		/**
 		 * The meta object literal for the '<em><b>Get External Threats</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5447,6 +5943,33 @@ public interface TRADESPackage extends EPackage {
 		 */
 		EOperation ANALYSIS___GET_EXTERNAL_THREATS__STRING_STRING = eINSTANCE
 				.getAnalysis__GetExternalThreats__String_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Direct Rule Exists</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ANALYSIS___DIRECT_RULE_EXISTS__VULNERABILITY_COMPONENTTYPE = eINSTANCE
+				.getAnalysis__DirectRuleExists__Vulnerability_ComponentType();
+
+		/**
+		 * The meta object literal for the '<em><b>Proxy Rule Exists</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ANALYSIS___PROXY_RULE_EXISTS__VULNERABILITY_COMPONENTTYPE = eINSTANCE
+				.getAnalysis__ProxyRuleExists__Vulnerability_ComponentType();
+
+		/**
+		 * The meta object literal for the '<em><b>Rule Exists</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ANALYSIS___RULE_EXISTS__VULNERABILITY_COMPONENTTYPE = eINSTANCE
+				.getAnalysis__RuleExists__Vulnerability_ComponentType();
 
 		/**
 		 * The meta object literal for the '{@link dsm.TRADES.impl.ThreatImpl <em>Threat</em>}' class.
@@ -5572,6 +6095,70 @@ public interface TRADESPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPONENT__ASSIGNED_CONTROL = eINSTANCE.getComponent_AssignedControl();
+
+		/**
+		 * The meta object literal for the '<em><b>Vulnerable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPONENT__VULNERABLE = eINSTANCE.getComponent_Vulnerable();
+
+		/**
+		 * The meta object literal for the '<em><b>Of Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPONENT___OF_TYPE__COMPONENTTYPE = eINSTANCE.getComponent__OfType__ComponentType();
+
+		/**
+		 * The meta object literal for the '<em><b>Mitigated V</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPONENT___MITIGATED_V__VULNERABILITY = eINSTANCE.getComponent__MitigatedV__Vulnerability();
+
+		/**
+		 * The meta object literal for the '<em><b>Mitigated W</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPONENT___MITIGATED_W__VULNERABILITY = eINSTANCE.getComponent__MitigatedW__Vulnerability();
+
+		/**
+		 * The meta object literal for the '<em><b>Mitigated By W</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPONENT___MITIGATED_BY_W__VULNERABILITY = eINSTANCE.getComponent__MitigatedByW__Vulnerability();
+
+		/**
+		 * The meta object literal for the '<em><b>Mitigated</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPONENT___MITIGATED__VULNERABILITY = eINSTANCE.getComponent__Mitigated__Vulnerability();
+
+		/**
+		 * The meta object literal for the '<em><b>Vulnerable W</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPONENT___VULNERABLE_W = eINSTANCE.getComponent__VulnerableW();
+
+		/**
+		 * The meta object literal for the '<em><b>Vulnerable V</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPONENT___VULNERABLE_V = eINSTANCE.getComponent__VulnerableV();
 
 		/**
 		 * The meta object literal for the '{@link dsm.TRADES.impl.ControlImpl <em>Control</em>}' class.
@@ -5707,6 +6294,14 @@ public interface TRADESPackage extends EPackage {
 		EReference THREAT_ALLOCATION_RELATION__ATTACK_CHAIN = eINSTANCE.getThreatAllocationRelation_AttackChain();
 
 		/**
+		 * The meta object literal for the '<em><b>Mitigated</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute THREAT_ALLOCATION_RELATION__MITIGATED = eINSTANCE.getThreatAllocationRelation_Mitigated();
+
+		/**
 		 * The meta object literal for the '<em><b>Check Computed Difficulty Constraint</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5714,6 +6309,56 @@ public interface TRADESPackage extends EPackage {
 		 */
 		EOperation THREAT_ALLOCATION_RELATION___CHECK_COMPUTED_DIFFICULTY_CONSTRAINT__DIAGNOSTICCHAIN_MAP = eINSTANCE
 				.getThreatAllocationRelation__CheckComputedDifficultyConstraint__DiagnosticChain_Map();
+
+		/**
+		 * The meta object literal for the '<em><b>Mitigated AV</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation THREAT_ALLOCATION_RELATION___MITIGATED_AV = eINSTANCE.getThreatAllocationRelation__MitigatedAV();
+
+		/**
+		 * The meta object literal for the '<em><b>Mitigated AW</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation THREAT_ALLOCATION_RELATION___MITIGATED_AW = eINSTANCE.getThreatAllocationRelation__MitigatedAW();
+
+		/**
+		 * The meta object literal for the '<em><b>Mitigated VSteps</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation THREAT_ALLOCATION_RELATION___MITIGATED_VSTEPS = eINSTANCE
+				.getThreatAllocationRelation__MitigatedVSteps();
+
+		/**
+		 * The meta object literal for the '<em><b>Mitigated WSteps</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation THREAT_ALLOCATION_RELATION___MITIGATED_WSTEPS = eINSTANCE
+				.getThreatAllocationRelation__MitigatedWSteps();
+
+		/**
+		 * The meta object literal for the '<em><b>Mitigated V</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation THREAT_ALLOCATION_RELATION___MITIGATED_V = eINSTANCE.getThreatAllocationRelation__MitigatedV();
+
+		/**
+		 * The meta object literal for the '<em><b>Mitigated W</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation THREAT_ALLOCATION_RELATION___MITIGATED_W = eINSTANCE.getThreatAllocationRelation__MitigatedW();
 
 		/**
 		 * The meta object literal for the '{@link dsm.TRADES.impl.ThreatMitigationRelationImpl <em>Threat Mitigation Relation</em>}' class.
@@ -6653,6 +7298,14 @@ public interface TRADESPackage extends EPackage {
 		EReference VULNERABILITY__AFFECTS = eINSTANCE.getVulnerability_Affects();
 
 		/**
+		 * The meta object literal for the '<em><b>Vulnerability Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VULNERABILITY__VULNERABILITY_TYPE = eINSTANCE.getVulnerability_VulnerabilityType();
+
+		/**
 		 * The meta object literal for the '{@link dsm.TRADES.impl.AbstractComponentTypeOwnerImpl <em>Abstract Component Type Owner</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6915,6 +7568,16 @@ public interface TRADESPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum SECURITY_OBJECTIVE_ENUM = eINSTANCE.getSecurityObjectiveENUM();
+
+		/**
+		 * The meta object literal for the '{@link dsm.TRADES.VulnerabilityTypeENUM <em>Vulnerability Type ENUM</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see dsm.TRADES.VulnerabilityTypeENUM
+		 * @see dsm.TRADES.impl.TRADESPackageImpl#getVulnerabilityTypeENUM()
+		 * @generated
+		 */
+		EEnum VULNERABILITY_TYPE_ENUM = eINSTANCE.getVulnerabilityTypeENUM();
 
 		/**
 		 * The meta object literal for the '<em>RGB Color</em>' data type.

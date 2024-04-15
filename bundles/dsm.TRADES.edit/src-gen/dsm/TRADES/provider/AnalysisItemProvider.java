@@ -59,6 +59,10 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 			addNamePropertyDescriptor(object);
 			addIdPropertyDescriptor(object);
 			addNVDAPIKeyPropertyDescriptor(object);
+			addP1aPropertyDescriptor(object);
+			addP1bPropertyDescriptor(object);
+			addP5aPropertyDescriptor(object);
+			addP5bPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -109,6 +113,70 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 								"_UI_Analysis_type"),
 						TRADESPackage.Literals.ANALYSIS__NVDAPI_KEY, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the P1a feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addP1aPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Analysis_p1a_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Analysis_p1a_feature",
+								"_UI_Analysis_type"),
+						TRADESPackage.Literals.ANALYSIS__P1A, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the P1b feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addP1bPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Analysis_p1b_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Analysis_p1b_feature",
+								"_UI_Analysis_type"),
+						TRADESPackage.Literals.ANALYSIS__P1B, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the P5a feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addP5aPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Analysis_p5a_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Analysis_p5a_feature",
+								"_UI_Analysis_type"),
+						TRADESPackage.Literals.ANALYSIS__P5A, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the P5b feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addP5bPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Analysis_p5b_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Analysis_p5b_feature",
+								"_UI_Analysis_type"),
+						TRADESPackage.Literals.ANALYSIS__P5B, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -198,6 +266,10 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 		case TRADESPackage.ANALYSIS__NAME:
 		case TRADESPackage.ANALYSIS__ID:
 		case TRADESPackage.ANALYSIS__NVDAPI_KEY:
+		case TRADESPackage.ANALYSIS__P1A:
+		case TRADESPackage.ANALYSIS__P1B:
+		case TRADESPackage.ANALYSIS__P5A:
+		case TRADESPackage.ANALYSIS__P5B:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case TRADESPackage.ANALYSIS__DATA_OWNER:

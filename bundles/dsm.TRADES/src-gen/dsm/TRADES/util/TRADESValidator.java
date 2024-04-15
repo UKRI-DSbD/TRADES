@@ -13,6 +13,7 @@
  */
 package dsm.TRADES.util;
 
+import dsm.TRADES.*;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -290,6 +291,8 @@ public class TRADESValidator extends EObjectValidator {
 			return validateComponentCategoryENUM((ComponentCategoryENUM) value, diagnostics, context);
 		case TRADESPackage.SECURITY_OBJECTIVE_ENUM:
 			return validateSecurityObjectiveENUM((SecurityObjectiveENUM) value, diagnostics, context);
+		case TRADESPackage.VULNERABILITY_TYPE_ENUM:
+			return validateVulnerabilityTypeENUM((VulnerabilityTypeENUM) value, diagnostics, context);
 		case TRADESPackage.RGB_COLOR:
 			return validateRGBColor((RGBColor) value, diagnostics, context);
 		default:
@@ -962,6 +965,16 @@ public class TRADESValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateSecurityObjectiveENUM(SecurityObjectiveENUM securityObjectiveENUM,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateVulnerabilityTypeENUM(VulnerabilityTypeENUM vulnerabilityTypeENUM,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}

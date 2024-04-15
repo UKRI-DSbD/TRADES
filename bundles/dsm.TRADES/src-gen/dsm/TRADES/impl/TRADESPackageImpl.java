@@ -78,6 +78,7 @@ import dsm.TRADES.ThreatsOwner;
 import dsm.TRADES.VAOwner;
 import dsm.TRADES.Vulnerability;
 import dsm.TRADES.VulnerabilityOwner;
+import dsm.TRADES.VulnerabilityTypeENUM;
 import dsm.TRADES.VulnerableAsset;
 import dsm.TRADES.VulnerableAssetOwner;
 import dsm.TRADES.threatTypeENUM;
@@ -473,6 +474,13 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum vulnerabilityTypeENUMEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EDataType rgbColorEDataType = null;
 
 	/**
@@ -596,8 +604,78 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getAnalysis_P1a() {
+		return (EAttribute) analysisEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAnalysis_P1b() {
+		return (EAttribute) analysisEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAnalysis_P5a() {
+		return (EAttribute) analysisEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAnalysis_P5b() {
+		return (EAttribute) analysisEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getAnalysis__GetExternalThreats__String_String() {
 		return analysisEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getAnalysis__DirectRuleExists__Vulnerability_ComponentType() {
+		return analysisEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getAnalysis__ProxyRuleExists__Vulnerability_ComponentType() {
+		return analysisEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getAnalysis__RuleExists__Vulnerability_ComponentType() {
+		return analysisEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -748,6 +826,86 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	@Override
 	public EReference getComponent_AssignedControl() {
 		return (EReference) componentEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getComponent_Vulnerable() {
+		return (EAttribute) componentEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getComponent__OfType__ComponentType() {
+		return componentEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getComponent__MitigatedV__Vulnerability() {
+		return componentEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getComponent__MitigatedW__Vulnerability() {
+		return componentEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getComponent__MitigatedByW__Vulnerability() {
+		return componentEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getComponent__Mitigated__Vulnerability() {
+		return componentEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getComponent__VulnerableW() {
+		return componentEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getComponent__VulnerableV() {
+		return componentEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -916,8 +1074,78 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getThreatAllocationRelation_Mitigated() {
+		return (EAttribute) threatAllocationRelationEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getThreatAllocationRelation__CheckComputedDifficultyConstraint__DiagnosticChain_Map() {
 		return threatAllocationRelationEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getThreatAllocationRelation__MitigatedAV() {
+		return threatAllocationRelationEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getThreatAllocationRelation__MitigatedAW() {
+		return threatAllocationRelationEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getThreatAllocationRelation__MitigatedVSteps() {
+		return threatAllocationRelationEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getThreatAllocationRelation__MitigatedWSteps() {
+		return threatAllocationRelationEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getThreatAllocationRelation__MitigatedV() {
+		return threatAllocationRelationEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getThreatAllocationRelation__MitigatedW() {
+		return threatAllocationRelationEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -1996,6 +2224,16 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getVulnerability_VulnerabilityType() {
+		return (EAttribute) vulnerabilityEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getAbstractComponentTypeOwner() {
 		return abstractComponentTypeOwnerEClass;
 	}
@@ -2286,6 +2524,16 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
+	public EEnum getVulnerabilityTypeENUM() {
+		return vulnerabilityTypeENUMEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getRGBColor() {
 		return rgbColorEDataType;
 	}
@@ -2324,7 +2572,14 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		createEReference(analysisEClass, ANALYSIS__SCORE_SYSTEM);
 		createEReference(analysisEClass, ANALYSIS__LINK_TYPES);
 		createEAttribute(analysisEClass, ANALYSIS__NVDAPI_KEY);
+		createEAttribute(analysisEClass, ANALYSIS__P1A);
+		createEAttribute(analysisEClass, ANALYSIS__P1B);
+		createEAttribute(analysisEClass, ANALYSIS__P5A);
+		createEAttribute(analysisEClass, ANALYSIS__P5B);
 		createEOperation(analysisEClass, ANALYSIS___GET_EXTERNAL_THREATS__STRING_STRING);
+		createEOperation(analysisEClass, ANALYSIS___DIRECT_RULE_EXISTS__VULNERABILITY_COMPONENTTYPE);
+		createEOperation(analysisEClass, ANALYSIS___PROXY_RULE_EXISTS__VULNERABILITY_COMPONENTTYPE);
+		createEOperation(analysisEClass, ANALYSIS___RULE_EXISTS__VULNERABILITY_COMPONENTTYPE);
 
 		threatEClass = createEClass(THREAT);
 		createEReference(threatEClass, THREAT__THREAT_ALLOCATIONS);
@@ -2342,6 +2597,14 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		createEReference(componentEClass, COMPONENT__COMPONENTTYPE);
 		createEReference(componentEClass, COMPONENT__VULNERABLEASSET);
 		createEReference(componentEClass, COMPONENT__ASSIGNED_CONTROL);
+		createEAttribute(componentEClass, COMPONENT__VULNERABLE);
+		createEOperation(componentEClass, COMPONENT___OF_TYPE__COMPONENTTYPE);
+		createEOperation(componentEClass, COMPONENT___MITIGATED_V__VULNERABILITY);
+		createEOperation(componentEClass, COMPONENT___MITIGATED_W__VULNERABILITY);
+		createEOperation(componentEClass, COMPONENT___MITIGATED_BY_W__VULNERABILITY);
+		createEOperation(componentEClass, COMPONENT___MITIGATED__VULNERABILITY);
+		createEOperation(componentEClass, COMPONENT___VULNERABLE_W);
+		createEOperation(componentEClass, COMPONENT___VULNERABLE_V);
 
 		controlEClass = createEClass(CONTROL);
 		createEReference(controlEClass, CONTROL__MITIGATED_THREATS);
@@ -2360,8 +2623,15 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		createEReference(threatAllocationRelationEClass, THREAT_ALLOCATION_RELATION__IMPACT_SCORE);
 		createEReference(threatAllocationRelationEClass, THREAT_ALLOCATION_RELATION__DIFFICULTY_SCORE);
 		createEReference(threatAllocationRelationEClass, THREAT_ALLOCATION_RELATION__ATTACK_CHAIN);
+		createEAttribute(threatAllocationRelationEClass, THREAT_ALLOCATION_RELATION__MITIGATED);
 		createEOperation(threatAllocationRelationEClass,
 				THREAT_ALLOCATION_RELATION___CHECK_COMPUTED_DIFFICULTY_CONSTRAINT__DIAGNOSTICCHAIN_MAP);
+		createEOperation(threatAllocationRelationEClass, THREAT_ALLOCATION_RELATION___MITIGATED_AV);
+		createEOperation(threatAllocationRelationEClass, THREAT_ALLOCATION_RELATION___MITIGATED_AW);
+		createEOperation(threatAllocationRelationEClass, THREAT_ALLOCATION_RELATION___MITIGATED_VSTEPS);
+		createEOperation(threatAllocationRelationEClass, THREAT_ALLOCATION_RELATION___MITIGATED_WSTEPS);
+		createEOperation(threatAllocationRelationEClass, THREAT_ALLOCATION_RELATION___MITIGATED_V);
+		createEOperation(threatAllocationRelationEClass, THREAT_ALLOCATION_RELATION___MITIGATED_W);
 
 		threatMitigationRelationEClass = createEClass(THREAT_MITIGATION_RELATION);
 		createEAttribute(threatMitigationRelationEClass, THREAT_MITIGATION_RELATION__ASSESSMENT);
@@ -2503,6 +2773,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		vulnerabilityEClass = createEClass(VULNERABILITY);
 		createEReference(vulnerabilityEClass, VULNERABILITY__MANIFESTS);
 		createEReference(vulnerabilityEClass, VULNERABILITY__AFFECTS);
+		createEAttribute(vulnerabilityEClass, VULNERABILITY__VULNERABILITY_TYPE);
 
 		abstractComponentTypeOwnerEClass = createEClass(ABSTRACT_COMPONENT_TYPE_OWNER);
 		createEReference(abstractComponentTypeOwnerEClass, ABSTRACT_COMPONENT_TYPE_OWNER__COMPONENT_TYPE_OWNER);
@@ -2543,6 +2814,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		controlStatusENUMEEnum = createEEnum(CONTROL_STATUS_ENUM);
 		componentCategoryENUMEEnum = createEEnum(COMPONENT_CATEGORY_ENUM);
 		securityObjectiveENUMEEnum = createEEnum(SECURITY_OBJECTIVE_ENUM);
+		vulnerabilityTypeENUMEEnum = createEEnum(VULNERABILITY_TYPE_ENUM);
 
 		// Create data types
 		rgbColorEDataType = createEDataType(RGB_COLOR);
@@ -2641,11 +2913,34 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnalysis_NVDAPIKey(), ecorePackage.getEString(), "nVDAPIKey", null, 0, 1, Analysis.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysis_P1a(), ecorePackage.getEBoolean(), "p1a", null, 0, 1, Analysis.class, IS_TRANSIENT,
+				IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysis_P1b(), ecorePackage.getEBoolean(), "p1b", null, 0, 1, Analysis.class, IS_TRANSIENT,
+				IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysis_P5a(), ecorePackage.getEBoolean(), "p5a", null, 0, 1, Analysis.class, IS_TRANSIENT,
+				IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysis_P5b(), ecorePackage.getEBoolean(), "p5b", null, 0, 1, Analysis.class, IS_TRANSIENT,
+				IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getAnalysis__GetExternalThreats__String_String(), this.getExternalThreat(),
 				"getExternalThreats", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theEcorePackage.getEString(), "id", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theEcorePackage.getEString(), "catalogIdentifier", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getAnalysis__DirectRuleExists__Vulnerability_ComponentType(), ecorePackage.getEBoolean(),
+				"directRuleExists", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getVulnerability(), "vulnerability", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getComponentType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getAnalysis__ProxyRuleExists__Vulnerability_ComponentType(), ecorePackage.getEBoolean(),
+				"proxyRuleExists", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getVulnerability(), "vulnerability", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getComponentType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getAnalysis__RuleExists__Vulnerability_ComponentType(), ecorePackage.getEBoolean(),
+				"ruleExists", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getVulnerability(), "vulnerability", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getComponentType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(threatEClass, Threat.class, "Threat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getThreat_ThreatAllocations(), this.getThreatAllocationRelation(),
@@ -2692,6 +2987,34 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		initEReference(getComponent_AssignedControl(), this.getControl(), null, "assignedControl", null, 0, -1,
 				Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComponent_Vulnerable(), ecorePackage.getEBoolean(), "vulnerable", null, 0, 1, Component.class,
+				IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getComponent__OfType__ComponentType(), ecorePackage.getEBoolean(), "ofType", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getComponentType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getComponent__MitigatedV__Vulnerability(), ecorePackage.getEBoolean(), "mitigatedV", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getVulnerability(), "vulnerability", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getComponent__MitigatedW__Vulnerability(), ecorePackage.getEBoolean(), "mitigatedW", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getVulnerability(), "weakness", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getComponent__MitigatedByW__Vulnerability(), ecorePackage.getEBoolean(), "mitigatedByW", 0,
+				1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getVulnerability(), "vulnerability", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getComponent__Mitigated__Vulnerability(), ecorePackage.getEBoolean(), "mitigated", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getVulnerability(), "vulnerability", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getComponent__VulnerableW(), ecorePackage.getEBoolean(), "vulnerableW", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+
+		initEOperation(getComponent__VulnerableV(), ecorePackage.getEBoolean(), "vulnerableV", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
 
 		initEClass(controlEClass, Control.class, "Control", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getControl_MitigatedThreats(), this.getThreat(), null, "mitigatedThreats", null, 0, -1,
@@ -2739,11 +3062,32 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		initEReference(getThreatAllocationRelation_AttackChain(), this.getAttackChain(), null, "attackChain", null, 0,
 				1, ThreatAllocationRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getThreatAllocationRelation_Mitigated(), ecorePackage.getEBoolean(), "mitigated", null, 0, 1,
+				ThreatAllocationRelation.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getThreatAllocationRelation__CheckComputedDifficultyConstraint__DiagnosticChain_Map(),
 				ecorePackage.getEBoolean(), "checkComputedDifficultyConstraint", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "chain", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEMap(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getThreatAllocationRelation__MitigatedAV(), ecorePackage.getEBoolean(), "mitigatedAV", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getThreatAllocationRelation__MitigatedAW(), ecorePackage.getEBoolean(), "mitigatedAW", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getThreatAllocationRelation__MitigatedVSteps(), ecorePackage.getEBoolean(), "mitigatedVSteps", 0,
+				1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getThreatAllocationRelation__MitigatedWSteps(), ecorePackage.getEBoolean(), "mitigatedWSteps", 0,
+				1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getThreatAllocationRelation__MitigatedV(), ecorePackage.getEBoolean(), "mitigatedV", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getThreatAllocationRelation__MitigatedW(), ecorePackage.getEBoolean(), "mitigatedW", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
 
 		initEClass(threatMitigationRelationEClass, ThreatMitigationRelation.class, "ThreatMitigationRelation",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3064,6 +3408,9 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		initEReference(getVulnerability_Affects(), this.getComponentType(), null, "affects", null, 0, -1,
 				Vulnerability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVulnerability_VulnerabilityType(), this.getVulnerabilityTypeENUM(), "vulnerabilityType", null,
+				0, 1, Vulnerability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(abstractComponentTypeOwnerEClass, AbstractComponentTypeOwner.class, "AbstractComponentTypeOwner",
 				IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3164,6 +3511,13 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		addEEnumLiteral(securityObjectiveENUMEEnum, SecurityObjectiveENUM.RELIABILITY);
 		addEEnumLiteral(securityObjectiveENUMEEnum, SecurityObjectiveENUM.ACCOUNTABILITY);
 		addEEnumLiteral(securityObjectiveENUMEEnum, SecurityObjectiveENUM.UNDEFINED);
+
+		initEEnum(vulnerabilityTypeENUMEEnum, VulnerabilityTypeENUM.class, "VulnerabilityTypeENUM");
+		addEEnumLiteral(vulnerabilityTypeENUMEEnum, VulnerabilityTypeENUM.CWE);
+		addEEnumLiteral(vulnerabilityTypeENUMEEnum, VulnerabilityTypeENUM.CVE);
+		addEEnumLiteral(vulnerabilityTypeENUMEEnum, VulnerabilityTypeENUM.MECHANISM);
+		addEEnumLiteral(vulnerabilityTypeENUMEEnum, VulnerabilityTypeENUM.IMPLEMENTATION);
+		addEEnumLiteral(vulnerabilityTypeENUMEEnum, VulnerabilityTypeENUM.OTHER);
 
 		// Initialize data types
 		initEDataType(rgbColorEDataType, RGBColor.class, "RGBColor", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

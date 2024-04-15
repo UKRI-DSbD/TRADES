@@ -27,6 +27,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link dsm.TRADES.Analysis#getScoreSystem <em>Score System</em>}</li>
  *   <li>{@link dsm.TRADES.Analysis#getLinkTypes <em>Link Types</em>}</li>
  *   <li>{@link dsm.TRADES.Analysis#getNVDAPIKey <em>NVDAPI Key</em>}</li>
+ *   <li>{@link dsm.TRADES.Analysis#isP1a <em>P1a</em>}</li>
+ *   <li>{@link dsm.TRADES.Analysis#isP1b <em>P1b</em>}</li>
+ *   <li>{@link dsm.TRADES.Analysis#isP5a <em>P5a</em>}</li>
+ *   <li>{@link dsm.TRADES.Analysis#isP5b <em>P5b</em>}</li>
  * </ul>
  *
  * @see dsm.TRADES.TRADESPackage#getAnalysis()
@@ -93,11 +97,123 @@ public interface Analysis
 	void setNVDAPIKey(String value);
 
 	/**
+	 * Returns the value of the '<em><b>P1a</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>P1a</em>' attribute.
+	 * @see #setP1a(boolean)
+	 * @see dsm.TRADES.TRADESPackage#getAnalysis_P1a()
+	 * @model transient="true" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isP1a();
+
+	/**
+	 * Sets the value of the '{@link dsm.TRADES.Analysis#isP1a <em>P1a</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>P1a</em>' attribute.
+	 * @see #isP1a()
+	 * @generated
+	 */
+	void setP1a(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>P1b</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>P1b</em>' attribute.
+	 * @see #setP1b(boolean)
+	 * @see dsm.TRADES.TRADESPackage#getAnalysis_P1b()
+	 * @model transient="true" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isP1b();
+
+	/**
+	 * Sets the value of the '{@link dsm.TRADES.Analysis#isP1b <em>P1b</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>P1b</em>' attribute.
+	 * @see #isP1b()
+	 * @generated
+	 */
+	void setP1b(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>P5a</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>P5a</em>' attribute.
+	 * @see #setP5a(boolean)
+	 * @see dsm.TRADES.TRADESPackage#getAnalysis_P5a()
+	 * @model transient="true" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isP5a();
+
+	/**
+	 * Sets the value of the '{@link dsm.TRADES.Analysis#isP5a <em>P5a</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>P5a</em>' attribute.
+	 * @see #isP5a()
+	 * @generated
+	 */
+	void setP5a(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>P5b</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>P5b</em>' attribute.
+	 * @see #setP5b(boolean)
+	 * @see dsm.TRADES.TRADESPackage#getAnalysis_P5b()
+	 * @model transient="true" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isP5b();
+
+	/**
+	 * Sets the value of the '{@link dsm.TRADES.Analysis#isP5b <em>P5b</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>P5b</em>' attribute.
+	 * @see #isP5b()
+	 * @generated
+	 */
+	void setP5b(boolean value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
 	EList<ExternalThreat> getExternalThreats(String id, String catalogIdentifier);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean directRuleExists(Vulnerability vulnerability, ComponentType type);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean proxyRuleExists(Vulnerability vulnerability, ComponentType type);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean ruleExists(Vulnerability vulnerability, ComponentType type);
 
 } // Analysis

@@ -31,6 +31,7 @@ import dsm.TRADES.AbstractThreatOwner;
 import dsm.TRADES.AbstractVulnerabilityOwner;
 import dsm.TRADES.AbstractVulnerableAssetOwner;
 import dsm.TRADES.Analysis;
+import dsm.TRADES.ComponentType;
 import dsm.TRADES.ComponentTypeOwner;
 import dsm.TRADES.Control;
 import dsm.TRADES.ControlOwner;
@@ -46,6 +47,7 @@ import dsm.TRADES.ScoreSystem;
 import dsm.TRADES.TRADESPackage;
 import dsm.TRADES.ThreatsOwner;
 import dsm.TRADES.VAOwner;
+import dsm.TRADES.Vulnerability;
 import dsm.TRADES.VulnerabilityOwner;
 import dsm.TRADES.VulnerableAsset;
 import dsm.TRADES.VulnerableAssetOwner;
@@ -70,6 +72,10 @@ import dsm.TRADES.VulnerableAssetOwner;
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getScoreSystem <em>Score System</em>}</li>
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getLinkTypes <em>Link Types</em>}</li>
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getNVDAPIKey <em>NVDAPI Key</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.AnalysisImpl#isP1a <em>P1a</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.AnalysisImpl#isP1b <em>P1b</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.AnalysisImpl#isP5a <em>P5a</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.AnalysisImpl#isP5b <em>P5b</em>}</li>
  * </ul>
  *
  * @generated
@@ -224,6 +230,46 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 	 * @ordered
 	 */
 	protected String nVDAPIKey = NVDAPI_KEY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isP1a() <em>P1a</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isP1a()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean P1A_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #isP1b() <em>P1b</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isP1b()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean P1B_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #isP5a() <em>P5a</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isP5a()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean P5A_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #isP5b() <em>P5b</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isP5b()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean P5B_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -518,6 +564,102 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 	 * @generated
 	 */
 	@Override
+	public boolean isP1a() {
+		// TODO: implement this method to return the 'P1a' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setP1a(boolean newP1a) {
+		// TODO: implement this method to set the 'P1a' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isP1b() {
+		// TODO: implement this method to return the 'P1b' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setP1b(boolean newP1b) {
+		// TODO: implement this method to set the 'P1b' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isP5a() {
+		// TODO: implement this method to return the 'P5a' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setP5a(boolean newP5a) {
+		// TODO: implement this method to set the 'P5a' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isP5b() {
+		// TODO: implement this method to return the 'P5b' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setP5b(boolean newP5b) {
+		// TODO: implement this method to set the 'P5b' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getId() {
 		return id;
 	}
@@ -726,6 +868,42 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 	 * @generated
 	 */
 	@Override
+	public boolean directRuleExists(Vulnerability vulnerability, ComponentType type) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean proxyRuleExists(Vulnerability vulnerability, ComponentType type) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean ruleExists(Vulnerability vulnerability, ComponentType type) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<Control> getAllControls() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -842,6 +1020,14 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 			return getLinkTypes();
 		case TRADESPackage.ANALYSIS__NVDAPI_KEY:
 			return getNVDAPIKey();
+		case TRADESPackage.ANALYSIS__P1A:
+			return isP1a();
+		case TRADESPackage.ANALYSIS__P1B:
+			return isP1b();
+		case TRADESPackage.ANALYSIS__P5A:
+			return isP5a();
+		case TRADESPackage.ANALYSIS__P5B:
+			return isP5b();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -893,6 +1079,18 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 		case TRADESPackage.ANALYSIS__NVDAPI_KEY:
 			setNVDAPIKey((String) newValue);
 			return;
+		case TRADESPackage.ANALYSIS__P1A:
+			setP1a((Boolean) newValue);
+			return;
+		case TRADESPackage.ANALYSIS__P1B:
+			setP1b((Boolean) newValue);
+			return;
+		case TRADESPackage.ANALYSIS__P5A:
+			setP5a((Boolean) newValue);
+			return;
+		case TRADESPackage.ANALYSIS__P5B:
+			setP5b((Boolean) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -941,6 +1139,18 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 		case TRADESPackage.ANALYSIS__NVDAPI_KEY:
 			setNVDAPIKey(NVDAPI_KEY_EDEFAULT);
 			return;
+		case TRADESPackage.ANALYSIS__P1A:
+			setP1a(P1A_EDEFAULT);
+			return;
+		case TRADESPackage.ANALYSIS__P1B:
+			setP1b(P1B_EDEFAULT);
+			return;
+		case TRADESPackage.ANALYSIS__P5A:
+			setP5a(P5A_EDEFAULT);
+			return;
+		case TRADESPackage.ANALYSIS__P5B:
+			setP5b(P5B_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -977,6 +1187,14 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 			return linkTypes != null && !linkTypes.isEmpty();
 		case TRADESPackage.ANALYSIS__NVDAPI_KEY:
 			return NVDAPI_KEY_EDEFAULT == null ? nVDAPIKey != null : !NVDAPI_KEY_EDEFAULT.equals(nVDAPIKey);
+		case TRADESPackage.ANALYSIS__P1A:
+			return isP1a() != P1A_EDEFAULT;
+		case TRADESPackage.ANALYSIS__P1B:
+			return isP1b() != P1B_EDEFAULT;
+		case TRADESPackage.ANALYSIS__P5A:
+			return isP5a() != P5A_EDEFAULT;
+		case TRADESPackage.ANALYSIS__P5B:
+			return isP5b() != P5B_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1229,6 +1447,12 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 		switch (operationID) {
 		case TRADESPackage.ANALYSIS___GET_EXTERNAL_THREATS__STRING_STRING:
 			return getExternalThreats((String) arguments.get(0), (String) arguments.get(1));
+		case TRADESPackage.ANALYSIS___DIRECT_RULE_EXISTS__VULNERABILITY_COMPONENTTYPE:
+			return directRuleExists((Vulnerability) arguments.get(0), (ComponentType) arguments.get(1));
+		case TRADESPackage.ANALYSIS___PROXY_RULE_EXISTS__VULNERABILITY_COMPONENTTYPE:
+			return proxyRuleExists((Vulnerability) arguments.get(0), (ComponentType) arguments.get(1));
+		case TRADESPackage.ANALYSIS___RULE_EXISTS__VULNERABILITY_COMPONENTTYPE:
+			return ruleExists((Vulnerability) arguments.get(0), (ComponentType) arguments.get(1));
 		case TRADESPackage.ANALYSIS___GET_ALL_CONTROLS:
 			return getAllControls();
 		case TRADESPackage.ANALYSIS___GET_EXTERNAL_CONTROLS__STRING_STRING:

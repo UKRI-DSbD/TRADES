@@ -13,6 +13,7 @@
  */
 package dsm.TRADES.impl;
 
+import dsm.TRADES.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -189,6 +190,8 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 			return createComponentCategoryENUMFromString(eDataType, initialValue);
 		case TRADESPackage.SECURITY_OBJECTIVE_ENUM:
 			return createSecurityObjectiveENUMFromString(eDataType, initialValue);
+		case TRADESPackage.VULNERABILITY_TYPE_ENUM:
+			return createVulnerabilityTypeENUMFromString(eDataType, initialValue);
 		case TRADESPackage.RGB_COLOR:
 			return createRGBColorFromString(eDataType, initialValue);
 		default:
@@ -216,6 +219,8 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 			return convertComponentCategoryENUMToString(eDataType, instanceValue);
 		case TRADESPackage.SECURITY_OBJECTIVE_ENUM:
 			return convertSecurityObjectiveENUMToString(eDataType, instanceValue);
+		case TRADESPackage.VULNERABILITY_TYPE_ENUM:
+			return convertVulnerabilityTypeENUMToString(eDataType, instanceValue);
 		case TRADESPackage.RGB_COLOR:
 			return convertRGBColorToString(eDataType, instanceValue);
 		default:
@@ -682,6 +687,28 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 	 * @generated
 	 */
 	public String convertSecurityObjectiveENUMToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VulnerabilityTypeENUM createVulnerabilityTypeENUMFromString(EDataType eDataType, String initialValue) {
+		VulnerabilityTypeENUM result = VulnerabilityTypeENUM.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertVulnerabilityTypeENUMToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

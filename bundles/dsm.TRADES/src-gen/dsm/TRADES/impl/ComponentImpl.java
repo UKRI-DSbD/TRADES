@@ -45,6 +45,7 @@ import dsm.TRADES.Link;
 import dsm.TRADES.NamedElement;
 import dsm.TRADES.TRADESPackage;
 import dsm.TRADES.ThreatAllocationRelation;
+import dsm.TRADES.Vulnerability;
 import dsm.TRADES.VulnerableAsset;
 
 /**
@@ -65,6 +66,7 @@ import dsm.TRADES.VulnerableAsset;
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getComponenttype <em>Componenttype</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getVulnerableasset <em>Vulnerableasset</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getAssignedControl <em>Assigned Control</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentImpl#isVulnerable <em>Vulnerable</em>}</li>
  * </ul>
  *
  * @generated
@@ -179,6 +181,16 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 	 * @ordered
 	 */
 	protected EList<Control> assignedControl;
+
+	/**
+	 * The default value of the '{@link #isVulnerable() <em>Vulnerable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isVulnerable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean VULNERABLE_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -430,6 +442,114 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 	 * @generated
 	 */
 	@Override
+	public boolean isVulnerable() {
+		// TODO: implement this method to return the 'Vulnerable' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setVulnerable(boolean newVulnerable) {
+		// TODO: implement this method to set the 'Vulnerable' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean ofType(ComponentType type) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean mitigatedV(Vulnerability vulnerability) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean mitigatedW(Vulnerability weakness) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean mitigatedByW(Vulnerability vulnerability) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean mitigated(Vulnerability vulnerability) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean vulnerableW() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean vulnerableV() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<Control> getAllControls() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -552,6 +672,8 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 			return getVulnerableasset();
 		case TRADESPackage.COMPONENT__ASSIGNED_CONTROL:
 			return getAssignedControl();
+		case TRADESPackage.COMPONENT__VULNERABLE:
+			return isVulnerable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -602,6 +724,9 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 			getAssignedControl().clear();
 			getAssignedControl().addAll((Collection<? extends Control>) newValue);
 			return;
+		case TRADESPackage.COMPONENT__VULNERABLE:
+			setVulnerable((Boolean) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -644,6 +769,9 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 		case TRADESPackage.COMPONENT__ASSIGNED_CONTROL:
 			getAssignedControl().clear();
 			return;
+		case TRADESPackage.COMPONENT__VULNERABLE:
+			setVulnerable(VULNERABLE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -676,6 +804,8 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 			return vulnerableasset != null && !vulnerableasset.isEmpty();
 		case TRADESPackage.COMPONENT__ASSIGNED_CONTROL:
 			return assignedControl != null && !assignedControl.isEmpty();
+		case TRADESPackage.COMPONENT__VULNERABLE:
+			return isVulnerable() != VULNERABLE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -834,6 +964,20 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+		case TRADESPackage.COMPONENT___OF_TYPE__COMPONENTTYPE:
+			return ofType((ComponentType) arguments.get(0));
+		case TRADESPackage.COMPONENT___MITIGATED_V__VULNERABILITY:
+			return mitigatedV((Vulnerability) arguments.get(0));
+		case TRADESPackage.COMPONENT___MITIGATED_W__VULNERABILITY:
+			return mitigatedW((Vulnerability) arguments.get(0));
+		case TRADESPackage.COMPONENT___MITIGATED_BY_W__VULNERABILITY:
+			return mitigatedByW((Vulnerability) arguments.get(0));
+		case TRADESPackage.COMPONENT___MITIGATED__VULNERABILITY:
+			return mitigated((Vulnerability) arguments.get(0));
+		case TRADESPackage.COMPONENT___VULNERABLE_W:
+			return vulnerableW();
+		case TRADESPackage.COMPONENT___VULNERABLE_V:
+			return vulnerableV();
 		case TRADESPackage.COMPONENT___GET_ALL_CONTROLS:
 			return getAllControls();
 		case TRADESPackage.COMPONENT___GET_EXTERNAL_CONTROLS__STRING_STRING:
