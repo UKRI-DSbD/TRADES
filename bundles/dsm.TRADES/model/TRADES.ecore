@@ -369,7 +369,7 @@
         eType="#//ComponentType" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComponentType" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="refines" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="manifests" upperBound="-1"
         eType="#//ComponentType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subjectToThreats" upperBound="-1"
         eType="#//Threat"/>
