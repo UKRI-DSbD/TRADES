@@ -13,7 +13,6 @@
  */
 package dsm.TRADES.util;
 
-import dsm.TRADES.*;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -74,6 +73,7 @@ import dsm.TRADES.ThreatsOwner;
 import dsm.TRADES.VAOwner;
 import dsm.TRADES.Vulnerability;
 import dsm.TRADES.VulnerabilityOwner;
+import dsm.TRADES.VulnerabilityTypeENUM;
 import dsm.TRADES.VulnerableAsset;
 import dsm.TRADES.VulnerableAssetOwner;
 import dsm.TRADES.threatTypeENUM;

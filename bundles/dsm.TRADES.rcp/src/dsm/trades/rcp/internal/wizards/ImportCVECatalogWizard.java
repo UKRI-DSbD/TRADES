@@ -43,9 +43,9 @@ import org.eclipse.ui.IImportWizard;
 import org.eclipse.ui.IWorkbench;
 
 import dsm.TRADES.ComponentType;
+import dsm.TRADES.VulnerabilityTypeENUM;
 import dsm.cve.design.wizards.CVECatalogSelectionPage;
 import dsm.cve.model.CVECatalog.CVECatalogFactory;
-import dsm.cve.model.CVECatalog.VulnerabilityTypeENUM;
 import dsm.cwe.model.CWECatalog.Weakness;
 import dsm.cwe.model.CWECatalog.WeaknessCatalog;
 import dsm.trades.rcp.TRADESRCPActivator;

@@ -13,7 +13,6 @@
  */
 package dsm.TRADES.impl;
 
-import dsm.TRADES.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -57,6 +56,7 @@ import dsm.TRADES.ThreatMitigationRelation;
 import dsm.TRADES.ThreatsOwner;
 import dsm.TRADES.Vulnerability;
 import dsm.TRADES.VulnerabilityOwner;
+import dsm.TRADES.VulnerabilityTypeENUM;
 import dsm.TRADES.VulnerableAsset;
 import dsm.TRADES.VulnerableAssetOwner;
 import dsm.TRADES.threatTypeENUM;
