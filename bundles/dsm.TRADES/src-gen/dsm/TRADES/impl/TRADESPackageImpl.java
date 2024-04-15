@@ -844,6 +844,26 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getComponent_CVA() {
+		return (EReference) componentEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getComponent_CWA() {
+		return (EReference) componentEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getComponent__OfType__ComponentType() {
 		return componentEClass.getEOperations().get(0);
 	}
@@ -2598,6 +2618,8 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		createEReference(componentEClass, COMPONENT__VULNERABLEASSET);
 		createEReference(componentEClass, COMPONENT__ASSIGNED_CONTROL);
 		createEAttribute(componentEClass, COMPONENT__VULNERABLE);
+		createEReference(componentEClass, COMPONENT__CVA);
+		createEReference(componentEClass, COMPONENT__CWA);
 		createEOperation(componentEClass, COMPONENT___OF_TYPE__COMPONENTTYPE);
 		createEOperation(componentEClass, COMPONENT___MITIGATED_V__VULNERABILITY);
 		createEOperation(componentEClass, COMPONENT___MITIGATED_W__VULNERABILITY);
@@ -2989,6 +3011,12 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComponent_Vulnerable(), ecorePackage.getEBoolean(), "vulnerable", null, 0, 1, Component.class,
 				IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_CVA(), this.getVulnerability(), null, "cVA", null, 0, -1, Component.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_CWA(), this.getVulnerability(), null, "cWA", null, 0, -1, Component.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getComponent__OfType__ComponentType(), ecorePackage.getEBoolean(), "ofType", 0, 1,
 				IS_UNIQUE, IS_ORDERED);

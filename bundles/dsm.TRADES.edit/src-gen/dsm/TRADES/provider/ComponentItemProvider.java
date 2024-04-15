@@ -63,6 +63,8 @@ public class ComponentItemProvider extends ComponentOwnerItemProvider {
 			addVulnerableassetPropertyDescriptor(object);
 			addAssignedControlPropertyDescriptor(object);
 			addVulnerablePropertyDescriptor(object);
+			addCVAPropertyDescriptor(object);
+			addCWAPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -173,6 +175,36 @@ public class ComponentItemProvider extends ComponentOwnerItemProvider {
 								"_UI_Component_type"),
 						TRADESPackage.Literals.COMPONENT__VULNERABLE, true, false, false,
 						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the CVA feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCVAPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Component_cVA_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_cVA_feature",
+								"_UI_Component_type"),
+						TRADESPackage.Literals.COMPONENT__CVA, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the CWA feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCWAPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Component_cWA_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_cWA_feature",
+								"_UI_Component_type"),
+						TRADESPackage.Literals.COMPONENT__CWA, true, false, true, null, null, null));
 	}
 
 	/**

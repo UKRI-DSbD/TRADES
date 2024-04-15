@@ -31,6 +31,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link dsm.TRADES.Component#getVulnerableasset <em>Vulnerableasset</em>}</li>
  *   <li>{@link dsm.TRADES.Component#getAssignedControl <em>Assigned Control</em>}</li>
  *   <li>{@link dsm.TRADES.Component#isVulnerable <em>Vulnerable</em>}</li>
+ *   <li>{@link dsm.TRADES.Component#getCVA <em>CVA</em>}</li>
+ *   <li>{@link dsm.TRADES.Component#getCWA <em>CWA</em>}</li>
  * </ul>
  *
  * @see dsm.TRADES.TRADESPackage#getComponent()
@@ -135,6 +137,30 @@ public interface Component extends ComponentOwner, DataOwnerElement, NamedElemen
 	 * @generated
 	 */
 	void setVulnerable(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>CVA</b></em>' reference list.
+	 * The list contents are of type {@link dsm.TRADES.Vulnerability}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>CVA</em>' reference list.
+	 * @see dsm.TRADES.TRADESPackage#getComponent_CVA()
+	 * @model derived="true"
+	 * @generated
+	 */
+	EList<Vulnerability> getCVA();
+
+	/**
+	 * Returns the value of the '<em><b>CWA</b></em>' reference list.
+	 * The list contents are of type {@link dsm.TRADES.Vulnerability}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>CWA</em>' reference list.
+	 * @see dsm.TRADES.TRADESPackage#getComponent_CWA()
+	 * @model derived="true"
+	 * @generated
+	 */
+	EList<Vulnerability> getCWA();
 
 	/**
 	 * <!-- begin-user-doc -->

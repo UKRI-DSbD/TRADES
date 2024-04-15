@@ -684,13 +684,31 @@ public interface TRADESPackage extends EPackage {
 	int COMPONENT__VULNERABLE = COMPONENT_OWNER_FEATURE_COUNT + 10;
 
 	/**
+	 * The feature id for the '<em><b>CVA</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__CVA = COMPONENT_OWNER_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>CWA</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__CWA = COMPONENT_OWNER_FEATURE_COUNT + 12;
+
+	/**
 	 * The number of structural features of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = COMPONENT_OWNER_FEATURE_COUNT + 11;
+	int COMPONENT_FEATURE_COUNT = COMPONENT_OWNER_FEATURE_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Get Datas</em>' operation.
@@ -4068,6 +4086,28 @@ public interface TRADESPackage extends EPackage {
 	EAttribute getComponent_Vulnerable();
 
 	/**
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.Component#getCVA <em>CVA</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>CVA</em>'.
+	 * @see dsm.TRADES.Component#getCVA()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_CVA();
+
+	/**
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.Component#getCWA <em>CWA</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>CWA</em>'.
+	 * @see dsm.TRADES.Component#getCWA()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_CWA();
+
+	/**
 	 * Returns the meta object for the '{@link dsm.TRADES.Component#ofType(dsm.TRADES.ComponentType) <em>Of Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6103,6 +6143,22 @@ public interface TRADESPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMPONENT__VULNERABLE = eINSTANCE.getComponent_Vulnerable();
+
+		/**
+		 * The meta object literal for the '<em><b>CVA</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__CVA = eINSTANCE.getComponent_CVA();
+
+		/**
+		 * The meta object literal for the '<em><b>CWA</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__CWA = eINSTANCE.getComponent_CWA();
 
 		/**
 		 * The meta object literal for the '<em><b>Of Type</b></em>' operation.

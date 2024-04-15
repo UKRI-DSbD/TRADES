@@ -67,6 +67,8 @@ import dsm.TRADES.VulnerableAsset;
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getVulnerableasset <em>Vulnerableasset</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getAssignedControl <em>Assigned Control</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#isVulnerable <em>Vulnerable</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentImpl#getCVA <em>CVA</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentImpl#getCWA <em>CWA</em>}</li>
  * </ul>
  *
  * @generated
@@ -191,6 +193,26 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 	 * @ordered
 	 */
 	protected static final boolean VULNERABLE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #getCVA() <em>CVA</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCVA()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Vulnerability> cVA;
+
+	/**
+	 * The cached value of the '{@link #getCWA() <em>CWA</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCWA()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Vulnerability> cWA;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -466,6 +488,32 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 	 * @generated
 	 */
 	@Override
+	public EList<Vulnerability> getCVA() {
+		if (cVA == null) {
+			cVA = new EObjectResolvingEList<Vulnerability>(Vulnerability.class, this, TRADESPackage.COMPONENT__CVA);
+		}
+		return cVA;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Vulnerability> getCWA() {
+		if (cWA == null) {
+			cWA = new EObjectResolvingEList<Vulnerability>(Vulnerability.class, this, TRADESPackage.COMPONENT__CWA);
+		}
+		return cWA;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public boolean ofType(ComponentType type) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -674,6 +722,10 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 			return getAssignedControl();
 		case TRADESPackage.COMPONENT__VULNERABLE:
 			return isVulnerable();
+		case TRADESPackage.COMPONENT__CVA:
+			return getCVA();
+		case TRADESPackage.COMPONENT__CWA:
+			return getCWA();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -727,6 +779,14 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 		case TRADESPackage.COMPONENT__VULNERABLE:
 			setVulnerable((Boolean) newValue);
 			return;
+		case TRADESPackage.COMPONENT__CVA:
+			getCVA().clear();
+			getCVA().addAll((Collection<? extends Vulnerability>) newValue);
+			return;
+		case TRADESPackage.COMPONENT__CWA:
+			getCWA().clear();
+			getCWA().addAll((Collection<? extends Vulnerability>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -772,6 +832,12 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 		case TRADESPackage.COMPONENT__VULNERABLE:
 			setVulnerable(VULNERABLE_EDEFAULT);
 			return;
+		case TRADESPackage.COMPONENT__CVA:
+			getCVA().clear();
+			return;
+		case TRADESPackage.COMPONENT__CWA:
+			getCWA().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -806,6 +872,10 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 			return assignedControl != null && !assignedControl.isEmpty();
 		case TRADESPackage.COMPONENT__VULNERABLE:
 			return isVulnerable() != VULNERABLE_EDEFAULT;
+		case TRADESPackage.COMPONENT__CVA:
+			return cVA != null && !cVA.isEmpty();
+		case TRADESPackage.COMPONENT__CWA:
+			return cWA != null && !cWA.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
