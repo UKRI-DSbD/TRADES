@@ -205,8 +205,8 @@ public class ControlItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(TRADESPackage.Literals.CHARACTERISTIC_OWNER__CHARACTERISTICS);
 			childrenFeatures.add(TRADESPackage.Literals.CONTROL__MITIGATION_RELATIONS);
-			childrenFeatures.add(TRADESPackage.Literals.CONTROL__CHARACTERISTICS);
 		}
 		return childrenFeatures;
 	}
@@ -277,8 +277,8 @@ public class ControlItemProvider extends NamedElementItemProvider {
 		case TRADESPackage.CONTROL__SECURITY_OBJECTIVE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
-		case TRADESPackage.CONTROL__MITIGATION_RELATIONS:
 		case TRADESPackage.CONTROL__CHARACTERISTICS:
+		case TRADESPackage.CONTROL__MITIGATION_RELATIONS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -296,11 +296,11 @@ public class ControlItemProvider extends NamedElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
+		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.CHARACTERISTIC_OWNER__CHARACTERISTICS,
+				TRADESFactory.eINSTANCE.createCharacteristic()));
+
 		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.CONTROL__MITIGATION_RELATIONS,
 				TRADESFactory.eINSTANCE.createThreatMitigationRelation()));
-
-		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.CONTROL__CHARACTERISTICS,
-				TRADESFactory.eINSTANCE.createCharacteristic()));
 	}
 
 }

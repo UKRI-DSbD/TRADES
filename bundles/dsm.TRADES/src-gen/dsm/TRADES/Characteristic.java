@@ -13,8 +13,6 @@
  */
 package dsm.TRADES;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Characteristic</b></em>'.
@@ -24,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link dsm.TRADES.Characteristic#getName <em>Name</em>}</li>
  *   <li>{@link dsm.TRADES.Characteristic#getLabel <em>Label</em>}</li>
  *   <li>{@link dsm.TRADES.Characteristic#getValue <em>Value</em>}</li>
  *   <li>{@link dsm.TRADES.Characteristic#getDescription <em>Description</em>}</li>
@@ -34,29 +31,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Characteristic extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see dsm.TRADES.TRADESPackage#getCharacteristic_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link dsm.TRADES.Characteristic#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
+public interface Characteristic extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->

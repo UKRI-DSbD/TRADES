@@ -31,14 +31,13 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link dsm.TRADES.Control#getStatus <em>Status</em>}</li>
  *   <li>{@link dsm.TRADES.Control#getMitigatesVulnerability <em>Mitigates Vulnerability</em>}</li>
  *   <li>{@link dsm.TRADES.Control#getSecurityObjective <em>Security Objective</em>}</li>
- *   <li>{@link dsm.TRADES.Control#getCharacteristics <em>Characteristics</em>}</li>
  * </ul>
  *
  * @see dsm.TRADES.TRADESPackage#getControl()
  * @model
  * @generated
  */
-public interface Control extends NamedElement, IControlDefinition, ElementWithId {
+public interface Control extends NamedElement, IControlDefinition, ElementWithId, CharacteristicOwner {
 	/**
 	 * Returns the value of the '<em><b>Mitigated Threats</b></em>' reference list.
 	 * The list contents are of type {@link dsm.TRADES.Threat}.
@@ -171,17 +170,5 @@ public interface Control extends NamedElement, IControlDefinition, ElementWithId
 	 * @generated
 	 */
 	void setSecurityObjective(SecurityObjectiveENUM value);
-
-	/**
-	 * Returns the value of the '<em><b>Characteristics</b></em>' containment reference list.
-	 * The list contents are of type {@link dsm.TRADES.Characteristic}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Characteristics</em>' containment reference list.
-	 * @see dsm.TRADES.TRADESPackage#getControl_Characteristics()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Characteristic> getCharacteristics();
 
 } // Control

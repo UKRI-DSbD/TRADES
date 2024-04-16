@@ -16,7 +16,6 @@ package dsm.TRADES.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import dsm.TRADES.Characteristic;
 import dsm.TRADES.TRADESPackage;
@@ -29,7 +28,6 @@ import dsm.TRADES.TRADESPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dsm.TRADES.impl.CharacteristicImpl#getName <em>Name</em>}</li>
  *   <li>{@link dsm.TRADES.impl.CharacteristicImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link dsm.TRADES.impl.CharacteristicImpl#getValue <em>Value</em>}</li>
  *   <li>{@link dsm.TRADES.impl.CharacteristicImpl#getDescription <em>Description</em>}</li>
@@ -37,27 +35,7 @@ import dsm.TRADES.TRADESPackage;
  *
  * @generated
  */
-public class CharacteristicImpl extends MinimalEObjectImpl.Container implements Characteristic {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
+public class CharacteristicImpl extends NamedElementImpl implements Characteristic {
 	/**
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -143,29 +121,6 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.CHARACTERISTIC__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public String getLabel() {
 		return label;
 	}
@@ -240,8 +195,6 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TRADESPackage.CHARACTERISTIC__NAME:
-			return getName();
 		case TRADESPackage.CHARACTERISTIC__LABEL:
 			return getLabel();
 		case TRADESPackage.CHARACTERISTIC__VALUE:
@@ -260,9 +213,6 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TRADESPackage.CHARACTERISTIC__NAME:
-			setName((String) newValue);
-			return;
 		case TRADESPackage.CHARACTERISTIC__LABEL:
 			setLabel((String) newValue);
 			return;
@@ -284,9 +234,6 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TRADESPackage.CHARACTERISTIC__NAME:
-			setName(NAME_EDEFAULT);
-			return;
 		case TRADESPackage.CHARACTERISTIC__LABEL:
 			setLabel(LABEL_EDEFAULT);
 			return;
@@ -308,8 +255,6 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TRADESPackage.CHARACTERISTIC__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case TRADESPackage.CHARACTERISTIC__LABEL:
 			return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 		case TRADESPackage.CHARACTERISTIC__VALUE:
@@ -331,9 +276,7 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", label: ");
+		result.append(" (label: ");
 		result.append(label);
 		result.append(", value: ");
 		result.append(value);

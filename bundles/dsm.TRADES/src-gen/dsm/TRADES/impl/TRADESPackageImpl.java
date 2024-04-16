@@ -38,6 +38,7 @@ import dsm.TRADES.AttackChain;
 import dsm.TRADES.AttackChainStep;
 import dsm.TRADES.Catalog;
 import dsm.TRADES.Characteristic;
+import dsm.TRADES.CharacteristicOwner;
 import dsm.TRADES.ColoredElement;
 import dsm.TRADES.Component;
 import dsm.TRADES.ComponentCategoryENUM;
@@ -418,6 +419,13 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	private EClass characteristicEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass characteristicOwnerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -998,16 +1006,6 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	@Override
 	public EAttribute getControl_SecurityObjective() {
 		return (EAttribute) controlEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getControl_Characteristics() {
-		return (EReference) controlEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -2416,7 +2414,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCharacteristic_Name() {
+	public EAttribute getCharacteristic_Label() {
 		return (EAttribute) characteristicEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2426,7 +2424,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCharacteristic_Label() {
+	public EAttribute getCharacteristic_Value() {
 		return (EAttribute) characteristicEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -2436,7 +2434,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCharacteristic_Value() {
+	public EAttribute getCharacteristic_Description() {
 		return (EAttribute) characteristicEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -2446,8 +2444,18 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCharacteristic_Description() {
-		return (EAttribute) characteristicEClass.getEStructuralFeatures().get(3);
+	public EClass getCharacteristicOwner() {
+		return characteristicOwnerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCharacteristicOwner_Characteristics() {
+		return (EReference) characteristicOwnerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2608,7 +2616,6 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		createEAttribute(controlEClass, CONTROL__STATUS);
 		createEReference(controlEClass, CONTROL__MITIGATES_VULNERABILITY);
 		createEAttribute(controlEClass, CONTROL__SECURITY_OBJECTIVE);
-		createEReference(controlEClass, CONTROL__CHARACTERISTICS);
 
 		threatAllocationRelationEClass = createEClass(THREAT_ALLOCATION_RELATION);
 		createEAttribute(threatAllocationRelationEClass, THREAT_ALLOCATION_RELATION__ASSESSMENT);
@@ -2793,10 +2800,12 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		createEReference(ruleEClass, RULE__CONTROLS);
 
 		characteristicEClass = createEClass(CHARACTERISTIC);
-		createEAttribute(characteristicEClass, CHARACTERISTIC__NAME);
 		createEAttribute(characteristicEClass, CHARACTERISTIC__LABEL);
 		createEAttribute(characteristicEClass, CHARACTERISTIC__VALUE);
 		createEAttribute(characteristicEClass, CHARACTERISTIC__DESCRIPTION);
+
+		characteristicOwnerEClass = createEClass(CHARACTERISTIC_OWNER);
+		createEReference(characteristicOwnerEClass, CHARACTERISTIC_OWNER__CHARACTERISTICS);
 
 		// Create enums
 		assessmentENUMEEnum = createEEnum(ASSESSMENT_ENUM);
@@ -2863,6 +2872,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		controlEClass.getESuperTypes().add(this.getNamedElement());
 		controlEClass.getESuperTypes().add(this.getIControlDefinition());
 		controlEClass.getESuperTypes().add(this.getElementWithId());
+		controlEClass.getESuperTypes().add(this.getCharacteristicOwner());
 		threatMitigationRelationEClass.getESuperTypes().add(this.getIMitigationLink());
 		dataEClass.getESuperTypes().add(this.getNamedElement());
 		dataEClass.getESuperTypes().add(this.getDomainAsset());
@@ -2891,6 +2901,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		componentTypeEClass.getESuperTypes().add(this.getNamedElement());
 		assetEClass.getESuperTypes().add(this.getNamedElement());
 		ruleEClass.getESuperTypes().add(this.getAsset());
+		characteristicEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(analysisEClass, Analysis.class, "Analysis", !IS_ABSTRACT, !IS_INTERFACE,
@@ -3033,9 +3044,6 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		initEAttribute(getControl_SecurityObjective(), this.getSecurityObjectiveENUM(), "securityObjective",
 				"Undefined", 0, 1, Control.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getControl_Characteristics(), this.getCharacteristic(), null, "characteristics", null, 0, -1,
-				Control.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(threatAllocationRelationEClass, ThreatAllocationRelation.class, "ThreatAllocationRelation",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3456,8 +3464,6 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 
 		initEClass(characteristicEClass, Characteristic.class, "Characteristic", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCharacteristic_Name(), ecorePackage.getEString(), "name", null, 0, 1, Characteristic.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCharacteristic_Label(), ecorePackage.getEString(), "label", null, 0, 1, Characteristic.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCharacteristic_Value(), ecorePackage.getEString(), "value", null, 0, 1, Characteristic.class,
@@ -3465,6 +3471,12 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		initEAttribute(getCharacteristic_Description(), ecorePackage.getEString(), "description", null, 0, 1,
 				Characteristic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(characteristicOwnerEClass, CharacteristicOwner.class, "CharacteristicOwner", IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCharacteristicOwner_Characteristics(), this.getCharacteristic(), null, "characteristics",
+				null, 0, -1, CharacteristicOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(assessmentENUMEEnum, AssessmentENUM.class, "AssessmentENUM");

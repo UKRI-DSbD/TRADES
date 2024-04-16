@@ -847,13 +847,22 @@ public interface TRADESPackage extends EPackage {
 	int CONTROL__ID = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Characteristics</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL__CHARACTERISTICS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Mitigated Threats</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROL__MITIGATED_THREATS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int CONTROL__MITIGATED_THREATS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -862,7 +871,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROL__DESCRIPTION = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int CONTROL__DESCRIPTION = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Description With Placeholders</b></em>' attribute.
@@ -871,7 +880,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROL__DESCRIPTION_WITH_PLACEHOLDERS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int CONTROL__DESCRIPTION_WITH_PLACEHOLDERS = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Mitigation Relations</b></em>' containment reference list.
@@ -880,7 +889,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROL__MITIGATION_RELATIONS = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int CONTROL__MITIGATION_RELATIONS = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
@@ -889,7 +898,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROL__STATUS = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int CONTROL__STATUS = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Mitigates Vulnerability</b></em>' reference list.
@@ -898,7 +907,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROL__MITIGATES_VULNERABILITY = NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int CONTROL__MITIGATES_VULNERABILITY = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Security Objective</b></em>' attribute.
@@ -907,16 +916,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROL__SECURITY_OBJECTIVE = NAMED_ELEMENT_FEATURE_COUNT + 7;
-
-	/**
-	 * The feature id for the '<em><b>Characteristics</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTROL__CHARACTERISTICS = NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int CONTROL__SECURITY_OBJECTIVE = NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Control</em>' class.
@@ -2168,13 +2168,22 @@ public interface TRADESPackage extends EPackage {
 	int EXTERNAL_CONTROL__ID = EXTERNAL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Characteristics</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_CONTROL__CHARACTERISTICS = EXTERNAL_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Mitigated Threats</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_CONTROL__MITIGATED_THREATS = EXTERNAL_ELEMENT_FEATURE_COUNT + 2;
+	int EXTERNAL_CONTROL__MITIGATED_THREATS = EXTERNAL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2183,7 +2192,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_CONTROL__DESCRIPTION = EXTERNAL_ELEMENT_FEATURE_COUNT + 3;
+	int EXTERNAL_CONTROL__DESCRIPTION = EXTERNAL_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Description With Placeholders</b></em>' attribute.
@@ -2192,7 +2201,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_CONTROL__DESCRIPTION_WITH_PLACEHOLDERS = EXTERNAL_ELEMENT_FEATURE_COUNT + 4;
+	int EXTERNAL_CONTROL__DESCRIPTION_WITH_PLACEHOLDERS = EXTERNAL_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Mitigation Relations</b></em>' containment reference list.
@@ -2201,7 +2210,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_CONTROL__MITIGATION_RELATIONS = EXTERNAL_ELEMENT_FEATURE_COUNT + 5;
+	int EXTERNAL_CONTROL__MITIGATION_RELATIONS = EXTERNAL_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
@@ -2210,7 +2219,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_CONTROL__STATUS = EXTERNAL_ELEMENT_FEATURE_COUNT + 6;
+	int EXTERNAL_CONTROL__STATUS = EXTERNAL_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Mitigates Vulnerability</b></em>' reference list.
@@ -2219,7 +2228,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_CONTROL__MITIGATES_VULNERABILITY = EXTERNAL_ELEMENT_FEATURE_COUNT + 7;
+	int EXTERNAL_CONTROL__MITIGATES_VULNERABILITY = EXTERNAL_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Security Objective</b></em>' attribute.
@@ -2228,16 +2237,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_CONTROL__SECURITY_OBJECTIVE = EXTERNAL_ELEMENT_FEATURE_COUNT + 8;
-
-	/**
-	 * The feature id for the '<em><b>Characteristics</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTERNAL_CONTROL__CHARACTERISTICS = EXTERNAL_ELEMENT_FEATURE_COUNT + 9;
+	int EXTERNAL_CONTROL__SECURITY_OBJECTIVE = EXTERNAL_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>External Control</em>' class.
@@ -3612,7 +3612,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHARACTERISTIC__NAME = 0;
+	int CHARACTERISTIC__NAME = NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -3621,7 +3621,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHARACTERISTIC__LABEL = 1;
+	int CHARACTERISTIC__LABEL = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3630,7 +3630,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHARACTERISTIC__VALUE = 2;
+	int CHARACTERISTIC__VALUE = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -3639,7 +3639,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHARACTERISTIC__DESCRIPTION = 3;
+	int CHARACTERISTIC__DESCRIPTION = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Characteristic</em>' class.
@@ -3648,7 +3648,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHARACTERISTIC_FEATURE_COUNT = 4;
+	int CHARACTERISTIC_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Characteristic</em>' class.
@@ -3657,7 +3657,44 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHARACTERISTIC_OPERATION_COUNT = 0;
+	int CHARACTERISTIC_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link dsm.TRADES.impl.CharacteristicOwnerImpl <em>Characteristic Owner</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see dsm.TRADES.impl.CharacteristicOwnerImpl
+	 * @see dsm.TRADES.impl.TRADESPackageImpl#getCharacteristicOwner()
+	 * @generated
+	 */
+	int CHARACTERISTIC_OWNER = 47;
+
+	/**
+	 * The feature id for the '<em><b>Characteristics</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHARACTERISTIC_OWNER__CHARACTERISTICS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Characteristic Owner</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHARACTERISTIC_OWNER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Characteristic Owner</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHARACTERISTIC_OWNER_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.AssessmentENUM <em>Assessment ENUM</em>}' enum.
@@ -3667,7 +3704,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getAssessmentENUM()
 	 * @generated
 	 */
-	int ASSESSMENT_ENUM = 47;
+	int ASSESSMENT_ENUM = 48;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.AffectedENUM <em>Affected ENUM</em>}' enum.
@@ -3677,7 +3714,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getAffectedENUM()
 	 * @generated
 	 */
-	int AFFECTED_ENUM = 48;
+	int AFFECTED_ENUM = 49;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.threatTypeENUM <em>threat Type ENUM</em>}' enum.
@@ -3687,7 +3724,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getthreatTypeENUM()
 	 * @generated
 	 */
-	int THREAT_TYPE_ENUM = 49;
+	int THREAT_TYPE_ENUM = 50;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.ControlStatusENUM <em>Control Status ENUM</em>}' enum.
@@ -3697,7 +3734,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getControlStatusENUM()
 	 * @generated
 	 */
-	int CONTROL_STATUS_ENUM = 50;
+	int CONTROL_STATUS_ENUM = 51;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.ComponentCategoryENUM <em>Component Category ENUM</em>}' enum.
@@ -3707,7 +3744,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getComponentCategoryENUM()
 	 * @generated
 	 */
-	int COMPONENT_CATEGORY_ENUM = 51;
+	int COMPONENT_CATEGORY_ENUM = 52;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.SecurityObjectiveENUM <em>Security Objective ENUM</em>}' enum.
@@ -3717,7 +3754,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getSecurityObjectiveENUM()
 	 * @generated
 	 */
-	int SECURITY_OBJECTIVE_ENUM = 52;
+	int SECURITY_OBJECTIVE_ENUM = 53;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.VulnerabilityTypeENUM <em>Vulnerability Type ENUM</em>}' enum.
@@ -3727,7 +3764,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getVulnerabilityTypeENUM()
 	 * @generated
 	 */
-	int VULNERABILITY_TYPE_ENUM = 53;
+	int VULNERABILITY_TYPE_ENUM = 54;
 
 	/**
 	 * The meta object id for the '<em>RGB Color</em>' data type.
@@ -3737,7 +3774,7 @@ public interface TRADESPackage extends EPackage {
 	 * @see dsm.TRADES.impl.TRADESPackageImpl#getRGBColor()
 	 * @generated
 	 */
-	int RGB_COLOR = 54;
+	int RGB_COLOR = 55;
 
 	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.Analysis <em>Analysis</em>}'.
@@ -4217,17 +4254,6 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getControl_SecurityObjective();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link dsm.TRADES.Control#getCharacteristics <em>Characteristics</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Characteristics</em>'.
-	 * @see dsm.TRADES.Control#getCharacteristics()
-	 * @see #getControl()
-	 * @generated
-	 */
-	EReference getControl_Characteristics();
 
 	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.ThreatAllocationRelation <em>Threat Allocation Relation</em>}'.
@@ -5695,17 +5721,6 @@ public interface TRADESPackage extends EPackage {
 	EClass getCharacteristic();
 
 	/**
-	 * Returns the meta object for the attribute '{@link dsm.TRADES.Characteristic#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see dsm.TRADES.Characteristic#getName()
-	 * @see #getCharacteristic()
-	 * @generated
-	 */
-	EAttribute getCharacteristic_Name();
-
-	/**
 	 * Returns the meta object for the attribute '{@link dsm.TRADES.Characteristic#getLabel <em>Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5737,6 +5752,27 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCharacteristic_Description();
+
+	/**
+	 * Returns the meta object for class '{@link dsm.TRADES.CharacteristicOwner <em>Characteristic Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Characteristic Owner</em>'.
+	 * @see dsm.TRADES.CharacteristicOwner
+	 * @generated
+	 */
+	EClass getCharacteristicOwner();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link dsm.TRADES.CharacteristicOwner#getCharacteristics <em>Characteristics</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Characteristics</em>'.
+	 * @see dsm.TRADES.CharacteristicOwner#getCharacteristics()
+	 * @see #getCharacteristicOwner()
+	 * @generated
+	 */
+	EReference getCharacteristicOwner_Characteristics();
 
 	/**
 	 * Returns the meta object for enum '{@link dsm.TRADES.AssessmentENUM <em>Assessment ENUM</em>}'.
@@ -6214,14 +6250,6 @@ public interface TRADESPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONTROL__SECURITY_OBJECTIVE = eINSTANCE.getControl_SecurityObjective();
-
-		/**
-		 * The meta object literal for the '<em><b>Characteristics</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONTROL__CHARACTERISTICS = eINSTANCE.getControl_Characteristics();
 
 		/**
 		 * The meta object literal for the '{@link dsm.TRADES.impl.ThreatAllocationRelationImpl <em>Threat Allocation Relation</em>}' class.
@@ -7448,14 +7476,6 @@ public interface TRADESPackage extends EPackage {
 		EClass CHARACTERISTIC = eINSTANCE.getCharacteristic();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CHARACTERISTIC__NAME = eINSTANCE.getCharacteristic_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7478,6 +7498,24 @@ public interface TRADESPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CHARACTERISTIC__DESCRIPTION = eINSTANCE.getCharacteristic_Description();
+
+		/**
+		 * The meta object literal for the '{@link dsm.TRADES.impl.CharacteristicOwnerImpl <em>Characteristic Owner</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see dsm.TRADES.impl.CharacteristicOwnerImpl
+		 * @see dsm.TRADES.impl.TRADESPackageImpl#getCharacteristicOwner()
+		 * @generated
+		 */
+		EClass CHARACTERISTIC_OWNER = eINSTANCE.getCharacteristicOwner();
+
+		/**
+		 * The meta object literal for the '<em><b>Characteristics</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CHARACTERISTIC_OWNER__CHARACTERISTICS = eINSTANCE.getCharacteristicOwner_Characteristics();
 
 		/**
 		 * The meta object literal for the '{@link dsm.TRADES.AssessmentENUM <em>Assessment ENUM</em>}' enum.

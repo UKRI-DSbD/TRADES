@@ -29,6 +29,7 @@ import dsm.TRADES.AttackChain;
 import dsm.TRADES.AttackChainStep;
 import dsm.TRADES.Catalog;
 import dsm.TRADES.Characteristic;
+import dsm.TRADES.CharacteristicOwner;
 import dsm.TRADES.ColoredElement;
 import dsm.TRADES.Component;
 import dsm.TRADES.ComponentOwner;
@@ -192,6 +193,8 @@ public class TRADESSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseElementWithId(control);
 			if (result == null)
+				result = caseCharacteristicOwner(control);
+			if (result == null)
 				result = caseIElementWithSource(control);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -347,6 +350,8 @@ public class TRADESSwitch<T> extends Switch<T> {
 				result = caseIControlDefinition(externalControl);
 			if (result == null)
 				result = caseElementWithId(externalControl);
+			if (result == null)
+				result = caseCharacteristicOwner(externalControl);
 			if (result == null)
 				result = caseIElementWithSource(externalControl);
 			if (result == null)
@@ -572,6 +577,15 @@ public class TRADESSwitch<T> extends Switch<T> {
 		case TRADESPackage.CHARACTERISTIC: {
 			Characteristic characteristic = (Characteristic) theEObject;
 			T result = caseCharacteristic(characteristic);
+			if (result == null)
+				result = caseNamedElement(characteristic);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case TRADESPackage.CHARACTERISTIC_OWNER: {
+			CharacteristicOwner characteristicOwner = (CharacteristicOwner) theEObject;
+			T result = caseCharacteristicOwner(characteristicOwner);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -1283,6 +1297,21 @@ public class TRADESSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCharacteristic(Characteristic object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Characteristic Owner</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Characteristic Owner</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCharacteristicOwner(CharacteristicOwner object) {
 		return null;
 	}
 

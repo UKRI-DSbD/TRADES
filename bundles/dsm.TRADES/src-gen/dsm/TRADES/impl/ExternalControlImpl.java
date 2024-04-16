@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import dsm.TRADES.Characteristic;
+import dsm.TRADES.CharacteristicOwner;
 import dsm.TRADES.Control;
 import dsm.TRADES.ControlStatusENUM;
 import dsm.TRADES.ElementWithId;
@@ -52,6 +53,7 @@ import dsm.TRADES.Vulnerability;
  * <ul>
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getName <em>Name</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getId <em>Id</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getCharacteristics <em>Characteristics</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getMitigatedThreats <em>Mitigated Threats</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getDescriptionWithPlaceholders <em>Description With Placeholders</em>}</li>
@@ -59,7 +61,6 @@ import dsm.TRADES.Vulnerability;
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getMitigatesVulnerability <em>Mitigates Vulnerability</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getSecurityObjective <em>Security Objective</em>}</li>
- *   <li>{@link dsm.TRADES.impl.ExternalControlImpl#getCharacteristics <em>Characteristics</em>}</li>
  * </ul>
  *
  * @generated
@@ -104,6 +105,16 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCharacteristics() <em>Characteristics</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCharacteristics()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Characteristic> characteristics;
 
 	/**
 	 * The cached value of the '{@link #getMitigatedThreats() <em>Mitigated Threats</em>}' reference list.
@@ -214,16 +225,6 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 	 * @ordered
 	 */
 	protected SecurityObjectiveENUM securityObjective = SECURITY_OBJECTIVE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getCharacteristics() <em>Characteristics</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCharacteristics()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Characteristic> characteristics;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -504,10 +505,10 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case TRADESPackage.EXTERNAL_CONTROL__MITIGATION_RELATIONS:
-			return ((InternalEList<?>) getMitigationRelations()).basicRemove(otherEnd, msgs);
 		case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
 			return ((InternalEList<?>) getCharacteristics()).basicRemove(otherEnd, msgs);
+		case TRADESPackage.EXTERNAL_CONTROL__MITIGATION_RELATIONS:
+			return ((InternalEList<?>) getMitigationRelations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -524,6 +525,8 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 			return getName();
 		case TRADESPackage.EXTERNAL_CONTROL__ID:
 			return getId();
+		case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
+			return getCharacteristics();
 		case TRADESPackage.EXTERNAL_CONTROL__MITIGATED_THREATS:
 			return getMitigatedThreats();
 		case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION:
@@ -538,8 +541,6 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 			return getMitigatesVulnerability();
 		case TRADESPackage.EXTERNAL_CONTROL__SECURITY_OBJECTIVE:
 			return getSecurityObjective();
-		case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
-			return getCharacteristics();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -558,6 +559,10 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 			return;
 		case TRADESPackage.EXTERNAL_CONTROL__ID:
 			setId((String) newValue);
+			return;
+		case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
+			getCharacteristics().clear();
+			getCharacteristics().addAll((Collection<? extends Characteristic>) newValue);
 			return;
 		case TRADESPackage.EXTERNAL_CONTROL__MITIGATED_THREATS:
 			getMitigatedThreats().clear();
@@ -583,10 +588,6 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 		case TRADESPackage.EXTERNAL_CONTROL__SECURITY_OBJECTIVE:
 			setSecurityObjective((SecurityObjectiveENUM) newValue);
 			return;
-		case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
-			getCharacteristics().clear();
-			getCharacteristics().addAll((Collection<? extends Characteristic>) newValue);
-			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -604,6 +605,9 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 			return;
 		case TRADESPackage.EXTERNAL_CONTROL__ID:
 			setId(ID_EDEFAULT);
+			return;
+		case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
+			getCharacteristics().clear();
 			return;
 		case TRADESPackage.EXTERNAL_CONTROL__MITIGATED_THREATS:
 			getMitigatedThreats().clear();
@@ -626,9 +630,6 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 		case TRADESPackage.EXTERNAL_CONTROL__SECURITY_OBJECTIVE:
 			setSecurityObjective(SECURITY_OBJECTIVE_EDEFAULT);
 			return;
-		case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
-			getCharacteristics().clear();
-			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -645,6 +646,8 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case TRADESPackage.EXTERNAL_CONTROL__ID:
 			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+		case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
+			return characteristics != null && !characteristics.isEmpty();
 		case TRADESPackage.EXTERNAL_CONTROL__MITIGATED_THREATS:
 			return mitigatedThreats != null && !mitigatedThreats.isEmpty();
 		case TRADESPackage.EXTERNAL_CONTROL__DESCRIPTION:
@@ -660,8 +663,6 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 			return mitigatesVulnerability != null && !mitigatesVulnerability.isEmpty();
 		case TRADESPackage.EXTERNAL_CONTROL__SECURITY_OBJECTIVE:
 			return securityObjective != SECURITY_OBJECTIVE_EDEFAULT;
-		case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
-			return characteristics != null && !characteristics.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -701,6 +702,14 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 				return -1;
 			}
 		}
+		if (baseClass == CharacteristicOwner.class) {
+			switch (derivedFeatureID) {
+			case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
+				return TRADESPackage.CHARACTERISTIC_OWNER__CHARACTERISTICS;
+			default:
+				return -1;
+			}
+		}
 		if (baseClass == Control.class) {
 			switch (derivedFeatureID) {
 			case TRADESPackage.EXTERNAL_CONTROL__MITIGATED_THREATS:
@@ -717,8 +726,6 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 				return TRADESPackage.CONTROL__MITIGATES_VULNERABILITY;
 			case TRADESPackage.EXTERNAL_CONTROL__SECURITY_OBJECTIVE:
 				return TRADESPackage.CONTROL__SECURITY_OBJECTIVE;
-			case TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS:
-				return TRADESPackage.CONTROL__CHARACTERISTICS;
 			default:
 				return -1;
 			}
@@ -761,6 +768,14 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 				return -1;
 			}
 		}
+		if (baseClass == CharacteristicOwner.class) {
+			switch (baseFeatureID) {
+			case TRADESPackage.CHARACTERISTIC_OWNER__CHARACTERISTICS:
+				return TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS;
+			default:
+				return -1;
+			}
+		}
 		if (baseClass == Control.class) {
 			switch (baseFeatureID) {
 			case TRADESPackage.CONTROL__MITIGATED_THREATS:
@@ -777,8 +792,6 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 				return TRADESPackage.EXTERNAL_CONTROL__MITIGATES_VULNERABILITY;
 			case TRADESPackage.CONTROL__SECURITY_OBJECTIVE:
 				return TRADESPackage.EXTERNAL_CONTROL__SECURITY_OBJECTIVE;
-			case TRADESPackage.CONTROL__CHARACTERISTICS:
-				return TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS;
 			default:
 				return -1;
 			}
@@ -824,6 +837,12 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 			}
 		}
 		if (baseClass == ElementWithId.class) {
+			switch (baseOperationID) {
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == CharacteristicOwner.class) {
 			switch (baseOperationID) {
 			default:
 				return -1;
