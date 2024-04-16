@@ -28,6 +28,7 @@ import dsm.TRADES.ComponentType;
 import dsm.TRADES.Control;
 import dsm.TRADES.Data;
 import dsm.TRADES.ExternalControl;
+import dsm.TRADES.Rule;
 import dsm.TRADES.SemanticHelper;
 import dsm.TRADES.Threat;
 import dsm.TRADES.ThreatAllocationRelation;
@@ -115,40 +116,52 @@ public class ComponentCustomImpl extends ComponentImpl {
 
 	@Override
 	public boolean mitigatedV(Vulnerability vulnerability) {
-		for (ThreatAllocationRelation threatAllocationRelation : this.getThreatAllocations()) {
-			boolean containsVulnerability = 
-				threatAllocationRelation.getThreat().getExploitsVulnerability().contains(vulnerability);
-			boolean containsControls = true;
-			for (Control control : threatAllocationRelation.getComponent().getAllControls()) {
-				if (!this.getAssignedControl().contains(control)) {
-					containsControls = false;
+		for (Rule rule : this.getRule()) {
+			boolean containsVulnerability = rule.getVulnerability().contains(vulnerability);
+			boolean hasType = false;
+			for (ComponentType type : rule.getComponentTypeAffected()) {
+				if (this.ofType(type)) {
+					hasType = true; 
+					break;
 				}
 			}
-				
-			if (!containsVulnerability || !containsControls) {
-				return false;
+			boolean hasControls = true;
+			for (Control control : rule.getControls()) {
+				if (!this.getAssignedControl().contains(control)) {
+					hasControls = false; 
+					break;
+				}
+			}
+			if (containsVulnerability && hasType && hasControls) {
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 
 	@Override
 	public boolean mitigatedW(Vulnerability weakness) {
-		for (ThreatAllocationRelation threatAllocationRelation : this.getThreatAllocations()) {
-			boolean containsWeakness = 
-				threatAllocationRelation.getThreat().getExploitsVulnerability().contains(weakness);
-			boolean containsControls = true;
-			for (Control control : threatAllocationRelation.getComponent().getAllControls()) {
-				if (!this.getAssignedControl().contains(control)) {
-					containsControls = false;
+		for (Rule rule : this.getRule()) {
+			boolean containsWeakness = rule.getVulnerability().contains(weakness);
+			boolean hasType = false;
+			for (ComponentType type : rule.getComponentTypeAffected()) {
+				if (this.ofType(type)) {
+					hasType = true; 
+					break;
 				}
 			}
-			
-			if (!containsWeakness || !containsControls) {
-				return false;
+			boolean hasControls = true;
+			for (Control control : rule.getControls()) {
+				if (!this.getAssignedControl().contains(control)) {
+					hasControls = false; 
+					break;
+				}
+			}
+			if (containsWeakness && hasType && hasControls) {
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 
 	@Override

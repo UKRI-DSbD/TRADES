@@ -29,6 +29,7 @@ import dsm.TRADES.Control;
 import dsm.TRADES.Data;
 import dsm.TRADES.ExternalControl;
 import dsm.TRADES.ExternalThreat;
+import dsm.TRADES.Rule;
 import dsm.TRADES.SemanticHelper;
 import dsm.TRADES.Threat;
 import dsm.TRADES.ThreatAllocationRelation;
@@ -86,17 +87,12 @@ public class AnalysisCustomImpl extends AnalysisImpl {
 
 	@Override
 	public boolean directRuleExists(Vulnerability vulnerability, ComponentType type) {
-		for (Threat threat : this.getThreatOwner().getInternals()) {
-			for (ThreatAllocationRelation threatAllocationRelation : threat.getThreatAllocations()) {
-				boolean containsVulnerability = 
-					threatAllocationRelation.getThreat().getExploitsVulnerability().contains(vulnerability);
-				boolean containsComponentType = 
-					threatAllocationRelation.getComponent().getComponentType().contains(type);
-				boolean hasControls = 
-					threatAllocationRelation.getComponent().getAssignedControl().size() > 0;			
-				if (containsComponentType && containsVulnerability && hasControls) {
-					return true;
-				}
+		for (Rule rule : this.getRuleOwner().getRules()) {
+			boolean containsVulnerability = rule.getVulnerability().contains(vulnerability);
+			boolean containsComponentType = rule.getComponentTypeAffected().contains(type);
+			boolean hasControls = rule.getControls().size() > 0;
+			if (containsComponentType && containsVulnerability && hasControls) {
+				return true;
 			}
 		}
 		return false;
