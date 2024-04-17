@@ -20,9 +20,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.util.BasicInternalEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import dsm.TRADES.ComponentType;
 import dsm.TRADES.Control;
@@ -74,7 +75,7 @@ public class ComponentCustomImpl extends ComponentImpl {
 
 	@Override
 	public EList<Vulnerability> getCVA() {
-		EList<Vulnerability> cva = new BasicEList<Vulnerability>();
+		InternalEList<Vulnerability> cva = new BasicInternalEList<Vulnerability>(Vulnerability.class);
 		
 		for (ThreatAllocationRelation threatAllocationRelation : this.getThreatAllocations()) {
 			Threat threat = threatAllocationRelation.getThreat();
@@ -85,12 +86,12 @@ public class ComponentCustomImpl extends ComponentImpl {
 				}
 			}
 		}
-		return cva;
+		return (EList<Vulnerability>) cva;
 	}
 
 	@Override
 	public EList<Vulnerability> getCWA() {
-		EList<Vulnerability> cwa = new BasicEList<Vulnerability>();
+		InternalEList<Vulnerability> cwa = new BasicInternalEList<Vulnerability>(Vulnerability.class);
 		
 		for (ThreatAllocationRelation threatAllocationRelation : this.getThreatAllocations()) {
 			Threat threat = threatAllocationRelation.getThreat();
@@ -101,7 +102,7 @@ public class ComponentCustomImpl extends ComponentImpl {
 				}
 			}
 		}
-		return cwa;
+		return (EList<Vulnerability>) cwa;
 	}
 
 	@Override
@@ -185,7 +186,7 @@ public class ComponentCustomImpl extends ComponentImpl {
 			return true;
 		}
 
-		return true;
+		return false;
 	}
 
 	@Override

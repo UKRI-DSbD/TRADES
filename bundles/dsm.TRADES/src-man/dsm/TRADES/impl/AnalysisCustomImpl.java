@@ -31,8 +31,6 @@ import dsm.TRADES.ExternalControl;
 import dsm.TRADES.ExternalThreat;
 import dsm.TRADES.Rule;
 import dsm.TRADES.SemanticHelper;
-import dsm.TRADES.Threat;
-import dsm.TRADES.ThreatAllocationRelation;
 import dsm.TRADES.ThreatsOwner;
 import dsm.TRADES.Vulnerability;
 

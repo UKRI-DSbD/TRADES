@@ -91,7 +91,7 @@ public class ThreatAllocationRelationCustomImpl extends ThreatAllocationRelation
 		}
 		
 		for (AttackChainStep attackChainStep : this.getAttackChain().getAttackChainSteps()) {
-			if (!attackChainStep.getThreatAllocationRelation().mitigatedAV()) {
+			if (!attackChainStep.getThreatAllocationRelation().mitigatedV()) {
 				return false;
 			}
 		}
@@ -104,7 +104,7 @@ public class ThreatAllocationRelationCustomImpl extends ThreatAllocationRelation
 			return false;
 		}
 		for (AttackChainStep attackChainStep : this.getAttackChain().getAttackChainSteps()) {
-			if (!attackChainStep.getThreatAllocationRelation().mitigatedAV()) {
+			if (!attackChainStep.getThreatAllocationRelation().mitigatedW()) {
 				return false;
 			}
 		}
@@ -125,7 +125,7 @@ public class ThreatAllocationRelationCustomImpl extends ThreatAllocationRelation
 
 	@Override
 	public boolean mitigatedW() {
-		if (this.getAttackChain().getAttackChainSteps().size() > 0 && this.mitigatedVSteps()) {
+		if (this.getAttackChain().getAttackChainSteps().size() > 0 && this.mitigatedWSteps()) {
 			return true;
 		}
 
