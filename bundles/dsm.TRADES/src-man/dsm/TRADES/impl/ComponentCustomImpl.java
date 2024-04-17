@@ -211,7 +211,7 @@ public class ComponentCustomImpl extends ComponentImpl {
 
 	@Override
 	public boolean isVulnerable() {
-		if (this.vulnerableW() && this.vulnerableV()) {
+		if (this.vulnerableW() || this.vulnerableV()) {
 			return true;
 		}
 		return false;
