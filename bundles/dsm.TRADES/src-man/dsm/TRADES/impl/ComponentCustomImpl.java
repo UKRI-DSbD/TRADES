@@ -25,6 +25,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.BasicInternalEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import dsm.TRADES.Analysis;
+import dsm.TRADES.Component;
 import dsm.TRADES.ComponentType;
 import dsm.TRADES.Control;
 import dsm.TRADES.Data;
@@ -71,6 +73,18 @@ public class ComponentCustomImpl extends ComponentImpl {
 		result.addAll(ownedData);
 		result.addAll(inheritedData);
 		return ECollections.asEList(result);
+	}
+	
+	@Override
+	public EList<Rule> getRule() {
+		Component component = this;
+		while (component.eContainer() instanceof Component) {
+			component = (Component) component.eContainer();
+		}
+		
+		Analysis analysis = (Analysis) component.eContainer();
+		
+		return analysis.getRuleOwner().getRules();
 	}
 
 	@Override
@@ -128,7 +142,7 @@ public class ComponentCustomImpl extends ComponentImpl {
 			}
 			boolean hasControls = true;
 			for (Control control : rule.getControls()) {
-				if (!this.getAssignedControl().contains(control)) {
+				if (!this.getControlOwner().getInternals().contains(control)) {
 					hasControls = false; 
 					break;
 				}
@@ -153,7 +167,7 @@ public class ComponentCustomImpl extends ComponentImpl {
 			}
 			boolean hasControls = true;
 			for (Control control : rule.getControls()) {
-				if (!this.getAssignedControl().contains(control)) {
+				if (!this.getControlOwner().getInternals().contains(control)) {
 					hasControls = false; 
 					break;
 				}
