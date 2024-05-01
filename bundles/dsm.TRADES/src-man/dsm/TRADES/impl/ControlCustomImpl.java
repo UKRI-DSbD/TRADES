@@ -68,6 +68,9 @@ public class ControlCustomImpl extends ControlImpl {
 		//replace each placeholder in descriptionWithPlaceholders.
 		//copied from dsm.oscal.model.DocumentationComputer.
 		Pattern INSET_PATTERN = Pattern.compile("\\{\\{\\s*insert:\\s*param\\s*,\\s*(\\S*)\\s*\\}\\}");
+		if (descriptionWithPlaceholders == null) {
+			return "";
+		}
 		Matcher match = INSET_PATTERN.matcher(descriptionWithPlaceholders);
 
 		String output = match.replaceAll(matchResult -> {
