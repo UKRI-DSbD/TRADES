@@ -113,7 +113,11 @@ public class OscalDesignService {
 		for (Parameter parameter : control.getParams()) {
 			Characteristic characteristic = TRADESFactory.eINSTANCE.createCharacteristic();
 			characteristic.setName(parameter.getId());
-			characteristic.setLabel(parameter.getLabel().toMarkdown());
+			if (parameter.getLabel() != null) {
+				characteristic.setLabel(parameter.getLabel().toMarkdown());
+			} else {
+				characteristic.setLabel("");
+			}
 			characteristic.setValue(idToValue.get(parameter.getId()));
 			characteristic.setDescription("");
 			extControl.getCharacteristics().add(characteristic);
