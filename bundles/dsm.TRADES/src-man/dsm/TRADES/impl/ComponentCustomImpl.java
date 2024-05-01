@@ -76,6 +76,7 @@ public class ComponentCustomImpl extends ComponentImpl {
 	}
 	
 	@Override
+	//get all rules
 	public EList<Rule> getRule() {
 		Component component = this;
 		while (component.eContainer() instanceof Component) {

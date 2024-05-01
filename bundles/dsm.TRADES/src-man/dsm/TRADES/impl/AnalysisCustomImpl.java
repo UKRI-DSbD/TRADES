@@ -99,7 +99,7 @@ public class AnalysisCustomImpl extends AnalysisImpl {
 	@Override
 	public boolean proxyRuleExists(Vulnerability vulnerability, ComponentType type) {
 		for (Vulnerability manifestedVulnerability : vulnerability.getManifests()) {
-			if (!directRuleExists(manifestedVulnerability, type)) {
+			if (!ruleExists(manifestedVulnerability, type)) {
 				return false;
 			}
 		}
