@@ -86,11 +86,10 @@ public class ThreatAllocationRelationCustomImpl extends ThreatAllocationRelation
 
 	@Override
 	public boolean mitigatedVSteps() {
-		if (this.getAttackChain().getAttackChainSteps().size() == 0) {
-			return false;
-		}
-		
 		for (AttackChainStep attackChainStep : this.getAttackChain().getAttackChainSteps()) {
+			if (attackChainStep.getThreatAllocationRelation() == null) {
+				return false;
+			}
 			if (!attackChainStep.getThreatAllocationRelation().mitigatedV()) {
 				return false;
 			}
@@ -100,10 +99,10 @@ public class ThreatAllocationRelationCustomImpl extends ThreatAllocationRelation
 
 	@Override
 	public boolean mitigatedWSteps() {
-		if (this.getAttackChain().getAttackChainSteps().size() == 0) {
-			return false;
-		}
 		for (AttackChainStep attackChainStep : this.getAttackChain().getAttackChainSteps()) {
+			if (attackChainStep.getThreatAllocationRelation() == null) {
+				return false;
+			}
 			if (!attackChainStep.getThreatAllocationRelation().mitigatedW()) {
 				return false;
 			}
@@ -113,25 +112,33 @@ public class ThreatAllocationRelationCustomImpl extends ThreatAllocationRelation
 
 	@Override
 	public boolean mitigatedV() {
-		if (this.getAttackChain().getAttackChainSteps().size() > 0 && this.mitigatedVSteps()) {
-			return true;
-		}
-
 		if (this.mitigatedAV()) {
 			return true;
 		}
+		if (this.getAttackChain().getAttackChainSteps().size() > 0) {
+			for (AttackChainStep attackChainStep : this.getAttackChain().getAttackChainSteps()) {
+				if (attackChainStep.getThreatAllocationRelation().mitigatedVSteps()) {
+					return true;
+				}
+			}
+		}
+
 		return false;
 	}
 
 	@Override
 	public boolean mitigatedW() {
-		if (this.getAttackChain().getAttackChainSteps().size() > 0 && this.mitigatedWSteps()) {
-			return true;
-		}
-
 		if (this.mitigatedAW()) {
 			return true;
 		}
+		if (this.getAttackChain().getAttackChainSteps().size() > 0) {
+			for (AttackChainStep attackChainStep : this.getAttackChain().getAttackChainSteps()) {
+				if (attackChainStep.getThreatAllocationRelation().mitigatedWSteps()) {
+					return true;
+				}
+			}
+		}
+
 		return false;
 	}
 
