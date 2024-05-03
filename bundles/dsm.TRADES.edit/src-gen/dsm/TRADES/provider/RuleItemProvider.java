@@ -52,41 +52,41 @@ public class RuleItemProvider extends AssetItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addVulnerabilityPropertyDescriptor(object);
-			addComponentTypeAffectedPropertyDescriptor(object);
+			addVulnerabilitiesPropertyDescriptor(object);
+			addComponentTypesAffectedPropertyDescriptor(object);
 			addControlsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Vulnerability feature.
+	 * This adds a property descriptor for the Vulnerabilities feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addVulnerabilityPropertyDescriptor(Object object) {
+	protected void addVulnerabilitiesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Rule_vulnerability_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Rule_vulnerability_feature",
+						getResourceLocator(), getString("_UI_Rule_vulnerabilities_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Rule_vulnerabilities_feature",
 								"_UI_Rule_type"),
-						TRADESPackage.Literals.RULE__VULNERABILITY, true, false, true, null, null, null));
+						TRADESPackage.Literals.RULE__VULNERABILITIES, true, false, true, null, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Component Type Affected feature.
+	 * This adds a property descriptor for the Component Types Affected feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addComponentTypeAffectedPropertyDescriptor(Object object) {
+	protected void addComponentTypesAffectedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Rule_componentTypeAffected_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Rule_componentTypeAffected_feature",
+						getResourceLocator(), getString("_UI_Rule_componentTypesAffected_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Rule_componentTypesAffected_feature",
 								"_UI_Rule_type"),
-						TRADESPackage.Literals.RULE__COMPONENT_TYPE_AFFECTED, true, false, true, null, null, null));
+						TRADESPackage.Literals.RULE__COMPONENT_TYPES_AFFECTED, true, false, true, null, null, null));
 	}
 
 	/**

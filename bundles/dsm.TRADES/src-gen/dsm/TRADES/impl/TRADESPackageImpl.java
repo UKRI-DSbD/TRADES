@@ -804,7 +804,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getComponent_ComponentType() {
+	public EReference getComponent_ComponentTypes() {
 		return (EReference) componentEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -814,7 +814,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getComponent_Rule() {
+	public EReference getComponent_Rules() {
 		return (EReference) componentEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -824,7 +824,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getComponent_AssignedControl() {
+	public EReference getComponent_AssignedControls() {
 		return (EReference) componentEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -2374,7 +2374,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getRule_Vulnerability() {
+	public EReference getRule_Vulnerabilities() {
 		return (EReference) ruleEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2384,7 +2384,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getRule_ComponentTypeAffected() {
+	public EReference getRule_ComponentTypesAffected() {
 		return (EReference) ruleEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -2594,9 +2594,9 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		createEReference(componentEClass, COMPONENT__THREAT_ALLOCATIONS);
 		createEReference(componentEClass, COMPONENT__AFFECT_RELATIONS);
 		createEReference(componentEClass, COMPONENT__LINKS);
-		createEReference(componentEClass, COMPONENT__COMPONENT_TYPE);
-		createEReference(componentEClass, COMPONENT__RULE);
-		createEReference(componentEClass, COMPONENT__ASSIGNED_CONTROL);
+		createEReference(componentEClass, COMPONENT__COMPONENT_TYPES);
+		createEReference(componentEClass, COMPONENT__RULES);
+		createEReference(componentEClass, COMPONENT__ASSIGNED_CONTROLS);
 		createEAttribute(componentEClass, COMPONENT__VULNERABLE);
 		createEReference(componentEClass, COMPONENT__CVA);
 		createEReference(componentEClass, COMPONENT__CWA);
@@ -2795,8 +2795,8 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		createEReference(ruleOwnerEClass, RULE_OWNER__RULES);
 
 		ruleEClass = createEClass(RULE);
-		createEReference(ruleEClass, RULE__VULNERABILITY);
-		createEReference(ruleEClass, RULE__COMPONENT_TYPE_AFFECTED);
+		createEReference(ruleEClass, RULE__VULNERABILITIES);
+		createEReference(ruleEClass, RULE__COMPONENT_TYPES_AFFECTED);
 		createEReference(ruleEClass, RULE__CONTROLS);
 
 		characteristicEClass = createEClass(CHARACTERISTIC);
@@ -2979,13 +2979,13 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		initEReference(getComponent_Links(), this.getLink(), null, "links", null, 0, -1, Component.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getComponent_ComponentType(), this.getComponentType(), null, "componentType", null, 1, -1,
+		initEReference(getComponent_ComponentTypes(), this.getComponentType(), null, "componentTypes", null, 1, -1,
 				Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComponent_Rule(), this.getRule(), null, "rule", null, 0, -1, Component.class, !IS_TRANSIENT,
+		initEReference(getComponent_Rules(), this.getRule(), null, "rules", null, 0, -1, Component.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getComponent_AssignedControl(), this.getControl(), null, "assignedControl", null, 0, -1,
+		initEReference(getComponent_AssignedControls(), this.getControl(), null, "assignedControls", null, 0, -1,
 				Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComponent_Vulnerable(), ecorePackage.getEBoolean(), "vulnerable", null, 0, 1, Component.class,
@@ -3452,11 +3452,11 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 				IS_ORDERED);
 
 		initEClass(ruleEClass, Rule.class, "Rule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRule_Vulnerability(), this.getVulnerability(), null, "vulnerability", null, 1, -1, Rule.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRule_ComponentTypeAffected(), this.getComponentType(), null, "componentTypeAffected", null, 1,
-				-1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEReference(getRule_Vulnerabilities(), this.getVulnerability(), null, "vulnerabilities", null, 1, -1,
+				Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRule_ComponentTypesAffected(), this.getComponentType(), null, "componentTypesAffected", null,
+				1, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRule_Controls(), this.getControl(), null, "controls", null, 0, -1, Rule.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,

@@ -74,11 +74,11 @@
         eType="#//AffectRelation" containment="true" eOpposite="#//AffectRelation/sourceComponent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
         eType="#//Link" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="componentType" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="componentTypes" lowerBound="1"
         upperBound="-1" eType="#//ComponentType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" upperBound="-1" eType="#//Rule"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1" eType="#//Rule"
         derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="assignedControl" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignedControls" upperBound="-1"
         eType="#//Control"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="vulnerable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         volatile="true" transient="true" derived="true"/>
@@ -382,9 +382,9 @@
         eType="#//Rule" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Rule" eSuperTypes="#//Asset">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="vulnerability" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vulnerabilities" lowerBound="1"
         upperBound="-1" eType="#//Vulnerability"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="componentTypeAffected"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="componentTypesAffected"
         lowerBound="1" upperBound="-1" eType="#//ComponentType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="controls" upperBound="-1"
         eType="#//Control"/>

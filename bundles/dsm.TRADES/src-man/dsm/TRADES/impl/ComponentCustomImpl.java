@@ -76,8 +76,7 @@ public class ComponentCustomImpl extends ComponentImpl {
 	}
 	
 	@Override
-	//get all rules
-	public EList<Rule> getRule() {
+	public EList<Rule> getRules() {
 		Component component = this;
 		while (component.eContainer() instanceof Component) {
 			component = (Component) component.eContainer();
@@ -122,7 +121,7 @@ public class ComponentCustomImpl extends ComponentImpl {
 
 	@Override
 	public boolean ofType(ComponentType type) {
-		for (ComponentType componentType : this.getComponentType()) {
+		for (ComponentType componentType : this.getComponentTypes()) {
 			if (type.getName() == componentType.getName()) {
 				return true;
 			}
@@ -132,10 +131,10 @@ public class ComponentCustomImpl extends ComponentImpl {
 
 	@Override
 	public boolean mitigatedV(Vulnerability vulnerability) {
-		for (Rule rule : this.getRule()) {
-			boolean containsVulnerability = rule.getVulnerability().contains(vulnerability);
+		for (Rule rule : this.getRules()) {
+			boolean containsVulnerability = rule.getVulnerabilities().contains(vulnerability);
 			boolean hasType = false;
-			for (ComponentType type : rule.getComponentTypeAffected()) {
+			for (ComponentType type : rule.getComponentTypesAffected()) {
 				if (this.ofType(type)) {
 					hasType = true; 
 					break;
@@ -157,10 +156,10 @@ public class ComponentCustomImpl extends ComponentImpl {
 
 	@Override
 	public boolean mitigatedW(Vulnerability weakness) {
-		for (Rule rule : this.getRule()) {
-			boolean containsWeakness = rule.getVulnerability().contains(weakness);
+		for (Rule rule : this.getRules()) {
+			boolean containsWeakness = rule.getVulnerabilities().contains(weakness);
 			boolean hasType = false;
-			for (ComponentType type : rule.getComponentTypeAffected()) {
+			for (ComponentType type : rule.getComponentTypesAffected()) {
 				if (this.ofType(type)) {
 					hasType = true; 
 					break;

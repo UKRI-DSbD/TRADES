@@ -33,8 +33,8 @@ import dsm.TRADES.Vulnerability;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dsm.TRADES.impl.RuleImpl#getVulnerability <em>Vulnerability</em>}</li>
- *   <li>{@link dsm.TRADES.impl.RuleImpl#getComponentTypeAffected <em>Component Type Affected</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.RuleImpl#getVulnerabilities <em>Vulnerabilities</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.RuleImpl#getComponentTypesAffected <em>Component Types Affected</em>}</li>
  *   <li>{@link dsm.TRADES.impl.RuleImpl#getControls <em>Controls</em>}</li>
  * </ul>
  *
@@ -42,24 +42,24 @@ import dsm.TRADES.Vulnerability;
  */
 public class RuleImpl extends AssetImpl implements Rule {
 	/**
-	 * The cached value of the '{@link #getVulnerability() <em>Vulnerability</em>}' reference list.
+	 * The cached value of the '{@link #getVulnerabilities() <em>Vulnerabilities</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVulnerability()
+	 * @see #getVulnerabilities()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Vulnerability> vulnerability;
+	protected EList<Vulnerability> vulnerabilities;
 
 	/**
-	 * The cached value of the '{@link #getComponentTypeAffected() <em>Component Type Affected</em>}' reference list.
+	 * The cached value of the '{@link #getComponentTypesAffected() <em>Component Types Affected</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getComponentTypeAffected()
+	 * @see #getComponentTypesAffected()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ComponentType> componentTypeAffected;
+	protected EList<ComponentType> componentTypesAffected;
 
 	/**
 	 * The cached value of the '{@link #getControls() <em>Controls</em>}' reference list.
@@ -96,12 +96,12 @@ public class RuleImpl extends AssetImpl implements Rule {
 	 * @generated
 	 */
 	@Override
-	public EList<Vulnerability> getVulnerability() {
-		if (vulnerability == null) {
-			vulnerability = new EObjectResolvingEList<Vulnerability>(Vulnerability.class, this,
-					TRADESPackage.RULE__VULNERABILITY);
+	public EList<Vulnerability> getVulnerabilities() {
+		if (vulnerabilities == null) {
+			vulnerabilities = new EObjectResolvingEList<Vulnerability>(Vulnerability.class, this,
+					TRADESPackage.RULE__VULNERABILITIES);
 		}
-		return vulnerability;
+		return vulnerabilities;
 	}
 
 	/**
@@ -110,12 +110,12 @@ public class RuleImpl extends AssetImpl implements Rule {
 	 * @generated
 	 */
 	@Override
-	public EList<ComponentType> getComponentTypeAffected() {
-		if (componentTypeAffected == null) {
-			componentTypeAffected = new EObjectResolvingEList<ComponentType>(ComponentType.class, this,
-					TRADESPackage.RULE__COMPONENT_TYPE_AFFECTED);
+	public EList<ComponentType> getComponentTypesAffected() {
+		if (componentTypesAffected == null) {
+			componentTypesAffected = new EObjectResolvingEList<ComponentType>(ComponentType.class, this,
+					TRADESPackage.RULE__COMPONENT_TYPES_AFFECTED);
 		}
-		return componentTypeAffected;
+		return componentTypesAffected;
 	}
 
 	/**
@@ -139,10 +139,10 @@ public class RuleImpl extends AssetImpl implements Rule {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TRADESPackage.RULE__VULNERABILITY:
-			return getVulnerability();
-		case TRADESPackage.RULE__COMPONENT_TYPE_AFFECTED:
-			return getComponentTypeAffected();
+		case TRADESPackage.RULE__VULNERABILITIES:
+			return getVulnerabilities();
+		case TRADESPackage.RULE__COMPONENT_TYPES_AFFECTED:
+			return getComponentTypesAffected();
 		case TRADESPackage.RULE__CONTROLS:
 			return getControls();
 		}
@@ -158,13 +158,13 @@ public class RuleImpl extends AssetImpl implements Rule {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TRADESPackage.RULE__VULNERABILITY:
-			getVulnerability().clear();
-			getVulnerability().addAll((Collection<? extends Vulnerability>) newValue);
+		case TRADESPackage.RULE__VULNERABILITIES:
+			getVulnerabilities().clear();
+			getVulnerabilities().addAll((Collection<? extends Vulnerability>) newValue);
 			return;
-		case TRADESPackage.RULE__COMPONENT_TYPE_AFFECTED:
-			getComponentTypeAffected().clear();
-			getComponentTypeAffected().addAll((Collection<? extends ComponentType>) newValue);
+		case TRADESPackage.RULE__COMPONENT_TYPES_AFFECTED:
+			getComponentTypesAffected().clear();
+			getComponentTypesAffected().addAll((Collection<? extends ComponentType>) newValue);
 			return;
 		case TRADESPackage.RULE__CONTROLS:
 			getControls().clear();
@@ -182,11 +182,11 @@ public class RuleImpl extends AssetImpl implements Rule {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TRADESPackage.RULE__VULNERABILITY:
-			getVulnerability().clear();
+		case TRADESPackage.RULE__VULNERABILITIES:
+			getVulnerabilities().clear();
 			return;
-		case TRADESPackage.RULE__COMPONENT_TYPE_AFFECTED:
-			getComponentTypeAffected().clear();
+		case TRADESPackage.RULE__COMPONENT_TYPES_AFFECTED:
+			getComponentTypesAffected().clear();
 			return;
 		case TRADESPackage.RULE__CONTROLS:
 			getControls().clear();
@@ -203,10 +203,10 @@ public class RuleImpl extends AssetImpl implements Rule {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TRADESPackage.RULE__VULNERABILITY:
-			return vulnerability != null && !vulnerability.isEmpty();
-		case TRADESPackage.RULE__COMPONENT_TYPE_AFFECTED:
-			return componentTypeAffected != null && !componentTypeAffected.isEmpty();
+		case TRADESPackage.RULE__VULNERABILITIES:
+			return vulnerabilities != null && !vulnerabilities.isEmpty();
+		case TRADESPackage.RULE__COMPONENT_TYPES_AFFECTED:
+			return componentTypesAffected != null && !componentTypesAffected.isEmpty();
 		case TRADESPackage.RULE__CONTROLS:
 			return controls != null && !controls.isEmpty();
 		}

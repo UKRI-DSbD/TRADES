@@ -59,9 +59,9 @@ public class ComponentItemProvider extends ComponentOwnerItemProvider {
 			addNamePropertyDescriptor(object);
 			addCategoryPropertyDescriptor(object);
 			addThreatAllocationsPropertyDescriptor(object);
-			addComponentTypePropertyDescriptor(object);
-			addRulePropertyDescriptor(object);
-			addAssignedControlPropertyDescriptor(object);
+			addComponentTypesPropertyDescriptor(object);
+			addRulesPropertyDescriptor(object);
+			addAssignedControlsPropertyDescriptor(object);
 			addVulnerablePropertyDescriptor(object);
 			addCVAPropertyDescriptor(object);
 			addCWAPropertyDescriptor(object);
@@ -117,48 +117,48 @@ public class ComponentItemProvider extends ComponentOwnerItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Component Type feature.
+	 * This adds a property descriptor for the Component Types feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addComponentTypePropertyDescriptor(Object object) {
+	protected void addComponentTypesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Component_componentType_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Component_componentType_feature",
+						getResourceLocator(), getString("_UI_Component_componentTypes_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_componentTypes_feature",
 								"_UI_Component_type"),
-						TRADESPackage.Literals.COMPONENT__COMPONENT_TYPE, true, false, true, null, null, null));
+						TRADESPackage.Literals.COMPONENT__COMPONENT_TYPES, true, false, true, null, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Rule feature.
+	 * This adds a property descriptor for the Rules feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRulePropertyDescriptor(Object object) {
+	protected void addRulesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Component_rule_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Component_rule_feature",
+						getResourceLocator(), getString("_UI_Component_rules_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_rules_feature",
 								"_UI_Component_type"),
-						TRADESPackage.Literals.COMPONENT__RULE, true, false, true, null, null, null));
+						TRADESPackage.Literals.COMPONENT__RULES, true, false, true, null, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Assigned Control feature.
+	 * This adds a property descriptor for the Assigned Controls feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAssignedControlPropertyDescriptor(Object object) {
+	protected void addAssignedControlsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Component_assignedControl_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Component_assignedControl_feature",
+						getResourceLocator(), getString("_UI_Component_assignedControls_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_assignedControls_feature",
 								"_UI_Component_type"),
-						TRADESPackage.Literals.COMPONENT__ASSIGNED_CONTROL, true, false, true, null, null, null));
+						TRADESPackage.Literals.COMPONENT__ASSIGNED_CONTROLS, true, false, true, null, null, null));
 	}
 
 	/**

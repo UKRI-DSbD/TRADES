@@ -63,9 +63,9 @@ import dsm.TRADES.Vulnerability;
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getThreatAllocations <em>Threat Allocations</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getAffectRelations <em>Affect Relations</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getLinks <em>Links</em>}</li>
- *   <li>{@link dsm.TRADES.impl.ComponentImpl#getComponentType <em>Component Type</em>}</li>
- *   <li>{@link dsm.TRADES.impl.ComponentImpl#getRule <em>Rule</em>}</li>
- *   <li>{@link dsm.TRADES.impl.ComponentImpl#getAssignedControl <em>Assigned Control</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentImpl#getComponentTypes <em>Component Types</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentImpl#getRules <em>Rules</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentImpl#getAssignedControls <em>Assigned Controls</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#isVulnerable <em>Vulnerable</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getCVA <em>CVA</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getCWA <em>CWA</em>}</li>
@@ -155,34 +155,34 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 	protected EList<Link> links;
 
 	/**
-	 * The cached value of the '{@link #getComponentType() <em>Component Type</em>}' reference list.
+	 * The cached value of the '{@link #getComponentTypes() <em>Component Types</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getComponentType()
+	 * @see #getComponentTypes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ComponentType> componentType;
+	protected EList<ComponentType> componentTypes;
 
 	/**
-	 * The cached value of the '{@link #getRule() <em>Rule</em>}' reference list.
+	 * The cached value of the '{@link #getRules() <em>Rules</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRule()
+	 * @see #getRules()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Rule> rule;
+	protected EList<Rule> rules;
 
 	/**
-	 * The cached value of the '{@link #getAssignedControl() <em>Assigned Control</em>}' reference list.
+	 * The cached value of the '{@link #getAssignedControls() <em>Assigned Controls</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAssignedControl()
+	 * @see #getAssignedControls()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Control> assignedControl;
+	protected EList<Control> assignedControls;
 
 	/**
 	 * The default value of the '{@link #isVulnerable() <em>Vulnerable</em>}' attribute.
@@ -422,12 +422,12 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 	 * @generated
 	 */
 	@Override
-	public EList<ComponentType> getComponentType() {
-		if (componentType == null) {
-			componentType = new EObjectResolvingEList<ComponentType>(ComponentType.class, this,
-					TRADESPackage.COMPONENT__COMPONENT_TYPE);
+	public EList<ComponentType> getComponentTypes() {
+		if (componentTypes == null) {
+			componentTypes = new EObjectResolvingEList<ComponentType>(ComponentType.class, this,
+					TRADESPackage.COMPONENT__COMPONENT_TYPES);
 		}
-		return componentType;
+		return componentTypes;
 	}
 
 	/**
@@ -436,11 +436,11 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 	 * @generated
 	 */
 	@Override
-	public EList<Rule> getRule() {
-		if (rule == null) {
-			rule = new EObjectResolvingEList<Rule>(Rule.class, this, TRADESPackage.COMPONENT__RULE);
+	public EList<Rule> getRules() {
+		if (rules == null) {
+			rules = new EObjectResolvingEList<Rule>(Rule.class, this, TRADESPackage.COMPONENT__RULES);
 		}
-		return rule;
+		return rules;
 	}
 
 	/**
@@ -449,12 +449,12 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 	 * @generated
 	 */
 	@Override
-	public EList<Control> getAssignedControl() {
-		if (assignedControl == null) {
-			assignedControl = new EObjectResolvingEList<Control>(Control.class, this,
-					TRADESPackage.COMPONENT__ASSIGNED_CONTROL);
+	public EList<Control> getAssignedControls() {
+		if (assignedControls == null) {
+			assignedControls = new EObjectResolvingEList<Control>(Control.class, this,
+					TRADESPackage.COMPONENT__ASSIGNED_CONTROLS);
 		}
-		return assignedControl;
+		return assignedControls;
 	}
 
 	/**
@@ -713,12 +713,12 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 			return getAffectRelations();
 		case TRADESPackage.COMPONENT__LINKS:
 			return getLinks();
-		case TRADESPackage.COMPONENT__COMPONENT_TYPE:
-			return getComponentType();
-		case TRADESPackage.COMPONENT__RULE:
-			return getRule();
-		case TRADESPackage.COMPONENT__ASSIGNED_CONTROL:
-			return getAssignedControl();
+		case TRADESPackage.COMPONENT__COMPONENT_TYPES:
+			return getComponentTypes();
+		case TRADESPackage.COMPONENT__RULES:
+			return getRules();
+		case TRADESPackage.COMPONENT__ASSIGNED_CONTROLS:
+			return getAssignedControls();
 		case TRADESPackage.COMPONENT__VULNERABLE:
 			return isVulnerable();
 		case TRADESPackage.COMPONENT__CVA:
@@ -763,17 +763,17 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 			getLinks().clear();
 			getLinks().addAll((Collection<? extends Link>) newValue);
 			return;
-		case TRADESPackage.COMPONENT__COMPONENT_TYPE:
-			getComponentType().clear();
-			getComponentType().addAll((Collection<? extends ComponentType>) newValue);
+		case TRADESPackage.COMPONENT__COMPONENT_TYPES:
+			getComponentTypes().clear();
+			getComponentTypes().addAll((Collection<? extends ComponentType>) newValue);
 			return;
-		case TRADESPackage.COMPONENT__RULE:
-			getRule().clear();
-			getRule().addAll((Collection<? extends Rule>) newValue);
+		case TRADESPackage.COMPONENT__RULES:
+			getRules().clear();
+			getRules().addAll((Collection<? extends Rule>) newValue);
 			return;
-		case TRADESPackage.COMPONENT__ASSIGNED_CONTROL:
-			getAssignedControl().clear();
-			getAssignedControl().addAll((Collection<? extends Control>) newValue);
+		case TRADESPackage.COMPONENT__ASSIGNED_CONTROLS:
+			getAssignedControls().clear();
+			getAssignedControls().addAll((Collection<? extends Control>) newValue);
 			return;
 		case TRADESPackage.COMPONENT__VULNERABLE:
 			setVulnerable((Boolean) newValue);
@@ -819,14 +819,14 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 		case TRADESPackage.COMPONENT__LINKS:
 			getLinks().clear();
 			return;
-		case TRADESPackage.COMPONENT__COMPONENT_TYPE:
-			getComponentType().clear();
+		case TRADESPackage.COMPONENT__COMPONENT_TYPES:
+			getComponentTypes().clear();
 			return;
-		case TRADESPackage.COMPONENT__RULE:
-			getRule().clear();
+		case TRADESPackage.COMPONENT__RULES:
+			getRules().clear();
 			return;
-		case TRADESPackage.COMPONENT__ASSIGNED_CONTROL:
-			getAssignedControl().clear();
+		case TRADESPackage.COMPONENT__ASSIGNED_CONTROLS:
+			getAssignedControls().clear();
 			return;
 		case TRADESPackage.COMPONENT__VULNERABLE:
 			setVulnerable(VULNERABLE_EDEFAULT);
@@ -863,12 +863,12 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 			return affectRelations != null && !affectRelations.isEmpty();
 		case TRADESPackage.COMPONENT__LINKS:
 			return links != null && !links.isEmpty();
-		case TRADESPackage.COMPONENT__COMPONENT_TYPE:
-			return componentType != null && !componentType.isEmpty();
-		case TRADESPackage.COMPONENT__RULE:
-			return rule != null && !rule.isEmpty();
-		case TRADESPackage.COMPONENT__ASSIGNED_CONTROL:
-			return assignedControl != null && !assignedControl.isEmpty();
+		case TRADESPackage.COMPONENT__COMPONENT_TYPES:
+			return componentTypes != null && !componentTypes.isEmpty();
+		case TRADESPackage.COMPONENT__RULES:
+			return rules != null && !rules.isEmpty();
+		case TRADESPackage.COMPONENT__ASSIGNED_CONTROLS:
+			return assignedControls != null && !assignedControls.isEmpty();
 		case TRADESPackage.COMPONENT__VULNERABLE:
 			return isVulnerable() != VULNERABLE_EDEFAULT;
 		case TRADESPackage.COMPONENT__CVA:

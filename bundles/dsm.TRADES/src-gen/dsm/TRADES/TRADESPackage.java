@@ -639,31 +639,31 @@ public interface TRADESPackage extends EPackage {
 	int COMPONENT__LINKS = COMPONENT_OWNER_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Component Type</b></em>' reference list.
+	 * The feature id for the '<em><b>Component Types</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__COMPONENT_TYPE = COMPONENT_OWNER_FEATURE_COUNT + 7;
+	int COMPONENT__COMPONENT_TYPES = COMPONENT_OWNER_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Rule</b></em>' reference list.
+	 * The feature id for the '<em><b>Rules</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__RULE = COMPONENT_OWNER_FEATURE_COUNT + 8;
+	int COMPONENT__RULES = COMPONENT_OWNER_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Assigned Control</b></em>' reference list.
+	 * The feature id for the '<em><b>Assigned Controls</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__ASSIGNED_CONTROL = COMPONENT_OWNER_FEATURE_COUNT + 9;
+	int COMPONENT__ASSIGNED_CONTROLS = COMPONENT_OWNER_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Vulnerable</b></em>' attribute.
@@ -3551,22 +3551,22 @@ public interface TRADESPackage extends EPackage {
 	int RULE__NAME = ASSET__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Vulnerability</b></em>' reference list.
+	 * The feature id for the '<em><b>Vulnerabilities</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE__VULNERABILITY = ASSET_FEATURE_COUNT + 0;
+	int RULE__VULNERABILITIES = ASSET_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Component Type Affected</b></em>' reference list.
+	 * The feature id for the '<em><b>Component Types Affected</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE__COMPONENT_TYPE_AFFECTED = ASSET_FEATURE_COUNT + 1;
+	int RULE__COMPONENT_TYPES_AFFECTED = ASSET_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Controls</b></em>' reference list.
@@ -4033,37 +4033,37 @@ public interface TRADESPackage extends EPackage {
 	EReference getComponent_Links();
 
 	/**
-	 * Returns the meta object for the reference list '{@link dsm.TRADES.Component#getComponentType <em>Component Type</em>}'.
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.Component#getComponentTypes <em>Component Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Component Type</em>'.
-	 * @see dsm.TRADES.Component#getComponentType()
+	 * @return the meta object for the reference list '<em>Component Types</em>'.
+	 * @see dsm.TRADES.Component#getComponentTypes()
 	 * @see #getComponent()
 	 * @generated
 	 */
-	EReference getComponent_ComponentType();
+	EReference getComponent_ComponentTypes();
 
 	/**
-	 * Returns the meta object for the reference list '{@link dsm.TRADES.Component#getRule <em>Rule</em>}'.
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.Component#getRules <em>Rules</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Rule</em>'.
-	 * @see dsm.TRADES.Component#getRule()
+	 * @return the meta object for the reference list '<em>Rules</em>'.
+	 * @see dsm.TRADES.Component#getRules()
 	 * @see #getComponent()
 	 * @generated
 	 */
-	EReference getComponent_Rule();
+	EReference getComponent_Rules();
 
 	/**
-	 * Returns the meta object for the reference list '{@link dsm.TRADES.Component#getAssignedControl <em>Assigned Control</em>}'.
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.Component#getAssignedControls <em>Assigned Controls</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Assigned Control</em>'.
-	 * @see dsm.TRADES.Component#getAssignedControl()
+	 * @return the meta object for the reference list '<em>Assigned Controls</em>'.
+	 * @see dsm.TRADES.Component#getAssignedControls()
 	 * @see #getComponent()
 	 * @generated
 	 */
-	EReference getComponent_AssignedControl();
+	EReference getComponent_AssignedControls();
 
 	/**
 	 * Returns the meta object for the attribute '{@link dsm.TRADES.Component#isVulnerable <em>Vulnerable</em>}'.
@@ -5678,26 +5678,26 @@ public interface TRADESPackage extends EPackage {
 	EClass getRule();
 
 	/**
-	 * Returns the meta object for the reference list '{@link dsm.TRADES.Rule#getVulnerability <em>Vulnerability</em>}'.
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.Rule#getVulnerabilities <em>Vulnerabilities</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Vulnerability</em>'.
-	 * @see dsm.TRADES.Rule#getVulnerability()
+	 * @return the meta object for the reference list '<em>Vulnerabilities</em>'.
+	 * @see dsm.TRADES.Rule#getVulnerabilities()
 	 * @see #getRule()
 	 * @generated
 	 */
-	EReference getRule_Vulnerability();
+	EReference getRule_Vulnerabilities();
 
 	/**
-	 * Returns the meta object for the reference list '{@link dsm.TRADES.Rule#getComponentTypeAffected <em>Component Type Affected</em>}'.
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.Rule#getComponentTypesAffected <em>Component Types Affected</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Component Type Affected</em>'.
-	 * @see dsm.TRADES.Rule#getComponentTypeAffected()
+	 * @return the meta object for the reference list '<em>Component Types Affected</em>'.
+	 * @see dsm.TRADES.Rule#getComponentTypesAffected()
 	 * @see #getRule()
 	 * @generated
 	 */
-	EReference getRule_ComponentTypeAffected();
+	EReference getRule_ComponentTypesAffected();
 
 	/**
 	 * Returns the meta object for the reference list '{@link dsm.TRADES.Rule#getControls <em>Controls</em>}'.
@@ -6082,28 +6082,28 @@ public interface TRADESPackage extends EPackage {
 		EReference COMPONENT__LINKS = eINSTANCE.getComponent_Links();
 
 		/**
-		 * The meta object literal for the '<em><b>Component Type</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Component Types</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPONENT__COMPONENT_TYPE = eINSTANCE.getComponent_ComponentType();
+		EReference COMPONENT__COMPONENT_TYPES = eINSTANCE.getComponent_ComponentTypes();
 
 		/**
-		 * The meta object literal for the '<em><b>Rule</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Rules</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPONENT__RULE = eINSTANCE.getComponent_Rule();
+		EReference COMPONENT__RULES = eINSTANCE.getComponent_Rules();
 
 		/**
-		 * The meta object literal for the '<em><b>Assigned Control</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Assigned Controls</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPONENT__ASSIGNED_CONTROL = eINSTANCE.getComponent_AssignedControl();
+		EReference COMPONENT__ASSIGNED_CONTROLS = eINSTANCE.getComponent_AssignedControls();
 
 		/**
 		 * The meta object literal for the '<em><b>Vulnerable</b></em>' attribute feature.
@@ -7442,20 +7442,20 @@ public interface TRADESPackage extends EPackage {
 		EClass RULE = eINSTANCE.getRule();
 
 		/**
-		 * The meta object literal for the '<em><b>Vulnerability</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Vulnerabilities</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RULE__VULNERABILITY = eINSTANCE.getRule_Vulnerability();
+		EReference RULE__VULNERABILITIES = eINSTANCE.getRule_Vulnerabilities();
 
 		/**
-		 * The meta object literal for the '<em><b>Component Type Affected</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Component Types Affected</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RULE__COMPONENT_TYPE_AFFECTED = eINSTANCE.getRule_ComponentTypeAffected();
+		EReference RULE__COMPONENT_TYPES_AFFECTED = eINSTANCE.getRule_ComponentTypesAffected();
 
 		/**
 		 * The meta object literal for the '<em><b>Controls</b></em>' reference list feature.

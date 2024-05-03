@@ -24,8 +24,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link dsm.TRADES.Rule#getVulnerability <em>Vulnerability</em>}</li>
- *   <li>{@link dsm.TRADES.Rule#getComponentTypeAffected <em>Component Type Affected</em>}</li>
+ *   <li>{@link dsm.TRADES.Rule#getVulnerabilities <em>Vulnerabilities</em>}</li>
+ *   <li>{@link dsm.TRADES.Rule#getComponentTypesAffected <em>Component Types Affected</em>}</li>
  *   <li>{@link dsm.TRADES.Rule#getControls <em>Controls</em>}</li>
  * </ul>
  *
@@ -35,28 +35,28 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Rule extends Asset {
 	/**
-	 * Returns the value of the '<em><b>Vulnerability</b></em>' reference list.
+	 * Returns the value of the '<em><b>Vulnerabilities</b></em>' reference list.
 	 * The list contents are of type {@link dsm.TRADES.Vulnerability}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Vulnerability</em>' reference list.
-	 * @see dsm.TRADES.TRADESPackage#getRule_Vulnerability()
+	 * @return the value of the '<em>Vulnerabilities</em>' reference list.
+	 * @see dsm.TRADES.TRADESPackage#getRule_Vulnerabilities()
 	 * @model required="true"
 	 * @generated
 	 */
-	EList<Vulnerability> getVulnerability();
+	EList<Vulnerability> getVulnerabilities();
 
 	/**
-	 * Returns the value of the '<em><b>Component Type Affected</b></em>' reference list.
+	 * Returns the value of the '<em><b>Component Types Affected</b></em>' reference list.
 	 * The list contents are of type {@link dsm.TRADES.ComponentType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Component Type Affected</em>' reference list.
-	 * @see dsm.TRADES.TRADESPackage#getRule_ComponentTypeAffected()
+	 * @return the value of the '<em>Component Types Affected</em>' reference list.
+	 * @see dsm.TRADES.TRADESPackage#getRule_ComponentTypesAffected()
 	 * @model required="true"
 	 * @generated
 	 */
-	EList<ComponentType> getComponentTypeAffected();
+	EList<ComponentType> getComponentTypesAffected();
 
 	/**
 	 * Returns the value of the '<em><b>Controls</b></em>' reference list.

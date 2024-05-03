@@ -86,8 +86,8 @@ public class AnalysisCustomImpl extends AnalysisImpl {
 	@Override
 	public boolean directRuleExists(Vulnerability vulnerability, ComponentType type) {
 		for (Rule rule : this.getRuleOwner().getRules()) {
-			boolean containsVulnerability = rule.getVulnerability().contains(vulnerability);
-			boolean containsComponentType = rule.getComponentTypeAffected().contains(type);
+			boolean containsVulnerability = rule.getVulnerabilities().contains(vulnerability);
+			boolean containsComponentType = rule.getComponentTypesAffected().contains(type);
 			boolean hasControls = rule.getControls().size() > 0;
 			if (containsComponentType && containsVulnerability && hasControls) {
 				return true;
@@ -123,7 +123,7 @@ public class AnalysisCustomImpl extends AnalysisImpl {
 		List<Component> allComponents = this.getComponents();
 
 		for (Component component : allComponents) {
-			for (ComponentType componentType : component.getComponentType()) {
+			for (ComponentType componentType : component.getComponentTypes()) {
 				for (Vulnerability vulnerability : component.getCVA()) {
 					if(!component.ofType(componentType) || !ruleExists(vulnerability, componentType)) {
 						return false;
@@ -140,7 +140,7 @@ public class AnalysisCustomImpl extends AnalysisImpl {
 		List<Component> allComponents = this.getComponents();
 
 		for (Component component : allComponents) {
-			for (ComponentType componentType : component.getComponentType()) {
+			for (ComponentType componentType : component.getComponentTypes()) {
 				for (Vulnerability vulnerability : component.getCWA()) {
 					if(!component.ofType(componentType) || !ruleExists(vulnerability, componentType)) {
 						return false;
@@ -156,7 +156,7 @@ public class AnalysisCustomImpl extends AnalysisImpl {
 		List<Component> allComponents = this.getComponents();
 
 		for (Component component : allComponents) {
-			for (ComponentType componentType : component.getComponentType()) {
+			for (ComponentType componentType : component.getComponentTypes()) {
 				for (Vulnerability vulnerability : component.getCVA()) {
 					if(!ruleExists(vulnerability, componentType)) {
 						return false;
@@ -172,7 +172,7 @@ public class AnalysisCustomImpl extends AnalysisImpl {
 		List<Component> allComponents = this.getComponents();
 
 		for (Component component : allComponents) {
-			for (ComponentType componentType : component.getComponentType()) {
+			for (ComponentType componentType : component.getComponentTypes()) {
 				for (Vulnerability weakness : component.getCWA()) {
 					if(!ruleExists(weakness, componentType)) {
 						return false;
