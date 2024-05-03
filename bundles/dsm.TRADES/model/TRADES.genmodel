@@ -324,7 +324,7 @@
     <genClasses ecoreClass="TRADES.ecore#//Characteristic">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Characteristic/label"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Characteristic/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Characteristic/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Characteristic/options"/>
     </genClasses>
     <genClasses image="false" ecoreClass="TRADES.ecore#//CharacteristicOwner">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//CharacteristicOwner/characteristics"/>

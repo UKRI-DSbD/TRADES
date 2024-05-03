@@ -3633,13 +3633,13 @@ public interface TRADESPackage extends EPackage {
 	int CHARACTERISTIC__VALUE = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * The feature id for the '<em><b>Options</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHARACTERISTIC__DESCRIPTION = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int CHARACTERISTIC__OPTIONS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Characteristic</em>' class.
@@ -5743,15 +5743,15 @@ public interface TRADESPackage extends EPackage {
 	EAttribute getCharacteristic_Value();
 
 	/**
-	 * Returns the meta object for the attribute '{@link dsm.TRADES.Characteristic#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the attribute list '{@link dsm.TRADES.Characteristic#getOptions <em>Options</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see dsm.TRADES.Characteristic#getDescription()
+	 * @return the meta object for the attribute list '<em>Options</em>'.
+	 * @see dsm.TRADES.Characteristic#getOptions()
 	 * @see #getCharacteristic()
 	 * @generated
 	 */
-	EAttribute getCharacteristic_Description();
+	EAttribute getCharacteristic_Options();
 
 	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.CharacteristicOwner <em>Characteristic Owner</em>}'.
@@ -7492,12 +7492,12 @@ public interface TRADESPackage extends EPackage {
 		EAttribute CHARACTERISTIC__VALUE = eINSTANCE.getCharacteristic_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Options</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CHARACTERISTIC__DESCRIPTION = eINSTANCE.getCharacteristic_Description();
+		EAttribute CHARACTERISTIC__OPTIONS = eINSTANCE.getCharacteristic_Options();
 
 		/**
 		 * The meta object literal for the '{@link dsm.TRADES.impl.CharacteristicOwnerImpl <em>Characteristic Owner</em>}' class.

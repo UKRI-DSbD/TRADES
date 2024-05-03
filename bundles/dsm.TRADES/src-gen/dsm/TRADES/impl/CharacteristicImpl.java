@@ -14,11 +14,14 @@
 package dsm.TRADES.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import dsm.TRADES.Characteristic;
 import dsm.TRADES.TRADESPackage;
+import java.util.Collection;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +33,7 @@ import dsm.TRADES.TRADESPackage;
  * <ul>
  *   <li>{@link dsm.TRADES.impl.CharacteristicImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link dsm.TRADES.impl.CharacteristicImpl#getValue <em>Value</em>}</li>
- *   <li>{@link dsm.TRADES.impl.CharacteristicImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.CharacteristicImpl#getOptions <em>Options</em>}</li>
  * </ul>
  *
  * @generated
@@ -77,24 +80,14 @@ public class CharacteristicImpl extends NamedElementImpl implements Characterist
 	protected String value = VALUE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * The cached value of the '{@link #getOptions() <em>Options</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDescription()
+	 * @see #getOptions()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected String description = DESCRIPTION_EDEFAULT;
+	protected EList<String> options;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -169,22 +162,11 @@ public class CharacteristicImpl extends NamedElementImpl implements Characterist
 	 * @generated
 	 */
 	@Override
-	public String getDescription() {
-		return description;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setDescription(String newDescription) {
-		String oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.CHARACTERISTIC__DESCRIPTION,
-					oldDescription, description));
+	public EList<String> getOptions() {
+		if (options == null) {
+			options = new EDataTypeUniqueEList<String>(String.class, this, TRADESPackage.CHARACTERISTIC__OPTIONS);
+		}
+		return options;
 	}
 
 	/**
@@ -199,8 +181,8 @@ public class CharacteristicImpl extends NamedElementImpl implements Characterist
 			return getLabel();
 		case TRADESPackage.CHARACTERISTIC__VALUE:
 			return getValue();
-		case TRADESPackage.CHARACTERISTIC__DESCRIPTION:
-			return getDescription();
+		case TRADESPackage.CHARACTERISTIC__OPTIONS:
+			return getOptions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -210,6 +192,7 @@ public class CharacteristicImpl extends NamedElementImpl implements Characterist
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -219,8 +202,9 @@ public class CharacteristicImpl extends NamedElementImpl implements Characterist
 		case TRADESPackage.CHARACTERISTIC__VALUE:
 			setValue((String) newValue);
 			return;
-		case TRADESPackage.CHARACTERISTIC__DESCRIPTION:
-			setDescription((String) newValue);
+		case TRADESPackage.CHARACTERISTIC__OPTIONS:
+			getOptions().clear();
+			getOptions().addAll((Collection<? extends String>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -240,8 +224,8 @@ public class CharacteristicImpl extends NamedElementImpl implements Characterist
 		case TRADESPackage.CHARACTERISTIC__VALUE:
 			setValue(VALUE_EDEFAULT);
 			return;
-		case TRADESPackage.CHARACTERISTIC__DESCRIPTION:
-			setDescription(DESCRIPTION_EDEFAULT);
+		case TRADESPackage.CHARACTERISTIC__OPTIONS:
+			getOptions().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -259,8 +243,8 @@ public class CharacteristicImpl extends NamedElementImpl implements Characterist
 			return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 		case TRADESPackage.CHARACTERISTIC__VALUE:
 			return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-		case TRADESPackage.CHARACTERISTIC__DESCRIPTION:
-			return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+		case TRADESPackage.CHARACTERISTIC__OPTIONS:
+			return options != null && !options.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -280,8 +264,8 @@ public class CharacteristicImpl extends NamedElementImpl implements Characterist
 		result.append(label);
 		result.append(", value: ");
 		result.append(value);
-		result.append(", description: ");
-		result.append(description);
+		result.append(", options: ");
+		result.append(options);
 		result.append(')');
 		return result.toString();
 	}

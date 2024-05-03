@@ -117,9 +117,12 @@ public class OscalDesignService {
 				characteristic.setLabel(parameter.getLabel().toMarkdown());
 			} else {
 				characteristic.setLabel("Selection");
+				for (MarkupLine markupLine : parameter.getSelect().getChoice()) {
+					characteristic.getOptions().add(markupLine.toMarkdown());
+				}
+				
 			}
 			characteristic.setValue(idToValue.get(parameter.getId()));
-			characteristic.setDescription("");
 			extControl.getCharacteristics().add(characteristic);
 		}
 		

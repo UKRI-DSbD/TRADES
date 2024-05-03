@@ -56,7 +56,7 @@ public class CharacteristicItemProvider extends NamedElementItemProvider {
 
 			addLabelPropertyDescriptor(object);
 			addValuePropertyDescriptor(object);
-			addDescriptionPropertyDescriptor(object);
+			addOptionsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -94,18 +94,18 @@ public class CharacteristicItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Description feature.
+	 * This adds a property descriptor for the Options feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDescriptionPropertyDescriptor(Object object) {
+	protected void addOptionsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Characteristic_description_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Characteristic_description_feature",
+						getResourceLocator(), getString("_UI_Characteristic_options_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Characteristic_options_feature",
 								"_UI_Characteristic_type"),
-						TRADESPackage.Literals.CHARACTERISTIC__DESCRIPTION, true, false, false,
+						TRADESPackage.Literals.CHARACTERISTIC__OPTIONS, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -157,7 +157,7 @@ public class CharacteristicItemProvider extends NamedElementItemProvider {
 		switch (notification.getFeatureID(Characteristic.class)) {
 		case TRADESPackage.CHARACTERISTIC__LABEL:
 		case TRADESPackage.CHARACTERISTIC__VALUE:
-		case TRADESPackage.CHARACTERISTIC__DESCRIPTION:
+		case TRADESPackage.CHARACTERISTIC__OPTIONS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

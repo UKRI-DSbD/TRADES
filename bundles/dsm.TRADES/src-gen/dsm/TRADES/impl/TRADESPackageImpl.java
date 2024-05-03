@@ -2434,7 +2434,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCharacteristic_Description() {
+	public EAttribute getCharacteristic_Options() {
 		return (EAttribute) characteristicEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -2802,7 +2802,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		characteristicEClass = createEClass(CHARACTERISTIC);
 		createEAttribute(characteristicEClass, CHARACTERISTIC__LABEL);
 		createEAttribute(characteristicEClass, CHARACTERISTIC__VALUE);
-		createEAttribute(characteristicEClass, CHARACTERISTIC__DESCRIPTION);
+		createEAttribute(characteristicEClass, CHARACTERISTIC__OPTIONS);
 
 		characteristicOwnerEClass = createEClass(CHARACTERISTIC_OWNER);
 		createEReference(characteristicOwnerEClass, CHARACTERISTIC_OWNER__CHARACTERISTICS);
@@ -3468,7 +3468,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCharacteristic_Value(), ecorePackage.getEString(), "value", null, 0, 1, Characteristic.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCharacteristic_Description(), ecorePackage.getEString(), "description", null, 0, 1,
+		initEAttribute(getCharacteristic_Options(), ecorePackage.getEString(), "options", null, 0, -1,
 				Characteristic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
