@@ -38,7 +38,6 @@ import dsm.oscal.design.Activator;
 import dsm.oscal.design.m2doc.MarkupServices;
 import dsm.oscal.model.ParameterResolver;
 import dsm.oscal.model.OscalCatalogCommon.Parameter;
-import dsm.oscal.model.OscalCatalogCommon.ParameterSelection;
 import dsm.oscal.model.OscalMetadata.PartOwner;
 import gov.nist.secauto.metaschema.datatypes.markup.MarkupLine;
 
