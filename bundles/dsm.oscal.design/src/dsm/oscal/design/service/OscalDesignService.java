@@ -116,7 +116,7 @@ public class OscalDesignService {
 			if (parameter.getLabel() != null) {
 				characteristic.setLabel(parameter.getLabel().toMarkdown());
 			} else {
-				characteristic.setLabel("");
+				characteristic.setLabel("Selection");
 			}
 			characteristic.setValue(idToValue.get(parameter.getId()));
 			characteristic.setDescription("");
