@@ -33,10 +33,10 @@ import dsm.TRADES.Data;
 import dsm.TRADES.ExternalControl;
 import dsm.TRADES.Rule;
 import dsm.TRADES.SemanticHelper;
-import dsm.TRADES.Threat;
-import dsm.TRADES.ThreatAllocationRelation;
+import dsm.TRADES.TRADESPackage;
 import dsm.TRADES.Vulnerability;
 import dsm.TRADES.VulnerabilityTypeENUM;
+import dsm.TRADES.util.EcoreUtils;
 
 public class ComponentCustomImpl extends ComponentImpl {
 
@@ -90,10 +90,12 @@ public class ComponentCustomImpl extends ComponentImpl {
 	@Override
 	public EList<Vulnerability> getCVA() {
 		InternalEList<Vulnerability> cva = new BasicInternalEList<Vulnerability>(Vulnerability.class);
-		
-		for (ThreatAllocationRelation threatAllocationRelation : this.getThreatAllocations()) {
-			Threat threat = threatAllocationRelation.getThreat();
-			for (Vulnerability vulnerability : threat.getExploitsVulnerability()) {
+
+		for (ComponentType componentType : this.componentTypes) {
+			List<Vulnerability> vulnerabilities = EcoreUtils.getInverse(componentType, 
+					Vulnerability.class, 
+					TRADESPackage.eINSTANCE.getVulnerability_Affects());
+			for (Vulnerability vulnerability : vulnerabilities) {
 				if (vulnerability.getVulnerabilityType() == VulnerabilityTypeENUM.CVE ||
 						vulnerability.getVulnerabilityType() == VulnerabilityTypeENUM.IMPLEMENTATION) {
 					cva.add(vulnerability);
@@ -107,9 +109,11 @@ public class ComponentCustomImpl extends ComponentImpl {
 	public EList<Vulnerability> getCWA() {
 		InternalEList<Vulnerability> cwa = new BasicInternalEList<Vulnerability>(Vulnerability.class);
 		
-		for (ThreatAllocationRelation threatAllocationRelation : this.getThreatAllocations()) {
-			Threat threat = threatAllocationRelation.getThreat();
-			for (Vulnerability weakness : threat.getExploitsVulnerability()) {
+		for (ComponentType componentType : this.componentTypes) {
+			List<Vulnerability> vulnerabilities = EcoreUtils.getInverse(componentType, 
+					Vulnerability.class, 
+					TRADESPackage.eINSTANCE.getVulnerability_Affects());
+			for (Vulnerability weakness : vulnerabilities) {
 				if (weakness.getVulnerabilityType() == VulnerabilityTypeENUM.CWE ||
 						weakness.getVulnerabilityType() == VulnerabilityTypeENUM.MECHANISM) {
 					cwa.add(weakness);
