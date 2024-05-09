@@ -156,11 +156,9 @@ public class AnalysisCustomImpl extends AnalysisImpl {
 		List<Component> allComponents = this.getComponents();
 
 		for (Component component : allComponents) {
-			for (ComponentType componentType : component.getComponentTypes()) {
-				for (Vulnerability vulnerability : component.getCVA()) {
-					if(!ruleExists(vulnerability, componentType)) {
-						return false;
-					}
+			for (Vulnerability vulnerability : component.getCVA()) {
+				if(!component.mitigated(vulnerability)) {
+					return false;
 				}
 			}
 		}
@@ -172,11 +170,9 @@ public class AnalysisCustomImpl extends AnalysisImpl {
 		List<Component> allComponents = this.getComponents();
 
 		for (Component component : allComponents) {
-			for (ComponentType componentType : component.getComponentTypes()) {
-				for (Vulnerability weakness : component.getCWA()) {
-					if(!ruleExists(weakness, componentType)) {
-						return false;
-					}
+			for (Vulnerability weakness : component.getCWA()) {
+				if(!component.mitigated(weakness)) {
+					return false;
 				}
 			}
 		}

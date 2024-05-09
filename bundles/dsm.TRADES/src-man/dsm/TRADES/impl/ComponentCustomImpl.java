@@ -137,6 +137,9 @@ public class ComponentCustomImpl extends ComponentImpl {
 	public boolean mitigatedV(Vulnerability vulnerability) {
 		for (Rule rule : this.getRules()) {
 			boolean containsVulnerability = rule.getVulnerabilities().contains(vulnerability);
+			if(!containsVulnerability) {
+				break;
+			}
 			boolean hasType = false;
 			for (ComponentType type : rule.getComponentTypesAffected()) {
 				if (this.ofType(type)) {
@@ -160,27 +163,7 @@ public class ComponentCustomImpl extends ComponentImpl {
 
 	@Override
 	public boolean mitigatedW(Vulnerability weakness) {
-		for (Rule rule : this.getRules()) {
-			boolean containsWeakness = rule.getVulnerabilities().contains(weakness);
-			boolean hasType = false;
-			for (ComponentType type : rule.getComponentTypesAffected()) {
-				if (this.ofType(type)) {
-					hasType = true; 
-					break;
-				}
-			}
-			boolean hasControls = true;
-			for (Control control : rule.getControls()) {
-				if (!this.getControlOwner().getInternals().contains(control)) {
-					hasControls = false; 
-					break;
-				}
-			}
-			if (containsWeakness && hasType && hasControls) {
-				return true;
-			}
-		}
-		return false;
+		return mitigatedV(weakness);
 	}
 
 	@Override
