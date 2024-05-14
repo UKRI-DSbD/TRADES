@@ -88,6 +88,27 @@ public class ComponentCustomImpl extends ComponentImpl {
 	}
 
 	@Override
+	public EList<Control> getInternalExternalAssignedControls() {
+		InternalEList<Control> output = new BasicInternalEList<Control>(Control.class);
+
+		if(this.getControlOwner() != null) {
+			for (Control control : this.getControlOwner().getInternals()) {
+				output.add(control);
+			}
+	
+			for (Control control : this.getControlOwner().getExternals()) {
+				output.add(control);
+			}
+		}
+
+		for (Control control : this.getAssignedControls()) {
+			output.add(control);
+		}
+
+		return output;
+	}
+
+	@Override
 	public EList<Vulnerability> getCVA() {
 		InternalEList<Vulnerability> cva = new BasicInternalEList<Vulnerability>(Vulnerability.class);
 
@@ -138,7 +159,7 @@ public class ComponentCustomImpl extends ComponentImpl {
 		for (Rule rule : this.getRules()) {
 			boolean containsVulnerability = rule.getVulnerabilities().contains(vulnerability);
 			if(!containsVulnerability) {
-				break;
+				continue;
 			}
 			boolean hasType = false;
 			for (ComponentType type : rule.getComponentTypesAffected()) {
@@ -149,7 +170,7 @@ public class ComponentCustomImpl extends ComponentImpl {
 			}
 			boolean hasControls = true;
 			for (Control control : rule.getControls()) {
-				if (!this.getControlOwner().getInternals().contains(control)) {
+				if (!this.getInternalExternalAssignedControls().contains(control)) { 
 					hasControls = false; 
 					break;
 				}
