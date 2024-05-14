@@ -88,7 +88,7 @@ public class ComponentCustomImpl extends ComponentImpl {
 	}
 
 	@Override
-	public EList<Control> getInternalExternalAssignedControls() {
+	public EList<Control> getAssociatedControls() {
 		InternalEList<Control> output = new BasicInternalEList<Control>(Control.class);
 
 		if(this.getControlOwner() != null) {
@@ -170,7 +170,7 @@ public class ComponentCustomImpl extends ComponentImpl {
 			}
 			boolean hasControls = true;
 			for (Control control : rule.getControls()) {
-				if (!this.getInternalExternalAssignedControls().contains(control)) { 
+				if (!this.getAssociatedControls().contains(control)) { 
 					hasControls = false; 
 					break;
 				}

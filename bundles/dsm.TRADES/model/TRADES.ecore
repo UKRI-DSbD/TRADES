@@ -86,8 +86,8 @@
         derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cWA" upperBound="-1" eType="#//Vulnerability"
         derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="internalExternalAssignedControls"
-        upperBound="-1" eType="#//Control" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="associatedControls" upperBound="-1"
+        eType="#//Control" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Control" eSuperTypes="#//NamedElement #//IControlDefinition #//ElementWithId #//CharacteristicOwner">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mitigatedThreats" upperBound="-1"

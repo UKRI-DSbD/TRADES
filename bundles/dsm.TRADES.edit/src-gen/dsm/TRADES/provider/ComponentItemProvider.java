@@ -65,7 +65,7 @@ public class ComponentItemProvider extends ComponentOwnerItemProvider {
 			addVulnerablePropertyDescriptor(object);
 			addCVAPropertyDescriptor(object);
 			addCWAPropertyDescriptor(object);
-			addInternalExternalAssignedControlsPropertyDescriptor(object);
+			addAssociatedControlsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -209,19 +209,18 @@ public class ComponentItemProvider extends ComponentOwnerItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Internal External Assigned Controls feature.
+	 * This adds a property descriptor for the Associated Controls feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addInternalExternalAssignedControlsPropertyDescriptor(Object object) {
+	protected void addAssociatedControlsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Component_internalExternalAssignedControls_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_Component_internalExternalAssignedControls_feature", "_UI_Component_type"),
-						TRADESPackage.Literals.COMPONENT__INTERNAL_EXTERNAL_ASSIGNED_CONTROLS, true, false, true, null,
-						null, null));
+						getResourceLocator(), getString("_UI_Component_associatedControls_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_associatedControls_feature",
+								"_UI_Component_type"),
+						TRADESPackage.Literals.COMPONENT__ASSOCIATED_CONTROLS, true, false, true, null, null, null));
 	}
 
 	/**

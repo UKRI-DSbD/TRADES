@@ -33,7 +33,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link dsm.TRADES.Component#isVulnerable <em>Vulnerable</em>}</li>
  *   <li>{@link dsm.TRADES.Component#getCVA <em>CVA</em>}</li>
  *   <li>{@link dsm.TRADES.Component#getCWA <em>CWA</em>}</li>
- *   <li>{@link dsm.TRADES.Component#getInternalExternalAssignedControls <em>Internal External Assigned Controls</em>}</li>
+ *   <li>{@link dsm.TRADES.Component#getAssociatedControls <em>Associated Controls</em>}</li>
  * </ul>
  *
  * @see dsm.TRADES.TRADESPackage#getComponent()
@@ -164,16 +164,16 @@ public interface Component extends ComponentOwner, DataOwnerElement, NamedElemen
 	EList<Vulnerability> getCWA();
 
 	/**
-	 * Returns the value of the '<em><b>Internal External Assigned Controls</b></em>' reference list.
+	 * Returns the value of the '<em><b>Associated Controls</b></em>' reference list.
 	 * The list contents are of type {@link dsm.TRADES.Control}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Internal External Assigned Controls</em>' reference list.
-	 * @see dsm.TRADES.TRADESPackage#getComponent_InternalExternalAssignedControls()
+	 * @return the value of the '<em>Associated Controls</em>' reference list.
+	 * @see dsm.TRADES.TRADESPackage#getComponent_AssociatedControls()
 	 * @model derived="true"
 	 * @generated
 	 */
-	EList<Control> getInternalExternalAssignedControls();
+	EList<Control> getAssociatedControls();
 
 	/**
 	 * <!-- begin-user-doc -->

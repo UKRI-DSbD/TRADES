@@ -693,13 +693,13 @@ public interface TRADESPackage extends EPackage {
 	int COMPONENT__CWA = COMPONENT_OWNER_FEATURE_COUNT + 12;
 
 	/**
-	 * The feature id for the '<em><b>Internal External Assigned Controls</b></em>' reference list.
+	 * The feature id for the '<em><b>Associated Controls</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__INTERNAL_EXTERNAL_ASSIGNED_CONTROLS = COMPONENT_OWNER_FEATURE_COUNT + 13;
+	int COMPONENT__ASSOCIATED_CONTROLS = COMPONENT_OWNER_FEATURE_COUNT + 13;
 
 	/**
 	 * The number of structural features of the '<em>Component</em>' class.
@@ -4108,15 +4108,15 @@ public interface TRADESPackage extends EPackage {
 	EReference getComponent_CWA();
 
 	/**
-	 * Returns the meta object for the reference list '{@link dsm.TRADES.Component#getInternalExternalAssignedControls <em>Internal External Assigned Controls</em>}'.
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.Component#getAssociatedControls <em>Associated Controls</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Internal External Assigned Controls</em>'.
-	 * @see dsm.TRADES.Component#getInternalExternalAssignedControls()
+	 * @return the meta object for the reference list '<em>Associated Controls</em>'.
+	 * @see dsm.TRADES.Component#getAssociatedControls()
 	 * @see #getComponent()
 	 * @generated
 	 */
-	EReference getComponent_InternalExternalAssignedControls();
+	EReference getComponent_AssociatedControls();
 
 	/**
 	 * Returns the meta object for the '{@link dsm.TRADES.Component#ofType(dsm.TRADES.ComponentType) <em>Of Type</em>}' operation.
@@ -6150,13 +6150,12 @@ public interface TRADESPackage extends EPackage {
 		EReference COMPONENT__CWA = eINSTANCE.getComponent_CWA();
 
 		/**
-		 * The meta object literal for the '<em><b>Internal External Assigned Controls</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Associated Controls</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPONENT__INTERNAL_EXTERNAL_ASSIGNED_CONTROLS = eINSTANCE
-				.getComponent_InternalExternalAssignedControls();
+		EReference COMPONENT__ASSOCIATED_CONTROLS = eINSTANCE.getComponent_AssociatedControls();
 
 		/**
 		 * The meta object literal for the '<em><b>Of Type</b></em>' operation.
