@@ -864,6 +864,16 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getComponent_InternalExternalAssignedControls() {
+		return (EReference) componentEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getComponent__OfType__ComponentType() {
 		return componentEClass.getEOperations().get(0);
 	}
@@ -2600,6 +2610,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		createEAttribute(componentEClass, COMPONENT__VULNERABLE);
 		createEReference(componentEClass, COMPONENT__CVA);
 		createEReference(componentEClass, COMPONENT__CWA);
+		createEReference(componentEClass, COMPONENT__INTERNAL_EXTERNAL_ASSIGNED_CONTROLS);
 		createEOperation(componentEClass, COMPONENT___OF_TYPE__COMPONENTTYPE);
 		createEOperation(componentEClass, COMPONENT___MITIGATED_V__VULNERABILITY);
 		createEOperation(componentEClass, COMPONENT___MITIGATED_W__VULNERABILITY);
@@ -2996,6 +3007,9 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		initEReference(getComponent_CWA(), this.getVulnerability(), null, "cWA", null, 0, -1, Component.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_InternalExternalAssignedControls(), this.getControl(), null,
+				"internalExternalAssignedControls", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getComponent__OfType__ComponentType(), ecorePackage.getEBoolean(), "ofType", 0, 1,
 				IS_UNIQUE, IS_ORDERED);

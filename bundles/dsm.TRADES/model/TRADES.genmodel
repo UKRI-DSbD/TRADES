@@ -103,6 +103,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Component/vulnerable"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/cVA"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/cWA"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/internalExternalAssignedControls"/>
       <genOperations ecoreOperation="TRADES.ecore#//Component/ofType">
         <genParameters ecoreParameter="TRADES.ecore#//Component/ofType/type"/>
       </genOperations>

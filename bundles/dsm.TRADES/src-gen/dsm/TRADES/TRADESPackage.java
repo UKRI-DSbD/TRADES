@@ -693,13 +693,22 @@ public interface TRADESPackage extends EPackage {
 	int COMPONENT__CWA = COMPONENT_OWNER_FEATURE_COUNT + 12;
 
 	/**
+	 * The feature id for the '<em><b>Internal External Assigned Controls</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__INTERNAL_EXTERNAL_ASSIGNED_CONTROLS = COMPONENT_OWNER_FEATURE_COUNT + 13;
+
+	/**
 	 * The number of structural features of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = COMPONENT_OWNER_FEATURE_COUNT + 13;
+	int COMPONENT_FEATURE_COUNT = COMPONENT_OWNER_FEATURE_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Get Datas</em>' operation.
@@ -4099,6 +4108,17 @@ public interface TRADESPackage extends EPackage {
 	EReference getComponent_CWA();
 
 	/**
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.Component#getInternalExternalAssignedControls <em>Internal External Assigned Controls</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Internal External Assigned Controls</em>'.
+	 * @see dsm.TRADES.Component#getInternalExternalAssignedControls()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_InternalExternalAssignedControls();
+
+	/**
 	 * Returns the meta object for the '{@link dsm.TRADES.Component#ofType(dsm.TRADES.ComponentType) <em>Of Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6128,6 +6148,15 @@ public interface TRADESPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPONENT__CWA = eINSTANCE.getComponent_CWA();
+
+		/**
+		 * The meta object literal for the '<em><b>Internal External Assigned Controls</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__INTERNAL_EXTERNAL_ASSIGNED_CONTROLS = eINSTANCE
+				.getComponent_InternalExternalAssignedControls();
 
 		/**
 		 * The meta object literal for the '<em><b>Of Type</b></em>' operation.

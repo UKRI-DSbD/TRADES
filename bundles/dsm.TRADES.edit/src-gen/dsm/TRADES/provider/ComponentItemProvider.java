@@ -65,6 +65,7 @@ public class ComponentItemProvider extends ComponentOwnerItemProvider {
 			addVulnerablePropertyDescriptor(object);
 			addCVAPropertyDescriptor(object);
 			addCWAPropertyDescriptor(object);
+			addInternalExternalAssignedControlsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -205,6 +206,22 @@ public class ComponentItemProvider extends ComponentOwnerItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_Component_cWA_feature",
 								"_UI_Component_type"),
 						TRADESPackage.Literals.COMPONENT__CWA, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Internal External Assigned Controls feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInternalExternalAssignedControlsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Component_internalExternalAssignedControls_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_Component_internalExternalAssignedControls_feature", "_UI_Component_type"),
+						TRADESPackage.Literals.COMPONENT__INTERNAL_EXTERNAL_ASSIGNED_CONTROLS, true, false, true, null,
+						null, null));
 	}
 
 	/**

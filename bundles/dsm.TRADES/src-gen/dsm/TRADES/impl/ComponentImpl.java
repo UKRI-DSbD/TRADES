@@ -69,6 +69,7 @@ import dsm.TRADES.Vulnerability;
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#isVulnerable <em>Vulnerable</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getCVA <em>CVA</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getCWA <em>CWA</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentImpl#getInternalExternalAssignedControls <em>Internal External Assigned Controls</em>}</li>
  * </ul>
  *
  * @generated
@@ -213,6 +214,16 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 	 * @ordered
 	 */
 	protected EList<Vulnerability> cWA;
+
+	/**
+	 * The cached value of the '{@link #getInternalExternalAssignedControls() <em>Internal External Assigned Controls</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInternalExternalAssignedControls()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Control> internalExternalAssignedControls;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -513,6 +524,20 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 	 * @generated
 	 */
 	@Override
+	public EList<Control> getInternalExternalAssignedControls() {
+		if (internalExternalAssignedControls == null) {
+			internalExternalAssignedControls = new EObjectResolvingEList<Control>(Control.class, this,
+					TRADESPackage.COMPONENT__INTERNAL_EXTERNAL_ASSIGNED_CONTROLS);
+		}
+		return internalExternalAssignedControls;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public boolean ofType(ComponentType type) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -725,6 +750,8 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 			return getCVA();
 		case TRADESPackage.COMPONENT__CWA:
 			return getCWA();
+		case TRADESPackage.COMPONENT__INTERNAL_EXTERNAL_ASSIGNED_CONTROLS:
+			return getInternalExternalAssignedControls();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -786,6 +813,10 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 			getCWA().clear();
 			getCWA().addAll((Collection<? extends Vulnerability>) newValue);
 			return;
+		case TRADESPackage.COMPONENT__INTERNAL_EXTERNAL_ASSIGNED_CONTROLS:
+			getInternalExternalAssignedControls().clear();
+			getInternalExternalAssignedControls().addAll((Collection<? extends Control>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -837,6 +868,9 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 		case TRADESPackage.COMPONENT__CWA:
 			getCWA().clear();
 			return;
+		case TRADESPackage.COMPONENT__INTERNAL_EXTERNAL_ASSIGNED_CONTROLS:
+			getInternalExternalAssignedControls().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -875,6 +909,8 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 			return cVA != null && !cVA.isEmpty();
 		case TRADESPackage.COMPONENT__CWA:
 			return cWA != null && !cWA.isEmpty();
+		case TRADESPackage.COMPONENT__INTERNAL_EXTERNAL_ASSIGNED_CONTROLS:
+			return internalExternalAssignedControls != null && !internalExternalAssignedControls.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
