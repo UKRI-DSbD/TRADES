@@ -26,14 +26,18 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="linkTypes" upperBound="-1"
         eType="#//LinkType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nVDAPIKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="p1a" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="p1b" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="p5a" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="p5b" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="property_VulnerabilityMitigationRulesAvailable"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" volatile="true"
+        transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="property_WeaknessMitigationRulesAvailable"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" volatile="true"
+        transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="property_DesignAddressesVulnerabilities"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" volatile="true"
+        transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="property_DesignAddressesWeaknesses"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" volatile="true"
+        transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Threat" eSuperTypes="#//NamedElement #//IThreatDefinition #//ElementWithId">
     <eOperations name="checkIsUsed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -350,9 +354,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="Vulnerability" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="manifests" upperBound="-1"
         eType="#//Vulnerability"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="affects" upperBound="-1"
-        eType="#//ComponentType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="vulnerabilityType" eType="#//VulnerabilityTypeENUM"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="affects" upperBound="-1"
+        eType="#//ComponentType" eOpposite="#//ComponentType/affectedBy"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ComponentCategoryENUM">
     <eLiterals name="Data"/>
@@ -373,6 +377,8 @@
         eType="#//ComponentType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subjectToThreats" upperBound="-1"
         eType="#//Threat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="affectedBy" upperBound="-1"
+        eType="#//Vulnerability" eOpposite="#//Vulnerability/affects"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Asset" abstract="true" eSuperTypes="#//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractRuleOwner" abstract="true">

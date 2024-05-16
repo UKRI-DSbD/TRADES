@@ -113,9 +113,7 @@ public class ComponentCustomImpl extends ComponentImpl {
 		InternalEList<Vulnerability> cva = new BasicInternalEList<Vulnerability>(Vulnerability.class);
 
 		for (ComponentType componentType : this.componentTypes) {
-			List<Vulnerability> vulnerabilities = EcoreUtils.getInverse(componentType, 
-					Vulnerability.class, 
-					TRADESPackage.eINSTANCE.getVulnerability_Affects());
+			List<Vulnerability> vulnerabilities = componentType.getAffectedBy();
 			for (Vulnerability vulnerability : vulnerabilities) {
 				if (vulnerability.getVulnerabilityType() == VulnerabilityTypeENUM.CVE ||
 						vulnerability.getVulnerabilityType() == VulnerabilityTypeENUM.IMPLEMENTATION) {
@@ -131,9 +129,7 @@ public class ComponentCustomImpl extends ComponentImpl {
 		InternalEList<Vulnerability> cwa = new BasicInternalEList<Vulnerability>(Vulnerability.class);
 		
 		for (ComponentType componentType : this.componentTypes) {
-			List<Vulnerability> vulnerabilities = EcoreUtils.getInverse(componentType, 
-					Vulnerability.class, 
-					TRADESPackage.eINSTANCE.getVulnerability_Affects());
+			List<Vulnerability> vulnerabilities = componentType.getAffectedBy();
 			for (Vulnerability weakness : vulnerabilities) {
 				if (weakness.getVulnerabilityType() == VulnerabilityTypeENUM.CWE ||
 						weakness.getVulnerabilityType() == VulnerabilityTypeENUM.MECHANISM) {

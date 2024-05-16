@@ -27,10 +27,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link dsm.TRADES.Analysis#getScoreSystem <em>Score System</em>}</li>
  *   <li>{@link dsm.TRADES.Analysis#getLinkTypes <em>Link Types</em>}</li>
  *   <li>{@link dsm.TRADES.Analysis#getNVDAPIKey <em>NVDAPI Key</em>}</li>
- *   <li>{@link dsm.TRADES.Analysis#isP1a <em>P1a</em>}</li>
- *   <li>{@link dsm.TRADES.Analysis#isP1b <em>P1b</em>}</li>
- *   <li>{@link dsm.TRADES.Analysis#isP5a <em>P5a</em>}</li>
- *   <li>{@link dsm.TRADES.Analysis#isP5b <em>P5b</em>}</li>
+ *   <li>{@link dsm.TRADES.Analysis#isProperty_VulnerabilityMitigationRulesAvailable <em>Property Vulnerability Mitigation Rules Available</em>}</li>
+ *   <li>{@link dsm.TRADES.Analysis#isProperty_WeaknessMitigationRulesAvailable <em>Property Weakness Mitigation Rules Available</em>}</li>
+ *   <li>{@link dsm.TRADES.Analysis#isProperty_DesignAddressesVulnerabilities <em>Property Design Addresses Vulnerabilities</em>}</li>
+ *   <li>{@link dsm.TRADES.Analysis#isProperty_DesignAddressesWeaknesses <em>Property Design Addresses Weaknesses</em>}</li>
  * </ul>
  *
  * @see dsm.TRADES.TRADESPackage#getAnalysis()
@@ -96,92 +96,92 @@ public interface Analysis extends ComponentOwner, DataOwnerElement, NamedElement
 	void setNVDAPIKey(String value);
 
 	/**
-	 * Returns the value of the '<em><b>P1a</b></em>' attribute.
+	 * Returns the value of the '<em><b>Property Vulnerability Mitigation Rules Available</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>P1a</em>' attribute.
-	 * @see #setP1a(boolean)
-	 * @see dsm.TRADES.TRADESPackage#getAnalysis_P1a()
+	 * @return the value of the '<em>Property Vulnerability Mitigation Rules Available</em>' attribute.
+	 * @see #setProperty_VulnerabilityMitigationRulesAvailable(boolean)
+	 * @see dsm.TRADES.TRADESPackage#getAnalysis_Property_VulnerabilityMitigationRulesAvailable()
 	 * @model transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
-	boolean isP1a();
+	boolean isProperty_VulnerabilityMitigationRulesAvailable();
 
 	/**
-	 * Sets the value of the '{@link dsm.TRADES.Analysis#isP1a <em>P1a</em>}' attribute.
+	 * Sets the value of the '{@link dsm.TRADES.Analysis#isProperty_VulnerabilityMitigationRulesAvailable <em>Property Vulnerability Mitigation Rules Available</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>P1a</em>' attribute.
-	 * @see #isP1a()
+	 * @param value the new value of the '<em>Property Vulnerability Mitigation Rules Available</em>' attribute.
+	 * @see #isProperty_VulnerabilityMitigationRulesAvailable()
 	 * @generated
 	 */
-	void setP1a(boolean value);
+	void setProperty_VulnerabilityMitigationRulesAvailable(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>P1b</b></em>' attribute.
+	 * Returns the value of the '<em><b>Property Weakness Mitigation Rules Available</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>P1b</em>' attribute.
-	 * @see #setP1b(boolean)
-	 * @see dsm.TRADES.TRADESPackage#getAnalysis_P1b()
+	 * @return the value of the '<em>Property Weakness Mitigation Rules Available</em>' attribute.
+	 * @see #setProperty_WeaknessMitigationRulesAvailable(boolean)
+	 * @see dsm.TRADES.TRADESPackage#getAnalysis_Property_WeaknessMitigationRulesAvailable()
 	 * @model transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
-	boolean isP1b();
+	boolean isProperty_WeaknessMitigationRulesAvailable();
 
 	/**
-	 * Sets the value of the '{@link dsm.TRADES.Analysis#isP1b <em>P1b</em>}' attribute.
+	 * Sets the value of the '{@link dsm.TRADES.Analysis#isProperty_WeaknessMitigationRulesAvailable <em>Property Weakness Mitigation Rules Available</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>P1b</em>' attribute.
-	 * @see #isP1b()
+	 * @param value the new value of the '<em>Property Weakness Mitigation Rules Available</em>' attribute.
+	 * @see #isProperty_WeaknessMitigationRulesAvailable()
 	 * @generated
 	 */
-	void setP1b(boolean value);
+	void setProperty_WeaknessMitigationRulesAvailable(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>P5a</b></em>' attribute.
+	 * Returns the value of the '<em><b>Property Design Addresses Vulnerabilities</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>P5a</em>' attribute.
-	 * @see #setP5a(boolean)
-	 * @see dsm.TRADES.TRADESPackage#getAnalysis_P5a()
+	 * @return the value of the '<em>Property Design Addresses Vulnerabilities</em>' attribute.
+	 * @see #setProperty_DesignAddressesVulnerabilities(boolean)
+	 * @see dsm.TRADES.TRADESPackage#getAnalysis_Property_DesignAddressesVulnerabilities()
 	 * @model transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
-	boolean isP5a();
+	boolean isProperty_DesignAddressesVulnerabilities();
 
 	/**
-	 * Sets the value of the '{@link dsm.TRADES.Analysis#isP5a <em>P5a</em>}' attribute.
+	 * Sets the value of the '{@link dsm.TRADES.Analysis#isProperty_DesignAddressesVulnerabilities <em>Property Design Addresses Vulnerabilities</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>P5a</em>' attribute.
-	 * @see #isP5a()
+	 * @param value the new value of the '<em>Property Design Addresses Vulnerabilities</em>' attribute.
+	 * @see #isProperty_DesignAddressesVulnerabilities()
 	 * @generated
 	 */
-	void setP5a(boolean value);
+	void setProperty_DesignAddressesVulnerabilities(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>P5b</b></em>' attribute.
+	 * Returns the value of the '<em><b>Property Design Addresses Weaknesses</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>P5b</em>' attribute.
-	 * @see #setP5b(boolean)
-	 * @see dsm.TRADES.TRADESPackage#getAnalysis_P5b()
+	 * @return the value of the '<em>Property Design Addresses Weaknesses</em>' attribute.
+	 * @see #setProperty_DesignAddressesWeaknesses(boolean)
+	 * @see dsm.TRADES.TRADESPackage#getAnalysis_Property_DesignAddressesWeaknesses()
 	 * @model transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
-	boolean isP5b();
+	boolean isProperty_DesignAddressesWeaknesses();
 
 	/**
-	 * Sets the value of the '{@link dsm.TRADES.Analysis#isP5b <em>P5b</em>}' attribute.
+	 * Sets the value of the '{@link dsm.TRADES.Analysis#isProperty_DesignAddressesWeaknesses <em>Property Design Addresses Weaknesses</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>P5b</em>' attribute.
-	 * @see #isP5b()
+	 * @param value the new value of the '<em>Property Design Addresses Weaknesses</em>' attribute.
+	 * @see #isProperty_DesignAddressesWeaknesses()
 	 * @generated
 	 */
-	void setP5b(boolean value);
+	void setProperty_DesignAddressesWeaknesses(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

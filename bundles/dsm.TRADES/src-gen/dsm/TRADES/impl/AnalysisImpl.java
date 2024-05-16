@@ -69,10 +69,10 @@ import dsm.TRADES.VulnerabilityOwner;
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getScoreSystem <em>Score System</em>}</li>
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getLinkTypes <em>Link Types</em>}</li>
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getNVDAPIKey <em>NVDAPI Key</em>}</li>
- *   <li>{@link dsm.TRADES.impl.AnalysisImpl#isP1a <em>P1a</em>}</li>
- *   <li>{@link dsm.TRADES.impl.AnalysisImpl#isP1b <em>P1b</em>}</li>
- *   <li>{@link dsm.TRADES.impl.AnalysisImpl#isP5a <em>P5a</em>}</li>
- *   <li>{@link dsm.TRADES.impl.AnalysisImpl#isP5b <em>P5b</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.AnalysisImpl#isProperty_VulnerabilityMitigationRulesAvailable <em>Property Vulnerability Mitigation Rules Available</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.AnalysisImpl#isProperty_WeaknessMitigationRulesAvailable <em>Property Weakness Mitigation Rules Available</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.AnalysisImpl#isProperty_DesignAddressesVulnerabilities <em>Property Design Addresses Vulnerabilities</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.AnalysisImpl#isProperty_DesignAddressesWeaknesses <em>Property Design Addresses Weaknesses</em>}</li>
  * </ul>
  *
  * @generated
@@ -219,44 +219,44 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 	protected String nVDAPIKey = NVDAPI_KEY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isP1a() <em>P1a</em>}' attribute.
+	 * The default value of the '{@link #isProperty_VulnerabilityMitigationRulesAvailable() <em>Property Vulnerability Mitigation Rules Available</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isP1a()
+	 * @see #isProperty_VulnerabilityMitigationRulesAvailable()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean P1A_EDEFAULT = false;
+	protected static final boolean PROPERTY_VULNERABILITY_MITIGATION_RULES_AVAILABLE_EDEFAULT = false;
 
 	/**
-	 * The default value of the '{@link #isP1b() <em>P1b</em>}' attribute.
+	 * The default value of the '{@link #isProperty_WeaknessMitigationRulesAvailable() <em>Property Weakness Mitigation Rules Available</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isP1b()
+	 * @see #isProperty_WeaknessMitigationRulesAvailable()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean P1B_EDEFAULT = false;
+	protected static final boolean PROPERTY_WEAKNESS_MITIGATION_RULES_AVAILABLE_EDEFAULT = false;
 
 	/**
-	 * The default value of the '{@link #isP5a() <em>P5a</em>}' attribute.
+	 * The default value of the '{@link #isProperty_DesignAddressesVulnerabilities() <em>Property Design Addresses Vulnerabilities</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isP5a()
+	 * @see #isProperty_DesignAddressesVulnerabilities()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean P5A_EDEFAULT = false;
+	protected static final boolean PROPERTY_DESIGN_ADDRESSES_VULNERABILITIES_EDEFAULT = false;
 
 	/**
-	 * The default value of the '{@link #isP5b() <em>P5b</em>}' attribute.
+	 * The default value of the '{@link #isProperty_DesignAddressesWeaknesses() <em>Property Design Addresses Weaknesses</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isP5b()
+	 * @see #isProperty_DesignAddressesWeaknesses()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean P5B_EDEFAULT = false;
+	protected static final boolean PROPERTY_DESIGN_ADDRESSES_WEAKNESSES_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -551,8 +551,8 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 	 * @generated
 	 */
 	@Override
-	public boolean isP1a() {
-		// TODO: implement this method to return the 'P1a' attribute
+	public boolean isProperty_VulnerabilityMitigationRulesAvailable() {
+		// TODO: implement this method to return the 'Property Vulnerability Mitigation Rules Available' attribute
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
@@ -563,8 +563,9 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 	 * @generated
 	 */
 	@Override
-	public void setP1a(boolean newP1a) {
-		// TODO: implement this method to set the 'P1a' attribute
+	public void setProperty_VulnerabilityMitigationRulesAvailable(
+			boolean newProperty_VulnerabilityMitigationRulesAvailable) {
+		// TODO: implement this method to set the 'Property Vulnerability Mitigation Rules Available' attribute
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
@@ -575,8 +576,8 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 	 * @generated
 	 */
 	@Override
-	public boolean isP1b() {
-		// TODO: implement this method to return the 'P1b' attribute
+	public boolean isProperty_WeaknessMitigationRulesAvailable() {
+		// TODO: implement this method to return the 'Property Weakness Mitigation Rules Available' attribute
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
@@ -587,8 +588,8 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 	 * @generated
 	 */
 	@Override
-	public void setP1b(boolean newP1b) {
-		// TODO: implement this method to set the 'P1b' attribute
+	public void setProperty_WeaknessMitigationRulesAvailable(boolean newProperty_WeaknessMitigationRulesAvailable) {
+		// TODO: implement this method to set the 'Property Weakness Mitigation Rules Available' attribute
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
@@ -599,8 +600,8 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 	 * @generated
 	 */
 	@Override
-	public boolean isP5a() {
-		// TODO: implement this method to return the 'P5a' attribute
+	public boolean isProperty_DesignAddressesVulnerabilities() {
+		// TODO: implement this method to return the 'Property Design Addresses Vulnerabilities' attribute
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
@@ -611,8 +612,8 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 	 * @generated
 	 */
 	@Override
-	public void setP5a(boolean newP5a) {
-		// TODO: implement this method to set the 'P5a' attribute
+	public void setProperty_DesignAddressesVulnerabilities(boolean newProperty_DesignAddressesVulnerabilities) {
+		// TODO: implement this method to set the 'Property Design Addresses Vulnerabilities' attribute
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
@@ -623,8 +624,8 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 	 * @generated
 	 */
 	@Override
-	public boolean isP5b() {
-		// TODO: implement this method to return the 'P5b' attribute
+	public boolean isProperty_DesignAddressesWeaknesses() {
+		// TODO: implement this method to return the 'Property Design Addresses Weaknesses' attribute
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
@@ -635,8 +636,8 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 	 * @generated
 	 */
 	@Override
-	public void setP5b(boolean newP5b) {
-		// TODO: implement this method to set the 'P5b' attribute
+	public void setProperty_DesignAddressesWeaknesses(boolean newProperty_DesignAddressesWeaknesses) {
+		// TODO: implement this method to set the 'Property Design Addresses Weaknesses' attribute
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
@@ -988,14 +989,14 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 			return getLinkTypes();
 		case TRADESPackage.ANALYSIS__NVDAPI_KEY:
 			return getNVDAPIKey();
-		case TRADESPackage.ANALYSIS__P1A:
-			return isP1a();
-		case TRADESPackage.ANALYSIS__P1B:
-			return isP1b();
-		case TRADESPackage.ANALYSIS__P5A:
-			return isP5a();
-		case TRADESPackage.ANALYSIS__P5B:
-			return isP5b();
+		case TRADESPackage.ANALYSIS__PROPERTY_VULNERABILITY_MITIGATION_RULES_AVAILABLE:
+			return isProperty_VulnerabilityMitigationRulesAvailable();
+		case TRADESPackage.ANALYSIS__PROPERTY_WEAKNESS_MITIGATION_RULES_AVAILABLE:
+			return isProperty_WeaknessMitigationRulesAvailable();
+		case TRADESPackage.ANALYSIS__PROPERTY_DESIGN_ADDRESSES_VULNERABILITIES:
+			return isProperty_DesignAddressesVulnerabilities();
+		case TRADESPackage.ANALYSIS__PROPERTY_DESIGN_ADDRESSES_WEAKNESSES:
+			return isProperty_DesignAddressesWeaknesses();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1043,17 +1044,17 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 		case TRADESPackage.ANALYSIS__NVDAPI_KEY:
 			setNVDAPIKey((String) newValue);
 			return;
-		case TRADESPackage.ANALYSIS__P1A:
-			setP1a((Boolean) newValue);
+		case TRADESPackage.ANALYSIS__PROPERTY_VULNERABILITY_MITIGATION_RULES_AVAILABLE:
+			setProperty_VulnerabilityMitigationRulesAvailable((Boolean) newValue);
 			return;
-		case TRADESPackage.ANALYSIS__P1B:
-			setP1b((Boolean) newValue);
+		case TRADESPackage.ANALYSIS__PROPERTY_WEAKNESS_MITIGATION_RULES_AVAILABLE:
+			setProperty_WeaknessMitigationRulesAvailable((Boolean) newValue);
 			return;
-		case TRADESPackage.ANALYSIS__P5A:
-			setP5a((Boolean) newValue);
+		case TRADESPackage.ANALYSIS__PROPERTY_DESIGN_ADDRESSES_VULNERABILITIES:
+			setProperty_DesignAddressesVulnerabilities((Boolean) newValue);
 			return;
-		case TRADESPackage.ANALYSIS__P5B:
-			setP5b((Boolean) newValue);
+		case TRADESPackage.ANALYSIS__PROPERTY_DESIGN_ADDRESSES_WEAKNESSES:
+			setProperty_DesignAddressesWeaknesses((Boolean) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -1100,17 +1101,18 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 		case TRADESPackage.ANALYSIS__NVDAPI_KEY:
 			setNVDAPIKey(NVDAPI_KEY_EDEFAULT);
 			return;
-		case TRADESPackage.ANALYSIS__P1A:
-			setP1a(P1A_EDEFAULT);
+		case TRADESPackage.ANALYSIS__PROPERTY_VULNERABILITY_MITIGATION_RULES_AVAILABLE:
+			setProperty_VulnerabilityMitigationRulesAvailable(
+					PROPERTY_VULNERABILITY_MITIGATION_RULES_AVAILABLE_EDEFAULT);
 			return;
-		case TRADESPackage.ANALYSIS__P1B:
-			setP1b(P1B_EDEFAULT);
+		case TRADESPackage.ANALYSIS__PROPERTY_WEAKNESS_MITIGATION_RULES_AVAILABLE:
+			setProperty_WeaknessMitigationRulesAvailable(PROPERTY_WEAKNESS_MITIGATION_RULES_AVAILABLE_EDEFAULT);
 			return;
-		case TRADESPackage.ANALYSIS__P5A:
-			setP5a(P5A_EDEFAULT);
+		case TRADESPackage.ANALYSIS__PROPERTY_DESIGN_ADDRESSES_VULNERABILITIES:
+			setProperty_DesignAddressesVulnerabilities(PROPERTY_DESIGN_ADDRESSES_VULNERABILITIES_EDEFAULT);
 			return;
-		case TRADESPackage.ANALYSIS__P5B:
-			setP5b(P5B_EDEFAULT);
+		case TRADESPackage.ANALYSIS__PROPERTY_DESIGN_ADDRESSES_WEAKNESSES:
+			setProperty_DesignAddressesWeaknesses(PROPERTY_DESIGN_ADDRESSES_WEAKNESSES_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -1146,14 +1148,14 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 			return linkTypes != null && !linkTypes.isEmpty();
 		case TRADESPackage.ANALYSIS__NVDAPI_KEY:
 			return NVDAPI_KEY_EDEFAULT == null ? nVDAPIKey != null : !NVDAPI_KEY_EDEFAULT.equals(nVDAPIKey);
-		case TRADESPackage.ANALYSIS__P1A:
-			return isP1a() != P1A_EDEFAULT;
-		case TRADESPackage.ANALYSIS__P1B:
-			return isP1b() != P1B_EDEFAULT;
-		case TRADESPackage.ANALYSIS__P5A:
-			return isP5a() != P5A_EDEFAULT;
-		case TRADESPackage.ANALYSIS__P5B:
-			return isP5b() != P5B_EDEFAULT;
+		case TRADESPackage.ANALYSIS__PROPERTY_VULNERABILITY_MITIGATION_RULES_AVAILABLE:
+			return isProperty_VulnerabilityMitigationRulesAvailable() != PROPERTY_VULNERABILITY_MITIGATION_RULES_AVAILABLE_EDEFAULT;
+		case TRADESPackage.ANALYSIS__PROPERTY_WEAKNESS_MITIGATION_RULES_AVAILABLE:
+			return isProperty_WeaknessMitigationRulesAvailable() != PROPERTY_WEAKNESS_MITIGATION_RULES_AVAILABLE_EDEFAULT;
+		case TRADESPackage.ANALYSIS__PROPERTY_DESIGN_ADDRESSES_VULNERABILITIES:
+			return isProperty_DesignAddressesVulnerabilities() != PROPERTY_DESIGN_ADDRESSES_VULNERABILITIES_EDEFAULT;
+		case TRADESPackage.ANALYSIS__PROPERTY_DESIGN_ADDRESSES_WEAKNESSES:
+			return isProperty_DesignAddressesWeaknesses() != PROPERTY_DESIGN_ADDRESSES_WEAKNESSES_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

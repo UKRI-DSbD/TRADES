@@ -59,10 +59,10 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 			addNamePropertyDescriptor(object);
 			addIdPropertyDescriptor(object);
 			addNVDAPIKeyPropertyDescriptor(object);
-			addP1aPropertyDescriptor(object);
-			addP1bPropertyDescriptor(object);
-			addP5aPropertyDescriptor(object);
-			addP5bPropertyDescriptor(object);
+			addProperty_VulnerabilityMitigationRulesAvailablePropertyDescriptor(object);
+			addProperty_WeaknessMitigationRulesAvailablePropertyDescriptor(object);
+			addProperty_DesignAddressesVulnerabilitiesPropertyDescriptor(object);
+			addProperty_DesignAddressesWeaknessesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -116,66 +116,66 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the P1a feature.
+	 * This adds a property descriptor for the Property Vulnerability Mitigation Rules Available feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addP1aPropertyDescriptor(Object object) {
+	protected void addProperty_VulnerabilityMitigationRulesAvailablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Analysis_property_VulnerabilityMitigationRulesAvailable_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_Analysis_property_VulnerabilityMitigationRulesAvailable_feature", "_UI_Analysis_type"),
+				TRADESPackage.Literals.ANALYSIS__PROPERTY_VULNERABILITY_MITIGATION_RULES_AVAILABLE, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Property Weakness Mitigation Rules Available feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProperty_WeaknessMitigationRulesAvailablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Analysis_property_WeaknessMitigationRulesAvailable_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_Analysis_property_WeaknessMitigationRulesAvailable_feature", "_UI_Analysis_type"),
+				TRADESPackage.Literals.ANALYSIS__PROPERTY_WEAKNESS_MITIGATION_RULES_AVAILABLE, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Property Design Addresses Vulnerabilities feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProperty_DesignAddressesVulnerabilitiesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Analysis_p1a_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Analysis_p1a_feature",
-								"_UI_Analysis_type"),
-						TRADESPackage.Literals.ANALYSIS__P1A, true, false, false,
+						getResourceLocator(), getString("_UI_Analysis_property_DesignAddressesVulnerabilities_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_Analysis_property_DesignAddressesVulnerabilities_feature", "_UI_Analysis_type"),
+						TRADESPackage.Literals.ANALYSIS__PROPERTY_DESIGN_ADDRESSES_VULNERABILITIES, true, false, false,
 						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the P1b feature.
+	 * This adds a property descriptor for the Property Design Addresses Weaknesses feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addP1bPropertyDescriptor(Object object) {
+	protected void addProperty_DesignAddressesWeaknessesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Analysis_p1b_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Analysis_p1b_feature",
-								"_UI_Analysis_type"),
-						TRADESPackage.Literals.ANALYSIS__P1B, true, false, false,
-						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the P5a feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addP5aPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Analysis_p5a_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Analysis_p5a_feature",
-								"_UI_Analysis_type"),
-						TRADESPackage.Literals.ANALYSIS__P5A, true, false, false,
-						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the P5b feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addP5bPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Analysis_p5b_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Analysis_p5b_feature",
-								"_UI_Analysis_type"),
-						TRADESPackage.Literals.ANALYSIS__P5B, true, false, false,
+						getResourceLocator(), getString("_UI_Analysis_property_DesignAddressesWeaknesses_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_Analysis_property_DesignAddressesWeaknesses_feature", "_UI_Analysis_type"),
+						TRADESPackage.Literals.ANALYSIS__PROPERTY_DESIGN_ADDRESSES_WEAKNESSES, true, false, false,
 						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
@@ -265,10 +265,10 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 		case TRADESPackage.ANALYSIS__NAME:
 		case TRADESPackage.ANALYSIS__ID:
 		case TRADESPackage.ANALYSIS__NVDAPI_KEY:
-		case TRADESPackage.ANALYSIS__P1A:
-		case TRADESPackage.ANALYSIS__P1B:
-		case TRADESPackage.ANALYSIS__P5A:
-		case TRADESPackage.ANALYSIS__P5B:
+		case TRADESPackage.ANALYSIS__PROPERTY_VULNERABILITY_MITIGATION_RULES_AVAILABLE:
+		case TRADESPackage.ANALYSIS__PROPERTY_WEAKNESS_MITIGATION_RULES_AVAILABLE:
+		case TRADESPackage.ANALYSIS__PROPERTY_DESIGN_ADDRESSES_VULNERABILITIES:
+		case TRADESPackage.ANALYSIS__PROPERTY_DESIGN_ADDRESSES_WEAKNESSES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case TRADESPackage.ANALYSIS__DATA_OWNER:

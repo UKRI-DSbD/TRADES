@@ -54,6 +54,7 @@ public class ComponentTypeItemProvider extends NamedElementItemProvider {
 
 			addManifestsPropertyDescriptor(object);
 			addSubjectToThreatsPropertyDescriptor(object);
+			addAffectedByPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -87,6 +88,21 @@ public class ComponentTypeItemProvider extends NamedElementItemProvider {
 								"_UI_ComponentType_type"),
 						TRADESPackage.Literals.COMPONENT_TYPE__SUBJECT_TO_THREATS, true, false, true, null, null,
 						null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Affected By feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAffectedByPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ComponentType_affectedBy_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ComponentType_affectedBy_feature",
+								"_UI_ComponentType_type"),
+						TRADESPackage.Literals.COMPONENT_TYPE__AFFECTED_BY, true, false, true, null, null, null));
 	}
 
 	/**

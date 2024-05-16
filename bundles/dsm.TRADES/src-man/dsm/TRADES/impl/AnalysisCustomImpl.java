@@ -119,7 +119,7 @@ public class AnalysisCustomImpl extends AnalysisImpl {
 	}
 
 	@Override
-	public boolean isP1a() {
+	public boolean isProperty_VulnerabilityMitigationRulesAvailable() {
 		List<Component> allComponents = this.getComponents();
 
 		for (Component component : allComponents) {
@@ -136,7 +136,7 @@ public class AnalysisCustomImpl extends AnalysisImpl {
 	}
 
 	@Override
-	public boolean isP1b() {
+	public boolean isProperty_WeaknessMitigationRulesAvailable() {
 		List<Component> allComponents = this.getComponents();
 
 		for (Component component : allComponents) {
@@ -152,7 +152,7 @@ public class AnalysisCustomImpl extends AnalysisImpl {
 	}
 
 	@Override
-	public boolean isP5a() {
+	public boolean isProperty_DesignAddressesVulnerabilities() {
 		List<Component> allComponents = this.getComponents();
 
 		for (Component component : allComponents) {
@@ -166,7 +166,7 @@ public class AnalysisCustomImpl extends AnalysisImpl {
 	}
 
 	@Override
-	public boolean isP5b() {
+	public boolean isProperty_DesignAddressesWeaknesses() {
 		List<Component> allComponents = this.getComponents();
 
 		for (Component component : allComponents) {

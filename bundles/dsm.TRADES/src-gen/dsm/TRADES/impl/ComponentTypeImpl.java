@@ -15,13 +15,18 @@ package dsm.TRADES.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import dsm.TRADES.ComponentType;
 import dsm.TRADES.TRADESPackage;
 import dsm.TRADES.Threat;
+import dsm.TRADES.Vulnerability;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,6 +38,7 @@ import dsm.TRADES.Threat;
  * <ul>
  *   <li>{@link dsm.TRADES.impl.ComponentTypeImpl#getManifests <em>Manifests</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentTypeImpl#getSubjectToThreats <em>Subject To Threats</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentTypeImpl#getAffectedBy <em>Affected By</em>}</li>
  * </ul>
  *
  * @generated
@@ -56,6 +62,16 @@ public class ComponentTypeImpl extends NamedElementImpl implements ComponentType
 	 * @ordered
 	 */
 	protected EList<Threat> subjectToThreats;
+
+	/**
+	 * The cached value of the '{@link #getAffectedBy() <em>Affected By</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAffectedBy()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Vulnerability> affectedBy;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -110,12 +126,57 @@ public class ComponentTypeImpl extends NamedElementImpl implements ComponentType
 	 * @generated
 	 */
 	@Override
+	public EList<Vulnerability> getAffectedBy() {
+		if (affectedBy == null) {
+			affectedBy = new EObjectWithInverseResolvingEList.ManyInverse<Vulnerability>(Vulnerability.class, this,
+					TRADESPackage.COMPONENT_TYPE__AFFECTED_BY, TRADESPackage.VULNERABILITY__AFFECTS);
+		}
+		return affectedBy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case TRADESPackage.COMPONENT_TYPE__AFFECTED_BY:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getAffectedBy()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case TRADESPackage.COMPONENT_TYPE__AFFECTED_BY:
+			return ((InternalEList<?>) getAffectedBy()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case TRADESPackage.COMPONENT_TYPE__MANIFESTS:
 			return getManifests();
 		case TRADESPackage.COMPONENT_TYPE__SUBJECT_TO_THREATS:
 			return getSubjectToThreats();
+		case TRADESPackage.COMPONENT_TYPE__AFFECTED_BY:
+			return getAffectedBy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -137,6 +198,10 @@ public class ComponentTypeImpl extends NamedElementImpl implements ComponentType
 			getSubjectToThreats().clear();
 			getSubjectToThreats().addAll((Collection<? extends Threat>) newValue);
 			return;
+		case TRADESPackage.COMPONENT_TYPE__AFFECTED_BY:
+			getAffectedBy().clear();
+			getAffectedBy().addAll((Collection<? extends Vulnerability>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -155,6 +220,9 @@ public class ComponentTypeImpl extends NamedElementImpl implements ComponentType
 		case TRADESPackage.COMPONENT_TYPE__SUBJECT_TO_THREATS:
 			getSubjectToThreats().clear();
 			return;
+		case TRADESPackage.COMPONENT_TYPE__AFFECTED_BY:
+			getAffectedBy().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -171,6 +239,8 @@ public class ComponentTypeImpl extends NamedElementImpl implements ComponentType
 			return manifests != null && !manifests.isEmpty();
 		case TRADESPackage.COMPONENT_TYPE__SUBJECT_TO_THREATS:
 			return subjectToThreats != null && !subjectToThreats.isEmpty();
+		case TRADESPackage.COMPONENT_TYPE__AFFECTED_BY:
+			return affectedBy != null && !affectedBy.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

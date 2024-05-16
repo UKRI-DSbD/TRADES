@@ -26,6 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link dsm.TRADES.ComponentType#getManifests <em>Manifests</em>}</li>
  *   <li>{@link dsm.TRADES.ComponentType#getSubjectToThreats <em>Subject To Threats</em>}</li>
+ *   <li>{@link dsm.TRADES.ComponentType#getAffectedBy <em>Affected By</em>}</li>
  * </ul>
  *
  * @see dsm.TRADES.TRADESPackage#getComponentType()
@@ -56,5 +57,19 @@ public interface ComponentType extends NamedElement {
 	 * @generated
 	 */
 	EList<Threat> getSubjectToThreats();
+
+	/**
+	 * Returns the value of the '<em><b>Affected By</b></em>' reference list.
+	 * The list contents are of type {@link dsm.TRADES.Vulnerability}.
+	 * It is bidirectional and its opposite is '{@link dsm.TRADES.Vulnerability#getAffects <em>Affects</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Affected By</em>' reference list.
+	 * @see dsm.TRADES.TRADESPackage#getComponentType_AffectedBy()
+	 * @see dsm.TRADES.Vulnerability#getAffects
+	 * @model opposite="affects"
+	 * @generated
+	 */
+	EList<Vulnerability> getAffectedBy();
 
 } // ComponentType

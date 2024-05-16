@@ -604,7 +604,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getAnalysis_P1a() {
+	public EAttribute getAnalysis_Property_VulnerabilityMitigationRulesAvailable() {
 		return (EAttribute) analysisEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -614,7 +614,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getAnalysis_P1b() {
+	public EAttribute getAnalysis_Property_WeaknessMitigationRulesAvailable() {
 		return (EAttribute) analysisEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -624,7 +624,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getAnalysis_P5a() {
+	public EAttribute getAnalysis_Property_DesignAddressesVulnerabilities() {
 		return (EAttribute) analysisEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -634,7 +634,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getAnalysis_P5b() {
+	public EAttribute getAnalysis_Property_DesignAddressesWeaknesses() {
 		return (EAttribute) analysisEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -2235,7 +2235,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 */
 	@Override
 	public EReference getVulnerability_Affects() {
-		return (EReference) vulnerabilityEClass.getEStructuralFeatures().get(1);
+		return (EReference) vulnerabilityEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2245,7 +2245,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 */
 	@Override
 	public EAttribute getVulnerability_VulnerabilityType() {
-		return (EAttribute) vulnerabilityEClass.getEStructuralFeatures().get(2);
+		return (EAttribute) vulnerabilityEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2316,6 +2316,16 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	@Override
 	public EReference getComponentType_SubjectToThreats() {
 		return (EReference) componentTypeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getComponentType_AffectedBy() {
+		return (EReference) componentTypeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2582,10 +2592,10 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		createEReference(analysisEClass, ANALYSIS__SCORE_SYSTEM);
 		createEReference(analysisEClass, ANALYSIS__LINK_TYPES);
 		createEAttribute(analysisEClass, ANALYSIS__NVDAPI_KEY);
-		createEAttribute(analysisEClass, ANALYSIS__P1A);
-		createEAttribute(analysisEClass, ANALYSIS__P1B);
-		createEAttribute(analysisEClass, ANALYSIS__P5A);
-		createEAttribute(analysisEClass, ANALYSIS__P5B);
+		createEAttribute(analysisEClass, ANALYSIS__PROPERTY_VULNERABILITY_MITIGATION_RULES_AVAILABLE);
+		createEAttribute(analysisEClass, ANALYSIS__PROPERTY_WEAKNESS_MITIGATION_RULES_AVAILABLE);
+		createEAttribute(analysisEClass, ANALYSIS__PROPERTY_DESIGN_ADDRESSES_VULNERABILITIES);
+		createEAttribute(analysisEClass, ANALYSIS__PROPERTY_DESIGN_ADDRESSES_WEAKNESSES);
 		createEOperation(analysisEClass, ANALYSIS___GET_EXTERNAL_THREATS__STRING_STRING);
 		createEOperation(analysisEClass, ANALYSIS___DIRECT_RULE_EXISTS__VULNERABILITY_COMPONENTTYPE);
 		createEOperation(analysisEClass, ANALYSIS___PROXY_RULE_EXISTS__VULNERABILITY_COMPONENTTYPE);
@@ -2784,8 +2794,8 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 
 		vulnerabilityEClass = createEClass(VULNERABILITY);
 		createEReference(vulnerabilityEClass, VULNERABILITY__MANIFESTS);
-		createEReference(vulnerabilityEClass, VULNERABILITY__AFFECTS);
 		createEAttribute(vulnerabilityEClass, VULNERABILITY__VULNERABILITY_TYPE);
+		createEReference(vulnerabilityEClass, VULNERABILITY__AFFECTS);
 
 		abstractComponentTypeOwnerEClass = createEClass(ABSTRACT_COMPONENT_TYPE_OWNER);
 		createEReference(abstractComponentTypeOwnerEClass, ABSTRACT_COMPONENT_TYPE_OWNER__COMPONENT_TYPE_OWNER);
@@ -2796,6 +2806,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		componentTypeEClass = createEClass(COMPONENT_TYPE);
 		createEReference(componentTypeEClass, COMPONENT_TYPE__MANIFESTS);
 		createEReference(componentTypeEClass, COMPONENT_TYPE__SUBJECT_TO_THREATS);
+		createEReference(componentTypeEClass, COMPONENT_TYPE__AFFECTED_BY);
 
 		assetEClass = createEClass(ASSET);
 
@@ -2925,14 +2936,18 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnalysis_NVDAPIKey(), ecorePackage.getEString(), "nVDAPIKey", null, 0, 1, Analysis.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAnalysis_P1a(), ecorePackage.getEBoolean(), "p1a", null, 0, 1, Analysis.class, IS_TRANSIENT,
-				IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAnalysis_P1b(), ecorePackage.getEBoolean(), "p1b", null, 0, 1, Analysis.class, IS_TRANSIENT,
-				IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAnalysis_P5a(), ecorePackage.getEBoolean(), "p5a", null, 0, 1, Analysis.class, IS_TRANSIENT,
-				IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAnalysis_P5b(), ecorePackage.getEBoolean(), "p5b", null, 0, 1, Analysis.class, IS_TRANSIENT,
-				IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysis_Property_VulnerabilityMitigationRulesAvailable(), ecorePackage.getEBoolean(),
+				"property_VulnerabilityMitigationRulesAvailable", null, 0, 1, Analysis.class, IS_TRANSIENT, IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysis_Property_WeaknessMitigationRulesAvailable(), ecorePackage.getEBoolean(),
+				"property_WeaknessMitigationRulesAvailable", null, 0, 1, Analysis.class, IS_TRANSIENT, IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysis_Property_DesignAddressesVulnerabilities(), ecorePackage.getEBoolean(),
+				"property_DesignAddressesVulnerabilities", null, 0, 1, Analysis.class, IS_TRANSIENT, IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysis_Property_DesignAddressesWeaknesses(), ecorePackage.getEBoolean(),
+				"property_DesignAddressesWeaknesses", null, 0, 1, Analysis.class, IS_TRANSIENT, IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getAnalysis__GetExternalThreats__String_String(), this.getExternalThreat(),
 				"getExternalThreats", 0, -1, IS_UNIQUE, IS_ORDERED);
@@ -3423,12 +3438,12 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		initEReference(getVulnerability_Manifests(), this.getVulnerability(), null, "manifests", null, 0, -1,
 				Vulnerability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVulnerability_Affects(), this.getComponentType(), null, "affects", null, 0, -1,
-				Vulnerability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVulnerability_VulnerabilityType(), this.getVulnerabilityTypeENUM(), "vulnerabilityType", null,
 				0, 1, Vulnerability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getVulnerability_Affects(), this.getComponentType(), this.getComponentType_AffectedBy(),
+				"affects", null, 0, -1, Vulnerability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(abstractComponentTypeOwnerEClass, AbstractComponentTypeOwner.class, "AbstractComponentTypeOwner",
 				IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3450,6 +3465,9 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		initEReference(getComponentType_SubjectToThreats(), this.getThreat(), null, "subjectToThreats", null, 0, -1,
 				ComponentType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponentType_AffectedBy(), this.getVulnerability(), this.getVulnerability_Affects(),
+				"affectedBy", null, 0, -1, ComponentType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(assetEClass, Asset.class, "Asset", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

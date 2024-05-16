@@ -231,40 +231,40 @@ public interface TRADESPackage extends EPackage {
 	int ANALYSIS__NVDAPI_KEY = COMPONENT_OWNER_FEATURE_COUNT + 10;
 
 	/**
-	 * The feature id for the '<em><b>P1a</b></em>' attribute.
+	 * The feature id for the '<em><b>Property Vulnerability Mitigation Rules Available</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__P1A = COMPONENT_OWNER_FEATURE_COUNT + 11;
+	int ANALYSIS__PROPERTY_VULNERABILITY_MITIGATION_RULES_AVAILABLE = COMPONENT_OWNER_FEATURE_COUNT + 11;
 
 	/**
-	 * The feature id for the '<em><b>P1b</b></em>' attribute.
+	 * The feature id for the '<em><b>Property Weakness Mitigation Rules Available</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__P1B = COMPONENT_OWNER_FEATURE_COUNT + 12;
+	int ANALYSIS__PROPERTY_WEAKNESS_MITIGATION_RULES_AVAILABLE = COMPONENT_OWNER_FEATURE_COUNT + 12;
 
 	/**
-	 * The feature id for the '<em><b>P5a</b></em>' attribute.
+	 * The feature id for the '<em><b>Property Design Addresses Vulnerabilities</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__P5A = COMPONENT_OWNER_FEATURE_COUNT + 13;
+	int ANALYSIS__PROPERTY_DESIGN_ADDRESSES_VULNERABILITIES = COMPONENT_OWNER_FEATURE_COUNT + 13;
 
 	/**
-	 * The feature id for the '<em><b>P5b</b></em>' attribute.
+	 * The feature id for the '<em><b>Property Design Addresses Weaknesses</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__P5B = COMPONENT_OWNER_FEATURE_COUNT + 14;
+	int ANALYSIS__PROPERTY_DESIGN_ADDRESSES_WEAKNESSES = COMPONENT_OWNER_FEATURE_COUNT + 14;
 
 	/**
 	 * The number of structural features of the '<em>Analysis</em>' class.
@@ -3302,22 +3302,22 @@ public interface TRADESPackage extends EPackage {
 	int VULNERABILITY__MANIFESTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Affects</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VULNERABILITY__AFFECTS = NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Vulnerability Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY__VULNERABILITY_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int VULNERABILITY__VULNERABILITY_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Affects</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VULNERABILITY__AFFECTS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Vulnerability</em>' class.
@@ -3449,13 +3449,22 @@ public interface TRADESPackage extends EPackage {
 	int COMPONENT_TYPE__SUBJECT_TO_THREATS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Affected By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT_TYPE__AFFECTED_BY = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Component Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_TYPE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int COMPONENT_TYPE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Component Type</em>' class.
@@ -3829,48 +3838,48 @@ public interface TRADESPackage extends EPackage {
 	EAttribute getAnalysis_NVDAPIKey();
 
 	/**
-	 * Returns the meta object for the attribute '{@link dsm.TRADES.Analysis#isP1a <em>P1a</em>}'.
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.Analysis#isProperty_VulnerabilityMitigationRulesAvailable <em>Property Vulnerability Mitigation Rules Available</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>P1a</em>'.
-	 * @see dsm.TRADES.Analysis#isP1a()
+	 * @return the meta object for the attribute '<em>Property Vulnerability Mitigation Rules Available</em>'.
+	 * @see dsm.TRADES.Analysis#isProperty_VulnerabilityMitigationRulesAvailable()
 	 * @see #getAnalysis()
 	 * @generated
 	 */
-	EAttribute getAnalysis_P1a();
+	EAttribute getAnalysis_Property_VulnerabilityMitigationRulesAvailable();
 
 	/**
-	 * Returns the meta object for the attribute '{@link dsm.TRADES.Analysis#isP1b <em>P1b</em>}'.
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.Analysis#isProperty_WeaknessMitigationRulesAvailable <em>Property Weakness Mitigation Rules Available</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>P1b</em>'.
-	 * @see dsm.TRADES.Analysis#isP1b()
+	 * @return the meta object for the attribute '<em>Property Weakness Mitigation Rules Available</em>'.
+	 * @see dsm.TRADES.Analysis#isProperty_WeaknessMitigationRulesAvailable()
 	 * @see #getAnalysis()
 	 * @generated
 	 */
-	EAttribute getAnalysis_P1b();
+	EAttribute getAnalysis_Property_WeaknessMitigationRulesAvailable();
 
 	/**
-	 * Returns the meta object for the attribute '{@link dsm.TRADES.Analysis#isP5a <em>P5a</em>}'.
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.Analysis#isProperty_DesignAddressesVulnerabilities <em>Property Design Addresses Vulnerabilities</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>P5a</em>'.
-	 * @see dsm.TRADES.Analysis#isP5a()
+	 * @return the meta object for the attribute '<em>Property Design Addresses Vulnerabilities</em>'.
+	 * @see dsm.TRADES.Analysis#isProperty_DesignAddressesVulnerabilities()
 	 * @see #getAnalysis()
 	 * @generated
 	 */
-	EAttribute getAnalysis_P5a();
+	EAttribute getAnalysis_Property_DesignAddressesVulnerabilities();
 
 	/**
-	 * Returns the meta object for the attribute '{@link dsm.TRADES.Analysis#isP5b <em>P5b</em>}'.
+	 * Returns the meta object for the attribute '{@link dsm.TRADES.Analysis#isProperty_DesignAddressesWeaknesses <em>Property Design Addresses Weaknesses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>P5b</em>'.
-	 * @see dsm.TRADES.Analysis#isP5b()
+	 * @return the meta object for the attribute '<em>Property Design Addresses Weaknesses</em>'.
+	 * @see dsm.TRADES.Analysis#isProperty_DesignAddressesWeaknesses()
 	 * @see #getAnalysis()
 	 * @generated
 	 */
-	EAttribute getAnalysis_P5b();
+	EAttribute getAnalysis_Property_DesignAddressesWeaknesses();
 
 	/**
 	 * Returns the meta object for the '{@link dsm.TRADES.Analysis#getExternalThreats(java.lang.String, java.lang.String) <em>Get External Threats</em>}' operation.
@@ -5636,6 +5645,17 @@ public interface TRADESPackage extends EPackage {
 	EReference getComponentType_SubjectToThreats();
 
 	/**
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.ComponentType#getAffectedBy <em>Affected By</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Affected By</em>'.
+	 * @see dsm.TRADES.ComponentType#getAffectedBy()
+	 * @see #getComponentType()
+	 * @generated
+	 */
+	EReference getComponentType_AffectedBy();
+
+	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.Asset <em>Asset</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5933,36 +5953,40 @@ public interface TRADESPackage extends EPackage {
 		EAttribute ANALYSIS__NVDAPI_KEY = eINSTANCE.getAnalysis_NVDAPIKey();
 
 		/**
-		 * The meta object literal for the '<em><b>P1a</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Property Vulnerability Mitigation Rules Available</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ANALYSIS__P1A = eINSTANCE.getAnalysis_P1a();
+		EAttribute ANALYSIS__PROPERTY_VULNERABILITY_MITIGATION_RULES_AVAILABLE = eINSTANCE
+				.getAnalysis_Property_VulnerabilityMitigationRulesAvailable();
 
 		/**
-		 * The meta object literal for the '<em><b>P1b</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Property Weakness Mitigation Rules Available</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ANALYSIS__P1B = eINSTANCE.getAnalysis_P1b();
+		EAttribute ANALYSIS__PROPERTY_WEAKNESS_MITIGATION_RULES_AVAILABLE = eINSTANCE
+				.getAnalysis_Property_WeaknessMitigationRulesAvailable();
 
 		/**
-		 * The meta object literal for the '<em><b>P5a</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Property Design Addresses Vulnerabilities</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ANALYSIS__P5A = eINSTANCE.getAnalysis_P5a();
+		EAttribute ANALYSIS__PROPERTY_DESIGN_ADDRESSES_VULNERABILITIES = eINSTANCE
+				.getAnalysis_Property_DesignAddressesVulnerabilities();
 
 		/**
-		 * The meta object literal for the '<em><b>P5b</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Property Design Addresses Weaknesses</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ANALYSIS__P5B = eINSTANCE.getAnalysis_P5b();
+		EAttribute ANALYSIS__PROPERTY_DESIGN_ADDRESSES_WEAKNESSES = eINSTANCE
+				.getAnalysis_Property_DesignAddressesWeaknesses();
 
 		/**
 		 * The meta object literal for the '<em><b>Get External Threats</b></em>' operation.
@@ -7412,6 +7436,14 @@ public interface TRADESPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPONENT_TYPE__SUBJECT_TO_THREATS = eINSTANCE.getComponentType_SubjectToThreats();
+
+		/**
+		 * The meta object literal for the '<em><b>Affected By</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT_TYPE__AFFECTED_BY = eINSTANCE.getComponentType_AffectedBy();
 
 		/**
 		 * The meta object literal for the '{@link dsm.TRADES.impl.AssetImpl <em>Asset</em>}' class.
