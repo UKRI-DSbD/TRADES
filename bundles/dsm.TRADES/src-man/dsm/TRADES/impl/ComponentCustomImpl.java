@@ -164,14 +164,14 @@ public class ComponentCustomImpl extends ComponentImpl {
 					break;
 				}
 			}
-			boolean hasControls = true;
+			//every control in the rule is also in this component
 			for (Control control : rule.getControls()) {
 				if (!this.getAssociatedControls().contains(control)) { 
-					hasControls = false; 
 					break;
 				}
 			}
-			if (containsVulnerability && hasType && hasControls) {
+			//rule has at least one control
+			if (containsVulnerability && hasType && rule.getControls().size() > 0) {
 				return true;
 			}
 		}
