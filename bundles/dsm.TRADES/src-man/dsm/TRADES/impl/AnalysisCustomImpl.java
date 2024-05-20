@@ -22,6 +22,8 @@ import java.util.Objects;
 
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.util.BasicInternalEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import dsm.TRADES.Component;
 import dsm.TRADES.ComponentType;
@@ -33,6 +35,7 @@ import dsm.TRADES.Rule;
 import dsm.TRADES.SemanticHelper;
 import dsm.TRADES.ThreatsOwner;
 import dsm.TRADES.Vulnerability;
+import dsm.TRADES.VulnerabilityTypeENUM;
 
 public class AnalysisCustomImpl extends AnalysisImpl {
 	@Override
@@ -120,14 +123,19 @@ public class AnalysisCustomImpl extends AnalysisImpl {
 
 	@Override
 	public boolean isProperty_VulnerabilityMitigationRulesAvailable() {
-		List<Component> allComponents = this.getComponents();
+		List<Component> allComponents = this.getNestedComponents(this.getComponents());
+		boolean hasTypeWithRule = false;
 
 		for (Component component : allComponents) {
-			for (ComponentType componentType : component.getComponentTypes()) {
-				for (Vulnerability vulnerability : component.getCVA()) {
-					if(!component.ofType(componentType) || !ruleExists(vulnerability, componentType)) {
-						return false;
+			for (Vulnerability vulnerability : component.getCVA()) {
+				hasTypeWithRule = false;
+				for (ComponentType componentType : component.getComponentTypes()) {
+					if(ruleExists(vulnerability, componentType)) {
+						hasTypeWithRule = true;
 					}
+				}
+				if (!hasTypeWithRule) {
+					return false;
 				}
 			}
 		}
@@ -137,14 +145,19 @@ public class AnalysisCustomImpl extends AnalysisImpl {
 
 	@Override
 	public boolean isProperty_WeaknessMitigationRulesAvailable() {
-		List<Component> allComponents = this.getComponents();
+		List<Component> allComponents = this.getNestedComponents(this.getComponents());
+		boolean hasTypeWithRule = false;
 
 		for (Component component : allComponents) {
-			for (ComponentType componentType : component.getComponentTypes()) {
-				for (Vulnerability vulnerability : component.getCWA()) {
-					if(!component.ofType(componentType) || !ruleExists(vulnerability, componentType)) {
-						return false;
+			for (Vulnerability weakness : component.getCWA()) {
+				hasTypeWithRule = false;
+				for (ComponentType componentType : component.getComponentTypes()) {
+					if(ruleExists(weakness, componentType)) {
+						hasTypeWithRule = true;
 					}
+				}
+				if (!hasTypeWithRule) {
+					return false;
 				}
 			}
 		}
@@ -153,7 +166,7 @@ public class AnalysisCustomImpl extends AnalysisImpl {
 
 	@Override
 	public boolean isProperty_DesignAddressesVulnerabilities() {
-		List<Component> allComponents = this.getComponents();
+		List<Component> allComponents = this.getNestedComponents(this.getComponents());
 
 		for (Component component : allComponents) {
 			for (Vulnerability vulnerability : component.getCVA()) {
@@ -167,7 +180,7 @@ public class AnalysisCustomImpl extends AnalysisImpl {
 
 	@Override
 	public boolean isProperty_DesignAddressesWeaknesses() {
-		List<Component> allComponents = this.getComponents();
+		List<Component> allComponents = this.getNestedComponents(this.getComponents());
 
 		for (Component component : allComponents) {
 			for (Vulnerability weakness : component.getCWA()) {
@@ -177,5 +190,70 @@ public class AnalysisCustomImpl extends AnalysisImpl {
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public EList<Vulnerability> getVulnerabilitiesUncoveredByRule() {
+		InternalEList<Vulnerability> output = new BasicInternalEList<Vulnerability>(Vulnerability.class);
+		for (Vulnerability analysisVulnerability : this.getVulnerabilityOwner().getVulnerabilities()) {
+			if (analysisVulnerability.getVulnerabilityType() == VulnerabilityTypeENUM.CVE ||
+					analysisVulnerability.getVulnerabilityType() == VulnerabilityTypeENUM.IMPLEMENTATION) {
+				output.add(analysisVulnerability);
+			}
+		}
+		
+		for (Rule rule : this.getRuleOwner().getRules()) {
+			for (Vulnerability ruleVulnerability : rule.getVulnerabilities()) {
+				if (output.contains(ruleVulnerability)) {
+					output.remove(ruleVulnerability);
+				}
+			}
+		}
+		return output;
+	}
+
+	@Override
+	public EList<Vulnerability> getWeaknessesUncoveredByRule() {
+		InternalEList<Vulnerability> output = new BasicInternalEList<Vulnerability>(Vulnerability.class);
+		for (Vulnerability analysisWeakness : this.getVulnerabilityOwner().getVulnerabilities()) {
+			if (analysisWeakness.getVulnerabilityType() == VulnerabilityTypeENUM.CWE ||
+					analysisWeakness.getVulnerabilityType() == VulnerabilityTypeENUM.MECHANISM) {
+				output.add(analysisWeakness);
+			}
+		}
+		
+		for (Rule rule : this.getRuleOwner().getRules()) {
+			for (Vulnerability ruleWeakness : rule.getVulnerabilities()) {
+				if (output.contains(ruleWeakness)) {
+					output.remove(ruleWeakness);
+				}
+			}
+		}
+		return output;
+	}
+
+	@Override
+	public EList<Component> getVulnerableComponents() {
+		InternalEList<Component> output = new BasicInternalEList<Component>(Component.class);
+		for (Component component : this.getNestedComponents(this.getComponents())) {
+			if (component.isVulnerable()) {
+				output.add(component);
+			}
+		}
+		return output;
+	}
+	
+	private EList<Component> getNestedComponents(EList<Component> components) {
+		InternalEList<Component> output = new BasicInternalEList<Component>(Component.class);
+		for (Component component : components) {
+			output.add(component);
+			if (component.getComponents().size() > 0) {
+				//recursively add nested components
+				for (Component nestedComponent : getNestedComponents(component.getComponents())) {
+					output.add(nestedComponent);
+				}
+			}
+		}
+		return output;
 	}
 }

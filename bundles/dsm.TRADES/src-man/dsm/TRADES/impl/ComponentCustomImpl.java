@@ -33,10 +33,8 @@ import dsm.TRADES.Data;
 import dsm.TRADES.ExternalControl;
 import dsm.TRADES.Rule;
 import dsm.TRADES.SemanticHelper;
-import dsm.TRADES.TRADESPackage;
 import dsm.TRADES.Vulnerability;
 import dsm.TRADES.VulnerabilityTypeENUM;
-import dsm.TRADES.util.EcoreUtils;
 
 public class ComponentCustomImpl extends ComponentImpl {
 
@@ -233,5 +231,27 @@ public class ComponentCustomImpl extends ComponentImpl {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public EList<Vulnerability> getUnmitigatedVulnerabilities() {
+		InternalEList<Vulnerability> output = new BasicInternalEList<Vulnerability>(Vulnerability.class);
+		for (Vulnerability vulnerability : this.getCVA()) {
+			if (!mitigated(vulnerability)) {
+				output.add(vulnerability);
+			}
+		}
+		return output;
+	}
+
+	@Override
+	public EList<Vulnerability> getUnmitigatedWeaknesses() {
+		InternalEList<Vulnerability> output = new BasicInternalEList<Vulnerability>(Vulnerability.class);
+		for (Vulnerability vulnerability : this.getCWA()) {
+			if (!mitigated(vulnerability)) {
+				output.add(vulnerability);
+			}
+		}
+		return output;
 	}
 }
