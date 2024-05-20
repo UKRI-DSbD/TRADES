@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import dsm.TRADES.AbstractComponentTypeOwner;
@@ -31,6 +32,7 @@ import dsm.TRADES.AbstractRuleOwner;
 import dsm.TRADES.AbstractThreatOwner;
 import dsm.TRADES.AbstractVulnerabilityOwner;
 import dsm.TRADES.Analysis;
+import dsm.TRADES.Component;
 import dsm.TRADES.ComponentType;
 import dsm.TRADES.ComponentTypeOwner;
 import dsm.TRADES.Control;
@@ -73,6 +75,9 @@ import dsm.TRADES.VulnerabilityOwner;
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#isProperty_WeaknessMitigationRulesAvailable <em>Property Weakness Mitigation Rules Available</em>}</li>
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#isProperty_DesignAddressesVulnerabilities <em>Property Design Addresses Vulnerabilities</em>}</li>
  *   <li>{@link dsm.TRADES.impl.AnalysisImpl#isProperty_DesignAddressesWeaknesses <em>Property Design Addresses Weaknesses</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getVulnerabilitiesUncoveredByRule <em>Vulnerabilities Uncovered By Rule</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getWeaknessesUncoveredByRule <em>Weaknesses Uncovered By Rule</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.AnalysisImpl#getVulnerableComponents <em>Vulnerable Components</em>}</li>
  * </ul>
  *
  * @generated
@@ -257,6 +262,36 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 	 * @ordered
 	 */
 	protected static final boolean PROPERTY_DESIGN_ADDRESSES_WEAKNESSES_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #getVulnerabilitiesUncoveredByRule() <em>Vulnerabilities Uncovered By Rule</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVulnerabilitiesUncoveredByRule()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Vulnerability> vulnerabilitiesUncoveredByRule;
+
+	/**
+	 * The cached value of the '{@link #getWeaknessesUncoveredByRule() <em>Weaknesses Uncovered By Rule</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWeaknessesUncoveredByRule()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Vulnerability> weaknessesUncoveredByRule;
+
+	/**
+	 * The cached value of the '{@link #getVulnerableComponents() <em>Vulnerable Components</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVulnerableComponents()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Component> vulnerableComponents;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -648,6 +683,48 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 	 * @generated
 	 */
 	@Override
+	public EList<Vulnerability> getVulnerabilitiesUncoveredByRule() {
+		if (vulnerabilitiesUncoveredByRule == null) {
+			vulnerabilitiesUncoveredByRule = new EObjectResolvingEList<Vulnerability>(Vulnerability.class, this,
+					TRADESPackage.ANALYSIS__VULNERABILITIES_UNCOVERED_BY_RULE);
+		}
+		return vulnerabilitiesUncoveredByRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Vulnerability> getWeaknessesUncoveredByRule() {
+		if (weaknessesUncoveredByRule == null) {
+			weaknessesUncoveredByRule = new EObjectResolvingEList<Vulnerability>(Vulnerability.class, this,
+					TRADESPackage.ANALYSIS__WEAKNESSES_UNCOVERED_BY_RULE);
+		}
+		return weaknessesUncoveredByRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Component> getVulnerableComponents() {
+		if (vulnerableComponents == null) {
+			vulnerableComponents = new EObjectResolvingEList<Component>(Component.class, this,
+					TRADESPackage.ANALYSIS__VULNERABLE_COMPONENTS);
+		}
+		return vulnerableComponents;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getId() {
 		return id;
 	}
@@ -997,6 +1074,12 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 			return isProperty_DesignAddressesVulnerabilities();
 		case TRADESPackage.ANALYSIS__PROPERTY_DESIGN_ADDRESSES_WEAKNESSES:
 			return isProperty_DesignAddressesWeaknesses();
+		case TRADESPackage.ANALYSIS__VULNERABILITIES_UNCOVERED_BY_RULE:
+			return getVulnerabilitiesUncoveredByRule();
+		case TRADESPackage.ANALYSIS__WEAKNESSES_UNCOVERED_BY_RULE:
+			return getWeaknessesUncoveredByRule();
+		case TRADESPackage.ANALYSIS__VULNERABLE_COMPONENTS:
+			return getVulnerableComponents();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1056,6 +1139,18 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 		case TRADESPackage.ANALYSIS__PROPERTY_DESIGN_ADDRESSES_WEAKNESSES:
 			setProperty_DesignAddressesWeaknesses((Boolean) newValue);
 			return;
+		case TRADESPackage.ANALYSIS__VULNERABILITIES_UNCOVERED_BY_RULE:
+			getVulnerabilitiesUncoveredByRule().clear();
+			getVulnerabilitiesUncoveredByRule().addAll((Collection<? extends Vulnerability>) newValue);
+			return;
+		case TRADESPackage.ANALYSIS__WEAKNESSES_UNCOVERED_BY_RULE:
+			getWeaknessesUncoveredByRule().clear();
+			getWeaknessesUncoveredByRule().addAll((Collection<? extends Vulnerability>) newValue);
+			return;
+		case TRADESPackage.ANALYSIS__VULNERABLE_COMPONENTS:
+			getVulnerableComponents().clear();
+			getVulnerableComponents().addAll((Collection<? extends Component>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1114,6 +1209,15 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 		case TRADESPackage.ANALYSIS__PROPERTY_DESIGN_ADDRESSES_WEAKNESSES:
 			setProperty_DesignAddressesWeaknesses(PROPERTY_DESIGN_ADDRESSES_WEAKNESSES_EDEFAULT);
 			return;
+		case TRADESPackage.ANALYSIS__VULNERABILITIES_UNCOVERED_BY_RULE:
+			getVulnerabilitiesUncoveredByRule().clear();
+			return;
+		case TRADESPackage.ANALYSIS__WEAKNESSES_UNCOVERED_BY_RULE:
+			getWeaknessesUncoveredByRule().clear();
+			return;
+		case TRADESPackage.ANALYSIS__VULNERABLE_COMPONENTS:
+			getVulnerableComponents().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1156,6 +1260,12 @@ public class AnalysisImpl extends ComponentOwnerImpl implements Analysis {
 			return isProperty_DesignAddressesVulnerabilities() != PROPERTY_DESIGN_ADDRESSES_VULNERABILITIES_EDEFAULT;
 		case TRADESPackage.ANALYSIS__PROPERTY_DESIGN_ADDRESSES_WEAKNESSES:
 			return isProperty_DesignAddressesWeaknesses() != PROPERTY_DESIGN_ADDRESSES_WEAKNESSES_EDEFAULT;
+		case TRADESPackage.ANALYSIS__VULNERABILITIES_UNCOVERED_BY_RULE:
+			return vulnerabilitiesUncoveredByRule != null && !vulnerabilitiesUncoveredByRule.isEmpty();
+		case TRADESPackage.ANALYSIS__WEAKNESSES_UNCOVERED_BY_RULE:
+			return weaknessesUncoveredByRule != null && !weaknessesUncoveredByRule.isEmpty();
+		case TRADESPackage.ANALYSIS__VULNERABLE_COMPONENTS:
+			return vulnerableComponents != null && !vulnerableComponents.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

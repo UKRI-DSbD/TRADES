@@ -64,6 +64,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Analysis/property_WeaknessMitigationRulesAvailable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Analysis/property_DesignAddressesVulnerabilities"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Analysis/property_DesignAddressesWeaknesses"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Analysis/vulnerabilitiesUncoveredByRule"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Analysis/weaknessesUncoveredByRule"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Analysis/vulnerableComponents"/>
       <genOperations ecoreOperation="TRADES.ecore#//Analysis/getExternalThreats">
         <genParameters ecoreParameter="TRADES.ecore#//Analysis/getExternalThreats/id"/>
         <genParameters ecoreParameter="TRADES.ecore#//Analysis/getExternalThreats/catalogIdentifier"/>
@@ -104,6 +107,8 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/cVA"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/cWA"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/associatedControls"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/unmitigatedVulnerabilities"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/unmitigatedWeaknesses"/>
       <genOperations ecoreOperation="TRADES.ecore#//Component/ofType">
         <genParameters ecoreParameter="TRADES.ecore#//Component/ofType/type"/>
       </genOperations>

@@ -31,6 +31,9 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link dsm.TRADES.Analysis#isProperty_WeaknessMitigationRulesAvailable <em>Property Weakness Mitigation Rules Available</em>}</li>
  *   <li>{@link dsm.TRADES.Analysis#isProperty_DesignAddressesVulnerabilities <em>Property Design Addresses Vulnerabilities</em>}</li>
  *   <li>{@link dsm.TRADES.Analysis#isProperty_DesignAddressesWeaknesses <em>Property Design Addresses Weaknesses</em>}</li>
+ *   <li>{@link dsm.TRADES.Analysis#getVulnerabilitiesUncoveredByRule <em>Vulnerabilities Uncovered By Rule</em>}</li>
+ *   <li>{@link dsm.TRADES.Analysis#getWeaknessesUncoveredByRule <em>Weaknesses Uncovered By Rule</em>}</li>
+ *   <li>{@link dsm.TRADES.Analysis#getVulnerableComponents <em>Vulnerable Components</em>}</li>
  * </ul>
  *
  * @see dsm.TRADES.TRADESPackage#getAnalysis()
@@ -182,6 +185,42 @@ public interface Analysis extends ComponentOwner, DataOwnerElement, NamedElement
 	 * @generated
 	 */
 	void setProperty_DesignAddressesWeaknesses(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Vulnerabilities Uncovered By Rule</b></em>' reference list.
+	 * The list contents are of type {@link dsm.TRADES.Vulnerability}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Vulnerabilities Uncovered By Rule</em>' reference list.
+	 * @see dsm.TRADES.TRADESPackage#getAnalysis_VulnerabilitiesUncoveredByRule()
+	 * @model derived="true"
+	 * @generated
+	 */
+	EList<Vulnerability> getVulnerabilitiesUncoveredByRule();
+
+	/**
+	 * Returns the value of the '<em><b>Weaknesses Uncovered By Rule</b></em>' reference list.
+	 * The list contents are of type {@link dsm.TRADES.Vulnerability}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Weaknesses Uncovered By Rule</em>' reference list.
+	 * @see dsm.TRADES.TRADESPackage#getAnalysis_WeaknessesUncoveredByRule()
+	 * @model derived="true"
+	 * @generated
+	 */
+	EList<Vulnerability> getWeaknessesUncoveredByRule();
+
+	/**
+	 * Returns the value of the '<em><b>Vulnerable Components</b></em>' reference list.
+	 * The list contents are of type {@link dsm.TRADES.Component}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Vulnerable Components</em>' reference list.
+	 * @see dsm.TRADES.TRADESPackage#getAnalysis_VulnerableComponents()
+	 * @model derived="true"
+	 * @generated
+	 */
+	EList<Component> getVulnerableComponents();
 
 	/**
 	 * <!-- begin-user-doc -->

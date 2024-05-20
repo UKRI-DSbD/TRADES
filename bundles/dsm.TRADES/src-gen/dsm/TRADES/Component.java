@@ -34,6 +34,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link dsm.TRADES.Component#getCVA <em>CVA</em>}</li>
  *   <li>{@link dsm.TRADES.Component#getCWA <em>CWA</em>}</li>
  *   <li>{@link dsm.TRADES.Component#getAssociatedControls <em>Associated Controls</em>}</li>
+ *   <li>{@link dsm.TRADES.Component#getUnmitigatedVulnerabilities <em>Unmitigated Vulnerabilities</em>}</li>
+ *   <li>{@link dsm.TRADES.Component#getUnmitigatedWeaknesses <em>Unmitigated Weaknesses</em>}</li>
  * </ul>
  *
  * @see dsm.TRADES.TRADESPackage#getComponent()
@@ -174,6 +176,30 @@ public interface Component extends ComponentOwner, DataOwnerElement, NamedElemen
 	 * @generated
 	 */
 	EList<Control> getAssociatedControls();
+
+	/**
+	 * Returns the value of the '<em><b>Unmitigated Vulnerabilities</b></em>' reference list.
+	 * The list contents are of type {@link dsm.TRADES.Vulnerability}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Unmitigated Vulnerabilities</em>' reference list.
+	 * @see dsm.TRADES.TRADESPackage#getComponent_UnmitigatedVulnerabilities()
+	 * @model derived="true"
+	 * @generated
+	 */
+	EList<Vulnerability> getUnmitigatedVulnerabilities();
+
+	/**
+	 * Returns the value of the '<em><b>Unmitigated Weaknesses</b></em>' reference list.
+	 * The list contents are of type {@link dsm.TRADES.Vulnerability}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Unmitigated Weaknesses</em>' reference list.
+	 * @see dsm.TRADES.TRADESPackage#getComponent_UnmitigatedWeaknesses()
+	 * @model derived="true"
+	 * @generated
+	 */
+	EList<Vulnerability> getUnmitigatedWeaknesses();
 
 	/**
 	 * <!-- begin-user-doc -->

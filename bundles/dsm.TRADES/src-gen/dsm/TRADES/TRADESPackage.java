@@ -267,13 +267,40 @@ public interface TRADESPackage extends EPackage {
 	int ANALYSIS__PROPERTY_DESIGN_ADDRESSES_WEAKNESSES = COMPONENT_OWNER_FEATURE_COUNT + 14;
 
 	/**
+	 * The feature id for the '<em><b>Vulnerabilities Uncovered By Rule</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS__VULNERABILITIES_UNCOVERED_BY_RULE = COMPONENT_OWNER_FEATURE_COUNT + 15;
+
+	/**
+	 * The feature id for the '<em><b>Weaknesses Uncovered By Rule</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS__WEAKNESSES_UNCOVERED_BY_RULE = COMPONENT_OWNER_FEATURE_COUNT + 16;
+
+	/**
+	 * The feature id for the '<em><b>Vulnerable Components</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS__VULNERABLE_COMPONENTS = COMPONENT_OWNER_FEATURE_COUNT + 17;
+
+	/**
 	 * The number of structural features of the '<em>Analysis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_FEATURE_COUNT = COMPONENT_OWNER_FEATURE_COUNT + 15;
+	int ANALYSIS_FEATURE_COUNT = COMPONENT_OWNER_FEATURE_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Get Datas</em>' operation.
@@ -702,13 +729,31 @@ public interface TRADESPackage extends EPackage {
 	int COMPONENT__ASSOCIATED_CONTROLS = COMPONENT_OWNER_FEATURE_COUNT + 13;
 
 	/**
+	 * The feature id for the '<em><b>Unmitigated Vulnerabilities</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__UNMITIGATED_VULNERABILITIES = COMPONENT_OWNER_FEATURE_COUNT + 14;
+
+	/**
+	 * The feature id for the '<em><b>Unmitigated Weaknesses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__UNMITIGATED_WEAKNESSES = COMPONENT_OWNER_FEATURE_COUNT + 15;
+
+	/**
 	 * The number of structural features of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = COMPONENT_OWNER_FEATURE_COUNT + 14;
+	int COMPONENT_FEATURE_COUNT = COMPONENT_OWNER_FEATURE_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Get Datas</em>' operation.
@@ -3882,6 +3927,39 @@ public interface TRADESPackage extends EPackage {
 	EAttribute getAnalysis_Property_DesignAddressesWeaknesses();
 
 	/**
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.Analysis#getVulnerabilitiesUncoveredByRule <em>Vulnerabilities Uncovered By Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Vulnerabilities Uncovered By Rule</em>'.
+	 * @see dsm.TRADES.Analysis#getVulnerabilitiesUncoveredByRule()
+	 * @see #getAnalysis()
+	 * @generated
+	 */
+	EReference getAnalysis_VulnerabilitiesUncoveredByRule();
+
+	/**
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.Analysis#getWeaknessesUncoveredByRule <em>Weaknesses Uncovered By Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Weaknesses Uncovered By Rule</em>'.
+	 * @see dsm.TRADES.Analysis#getWeaknessesUncoveredByRule()
+	 * @see #getAnalysis()
+	 * @generated
+	 */
+	EReference getAnalysis_WeaknessesUncoveredByRule();
+
+	/**
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.Analysis#getVulnerableComponents <em>Vulnerable Components</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Vulnerable Components</em>'.
+	 * @see dsm.TRADES.Analysis#getVulnerableComponents()
+	 * @see #getAnalysis()
+	 * @generated
+	 */
+	EReference getAnalysis_VulnerableComponents();
+
+	/**
 	 * Returns the meta object for the '{@link dsm.TRADES.Analysis#getExternalThreats(java.lang.String, java.lang.String) <em>Get External Threats</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4126,6 +4204,28 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getComponent_AssociatedControls();
+
+	/**
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.Component#getUnmitigatedVulnerabilities <em>Unmitigated Vulnerabilities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Unmitigated Vulnerabilities</em>'.
+	 * @see dsm.TRADES.Component#getUnmitigatedVulnerabilities()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_UnmitigatedVulnerabilities();
+
+	/**
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.Component#getUnmitigatedWeaknesses <em>Unmitigated Weaknesses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Unmitigated Weaknesses</em>'.
+	 * @see dsm.TRADES.Component#getUnmitigatedWeaknesses()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_UnmitigatedWeaknesses();
 
 	/**
 	 * Returns the meta object for the '{@link dsm.TRADES.Component#ofType(dsm.TRADES.ComponentType) <em>Of Type</em>}' operation.
@@ -5989,6 +6089,30 @@ public interface TRADESPackage extends EPackage {
 				.getAnalysis_Property_DesignAddressesWeaknesses();
 
 		/**
+		 * The meta object literal for the '<em><b>Vulnerabilities Uncovered By Rule</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANALYSIS__VULNERABILITIES_UNCOVERED_BY_RULE = eINSTANCE.getAnalysis_VulnerabilitiesUncoveredByRule();
+
+		/**
+		 * The meta object literal for the '<em><b>Weaknesses Uncovered By Rule</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANALYSIS__WEAKNESSES_UNCOVERED_BY_RULE = eINSTANCE.getAnalysis_WeaknessesUncoveredByRule();
+
+		/**
+		 * The meta object literal for the '<em><b>Vulnerable Components</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANALYSIS__VULNERABLE_COMPONENTS = eINSTANCE.getAnalysis_VulnerableComponents();
+
+		/**
 		 * The meta object literal for the '<em><b>Get External Threats</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6180,6 +6304,22 @@ public interface TRADESPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPONENT__ASSOCIATED_CONTROLS = eINSTANCE.getComponent_AssociatedControls();
+
+		/**
+		 * The meta object literal for the '<em><b>Unmitigated Vulnerabilities</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__UNMITIGATED_VULNERABILITIES = eINSTANCE.getComponent_UnmitigatedVulnerabilities();
+
+		/**
+		 * The meta object literal for the '<em><b>Unmitigated Weaknesses</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__UNMITIGATED_WEAKNESSES = eINSTANCE.getComponent_UnmitigatedWeaknesses();
 
 		/**
 		 * The meta object literal for the '<em><b>Of Type</b></em>' operation.

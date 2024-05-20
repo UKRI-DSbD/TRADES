@@ -70,6 +70,8 @@ import dsm.TRADES.Vulnerability;
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getCVA <em>CVA</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getCWA <em>CWA</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getAssociatedControls <em>Associated Controls</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentImpl#getUnmitigatedVulnerabilities <em>Unmitigated Vulnerabilities</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentImpl#getUnmitigatedWeaknesses <em>Unmitigated Weaknesses</em>}</li>
  * </ul>
  *
  * @generated
@@ -224,6 +226,26 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 	 * @ordered
 	 */
 	protected EList<Control> associatedControls;
+
+	/**
+	 * The cached value of the '{@link #getUnmitigatedVulnerabilities() <em>Unmitigated Vulnerabilities</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUnmitigatedVulnerabilities()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Vulnerability> unmitigatedVulnerabilities;
+
+	/**
+	 * The cached value of the '{@link #getUnmitigatedWeaknesses() <em>Unmitigated Weaknesses</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUnmitigatedWeaknesses()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Vulnerability> unmitigatedWeaknesses;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -538,6 +560,34 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 	 * @generated
 	 */
 	@Override
+	public EList<Vulnerability> getUnmitigatedVulnerabilities() {
+		if (unmitigatedVulnerabilities == null) {
+			unmitigatedVulnerabilities = new EObjectResolvingEList<Vulnerability>(Vulnerability.class, this,
+					TRADESPackage.COMPONENT__UNMITIGATED_VULNERABILITIES);
+		}
+		return unmitigatedVulnerabilities;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Vulnerability> getUnmitigatedWeaknesses() {
+		if (unmitigatedWeaknesses == null) {
+			unmitigatedWeaknesses = new EObjectResolvingEList<Vulnerability>(Vulnerability.class, this,
+					TRADESPackage.COMPONENT__UNMITIGATED_WEAKNESSES);
+		}
+		return unmitigatedWeaknesses;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public boolean ofType(ComponentType type) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -752,6 +802,10 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 			return getCWA();
 		case TRADESPackage.COMPONENT__ASSOCIATED_CONTROLS:
 			return getAssociatedControls();
+		case TRADESPackage.COMPONENT__UNMITIGATED_VULNERABILITIES:
+			return getUnmitigatedVulnerabilities();
+		case TRADESPackage.COMPONENT__UNMITIGATED_WEAKNESSES:
+			return getUnmitigatedWeaknesses();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -817,6 +871,14 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 			getAssociatedControls().clear();
 			getAssociatedControls().addAll((Collection<? extends Control>) newValue);
 			return;
+		case TRADESPackage.COMPONENT__UNMITIGATED_VULNERABILITIES:
+			getUnmitigatedVulnerabilities().clear();
+			getUnmitigatedVulnerabilities().addAll((Collection<? extends Vulnerability>) newValue);
+			return;
+		case TRADESPackage.COMPONENT__UNMITIGATED_WEAKNESSES:
+			getUnmitigatedWeaknesses().clear();
+			getUnmitigatedWeaknesses().addAll((Collection<? extends Vulnerability>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -871,6 +933,12 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 		case TRADESPackage.COMPONENT__ASSOCIATED_CONTROLS:
 			getAssociatedControls().clear();
 			return;
+		case TRADESPackage.COMPONENT__UNMITIGATED_VULNERABILITIES:
+			getUnmitigatedVulnerabilities().clear();
+			return;
+		case TRADESPackage.COMPONENT__UNMITIGATED_WEAKNESSES:
+			getUnmitigatedWeaknesses().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -911,6 +979,10 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 			return cWA != null && !cWA.isEmpty();
 		case TRADESPackage.COMPONENT__ASSOCIATED_CONTROLS:
 			return associatedControls != null && !associatedControls.isEmpty();
+		case TRADESPackage.COMPONENT__UNMITIGATED_VULNERABILITIES:
+			return unmitigatedVulnerabilities != null && !unmitigatedVulnerabilities.isEmpty();
+		case TRADESPackage.COMPONENT__UNMITIGATED_WEAKNESSES:
+			return unmitigatedWeaknesses != null && !unmitigatedWeaknesses.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

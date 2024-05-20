@@ -66,6 +66,8 @@ public class ComponentItemProvider extends ComponentOwnerItemProvider {
 			addCVAPropertyDescriptor(object);
 			addCWAPropertyDescriptor(object);
 			addAssociatedControlsPropertyDescriptor(object);
+			addUnmitigatedVulnerabilitiesPropertyDescriptor(object);
+			addUnmitigatedWeaknessesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -221,6 +223,36 @@ public class ComponentItemProvider extends ComponentOwnerItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_Component_associatedControls_feature",
 								"_UI_Component_type"),
 						TRADESPackage.Literals.COMPONENT__ASSOCIATED_CONTROLS, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Unmitigated Vulnerabilities feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUnmitigatedVulnerabilitiesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Component_unmitigatedVulnerabilities_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Component_unmitigatedVulnerabilities_feature",
+						"_UI_Component_type"),
+				TRADESPackage.Literals.COMPONENT__UNMITIGATED_VULNERABILITIES, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Unmitigated Weaknesses feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUnmitigatedWeaknessesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Component_unmitigatedWeaknesses_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_unmitigatedWeaknesses_feature",
+								"_UI_Component_type"),
+						TRADESPackage.Literals.COMPONENT__UNMITIGATED_WEAKNESSES, true, false, true, null, null, null));
 	}
 
 	/**

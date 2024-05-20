@@ -63,6 +63,9 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 			addProperty_WeaknessMitigationRulesAvailablePropertyDescriptor(object);
 			addProperty_DesignAddressesVulnerabilitiesPropertyDescriptor(object);
 			addProperty_DesignAddressesWeaknessesPropertyDescriptor(object);
+			addVulnerabilitiesUncoveredByRulePropertyDescriptor(object);
+			addWeaknessesUncoveredByRulePropertyDescriptor(object);
+			addVulnerableComponentsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -177,6 +180,52 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 								"_UI_Analysis_property_DesignAddressesWeaknesses_feature", "_UI_Analysis_type"),
 						TRADESPackage.Literals.ANALYSIS__PROPERTY_DESIGN_ADDRESSES_WEAKNESSES, true, false, false,
 						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Vulnerabilities Uncovered By Rule feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVulnerabilitiesUncoveredByRulePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Analysis_vulnerabilitiesUncoveredByRule_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Analysis_vulnerabilitiesUncoveredByRule_feature",
+						"_UI_Analysis_type"),
+				TRADESPackage.Literals.ANALYSIS__VULNERABILITIES_UNCOVERED_BY_RULE, true, false, true, null, null,
+				null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Weaknesses Uncovered By Rule feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addWeaknessesUncoveredByRulePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Analysis_weaknessesUncoveredByRule_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Analysis_weaknessesUncoveredByRule_feature",
+						"_UI_Analysis_type"),
+				TRADESPackage.Literals.ANALYSIS__WEAKNESSES_UNCOVERED_BY_RULE, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Vulnerable Components feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVulnerableComponentsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Analysis_vulnerableComponents_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Analysis_vulnerableComponents_feature",
+								"_UI_Analysis_type"),
+						TRADESPackage.Literals.ANALYSIS__VULNERABLE_COMPONENTS, true, false, true, null, null, null));
 	}
 
 	/**
