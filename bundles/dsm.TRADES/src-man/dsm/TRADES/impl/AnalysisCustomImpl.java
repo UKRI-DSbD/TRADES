@@ -132,6 +132,7 @@ public class AnalysisCustomImpl extends AnalysisImpl {
 				for (ComponentType componentType : component.getComponentTypes()) {
 					if(ruleExists(vulnerability, componentType)) {
 						hasTypeWithRule = true;
+						break;
 					}
 				}
 				if (!hasTypeWithRule) {
@@ -154,6 +155,7 @@ public class AnalysisCustomImpl extends AnalysisImpl {
 				for (ComponentType componentType : component.getComponentTypes()) {
 					if(ruleExists(weakness, componentType)) {
 						hasTypeWithRule = true;
+						break;
 					}
 				}
 				if (!hasTypeWithRule) {
