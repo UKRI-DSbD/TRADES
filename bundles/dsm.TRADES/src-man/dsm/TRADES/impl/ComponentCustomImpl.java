@@ -74,7 +74,8 @@ public class ComponentCustomImpl extends ComponentImpl {
 	}
 	
 	@Override
-	public EList<Rule> getRules() {
+	public EList<Rule> getRules() { 
+		InternalEList<Rule> output = new BasicInternalEList<Rule>(Rule.class);
 		Component component = this;
 		while (component.eContainer() instanceof Component) {
 			component = (Component) component.eContainer();
@@ -82,7 +83,17 @@ public class ComponentCustomImpl extends ComponentImpl {
 		
 		Analysis analysis = (Analysis) component.eContainer();
 		
-		return analysis.getRuleOwner().getRules();
+		//filter for ComponentTypes affecting this Component
+		for (Rule rule : analysis.getRuleOwner().getRules()) {
+			for (ComponentType type : rule.getComponentTypesAffected()) {
+				if (this.ofType(type)) { 
+					output.add(rule);
+					break;
+				}
+			}
+		}
+		
+		return output; 
 	}
 
 	@Override
@@ -91,16 +102,22 @@ public class ComponentCustomImpl extends ComponentImpl {
 
 		if(this.getControlOwner() != null) {
 			for (Control control : this.getControlOwner().getInternals()) {
-				output.add(control);
+				if (!output.contains(control)) {
+					output.add(control);
+				}
 			}
 	
 			for (Control control : this.getControlOwner().getExternals()) {
-				output.add(control);
+				if (!output.contains(control)) {
+					output.add(control);
+				}
 			}
 		}
 
 		for (Control control : this.getAssignedControls()) {
-			output.add(control);
+			if (!output.contains(control)) {
+				output.add(control);
+			}
 		}
 
 		return output;
@@ -155,21 +172,16 @@ public class ComponentCustomImpl extends ComponentImpl {
 			if(!containsVulnerability) {
 				continue;
 			}
-			boolean hasType = false;
-			for (ComponentType type : rule.getComponentTypesAffected()) {
-				if (this.ofType(type)) {
-					hasType = true; 
-					break;
-				}
-			}
 			//every control in the rule is also in this component
+			boolean hasRequiredControls = true;
 			for (Control control : rule.getControls()) {
 				if (!this.getAssociatedControls().contains(control)) { 
+					hasRequiredControls = false;
 					break;
 				}
 			}
 			//rule has at least one control
-			if (containsVulnerability && hasType && rule.getControls().size() > 0) {
+			if (containsVulnerability && hasRequiredControls && rule.getControls().size() > 0) {
 				return true;
 			}
 		}
