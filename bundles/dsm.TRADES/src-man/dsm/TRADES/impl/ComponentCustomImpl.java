@@ -127,7 +127,7 @@ public class ComponentCustomImpl extends ComponentImpl {
 	public EList<Vulnerability> getCVA() {
 		InternalEList<Vulnerability> cva = new BasicInternalEList<Vulnerability>(Vulnerability.class);
 
-		for (ComponentType componentType : this.componentTypes) {
+		for (ComponentType componentType : this.getComponentTypes()) {
 			List<Vulnerability> vulnerabilities = componentType.getAffectedBy();
 			for (Vulnerability vulnerability : vulnerabilities) {
 				if (vulnerability.getVulnerabilityType() == VulnerabilityTypeENUM.CVE ||
@@ -143,7 +143,7 @@ public class ComponentCustomImpl extends ComponentImpl {
 	public EList<Vulnerability> getCWA() {
 		InternalEList<Vulnerability> cwa = new BasicInternalEList<Vulnerability>(Vulnerability.class);
 		
-		for (ComponentType componentType : this.componentTypes) {
+		for (ComponentType componentType : this.getComponentTypes()) {
 			List<Vulnerability> vulnerabilities = componentType.getAffectedBy();
 			for (Vulnerability weakness : vulnerabilities) {
 				if (weakness.getVulnerabilityType() == VulnerabilityTypeENUM.CWE ||
