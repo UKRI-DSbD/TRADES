@@ -75,6 +75,8 @@ ELTA Ltd - initial API and implementation
       <import plugin="org.eclipse.eef.properties.ui.legacy"/>
       <import feature="org.eclipse.sirius.properties.feature" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.acceleo.query" version="6.0.8.201902261618" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.egit.core"/>
+      <import plugin="org.eclipse.egit.ui"/>
    </requires>
 
    <plugin
