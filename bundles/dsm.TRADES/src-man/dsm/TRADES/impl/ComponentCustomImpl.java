@@ -196,7 +196,7 @@ public class ComponentCustomImpl extends ComponentImpl {
 	@Override
 	public boolean mitigatedByW(Vulnerability vulnerability) {
 		for (Vulnerability weakness : vulnerability.getManifests()) {
-			if (!mitigatedV(weakness)) {
+			if (!mitigated(weakness)) {
 				return false;
 			}
 		}
