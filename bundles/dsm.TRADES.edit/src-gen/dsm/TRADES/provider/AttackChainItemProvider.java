@@ -89,7 +89,7 @@ public class AttackChainItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TRADESPackage.Literals.ATTACK_CHAIN__ATTACKCHAIN_STEPS);
+			childrenFeatures.add(TRADESPackage.Literals.ATTACK_CHAIN__ATTACK_CHAIN_STEPS);
 		}
 		return childrenFeatures;
 	}
@@ -156,7 +156,7 @@ public class AttackChainItemProvider extends NamedElementItemProvider {
 		case TRADESPackage.ATTACK_CHAIN__COMPUTED_DIFFICULTY:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
-		case TRADESPackage.ATTACK_CHAIN__ATTACKCHAIN_STEPS:
+		case TRADESPackage.ATTACK_CHAIN__ATTACK_CHAIN_STEPS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -174,7 +174,7 @@ public class AttackChainItemProvider extends NamedElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.ATTACK_CHAIN__ATTACKCHAIN_STEPS,
+		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.ATTACK_CHAIN__ATTACK_CHAIN_STEPS,
 				TRADESFactory.eINSTANCE.createAttackChainStep()));
 	}
 

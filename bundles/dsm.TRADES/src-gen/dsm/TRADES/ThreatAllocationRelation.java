@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link dsm.TRADES.ThreatAllocationRelation#getImpactScore <em>Impact Score</em>}</li>
  *   <li>{@link dsm.TRADES.ThreatAllocationRelation#getDifficultyScore <em>Difficulty Score</em>}</li>
  *   <li>{@link dsm.TRADES.ThreatAllocationRelation#getAttackChain <em>Attack Chain</em>}</li>
+ *   <li>{@link dsm.TRADES.ThreatAllocationRelation#isMitigated <em>Mitigated</em>}</li>
  * </ul>
  *
  * @see dsm.TRADES.TRADESPackage#getThreatAllocationRelation()
@@ -181,6 +182,28 @@ public interface ThreatAllocationRelation extends EObject {
 	void setAttackChain(AttackChain value);
 
 	/**
+	 * Returns the value of the '<em><b>Mitigated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mitigated</em>' attribute.
+	 * @see #setMitigated(boolean)
+	 * @see dsm.TRADES.TRADESPackage#getThreatAllocationRelation_Mitigated()
+	 * @model transient="true" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isMitigated();
+
+	/**
+	 * Sets the value of the '{@link dsm.TRADES.ThreatAllocationRelation#isMitigated <em>Mitigated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Mitigated</em>' attribute.
+	 * @see #isMitigated()
+	 * @generated
+	 */
+	void setMitigated(boolean value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -190,5 +213,53 @@ public interface ThreatAllocationRelation extends EObject {
 	 * @generated
 	 */
 	boolean checkComputedDifficultyConstraint(DiagnosticChain chain, Map context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean mitigatedAV();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean mitigatedAW();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean mitigatedVSteps();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean mitigatedWSteps();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean mitigatedV();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean mitigatedW();
 
 } // ThreatAllocationRelation

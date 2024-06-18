@@ -46,6 +46,8 @@ import dsm.TRADES.ImpactScore;
 import dsm.TRADES.Link;
 import dsm.TRADES.LinkType;
 import dsm.TRADES.RGBColor;
+import dsm.TRADES.Rule;
+import dsm.TRADES.RuleOwner;
 import dsm.TRADES.ScoreSystem;
 import dsm.TRADES.SecurityObjectiveENUM;
 import dsm.TRADES.TRADESFactory;
@@ -56,8 +58,7 @@ import dsm.TRADES.ThreatMitigationRelation;
 import dsm.TRADES.ThreatsOwner;
 import dsm.TRADES.Vulnerability;
 import dsm.TRADES.VulnerabilityOwner;
-import dsm.TRADES.VulnerableAsset;
-import dsm.TRADES.VulnerableAssetOwner;
+import dsm.TRADES.VulnerabilityTypeENUM;
 import dsm.TRADES.threatTypeENUM;
 
 /**
@@ -158,10 +159,10 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 			return createComponentTypeOwner();
 		case TRADESPackage.COMPONENT_TYPE:
 			return createComponentType();
-		case TRADESPackage.VULNERABLE_ASSET_OWNER:
-			return createVulnerableAssetOwner();
-		case TRADESPackage.VULNERABLE_ASSET:
-			return createVulnerableAsset();
+		case TRADESPackage.RULE_OWNER:
+			return createRuleOwner();
+		case TRADESPackage.RULE:
+			return createRule();
 		case TRADESPackage.CHARACTERISTIC:
 			return createCharacteristic();
 		default:
@@ -189,6 +190,8 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 			return createComponentCategoryENUMFromString(eDataType, initialValue);
 		case TRADESPackage.SECURITY_OBJECTIVE_ENUM:
 			return createSecurityObjectiveENUMFromString(eDataType, initialValue);
+		case TRADESPackage.VULNERABILITY_TYPE_ENUM:
+			return createVulnerabilityTypeENUMFromString(eDataType, initialValue);
 		case TRADESPackage.RGB_COLOR:
 			return createRGBColorFromString(eDataType, initialValue);
 		default:
@@ -216,6 +219,8 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 			return convertComponentCategoryENUMToString(eDataType, instanceValue);
 		case TRADESPackage.SECURITY_OBJECTIVE_ENUM:
 			return convertSecurityObjectiveENUMToString(eDataType, instanceValue);
+		case TRADESPackage.VULNERABILITY_TYPE_ENUM:
+			return convertVulnerabilityTypeENUMToString(eDataType, instanceValue);
 		case TRADESPackage.RGB_COLOR:
 			return convertRGBColorToString(eDataType, instanceValue);
 		default:
@@ -526,9 +531,9 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 	 * @generated
 	 */
 	@Override
-	public VulnerableAssetOwner createVulnerableAssetOwner() {
-		VulnerableAssetOwnerImpl vulnerableAssetOwner = new VulnerableAssetOwnerImpl();
-		return vulnerableAssetOwner;
+	public RuleOwner createRuleOwner() {
+		RuleOwnerImpl ruleOwner = new RuleOwnerImpl();
+		return ruleOwner;
 	}
 
 	/**
@@ -537,9 +542,9 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 	 * @generated
 	 */
 	@Override
-	public VulnerableAsset createVulnerableAsset() {
-		VulnerableAssetImpl vulnerableAsset = new VulnerableAssetImpl();
-		return vulnerableAsset;
+	public Rule createRule() {
+		RuleImpl rule = new RuleImpl();
+		return rule;
 	}
 
 	/**
@@ -682,6 +687,28 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 	 * @generated
 	 */
 	public String convertSecurityObjectiveENUMToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VulnerabilityTypeENUM createVulnerabilityTypeENUMFromString(EDataType eDataType, String initialValue) {
+		VulnerabilityTypeENUM result = VulnerabilityTypeENUM.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertVulnerabilityTypeENUMToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

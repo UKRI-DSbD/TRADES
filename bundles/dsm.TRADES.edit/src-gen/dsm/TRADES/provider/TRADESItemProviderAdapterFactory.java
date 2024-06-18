@@ -719,49 +719,49 @@ public class TRADESItemProviderAdapterFactory extends TRADESAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link dsm.TRADES.VulnerableAssetOwner} instances.
+	 * This keeps track of the one adapter used for all {@link dsm.TRADES.RuleOwner} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected VulnerableAssetOwnerItemProviderCustomImpl vulnerableAssetOwnerItemProvider;
+	protected RuleOwnerItemProviderCustomImpl ruleOwnerItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link dsm.TRADES.VulnerableAssetOwner}.
+	 * This creates an adapter for a {@link dsm.TRADES.RuleOwner}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createVulnerableAssetOwnerAdapter() {
-		if (vulnerableAssetOwnerItemProvider == null) {
-			vulnerableAssetOwnerItemProvider = new VulnerableAssetOwnerItemProviderCustomImpl(this);
+	public Adapter createRuleOwnerAdapter() {
+		if (ruleOwnerItemProvider == null) {
+			ruleOwnerItemProvider = new RuleOwnerItemProviderCustomImpl(this);
 		}
 
-		return vulnerableAssetOwnerItemProvider;
+		return ruleOwnerItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link dsm.TRADES.VulnerableAsset} instances.
+	 * This keeps track of the one adapter used for all {@link dsm.TRADES.Rule} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected VulnerableAssetItemProvider vulnerableAssetItemProvider;
+	protected RuleItemProvider ruleItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link dsm.TRADES.VulnerableAsset}.
+	 * This creates an adapter for a {@link dsm.TRADES.Rule}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createVulnerableAssetAdapter() {
-		if (vulnerableAssetItemProvider == null) {
-			vulnerableAssetItemProvider = new VulnerableAssetItemProvider(this);
+	public Adapter createRuleAdapter() {
+		if (ruleItemProvider == null) {
+			ruleItemProvider = new RuleItemProvider(this);
 		}
 
-		return vulnerableAssetItemProvider;
+		return ruleItemProvider;
 	}
 
 	/**
@@ -967,10 +967,10 @@ public class TRADESItemProviderAdapterFactory extends TRADESAdapterFactory
 			componentTypeOwnerItemProvider.dispose();
 		if (componentTypeItemProvider != null)
 			componentTypeItemProvider.dispose();
-		if (vulnerableAssetOwnerItemProvider != null)
-			vulnerableAssetOwnerItemProvider.dispose();
-		if (vulnerableAssetItemProvider != null)
-			vulnerableAssetItemProvider.dispose();
+		if (ruleOwnerItemProvider != null)
+			ruleOwnerItemProvider.dispose();
+		if (ruleItemProvider != null)
+			ruleItemProvider.dispose();
 		if (characteristicItemProvider != null)
 			characteristicItemProvider.dispose();
 	}

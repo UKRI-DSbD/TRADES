@@ -54,6 +54,7 @@ import dsm.TRADES.util.TRADESValidator;
  *   <li>{@link dsm.TRADES.impl.ThreatAllocationRelationImpl#getImpactScore <em>Impact Score</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ThreatAllocationRelationImpl#getDifficultyScore <em>Difficulty Score</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ThreatAllocationRelationImpl#getAttackChain <em>Attack Chain</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ThreatAllocationRelationImpl#isMitigated <em>Mitigated</em>}</li>
  * </ul>
  *
  * @generated
@@ -118,6 +119,16 @@ public class ThreatAllocationRelationImpl extends MinimalEObjectImpl.Container i
 	 * @ordered
 	 */
 	protected AttackChain attackChain;
+
+	/**
+	 * The default value of the '{@link #isMitigated() <em>Mitigated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMitigated()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean MITIGATED_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -424,6 +435,30 @@ public class ThreatAllocationRelationImpl extends MinimalEObjectImpl.Container i
 	 * @generated
 	 */
 	@Override
+	public boolean isMitigated() {
+		// TODO: implement this method to return the 'Mitigated' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMitigated(boolean newMitigated) {
+		// TODO: implement this method to set the 'Mitigated' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public boolean checkComputedDifficultyConstraint(DiagnosticChain chain, Map context) {
 		// TODO: implement this method
 		// -> specify the condition that violates the invariant
@@ -442,6 +477,78 @@ public class ThreatAllocationRelationImpl extends MinimalEObjectImpl.Container i
 			return false;
 		}
 		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean mitigatedAV() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean mitigatedAW() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean mitigatedVSteps() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean mitigatedWSteps() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean mitigatedV() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean mitigatedW() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -524,6 +631,8 @@ public class ThreatAllocationRelationImpl extends MinimalEObjectImpl.Container i
 			return basicGetDifficultyScore();
 		case TRADESPackage.THREAT_ALLOCATION_RELATION__ATTACK_CHAIN:
 			return getAttackChain();
+		case TRADESPackage.THREAT_ALLOCATION_RELATION__MITIGATED:
+			return isMitigated();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -553,6 +662,9 @@ public class ThreatAllocationRelationImpl extends MinimalEObjectImpl.Container i
 			return;
 		case TRADESPackage.THREAT_ALLOCATION_RELATION__ATTACK_CHAIN:
 			setAttackChain((AttackChain) newValue);
+			return;
+		case TRADESPackage.THREAT_ALLOCATION_RELATION__MITIGATED:
+			setMitigated((Boolean) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -584,6 +696,9 @@ public class ThreatAllocationRelationImpl extends MinimalEObjectImpl.Container i
 		case TRADESPackage.THREAT_ALLOCATION_RELATION__ATTACK_CHAIN:
 			setAttackChain((AttackChain) null);
 			return;
+		case TRADESPackage.THREAT_ALLOCATION_RELATION__MITIGATED:
+			setMitigated(MITIGATED_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -608,6 +723,8 @@ public class ThreatAllocationRelationImpl extends MinimalEObjectImpl.Container i
 			return difficultyScore != null;
 		case TRADESPackage.THREAT_ALLOCATION_RELATION__ATTACK_CHAIN:
 			return attackChain != null;
+		case TRADESPackage.THREAT_ALLOCATION_RELATION__MITIGATED:
+			return isMitigated() != MITIGATED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -622,6 +739,18 @@ public class ThreatAllocationRelationImpl extends MinimalEObjectImpl.Container i
 		switch (operationID) {
 		case TRADESPackage.THREAT_ALLOCATION_RELATION___CHECK_COMPUTED_DIFFICULTY_CONSTRAINT__DIAGNOSTICCHAIN_MAP:
 			return checkComputedDifficultyConstraint((DiagnosticChain) arguments.get(0), (Map) arguments.get(1));
+		case TRADESPackage.THREAT_ALLOCATION_RELATION___MITIGATED_AV:
+			return mitigatedAV();
+		case TRADESPackage.THREAT_ALLOCATION_RELATION___MITIGATED_AW:
+			return mitigatedAW();
+		case TRADESPackage.THREAT_ALLOCATION_RELATION___MITIGATED_VSTEPS:
+			return mitigatedVSteps();
+		case TRADESPackage.THREAT_ALLOCATION_RELATION___MITIGATED_WSTEPS:
+			return mitigatedWSteps();
+		case TRADESPackage.THREAT_ALLOCATION_RELATION___MITIGATED_V:
+			return mitigatedV();
+		case TRADESPackage.THREAT_ALLOCATION_RELATION___MITIGATED_W:
+			return mitigatedW();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

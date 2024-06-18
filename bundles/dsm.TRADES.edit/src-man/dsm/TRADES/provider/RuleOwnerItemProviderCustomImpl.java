@@ -15,15 +15,15 @@ package dsm.TRADES.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 
-public class VulnerableAssetOwnerItemProviderCustomImpl extends VulnerableAssetOwnerItemProvider {
+public class RuleOwnerItemProviderCustomImpl extends RuleOwnerItemProvider {
 
-	public VulnerableAssetOwnerItemProviderCustomImpl(AdapterFactory adapterFactory) {
+	public RuleOwnerItemProviderCustomImpl(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
 	@Override
 	public String getText(Object object) {
-		return "Vulnerable Assets";
+		return "Rules";
 	}
 
 }

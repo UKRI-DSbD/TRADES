@@ -17,7 +17,6 @@ package dsm.cve.model.CVECatalog;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 
 import dsm.TRADES.TRADESPackage;
@@ -109,6 +108,15 @@ public interface CVECatalogPackage extends EPackage {
 	int VULNERABILITY__AFFECTS = TRADESPackage.VULNERABILITY__AFFECTS;
 
 	/**
+	 * The feature id for the '<em><b>Vulnerability Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VULNERABILITY__VULNERABILITY_TYPE = TRADESPackage.VULNERABILITY__VULNERABILITY_TYPE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -118,22 +126,13 @@ public interface CVECatalogPackage extends EPackage {
 	int VULNERABILITY__ID = TRADESPackage.VULNERABILITY_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Vulnerability Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VULNERABILITY__VULNERABILITY_TYPE = TRADESPackage.VULNERABILITY_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Vulnerability</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY_FEATURE_COUNT = TRADESPackage.VULNERABILITY_FEATURE_COUNT + 2;
+	int VULNERABILITY_FEATURE_COUNT = TRADESPackage.VULNERABILITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Vulnerability</em>' class.
@@ -143,17 +142,6 @@ public interface CVECatalogPackage extends EPackage {
 	 * @ordered
 	 */
 	int VULNERABILITY_OPERATION_COUNT = TRADESPackage.VULNERABILITY_OPERATION_COUNT + 0;
-
-
-	/**
-	 * The meta object id for the '{@link dsm.cve.model.CVECatalog.VulnerabilityTypeENUM <em>Vulnerability Type ENUM</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see dsm.cve.model.CVECatalog.VulnerabilityTypeENUM
-	 * @see dsm.cve.model.CVECatalog.impl.CVECatalogPackageImpl#getVulnerabilityTypeENUM()
-	 * @generated
-	 */
-	int VULNERABILITY_TYPE_ENUM = 1;
 
 
 	/**
@@ -176,27 +164,6 @@ public interface CVECatalogPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getVulnerability_Id();
-
-	/**
-	 * Returns the meta object for the attribute '{@link dsm.cve.model.CVECatalog.Vulnerability#getVulnerabilityType <em>Vulnerability Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Vulnerability Type</em>'.
-	 * @see dsm.cve.model.CVECatalog.Vulnerability#getVulnerabilityType()
-	 * @see #getVulnerability()
-	 * @generated
-	 */
-	EAttribute getVulnerability_VulnerabilityType();
-
-	/**
-	 * Returns the meta object for enum '{@link dsm.cve.model.CVECatalog.VulnerabilityTypeENUM <em>Vulnerability Type ENUM</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Vulnerability Type ENUM</em>'.
-	 * @see dsm.cve.model.CVECatalog.VulnerabilityTypeENUM
-	 * @generated
-	 */
-	EEnum getVulnerabilityTypeENUM();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -238,24 +205,6 @@ public interface CVECatalogPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VULNERABILITY__ID = eINSTANCE.getVulnerability_Id();
-
-		/**
-		 * The meta object literal for the '<em><b>Vulnerability Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VULNERABILITY__VULNERABILITY_TYPE = eINSTANCE.getVulnerability_VulnerabilityType();
-
-		/**
-		 * The meta object literal for the '{@link dsm.cve.model.CVECatalog.VulnerabilityTypeENUM <em>Vulnerability Type ENUM</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see dsm.cve.model.CVECatalog.VulnerabilityTypeENUM
-		 * @see dsm.cve.model.CVECatalog.impl.CVECatalogPackageImpl#getVulnerabilityTypeENUM()
-		 * @generated
-		 */
-		EEnum VULNERABILITY_TYPE_ENUM = eINSTANCE.getVulnerabilityTypeENUM();
 
 	}
 

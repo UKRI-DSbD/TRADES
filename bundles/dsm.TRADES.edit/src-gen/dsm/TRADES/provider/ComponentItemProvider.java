@@ -59,9 +59,15 @@ public class ComponentItemProvider extends ComponentOwnerItemProvider {
 			addNamePropertyDescriptor(object);
 			addCategoryPropertyDescriptor(object);
 			addThreatAllocationsPropertyDescriptor(object);
-			addComponenttypePropertyDescriptor(object);
-			addVulnerableassetPropertyDescriptor(object);
-			addAssignedControlPropertyDescriptor(object);
+			addComponentTypesPropertyDescriptor(object);
+			addRulesPropertyDescriptor(object);
+			addAssignedControlsPropertyDescriptor(object);
+			addVulnerablePropertyDescriptor(object);
+			addCVAPropertyDescriptor(object);
+			addCWAPropertyDescriptor(object);
+			addAssociatedControlsPropertyDescriptor(object);
+			addUnmitigatedVulnerabilitiesPropertyDescriptor(object);
+			addUnmitigatedWeaknessesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -114,48 +120,139 @@ public class ComponentItemProvider extends ComponentOwnerItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Componenttype feature.
+	 * This adds a property descriptor for the Component Types feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addComponenttypePropertyDescriptor(Object object) {
+	protected void addComponentTypesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Component_componenttype_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Component_componenttype_feature",
+						getResourceLocator(), getString("_UI_Component_componentTypes_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_componentTypes_feature",
 								"_UI_Component_type"),
-						TRADESPackage.Literals.COMPONENT__COMPONENTTYPE, true, false, true, null, null, null));
+						TRADESPackage.Literals.COMPONENT__COMPONENT_TYPES, true, false, true, null, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Vulnerableasset feature.
+	 * This adds a property descriptor for the Rules feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addVulnerableassetPropertyDescriptor(Object object) {
+	protected void addRulesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Component_vulnerableasset_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Component_vulnerableasset_feature",
+						getResourceLocator(), getString("_UI_Component_rules_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_rules_feature",
 								"_UI_Component_type"),
-						TRADESPackage.Literals.COMPONENT__VULNERABLEASSET, true, false, true, null, null, null));
+						TRADESPackage.Literals.COMPONENT__RULES, true, false, true, null, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Assigned Control feature.
+	 * This adds a property descriptor for the Assigned Controls feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAssignedControlPropertyDescriptor(Object object) {
+	protected void addAssignedControlsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Component_assignedControl_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Component_assignedControl_feature",
+						getResourceLocator(), getString("_UI_Component_assignedControls_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_assignedControls_feature",
 								"_UI_Component_type"),
-						TRADESPackage.Literals.COMPONENT__ASSIGNED_CONTROL, true, false, true, null, null, null));
+						TRADESPackage.Literals.COMPONENT__ASSIGNED_CONTROLS, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Vulnerable feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVulnerablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Component_vulnerable_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_vulnerable_feature",
+								"_UI_Component_type"),
+						TRADESPackage.Literals.COMPONENT__VULNERABLE, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the CVA feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCVAPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Component_cVA_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_cVA_feature",
+								"_UI_Component_type"),
+						TRADESPackage.Literals.COMPONENT__CVA, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the CWA feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCWAPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Component_cWA_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_cWA_feature",
+								"_UI_Component_type"),
+						TRADESPackage.Literals.COMPONENT__CWA, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Associated Controls feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAssociatedControlsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Component_associatedControls_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_associatedControls_feature",
+								"_UI_Component_type"),
+						TRADESPackage.Literals.COMPONENT__ASSOCIATED_CONTROLS, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Unmitigated Vulnerabilities feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUnmitigatedVulnerabilitiesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Component_unmitigatedVulnerabilities_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Component_unmitigatedVulnerabilities_feature",
+						"_UI_Component_type"),
+				TRADESPackage.Literals.COMPONENT__UNMITIGATED_VULNERABILITIES, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Unmitigated Weaknesses feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUnmitigatedWeaknessesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Component_unmitigatedWeaknesses_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_unmitigatedWeaknesses_feature",
+								"_UI_Component_type"),
+						TRADESPackage.Literals.COMPONENT__UNMITIGATED_WEAKNESSES, true, false, true, null, null, null));
 	}
 
 	/**
@@ -240,6 +337,7 @@ public class ComponentItemProvider extends ComponentOwnerItemProvider {
 		switch (notification.getFeatureID(Component.class)) {
 		case TRADESPackage.COMPONENT__NAME:
 		case TRADESPackage.COMPONENT__CATEGORY:
+		case TRADESPackage.COMPONENT__VULNERABLE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case TRADESPackage.COMPONENT__DATA_OWNER:

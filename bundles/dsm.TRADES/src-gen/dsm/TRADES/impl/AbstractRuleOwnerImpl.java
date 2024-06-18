@@ -20,41 +20,40 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import dsm.TRADES.AbstractVulnerableAssetOwner;
+import dsm.TRADES.AbstractRuleOwner;
+import dsm.TRADES.RuleOwner;
 import dsm.TRADES.TRADESPackage;
-import dsm.TRADES.VulnerableAssetOwner;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Abstract Vulnerable Asset Owner</b></em>'.
+ * An implementation of the model object '<em><b>Abstract Rule Owner</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dsm.TRADES.impl.AbstractVulnerableAssetOwnerImpl#getVulnerableAssetOwner <em>Vulnerable Asset Owner</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.AbstractRuleOwnerImpl#getRuleOwner <em>Rule Owner</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class AbstractVulnerableAssetOwnerImpl extends MinimalEObjectImpl.Container
-		implements AbstractVulnerableAssetOwner {
+public abstract class AbstractRuleOwnerImpl extends MinimalEObjectImpl.Container implements AbstractRuleOwner {
 	/**
-	 * The cached value of the '{@link #getVulnerableAssetOwner() <em>Vulnerable Asset Owner</em>}' containment reference.
+	 * The cached value of the '{@link #getRuleOwner() <em>Rule Owner</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVulnerableAssetOwner()
+	 * @see #getRuleOwner()
 	 * @generated
 	 * @ordered
 	 */
-	protected VulnerableAssetOwner vulnerableAssetOwner;
+	protected RuleOwner ruleOwner;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AbstractVulnerableAssetOwnerImpl() {
+	protected AbstractRuleOwnerImpl() {
 		super();
 	}
 
@@ -65,7 +64,7 @@ public abstract class AbstractVulnerableAssetOwnerImpl extends MinimalEObjectImp
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return TRADESPackage.Literals.ABSTRACT_VULNERABLE_ASSET_OWNER;
+		return TRADESPackage.Literals.ABSTRACT_RULE_OWNER;
 	}
 
 	/**
@@ -74,8 +73,8 @@ public abstract class AbstractVulnerableAssetOwnerImpl extends MinimalEObjectImp
 	 * @generated
 	 */
 	@Override
-	public VulnerableAssetOwner getVulnerableAssetOwner() {
-		return vulnerableAssetOwner;
+	public RuleOwner getRuleOwner() {
+		return ruleOwner;
 	}
 
 	/**
@@ -83,14 +82,12 @@ public abstract class AbstractVulnerableAssetOwnerImpl extends MinimalEObjectImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetVulnerableAssetOwner(VulnerableAssetOwner newVulnerableAssetOwner,
-			NotificationChain msgs) {
-		VulnerableAssetOwner oldVulnerableAssetOwner = vulnerableAssetOwner;
-		vulnerableAssetOwner = newVulnerableAssetOwner;
+	public NotificationChain basicSetRuleOwner(RuleOwner newRuleOwner, NotificationChain msgs) {
+		RuleOwner oldRuleOwner = ruleOwner;
+		ruleOwner = newRuleOwner;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					TRADESPackage.ABSTRACT_VULNERABLE_ASSET_OWNER__VULNERABLE_ASSET_OWNER, oldVulnerableAssetOwner,
-					newVulnerableAssetOwner);
+					TRADESPackage.ABSTRACT_RULE_OWNER__RULE_OWNER, oldRuleOwner, newRuleOwner);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -105,24 +102,21 @@ public abstract class AbstractVulnerableAssetOwnerImpl extends MinimalEObjectImp
 	 * @generated
 	 */
 	@Override
-	public void setVulnerableAssetOwner(VulnerableAssetOwner newVulnerableAssetOwner) {
-		if (newVulnerableAssetOwner != vulnerableAssetOwner) {
+	public void setRuleOwner(RuleOwner newRuleOwner) {
+		if (newRuleOwner != ruleOwner) {
 			NotificationChain msgs = null;
-			if (vulnerableAssetOwner != null)
-				msgs = ((InternalEObject) vulnerableAssetOwner).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - TRADESPackage.ABSTRACT_VULNERABLE_ASSET_OWNER__VULNERABLE_ASSET_OWNER,
-						null, msgs);
-			if (newVulnerableAssetOwner != null)
-				msgs = ((InternalEObject) newVulnerableAssetOwner).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - TRADESPackage.ABSTRACT_VULNERABLE_ASSET_OWNER__VULNERABLE_ASSET_OWNER,
-						null, msgs);
-			msgs = basicSetVulnerableAssetOwner(newVulnerableAssetOwner, msgs);
+			if (ruleOwner != null)
+				msgs = ((InternalEObject) ruleOwner).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - TRADESPackage.ABSTRACT_RULE_OWNER__RULE_OWNER, null, msgs);
+			if (newRuleOwner != null)
+				msgs = ((InternalEObject) newRuleOwner).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - TRADESPackage.ABSTRACT_RULE_OWNER__RULE_OWNER, null, msgs);
+			msgs = basicSetRuleOwner(newRuleOwner, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					TRADESPackage.ABSTRACT_VULNERABLE_ASSET_OWNER__VULNERABLE_ASSET_OWNER, newVulnerableAssetOwner,
-					newVulnerableAssetOwner));
+			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.ABSTRACT_RULE_OWNER__RULE_OWNER,
+					newRuleOwner, newRuleOwner));
 	}
 
 	/**
@@ -133,8 +127,8 @@ public abstract class AbstractVulnerableAssetOwnerImpl extends MinimalEObjectImp
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case TRADESPackage.ABSTRACT_VULNERABLE_ASSET_OWNER__VULNERABLE_ASSET_OWNER:
-			return basicSetVulnerableAssetOwner(null, msgs);
+		case TRADESPackage.ABSTRACT_RULE_OWNER__RULE_OWNER:
+			return basicSetRuleOwner(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -147,8 +141,8 @@ public abstract class AbstractVulnerableAssetOwnerImpl extends MinimalEObjectImp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TRADESPackage.ABSTRACT_VULNERABLE_ASSET_OWNER__VULNERABLE_ASSET_OWNER:
-			return getVulnerableAssetOwner();
+		case TRADESPackage.ABSTRACT_RULE_OWNER__RULE_OWNER:
+			return getRuleOwner();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -161,8 +155,8 @@ public abstract class AbstractVulnerableAssetOwnerImpl extends MinimalEObjectImp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TRADESPackage.ABSTRACT_VULNERABLE_ASSET_OWNER__VULNERABLE_ASSET_OWNER:
-			setVulnerableAssetOwner((VulnerableAssetOwner) newValue);
+		case TRADESPackage.ABSTRACT_RULE_OWNER__RULE_OWNER:
+			setRuleOwner((RuleOwner) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,8 +170,8 @@ public abstract class AbstractVulnerableAssetOwnerImpl extends MinimalEObjectImp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TRADESPackage.ABSTRACT_VULNERABLE_ASSET_OWNER__VULNERABLE_ASSET_OWNER:
-			setVulnerableAssetOwner((VulnerableAssetOwner) null);
+		case TRADESPackage.ABSTRACT_RULE_OWNER__RULE_OWNER:
+			setRuleOwner((RuleOwner) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -191,10 +185,10 @@ public abstract class AbstractVulnerableAssetOwnerImpl extends MinimalEObjectImp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TRADESPackage.ABSTRACT_VULNERABLE_ASSET_OWNER__VULNERABLE_ASSET_OWNER:
-			return vulnerableAssetOwner != null;
+		case TRADESPackage.ABSTRACT_RULE_OWNER__RULE_OWNER:
+			return ruleOwner != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //AbstractVulnerableAssetOwnerImpl
+} //AbstractRuleOwnerImpl

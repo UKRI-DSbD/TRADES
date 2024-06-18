@@ -22,9 +22,9 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import dsm.TRADES.AbstractComponentTypeOwner;
 import dsm.TRADES.AbstractControlOwner;
+import dsm.TRADES.AbstractRuleOwner;
 import dsm.TRADES.AbstractThreatOwner;
 import dsm.TRADES.AbstractVulnerabilityOwner;
-import dsm.TRADES.AbstractVulnerableAssetOwner;
 import dsm.TRADES.AffectRelation;
 import dsm.TRADES.AffectedENUM;
 import dsm.TRADES.Analysis;
@@ -34,6 +34,7 @@ import dsm.TRADES.AttackChain;
 import dsm.TRADES.AttackChainStep;
 import dsm.TRADES.Catalog;
 import dsm.TRADES.Characteristic;
+import dsm.TRADES.CharacteristicOwner;
 import dsm.TRADES.ColoredElement;
 import dsm.TRADES.Component;
 import dsm.TRADES.ComponentCategoryENUM;
@@ -63,6 +64,8 @@ import dsm.TRADES.Link;
 import dsm.TRADES.LinkType;
 import dsm.TRADES.NamedElement;
 import dsm.TRADES.RGBColor;
+import dsm.TRADES.Rule;
+import dsm.TRADES.RuleOwner;
 import dsm.TRADES.ScoreSystem;
 import dsm.TRADES.SecurityObjectiveENUM;
 import dsm.TRADES.TRADESPackage;
@@ -70,11 +73,9 @@ import dsm.TRADES.Threat;
 import dsm.TRADES.ThreatAllocationRelation;
 import dsm.TRADES.ThreatMitigationRelation;
 import dsm.TRADES.ThreatsOwner;
-import dsm.TRADES.VAOwner;
 import dsm.TRADES.Vulnerability;
 import dsm.TRADES.VulnerabilityOwner;
-import dsm.TRADES.VulnerableAsset;
-import dsm.TRADES.VulnerableAssetOwner;
+import dsm.TRADES.VulnerabilityTypeENUM;
 import dsm.TRADES.threatTypeENUM;
 
 /**
@@ -268,16 +269,16 @@ public class TRADESValidator extends EObjectValidator {
 			return validateComponentType((ComponentType) value, diagnostics, context);
 		case TRADESPackage.ASSET:
 			return validateAsset((Asset) value, diagnostics, context);
-		case TRADESPackage.ABSTRACT_VULNERABLE_ASSET_OWNER:
-			return validateAbstractVulnerableAssetOwner((AbstractVulnerableAssetOwner) value, diagnostics, context);
-		case TRADESPackage.VULNERABLE_ASSET_OWNER:
-			return validateVulnerableAssetOwner((VulnerableAssetOwner) value, diagnostics, context);
-		case TRADESPackage.VULNERABLE_ASSET:
-			return validateVulnerableAsset((VulnerableAsset) value, diagnostics, context);
-		case TRADESPackage.VA_OWNER:
-			return validateVAOwner((VAOwner) value, diagnostics, context);
+		case TRADESPackage.ABSTRACT_RULE_OWNER:
+			return validateAbstractRuleOwner((AbstractRuleOwner) value, diagnostics, context);
+		case TRADESPackage.RULE_OWNER:
+			return validateRuleOwner((RuleOwner) value, diagnostics, context);
+		case TRADESPackage.RULE:
+			return validateRule((Rule) value, diagnostics, context);
 		case TRADESPackage.CHARACTERISTIC:
 			return validateCharacteristic((Characteristic) value, diagnostics, context);
+		case TRADESPackage.CHARACTERISTIC_OWNER:
+			return validateCharacteristicOwner((CharacteristicOwner) value, diagnostics, context);
 		case TRADESPackage.ASSESSMENT_ENUM:
 			return validateAssessmentENUM((AssessmentENUM) value, diagnostics, context);
 		case TRADESPackage.AFFECTED_ENUM:
@@ -290,6 +291,8 @@ public class TRADESValidator extends EObjectValidator {
 			return validateComponentCategoryENUM((ComponentCategoryENUM) value, diagnostics, context);
 		case TRADESPackage.SECURITY_OBJECTIVE_ENUM:
 			return validateSecurityObjectiveENUM((SecurityObjectiveENUM) value, diagnostics, context);
+		case TRADESPackage.VULNERABILITY_TYPE_ENUM:
+			return validateVulnerabilityTypeENUM((VulnerabilityTypeENUM) value, diagnostics, context);
 		case TRADESPackage.RGB_COLOR:
 			return validateRGBColor((RGBColor) value, diagnostics, context);
 		default:
@@ -862,19 +865,9 @@ public class TRADESValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAbstractVulnerableAssetOwner(AbstractVulnerableAssetOwner abstractVulnerableAssetOwner,
-			DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(abstractVulnerableAssetOwner, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateVulnerableAssetOwner(VulnerableAssetOwner vulnerableAssetOwner, DiagnosticChain diagnostics,
+	public boolean validateAbstractRuleOwner(AbstractRuleOwner abstractRuleOwner, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(vulnerableAssetOwner, diagnostics, context);
+		return validate_EveryDefaultConstraint(abstractRuleOwner, diagnostics, context);
 	}
 
 	/**
@@ -882,9 +875,8 @@ public class TRADESValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateVulnerableAsset(VulnerableAsset vulnerableAsset, DiagnosticChain diagnostics,
-			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(vulnerableAsset, diagnostics, context);
+	public boolean validateRuleOwner(RuleOwner ruleOwner, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(ruleOwner, diagnostics, context);
 	}
 
 	/**
@@ -892,8 +884,8 @@ public class TRADESValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateVAOwner(VAOwner vaOwner, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(vaOwner, diagnostics, context);
+	public boolean validateRule(Rule rule, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(rule, diagnostics, context);
 	}
 
 	/**
@@ -904,6 +896,16 @@ public class TRADESValidator extends EObjectValidator {
 	public boolean validateCharacteristic(Characteristic characteristic, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(characteristic, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCharacteristicOwner(CharacteristicOwner characteristicOwner, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(characteristicOwner, diagnostics, context);
 	}
 
 	/**
@@ -962,6 +964,16 @@ public class TRADESValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateSecurityObjectiveENUM(SecurityObjectiveENUM securityObjectiveENUM,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateVulnerabilityTypeENUM(VulnerabilityTypeENUM vulnerabilityTypeENUM,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}

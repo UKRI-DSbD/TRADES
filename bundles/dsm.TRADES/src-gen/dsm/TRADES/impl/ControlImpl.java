@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import dsm.TRADES.Characteristic;
+import dsm.TRADES.CharacteristicOwner;
 import dsm.TRADES.Control;
 import dsm.TRADES.ControlStatusENUM;
 import dsm.TRADES.ElementWithId;
@@ -49,6 +50,7 @@ import dsm.TRADES.Vulnerability;
  * </p>
  * <ul>
  *   <li>{@link dsm.TRADES.impl.ControlImpl#getId <em>Id</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ControlImpl#getCharacteristics <em>Characteristics</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ControlImpl#getMitigatedThreats <em>Mitigated Threats</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ControlImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ControlImpl#getDescriptionWithPlaceholders <em>Description With Placeholders</em>}</li>
@@ -56,7 +58,6 @@ import dsm.TRADES.Vulnerability;
  *   <li>{@link dsm.TRADES.impl.ControlImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ControlImpl#getMitigatesVulnerability <em>Mitigates Vulnerability</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ControlImpl#getSecurityObjective <em>Security Objective</em>}</li>
- *   <li>{@link dsm.TRADES.impl.ControlImpl#getCharacteristics <em>Characteristics</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,6 +82,16 @@ public class ControlImpl extends NamedElementImpl implements Control {
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCharacteristics() <em>Characteristics</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCharacteristics()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Characteristic> characteristics;
 
 	/**
 	 * The cached value of the '{@link #getMitigatedThreats() <em>Mitigated Threats</em>}' reference list.
@@ -191,16 +202,6 @@ public class ControlImpl extends NamedElementImpl implements Control {
 	 * @ordered
 	 */
 	protected SecurityObjectiveENUM securityObjective = SECURITY_OBJECTIVE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getCharacteristics() <em>Characteristics</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCharacteristics()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Characteristic> characteristics;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -456,10 +457,10 @@ public class ControlImpl extends NamedElementImpl implements Control {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case TRADESPackage.CONTROL__MITIGATION_RELATIONS:
-			return ((InternalEList<?>) getMitigationRelations()).basicRemove(otherEnd, msgs);
 		case TRADESPackage.CONTROL__CHARACTERISTICS:
 			return ((InternalEList<?>) getCharacteristics()).basicRemove(otherEnd, msgs);
+		case TRADESPackage.CONTROL__MITIGATION_RELATIONS:
+			return ((InternalEList<?>) getMitigationRelations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -474,6 +475,8 @@ public class ControlImpl extends NamedElementImpl implements Control {
 		switch (featureID) {
 		case TRADESPackage.CONTROL__ID:
 			return getId();
+		case TRADESPackage.CONTROL__CHARACTERISTICS:
+			return getCharacteristics();
 		case TRADESPackage.CONTROL__MITIGATED_THREATS:
 			return getMitigatedThreats();
 		case TRADESPackage.CONTROL__DESCRIPTION:
@@ -488,8 +491,6 @@ public class ControlImpl extends NamedElementImpl implements Control {
 			return getMitigatesVulnerability();
 		case TRADESPackage.CONTROL__SECURITY_OBJECTIVE:
 			return getSecurityObjective();
-		case TRADESPackage.CONTROL__CHARACTERISTICS:
-			return getCharacteristics();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -505,6 +506,10 @@ public class ControlImpl extends NamedElementImpl implements Control {
 		switch (featureID) {
 		case TRADESPackage.CONTROL__ID:
 			setId((String) newValue);
+			return;
+		case TRADESPackage.CONTROL__CHARACTERISTICS:
+			getCharacteristics().clear();
+			getCharacteristics().addAll((Collection<? extends Characteristic>) newValue);
 			return;
 		case TRADESPackage.CONTROL__MITIGATED_THREATS:
 			getMitigatedThreats().clear();
@@ -530,10 +535,6 @@ public class ControlImpl extends NamedElementImpl implements Control {
 		case TRADESPackage.CONTROL__SECURITY_OBJECTIVE:
 			setSecurityObjective((SecurityObjectiveENUM) newValue);
 			return;
-		case TRADESPackage.CONTROL__CHARACTERISTICS:
-			getCharacteristics().clear();
-			getCharacteristics().addAll((Collection<? extends Characteristic>) newValue);
-			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -548,6 +549,9 @@ public class ControlImpl extends NamedElementImpl implements Control {
 		switch (featureID) {
 		case TRADESPackage.CONTROL__ID:
 			setId(ID_EDEFAULT);
+			return;
+		case TRADESPackage.CONTROL__CHARACTERISTICS:
+			getCharacteristics().clear();
 			return;
 		case TRADESPackage.CONTROL__MITIGATED_THREATS:
 			getMitigatedThreats().clear();
@@ -570,9 +574,6 @@ public class ControlImpl extends NamedElementImpl implements Control {
 		case TRADESPackage.CONTROL__SECURITY_OBJECTIVE:
 			setSecurityObjective(SECURITY_OBJECTIVE_EDEFAULT);
 			return;
-		case TRADESPackage.CONTROL__CHARACTERISTICS:
-			getCharacteristics().clear();
-			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -587,6 +588,8 @@ public class ControlImpl extends NamedElementImpl implements Control {
 		switch (featureID) {
 		case TRADESPackage.CONTROL__ID:
 			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+		case TRADESPackage.CONTROL__CHARACTERISTICS:
+			return characteristics != null && !characteristics.isEmpty();
 		case TRADESPackage.CONTROL__MITIGATED_THREATS:
 			return mitigatedThreats != null && !mitigatedThreats.isEmpty();
 		case TRADESPackage.CONTROL__DESCRIPTION:
@@ -602,8 +605,6 @@ public class ControlImpl extends NamedElementImpl implements Control {
 			return mitigatesVulnerability != null && !mitigatesVulnerability.isEmpty();
 		case TRADESPackage.CONTROL__SECURITY_OBJECTIVE:
 			return securityObjective != SECURITY_OBJECTIVE_EDEFAULT;
-		case TRADESPackage.CONTROL__CHARACTERISTICS:
-			return characteristics != null && !characteristics.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -635,6 +636,14 @@ public class ControlImpl extends NamedElementImpl implements Control {
 				return -1;
 			}
 		}
+		if (baseClass == CharacteristicOwner.class) {
+			switch (derivedFeatureID) {
+			case TRADESPackage.CONTROL__CHARACTERISTICS:
+				return TRADESPackage.CHARACTERISTIC_OWNER__CHARACTERISTICS;
+			default:
+				return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -661,6 +670,14 @@ public class ControlImpl extends NamedElementImpl implements Control {
 			switch (baseFeatureID) {
 			case TRADESPackage.ELEMENT_WITH_ID__ID:
 				return TRADESPackage.CONTROL__ID;
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == CharacteristicOwner.class) {
+			switch (baseFeatureID) {
+			case TRADESPackage.CHARACTERISTIC_OWNER__CHARACTERISTICS:
+				return TRADESPackage.CONTROL__CHARACTERISTICS;
 			default:
 				return -1;
 			}
@@ -700,6 +717,12 @@ public class ControlImpl extends NamedElementImpl implements Control {
 			}
 		}
 		if (baseClass == ElementWithId.class) {
+			switch (baseOperationID) {
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == CharacteristicOwner.class) {
 			switch (baseOperationID) {
 			default:
 				return -1;

@@ -59,7 +59,7 @@ public class ThreatAllocationRelationCustomImplTest extends AbstractTest {
 
 		AttackChainStep step1 = fact.createAttackChainStep();
 		ThreatAllocationRelation thAlloc1 = fact.createThreatAllocationRelation();
-		attackChain.getAttackchainSteps().add(step1);
+		attackChain.getAttackChainSteps().add(step1);
 
 		DifficultyScore diff3 = fact.createDifficultyScore();
 		diff3.setDifficulty(3);
@@ -79,7 +79,7 @@ public class ThreatAllocationRelationCustomImplTest extends AbstractTest {
 		diff2.setDifficulty(2);
 		thAlloc2.setDifficultyScore(diff2);
 		step2.setThreatAllocationRelation(thAlloc2);
-		attackChain.getAttackchainSteps().add(step2);
+		attackChain.getAttackChainSteps().add(step2);
 		step1.getNext().add(step2);
 
 		diag = new BasicDiagnostic();

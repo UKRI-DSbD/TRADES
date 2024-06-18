@@ -59,6 +59,13 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 			addNamePropertyDescriptor(object);
 			addIdPropertyDescriptor(object);
 			addNVDAPIKeyPropertyDescriptor(object);
+			addProperty_VulnerabilityMitigationRulesAvailablePropertyDescriptor(object);
+			addProperty_WeaknessMitigationRulesAvailablePropertyDescriptor(object);
+			addProperty_DesignAddressesVulnerabilitiesPropertyDescriptor(object);
+			addProperty_DesignAddressesWeaknessesPropertyDescriptor(object);
+			addVulnerabilitiesUncoveredByRulePropertyDescriptor(object);
+			addWeaknessesUncoveredByRulePropertyDescriptor(object);
+			addVulnerableComponentsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -112,6 +119,116 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Property Vulnerability Mitigation Rules Available feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProperty_VulnerabilityMitigationRulesAvailablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Analysis_property_VulnerabilityMitigationRulesAvailable_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_Analysis_property_VulnerabilityMitigationRulesAvailable_feature", "_UI_Analysis_type"),
+				TRADESPackage.Literals.ANALYSIS__PROPERTY_VULNERABILITY_MITIGATION_RULES_AVAILABLE, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Property Weakness Mitigation Rules Available feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProperty_WeaknessMitigationRulesAvailablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Analysis_property_WeaknessMitigationRulesAvailable_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_Analysis_property_WeaknessMitigationRulesAvailable_feature", "_UI_Analysis_type"),
+				TRADESPackage.Literals.ANALYSIS__PROPERTY_WEAKNESS_MITIGATION_RULES_AVAILABLE, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Property Design Addresses Vulnerabilities feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProperty_DesignAddressesVulnerabilitiesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Analysis_property_DesignAddressesVulnerabilities_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_Analysis_property_DesignAddressesVulnerabilities_feature", "_UI_Analysis_type"),
+						TRADESPackage.Literals.ANALYSIS__PROPERTY_DESIGN_ADDRESSES_VULNERABILITIES, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Property Design Addresses Weaknesses feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProperty_DesignAddressesWeaknessesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Analysis_property_DesignAddressesWeaknesses_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_Analysis_property_DesignAddressesWeaknesses_feature", "_UI_Analysis_type"),
+						TRADESPackage.Literals.ANALYSIS__PROPERTY_DESIGN_ADDRESSES_WEAKNESSES, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Vulnerabilities Uncovered By Rule feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVulnerabilitiesUncoveredByRulePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Analysis_vulnerabilitiesUncoveredByRule_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Analysis_vulnerabilitiesUncoveredByRule_feature",
+						"_UI_Analysis_type"),
+				TRADESPackage.Literals.ANALYSIS__VULNERABILITIES_UNCOVERED_BY_RULE, true, false, true, null, null,
+				null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Weaknesses Uncovered By Rule feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addWeaknessesUncoveredByRulePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Analysis_weaknessesUncoveredByRule_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Analysis_weaknessesUncoveredByRule_feature",
+						"_UI_Analysis_type"),
+				TRADESPackage.Literals.ANALYSIS__WEAKNESSES_UNCOVERED_BY_RULE, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Vulnerable Components feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVulnerableComponentsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Analysis_vulnerableComponents_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Analysis_vulnerableComponents_feature",
+								"_UI_Analysis_type"),
+						TRADESPackage.Literals.ANALYSIS__VULNERABLE_COMPONENTS, true, false, true, null, null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -128,8 +245,7 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_THREAT_OWNER__THREAT_OWNER);
 			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_VULNERABILITY_OWNER__VULNERABILITY_OWNER);
 			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_COMPONENT_TYPE_OWNER__COMPONENT_TYPE_OWNER);
-			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_VULNERABLE_ASSET_OWNER__VULNERABLE_ASSET_OWNER);
-			childrenFeatures.add(TRADESPackage.Literals.VA_OWNER__VULNERABLEASSET);
+			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_RULE_OWNER__RULE_OWNER);
 			childrenFeatures.add(TRADESPackage.Literals.ANALYSIS__SCORE_SYSTEM);
 			childrenFeatures.add(TRADESPackage.Literals.ANALYSIS__LINK_TYPES);
 		}
@@ -198,6 +314,10 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 		case TRADESPackage.ANALYSIS__NAME:
 		case TRADESPackage.ANALYSIS__ID:
 		case TRADESPackage.ANALYSIS__NVDAPI_KEY:
+		case TRADESPackage.ANALYSIS__PROPERTY_VULNERABILITY_MITIGATION_RULES_AVAILABLE:
+		case TRADESPackage.ANALYSIS__PROPERTY_WEAKNESS_MITIGATION_RULES_AVAILABLE:
+		case TRADESPackage.ANALYSIS__PROPERTY_DESIGN_ADDRESSES_VULNERABILITIES:
+		case TRADESPackage.ANALYSIS__PROPERTY_DESIGN_ADDRESSES_WEAKNESSES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case TRADESPackage.ANALYSIS__DATA_OWNER:
@@ -205,8 +325,7 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 		case TRADESPackage.ANALYSIS__THREAT_OWNER:
 		case TRADESPackage.ANALYSIS__VULNERABILITY_OWNER:
 		case TRADESPackage.ANALYSIS__COMPONENT_TYPE_OWNER:
-		case TRADESPackage.ANALYSIS__VULNERABLE_ASSET_OWNER:
-		case TRADESPackage.ANALYSIS__VULNERABLEASSET:
+		case TRADESPackage.ANALYSIS__RULE_OWNER:
 		case TRADESPackage.ANALYSIS__SCORE_SYSTEM:
 		case TRADESPackage.ANALYSIS__LINK_TYPES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -243,12 +362,8 @@ public class AnalysisItemProvider extends ComponentOwnerItemProvider {
 				.add(createChildParameter(TRADESPackage.Literals.ABSTRACT_COMPONENT_TYPE_OWNER__COMPONENT_TYPE_OWNER,
 						TRADESFactory.eINSTANCE.createComponentTypeOwner()));
 
-		newChildDescriptors.add(
-				createChildParameter(TRADESPackage.Literals.ABSTRACT_VULNERABLE_ASSET_OWNER__VULNERABLE_ASSET_OWNER,
-						TRADESFactory.eINSTANCE.createVulnerableAssetOwner()));
-
-		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.VA_OWNER__VULNERABLEASSET,
-				TRADESFactory.eINSTANCE.createVulnerableAsset()));
+		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.ABSTRACT_RULE_OWNER__RULE_OWNER,
+				TRADESFactory.eINSTANCE.createRuleOwner()));
 
 		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.ANALYSIS__SCORE_SYSTEM,
 				TRADESFactory.eINSTANCE.createScoreSystem()));

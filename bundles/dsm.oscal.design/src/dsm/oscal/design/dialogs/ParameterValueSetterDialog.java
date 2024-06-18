@@ -39,6 +39,7 @@ import dsm.oscal.design.m2doc.MarkupServices;
 import dsm.oscal.model.ParameterResolver;
 import dsm.oscal.model.OscalCatalogCommon.Parameter;
 import dsm.oscal.model.OscalMetadata.PartOwner;
+import gov.nist.secauto.metaschema.datatypes.markup.MarkupLine;
 
 /**
  * Dialogs use to given values of all parameters in used in the provider
@@ -88,39 +89,69 @@ public class ParameterValueSetterDialog extends Dialog {
 
 				String label = ParameterResolver.safeToMarkdown(param.getLabel());
 				WidgetFactory.label(SWT.NONE).layoutData(new GridData(GridData.BEGINNING))
-						.text(label != null ? label : "").create(valueContainer);
+						.text(label != null ? label : "Select one:").create(valueContainer);
 
 				String usage = MarkupServices.toHTML(param.getUsage());
-
 				WidgetFactory.label(SWT.NONE).layoutData(new GridData(GridData.CENTER))
 						.image(Activator.getDefault().getImage("icons/help.gif"))
 						.tooltip((usage != null ? usage + "\n" : "") + "#" + param.getId()).create(valueContainer);
 
-				Combo combo = new Combo(valueContainer, SWT.BORDER);
+				
 				EList<String> values = param.getValues();
-				for (String s : values) {
-					combo.add(s);
-				}
-				if (!values.isEmpty()) {
-					combo.select(0);
-					paramToValue.put(param, values.get(0));
-				}
+				if (param.getSelect() != null) {
+					Combo combo = new Combo(valueContainer, SWT.BORDER);
+					
+					EList<MarkupLine> choiceOptions = param.getSelect().getChoice();
+					for (MarkupLine markupLine : choiceOptions) {
+						values.add(markupLine.toMarkdown());
+					}
+					
+					for (String s : values) {
+						combo.add(s);
+					}
+					
+					if (!values.isEmpty()) {
+						combo.select(0);
+						paramToValue.put(param, values.get(0));
+					}
 
-				combo.addModifyListener(e -> {
-					String text = combo.getText();
-					String value;
-					if (text == null) {
-						value = "";
-					} else {
-						value = text;
+					combo.addModifyListener(e -> {
+						String text = combo.getText();
+						String value;
+						if (text == null) {
+							value = "";
+						} else {
+							value = text;
+						}
+						paramToValue.put(param, value);
+						if (combo != null && !combo.isDisposed()) {
+							computedDocumentationText.setText(textRendererComputer.apply(getIdToValueMap()));
+						}
+					});
+				} else {
+					Text paramTextbox = new Text(valueContainer, SWT.COLOR_WHITE);
+					paramTextbox.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+
+					if (!values.isEmpty()) {
+						paramTextbox.setText(values.get(0));
+						paramToValue.put(param, values.get(0));
 					}
-					paramToValue.put(param, value);
-					if (combo != null && !combo.isDisposed()) {
-						computedDocumentationText.setText(textRendererComputer.apply(getIdToValueMap()));
-					}
-				});
+
+					paramTextbox.addModifyListener(e -> {
+						String text = paramTextbox.getText();
+						String value;
+						if (text == null) {
+							value = "";
+						} else {
+							value = text;
+						}
+						paramToValue.put(param, value);
+						if (paramTextbox != null && !paramTextbox.isDisposed()) {
+							computedDocumentationText.setText(textRendererComputer.apply(getIdToValueMap()));
+						}
+					});
+				}
 			}
-
 		}
 
 		GridData docLayoutData = new GridData(GridData.FILL_HORIZONTAL);
@@ -136,8 +167,8 @@ public class ParameterValueSetterDialog extends Dialog {
 				.background(parent.getDisplay().getSystemColor(SWT.COLOR_WHITE))
 				.layoutData(layoutData)
 				.text(textRendererComputer.apply(getIdToValueMap())).create(textGroup);
-		GridData memorizeButtonLayoutData = new GridData(GridData.FILL_HORIZONTAL);
 
+		GridData memorizeButtonLayoutData = new GridData(GridData.FILL_HORIZONTAL);
 		Button memorizeButton = WidgetFactory.button(SWT.CHECK).layoutData(memorizeButtonLayoutData).onSelect(e -> {
 			keepValue = ((Button) e.widget).getSelection();
 		}).text("Memorize values").tooltip("Check in order to store entered values for subsequent uses.").create(cc);
@@ -157,5 +188,4 @@ public class ParameterValueSetterDialog extends Dialog {
 	public Map<Parameter, String> getParamToValue() {
 		return paramToValue;
 	}
-
 }

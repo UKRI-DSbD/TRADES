@@ -43,9 +43,10 @@ import dsm.TRADES.DomainAsset;
 import dsm.TRADES.ExternalControl;
 import dsm.TRADES.Link;
 import dsm.TRADES.NamedElement;
+import dsm.TRADES.Rule;
 import dsm.TRADES.TRADESPackage;
 import dsm.TRADES.ThreatAllocationRelation;
-import dsm.TRADES.VulnerableAsset;
+import dsm.TRADES.Vulnerability;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,9 +63,15 @@ import dsm.TRADES.VulnerableAsset;
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getThreatAllocations <em>Threat Allocations</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getAffectRelations <em>Affect Relations</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getLinks <em>Links</em>}</li>
- *   <li>{@link dsm.TRADES.impl.ComponentImpl#getComponenttype <em>Componenttype</em>}</li>
- *   <li>{@link dsm.TRADES.impl.ComponentImpl#getVulnerableasset <em>Vulnerableasset</em>}</li>
- *   <li>{@link dsm.TRADES.impl.ComponentImpl#getAssignedControl <em>Assigned Control</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentImpl#getComponentTypes <em>Component Types</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentImpl#getRules <em>Rules</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentImpl#getAssignedControls <em>Assigned Controls</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentImpl#isVulnerable <em>Vulnerable</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentImpl#getCVA <em>CVA</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentImpl#getCWA <em>CWA</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentImpl#getAssociatedControls <em>Associated Controls</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentImpl#getUnmitigatedVulnerabilities <em>Unmitigated Vulnerabilities</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentImpl#getUnmitigatedWeaknesses <em>Unmitigated Weaknesses</em>}</li>
  * </ul>
  *
  * @generated
@@ -151,34 +158,94 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 	protected EList<Link> links;
 
 	/**
-	 * The cached value of the '{@link #getComponenttype() <em>Componenttype</em>}' reference list.
+	 * The cached value of the '{@link #getComponentTypes() <em>Component Types</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getComponenttype()
+	 * @see #getComponentTypes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ComponentType> componenttype;
+	protected EList<ComponentType> componentTypes;
 
 	/**
-	 * The cached value of the '{@link #getVulnerableasset() <em>Vulnerableasset</em>}' reference list.
+	 * The cached value of the '{@link #getRules() <em>Rules</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVulnerableasset()
+	 * @see #getRules()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<VulnerableAsset> vulnerableasset;
+	protected EList<Rule> rules;
 
 	/**
-	 * The cached value of the '{@link #getAssignedControl() <em>Assigned Control</em>}' reference list.
+	 * The cached value of the '{@link #getAssignedControls() <em>Assigned Controls</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAssignedControl()
+	 * @see #getAssignedControls()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Control> assignedControl;
+	protected EList<Control> assignedControls;
+
+	/**
+	 * The default value of the '{@link #isVulnerable() <em>Vulnerable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isVulnerable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean VULNERABLE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #getCVA() <em>CVA</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCVA()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Vulnerability> cVA;
+
+	/**
+	 * The cached value of the '{@link #getCWA() <em>CWA</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCWA()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Vulnerability> cWA;
+
+	/**
+	 * The cached value of the '{@link #getAssociatedControls() <em>Associated Controls</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAssociatedControls()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Control> associatedControls;
+
+	/**
+	 * The cached value of the '{@link #getUnmitigatedVulnerabilities() <em>Unmitigated Vulnerabilities</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUnmitigatedVulnerabilities()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Vulnerability> unmitigatedVulnerabilities;
+
+	/**
+	 * The cached value of the '{@link #getUnmitigatedWeaknesses() <em>Unmitigated Weaknesses</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUnmitigatedWeaknesses()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Vulnerability> unmitigatedWeaknesses;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -388,12 +455,12 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 	 * @generated
 	 */
 	@Override
-	public EList<ComponentType> getComponenttype() {
-		if (componenttype == null) {
-			componenttype = new EObjectResolvingEList<ComponentType>(ComponentType.class, this,
-					TRADESPackage.COMPONENT__COMPONENTTYPE);
+	public EList<ComponentType> getComponentTypes() {
+		if (componentTypes == null) {
+			componentTypes = new EObjectResolvingEList<ComponentType>(ComponentType.class, this,
+					TRADESPackage.COMPONENT__COMPONENT_TYPES);
 		}
-		return componenttype;
+		return componentTypes;
 	}
 
 	/**
@@ -402,12 +469,11 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 	 * @generated
 	 */
 	@Override
-	public EList<VulnerableAsset> getVulnerableasset() {
-		if (vulnerableasset == null) {
-			vulnerableasset = new EObjectResolvingEList<VulnerableAsset>(VulnerableAsset.class, this,
-					TRADESPackage.COMPONENT__VULNERABLEASSET);
+	public EList<Rule> getRules() {
+		if (rules == null) {
+			rules = new EObjectResolvingEList<Rule>(Rule.class, this, TRADESPackage.COMPONENT__RULES);
 		}
-		return vulnerableasset;
+		return rules;
 	}
 
 	/**
@@ -416,12 +482,188 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 	 * @generated
 	 */
 	@Override
-	public EList<Control> getAssignedControl() {
-		if (assignedControl == null) {
-			assignedControl = new EObjectResolvingEList<Control>(Control.class, this,
-					TRADESPackage.COMPONENT__ASSIGNED_CONTROL);
+	public EList<Control> getAssignedControls() {
+		if (assignedControls == null) {
+			assignedControls = new EObjectResolvingEList<Control>(Control.class, this,
+					TRADESPackage.COMPONENT__ASSIGNED_CONTROLS);
 		}
-		return assignedControl;
+		return assignedControls;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isVulnerable() {
+		// TODO: implement this method to return the 'Vulnerable' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setVulnerable(boolean newVulnerable) {
+		// TODO: implement this method to set the 'Vulnerable' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Vulnerability> getCVA() {
+		if (cVA == null) {
+			cVA = new EObjectResolvingEList<Vulnerability>(Vulnerability.class, this, TRADESPackage.COMPONENT__CVA);
+		}
+		return cVA;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Vulnerability> getCWA() {
+		if (cWA == null) {
+			cWA = new EObjectResolvingEList<Vulnerability>(Vulnerability.class, this, TRADESPackage.COMPONENT__CWA);
+		}
+		return cWA;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Control> getAssociatedControls() {
+		if (associatedControls == null) {
+			associatedControls = new EObjectResolvingEList<Control>(Control.class, this,
+					TRADESPackage.COMPONENT__ASSOCIATED_CONTROLS);
+		}
+		return associatedControls;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Vulnerability> getUnmitigatedVulnerabilities() {
+		if (unmitigatedVulnerabilities == null) {
+			unmitigatedVulnerabilities = new EObjectResolvingEList<Vulnerability>(Vulnerability.class, this,
+					TRADESPackage.COMPONENT__UNMITIGATED_VULNERABILITIES);
+		}
+		return unmitigatedVulnerabilities;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Vulnerability> getUnmitigatedWeaknesses() {
+		if (unmitigatedWeaknesses == null) {
+			unmitigatedWeaknesses = new EObjectResolvingEList<Vulnerability>(Vulnerability.class, this,
+					TRADESPackage.COMPONENT__UNMITIGATED_WEAKNESSES);
+		}
+		return unmitigatedWeaknesses;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean ofType(ComponentType type) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean mitigatedV(Vulnerability vulnerability) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean mitigatedW(Vulnerability weakness) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean mitigatedByW(Vulnerability vulnerability) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean mitigated(Vulnerability vulnerability) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean vulnerableW() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean vulnerableV() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -546,12 +788,24 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 			return getAffectRelations();
 		case TRADESPackage.COMPONENT__LINKS:
 			return getLinks();
-		case TRADESPackage.COMPONENT__COMPONENTTYPE:
-			return getComponenttype();
-		case TRADESPackage.COMPONENT__VULNERABLEASSET:
-			return getVulnerableasset();
-		case TRADESPackage.COMPONENT__ASSIGNED_CONTROL:
-			return getAssignedControl();
+		case TRADESPackage.COMPONENT__COMPONENT_TYPES:
+			return getComponentTypes();
+		case TRADESPackage.COMPONENT__RULES:
+			return getRules();
+		case TRADESPackage.COMPONENT__ASSIGNED_CONTROLS:
+			return getAssignedControls();
+		case TRADESPackage.COMPONENT__VULNERABLE:
+			return isVulnerable();
+		case TRADESPackage.COMPONENT__CVA:
+			return getCVA();
+		case TRADESPackage.COMPONENT__CWA:
+			return getCWA();
+		case TRADESPackage.COMPONENT__ASSOCIATED_CONTROLS:
+			return getAssociatedControls();
+		case TRADESPackage.COMPONENT__UNMITIGATED_VULNERABILITIES:
+			return getUnmitigatedVulnerabilities();
+		case TRADESPackage.COMPONENT__UNMITIGATED_WEAKNESSES:
+			return getUnmitigatedWeaknesses();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -590,17 +844,40 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 			getLinks().clear();
 			getLinks().addAll((Collection<? extends Link>) newValue);
 			return;
-		case TRADESPackage.COMPONENT__COMPONENTTYPE:
-			getComponenttype().clear();
-			getComponenttype().addAll((Collection<? extends ComponentType>) newValue);
+		case TRADESPackage.COMPONENT__COMPONENT_TYPES:
+			getComponentTypes().clear();
+			getComponentTypes().addAll((Collection<? extends ComponentType>) newValue);
 			return;
-		case TRADESPackage.COMPONENT__VULNERABLEASSET:
-			getVulnerableasset().clear();
-			getVulnerableasset().addAll((Collection<? extends VulnerableAsset>) newValue);
+		case TRADESPackage.COMPONENT__RULES:
+			getRules().clear();
+			getRules().addAll((Collection<? extends Rule>) newValue);
 			return;
-		case TRADESPackage.COMPONENT__ASSIGNED_CONTROL:
-			getAssignedControl().clear();
-			getAssignedControl().addAll((Collection<? extends Control>) newValue);
+		case TRADESPackage.COMPONENT__ASSIGNED_CONTROLS:
+			getAssignedControls().clear();
+			getAssignedControls().addAll((Collection<? extends Control>) newValue);
+			return;
+		case TRADESPackage.COMPONENT__VULNERABLE:
+			setVulnerable((Boolean) newValue);
+			return;
+		case TRADESPackage.COMPONENT__CVA:
+			getCVA().clear();
+			getCVA().addAll((Collection<? extends Vulnerability>) newValue);
+			return;
+		case TRADESPackage.COMPONENT__CWA:
+			getCWA().clear();
+			getCWA().addAll((Collection<? extends Vulnerability>) newValue);
+			return;
+		case TRADESPackage.COMPONENT__ASSOCIATED_CONTROLS:
+			getAssociatedControls().clear();
+			getAssociatedControls().addAll((Collection<? extends Control>) newValue);
+			return;
+		case TRADESPackage.COMPONENT__UNMITIGATED_VULNERABILITIES:
+			getUnmitigatedVulnerabilities().clear();
+			getUnmitigatedVulnerabilities().addAll((Collection<? extends Vulnerability>) newValue);
+			return;
+		case TRADESPackage.COMPONENT__UNMITIGATED_WEAKNESSES:
+			getUnmitigatedWeaknesses().clear();
+			getUnmitigatedWeaknesses().addAll((Collection<? extends Vulnerability>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -635,14 +912,32 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 		case TRADESPackage.COMPONENT__LINKS:
 			getLinks().clear();
 			return;
-		case TRADESPackage.COMPONENT__COMPONENTTYPE:
-			getComponenttype().clear();
+		case TRADESPackage.COMPONENT__COMPONENT_TYPES:
+			getComponentTypes().clear();
 			return;
-		case TRADESPackage.COMPONENT__VULNERABLEASSET:
-			getVulnerableasset().clear();
+		case TRADESPackage.COMPONENT__RULES:
+			getRules().clear();
 			return;
-		case TRADESPackage.COMPONENT__ASSIGNED_CONTROL:
-			getAssignedControl().clear();
+		case TRADESPackage.COMPONENT__ASSIGNED_CONTROLS:
+			getAssignedControls().clear();
+			return;
+		case TRADESPackage.COMPONENT__VULNERABLE:
+			setVulnerable(VULNERABLE_EDEFAULT);
+			return;
+		case TRADESPackage.COMPONENT__CVA:
+			getCVA().clear();
+			return;
+		case TRADESPackage.COMPONENT__CWA:
+			getCWA().clear();
+			return;
+		case TRADESPackage.COMPONENT__ASSOCIATED_CONTROLS:
+			getAssociatedControls().clear();
+			return;
+		case TRADESPackage.COMPONENT__UNMITIGATED_VULNERABILITIES:
+			getUnmitigatedVulnerabilities().clear();
+			return;
+		case TRADESPackage.COMPONENT__UNMITIGATED_WEAKNESSES:
+			getUnmitigatedWeaknesses().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -670,12 +965,24 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 			return affectRelations != null && !affectRelations.isEmpty();
 		case TRADESPackage.COMPONENT__LINKS:
 			return links != null && !links.isEmpty();
-		case TRADESPackage.COMPONENT__COMPONENTTYPE:
-			return componenttype != null && !componenttype.isEmpty();
-		case TRADESPackage.COMPONENT__VULNERABLEASSET:
-			return vulnerableasset != null && !vulnerableasset.isEmpty();
-		case TRADESPackage.COMPONENT__ASSIGNED_CONTROL:
-			return assignedControl != null && !assignedControl.isEmpty();
+		case TRADESPackage.COMPONENT__COMPONENT_TYPES:
+			return componentTypes != null && !componentTypes.isEmpty();
+		case TRADESPackage.COMPONENT__RULES:
+			return rules != null && !rules.isEmpty();
+		case TRADESPackage.COMPONENT__ASSIGNED_CONTROLS:
+			return assignedControls != null && !assignedControls.isEmpty();
+		case TRADESPackage.COMPONENT__VULNERABLE:
+			return isVulnerable() != VULNERABLE_EDEFAULT;
+		case TRADESPackage.COMPONENT__CVA:
+			return cVA != null && !cVA.isEmpty();
+		case TRADESPackage.COMPONENT__CWA:
+			return cWA != null && !cWA.isEmpty();
+		case TRADESPackage.COMPONENT__ASSOCIATED_CONTROLS:
+			return associatedControls != null && !associatedControls.isEmpty();
+		case TRADESPackage.COMPONENT__UNMITIGATED_VULNERABILITIES:
+			return unmitigatedVulnerabilities != null && !unmitigatedVulnerabilities.isEmpty();
+		case TRADESPackage.COMPONENT__UNMITIGATED_WEAKNESSES:
+			return unmitigatedWeaknesses != null && !unmitigatedWeaknesses.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -834,6 +1141,20 @@ public class ComponentImpl extends ComponentOwnerImpl implements Component {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+		case TRADESPackage.COMPONENT___OF_TYPE__COMPONENTTYPE:
+			return ofType((ComponentType) arguments.get(0));
+		case TRADESPackage.COMPONENT___MITIGATED_V__VULNERABILITY:
+			return mitigatedV((Vulnerability) arguments.get(0));
+		case TRADESPackage.COMPONENT___MITIGATED_W__VULNERABILITY:
+			return mitigatedW((Vulnerability) arguments.get(0));
+		case TRADESPackage.COMPONENT___MITIGATED_BY_W__VULNERABILITY:
+			return mitigatedByW((Vulnerability) arguments.get(0));
+		case TRADESPackage.COMPONENT___MITIGATED__VULNERABILITY:
+			return mitigated((Vulnerability) arguments.get(0));
+		case TRADESPackage.COMPONENT___VULNERABLE_W:
+			return vulnerableW();
+		case TRADESPackage.COMPONENT___VULNERABLE_V:
+			return vulnerableV();
 		case TRADESPackage.COMPONENT___GET_ALL_CONTROLS:
 			return getAllControls();
 		case TRADESPackage.COMPONENT___GET_EXTERNAL_CONTROLS__STRING_STRING:

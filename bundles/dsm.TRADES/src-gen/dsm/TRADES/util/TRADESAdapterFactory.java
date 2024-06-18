@@ -20,9 +20,9 @@ import org.eclipse.emf.ecore.EObject;
 
 import dsm.TRADES.AbstractComponentTypeOwner;
 import dsm.TRADES.AbstractControlOwner;
+import dsm.TRADES.AbstractRuleOwner;
 import dsm.TRADES.AbstractThreatOwner;
 import dsm.TRADES.AbstractVulnerabilityOwner;
-import dsm.TRADES.AbstractVulnerableAssetOwner;
 import dsm.TRADES.AffectRelation;
 import dsm.TRADES.Analysis;
 import dsm.TRADES.Asset;
@@ -30,6 +30,7 @@ import dsm.TRADES.AttackChain;
 import dsm.TRADES.AttackChainStep;
 import dsm.TRADES.Catalog;
 import dsm.TRADES.Characteristic;
+import dsm.TRADES.CharacteristicOwner;
 import dsm.TRADES.ColoredElement;
 import dsm.TRADES.Component;
 import dsm.TRADES.ComponentOwner;
@@ -56,17 +57,16 @@ import dsm.TRADES.ImpactScore;
 import dsm.TRADES.Link;
 import dsm.TRADES.LinkType;
 import dsm.TRADES.NamedElement;
+import dsm.TRADES.Rule;
+import dsm.TRADES.RuleOwner;
 import dsm.TRADES.ScoreSystem;
 import dsm.TRADES.TRADESPackage;
 import dsm.TRADES.Threat;
 import dsm.TRADES.ThreatAllocationRelation;
 import dsm.TRADES.ThreatMitigationRelation;
 import dsm.TRADES.ThreatsOwner;
-import dsm.TRADES.VAOwner;
 import dsm.TRADES.Vulnerability;
 import dsm.TRADES.VulnerabilityOwner;
-import dsm.TRADES.VulnerableAsset;
-import dsm.TRADES.VulnerableAssetOwner;
 
 /**
  * <!-- begin-user-doc -->
@@ -339,28 +339,28 @@ public class TRADESAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseAbstractVulnerableAssetOwner(AbstractVulnerableAssetOwner object) {
-			return createAbstractVulnerableAssetOwnerAdapter();
+		public Adapter caseAbstractRuleOwner(AbstractRuleOwner object) {
+			return createAbstractRuleOwnerAdapter();
 		}
 
 		@Override
-		public Adapter caseVulnerableAssetOwner(VulnerableAssetOwner object) {
-			return createVulnerableAssetOwnerAdapter();
+		public Adapter caseRuleOwner(RuleOwner object) {
+			return createRuleOwnerAdapter();
 		}
 
 		@Override
-		public Adapter caseVulnerableAsset(VulnerableAsset object) {
-			return createVulnerableAssetAdapter();
-		}
-
-		@Override
-		public Adapter caseVAOwner(VAOwner object) {
-			return createVAOwnerAdapter();
+		public Adapter caseRule(Rule object) {
+			return createRuleAdapter();
 		}
 
 		@Override
 		public Adapter caseCharacteristic(Characteristic object) {
 			return createCharacteristicAdapter();
+		}
+
+		@Override
+		public Adapter caseCharacteristicOwner(CharacteristicOwner object) {
+			return createCharacteristicOwnerAdapter();
 		}
 
 		@Override
@@ -985,58 +985,44 @@ public class TRADESAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link dsm.TRADES.AbstractVulnerableAssetOwner <em>Abstract Vulnerable Asset Owner</em>}'.
+	 * Creates a new adapter for an object of class '{@link dsm.TRADES.AbstractRuleOwner <em>Abstract Rule Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see dsm.TRADES.AbstractVulnerableAssetOwner
+	 * @see dsm.TRADES.AbstractRuleOwner
 	 * @generated
 	 */
-	public Adapter createAbstractVulnerableAssetOwnerAdapter() {
+	public Adapter createAbstractRuleOwnerAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link dsm.TRADES.VulnerableAssetOwner <em>Vulnerable Asset Owner</em>}'.
+	 * Creates a new adapter for an object of class '{@link dsm.TRADES.RuleOwner <em>Rule Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see dsm.TRADES.VulnerableAssetOwner
+	 * @see dsm.TRADES.RuleOwner
 	 * @generated
 	 */
-	public Adapter createVulnerableAssetOwnerAdapter() {
+	public Adapter createRuleOwnerAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link dsm.TRADES.VulnerableAsset <em>Vulnerable Asset</em>}'.
+	 * Creates a new adapter for an object of class '{@link dsm.TRADES.Rule <em>Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see dsm.TRADES.VulnerableAsset
+	 * @see dsm.TRADES.Rule
 	 * @generated
 	 */
-	public Adapter createVulnerableAssetAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link dsm.TRADES.VAOwner <em>VA Owner</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see dsm.TRADES.VAOwner
-	 * @generated
-	 */
-	public Adapter createVAOwnerAdapter() {
+	public Adapter createRuleAdapter() {
 		return null;
 	}
 
@@ -1051,6 +1037,20 @@ public class TRADESAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCharacteristicAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link dsm.TRADES.CharacteristicOwner <em>Characteristic Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see dsm.TRADES.CharacteristicOwner
+	 * @generated
+	 */
+	public Adapter createCharacteristicOwnerAdapter() {
 		return null;
 	}
 

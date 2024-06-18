@@ -13,7 +13,7 @@
  */
 package dsm.TRADES;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,39 +24,16 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link dsm.TRADES.Characteristic#getName <em>Name</em>}</li>
  *   <li>{@link dsm.TRADES.Characteristic#getLabel <em>Label</em>}</li>
  *   <li>{@link dsm.TRADES.Characteristic#getValue <em>Value</em>}</li>
- *   <li>{@link dsm.TRADES.Characteristic#getDescription <em>Description</em>}</li>
+ *   <li>{@link dsm.TRADES.Characteristic#getOptions <em>Options</em>}</li>
  * </ul>
  *
  * @see dsm.TRADES.TRADESPackage#getCharacteristic()
  * @model
  * @generated
  */
-public interface Characteristic extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see dsm.TRADES.TRADESPackage#getCharacteristic_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link dsm.TRADES.Characteristic#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
+public interface Characteristic extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -102,25 +79,15 @@ public interface Characteristic extends EObject {
 	void setValue(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * Returns the value of the '<em><b>Options</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' attribute.
-	 * @see #setDescription(String)
-	 * @see dsm.TRADES.TRADESPackage#getCharacteristic_Description()
+	 * @return the value of the '<em>Options</em>' attribute list.
+	 * @see dsm.TRADES.TRADESPackage#getCharacteristic_Options()
 	 * @model
 	 * @generated
 	 */
-	String getDescription();
-
-	/**
-	 * Sets the value of the '{@link dsm.TRADES.Characteristic#getDescription <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' attribute.
-	 * @see #getDescription()
-	 * @generated
-	 */
-	void setDescription(String value);
+	EList<String> getOptions();
 
 } // Characteristic

@@ -20,26 +20,24 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import dsm.TRADES.Characteristic;
+import dsm.TRADES.Rule;
 import dsm.TRADES.TRADESPackage;
 
 /**
- * This is the item provider adapter for a {@link dsm.TRADES.Characteristic} object.
+ * This is the item provider adapter for a {@link dsm.TRADES.Rule} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CharacteristicItemProvider extends NamedElementItemProvider {
+public class RuleItemProvider extends AssetItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CharacteristicItemProvider(AdapterFactory adapterFactory) {
+	public RuleItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -54,70 +52,66 @@ public class CharacteristicItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addLabelPropertyDescriptor(object);
-			addValuePropertyDescriptor(object);
-			addOptionsPropertyDescriptor(object);
+			addVulnerabilitiesPropertyDescriptor(object);
+			addComponentTypesAffectedPropertyDescriptor(object);
+			addControlsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Label feature.
+	 * This adds a property descriptor for the Vulnerabilities feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLabelPropertyDescriptor(Object object) {
+	protected void addVulnerabilitiesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Characteristic_label_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Characteristic_label_feature",
-								"_UI_Characteristic_type"),
-						TRADESPackage.Literals.CHARACTERISTIC__LABEL, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+						getResourceLocator(), getString("_UI_Rule_vulnerabilities_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Rule_vulnerabilities_feature",
+								"_UI_Rule_type"),
+						TRADESPackage.Literals.RULE__VULNERABILITIES, true, false, true, null, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Value feature.
+	 * This adds a property descriptor for the Component Types Affected feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addValuePropertyDescriptor(Object object) {
+	protected void addComponentTypesAffectedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Characteristic_value_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Characteristic_value_feature",
-								"_UI_Characteristic_type"),
-						TRADESPackage.Literals.CHARACTERISTIC__VALUE, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+						getResourceLocator(), getString("_UI_Rule_componentTypesAffected_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Rule_componentTypesAffected_feature",
+								"_UI_Rule_type"),
+						TRADESPackage.Literals.RULE__COMPONENT_TYPES_AFFECTED, true, false, true, null, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Options feature.
+	 * This adds a property descriptor for the Controls feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOptionsPropertyDescriptor(Object object) {
+	protected void addControlsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Characteristic_options_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Characteristic_options_feature",
-								"_UI_Characteristic_type"),
-						TRADESPackage.Literals.CHARACTERISTIC__OPTIONS, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+						getResourceLocator(), getString("_UI_Rule_controls_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Rule_controls_feature", "_UI_Rule_type"),
+						TRADESPackage.Literals.RULE__CONTROLS, true, false, true, null, null, null));
 	}
 
 	/**
-	 * This returns Characteristic.gif.
+	 * This returns Rule.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Characteristic"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Rule"));
 	}
 
 	/**
@@ -138,9 +132,9 @@ public class CharacteristicItemProvider extends NamedElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Characteristic) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Characteristic_type")
-				: getString("_UI_Characteristic_type") + " " + label;
+		String label = ((Rule) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_Rule_type")
+				: getString("_UI_Rule_type") + " " + label;
 	}
 
 	/**
@@ -153,14 +147,6 @@ public class CharacteristicItemProvider extends NamedElementItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Characteristic.class)) {
-		case TRADESPackage.CHARACTERISTIC__LABEL:
-		case TRADESPackage.CHARACTERISTIC__VALUE:
-		case TRADESPackage.CHARACTERISTIC__OPTIONS:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
-		}
 		super.notifyChanged(notification);
 	}
 

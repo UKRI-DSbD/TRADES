@@ -38,7 +38,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.eef.core,
  org.eclipse.sirius.common.interpreter,
  org.eclipse.eef.common.ui,
- org.eclipse.eef.common
+ org.eclipse.eef.common,
+ org.eclipse.egit.core,
+ org.eclipse.egit.ui
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: %providerName

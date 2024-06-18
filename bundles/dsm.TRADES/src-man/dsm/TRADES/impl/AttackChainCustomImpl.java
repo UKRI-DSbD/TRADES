@@ -26,7 +26,7 @@ public class AttackChainCustomImpl extends AttackChainImpl {
 	public int getComputedDifficulty() {
 		Map<Integer, Integer> collectors = new HashMap<>();
 
-		for (AttackChainStep step : getAttackchainSteps()) {
+		for (AttackChainStep step : getAttackChainSteps()) {
 			ThreatAllocationRelation rel = step.getThreatAllocationRelation();
 			if (rel != null && rel.getDifficultyScore() != null) {
 				int difficulty = rel.getDifficultyScore().getDifficulty();

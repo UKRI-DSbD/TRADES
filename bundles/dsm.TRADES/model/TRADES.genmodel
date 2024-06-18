@@ -47,15 +47,41 @@
       <genEnumLiterals ecoreEnumLiteral="TRADES.ecore#//SecurityObjectiveENUM/Accountability"/>
       <genEnumLiterals ecoreEnumLiteral="TRADES.ecore#//SecurityObjectiveENUM/Undefined"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="TRADES.ecore#//VulnerabilityTypeENUM">
+      <genEnumLiterals ecoreEnumLiteral="TRADES.ecore#//VulnerabilityTypeENUM/CWE"/>
+      <genEnumLiterals ecoreEnumLiteral="TRADES.ecore#//VulnerabilityTypeENUM/CVE"/>
+      <genEnumLiterals ecoreEnumLiteral="TRADES.ecore#//VulnerabilityTypeENUM/Mechanism"/>
+      <genEnumLiterals ecoreEnumLiteral="TRADES.ecore#//VulnerabilityTypeENUM/Implementation"/>
+      <genEnumLiterals ecoreEnumLiteral="TRADES.ecore#//VulnerabilityTypeENUM/Other"/>
+    </genEnums>
     <genDataTypes ecoreDataType="TRADES.ecore#//RGBColor" create="return RGBColor.decode(it);"
         convert="return it == null ? &quot;&quot; : it.encode();"/>
     <genClasses ecoreClass="TRADES.ecore#//Analysis">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//Analysis/scoreSystem"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//Analysis/linkTypes"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Analysis/nVDAPIKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Analysis/property_VulnerabilityMitigationRulesAvailable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Analysis/property_WeaknessMitigationRulesAvailable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Analysis/property_DesignAddressesVulnerabilities"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Analysis/property_DesignAddressesWeaknesses"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Analysis/vulnerabilitiesUncoveredByRule"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Analysis/weaknessesUncoveredByRule"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Analysis/vulnerableComponents"/>
       <genOperations ecoreOperation="TRADES.ecore#//Analysis/getExternalThreats">
         <genParameters ecoreParameter="TRADES.ecore#//Analysis/getExternalThreats/id"/>
         <genParameters ecoreParameter="TRADES.ecore#//Analysis/getExternalThreats/catalogIdentifier"/>
+      </genOperations>
+      <genOperations ecoreOperation="TRADES.ecore#//Analysis/directRuleExists">
+        <genParameters ecoreParameter="TRADES.ecore#//Analysis/directRuleExists/vulnerability"/>
+        <genParameters ecoreParameter="TRADES.ecore#//Analysis/directRuleExists/type"/>
+      </genOperations>
+      <genOperations ecoreOperation="TRADES.ecore#//Analysis/proxyRuleExists">
+        <genParameters ecoreParameter="TRADES.ecore#//Analysis/proxyRuleExists/vulnerability"/>
+        <genParameters ecoreParameter="TRADES.ecore#//Analysis/proxyRuleExists/type"/>
+      </genOperations>
+      <genOperations ecoreOperation="TRADES.ecore#//Analysis/ruleExists">
+        <genParameters ecoreParameter="TRADES.ecore#//Analysis/ruleExists/vulnerability"/>
+        <genParameters ecoreParameter="TRADES.ecore#//Analysis/ruleExists/type"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//Threat">
@@ -74,9 +100,32 @@
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/threatAllocations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/affectRelations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/links"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/componenttype"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/vulnerableasset"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/assignedControl"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/componentTypes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/rules"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/assignedControls"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Component/vulnerable"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/cVA"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/cWA"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/associatedControls"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/unmitigatedVulnerabilities"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Component/unmitigatedWeaknesses"/>
+      <genOperations ecoreOperation="TRADES.ecore#//Component/ofType">
+        <genParameters ecoreParameter="TRADES.ecore#//Component/ofType/type"/>
+      </genOperations>
+      <genOperations ecoreOperation="TRADES.ecore#//Component/mitigatedV">
+        <genParameters ecoreParameter="TRADES.ecore#//Component/mitigatedV/vulnerability"/>
+      </genOperations>
+      <genOperations ecoreOperation="TRADES.ecore#//Component/mitigatedW">
+        <genParameters ecoreParameter="TRADES.ecore#//Component/mitigatedW/weakness"/>
+      </genOperations>
+      <genOperations ecoreOperation="TRADES.ecore#//Component/mitigatedByW">
+        <genParameters ecoreParameter="TRADES.ecore#//Component/mitigatedByW/vulnerability"/>
+      </genOperations>
+      <genOperations ecoreOperation="TRADES.ecore#//Component/mitigated">
+        <genParameters ecoreParameter="TRADES.ecore#//Component/mitigated/vulnerability"/>
+      </genOperations>
+      <genOperations ecoreOperation="TRADES.ecore#//Component/vulnerableW"/>
+      <genOperations ecoreOperation="TRADES.ecore#//Component/vulnerableV"/>
     </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//Control">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Control/mitigatedThreats"/>
@@ -86,7 +135,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Control/status"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Control/mitigatesVulnerability"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Control/securityObjective"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//Control/characteristics"/>
     </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//ThreatAllocationRelation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//ThreatAllocationRelation/assessment"/>
@@ -95,10 +143,17 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//ThreatAllocationRelation/impactScore"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//ThreatAllocationRelation/difficultyScore"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//ThreatAllocationRelation/attackChain"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//ThreatAllocationRelation/mitigated"/>
       <genOperations ecoreOperation="TRADES.ecore#//ThreatAllocationRelation/checkComputedDifficultyConstraint">
         <genParameters ecoreParameter="TRADES.ecore#//ThreatAllocationRelation/checkComputedDifficultyConstraint/chain"/>
         <genParameters ecoreParameter="TRADES.ecore#//ThreatAllocationRelation/checkComputedDifficultyConstraint/context"/>
       </genOperations>
+      <genOperations ecoreOperation="TRADES.ecore#//ThreatAllocationRelation/mitigatedAV"/>
+      <genOperations ecoreOperation="TRADES.ecore#//ThreatAllocationRelation/mitigatedAW"/>
+      <genOperations ecoreOperation="TRADES.ecore#//ThreatAllocationRelation/mitigatedVSteps"/>
+      <genOperations ecoreOperation="TRADES.ecore#//ThreatAllocationRelation/mitigatedWSteps"/>
+      <genOperations ecoreOperation="TRADES.ecore#//ThreatAllocationRelation/mitigatedV"/>
+      <genOperations ecoreOperation="TRADES.ecore#//ThreatAllocationRelation/mitigatedW"/>
     </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//ThreatMitigationRelation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//ThreatMitigationRelation/assessment"/>
@@ -120,7 +175,7 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//AttackChain">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AttackChain/attackchainSteps"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AttackChain/attackChainSteps"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//AttackChain/computedDifficulty"/>
     </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//AttackChainStep">
@@ -199,15 +254,6 @@
     <genClasses ecoreClass="TRADES.ecore#//AbstractThreatOwner">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AbstractThreatOwner/threatOwner"/>
     </genClasses>
-    <genClasses ecoreClass="TRADES.ecore#//AbstractVulnerabilityOwner">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AbstractVulnerabilityOwner/vulnerabilityOwner"/>
-    </genClasses>
-    <genClasses ecoreClass="TRADES.ecore#//AbstractVulnerableAssetOwner">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AbstractVulnerableAssetOwner/vulnerableAssetOwner"/>
-    </genClasses>
-    <genClasses ecoreClass="TRADES.ecore#//AbstractComponentTypeOwner">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AbstractComponentTypeOwner/componentTypeOwner"/>
-    </genClasses>
     <genClasses image="false" ecoreClass="TRADES.ecore#//IThreatDefinition">
       <genOperations ecoreOperation="TRADES.ecore#//IThreatDefinition/getId"/>
       <genOperations ecoreOperation="TRADES.ecore#//IThreatDefinition/getDescription"/>
@@ -248,37 +294,47 @@
     <genClasses ecoreClass="TRADES.ecore#//DomainAsset">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//DomainAsset/category"/>
     </genClasses>
+    <genClasses ecoreClass="TRADES.ecore#//AbstractVulnerabilityOwner">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AbstractVulnerabilityOwner/vulnerabilityOwner"/>
+    </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//VulnerabilityOwner">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//VulnerabilityOwner/vulnerabilities"/>
     </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//Vulnerability">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Vulnerability/manifests"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Vulnerability/vulnerabilityType"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Vulnerability/affects"/>
+    </genClasses>
+    <genClasses ecoreClass="TRADES.ecore#//AbstractComponentTypeOwner">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AbstractComponentTypeOwner/componentTypeOwner"/>
     </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//ComponentTypeOwner">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//ComponentTypeOwner/componentTypes"/>
     </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//ComponentType">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//ComponentType/refines"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//ComponentType/manifests"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//ComponentType/subjectToThreats"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//ComponentType/affectedBy"/>
     </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//Asset"/>
-    <genClasses ecoreClass="TRADES.ecore#//VulnerableAssetOwner">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//VulnerableAssetOwner/vulnerableAssets"/>
+    <genClasses image="false" ecoreClass="TRADES.ecore#//AbstractRuleOwner">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AbstractRuleOwner/ruleOwner"/>
     </genClasses>
-    <genClasses ecoreClass="TRADES.ecore#//VulnerableAsset">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//VulnerableAsset/vulnerability"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//VulnerableAsset/componentTypeAffected"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//VulnerableAsset/controls"/>
+    <genClasses ecoreClass="TRADES.ecore#//RuleOwner">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//RuleOwner/rules"/>
     </genClasses>
-    <genClasses ecoreClass="TRADES.ecore#//VAOwner">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//VAOwner/vulnerableasset"/>
+    <genClasses ecoreClass="TRADES.ecore#//Rule">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Rule/vulnerabilities"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Rule/componentTypesAffected"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TRADES.ecore#//Rule/controls"/>
     </genClasses>
     <genClasses ecoreClass="TRADES.ecore#//Characteristic">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Characteristic/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Characteristic/label"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Characteristic/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Characteristic/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//Characteristic/options"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="TRADES.ecore#//CharacteristicOwner">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//CharacteristicOwner/characteristics"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

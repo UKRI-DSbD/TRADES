@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link dsm.TRADES.AttackChain#getAttackchainSteps <em>Attackchain Steps</em>}</li>
+ *   <li>{@link dsm.TRADES.AttackChain#getAttackChainSteps <em>Attack Chain Steps</em>}</li>
  *   <li>{@link dsm.TRADES.AttackChain#getComputedDifficulty <em>Computed Difficulty</em>}</li>
  * </ul>
  *
@@ -34,16 +34,16 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface AttackChain extends NamedElement {
 	/**
-	 * Returns the value of the '<em><b>Attackchain Steps</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Attack Chain Steps</b></em>' containment reference list.
 	 * The list contents are of type {@link dsm.TRADES.AttackChainStep}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Attackchain Steps</em>' containment reference list.
-	 * @see dsm.TRADES.TRADESPackage#getAttackChain_AttackchainSteps()
+	 * @return the value of the '<em>Attack Chain Steps</em>' containment reference list.
+	 * @see dsm.TRADES.TRADESPackage#getAttackChain_AttackChainSteps()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<AttackChainStep> getAttackchainSteps();
+	EList<AttackChainStep> getAttackChainSteps();
 
 	/**
 	 * Returns the value of the '<em><b>Computed Difficulty</b></em>' attribute.

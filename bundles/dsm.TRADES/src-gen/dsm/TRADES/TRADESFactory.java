@@ -276,22 +276,22 @@ public interface TRADESFactory extends EFactory {
 	ComponentType createComponentType();
 
 	/**
-	 * Returns a new object of class '<em>Vulnerable Asset Owner</em>'.
+	 * Returns a new object of class '<em>Rule Owner</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Vulnerable Asset Owner</em>'.
+	 * @return a new object of class '<em>Rule Owner</em>'.
 	 * @generated
 	 */
-	VulnerableAssetOwner createVulnerableAssetOwner();
+	RuleOwner createRuleOwner();
 
 	/**
-	 * Returns a new object of class '<em>Vulnerable Asset</em>'.
+	 * Returns a new object of class '<em>Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Vulnerable Asset</em>'.
+	 * @return a new object of class '<em>Rule</em>'.
 	 * @generated
 	 */
-	VulnerableAsset createVulnerableAsset();
+	Rule createRule();
 
 	/**
 	 * Returns a new object of class '<em>Characteristic</em>'.

@@ -13,10 +13,13 @@
  */
 package dsm.TRADES.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import dsm.TRADES.Characteristic;
 import dsm.TRADES.TRADESPackage;
@@ -29,35 +32,14 @@ import dsm.TRADES.TRADESPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dsm.TRADES.impl.CharacteristicImpl#getName <em>Name</em>}</li>
  *   <li>{@link dsm.TRADES.impl.CharacteristicImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link dsm.TRADES.impl.CharacteristicImpl#getValue <em>Value</em>}</li>
- *   <li>{@link dsm.TRADES.impl.CharacteristicImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.CharacteristicImpl#getOptions <em>Options</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CharacteristicImpl extends MinimalEObjectImpl.Container implements Characteristic {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
+public class CharacteristicImpl extends NamedElementImpl implements Characteristic {
 	/**
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -99,24 +81,14 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
 	protected String value = VALUE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * The cached value of the '{@link #getOptions() <em>Options</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDescription()
+	 * @see #getOptions()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected String description = DESCRIPTION_EDEFAULT;
+	protected EList<String> options;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -135,29 +107,6 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	protected EClass eStaticClass() {
 		return TRADESPackage.Literals.CHARACTERISTIC;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.CHARACTERISTIC__NAME, oldName, name));
 	}
 
 	/**
@@ -214,22 +163,11 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
-	public String getDescription() {
-		return description;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setDescription(String newDescription) {
-		String oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.CHARACTERISTIC__DESCRIPTION,
-					oldDescription, description));
+	public EList<String> getOptions() {
+		if (options == null) {
+			options = new EDataTypeUniqueEList<String>(String.class, this, TRADESPackage.CHARACTERISTIC__OPTIONS);
+		}
+		return options;
 	}
 
 	/**
@@ -240,14 +178,12 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TRADESPackage.CHARACTERISTIC__NAME:
-			return getName();
 		case TRADESPackage.CHARACTERISTIC__LABEL:
 			return getLabel();
 		case TRADESPackage.CHARACTERISTIC__VALUE:
 			return getValue();
-		case TRADESPackage.CHARACTERISTIC__DESCRIPTION:
-			return getDescription();
+		case TRADESPackage.CHARACTERISTIC__OPTIONS:
+			return getOptions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -257,20 +193,19 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TRADESPackage.CHARACTERISTIC__NAME:
-			setName((String) newValue);
-			return;
 		case TRADESPackage.CHARACTERISTIC__LABEL:
 			setLabel((String) newValue);
 			return;
 		case TRADESPackage.CHARACTERISTIC__VALUE:
 			setValue((String) newValue);
 			return;
-		case TRADESPackage.CHARACTERISTIC__DESCRIPTION:
-			setDescription((String) newValue);
+		case TRADESPackage.CHARACTERISTIC__OPTIONS:
+			getOptions().clear();
+			getOptions().addAll((Collection<? extends String>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -284,17 +219,14 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TRADESPackage.CHARACTERISTIC__NAME:
-			setName(NAME_EDEFAULT);
-			return;
 		case TRADESPackage.CHARACTERISTIC__LABEL:
 			setLabel(LABEL_EDEFAULT);
 			return;
 		case TRADESPackage.CHARACTERISTIC__VALUE:
 			setValue(VALUE_EDEFAULT);
 			return;
-		case TRADESPackage.CHARACTERISTIC__DESCRIPTION:
-			setDescription(DESCRIPTION_EDEFAULT);
+		case TRADESPackage.CHARACTERISTIC__OPTIONS:
+			getOptions().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -308,14 +240,12 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TRADESPackage.CHARACTERISTIC__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case TRADESPackage.CHARACTERISTIC__LABEL:
 			return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 		case TRADESPackage.CHARACTERISTIC__VALUE:
 			return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-		case TRADESPackage.CHARACTERISTIC__DESCRIPTION:
-			return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+		case TRADESPackage.CHARACTERISTIC__OPTIONS:
+			return options != null && !options.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -331,14 +261,12 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", label: ");
+		result.append(" (label: ");
 		result.append(label);
 		result.append(", value: ");
 		result.append(value);
-		result.append(", description: ");
-		result.append(description);
+		result.append(", options: ");
+		result.append(options);
 		result.append(')');
 		return result.toString();
 	}

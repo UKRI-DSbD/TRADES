@@ -30,17 +30,17 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import dsm.TRADES.AbstractRuleOwner;
 import dsm.TRADES.TRADESFactory;
 import dsm.TRADES.TRADESPackage;
-import dsm.TRADES.VulnerableAssetOwner;
 
 /**
- * This is the item provider adapter for a {@link dsm.TRADES.VulnerableAssetOwner} object.
+ * This is the item provider adapter for a {@link dsm.TRADES.AbstractRuleOwner} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class VulnerableAssetOwnerItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+public class AbstractRuleOwnerItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -48,7 +48,7 @@ public class VulnerableAssetOwnerItemProvider extends ItemProviderAdapter implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VulnerableAssetOwnerItemProvider(AdapterFactory adapterFactory) {
+	public AbstractRuleOwnerItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -79,7 +79,7 @@ public class VulnerableAssetOwnerItemProvider extends ItemProviderAdapter implem
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TRADESPackage.Literals.VULNERABLE_ASSET_OWNER__VULNERABLE_ASSETS);
+			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_RULE_OWNER__RULE_OWNER);
 		}
 		return childrenFeatures;
 	}
@@ -95,17 +95,6 @@ public class VulnerableAssetOwnerItemProvider extends ItemProviderAdapter implem
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns VulnerableAssetOwner.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/VulnerableAssetOwner"));
 	}
 
 	/**
@@ -126,7 +115,7 @@ public class VulnerableAssetOwnerItemProvider extends ItemProviderAdapter implem
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_VulnerableAssetOwner_type");
+		return getString("_UI_AbstractRuleOwner_type");
 	}
 
 	/**
@@ -140,8 +129,8 @@ public class VulnerableAssetOwnerItemProvider extends ItemProviderAdapter implem
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(VulnerableAssetOwner.class)) {
-		case TRADESPackage.VULNERABLE_ASSET_OWNER__VULNERABLE_ASSETS:
+		switch (notification.getFeatureID(AbstractRuleOwner.class)) {
+		case TRADESPackage.ABSTRACT_RULE_OWNER__RULE_OWNER:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -159,8 +148,8 @@ public class VulnerableAssetOwnerItemProvider extends ItemProviderAdapter implem
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.VULNERABLE_ASSET_OWNER__VULNERABLE_ASSETS,
-				TRADESFactory.eINSTANCE.createVulnerableAsset()));
+		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.ABSTRACT_RULE_OWNER__RULE_OWNER,
+				TRADESFactory.eINSTANCE.createRuleOwner()));
 	}
 
 	/**
