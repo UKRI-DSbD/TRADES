@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: dsm.cve.model.editor;singleton:=true
 Automatic-Module-Name: dsm.cve.model.editor
-Bundle-Version: 3.7.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: dsm.cve.model.CVECatalog.presentation.CVEEditorPlugin$Implementation
 Bundle-Vendor: %providerName
