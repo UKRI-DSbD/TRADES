@@ -22,6 +22,6 @@ Export-Package: dsm.oscal.model,
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  dsm.TRADES;visibility:=reexport,
  org.eclipse.core.runtime,
- dsm.oscal.ext;bundle-version="2.5.0"
+ dsm.oscal.ext;bundle-version="4.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: dsm.oscal.model.OSCALModelActivator
