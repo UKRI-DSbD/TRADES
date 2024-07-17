@@ -15,6 +15,7 @@
  */
 package dsm.oscal.model.OscalMetadata.presentation;
 
+import dsm.oscal.model.OscalCatalog.presentation.OscalEditorPlugin;
 import java.util.ArrayList;
 import java.util.Collection;
 

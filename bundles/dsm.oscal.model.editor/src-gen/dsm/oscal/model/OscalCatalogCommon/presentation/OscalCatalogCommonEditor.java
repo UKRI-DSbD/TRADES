@@ -134,6 +134,7 @@ import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
 import dsm.TRADES.provider.TRADESItemProviderAdapterFactory;
+import dsm.oscal.model.OscalCatalog.presentation.OscalEditorPlugin;
 import dsm.oscal.model.OscalCatalog.provider.OscalCatalogItemProviderAdapterFactory;
 import dsm.oscal.model.OscalCatalogCommon.provider.OscalCatalogCommonItemProviderAdapterFactory;
 import dsm.oscal.model.OscalMetadata.provider.OscalMetadataItemProviderAdapterFactory;
@@ -520,7 +521,7 @@ public class OscalCatalogCommonEditor
 					}
 				}
 				catch (CoreException exception) {
-					dsm.oscal.model.OscalCatalogCommon.presentation.OscalEditorPlugin.INSTANCE.log(exception);
+					OscalEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -637,7 +638,7 @@ public class OscalCatalogCommonEditor
 					showTabs();
 				}
 				catch (PartInitException exception) {
-					dsm.oscal.model.OscalCatalogCommon.presentation.OscalEditorPlugin.INSTANCE.log(exception);
+					OscalEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 
@@ -646,7 +647,7 @@ public class OscalCatalogCommonEditor
 					markerHelper.updateMarkers(diagnostic);
 				}
 				catch (CoreException exception) {
-					dsm.oscal.model.OscalCatalogCommon.presentation.OscalEditorPlugin.INSTANCE.log(exception);
+					OscalEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		}
@@ -689,8 +690,8 @@ public class OscalCatalogCommonEditor
 		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new OscalCatalogCommonItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new OscalCatalogItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new OscalCatalogCommonItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new OscalMetadataItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TRADESItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
@@ -1529,7 +1530,7 @@ public class OscalCatalogCommonEditor
 		catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
-			dsm.oscal.model.OscalCatalogCommon.presentation.OscalEditorPlugin.INSTANCE.log(exception);
+			OscalEditorPlugin.INSTANCE.log(exception);
 		}
 		updateProblemIndication = true;
 		updateProblemIndication();
@@ -1738,7 +1739,7 @@ public class OscalCatalogCommonEditor
 	 * @generated
 	 */
 	private static String getString(String key) {
-		return dsm.oscal.model.OscalCatalogCommon.presentation.OscalEditorPlugin.INSTANCE.getString(key);
+		return OscalEditorPlugin.INSTANCE.getString(key);
 	}
 
 	/**
@@ -1748,7 +1749,7 @@ public class OscalCatalogCommonEditor
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return dsm.oscal.model.OscalCatalogCommon.presentation.OscalEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+		return OscalEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
 	}
 
 	/**

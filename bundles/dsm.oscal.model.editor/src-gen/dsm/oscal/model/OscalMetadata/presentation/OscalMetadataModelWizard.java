@@ -72,6 +72,7 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 import dsm.oscal.model.OscalCatalogCommon.provider.OscalEditPlugin;
 import dsm.oscal.model.OscalMetadata.OscalMetadataFactory;
 import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
+import dsm.oscal.model.OscalCatalog.presentation.OscalEditorPlugin;
 
 
 /**
