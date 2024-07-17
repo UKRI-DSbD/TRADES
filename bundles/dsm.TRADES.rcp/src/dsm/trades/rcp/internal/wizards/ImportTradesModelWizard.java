@@ -44,10 +44,15 @@ import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.ui.IImportWizard;
 import org.eclipse.ui.IWorkbench;
 
+import dsm.TRADES.AbstractComponentTypeOwner;
 import dsm.TRADES.AbstractControlOwner;
+import dsm.TRADES.AbstractRuleOwner;
 import dsm.TRADES.AbstractThreatOwner;
+import dsm.TRADES.AbstractVulnerabilityOwner;
 import dsm.TRADES.Analysis;
 import dsm.TRADES.Catalog;
+import dsm.TRADES.ComponentType;
+import dsm.TRADES.ComponentTypeOwner;
 import dsm.TRADES.Control;
 import dsm.TRADES.ControlOwner;
 import dsm.TRADES.ElementWithId;
@@ -56,14 +61,21 @@ import dsm.TRADES.ExternalThreat;
 import dsm.TRADES.IControlDefinition;
 import dsm.TRADES.IThreatDefinition;
 import dsm.TRADES.NamedElement;
+import dsm.TRADES.Rule;
+import dsm.TRADES.RuleOwner;
 import dsm.TRADES.SemanticUtil;
 import dsm.TRADES.Threat;
 import dsm.TRADES.ThreatsOwner;
+import dsm.TRADES.Vulnerability;
+import dsm.TRADES.VulnerabilityOwner;
 import dsm.TRADES.util.EcoreUtils;
 import dsm.trades.rcp.TRADESRCPActivator;
 import dsm.trades.rcp.utils.CatalogUtils;
+import dsm.trades.rcp.utils.ComponentTypeCopier;
 import dsm.trades.rcp.utils.ControlCopier;
+import dsm.trades.rcp.utils.RuleCopier;
 import dsm.trades.rcp.utils.ThreatCopier;
+import dsm.trades.rcp.utils.VulnerabilityCopier;
 
 /**
  * Wizard use to import an OSCAL catalog
@@ -76,14 +88,19 @@ public class ImportTradesModelWizard extends Wizard implements IImportWizard {
 	private IStructuredSelection selection;
 	private ProjectSelectionPage projectSelectionPage;
 	private TradesLoadingPage fileSelectionPage;
+	private EObjectSelectionPage<ComponentType> componentTypeSelectionPage;
+	private EObjectSelectionPage<Vulnerability> vulnerabilitySelectionPage;
 	private EObjectSelectionPage<Threat> threatSelectionPage;
 	private EObjectSelectionPage<dsm.TRADES.Control> controlSelectionPage;
+	private EObjectSelectionPage<Rule> ruleSelectionPage;
 
+	private List<ComponentType> selectedComponentTypes = Collections.emptyList();
+	private List<Vulnerability> selectedVulnerabilities = Collections.emptyList();
 	private List<Threat> selectedThreats = Collections.emptyList();
-	private List<Control> selectedControl = Collections.emptyList();
+	private List<Control> selectedControls = Collections.emptyList();
+	private List<Rule> selectedRules = Collections.emptyList();
 	private String importedRootName;
 	private String importedRootId;
-
 
 	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
@@ -101,21 +118,45 @@ public class ImportTradesModelWizard extends Wizard implements IImportWizard {
 		this.fileSelectionPage = new TradesLoadingPage("*.trades", this::loadModel);
 		addPage(fileSelectionPage);
 
+		this.componentTypeSelectionPage = new EObjectSelectionPage<ComponentType>(this::setSelectedComponentTypes,
+				"Select the component types to import (only component types with unique id can be imported)");
+		addPage(componentTypeSelectionPage);
+
+		this.vulnerabilitySelectionPage = new EObjectSelectionPage<Vulnerability>(this::setSelectedVulnerabilities,
+				"Select the vulnerabilities to import (only vulnerabilities with unique id can be imported)");
+		addPage(vulnerabilitySelectionPage);
+
 		this.threatSelectionPage = new EObjectSelectionPage<Threat>(this::setSelectedThreats,
 				"Select the threats to import (only threats with unique id can be imported)");
 		addPage(threatSelectionPage);
 
-		this.controlSelectionPage = new EObjectSelectionPage<dsm.TRADES.Control>(this::setSelectedControl,
+		this.controlSelectionPage = new EObjectSelectionPage<dsm.TRADES.Control>(this::setSelectedControls,
 				"Select the controls to import (only controls with unique id can be imported)");
 		addPage(controlSelectionPage);
+
+		this.ruleSelectionPage = new EObjectSelectionPage<Rule>(this::setSelectedRules,
+				"Select the rules to import (only rules with unique id can be imported)");
+		addPage(ruleSelectionPage);
 	}
 
-	private void setSelectedControl(List<Control> selectedControl) {
-		this.selectedControl = selectedControl;
+	private void setSelectedComponentTypes(List<ComponentType> selectedComponentTypes) {
+		this.selectedComponentTypes = selectedComponentTypes;
+	}
+
+	private void setSelectedVulnerabilities(List<Vulnerability> selectedVulnerabilities) {
+		this.selectedVulnerabilities = selectedVulnerabilities;
 	}
 
 	private void setSelectedThreats(List<Threat> selectedThreats) {
 		this.selectedThreats = selectedThreats;
+	}
+
+	private void setSelectedControls(List<Control> selectedControls) {
+		this.selectedControls = selectedControls;
+	}
+
+	private void setSelectedRules(List<Rule> selectedRules) {
+		this.selectedRules = selectedRules;
 	}
 
 	@Override
@@ -178,9 +219,9 @@ public class ImportTradesModelWizard extends Wizard implements IImportWizard {
 				
 				//TODO Prevent importing if the id is null...
 
-				Set<String> threatIds = new HashSet<>();
-				List<Threat> threats = new ArrayList<>();
 				if (root instanceof AbstractThreatOwner) {
+					Set<String> threatIds = new HashSet<>();
+					List<Threat> threats = new ArrayList<>();
 					AbstractThreatOwner aThreatOwner = (AbstractThreatOwner) root;
 					ThreatsOwner threatOwner = aThreatOwner.getThreatOwner();
 					if (threatOwner != null) {
@@ -197,6 +238,67 @@ public class ImportTradesModelWizard extends Wizard implements IImportWizard {
 				} else {
 					threatSelectionPage.setInput(Collections.emptyList());
 				}
+
+				if (root instanceof AbstractComponentTypeOwner) {
+					Set<String> componentTypeIds = new HashSet<>();
+					List<ComponentType> componentTypes = new ArrayList<>();
+					AbstractComponentTypeOwner abstractOwner = (AbstractComponentTypeOwner) root;
+					ComponentTypeOwner owner = abstractOwner.getComponentTypeOwner();
+					if (owner != null) {
+						owner.getComponentTypes().stream()
+								.filter(t -> t.getId() != null && !t.getId().isBlank()).forEach(t -> {
+									String id = t.getId();
+									if (!componentTypeIds.contains(id)) {
+										componentTypeIds.add(id);
+										componentTypes.add(t);
+									}
+								});
+					}
+					componentTypeSelectionPage.setInput(componentTypes);
+				} else {
+					componentTypeSelectionPage.setInput(Collections.emptyList());
+				}
+
+				if (root instanceof AbstractVulnerabilityOwner) {
+					Set<String> vulnerabilityIds = new HashSet<>();
+					List<Vulnerability> vulnerabilities = new ArrayList<>();
+					AbstractVulnerabilityOwner abstractOwner = (AbstractVulnerabilityOwner) root;
+					VulnerabilityOwner owner = abstractOwner.getVulnerabilityOwner();
+					if (owner != null) {
+						owner.getVulnerabilities().stream()
+								.filter(t -> t.getId() != null && !t.getId().isBlank()).forEach(t -> {
+									String id = t.getId();
+									if (!vulnerabilityIds.contains(id)) {
+										vulnerabilityIds.add(id);
+										vulnerabilities.add(t);
+									}
+								});
+					}
+					vulnerabilitySelectionPage.setInput(vulnerabilities);
+				} else {
+					vulnerabilitySelectionPage.setInput(Collections.emptyList());
+				}
+
+				if (root instanceof AbstractRuleOwner) {
+					Set<String> ruleIds = new HashSet<>();
+					List<Rule> rules = new ArrayList<>();
+					AbstractRuleOwner abstractOwner = (AbstractRuleOwner) root;
+					RuleOwner owner = abstractOwner.getRuleOwner();
+					if (owner != null) {
+						owner.getRules().stream()
+								.filter(t -> t.getId() != null && !t.getId().isBlank()).forEach(t -> {
+									String id = t.getId();
+									if (!ruleIds.contains(id)) {
+										ruleIds.add(id);
+										rules.add(t);
+									}
+								});
+					}
+					ruleSelectionPage.setInput(rules);
+				} else {
+					ruleSelectionPage.setInput(Collections.emptyList());
+				}
+
 				List<dsm.TRADES.Control> controls = new ArrayList<>();
 				Set<String> controlIds = new HashSet<>();
 				EcoreUtils.eAllContentSteamWithSelf(root).filter(e -> e instanceof AbstractControlOwner)
@@ -213,7 +315,7 @@ public class ImportTradesModelWizard extends Wizard implements IImportWizard {
 
 			});
 		} catch (InvocationTargetException | InterruptedException e) {
-			TRADESRCPActivator.logError("Error while laoding model " + e.getMessage(), e);
+			TRADESRCPActivator.logError("Error while loading model " + e.getMessage(), e);
 			return false;
 		}
 
@@ -234,7 +336,7 @@ public class ImportTradesModelWizard extends Wizard implements IImportWizard {
 
 					@Override
 					protected void doExecute() {
-						// Avoid forbiden file name
+						// Avoid forbidden file name
 						String resourceName = importedRootName.replaceAll("[^\\w.-]", "_");
 						
 						URI tradesLibURI = CatalogUtils.getCatalogFolderURI(repUri)
@@ -243,8 +345,11 @@ public class ImportTradesModelWizard extends Wizard implements IImportWizard {
 						ResourceSet resourceSet = transactionalEditingDomain.getResourceSet();
 						Resource existingResource = resourceSet.getResource(tradesLibURI, false);
 
+						ComponentTypeOwner componentTypeOwner = null;
+						VulnerabilityOwner vulnerabilityOwner = null;
 						ThreatsOwner threatOwner = null;
 						ControlOwner controlOwner = null;
+						RuleOwner ruleOwner = null;
 						Catalog catalog = null;
 						if (existingResource == null) {
 
@@ -254,8 +359,11 @@ public class ImportTradesModelWizard extends Wizard implements IImportWizard {
 							catalog.setId(importedRootId);
 							existingResource.getContents().add(catalog);
 
+							componentTypeOwner = catalog.getComponentTypeOwner();
+							vulnerabilityOwner = catalog.getVulnerabilityOwner();
 							threatOwner = catalog.getThreatOwner();
 							controlOwner = catalog.getControlOwner();
+							ruleOwner = catalog.getRuleOwner();
 
 							session.addSemanticResource(tradesLibURI, new NullProgressMonitor());
 							session.save(new NullProgressMonitor());
@@ -263,43 +371,97 @@ public class ImportTradesModelWizard extends Wizard implements IImportWizard {
 							EObject root = existingResource.getContents().get(0);
 							if (root instanceof Catalog) {
 								catalog = (Catalog) root;
+								componentTypeOwner = catalog.getComponentTypeOwner();
+								vulnerabilityOwner = catalog.getVulnerabilityOwner();
 								threatOwner = catalog.getThreatOwner();
 								controlOwner = catalog.getControlOwner();
+								ruleOwner = catalog.getRuleOwner();
 							}
 						}
 
-						// For each selected threat create an external threat
-						if (threatOwner != null && controlOwner != null && catalog != null) {
-
-							ThreatCopier threatImporter = new ThreatCopier();
-							for (Threat t : selectedThreats) {
-
-								IThreatDefinition existingThreat = catalog.getThreatById(t.getId());
-								if (existingThreat == null) {
-									ExternalThreat copy = threatImporter.copy(t);
-									threatOwner.getExternals().add(copy);
-								} else if (existingThreat instanceof ExternalThreat) {
-									threatImporter.update(t, (ExternalThreat) existingThreat);
-								}
-
-							}
-							// For each selected control create an external control + a threat mitigation
-							ControlCopier controlImporter = new ControlCopier(threatImporter.getOldToNewThreats());
-
-							for (Control c : selectedControl) {
-								IControlDefinition existingControl = catalog.getControlById(c.getId());
-								if (existingControl == null) {
-									ExternalControl copiedControl = controlImporter.copy(c);
-									controlOwner.getExternals().add(copiedControl);
-								} else if (existingControl instanceof ExternalControl) {
-									controlImporter.update(c, (ExternalControl) existingControl);
+						if (catalog != null) {
+							ComponentTypeCopier componentTypeCopier = new ComponentTypeCopier();
+							VulnerabilityCopier vulnerabilityCopier = new VulnerabilityCopier();
+							ThreatCopier threatCopier = new ThreatCopier();
+							ControlCopier controlCopier = new ControlCopier(threatCopier.getOldToNewThreats());
+							RuleCopier ruleCopier = new RuleCopier();
+							if (componentTypeOwner != null) {
+								// For each selected component type create a component type
+								for (ComponentType componentType : selectedComponentTypes) {
+									ComponentType existingComponentType = catalog.getComponentTypeById(componentType.getId());
+									if (existingComponentType == null) {
+										ComponentType copy = componentTypeCopier.copy(componentType);
+										componentTypeOwner.getComponentTypes().add(copy);
+									} else {
+										componentTypeCopier.update(componentType, existingComponentType);
+									}
 								}
 							}
 
+							if (vulnerabilityOwner != null) {
+								// For each selected vulnerability create a vulnerability
+								for (Vulnerability vulnerability : selectedVulnerabilities) {
+									Vulnerability existingVulnerability = catalog.getVulnerabilityById(vulnerability.getId());
+									if (existingVulnerability == null) {
+										Vulnerability copy = vulnerabilityCopier.copy(vulnerability);
+										vulnerabilityOwner.getVulnerabilities().add(copy);
+									} else {
+										vulnerabilityCopier.update(vulnerability, existingVulnerability);
+									}
+								}
+							}
+
+							if (threatOwner != null) {
+								// For each selected threat create an external threat
+								for (Threat t : selectedThreats) {
+									IThreatDefinition existingThreat = catalog.getThreatById(t.getId());
+									if (existingThreat == null) {
+										ExternalThreat copy = threatCopier.copy(t);
+										threatOwner.getExternals().add(copy);
+									} else if (existingThreat instanceof ExternalThreat) {
+										threatCopier.update(t, (ExternalThreat) existingThreat);
+									}
+								}
+							}
+
+							if (controlOwner != null) {
+								// For each selected control create an external control + a threat mitigation
+								controlCopier = new ControlCopier(threatCopier.getOldToNewThreats());
+								for (Control c : selectedControls) {
+									IControlDefinition existingControl = catalog.getControlById(c.getId());
+									if (existingControl == null) {
+										ExternalControl copiedControl = controlCopier.copy(c);
+										controlOwner.getExternals().add(copiedControl);
+									} else if (existingControl instanceof ExternalControl) {
+										controlCopier.update(c, (ExternalControl) existingControl);
+									}
+								}
+							}
+
+							if (ruleOwner != null) {
+								// For each selected rule create a rule
+								for (Rule rule : selectedRules) {
+									Rule existingRule = catalog.getRuleById(rule.getId());
+									if (existingRule == null) {
+										Rule copy = ruleCopier.copy(rule);
+										ruleOwner.getRules().add(copy);
+									} else {
+										ruleCopier.update(rule, existingRule);
+									}
+								}
+							}
+
+							componentTypeCopier.updateManifests(componentTypeOwner.getComponentTypes());
+							componentTypeCopier.updateThreats(componentTypeOwner.getComponentTypes(), threatOwner.getExternals());
+							componentTypeCopier.updateVulnerabilities(componentTypeOwner.getComponentTypes(), vulnerabilityOwner.getVulnerabilities());
+							vulnerabilityCopier.updateManifests(vulnerabilityOwner.getVulnerabilities());
+							vulnerabilityCopier.updateAffects(vulnerabilityOwner.getVulnerabilities(), componentTypeOwner.getComponentTypes());
+							ruleCopier.updateVulnerabilities(ruleOwner.getRules(), vulnerabilityOwner.getVulnerabilities());
+							ruleCopier.updateComponentTypes(ruleOwner.getRules(), componentTypeOwner.getComponentTypes());
+							ruleCopier.updateControls(ruleOwner.getRules(), controlOwner.getExternals());
 						} else {
 							TRADESRCPActivator.logError("Invalid catalog model");
 						}
-
 					}
 				};
 
@@ -317,7 +479,11 @@ public class ImportTradesModelWizard extends Wizard implements IImportWizard {
 		return projectSelectionPage.getSelectedProject() != null && fileSelectionPage.getPath() != null
 				&& importedRootName != null && !importedRootName.isBlank()
 				&& fileSelectionPage.getPath().toFile().exists()
-				&& (!selectedThreats.isEmpty() || !selectedControl.isEmpty());
+				&& (!selectedComponentTypes.isEmpty() || 
+					!selectedVulnerabilities.isEmpty() || 
+					!selectedThreats.isEmpty() || 
+					!selectedControls.isEmpty() || 
+					!selectedRules.isEmpty());
 	}
 
 	private IProject getSelectedProject(IStructuredSelection selection) {

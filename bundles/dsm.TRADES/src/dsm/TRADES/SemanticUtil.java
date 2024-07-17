@@ -95,6 +95,15 @@ public class SemanticUtil {
 		ControlOwner controlOwner = TRADESFactory.eINSTANCE.createControlOwner();
 		catalog.setControlOwner(controlOwner);
 
+		VulnerabilityOwner vulnerabilityOwner = TRADESFactory.eINSTANCE.createVulnerabilityOwner();
+		catalog.setVulnerabilityOwner(vulnerabilityOwner);
+
+		ComponentTypeOwner componentTypeOwner = TRADESFactory.eINSTANCE.createComponentTypeOwner();
+		catalog.setComponentTypeOwner(componentTypeOwner);
+
+		RuleOwner ruleOwner = TRADESFactory.eINSTANCE.createRuleOwner();
+		catalog.setRuleOwner(ruleOwner);
+
 		return catalog;
 	}
 
