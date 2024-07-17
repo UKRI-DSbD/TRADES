@@ -15,12 +15,15 @@ package dsm.TRADES.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import dsm.TRADES.ComponentType;
 import dsm.TRADES.Control;
+import dsm.TRADES.ElementWithId;
 import dsm.TRADES.Rule;
 import dsm.TRADES.TRADESPackage;
 import dsm.TRADES.Vulnerability;
@@ -33,6 +36,7 @@ import dsm.TRADES.Vulnerability;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link dsm.TRADES.impl.RuleImpl#getId <em>Id</em>}</li>
  *   <li>{@link dsm.TRADES.impl.RuleImpl#getVulnerabilities <em>Vulnerabilities</em>}</li>
  *   <li>{@link dsm.TRADES.impl.RuleImpl#getComponentTypesAffected <em>Component Types Affected</em>}</li>
  *   <li>{@link dsm.TRADES.impl.RuleImpl#getControls <em>Controls</em>}</li>
@@ -41,6 +45,26 @@ import dsm.TRADES.Vulnerability;
  * @generated
  */
 public class RuleImpl extends AssetImpl implements Rule {
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getVulnerabilities() <em>Vulnerabilities</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -96,6 +120,29 @@ public class RuleImpl extends AssetImpl implements Rule {
 	 * @generated
 	 */
 	@Override
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.RULE__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<Vulnerability> getVulnerabilities() {
 		if (vulnerabilities == null) {
 			vulnerabilities = new EObjectResolvingEList<Vulnerability>(Vulnerability.class, this,
@@ -139,6 +186,8 @@ public class RuleImpl extends AssetImpl implements Rule {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+		case TRADESPackage.RULE__ID:
+			return getId();
 		case TRADESPackage.RULE__VULNERABILITIES:
 			return getVulnerabilities();
 		case TRADESPackage.RULE__COMPONENT_TYPES_AFFECTED:
@@ -158,6 +207,9 @@ public class RuleImpl extends AssetImpl implements Rule {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case TRADESPackage.RULE__ID:
+			setId((String) newValue);
+			return;
 		case TRADESPackage.RULE__VULNERABILITIES:
 			getVulnerabilities().clear();
 			getVulnerabilities().addAll((Collection<? extends Vulnerability>) newValue);
@@ -182,6 +234,9 @@ public class RuleImpl extends AssetImpl implements Rule {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case TRADESPackage.RULE__ID:
+			setId(ID_EDEFAULT);
+			return;
 		case TRADESPackage.RULE__VULNERABILITIES:
 			getVulnerabilities().clear();
 			return;
@@ -203,6 +258,8 @@ public class RuleImpl extends AssetImpl implements Rule {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+		case TRADESPackage.RULE__ID:
+			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		case TRADESPackage.RULE__VULNERABILITIES:
 			return vulnerabilities != null && !vulnerabilities.isEmpty();
 		case TRADESPackage.RULE__COMPONENT_TYPES_AFFECTED:
@@ -211,6 +268,59 @@ public class RuleImpl extends AssetImpl implements Rule {
 			return controls != null && !controls.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == ElementWithId.class) {
+			switch (derivedFeatureID) {
+			case TRADESPackage.RULE__ID:
+				return TRADESPackage.ELEMENT_WITH_ID__ID;
+			default:
+				return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == ElementWithId.class) {
+			switch (baseFeatureID) {
+			case TRADESPackage.ELEMENT_WITH_ID__ID:
+				return TRADESPackage.RULE__ID;
+			default:
+				return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (id: ");
+		result.append(id);
+		result.append(')');
+		return result.toString();
 	}
 
 } //RuleImpl

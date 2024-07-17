@@ -22,11 +22,14 @@ import java.util.Set;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
+import dsm.TRADES.ComponentType;
 import dsm.TRADES.Control;
 import dsm.TRADES.IControlDefinition;
 import dsm.TRADES.IThreatDefinition;
+import dsm.TRADES.Rule;
 import dsm.TRADES.SemanticHelper;
 import dsm.TRADES.Threat;
+import dsm.TRADES.Vulnerability;
 
 public class CatalogCustomImpl extends CatalogImpl {
 
@@ -49,6 +52,30 @@ public class CatalogCustomImpl extends CatalogImpl {
 			return null;
 		}
 		return getThreatOwner().getExternals().stream().filter(c -> id.equals(c.getId())).findFirst().orElse(null);
+	}
+
+	@Override
+	public ComponentType getComponentTypeById(String id) {
+		if (id == null || getComponentTypeOwner() == null) {
+			return null;
+		}
+		return getComponentTypeOwner().getComponentTypes().stream().filter(c -> id.equals(c.getId())).findFirst().orElse(null);
+	}
+
+	@Override
+	public Rule getRuleById(String id) {
+		if (id == null || getRuleOwner() == null) {
+			return null;
+		}
+		return getRuleOwner().getRules().stream().filter(c -> id.equals(c.getId())).findFirst().orElse(null);
+	}
+
+	@Override
+	public Vulnerability getVulnerabilityById(String id) {
+		if (id == null || getVulnerabilityOwner() == null) {
+			return null;
+		}
+		return getVulnerabilityOwner().getVulnerabilities().stream().filter(c -> id.equals(c.getId())).findFirst().orElse(null);
 	}
 
 	@Override

@@ -23,6 +23,6 @@ package dsm.TRADES;
  * @model
  * @generated
  */
-public interface Catalog
-		extends AbstractThreatOwner, AbstractControlOwner, NamedElement, ICatalogDefinition, ElementWithId {
+public interface Catalog extends AbstractThreatOwner, AbstractControlOwner, NamedElement, ICatalogDefinition,
+		ElementWithId, AbstractVulnerabilityOwner, AbstractRuleOwner, AbstractComponentTypeOwner {
 } // Catalog

@@ -276,6 +276,15 @@
       <genOperations ecoreOperation="TRADES.ecore#//ICatalogDefinition/getControlDefinitions"/>
       <genOperations ecoreOperation="TRADES.ecore#//ICatalogDefinition/getIdentifier"/>
       <genOperations ecoreOperation="TRADES.ecore#//ICatalogDefinition/getName"/>
+      <genOperations ecoreOperation="TRADES.ecore#//ICatalogDefinition/getRuleById">
+        <genParameters ecoreParameter="TRADES.ecore#//ICatalogDefinition/getRuleById/id"/>
+      </genOperations>
+      <genOperations ecoreOperation="TRADES.ecore#//ICatalogDefinition/getVulnerabilityById">
+        <genParameters ecoreParameter="TRADES.ecore#//ICatalogDefinition/getVulnerabilityById/id"/>
+      </genOperations>
+      <genOperations ecoreOperation="TRADES.ecore#//ICatalogDefinition/getComponentTypeById">
+        <genParameters ecoreParameter="TRADES.ecore#//ICatalogDefinition/getComponentTypeById/id"/>
+      </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="TRADES.ecore#//IMitigationLink">
       <genOperations ecoreOperation="TRADES.ecore#//IMitigationLink/getDescription"/>

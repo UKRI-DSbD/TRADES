@@ -294,7 +294,7 @@
         eType="#//Component"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LinkType" eSuperTypes="#//NamedElement #//ColoredElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Catalog" eSuperTypes="#//AbstractThreatOwner #//AbstractControlOwner #//NamedElement #//ICatalogDefinition #//ElementWithId"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Catalog" eSuperTypes="#//AbstractThreatOwner #//AbstractControlOwner #//NamedElement #//ICatalogDefinition #//ElementWithId #//AbstractVulnerabilityOwner #//AbstractRuleOwner #//AbstractComponentTypeOwner"/>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractThreatOwner" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="threatOwner" lowerBound="1"
         eType="#//ThreatsOwner" containment="true"/>
@@ -332,6 +332,15 @@
     </eOperations>
     <eOperations name="getIdentifier" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eOperations name="getName" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eOperations name="getRuleById" eType="#//Rule">
+      <eParameters name="id" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getVulnerabilityById" eType="#//Vulnerability">
+      <eParameters name="id" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getComponentTypeById" eType="#//ComponentType">
+      <eParameters name="id" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IMitigationLink" abstract="true" interface="true">
     <eOperations name="getDescription" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
@@ -361,7 +370,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="vulnerabilities" upperBound="-1"
         eType="#//Vulnerability" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Vulnerability" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Vulnerability" eSuperTypes="#//NamedElement #//ElementWithId">
     <eStructuralFeatures xsi:type="ecore:EReference" name="manifests" upperBound="-1"
         eType="#//Vulnerability"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="vulnerabilityType" eType="#//VulnerabilityTypeENUM"/>
@@ -382,7 +391,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="componentTypes" upperBound="-1"
         eType="#//ComponentType" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ComponentType" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentType" eSuperTypes="#//NamedElement #//ElementWithId">
     <eStructuralFeatures xsi:type="ecore:EReference" name="manifests" upperBound="-1"
         eType="#//ComponentType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subjectToThreats" upperBound="-1"
@@ -399,7 +408,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
         eType="#//Rule" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Rule" eSuperTypes="#//Asset">
+  <eClassifiers xsi:type="ecore:EClass" name="Rule" eSuperTypes="#//Asset #//ElementWithId">
     <eStructuralFeatures xsi:type="ecore:EReference" name="vulnerabilities" lowerBound="1"
         upperBound="-1" eType="#//Vulnerability"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="componentTypesAffected"

@@ -420,6 +420,12 @@ public class TRADESSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseElementWithId(catalog);
 			if (result == null)
+				result = caseAbstractVulnerabilityOwner(catalog);
+			if (result == null)
+				result = caseAbstractRuleOwner(catalog);
+			if (result == null)
+				result = caseAbstractComponentTypeOwner(catalog);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -514,6 +520,8 @@ public class TRADESSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(vulnerability);
 			if (result == null)
+				result = caseElementWithId(vulnerability);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -536,6 +544,8 @@ public class TRADESSwitch<T> extends Switch<T> {
 			T result = caseComponentType(componentType);
 			if (result == null)
 				result = caseNamedElement(componentType);
+			if (result == null)
+				result = caseElementWithId(componentType);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -568,6 +578,8 @@ public class TRADESSwitch<T> extends Switch<T> {
 			T result = caseRule(rule);
 			if (result == null)
 				result = caseAsset(rule);
+			if (result == null)
+				result = caseElementWithId(rule);
 			if (result == null)
 				result = caseNamedElement(rule);
 			if (result == null)

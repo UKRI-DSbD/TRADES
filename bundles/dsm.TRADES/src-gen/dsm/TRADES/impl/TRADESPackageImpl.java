@@ -2124,6 +2124,36 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getICatalogDefinition__GetRuleById__String() {
+		return iCatalogDefinitionEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getICatalogDefinition__GetVulnerabilityById__String() {
+		return iCatalogDefinitionEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getICatalogDefinition__GetComponentTypeById__String() {
+		return iCatalogDefinitionEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getIMitigationLink() {
 		return iMitigationLinkEClass;
 	}
@@ -2823,6 +2853,9 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		createEOperation(iCatalogDefinitionEClass, ICATALOG_DEFINITION___GET_CONTROL_DEFINITIONS);
 		createEOperation(iCatalogDefinitionEClass, ICATALOG_DEFINITION___GET_IDENTIFIER);
 		createEOperation(iCatalogDefinitionEClass, ICATALOG_DEFINITION___GET_NAME);
+		createEOperation(iCatalogDefinitionEClass, ICATALOG_DEFINITION___GET_RULE_BY_ID__STRING);
+		createEOperation(iCatalogDefinitionEClass, ICATALOG_DEFINITION___GET_VULNERABILITY_BY_ID__STRING);
+		createEOperation(iCatalogDefinitionEClass, ICATALOG_DEFINITION___GET_COMPONENT_TYPE_BY_ID__STRING);
 
 		iMitigationLinkEClass = createEClass(IMITIGATION_LINK);
 		createEOperation(iMitigationLinkEClass, IMITIGATION_LINK___GET_DESCRIPTION);
@@ -2971,13 +3004,19 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		catalogEClass.getESuperTypes().add(this.getNamedElement());
 		catalogEClass.getESuperTypes().add(this.getICatalogDefinition());
 		catalogEClass.getESuperTypes().add(this.getElementWithId());
+		catalogEClass.getESuperTypes().add(this.getAbstractVulnerabilityOwner());
+		catalogEClass.getESuperTypes().add(this.getAbstractRuleOwner());
+		catalogEClass.getESuperTypes().add(this.getAbstractComponentTypeOwner());
 		iThreatDefinitionEClass.getESuperTypes().add(this.getIElementWithSource());
 		iControlDefinitionEClass.getESuperTypes().add(this.getIElementWithSource());
 		domainAssetEClass.getESuperTypes().add(this.getAsset());
 		vulnerabilityEClass.getESuperTypes().add(this.getNamedElement());
+		vulnerabilityEClass.getESuperTypes().add(this.getElementWithId());
 		componentTypeEClass.getESuperTypes().add(this.getNamedElement());
+		componentTypeEClass.getESuperTypes().add(this.getElementWithId());
 		assetEClass.getESuperTypes().add(this.getNamedElement());
 		ruleEClass.getESuperTypes().add(this.getAsset());
+		ruleEClass.getESuperTypes().add(this.getElementWithId());
 		characteristicEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
@@ -3456,6 +3495,18 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 
 		initEOperation(getICatalogDefinition__GetName(), theEcorePackage.getEString(), "getName", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
+
+		op = initEOperation(getICatalogDefinition__GetRuleById__String(), this.getRule(), "getRuleById", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEString(), "id", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getICatalogDefinition__GetVulnerabilityById__String(), this.getVulnerability(),
+				"getVulnerabilityById", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEString(), "id", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getICatalogDefinition__GetComponentTypeById__String(), this.getComponentType(),
+				"getComponentTypeById", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEString(), "id", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(iMitigationLinkEClass, IMitigationLink.class, "IMitigationLink", IS_ABSTRACT, IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

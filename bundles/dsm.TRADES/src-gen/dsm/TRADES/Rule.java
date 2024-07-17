@@ -33,7 +33,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Rule extends Asset {
+public interface Rule extends Asset, ElementWithId {
 	/**
 	 * Returns the value of the '<em><b>Vulnerabilities</b></em>' reference list.
 	 * The list contents are of type {@link dsm.TRADES.Vulnerability}.

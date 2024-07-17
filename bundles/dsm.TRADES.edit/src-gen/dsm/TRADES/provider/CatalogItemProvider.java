@@ -107,6 +107,9 @@ public class CatalogItemProvider extends AbstractThreatOwnerItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_CONTROL_OWNER__CONTROL_OWNER);
+			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_VULNERABILITY_OWNER__VULNERABILITY_OWNER);
+			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_RULE_OWNER__RULE_OWNER);
+			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_COMPONENT_TYPE_OWNER__COMPONENT_TYPE_OWNER);
 		}
 		return childrenFeatures;
 	}
@@ -175,6 +178,9 @@ public class CatalogItemProvider extends AbstractThreatOwnerItemProvider {
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case TRADESPackage.CATALOG__CONTROL_OWNER:
+		case TRADESPackage.CATALOG__VULNERABILITY_OWNER:
+		case TRADESPackage.CATALOG__RULE_OWNER:
+		case TRADESPackage.CATALOG__COMPONENT_TYPE_OWNER:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -194,6 +200,17 @@ public class CatalogItemProvider extends AbstractThreatOwnerItemProvider {
 
 		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.ABSTRACT_CONTROL_OWNER__CONTROL_OWNER,
 				TRADESFactory.eINSTANCE.createControlOwner()));
+
+		newChildDescriptors
+				.add(createChildParameter(TRADESPackage.Literals.ABSTRACT_VULNERABILITY_OWNER__VULNERABILITY_OWNER,
+						TRADESFactory.eINSTANCE.createVulnerabilityOwner()));
+
+		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.ABSTRACT_RULE_OWNER__RULE_OWNER,
+				TRADESFactory.eINSTANCE.createRuleOwner()));
+
+		newChildDescriptors
+				.add(createChildParameter(TRADESPackage.Literals.ABSTRACT_COMPONENT_TYPE_OWNER__COMPONENT_TYPE_OWNER,
+						TRADESFactory.eINSTANCE.createComponentTypeOwner()));
 	}
 
 }
