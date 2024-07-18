@@ -13,70 +13,13 @@
  */
 package dsm.TRADES.util;
 
+import dsm.TRADES.*;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
-
-import dsm.TRADES.AbstractComponentTypeOwner;
-import dsm.TRADES.AbstractControlOwner;
-import dsm.TRADES.AbstractRuleOwner;
-import dsm.TRADES.AbstractThreatOwner;
-import dsm.TRADES.AbstractVulnerabilityOwner;
-import dsm.TRADES.AffectRelation;
-import dsm.TRADES.AffectedENUM;
-import dsm.TRADES.Analysis;
-import dsm.TRADES.AssessmentENUM;
-import dsm.TRADES.Asset;
-import dsm.TRADES.AttackChain;
-import dsm.TRADES.AttackChainStep;
-import dsm.TRADES.Catalog;
-import dsm.TRADES.Characteristic;
-import dsm.TRADES.CharacteristicOwner;
-import dsm.TRADES.ColoredElement;
-import dsm.TRADES.Component;
-import dsm.TRADES.ComponentCategoryENUM;
-import dsm.TRADES.ComponentOwner;
-import dsm.TRADES.ComponentType;
-import dsm.TRADES.ComponentTypeOwner;
-import dsm.TRADES.Control;
-import dsm.TRADES.ControlOwner;
-import dsm.TRADES.ControlStatusENUM;
-import dsm.TRADES.Data;
-import dsm.TRADES.DataOwner;
-import dsm.TRADES.DataOwnerElement;
-import dsm.TRADES.DifficultyScore;
-import dsm.TRADES.DomainAsset;
-import dsm.TRADES.ElementWithId;
-import dsm.TRADES.ExternalControl;
-import dsm.TRADES.ExternalElement;
-import dsm.TRADES.ExternalThreat;
-import dsm.TRADES.ICatalogDefinition;
-import dsm.TRADES.IControlDefinition;
-import dsm.TRADES.IElementWithSource;
-import dsm.TRADES.IMitigationLink;
-import dsm.TRADES.IThreatDefinition;
-import dsm.TRADES.ImpactConfiguration;
-import dsm.TRADES.ImpactScore;
-import dsm.TRADES.Link;
-import dsm.TRADES.LinkType;
-import dsm.TRADES.NamedElement;
-import dsm.TRADES.RGBColor;
-import dsm.TRADES.Rule;
-import dsm.TRADES.RuleOwner;
-import dsm.TRADES.ScoreSystem;
-import dsm.TRADES.SecurityObjectiveENUM;
-import dsm.TRADES.TRADESPackage;
-import dsm.TRADES.Threat;
-import dsm.TRADES.ThreatAllocationRelation;
-import dsm.TRADES.ThreatMitigationRelation;
-import dsm.TRADES.ThreatsOwner;
-import dsm.TRADES.Vulnerability;
-import dsm.TRADES.VulnerabilityOwner;
-import dsm.TRADES.VulnerabilityTypeENUM;
-import dsm.TRADES.threatTypeENUM;
 
 /**
  * <!-- begin-user-doc -->
@@ -211,8 +154,8 @@ public class TRADESValidator extends EObjectValidator {
 			return validateDifficultyScore((DifficultyScore) value, diagnostics, context);
 		case TRADESPackage.DATA_OWNER_ELEMENT:
 			return validateDataOwnerElement((DataOwnerElement) value, diagnostics, context);
-		case TRADESPackage.COMPONENT_OWNER:
-			return validateComponentOwner((ComponentOwner) value, diagnostics, context);
+		case TRADESPackage.ABSTRACT_COMPONENT_OWNER:
+			return validateAbstractComponentOwner((AbstractComponentOwner) value, diagnostics, context);
 		case TRADESPackage.NAMED_ELEMENT:
 			return validateNamedElement((NamedElement) value, diagnostics, context);
 		case TRADESPackage.EXTERNAL_THREAT:
@@ -561,9 +504,9 @@ public class TRADESValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateComponentOwner(ComponentOwner componentOwner, DiagnosticChain diagnostics,
-			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(componentOwner, diagnostics, context);
+	public boolean validateAbstractComponentOwner(AbstractComponentOwner abstractComponentOwner,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(abstractComponentOwner, diagnostics, context);
 	}
 
 	/**

@@ -207,8 +207,8 @@
       <genOperations ecoreOperation="TRADES.ecore#//DataOwnerElement/getInheritedDatas"/>
       <genOperations ecoreOperation="TRADES.ecore#//DataOwnerElement/getAllDatas"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="TRADES.ecore#//ComponentOwner">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//ComponentOwner/components"/>
+    <genClasses image="false" ecoreClass="TRADES.ecore#//AbstractComponentOwner">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TRADES.ecore#//AbstractComponentOwner/components"/>
     </genClasses>
     <genClasses image="false" ecoreClass="TRADES.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TRADES.ecore#//NamedElement/name"/>

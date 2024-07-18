@@ -45,7 +45,7 @@ import dsm.TRADES.AffectRelation;
 import dsm.TRADES.Analysis;
 import dsm.TRADES.AttackChain;
 import dsm.TRADES.Component;
-import dsm.TRADES.ComponentOwner;
+import dsm.TRADES.AbstractComponentOwner;
 import dsm.TRADES.Control;
 import dsm.TRADES.ControlOwner;
 import dsm.TRADES.Data;
@@ -138,7 +138,7 @@ public class SemanticService {
 
 	}
 
-	private static void getSubDataOwners(ComponentOwner o, List<DataOwnerElement> collector) {
+	private static void getSubDataOwners(AbstractComponentOwner o, List<DataOwnerElement> collector) {
 		for (Component sub : o.getComponents()) {
 			collector.add(sub);
 			getSubDataOwners(sub, collector);

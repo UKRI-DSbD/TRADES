@@ -13,59 +13,10 @@
  */
 package dsm.TRADES.util;
 
+import dsm.TRADES.*;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-
-import dsm.TRADES.AbstractComponentTypeOwner;
-import dsm.TRADES.AbstractControlOwner;
-import dsm.TRADES.AbstractRuleOwner;
-import dsm.TRADES.AbstractThreatOwner;
-import dsm.TRADES.AbstractVulnerabilityOwner;
-import dsm.TRADES.AffectRelation;
-import dsm.TRADES.Analysis;
-import dsm.TRADES.Asset;
-import dsm.TRADES.AttackChain;
-import dsm.TRADES.AttackChainStep;
-import dsm.TRADES.Catalog;
-import dsm.TRADES.Characteristic;
-import dsm.TRADES.CharacteristicOwner;
-import dsm.TRADES.ColoredElement;
-import dsm.TRADES.Component;
-import dsm.TRADES.ComponentOwner;
-import dsm.TRADES.ComponentType;
-import dsm.TRADES.ComponentTypeOwner;
-import dsm.TRADES.Control;
-import dsm.TRADES.ControlOwner;
-import dsm.TRADES.Data;
-import dsm.TRADES.DataOwner;
-import dsm.TRADES.DataOwnerElement;
-import dsm.TRADES.DifficultyScore;
-import dsm.TRADES.DomainAsset;
-import dsm.TRADES.ElementWithId;
-import dsm.TRADES.ExternalControl;
-import dsm.TRADES.ExternalElement;
-import dsm.TRADES.ExternalThreat;
-import dsm.TRADES.ICatalogDefinition;
-import dsm.TRADES.IControlDefinition;
-import dsm.TRADES.IElementWithSource;
-import dsm.TRADES.IMitigationLink;
-import dsm.TRADES.IThreatDefinition;
-import dsm.TRADES.ImpactConfiguration;
-import dsm.TRADES.ImpactScore;
-import dsm.TRADES.Link;
-import dsm.TRADES.LinkType;
-import dsm.TRADES.NamedElement;
-import dsm.TRADES.Rule;
-import dsm.TRADES.RuleOwner;
-import dsm.TRADES.ScoreSystem;
-import dsm.TRADES.TRADESPackage;
-import dsm.TRADES.Threat;
-import dsm.TRADES.ThreatAllocationRelation;
-import dsm.TRADES.ThreatMitigationRelation;
-import dsm.TRADES.ThreatsOwner;
-import dsm.TRADES.Vulnerability;
-import dsm.TRADES.VulnerabilityOwner;
 
 /**
  * <!-- begin-user-doc -->
@@ -128,7 +79,7 @@ public class TRADESSwitch<T> extends Switch<T> {
 			Analysis analysis = (Analysis) theEObject;
 			T result = caseAnalysis(analysis);
 			if (result == null)
-				result = caseComponentOwner(analysis);
+				result = caseAbstractComponentOwner(analysis);
 			if (result == null)
 				result = caseDataOwnerElement(analysis);
 			if (result == null)
@@ -168,7 +119,7 @@ public class TRADESSwitch<T> extends Switch<T> {
 			Component component = (Component) theEObject;
 			T result = caseComponent(component);
 			if (result == null)
-				result = caseComponentOwner(component);
+				result = caseAbstractComponentOwner(component);
 			if (result == null)
 				result = caseDataOwnerElement(component);
 			if (result == null)
@@ -288,9 +239,9 @@ public class TRADESSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case TRADESPackage.COMPONENT_OWNER: {
-			ComponentOwner componentOwner = (ComponentOwner) theEObject;
-			T result = caseComponentOwner(componentOwner);
+		case TRADESPackage.ABSTRACT_COMPONENT_OWNER: {
+			AbstractComponentOwner abstractComponentOwner = (AbstractComponentOwner) theEObject;
+			T result = caseAbstractComponentOwner(abstractComponentOwner);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -818,17 +769,17 @@ public class TRADESSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Component Owner</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Component Owner</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Component Owner</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Component Owner</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseComponentOwner(ComponentOwner object) {
+	public T caseAbstractComponentOwner(AbstractComponentOwner object) {
 		return null;
 	}
 

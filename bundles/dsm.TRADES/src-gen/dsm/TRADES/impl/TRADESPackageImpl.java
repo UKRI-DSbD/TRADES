@@ -13,6 +13,7 @@
  */
 package dsm.TRADES.impl;
 
+import dsm.TRADES.AbstractComponentOwner;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -42,7 +43,6 @@ import dsm.TRADES.CharacteristicOwner;
 import dsm.TRADES.ColoredElement;
 import dsm.TRADES.Component;
 import dsm.TRADES.ComponentCategoryENUM;
-import dsm.TRADES.ComponentOwner;
 import dsm.TRADES.ComponentType;
 import dsm.TRADES.ComponentTypeOwner;
 import dsm.TRADES.Control;
@@ -194,7 +194,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass componentOwnerEClass = null;
+	private EClass abstractComponentOwnerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1604,8 +1604,8 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getComponentOwner() {
-		return componentOwnerEClass;
+	public EClass getAbstractComponentOwner() {
+		return abstractComponentOwnerEClass;
 	}
 
 	/**
@@ -1614,8 +1614,8 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getComponentOwner_Components() {
-		return (EReference) componentOwnerEClass.getEStructuralFeatures().get(0);
+	public EReference getAbstractComponentOwner_Components() {
+		return (EReference) abstractComponentOwnerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2787,8 +2787,8 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		createEOperation(dataOwnerElementEClass, DATA_OWNER_ELEMENT___GET_INHERITED_DATAS);
 		createEOperation(dataOwnerElementEClass, DATA_OWNER_ELEMENT___GET_ALL_DATAS);
 
-		componentOwnerEClass = createEClass(COMPONENT_OWNER);
-		createEReference(componentOwnerEClass, COMPONENT_OWNER__COMPONENTS);
+		abstractComponentOwnerEClass = createEClass(ABSTRACT_COMPONENT_OWNER);
+		createEReference(abstractComponentOwnerEClass, ABSTRACT_COMPONENT_OWNER__COMPONENTS);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -2962,7 +2962,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		analysisEClass.getESuperTypes().add(this.getComponentOwner());
+		analysisEClass.getESuperTypes().add(this.getAbstractComponentOwner());
 		analysisEClass.getESuperTypes().add(this.getDataOwnerElement());
 		analysisEClass.getESuperTypes().add(this.getNamedElement());
 		analysisEClass.getESuperTypes().add(this.getAbstractControlOwner());
@@ -2974,7 +2974,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		threatEClass.getESuperTypes().add(this.getNamedElement());
 		threatEClass.getESuperTypes().add(this.getIThreatDefinition());
 		threatEClass.getESuperTypes().add(this.getElementWithId());
-		componentEClass.getESuperTypes().add(this.getComponentOwner());
+		componentEClass.getESuperTypes().add(this.getAbstractComponentOwner());
 		componentEClass.getESuperTypes().add(this.getDataOwnerElement());
 		componentEClass.getESuperTypes().add(this.getNamedElement());
 		componentEClass.getESuperTypes().add(this.getAbstractControlOwner());
@@ -3346,11 +3346,11 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 
 		initEOperation(getDataOwnerElement__GetAllDatas(), this.getData(), "getAllDatas", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(componentOwnerEClass, ComponentOwner.class, "ComponentOwner", IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComponentOwner_Components(), this.getComponent(), null, "components", null, 0, -1,
-				ComponentOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(abstractComponentOwnerEClass, AbstractComponentOwner.class, "AbstractComponentOwner", IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAbstractComponentOwner_Components(), this.getComponent(), null, "components", null, 0, -1,
+				AbstractComponentOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

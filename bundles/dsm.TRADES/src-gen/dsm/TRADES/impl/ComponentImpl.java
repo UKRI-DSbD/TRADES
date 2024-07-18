@@ -76,7 +76,7 @@ import dsm.TRADES.Vulnerability;
  *
  * @generated
  */
-public class ComponentImpl extends ComponentOwnerImpl implements Component {
+public class ComponentImpl extends AbstractComponentOwnerImpl implements Component {
 	/**
 	 * The cached value of the '{@link #getDataOwner() <em>Data Owner</em>}' containment reference.
 	 * <!-- begin-user-doc -->
