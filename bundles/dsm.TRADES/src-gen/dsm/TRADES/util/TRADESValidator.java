@@ -156,6 +156,8 @@ public class TRADESValidator extends EObjectValidator {
 			return validateDataOwnerElement((DataOwnerElement) value, diagnostics, context);
 		case TRADESPackage.ABSTRACT_COMPONENT_OWNER:
 			return validateAbstractComponentOwner((AbstractComponentOwner) value, diagnostics, context);
+		case TRADESPackage.COMPONENT_OWNER:
+			return validateComponentOwner((ComponentOwner) value, diagnostics, context);
 		case TRADESPackage.NAMED_ELEMENT:
 			return validateNamedElement((NamedElement) value, diagnostics, context);
 		case TRADESPackage.EXTERNAL_THREAT:
@@ -507,6 +509,16 @@ public class TRADESValidator extends EObjectValidator {
 	public boolean validateAbstractComponentOwner(AbstractComponentOwner abstractComponentOwner,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(abstractComponentOwner, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateComponentOwner(ComponentOwner componentOwner, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(componentOwner, diagnostics, context);
 	}
 
 	/**

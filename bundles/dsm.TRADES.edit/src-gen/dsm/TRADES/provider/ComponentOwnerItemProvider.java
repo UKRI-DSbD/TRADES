@@ -13,7 +13,7 @@
  */
 package dsm.TRADES.provider;
 
-import dsm.TRADES.AbstractComponentOwner;
+import dsm.TRADES.ComponentOwner;
 import dsm.TRADES.TRADESFactory;
 import dsm.TRADES.TRADESPackage;
 
@@ -38,12 +38,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link dsm.TRADES.AbstractComponentOwner} object.
+ * This is the item provider adapter for a {@link dsm.TRADES.ComponentOwner} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AbstractComponentOwnerItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+public class ComponentOwnerItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -51,7 +51,7 @@ public class AbstractComponentOwnerItemProvider extends ItemProviderAdapter impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractComponentOwnerItemProvider(AdapterFactory adapterFactory) {
+	public ComponentOwnerItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -82,7 +82,7 @@ public class AbstractComponentOwnerItemProvider extends ItemProviderAdapter impl
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_COMPONENT_OWNER__COMPONENT_OWNER);
+			childrenFeatures.add(TRADESPackage.Literals.COMPONENT_OWNER__COMPONENTS);
 		}
 		return childrenFeatures;
 	}
@@ -98,6 +98,17 @@ public class AbstractComponentOwnerItemProvider extends ItemProviderAdapter impl
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This returns ComponentOwner.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComponentOwner"));
 	}
 
 	/**
@@ -118,7 +129,7 @@ public class AbstractComponentOwnerItemProvider extends ItemProviderAdapter impl
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_AbstractComponentOwner_type");
+		return getString("_UI_ComponentOwner_type");
 	}
 
 	/**
@@ -132,8 +143,8 @@ public class AbstractComponentOwnerItemProvider extends ItemProviderAdapter impl
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(AbstractComponentOwner.class)) {
-		case TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENT_OWNER:
+		switch (notification.getFeatureID(ComponentOwner.class)) {
+		case TRADESPackage.COMPONENT_OWNER__COMPONENTS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -151,8 +162,8 @@ public class AbstractComponentOwnerItemProvider extends ItemProviderAdapter impl
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.ABSTRACT_COMPONENT_OWNER__COMPONENT_OWNER,
-				TRADESFactory.eINSTANCE.createComponentOwner()));
+		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.COMPONENT_OWNER__COMPONENTS,
+				TRADESFactory.eINSTANCE.createComponent()));
 	}
 
 	/**

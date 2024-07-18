@@ -24,6 +24,7 @@ import org.junit.Test;
 
 import dsm.TRADES.Analysis;
 import dsm.TRADES.Component;
+import dsm.TRADES.ComponentOwner;
 import dsm.TRADES.Control;
 import dsm.TRADES.SemanticUtil;
 import dsm.TRADES.Threat;
@@ -48,8 +49,11 @@ public class ThreatCustomImplTest extends AbstractTest {
 
 		// Allocated a ThreatMitigationRelation but no component => not used
 
+		ComponentOwner componentOwner = fact.createComponentOwner();
+		root.setComponentOwner(componentOwner);
+
 		Component rootComponent = fact.createComponent();
-		root.getComponents().add(rootComponent);
+		root.getComponentOwner().getComponents().add(rootComponent);
 
 		ThreatAllocationRelation thAllocationRel = fact.createThreatAllocationRelation();
 		thAllocationRel.setComponent(rootComponent);

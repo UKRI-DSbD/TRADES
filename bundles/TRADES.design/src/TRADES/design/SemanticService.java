@@ -139,7 +139,7 @@ public class SemanticService {
 	}
 
 	private static void getSubDataOwners(AbstractComponentOwner o, List<DataOwnerElement> collector) {
-		for (Component sub : o.getComponents()) {
+		for (Component sub : o.getComponentOwner().getComponents()) {
 			collector.add(sub);
 			getSubDataOwners(sub, collector);
 		}
@@ -495,7 +495,7 @@ public class SemanticService {
 				.flatMap(affect -> Stream.of(affect.getSourceComponent(), affect.getTargetComponent()))
 				.filter(c -> c != null).collect(toSet());
 
-		return parent.getComponents().stream().filter(child -> contains(child, allComponents)).collect(toList());
+		return parent.getComponentOwner().getComponents().stream().filter(child -> contains(child, allComponents)).collect(toList());
 
 	}
 
@@ -511,7 +511,7 @@ public class SemanticService {
 		if (components.contains(c)) {
 			return true;
 		}
-		for (Component child : c.getComponents()) {
+		for (Component child : c.getComponentOwner().getComponents()) {
 			if (contains(child, components)) {
 				return true;
 			}

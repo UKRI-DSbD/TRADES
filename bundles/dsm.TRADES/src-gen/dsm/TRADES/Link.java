@@ -27,14 +27,13 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link dsm.TRADES.Link#getLinkType <em>Link Type</em>}</li>
  *   <li>{@link dsm.TRADES.Link#getLinkConveyed <em>Link Conveyed</em>}</li>
  *   <li>{@link dsm.TRADES.Link#getConveyingLink <em>Conveying Link</em>}</li>
- *   <li>{@link dsm.TRADES.Link#getComponents <em>Components</em>}</li>
  * </ul>
  *
  * @see dsm.TRADES.TRADESPackage#getLink()
  * @model
  * @generated
  */
-public interface Link extends NamedElement {
+public interface Link extends NamedElement, AbstractComponentOwner {
 	/**
 	 * Returns the value of the '<em><b>Link Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -84,17 +83,5 @@ public interface Link extends NamedElement {
 	 * @generated
 	 */
 	EList<Link> getConveyingLink();
-
-	/**
-	 * Returns the value of the '<em><b>Components</b></em>' reference list.
-	 * The list contents are of type {@link dsm.TRADES.Component}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Components</em>' reference list.
-	 * @see dsm.TRADES.TRADESPackage#getLink_Components()
-	 * @model
-	 * @generated
-	 */
-	EList<Component> getComponents();
 
 } // Link

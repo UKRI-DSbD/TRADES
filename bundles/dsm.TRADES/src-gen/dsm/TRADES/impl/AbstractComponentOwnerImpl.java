@@ -14,22 +14,15 @@
 package dsm.TRADES.impl;
 
 import dsm.TRADES.AbstractComponentOwner;
-import dsm.TRADES.Component;
+import dsm.TRADES.ComponentOwner;
 import dsm.TRADES.TRADESPackage;
-
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dsm.TRADES.impl.AbstractComponentOwnerImpl#getComponents <em>Components</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.AbstractComponentOwnerImpl#getComponentOwner <em>Component Owner</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,14 +40,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public abstract class AbstractComponentOwnerImpl extends MinimalEObjectImpl.Container
 		implements AbstractComponentOwner {
 	/**
-	 * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
+	 * The cached value of the '{@link #getComponentOwner() <em>Component Owner</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getComponents()
+	 * @see #getComponentOwner()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Component> components;
+	protected ComponentOwner componentOwner;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -81,12 +74,50 @@ public abstract class AbstractComponentOwnerImpl extends MinimalEObjectImpl.Cont
 	 * @generated
 	 */
 	@Override
-	public EList<Component> getComponents() {
-		if (components == null) {
-			components = new EObjectContainmentEList<Component>(Component.class, this,
-					TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENTS);
+	public ComponentOwner getComponentOwner() {
+		return componentOwner;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetComponentOwner(ComponentOwner newComponentOwner, NotificationChain msgs) {
+		ComponentOwner oldComponentOwner = componentOwner;
+		componentOwner = newComponentOwner;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENT_OWNER, oldComponentOwner, newComponentOwner);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
-		return components;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setComponentOwner(ComponentOwner newComponentOwner) {
+		if (newComponentOwner != componentOwner) {
+			NotificationChain msgs = null;
+			if (componentOwner != null)
+				msgs = ((InternalEObject) componentOwner).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENT_OWNER, null, msgs);
+			if (newComponentOwner != null)
+				msgs = ((InternalEObject) newComponentOwner).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENT_OWNER, null, msgs);
+			msgs = basicSetComponentOwner(newComponentOwner, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENT_OWNER, newComponentOwner, newComponentOwner));
 	}
 
 	/**
@@ -97,8 +128,8 @@ public abstract class AbstractComponentOwnerImpl extends MinimalEObjectImpl.Cont
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENTS:
-			return ((InternalEList<?>) getComponents()).basicRemove(otherEnd, msgs);
+		case TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENT_OWNER:
+			return basicSetComponentOwner(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -111,8 +142,8 @@ public abstract class AbstractComponentOwnerImpl extends MinimalEObjectImpl.Cont
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENTS:
-			return getComponents();
+		case TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENT_OWNER:
+			return getComponentOwner();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -126,9 +157,8 @@ public abstract class AbstractComponentOwnerImpl extends MinimalEObjectImpl.Cont
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENTS:
-			getComponents().clear();
-			getComponents().addAll((Collection<? extends Component>) newValue);
+		case TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENT_OWNER:
+			setComponentOwner((ComponentOwner) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -142,8 +172,8 @@ public abstract class AbstractComponentOwnerImpl extends MinimalEObjectImpl.Cont
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENTS:
-			getComponents().clear();
+		case TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENT_OWNER:
+			setComponentOwner((ComponentOwner) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -157,8 +187,8 @@ public abstract class AbstractComponentOwnerImpl extends MinimalEObjectImpl.Cont
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENTS:
-			return components != null && !components.isEmpty();
+		case TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENT_OWNER:
+			return componentOwner != null;
 		}
 		return super.eIsSet(featureID);
 	}

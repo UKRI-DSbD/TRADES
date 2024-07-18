@@ -41,8 +41,8 @@ public class BaseResourceExtendedMetadata extends BasicExtendedMetaData {
 				TRADESPackage.eINSTANCE.getScoreSystem(), "difficultyscore"));
 
 		// On component owner
-		RENAMERS.add(new Renamer(TRADESPackage.eINSTANCE.getAbstractComponentOwner_Components(),
-				TRADESPackage.eINSTANCE.getAbstractComponentOwner(), "component"));
+		RENAMERS.add(new Renamer(TRADESPackage.eINSTANCE.getComponentOwner_Components(),
+				TRADESPackage.eINSTANCE.getComponentOwner(), "component"));
 
 		// On Threat
 		RENAMERS.add(new Renamer(TRADESPackage.eINSTANCE.getThreat_ThreatAllocations(),

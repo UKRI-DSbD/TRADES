@@ -245,7 +245,7 @@ public class DiagramService {
 		}
 
 		if (o instanceof AbstractComponentOwner) {
-			for (Component c : ((AbstractComponentOwner) o).getComponents()) {
+			for (Component c : ((AbstractComponentOwner) o).getComponentOwner().getComponents()) {
 				getLinkedThreat(c, collector);
 			}
 		}

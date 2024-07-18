@@ -246,6 +246,13 @@ public class TRADESSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case TRADESPackage.COMPONENT_OWNER: {
+			ComponentOwner componentOwner = (ComponentOwner) theEObject;
+			T result = caseComponentOwner(componentOwner);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case TRADESPackage.NAMED_ELEMENT: {
 			NamedElement namedElement = (NamedElement) theEObject;
 			T result = caseNamedElement(namedElement);
@@ -343,6 +350,8 @@ public class TRADESSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(link);
 			if (result == null)
+				result = caseAbstractComponentOwner(link);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -376,6 +385,8 @@ public class TRADESSwitch<T> extends Switch<T> {
 				result = caseAbstractRuleOwner(catalog);
 			if (result == null)
 				result = caseAbstractComponentTypeOwner(catalog);
+			if (result == null)
+				result = caseAbstractComponentOwner(catalog);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -780,6 +791,21 @@ public class TRADESSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAbstractComponentOwner(AbstractComponentOwner object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Component Owner</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Component Owner</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseComponentOwner(ComponentOwner object) {
 		return null;
 	}
 

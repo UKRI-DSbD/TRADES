@@ -13,6 +13,7 @@
  */
 package dsm.TRADES.impl;
 
+import dsm.TRADES.AbstractComponentOwner;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -21,11 +22,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import dsm.TRADES.Component;
+import dsm.TRADES.ComponentOwner;
 import dsm.TRADES.Link;
 import dsm.TRADES.LinkType;
 import dsm.TRADES.TRADESPackage;
@@ -38,15 +37,25 @@ import dsm.TRADES.TRADESPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link dsm.TRADES.impl.LinkImpl#getComponentOwner <em>Component Owner</em>}</li>
  *   <li>{@link dsm.TRADES.impl.LinkImpl#getLinkType <em>Link Type</em>}</li>
  *   <li>{@link dsm.TRADES.impl.LinkImpl#getLinkConveyed <em>Link Conveyed</em>}</li>
  *   <li>{@link dsm.TRADES.impl.LinkImpl#getConveyingLink <em>Conveying Link</em>}</li>
- *   <li>{@link dsm.TRADES.impl.LinkImpl#getComponents <em>Components</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class LinkImpl extends NamedElementImpl implements Link {
+	/**
+	 * The cached value of the '{@link #getComponentOwner() <em>Component Owner</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComponentOwner()
+	 * @generated
+	 * @ordered
+	 */
+	protected ComponentOwner componentOwner;
+
 	/**
 	 * The cached value of the '{@link #getLinkType() <em>Link Type</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -78,16 +87,6 @@ public class LinkImpl extends NamedElementImpl implements Link {
 	protected EList<Link> conveyingLink;
 
 	/**
-	 * The cached value of the '{@link #getComponents() <em>Components</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getComponents()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Component> components;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -104,6 +103,58 @@ public class LinkImpl extends NamedElementImpl implements Link {
 	@Override
 	protected EClass eStaticClass() {
 		return TRADESPackage.Literals.LINK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ComponentOwner getComponentOwner() {
+		return componentOwner;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetComponentOwner(ComponentOwner newComponentOwner, NotificationChain msgs) {
+		ComponentOwner oldComponentOwner = componentOwner;
+		componentOwner = newComponentOwner;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					TRADESPackage.LINK__COMPONENT_OWNER, oldComponentOwner, newComponentOwner);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setComponentOwner(ComponentOwner newComponentOwner) {
+		if (newComponentOwner != componentOwner) {
+			NotificationChain msgs = null;
+			if (componentOwner != null)
+				msgs = ((InternalEObject) componentOwner).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - TRADESPackage.LINK__COMPONENT_OWNER, null, msgs);
+			if (newComponentOwner != null)
+				msgs = ((InternalEObject) newComponentOwner).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - TRADESPackage.LINK__COMPONENT_OWNER, null, msgs);
+			msgs = basicSetComponentOwner(newComponentOwner, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.LINK__COMPONENT_OWNER,
+					newComponentOwner, newComponentOwner));
 	}
 
 	/**
@@ -181,19 +232,6 @@ public class LinkImpl extends NamedElementImpl implements Link {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EList<Component> getComponents() {
-		if (components == null) {
-			components = new EObjectResolvingEList<Component>(Component.class, this, TRADESPackage.LINK__COMPONENTS);
-		}
-		return components;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -214,6 +252,8 @@ public class LinkImpl extends NamedElementImpl implements Link {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case TRADESPackage.LINK__COMPONENT_OWNER:
+			return basicSetComponentOwner(null, msgs);
 		case TRADESPackage.LINK__LINK_CONVEYED:
 			return ((InternalEList<?>) getLinkConveyed()).basicRemove(otherEnd, msgs);
 		case TRADESPackage.LINK__CONVEYING_LINK:
@@ -230,6 +270,8 @@ public class LinkImpl extends NamedElementImpl implements Link {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+		case TRADESPackage.LINK__COMPONENT_OWNER:
+			return getComponentOwner();
 		case TRADESPackage.LINK__LINK_TYPE:
 			if (resolve)
 				return getLinkType();
@@ -238,8 +280,6 @@ public class LinkImpl extends NamedElementImpl implements Link {
 			return getLinkConveyed();
 		case TRADESPackage.LINK__CONVEYING_LINK:
 			return getConveyingLink();
-		case TRADESPackage.LINK__COMPONENTS:
-			return getComponents();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -253,6 +293,9 @@ public class LinkImpl extends NamedElementImpl implements Link {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case TRADESPackage.LINK__COMPONENT_OWNER:
+			setComponentOwner((ComponentOwner) newValue);
+			return;
 		case TRADESPackage.LINK__LINK_TYPE:
 			setLinkType((LinkType) newValue);
 			return;
@@ -263,10 +306,6 @@ public class LinkImpl extends NamedElementImpl implements Link {
 		case TRADESPackage.LINK__CONVEYING_LINK:
 			getConveyingLink().clear();
 			getConveyingLink().addAll((Collection<? extends Link>) newValue);
-			return;
-		case TRADESPackage.LINK__COMPONENTS:
-			getComponents().clear();
-			getComponents().addAll((Collection<? extends Component>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -280,6 +319,9 @@ public class LinkImpl extends NamedElementImpl implements Link {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case TRADESPackage.LINK__COMPONENT_OWNER:
+			setComponentOwner((ComponentOwner) null);
+			return;
 		case TRADESPackage.LINK__LINK_TYPE:
 			setLinkType((LinkType) null);
 			return;
@@ -288,9 +330,6 @@ public class LinkImpl extends NamedElementImpl implements Link {
 			return;
 		case TRADESPackage.LINK__CONVEYING_LINK:
 			getConveyingLink().clear();
-			return;
-		case TRADESPackage.LINK__COMPONENTS:
-			getComponents().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -304,16 +343,52 @@ public class LinkImpl extends NamedElementImpl implements Link {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+		case TRADESPackage.LINK__COMPONENT_OWNER:
+			return componentOwner != null;
 		case TRADESPackage.LINK__LINK_TYPE:
 			return linkType != null;
 		case TRADESPackage.LINK__LINK_CONVEYED:
 			return linkConveyed != null && !linkConveyed.isEmpty();
 		case TRADESPackage.LINK__CONVEYING_LINK:
 			return conveyingLink != null && !conveyingLink.isEmpty();
-		case TRADESPackage.LINK__COMPONENTS:
-			return components != null && !components.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == AbstractComponentOwner.class) {
+			switch (derivedFeatureID) {
+			case TRADESPackage.LINK__COMPONENT_OWNER:
+				return TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENT_OWNER;
+			default:
+				return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == AbstractComponentOwner.class) {
+			switch (baseFeatureID) {
+			case TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENT_OWNER:
+				return TRADESPackage.LINK__COMPONENT_OWNER;
+			default:
+				return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //LinkImpl

@@ -150,6 +150,15 @@ public interface TRADESFactory extends EFactory {
 	DifficultyScore createDifficultyScore();
 
 	/**
+	 * Returns a new object of class '<em>Component Owner</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Component Owner</em>'.
+	 * @generated
+	 */
+	ComponentOwner createComponentOwner();
+
+	/**
 	 * Returns a new object of class '<em>External Threat</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

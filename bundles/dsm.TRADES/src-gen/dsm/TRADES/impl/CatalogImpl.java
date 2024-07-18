@@ -13,6 +13,7 @@
  */
 package dsm.TRADES.impl;
 
+import dsm.TRADES.AbstractComponentOwner;
 import dsm.TRADES.AbstractComponentTypeOwner;
 import java.lang.reflect.InvocationTargetException;
 
@@ -27,6 +28,7 @@ import dsm.TRADES.AbstractControlOwner;
 import dsm.TRADES.AbstractRuleOwner;
 import dsm.TRADES.AbstractVulnerabilityOwner;
 import dsm.TRADES.Catalog;
+import dsm.TRADES.ComponentOwner;
 import dsm.TRADES.ComponentType;
 import dsm.TRADES.ComponentTypeOwner;
 import dsm.TRADES.Control;
@@ -57,6 +59,7 @@ import dsm.TRADES.VulnerabilityOwner;
  *   <li>{@link dsm.TRADES.impl.CatalogImpl#getVulnerabilityOwner <em>Vulnerability Owner</em>}</li>
  *   <li>{@link dsm.TRADES.impl.CatalogImpl#getRuleOwner <em>Rule Owner</em>}</li>
  *   <li>{@link dsm.TRADES.impl.CatalogImpl#getComponentTypeOwner <em>Component Type Owner</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.CatalogImpl#getComponentOwner <em>Component Owner</em>}</li>
  * </ul>
  *
  * @generated
@@ -141,6 +144,16 @@ public class CatalogImpl extends AbstractThreatOwnerImpl implements Catalog {
 	 * @ordered
 	 */
 	protected ComponentTypeOwner componentTypeOwner;
+
+	/**
+	 * The cached value of the '{@link #getComponentOwner() <em>Component Owner</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComponentOwner()
+	 * @generated
+	 * @ordered
+	 */
+	protected ComponentOwner componentOwner;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -423,6 +436,58 @@ public class CatalogImpl extends AbstractThreatOwnerImpl implements Catalog {
 	 * @generated
 	 */
 	@Override
+	public ComponentOwner getComponentOwner() {
+		return componentOwner;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetComponentOwner(ComponentOwner newComponentOwner, NotificationChain msgs) {
+		ComponentOwner oldComponentOwner = componentOwner;
+		componentOwner = newComponentOwner;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					TRADESPackage.CATALOG__COMPONENT_OWNER, oldComponentOwner, newComponentOwner);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setComponentOwner(ComponentOwner newComponentOwner) {
+		if (newComponentOwner != componentOwner) {
+			NotificationChain msgs = null;
+			if (componentOwner != null)
+				msgs = ((InternalEObject) componentOwner).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - TRADESPackage.CATALOG__COMPONENT_OWNER, null, msgs);
+			if (newComponentOwner != null)
+				msgs = ((InternalEObject) newComponentOwner).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - TRADESPackage.CATALOG__COMPONENT_OWNER, null, msgs);
+			msgs = basicSetComponentOwner(newComponentOwner, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.CATALOG__COMPONENT_OWNER,
+					newComponentOwner, newComponentOwner));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public IThreatDefinition getThreatById(String id) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -553,6 +618,8 @@ public class CatalogImpl extends AbstractThreatOwnerImpl implements Catalog {
 			return basicSetRuleOwner(null, msgs);
 		case TRADESPackage.CATALOG__COMPONENT_TYPE_OWNER:
 			return basicSetComponentTypeOwner(null, msgs);
+		case TRADESPackage.CATALOG__COMPONENT_OWNER:
+			return basicSetComponentOwner(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -577,6 +644,8 @@ public class CatalogImpl extends AbstractThreatOwnerImpl implements Catalog {
 			return getRuleOwner();
 		case TRADESPackage.CATALOG__COMPONENT_TYPE_OWNER:
 			return getComponentTypeOwner();
+		case TRADESPackage.CATALOG__COMPONENT_OWNER:
+			return getComponentOwner();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -606,6 +675,9 @@ public class CatalogImpl extends AbstractThreatOwnerImpl implements Catalog {
 			return;
 		case TRADESPackage.CATALOG__COMPONENT_TYPE_OWNER:
 			setComponentTypeOwner((ComponentTypeOwner) newValue);
+			return;
+		case TRADESPackage.CATALOG__COMPONENT_OWNER:
+			setComponentOwner((ComponentOwner) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -637,6 +709,9 @@ public class CatalogImpl extends AbstractThreatOwnerImpl implements Catalog {
 		case TRADESPackage.CATALOG__COMPONENT_TYPE_OWNER:
 			setComponentTypeOwner((ComponentTypeOwner) null);
 			return;
+		case TRADESPackage.CATALOG__COMPONENT_OWNER:
+			setComponentOwner((ComponentOwner) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -661,6 +736,8 @@ public class CatalogImpl extends AbstractThreatOwnerImpl implements Catalog {
 			return ruleOwner != null;
 		case TRADESPackage.CATALOG__COMPONENT_TYPE_OWNER:
 			return componentTypeOwner != null;
+		case TRADESPackage.CATALOG__COMPONENT_OWNER:
+			return componentOwner != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -726,6 +803,14 @@ public class CatalogImpl extends AbstractThreatOwnerImpl implements Catalog {
 				return -1;
 			}
 		}
+		if (baseClass == AbstractComponentOwner.class) {
+			switch (derivedFeatureID) {
+			case TRADESPackage.CATALOG__COMPONENT_OWNER:
+				return TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENT_OWNER;
+			default:
+				return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -786,6 +871,14 @@ public class CatalogImpl extends AbstractThreatOwnerImpl implements Catalog {
 			switch (baseFeatureID) {
 			case TRADESPackage.ABSTRACT_COMPONENT_TYPE_OWNER__COMPONENT_TYPE_OWNER:
 				return TRADESPackage.CATALOG__COMPONENT_TYPE_OWNER;
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == AbstractComponentOwner.class) {
+			switch (baseFeatureID) {
+			case TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENT_OWNER:
+				return TRADESPackage.CATALOG__COMPONENT_OWNER;
 			default:
 				return -1;
 			}
@@ -859,6 +952,12 @@ public class CatalogImpl extends AbstractThreatOwnerImpl implements Catalog {
 			}
 		}
 		if (baseClass == AbstractComponentTypeOwner.class) {
+			switch (baseOperationID) {
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == AbstractComponentOwner.class) {
 			switch (baseOperationID) {
 			default:
 				return -1;

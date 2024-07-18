@@ -232,6 +232,10 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractComponentOwner" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="componentOwner" lowerBound="1"
+        eType="#//ComponentOwner" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentOwner">
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//Component" containment="true"/>
   </eClassifiers>
@@ -283,18 +287,16 @@
     <eLiterals name="Implemented" value="2"/>
     <eLiterals name="Rejected" value="3"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//NamedElement #//AbstractComponentOwner">
     <eStructuralFeatures xsi:type="ecore:EReference" name="linkType" lowerBound="1"
         eType="#//LinkType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="linkConveyed" upperBound="-1"
         eType="#//Link" eOpposite="#//Link/conveyingLink"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="conveyingLink" upperBound="-1"
         eType="#//Link" eOpposite="#//Link/linkConveyed"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
-        eType="#//Component"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LinkType" eSuperTypes="#//NamedElement #//ColoredElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Catalog" eSuperTypes="#//AbstractThreatOwner #//AbstractControlOwner #//NamedElement #//ICatalogDefinition #//ElementWithId #//AbstractVulnerabilityOwner #//AbstractRuleOwner #//AbstractComponentTypeOwner"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Catalog" eSuperTypes="#//AbstractThreatOwner #//AbstractControlOwner #//NamedElement #//ICatalogDefinition #//ElementWithId #//AbstractVulnerabilityOwner #//AbstractRuleOwner #//AbstractComponentTypeOwner #//AbstractComponentOwner"/>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractThreatOwner" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="threatOwner" lowerBound="1"
         eType="#//ThreatsOwner" containment="true"/>

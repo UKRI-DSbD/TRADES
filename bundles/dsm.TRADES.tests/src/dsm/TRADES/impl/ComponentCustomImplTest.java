@@ -19,6 +19,7 @@ import org.junit.Test;
 
 import dsm.TRADES.Analysis;
 import dsm.TRADES.Component;
+import dsm.TRADES.ComponentOwner;
 import dsm.TRADES.Data;
 import dsm.TRADES.DataOwner;
 import dsm.TRADES.testlib.AbstractTest;
@@ -46,9 +47,12 @@ public class ComponentCustomImplTest extends AbstractTest {
 		assertThat(cmp.getAllDatas()).containsExactly(data1);
 		assertThat(cmp.getInheritedDatas()).isEmpty();
 
+		ComponentOwner componentOwner = fact.createComponentOwner();
+		cmp.setComponentOwner(componentOwner);
+
 		// Add sub components
 		Component subCmp = fact.createComponent();
-		cmp.getComponents().add(subCmp);
+		cmp.getComponentOwner().getComponents().add(subCmp);
 
 		assertThat(subCmp.getDatas()).isEmpty();
 		assertThat(subCmp.getAllDatas()).containsExactly(data1);
@@ -70,7 +74,9 @@ public class ComponentCustomImplTest extends AbstractTest {
 		analysis.setDataOwner(anDataOwner);
 		Data data3 = fact.createData();
 		anDataOwner.getData().add(data3);
-		analysis.getComponents().add(cmp);
+		ComponentOwner componentOwnerForAnalysis = fact.createComponentOwner();
+		analysis.setComponentOwner(componentOwnerForAnalysis);
+		analysis.getComponentOwner().getComponents().add(cmp);
 
 		assertThat(cmp.getDatas()).containsExactly(data1);
 		assertThat(cmp.getAllDatas()).containsExactly(data1, data3);

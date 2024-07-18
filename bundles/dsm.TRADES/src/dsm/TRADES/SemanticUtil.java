@@ -44,9 +44,7 @@ public class SemanticUtil {
 		analysis.setId(UUID.randomUUID().toString());
 		analysis.setNVDAPIKey(nvdAPIKey);
 
-		Component root = TRADESFactory.eINSTANCE.createComponent();
-		analysis.getComponents().add(root);
-		root.setName(DEFAULT_ROOT_CMP_NAME);
+		createComponentOwner(analysis);
 
 		ScoreSystem scoreSystem = TRADESFactory.eINSTANCE.createScoreSystem();
 		analysis.setScoreSystem(scoreSystem);
@@ -104,6 +102,9 @@ public class SemanticUtil {
 		RuleOwner ruleOwner = TRADESFactory.eINSTANCE.createRuleOwner();
 		catalog.setRuleOwner(ruleOwner);
 
+		ComponentOwner componentOwner = TRADESFactory.eINSTANCE.createComponentOwner();
+		catalog.setComponentOwner(componentOwner);
+
 		return catalog;
 	}
 
@@ -116,6 +117,16 @@ public class SemanticUtil {
 		ControlOwner controlOwner = TRADESFactory.eINSTANCE.createControlOwner();
 		analysis.setControlOwner(controlOwner);
 
+	}
+	
+	public static void createComponentOwner(Analysis analysis) {
+		Component root = TRADESFactory.eINSTANCE.createComponent();
+		ComponentOwner componentOwnerforRoot = TRADESFactory.eINSTANCE.createComponentOwner();
+		root.setComponentOwner(componentOwnerforRoot);
+		ComponentOwner componentOwner = TRADESFactory.eINSTANCE.createComponentOwner();
+		analysis.setComponentOwner(componentOwner);
+		analysis.getComponentOwner().getComponents().add(root);
+		root.setName(DEFAULT_ROOT_CMP_NAME);
 	}
 
 	private static void createDifficulty(String name, int score, ScoreSystem system) {
