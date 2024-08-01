@@ -13,7 +13,6 @@
  */
 package dsm.TRADES.impl;
 
-import dsm.TRADES.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -31,6 +30,7 @@ import dsm.TRADES.Catalog;
 import dsm.TRADES.Characteristic;
 import dsm.TRADES.Component;
 import dsm.TRADES.ComponentCategoryENUM;
+import dsm.TRADES.ComponentOwner;
 import dsm.TRADES.ComponentType;
 import dsm.TRADES.ComponentTypeOwner;
 import dsm.TRADES.Control;
@@ -513,7 +513,7 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 	 */
 	@Override
 	public Vulnerability createVulnerability() {
-		VulnerabilityImpl vulnerability = new VulnerabilityImpl();
+		VulnerabilityCustomImpl vulnerability = new VulnerabilityCustomImpl();
 		return vulnerability;
 	}
 
@@ -535,7 +535,7 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 	 */
 	@Override
 	public ComponentType createComponentType() {
-		ComponentTypeImpl componentType = new ComponentTypeImpl();
+		ComponentTypeCustomImpl componentType = new ComponentTypeCustomImpl();
 		return componentType;
 	}
 
@@ -557,7 +557,7 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 	 */
 	@Override
 	public Rule createRule() {
-		RuleImpl rule = new RuleImpl();
+		RuleCustomImpl rule = new RuleCustomImpl();
 		return rule;
 	}
 

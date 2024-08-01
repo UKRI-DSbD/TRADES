@@ -20,7 +20,6 @@ import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -155,13 +154,9 @@ public class InitCapec implements IApplication {
 					existingControl.setName(textContent);
 					existingControl.setSource(CAPEC);
 					existingControl.setSourceID(CAPEC);
-					final String id;
 					if (textContent != null && !textContent.isBlank()) {
-						id = "Control_" + Hashing.sha256().hashString(textContent, Charsets.UTF_8).toString();
-					} else {
-						id = UUID.randomUUID().toString();
+						existingControl.setId("Control_" + Hashing.sha256().hashString(textContent, Charsets.UTF_8).toString());
 					}
-					existingControl.setId(id);
 
 					controlOwner.getExternals().add(existingControl);
 					idToControls.put(textContent, existingControl);

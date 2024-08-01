@@ -261,9 +261,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.eContainerOrSelf(TRADES::Analysis).threatOwner">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="TRADES::Threat" referenceName="internals">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="aql:self.generateUUID()"/>
-                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="TRADES::Threat" referenceName="internals"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -1632,9 +1630,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.eContainerOrSelf(TRADES::Analysis).threatOwner">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="TRADES::Threat" referenceName="internals">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="aql:self.generateUUID()"/>
-                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="TRADES::Threat" referenceName="internals"/>/
               </firstModelOperations>
             </initialOperation>
           </ownedTools>

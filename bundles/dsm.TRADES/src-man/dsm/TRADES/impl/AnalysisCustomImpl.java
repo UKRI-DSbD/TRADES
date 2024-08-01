@@ -19,6 +19,7 @@ import static java.util.stream.Collectors.toList;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
@@ -38,6 +39,11 @@ import dsm.TRADES.Vulnerability;
 import dsm.TRADES.VulnerabilityTypeENUM;
 
 public class AnalysisCustomImpl extends AnalysisImpl {
+
+	public AnalysisCustomImpl() {
+		this.setId(UUID.randomUUID().toString());
+	}
+
 	@Override
 	public EList<Control> getAllControls() {
 		return ECollections.asEList(SemanticHelper.getAllControls(this));

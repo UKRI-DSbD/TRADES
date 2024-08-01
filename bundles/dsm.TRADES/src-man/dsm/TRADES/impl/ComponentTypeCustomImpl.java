@@ -11,19 +11,15 @@
 *     ELTA Ltd - initial API and implementation
 * 
 *******************************************************************************************************/
-package dsm.TRADES.util;
 
-import org.eclipse.emf.common.util.URI;
+package dsm.TRADES.impl;
 
-public class TRADESResourceCustomImpl extends TRADESResourceImpl {
+import java.util.UUID;
 
-	public TRADESResourceCustomImpl(URI uri) {
-		super(uri);
-	}
+public class ComponentTypeCustomImpl extends ComponentTypeImpl {
 
-	@Override
-	protected boolean useUUIDs() {
-		return true;
+	public ComponentTypeCustomImpl() {
+		this.setId(UUID.randomUUID().toString());
 	}
 
 }

@@ -40,12 +40,12 @@ import org.eclipse.sirius.diagram.AbstractDNode;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.ui.PlatformUI;
 
+import dsm.TRADES.AbstractComponentOwner;
 import dsm.TRADES.AbstractControlOwner;
 import dsm.TRADES.AffectRelation;
 import dsm.TRADES.Analysis;
 import dsm.TRADES.AttackChain;
 import dsm.TRADES.Component;
-import dsm.TRADES.AbstractComponentOwner;
 import dsm.TRADES.Control;
 import dsm.TRADES.ControlOwner;
 import dsm.TRADES.Data;
@@ -174,12 +174,7 @@ public class SemanticService {
 
 	public static Control createInternalControl(AbstractControlOwner cmp) {
 		Control control = SemanticUtil.addControl(cmp, TRADESFactory.eINSTANCE.createControl());
-		control.setId(UUID.randomUUID().toString());
 		return control;
-	}
-
-	public String generateUUID(EObject any) {
-		return UUID.randomUUID().toString();
 	}
 
 	public static Data createData(DataOwnerElement element) {

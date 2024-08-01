@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
@@ -32,6 +33,10 @@ import dsm.TRADES.Threat;
 import dsm.TRADES.Vulnerability;
 
 public class CatalogCustomImpl extends CatalogImpl {
+
+	public CatalogCustomImpl() {
+		this.setId(UUID.randomUUID().toString());
+	}
 
 	@Override
 	public EList<Control> getAllControls() {
