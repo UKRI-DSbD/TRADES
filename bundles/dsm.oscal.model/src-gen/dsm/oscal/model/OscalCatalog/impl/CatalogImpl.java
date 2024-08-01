@@ -15,7 +15,6 @@
  */
 package dsm.oscal.model.OscalCatalog.impl;
 
-import dsm.TRADES.ComponentType;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Map;
@@ -30,6 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import dsm.TRADES.ComponentType;
 import dsm.TRADES.ICatalogDefinition;
 import dsm.TRADES.IControlDefinition;
 import dsm.TRADES.IThreatDefinition;

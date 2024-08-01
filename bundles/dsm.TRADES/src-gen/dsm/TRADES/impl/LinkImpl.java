@@ -13,7 +13,6 @@
  */
 package dsm.TRADES.impl;
 
-import dsm.TRADES.AbstractComponentOwner;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -24,6 +23,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import dsm.TRADES.AbstractComponentOwner;
 import dsm.TRADES.ComponentOwner;
 import dsm.TRADES.Link;
 import dsm.TRADES.LinkType;

@@ -69,10 +69,10 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
+import dsm.oscal.model.OscalCatalog.presentation.OscalEditorPlugin;
+import dsm.oscal.model.OscalCatalog.provider.OscalEditPlugin;
 import dsm.oscal.model.OscalCatalogCommon.OscalCatalogCommonFactory;
 import dsm.oscal.model.OscalCatalogCommon.OscalCatalogCommonPackage;
-import dsm.oscal.model.OscalCatalog.provider.OscalEditPlugin;
-import dsm.oscal.model.OscalCatalog.presentation.OscalEditorPlugin;
 
 
 /**

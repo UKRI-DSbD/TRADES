@@ -15,7 +15,6 @@
  */
 package dsm.oscal.model.OscalCatalogCommon.presentation;
 
-import dsm.oscal.model.OscalCatalog.presentation.OscalEditorPlugin;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -47,6 +46,8 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
+
+import dsm.oscal.model.OscalCatalog.presentation.OscalEditorPlugin;
 
 /**
  * This is the action bar contributor for the OscalCatalogCommon model editor.

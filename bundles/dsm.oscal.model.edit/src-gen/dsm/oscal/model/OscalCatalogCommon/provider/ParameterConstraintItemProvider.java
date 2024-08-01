@@ -16,7 +16,6 @@
 package dsm.oscal.model.OscalCatalogCommon.provider;
 
 
-import dsm.oscal.model.OscalCatalog.provider.OscalEditPlugin;
 import java.util.Collection;
 import java.util.List;
 
@@ -29,6 +28,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import dsm.oscal.model.OscalCatalog.provider.OscalEditPlugin;
 import dsm.oscal.model.OscalCatalogCommon.OscalCatalogCommonFactory;
 import dsm.oscal.model.OscalCatalogCommon.OscalCatalogCommonPackage;
 import dsm.oscal.model.OscalCatalogCommon.ParameterConstraint;

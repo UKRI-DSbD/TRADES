@@ -21,11 +21,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import dsm.TRADES.ComponentType;
+import dsm.TRADES.ExternalThreat;
 import dsm.TRADES.TRADESFactory;
 import dsm.TRADES.Threat;
 import dsm.TRADES.Vulnerability;
-import dsm.TRADES.ComponentType;
-import dsm.TRADES.ExternalThreat;
 
 public class ComponentTypeCopier {
 
