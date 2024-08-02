@@ -43,7 +43,6 @@ import dsm.TRADES.CharacteristicOwner;
 import dsm.TRADES.ColoredElement;
 import dsm.TRADES.Component;
 import dsm.TRADES.ComponentCategoryENUM;
-import dsm.TRADES.ComponentOwner;
 import dsm.TRADES.ComponentType;
 import dsm.TRADES.ComponentTypeOwner;
 import dsm.TRADES.Control;
@@ -202,13 +201,6 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass componentOwnerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass namedElementEClass = null;
 
 	/**
@@ -300,13 +292,6 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass abstractVulnerabilityOwnerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass iThreatDefinitionEClass = null;
 
 	/**
@@ -357,6 +342,13 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	private EClass domainAssetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass abstractVulnerabilityOwnerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1622,28 +1614,8 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getAbstractComponentOwner_ComponentOwner() {
+	public EReference getAbstractComponentOwner_Components() {
 		return (EReference) abstractComponentOwnerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getComponentOwner() {
-		return componentOwnerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getComponentOwner_Components() {
-		return (EReference) componentOwnerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1962,26 +1934,6 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getAbstractVulnerabilityOwner() {
-		return abstractVulnerabilityOwnerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getAbstractVulnerabilityOwner_VulnerabilityOwner() {
-		return (EReference) abstractVulnerabilityOwnerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getIThreatDefinition() {
 		return iThreatDefinitionEClass;
 	}
@@ -2292,6 +2244,26 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getAbstractVulnerabilityOwner() {
+		return abstractVulnerabilityOwnerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getAbstractVulnerabilityOwner_VulnerabilityOwner() {
+		return (EReference) abstractVulnerabilityOwnerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getVulnerabilityOwner() {
 		return vulnerabilityOwnerEClass;
 	}
@@ -2332,8 +2304,8 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getVulnerability_Affects() {
-		return (EReference) vulnerabilityEClass.getEStructuralFeatures().get(2);
+	public EAttribute getVulnerability_VulnerabilityType() {
+		return (EAttribute) vulnerabilityEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2342,8 +2314,8 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getVulnerability_VulnerabilityType() {
-		return (EAttribute) vulnerabilityEClass.getEStructuralFeatures().get(1);
+	public EReference getVulnerability_Affects() {
+		return (EReference) vulnerabilityEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2806,10 +2778,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		createEOperation(dataOwnerElementEClass, DATA_OWNER_ELEMENT___GET_ALL_DATAS);
 
 		abstractComponentOwnerEClass = createEClass(ABSTRACT_COMPONENT_OWNER);
-		createEReference(abstractComponentOwnerEClass, ABSTRACT_COMPONENT_OWNER__COMPONENT_OWNER);
-
-		componentOwnerEClass = createEClass(COMPONENT_OWNER);
-		createEReference(componentOwnerEClass, COMPONENT_OWNER__COMPONENTS);
+		createEReference(abstractComponentOwnerEClass, ABSTRACT_COMPONENT_OWNER__COMPONENTS);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -3370,15 +3339,9 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 
 		initEClass(abstractComponentOwnerEClass, AbstractComponentOwner.class, "AbstractComponentOwner", IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAbstractComponentOwner_ComponentOwner(), this.getComponentOwner(), null, "componentOwner",
-				null, 1, 1, AbstractComponentOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+		initEReference(getAbstractComponentOwner_Components(), this.getComponent(), null, "components", null, 0, -1,
+				AbstractComponentOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(componentOwnerEClass, ComponentOwner.class, "ComponentOwner", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComponentOwner_Components(), this.getComponent(), null, "components", null, 0, -1,
-				ComponentOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

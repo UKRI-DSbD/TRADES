@@ -30,7 +30,6 @@ import dsm.TRADES.Catalog;
 import dsm.TRADES.Characteristic;
 import dsm.TRADES.Component;
 import dsm.TRADES.ComponentCategoryENUM;
-import dsm.TRADES.ComponentOwner;
 import dsm.TRADES.ComponentType;
 import dsm.TRADES.ComponentTypeOwner;
 import dsm.TRADES.Control;
@@ -132,8 +131,6 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 			return createImpactScore();
 		case TRADESPackage.DIFFICULTY_SCORE:
 			return createDifficultyScore();
-		case TRADESPackage.COMPONENT_OWNER:
-			return createComponentOwner();
 		case TRADESPackage.EXTERNAL_THREAT:
 			return createExternalThreat();
 		case TRADESPackage.IMPACT_CONFIGURATION:
@@ -372,17 +369,6 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 	public DifficultyScore createDifficultyScore() {
 		DifficultyScoreImpl difficultyScore = new DifficultyScoreImpl();
 		return difficultyScore;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ComponentOwner createComponentOwner() {
-		ComponentOwnerImpl componentOwner = new ComponentOwnerImpl();
-		return componentOwner;
 	}
 
 	/**

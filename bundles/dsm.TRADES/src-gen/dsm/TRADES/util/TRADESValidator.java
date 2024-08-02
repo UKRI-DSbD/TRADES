@@ -39,7 +39,6 @@ import dsm.TRADES.CharacteristicOwner;
 import dsm.TRADES.ColoredElement;
 import dsm.TRADES.Component;
 import dsm.TRADES.ComponentCategoryENUM;
-import dsm.TRADES.ComponentOwner;
 import dsm.TRADES.ComponentType;
 import dsm.TRADES.ComponentTypeOwner;
 import dsm.TRADES.Control;
@@ -214,8 +213,6 @@ public class TRADESValidator extends EObjectValidator {
 			return validateDataOwnerElement((DataOwnerElement) value, diagnostics, context);
 		case TRADESPackage.ABSTRACT_COMPONENT_OWNER:
 			return validateAbstractComponentOwner((AbstractComponentOwner) value, diagnostics, context);
-		case TRADESPackage.COMPONENT_OWNER:
-			return validateComponentOwner((ComponentOwner) value, diagnostics, context);
 		case TRADESPackage.NAMED_ELEMENT:
 			return validateNamedElement((NamedElement) value, diagnostics, context);
 		case TRADESPackage.EXTERNAL_THREAT:
@@ -574,16 +571,6 @@ public class TRADESValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateComponentOwner(ComponentOwner componentOwner, DiagnosticChain diagnostics,
-			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(componentOwner, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateNamedElement(NamedElement namedElement, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(namedElement, diagnostics, context);
@@ -729,16 +716,6 @@ public class TRADESValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAbstractVulnerabilityOwner(AbstractVulnerabilityOwner abstractVulnerabilityOwner,
-			DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(abstractVulnerabilityOwner, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateIThreatDefinition(IThreatDefinition iThreatDefinition, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(iThreatDefinition, diagnostics, context);
@@ -812,6 +789,16 @@ public class TRADESValidator extends EObjectValidator {
 	public boolean validateDomainAsset(DomainAsset domainAsset, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(domainAsset, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAbstractVulnerabilityOwner(AbstractVulnerabilityOwner abstractVulnerabilityOwner,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(abstractVulnerabilityOwner, diagnostics, context);
 	}
 
 	/**

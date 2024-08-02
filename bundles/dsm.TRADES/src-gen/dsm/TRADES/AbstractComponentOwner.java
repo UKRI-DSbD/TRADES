@@ -13,6 +13,7 @@
  */
 package dsm.TRADES;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -24,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link dsm.TRADES.AbstractComponentOwner#getComponentOwner <em>Component Owner</em>}</li>
+ *   <li>{@link dsm.TRADES.AbstractComponentOwner#getComponents <em>Components</em>}</li>
  * </ul>
  *
  * @see dsm.TRADES.TRADESPackage#getAbstractComponentOwner()
@@ -33,25 +34,15 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface AbstractComponentOwner extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Component Owner</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Components</b></em>' containment reference list.
+	 * The list contents are of type {@link dsm.TRADES.Component}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Component Owner</em>' containment reference.
-	 * @see #setComponentOwner(ComponentOwner)
-	 * @see dsm.TRADES.TRADESPackage#getAbstractComponentOwner_ComponentOwner()
-	 * @model containment="true" required="true"
+	 * @return the value of the '<em>Components</em>' containment reference list.
+	 * @see dsm.TRADES.TRADESPackage#getAbstractComponentOwner_Components()
+	 * @model containment="true"
 	 * @generated
 	 */
-	ComponentOwner getComponentOwner();
-
-	/**
-	 * Sets the value of the '{@link dsm.TRADES.AbstractComponentOwner#getComponentOwner <em>Component Owner</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Component Owner</em>' containment reference.
-	 * @see #getComponentOwner()
-	 * @generated
-	 */
-	void setComponentOwner(ComponentOwner value);
+	EList<Component> getComponents();
 
 } // AbstractComponentOwner

@@ -274,20 +274,6 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 	 * @generated
 	 */
 	@Override
-	public EList<Threat> getMitigatedThreats() {
-		if (mitigatedThreats == null) {
-			mitigatedThreats = new EObjectResolvingEList<Threat>(Threat.class, this,
-					TRADESPackage.EXTERNAL_CONTROL__MITIGATED_THREATS);
-		}
-		return mitigatedThreats;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public String getId() {
 		return id;
 	}
@@ -303,6 +289,34 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.EXTERNAL_CONTROL__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Characteristic> getCharacteristics() {
+		if (characteristics == null) {
+			characteristics = new EObjectContainmentEList<Characteristic>(Characteristic.class, this,
+					TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS);
+		}
+		return characteristics;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Threat> getMitigatedThreats() {
+		if (mitigatedThreats == null) {
+			mitigatedThreats = new EObjectResolvingEList<Threat>(Threat.class, this,
+					TRADESPackage.EXTERNAL_CONTROL__MITIGATED_THREATS);
+		}
+		return mitigatedThreats;
 	}
 
 	/**
@@ -429,20 +443,6 @@ public class ExternalControlImpl extends ExternalElementImpl implements External
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.EXTERNAL_CONTROL__SECURITY_OBJECTIVE,
 					oldSecurityObjective, securityObjective));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Characteristic> getCharacteristics() {
-		if (characteristics == null) {
-			characteristics = new EObjectContainmentEList<Characteristic>(Characteristic.class, this,
-					TRADESPackage.EXTERNAL_CONTROL__CHARACTERISTICS);
-		}
-		return characteristics;
 	}
 
 	/**

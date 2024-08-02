@@ -66,6 +66,22 @@ public class ThreatItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ElementWithId_id_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ElementWithId_id_feature",
+								"_UI_ElementWithId_type"),
+						TRADESPackage.Literals.ELEMENT_WITH_ID__ID, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Threat Allocations feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -93,22 +109,6 @@ public class ThreatItemProvider extends NamedElementItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_Threat_threatType_feature",
 								"_UI_Threat_type"),
 						TRADESPackage.Literals.THREAT__THREAT_TYPE, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Id feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_ElementWithId_id_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_ElementWithId_id_feature",
-								"_UI_ElementWithId_type"),
-						TRADESPackage.Literals.ELEMENT_WITH_ID__ID, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 

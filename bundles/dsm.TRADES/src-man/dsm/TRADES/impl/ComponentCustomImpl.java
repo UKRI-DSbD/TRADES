@@ -77,11 +77,11 @@ public class ComponentCustomImpl extends ComponentImpl {
 	public EList<Rule> getRules() { 
 		InternalEList<Rule> output = new BasicInternalEList<Rule>(Rule.class);
 		Component component = this;
-		while (component.eContainer().eContainer() instanceof Component) {
-			component = (Component) component.eContainer().eContainer();
+		while (component.eContainer() instanceof Component) {
+			component = (Component) component.eContainer();
 		}
 		
-		Analysis analysis = (Analysis) component.eContainer().eContainer();
+		Analysis analysis = (Analysis) component.eContainer();
 		
 		//filter for ComponentTypes affecting this Component
 		for (Rule rule : analysis.getRuleOwner().getRules()) {

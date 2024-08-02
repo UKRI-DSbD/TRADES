@@ -497,6 +497,187 @@ public class AnalysisImpl extends AbstractComponentOwnerImpl implements Analysis
 	 * @generated
 	 */
 	@Override
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.ANALYSIS__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public VulnerabilityOwner getVulnerabilityOwner() {
+		return vulnerabilityOwner;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetVulnerabilityOwner(VulnerabilityOwner newVulnerabilityOwner,
+			NotificationChain msgs) {
+		VulnerabilityOwner oldVulnerabilityOwner = vulnerabilityOwner;
+		vulnerabilityOwner = newVulnerabilityOwner;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					TRADESPackage.ANALYSIS__VULNERABILITY_OWNER, oldVulnerabilityOwner, newVulnerabilityOwner);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setVulnerabilityOwner(VulnerabilityOwner newVulnerabilityOwner) {
+		if (newVulnerabilityOwner != vulnerabilityOwner) {
+			NotificationChain msgs = null;
+			if (vulnerabilityOwner != null)
+				msgs = ((InternalEObject) vulnerabilityOwner).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - TRADESPackage.ANALYSIS__VULNERABILITY_OWNER, null, msgs);
+			if (newVulnerabilityOwner != null)
+				msgs = ((InternalEObject) newVulnerabilityOwner).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - TRADESPackage.ANALYSIS__VULNERABILITY_OWNER, null, msgs);
+			msgs = basicSetVulnerabilityOwner(newVulnerabilityOwner, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.ANALYSIS__VULNERABILITY_OWNER,
+					newVulnerabilityOwner, newVulnerabilityOwner));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ComponentTypeOwner getComponentTypeOwner() {
+		return componentTypeOwner;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetComponentTypeOwner(ComponentTypeOwner newComponentTypeOwner,
+			NotificationChain msgs) {
+		ComponentTypeOwner oldComponentTypeOwner = componentTypeOwner;
+		componentTypeOwner = newComponentTypeOwner;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					TRADESPackage.ANALYSIS__COMPONENT_TYPE_OWNER, oldComponentTypeOwner, newComponentTypeOwner);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setComponentTypeOwner(ComponentTypeOwner newComponentTypeOwner) {
+		if (newComponentTypeOwner != componentTypeOwner) {
+			NotificationChain msgs = null;
+			if (componentTypeOwner != null)
+				msgs = ((InternalEObject) componentTypeOwner).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - TRADESPackage.ANALYSIS__COMPONENT_TYPE_OWNER, null, msgs);
+			if (newComponentTypeOwner != null)
+				msgs = ((InternalEObject) newComponentTypeOwner).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - TRADESPackage.ANALYSIS__COMPONENT_TYPE_OWNER, null, msgs);
+			msgs = basicSetComponentTypeOwner(newComponentTypeOwner, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.ANALYSIS__COMPONENT_TYPE_OWNER,
+					newComponentTypeOwner, newComponentTypeOwner));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public RuleOwner getRuleOwner() {
+		return ruleOwner;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRuleOwner(RuleOwner newRuleOwner, NotificationChain msgs) {
+		RuleOwner oldRuleOwner = ruleOwner;
+		ruleOwner = newRuleOwner;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					TRADESPackage.ANALYSIS__RULE_OWNER, oldRuleOwner, newRuleOwner);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRuleOwner(RuleOwner newRuleOwner) {
+		if (newRuleOwner != ruleOwner) {
+			NotificationChain msgs = null;
+			if (ruleOwner != null)
+				msgs = ((InternalEObject) ruleOwner).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - TRADESPackage.ANALYSIS__RULE_OWNER, null, msgs);
+			if (newRuleOwner != null)
+				msgs = ((InternalEObject) newRuleOwner).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - TRADESPackage.ANALYSIS__RULE_OWNER, null, msgs);
+			msgs = basicSetRuleOwner(newRuleOwner, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.ANALYSIS__RULE_OWNER, newRuleOwner,
+					newRuleOwner));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ScoreSystem getScoreSystem() {
 		return scoreSystem;
 	}
@@ -717,187 +898,6 @@ public class AnalysisImpl extends AbstractComponentOwnerImpl implements Analysis
 					TRADESPackage.ANALYSIS__VULNERABLE_COMPONENTS);
 		}
 		return vulnerableComponents;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getId() {
-		return id;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setId(String newId) {
-		String oldId = id;
-		id = newId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.ANALYSIS__ID, oldId, id));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public VulnerabilityOwner getVulnerabilityOwner() {
-		return vulnerabilityOwner;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetVulnerabilityOwner(VulnerabilityOwner newVulnerabilityOwner,
-			NotificationChain msgs) {
-		VulnerabilityOwner oldVulnerabilityOwner = vulnerabilityOwner;
-		vulnerabilityOwner = newVulnerabilityOwner;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					TRADESPackage.ANALYSIS__VULNERABILITY_OWNER, oldVulnerabilityOwner, newVulnerabilityOwner);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setVulnerabilityOwner(VulnerabilityOwner newVulnerabilityOwner) {
-		if (newVulnerabilityOwner != vulnerabilityOwner) {
-			NotificationChain msgs = null;
-			if (vulnerabilityOwner != null)
-				msgs = ((InternalEObject) vulnerabilityOwner).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - TRADESPackage.ANALYSIS__VULNERABILITY_OWNER, null, msgs);
-			if (newVulnerabilityOwner != null)
-				msgs = ((InternalEObject) newVulnerabilityOwner).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - TRADESPackage.ANALYSIS__VULNERABILITY_OWNER, null, msgs);
-			msgs = basicSetVulnerabilityOwner(newVulnerabilityOwner, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.ANALYSIS__VULNERABILITY_OWNER,
-					newVulnerabilityOwner, newVulnerabilityOwner));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ComponentTypeOwner getComponentTypeOwner() {
-		return componentTypeOwner;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetComponentTypeOwner(ComponentTypeOwner newComponentTypeOwner,
-			NotificationChain msgs) {
-		ComponentTypeOwner oldComponentTypeOwner = componentTypeOwner;
-		componentTypeOwner = newComponentTypeOwner;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					TRADESPackage.ANALYSIS__COMPONENT_TYPE_OWNER, oldComponentTypeOwner, newComponentTypeOwner);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setComponentTypeOwner(ComponentTypeOwner newComponentTypeOwner) {
-		if (newComponentTypeOwner != componentTypeOwner) {
-			NotificationChain msgs = null;
-			if (componentTypeOwner != null)
-				msgs = ((InternalEObject) componentTypeOwner).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - TRADESPackage.ANALYSIS__COMPONENT_TYPE_OWNER, null, msgs);
-			if (newComponentTypeOwner != null)
-				msgs = ((InternalEObject) newComponentTypeOwner).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - TRADESPackage.ANALYSIS__COMPONENT_TYPE_OWNER, null, msgs);
-			msgs = basicSetComponentTypeOwner(newComponentTypeOwner, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.ANALYSIS__COMPONENT_TYPE_OWNER,
-					newComponentTypeOwner, newComponentTypeOwner));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public RuleOwner getRuleOwner() {
-		return ruleOwner;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRuleOwner(RuleOwner newRuleOwner, NotificationChain msgs) {
-		RuleOwner oldRuleOwner = ruleOwner;
-		ruleOwner = newRuleOwner;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					TRADESPackage.ANALYSIS__RULE_OWNER, oldRuleOwner, newRuleOwner);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setRuleOwner(RuleOwner newRuleOwner) {
-		if (newRuleOwner != ruleOwner) {
-			NotificationChain msgs = null;
-			if (ruleOwner != null)
-				msgs = ((InternalEObject) ruleOwner).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - TRADESPackage.ANALYSIS__RULE_OWNER, null, msgs);
-			if (newRuleOwner != null)
-				msgs = ((InternalEObject) newRuleOwner).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - TRADESPackage.ANALYSIS__RULE_OWNER, null, msgs);
-			msgs = basicSetRuleOwner(newRuleOwner, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.ANALYSIS__RULE_OWNER, newRuleOwner,
-					newRuleOwner));
 	}
 
 	/**

@@ -118,7 +118,7 @@ public class LinkItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_COMPONENT_OWNER__COMPONENT_OWNER);
+			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_COMPONENT_OWNER__COMPONENTS);
 		}
 		return childrenFeatures;
 	}
@@ -182,7 +182,7 @@ public class LinkItemProvider extends NamedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Link.class)) {
-		case TRADESPackage.LINK__COMPONENT_OWNER:
+		case TRADESPackage.LINK__COMPONENTS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -200,8 +200,8 @@ public class LinkItemProvider extends NamedElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.ABSTRACT_COMPONENT_OWNER__COMPONENT_OWNER,
-				TRADESFactory.eINSTANCE.createComponentOwner()));
+		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.ABSTRACT_COMPONENT_OWNER__COMPONENTS,
+				TRADESFactory.eINSTANCE.createComponent()));
 	}
 
 }

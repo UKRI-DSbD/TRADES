@@ -397,29 +397,6 @@ public class TRADESItemProviderAdapterFactory extends TRADESAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link dsm.TRADES.ComponentOwner} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ComponentOwnerItemProviderCustomImpl componentOwnerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link dsm.TRADES.ComponentOwner}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createComponentOwnerAdapter() {
-		if (componentOwnerItemProvider == null) {
-			componentOwnerItemProvider = new ComponentOwnerItemProviderCustomImpl(this);
-		}
-
-		return componentOwnerItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link dsm.TRADES.ExternalThreat} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -962,8 +939,6 @@ public class TRADESItemProviderAdapterFactory extends TRADESAdapterFactory
 			impactScoreItemProvider.dispose();
 		if (difficultyScoreItemProvider != null)
 			difficultyScoreItemProvider.dispose();
-		if (componentOwnerItemProvider != null)
-			componentOwnerItemProvider.dispose();
 		if (externalThreatItemProvider != null)
 			externalThreatItemProvider.dispose();
 		if (impactConfigurationItemProvider != null)

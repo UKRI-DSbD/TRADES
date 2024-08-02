@@ -57,6 +57,7 @@ public class ComponentTypeImpl extends NamedElementImpl implements ComponentType
 	 * @ordered
 	 */
 	protected static final String ID_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -66,6 +67,7 @@ public class ComponentTypeImpl extends NamedElementImpl implements ComponentType
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getManifests() <em>Manifests</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -75,6 +77,7 @@ public class ComponentTypeImpl extends NamedElementImpl implements ComponentType
 	 * @ordered
 	 */
 	protected EList<ComponentType> manifests;
+
 	/**
 	 * The cached value of the '{@link #getSubjectToThreats() <em>Subject To Threats</em>}' reference list.
 	 * <!-- begin-user-doc -->

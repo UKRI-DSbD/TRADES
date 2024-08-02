@@ -232,10 +232,6 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractComponentOwner" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="componentOwner" lowerBound="1"
-        eType="#//ComponentOwner" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ComponentOwner">
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//Component" containment="true"/>
   </eClassifiers>

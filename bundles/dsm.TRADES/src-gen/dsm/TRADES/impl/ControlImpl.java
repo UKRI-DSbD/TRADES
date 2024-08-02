@@ -228,20 +228,6 @@ public class ControlImpl extends NamedElementImpl implements Control {
 	 * @generated
 	 */
 	@Override
-	public EList<Threat> getMitigatedThreats() {
-		if (mitigatedThreats == null) {
-			mitigatedThreats = new EObjectResolvingEList<Threat>(Threat.class, this,
-					TRADESPackage.CONTROL__MITIGATED_THREATS);
-		}
-		return mitigatedThreats;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public String getId() {
 		return id;
 	}
@@ -257,6 +243,34 @@ public class ControlImpl extends NamedElementImpl implements Control {
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.CONTROL__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Characteristic> getCharacteristics() {
+		if (characteristics == null) {
+			characteristics = new EObjectContainmentEList<Characteristic>(Characteristic.class, this,
+					TRADESPackage.CONTROL__CHARACTERISTICS);
+		}
+		return characteristics;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Threat> getMitigatedThreats() {
+		if (mitigatedThreats == null) {
+			mitigatedThreats = new EObjectResolvingEList<Threat>(Threat.class, this,
+					TRADESPackage.CONTROL__MITIGATED_THREATS);
+		}
+		return mitigatedThreats;
 	}
 
 	/**
@@ -381,20 +395,6 @@ public class ControlImpl extends NamedElementImpl implements Control {
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.CONTROL__SECURITY_OBJECTIVE,
 					oldSecurityObjective, securityObjective));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Characteristic> getCharacteristics() {
-		if (characteristics == null) {
-			characteristics = new EObjectContainmentEList<Characteristic>(Characteristic.class, this,
-					TRADESPackage.CONTROL__CHARACTERISTICS);
-		}
-		return characteristics;
 	}
 
 	/**
