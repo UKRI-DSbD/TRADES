@@ -115,12 +115,14 @@ public class CVECatalogSelectionPage extends WizardPage {
 
         setControl(composite);
         
-        if (cpeFromComponentType == null) {
+        if (this.project != null) {
             setupPage();
         } else {
             cpeViewer.setInput(Collections.list(cpeToComponentTypeDictionary.keys()));
             List<String> singleCPE = new ArrayList<String>();
-            singleCPE.add(cpeFromComponentType);
+            if (cpeFromComponentType != null) {
+            	singleCPE.add(cpeFromComponentType);
+            }
             ISelection selection = new StructuredSelection(singleCPE); 
             cpeViewer.setSelection(selection);
         }
@@ -317,12 +319,16 @@ public class CVECatalogSelectionPage extends WizardPage {
     }
 
     private void addComponentTypeToDictionary(String cpeName, Analysis analysis) {
-    	ComponentTypeOwner componentTypeOwner = analysis.getComponentTypeOwner();
-        for (ComponentType componentType : componentTypeOwner.getComponentTypes()) {
-        	if (componentType.getName().equals(cpeName)) {
-        		cpeToComponentTypeDictionary.put(cpeName, componentType);
-        	}
-        }
+    	if (cpeName != null) {
+    		ComponentTypeOwner componentTypeOwner = analysis.getComponentTypeOwner();
+            for (ComponentType componentType : componentTypeOwner.getComponentTypes()) {
+            	if (componentType.getName() != null) {
+            		if (componentType.getName().equals(cpeName)) {
+            			cpeToComponentTypeDictionary.put(cpeName, componentType);
+            		}
+            	}
+            }
+    	}
     }
 
     public List<String> getChosenCVEs() {
