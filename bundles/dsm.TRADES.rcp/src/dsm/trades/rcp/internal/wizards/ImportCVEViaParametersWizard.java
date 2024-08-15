@@ -200,17 +200,15 @@ public class ImportCVEViaParametersWizard extends Wizard implements IImportWizar
 			dsm.cve.model.CVECatalog.Vulnerability cve = cveCatalogFactory.createVulnerability();			
 			cve.setId(cveId);
             cve.setVulnerabilityType(VulnerabilityTypeENUM.CVE);
-			if (weaknesses.size() > 0) {
-				for (int i = 0; i < weaknesses.size(); i++) {
-					//assume CWEs already loaded
-					try {
-						dsm.TRADES.Vulnerability cwe = getCWEByID(weaknesses.get(i), existingResource);
-						if (cwe != null) {
-							cve.getManifests().add(cwe);
-						}
-					} catch (Exception ex) {
-						ex.printStackTrace();
+			for (String weakness : weaknesses) {
+				//assume CWEs already loaded
+				try {
+					dsm.TRADES.Vulnerability cwe = getCWEByID(weakness, existingResource);
+					if (cwe != null) {
+						cve.getManifests().add(cwe);
 					}
+				} catch (Exception ex) {
+					ex.printStackTrace();
 				}
 			}
 

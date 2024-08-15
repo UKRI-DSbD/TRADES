@@ -164,17 +164,17 @@ public class FetchCVEsForComponentTypeWizard extends Wizard implements IImportWi
     }
  
     private void transformCVEs(Resource existingResource, List<String> chosenCVEs) {
-		for (String cveId : chosenCVEs) {
+		for (String cveName : chosenCVEs) {
 			Hashtable<String, List<String>> cveToCWEDictionary = catalogSelectionPage.getCVEToCWEDictionary();
-			List<String> weaknesses = cveToCWEDictionary.get(cveId);
+			List<String> weaknesses = cveToCWEDictionary.get(cveName);
 			CVECatalogFactory cveCatalogFactory = CVECatalogFactory.eINSTANCE;
 			dsm.cve.model.CVECatalog.Vulnerability cve = cveCatalogFactory.createVulnerability();			
-			cve.setId(cveId);
+			cve.setName(cveName);
             cve.setVulnerabilityType(VulnerabilityTypeENUM.CVE);
 			
             Hashtable<String, ComponentType> cpeToComponentTypeDictionary = catalogSelectionPage.getCPEToComponentTypeDictionary();
 			Hashtable<String, List<String>> cveToCPEDictionary = catalogSelectionPage.getCVEToCPEDictionary();
-			List<String> cpeList = cveToCPEDictionary.get(cveId);
+			List<String> cpeList = cveToCPEDictionary.get(cveName);
 			for (String cpeName : cpeList) {
 				ComponentType cpe = cpeToComponentTypeDictionary.get(cpeName);
 				if (cpe !=  null) {
@@ -182,17 +182,15 @@ public class FetchCVEsForComponentTypeWizard extends Wizard implements IImportWi
 				}
 			}
 
-			if (weaknesses.size() > 0) {
-				for (int i = 0; i < weaknesses.size(); i++) {
-					//assume CWEs already loaded
-					try {
-						dsm.TRADES.Vulnerability cwe = getCWEByID(weaknesses.get(i), existingResource);
-						if (cwe != null) {
-							cve.getManifests().add(cwe);
-						}
-					} catch (Exception ex) {
-						ex.printStackTrace();
+			for (String weakness : weaknesses) {
+				//assume CWEs already loaded
+				try {
+					dsm.TRADES.Vulnerability cwe = getCWEByID(weakness, existingResource);
+					if (cwe != null) {
+						cve.getManifests().add(cwe);
 					}
+				} catch (Exception ex) {
+					ex.printStackTrace();
 				}
 			}
 
@@ -222,7 +220,7 @@ public class FetchCVEsForComponentTypeWizard extends Wizard implements IImportWi
 
 		for (EObject item : existingResource.getContents()) {
 			dsm.cve.model.CVECatalog.Vulnerability vulnerability = (dsm.cve.model.CVECatalog.Vulnerability) item;
-			if (vulnerability.getId().equals(cve.getId())) {
+			if (vulnerability.getName().equals(cve.getName())) {
 				foundCVE = true;
 				for (ComponentType newComponentType : cve.getAffects()) {
 					boolean matchExists = false;
@@ -234,6 +232,18 @@ public class FetchCVEsForComponentTypeWizard extends Wizard implements IImportWi
                     }
                     if (!matchExists) {
                         vulnerability.getAffects().add(newComponentType);
+                    }
+				}
+                for (dsm.TRADES.Vulnerability newVulnerability : cve.getManifests()) {
+					boolean matchExists = false;
+                    for (dsm.TRADES.Vulnerability existingVulnerability : vulnerability.getManifests()) {
+                        if (existingVulnerability.getName().equals(newVulnerability.getName())) {
+                            matchExists = true;
+                            break;
+                        }
+                    }
+                    if (!matchExists) {
+                        vulnerability.getManifests().add(newVulnerability);
                     }
 				}
 			}

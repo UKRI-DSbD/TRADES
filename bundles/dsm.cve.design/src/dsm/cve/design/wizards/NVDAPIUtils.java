@@ -143,16 +143,21 @@ class NVDAPIUtils {
                         cveToCWEDictionary.put(cveId, new ArrayList<String>());
                     }
 
-                    ArrayNode weaknesses = (ArrayNode) vulnerabilities.get(i).get("cve").get("weaknesses").get(0).get("description");
+                    ArrayNode weaknesses = (ArrayNode) vulnerabilities.get(i).get("cve").get("weaknesses");
                     for (int j = 0; j < weaknesses.size(); j++) {
                         if (weaknesses.get(j).getNodeType() == JsonNodeType.OBJECT) {
-                            String cweId = weaknesses.get(j).get("value").asText();
-                            if (cweId.startsWith("CWE-")) {
-                                cveToCWEDictionary.get(cveId).add(cweId.substring(4));
-                            } else {
-                                cveToCWEDictionary.get(cveId).add(cweId);
+                            ArrayNode descriptions = (ArrayNode) weaknesses.get(j).get("description");
+                            for (int k = 0; k < descriptions.size(); k++) {
+                                if (descriptions.get(k).getNodeType() == JsonNodeType.OBJECT) {
+                                    String cweId = descriptions.get(k).get("value").asText();
+                                    if (cweId.startsWith("CWE-")) {
+                                        cveToCWEDictionary.get(cveId).add(cweId.substring(4));
+                                    } else {
+                                        cveToCWEDictionary.get(cveId).add(cweId);
+                                    }
+
+                                }
                             }
-                            
                         }
                     }
                 }
@@ -199,19 +204,23 @@ class NVDAPIUtils {
                         cveToCPEDictionary.get(cveId).add(cpeName);
                     }
 
-                    ArrayNode weaknesses = (ArrayNode) vulnerabilities.get(i).get("cve").get("weaknesses").get(0).get("description");
+                    ArrayNode weaknesses = (ArrayNode) vulnerabilities.get(i).get("cve").get("weaknesses");
                     for (int j = 0; j < weaknesses.size(); j++) {
                         if (weaknesses.get(j).getNodeType() == JsonNodeType.OBJECT) {
-                            String cweId = weaknesses.get(j).get("value").asText();
-                            if (cweId.startsWith("CWE-")) {
-                                cveToCWEDictionary.get(cveId).add(cweId.substring(4));
-                            } else {
-                                cveToCWEDictionary.get(cveId).add(cweId);
+                            ArrayNode descriptions = (ArrayNode) weaknesses.get(j).get("description");
+                            for (int k = 0; k < descriptions.size(); k++) {
+                                if (descriptions.get(k).getNodeType() == JsonNodeType.OBJECT) {
+                                    String cweId = descriptions.get(k).get("value").asText();
+                                    if (cweId.startsWith("CWE-")) {
+                                        cveToCWEDictionary.get(cveId).add(cweId.substring(4));
+                                    } else {
+                                        cveToCWEDictionary.get(cveId).add(cweId);
+                                    }
+
+                                }
                             }
-                            
                         }
                     }
-                    
                 }
                 return new FetchProgress(fetchProgress.startIndex + resultsPerPage, totalResultsToBeReturned);
             } catch (Exception e) {
