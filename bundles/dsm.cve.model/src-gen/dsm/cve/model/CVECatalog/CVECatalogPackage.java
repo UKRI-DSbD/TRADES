@@ -15,7 +15,6 @@
  */
 package dsm.cve.model.CVECatalog;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -90,6 +89,15 @@ public interface CVECatalogPackage extends EPackage {
 	int VULNERABILITY__NAME = TRADESPackage.VULNERABILITY__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VULNERABILITY__ID = TRADESPackage.VULNERABILITY__ID;
+
+	/**
 	 * The feature id for the '<em><b>Manifests</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -97,15 +105,6 @@ public interface CVECatalogPackage extends EPackage {
 	 * @ordered
 	 */
 	int VULNERABILITY__MANIFESTS = TRADESPackage.VULNERABILITY__MANIFESTS;
-
-	/**
-	 * The feature id for the '<em><b>Affects</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VULNERABILITY__AFFECTS = TRADESPackage.VULNERABILITY__AFFECTS;
 
 	/**
 	 * The feature id for the '<em><b>Vulnerability Type</b></em>' attribute.
@@ -117,13 +116,13 @@ public interface CVECatalogPackage extends EPackage {
 	int VULNERABILITY__VULNERABILITY_TYPE = TRADESPackage.VULNERABILITY__VULNERABILITY_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Affects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY__ID = TRADESPackage.VULNERABILITY_FEATURE_COUNT + 0;
+	int VULNERABILITY__AFFECTS = TRADESPackage.VULNERABILITY__AFFECTS;
 
 	/**
 	 * The number of structural features of the '<em>Vulnerability</em>' class.
@@ -132,7 +131,7 @@ public interface CVECatalogPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY_FEATURE_COUNT = TRADESPackage.VULNERABILITY_FEATURE_COUNT + 1;
+	int VULNERABILITY_FEATURE_COUNT = TRADESPackage.VULNERABILITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Vulnerability</em>' class.
@@ -153,17 +152,6 @@ public interface CVECatalogPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getVulnerability();
-
-	/**
-	 * Returns the meta object for the attribute '{@link dsm.cve.model.CVECatalog.Vulnerability#getId <em>Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see dsm.cve.model.CVECatalog.Vulnerability#getId()
-	 * @see #getVulnerability()
-	 * @generated
-	 */
-	EAttribute getVulnerability_Id();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -197,14 +185,6 @@ public interface CVECatalogPackage extends EPackage {
 		 * @generated
 		 */
 		EClass VULNERABILITY = eINSTANCE.getVulnerability();
-
-		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VULNERABILITY__ID = eINSTANCE.getVulnerability_Id();
 
 	}
 

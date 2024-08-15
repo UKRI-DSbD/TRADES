@@ -15,6 +15,7 @@
  */
 package dsm.cve.model.CVECatalog.util;
 
+import dsm.TRADES.ElementWithId;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -89,6 +90,10 @@ public class CVECatalogAdapterFactory extends AdapterFactoryImpl {
 				return createNamedElementAdapter();
 			}
 			@Override
+			public Adapter caseElementWithId(ElementWithId object) {
+				return createElementWithIdAdapter();
+			}
+			@Override
 			public Adapter caseTRADES_Vulnerability(dsm.TRADES.Vulnerability object) {
 				return createTRADES_VulnerabilityAdapter();
 			}
@@ -137,6 +142,20 @@ public class CVECatalogAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link dsm.TRADES.ElementWithId <em>Element With Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see dsm.TRADES.ElementWithId
+	 * @generated
+	 */
+	public Adapter createElementWithIdAdapter() {
 		return null;
 	}
 
