@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="ASCII"?>
+<TRADES:Analysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:TRADES="dsm.TRADES" name="test" id="e43ecc0a-6f57-4973-84d7-33b0fa357106" nVDAPIKey="">
+  <components name="linux" componentTypes="//@componentTypeOwner/@componentTypes.0">
+    <controlOwner>
+      <internals name="One" id="0d6b32fa-4a6f-4c97-8464-d06e32ea5221">
+        <mitigationRelations threat="//@threatOwner/@internals.0"/>
+      </internals>
+    </controlOwner>
+    <threatAllocations threat="//@threatOwner/@internals.0" impactScore="//@scoreSystem/@impactScores.0" difficultyScore="//@scoreSystem/@difficultyScores.0"/>
+  </components>
+  <components name="fedora" componentTypes="//@componentTypeOwner/@componentTypes.1">
+    <controlOwner>
+      <internals name="Two" id="7a6c1b32-4bfc-49c0-b2e2-49bec42813c6"/>
+    </controlOwner>
+    <threatAllocations threat="//@threatOwner/@internals.1" impactScore="//@scoreSystem/@impactScores.0" difficultyScore="//@scoreSystem/@difficultyScores.1"/>
+  </components>
+  <components name="debian" componentTypes="//@componentTypeOwner/@componentTypes.2">
+    <controlOwner>
+      <internals name="Three" id="d8d7cff7-efda-4384-a09f-fa7e47d7485b">
+        <mitigationRelations threat="//@threatOwner/@internals.1"/>
+      </internals>
+    </controlOwner>
+    <threatAllocations threat="//@threatOwner/@internals.1" impactScore="//@scoreSystem/@impactScores.0" difficultyScore="//@scoreSystem/@difficultyScores.2"/>
+  </components>
+  <components name="openssl" componentTypes="//@componentTypeOwner/@componentTypes.3">
+    <controlOwner>
+      <internals name="Four" id="48d5fb5c-1285-433d-a0e2-d0538e5abf1e">
+        <mitigationRelations mitigatedAllocation="//@components.4/@threatAllocations.0"/>
+      </internals>
+    </controlOwner>
+  </components>
+  <components name="haxx" componentTypes="//@componentTypeOwner/@componentTypes.3">
+    <controlOwner>
+      <internals name="Five" id="e6bc5272-14d2-40db-8365-fe10868cd012">
+        <mitigationRelations threat="//@threatOwner/@internals.3"/>
+      </internals>
+    </controlOwner>
+    <threatAllocations threat="//@threatOwner/@internals.2" impactScore="//@scoreSystem/@impactScores.1" difficultyScore="//@scoreSystem/@difficultyScores.0"/>
+  </components>
+  <components name="c-ares" componentTypes="//@componentTypeOwner/@componentTypes.5">
+    <controlOwner>
+      <internals name="Six" id="d7aeccae-c72d-4bb7-a6c7-c7086d8973e3">
+        <mitigationRelations threat="//@threatOwner/@internals.3"/>
+      </internals>
+    </controlOwner>
+    <threatAllocations threat="//@threatOwner/@internals.3" impactScore="//@scoreSystem/@impactScores.1" difficultyScore="//@scoreSystem/@difficultyScores.1"/>
+  </components>
+  <dataOwner/>
+  <controlOwner/>
+  <threatOwner>
+    <internals name="Alpha" id="bdefc6ce-8850-4efa-80a1-26e6e3d3ed71" threatAllocations="//@components.0/@threatAllocations.0">
+      <exploitsVulnerability href="Catalogs/Relevant%20CVEs#/0"/>
+    </internals>
+    <internals name="Beta" id="99d2ebab-0e44-4d1e-abc9-659c096d7927" threatAllocations="//@components.1/@threatAllocations.0 //@components.2/@threatAllocations.0">
+      <exploitsVulnerability href="Catalogs/Relevant%20CVEs#/2"/>
+      <exploitsVulnerability href="Catalogs/Relevant%20CVEs#/1"/>
+    </internals>
+    <internals name="Gamma" id="59e706e4-701c-4db0-87af-be10bce40938" threatAllocations="//@components.4/@threatAllocations.0">
+      <exploitsVulnerability href="Catalogs/Relevant%20CVEs#/4"/>
+    </internals>
+    <internals name="Delta" id="fb69de2b-68f6-44b6-9b8e-fb7d5395cf8f" threatAllocations="//@components.5/@threatAllocations.0">
+      <exploitsVulnerability href="Catalogs/Relevant%20CVEs#/5"/>
+    </internals>
+  </threatOwner>
+  <vulnerabilityOwner/>
+  <componentTypeOwner>
+    <componentTypes name="cpe:2.3:o:linux:linux_kernel:-:*:*:*:*:*:*:*"/>
+    <componentTypes name="cpe:2.3:o:fedoraproject:fedora:37:*:*:*:*:*:*:*"/>
+    <componentTypes name="cpe:2.3:o:debian:debian_linux:12.0:*:*:*:*:*:*:*"/>
+    <componentTypes name="cpe:2.3:a:openssl:openssl:-:*:*:*:*:*:*:*"/>
+    <componentTypes name="cpe:2.3:a:haxx:libcurl:-:*:*:*:*:*:*:*"/>
+    <componentTypes name="cpe:2.3:a:c-ares_project:c-ares:-:*:*:*:*:*:*:*"/>
+  </componentTypeOwner>
+  <ruleOwner>
+    <rules componentTypesAffected="//@componentTypeOwner/@componentTypes.0" controls="//@components.0/@controlOwner/@internals.0">
+      <vulnerabilities href="Catalogs/Relevant%20CVEs#/0"/>
+    </rules>
+    <rules componentTypesAffected="//@componentTypeOwner/@componentTypes.2" controls="//@components.2/@controlOwner/@internals.0">
+      <vulnerabilities href="Catalogs/Relevant%20CVEs#/2"/>
+    </rules>
+    <rules componentTypesAffected="//@componentTypeOwner/@componentTypes.3">
+      <vulnerabilities href="Catalogs/Relevant%20CVEs#/3"/>
+    </rules>
+    <rules componentTypesAffected="//@componentTypeOwner/@componentTypes.5" controls="//@components.5/@controlOwner/@internals.0">
+      <vulnerabilities href="Catalogs/Relevant%20CVEs#/5"/>
+    </rules>
+  </ruleOwner>
+  <scoreSystem>
+    <impactScores name="Low" impact="1">
+      <configurations color="16777215" difficulty="//@scoreSystem/@difficultyScores.0"/>
+      <configurations color="8454143" difficulty="//@scoreSystem/@difficultyScores.1"/>
+      <configurations color="16744703" difficulty="//@scoreSystem/@difficultyScores.2"/>
+    </impactScores>
+    <impactScores name="Medium" impact="2">
+      <configurations color="255" difficulty="//@scoreSystem/@difficultyScores.0"/>
+      <configurations difficulty="//@scoreSystem/@difficultyScores.1"/>
+      <configurations difficulty="//@scoreSystem/@difficultyScores.2"/>
+    </impactScores>
+    <impactScores name="High" impact="3">
+      <configurations difficulty="//@scoreSystem/@difficultyScores.0"/>
+      <configurations difficulty="//@scoreSystem/@difficultyScores.1"/>
+      <configurations color="65280" difficulty="//@scoreSystem/@difficultyScores.2"/>
+    </impactScores>
+    <difficultyScores name="Low" difficulty="1"/>
+    <difficultyScores name="Medium" difficulty="2"/>
+    <difficultyScores name="High" difficulty="3"/>
+  </scoreSystem>
+</TRADES:Analysis>
