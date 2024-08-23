@@ -1,31 +1,5 @@
 from bs4 import BeautifulSoup
 
-#def _get_node_from_string(location_array, node):
-#    _node = node
-#    for location_string in location_array:
-#            if location_string == '/':
-#                _node = _node
-#                continue
-#            elif '.' in location_string:
-#                location_id_split = location_string.split('.')
-#                _node = _node.find_all(location_id_split[0], recursive=False)[int(location_id_split[1])]
-#            else:
-#                _node = _node.find(location_string, recursive=False)
-#    return _node
-
-#def get_nodes_from_string(node_location, filepath):
-#    with open(filepath, 'r') as trades_file:
-#        data = trades_file.read()
-#        xml = BeautifulSoup(data, "xml")
-#        trades = xml.find('TRADES:Analysis')
-#        node = trades
-#        output = []
-#        if node_location != None:
-#            for individual_locations in node_location.split(' '):
-#                location_array = individual_locations.split('/@')
-#                output.append(_get_node_from_string(location_array, node))
-#        return output
-
 def get_node_from_string(node_type, node_id, filepath):
     with open(filepath, 'r') as trades_file:
         data = trades_file.read()
@@ -71,3 +45,17 @@ def get_threat_by_id(filepath, threat_id):
         for external_threat in threat_owner.find_all('externals', recursive=False):
             if external_threat.get('xmi:id') == threat_id:
                 return external_threat
+            
+def get_controls(node):
+    output = []
+    for control_owner in node.find_all('controlOwner', recursive=False):
+        for internal in control_owner.find_all('internals', recursive=False):
+            id = internal.get('xmi:id')
+            output.append(('control', id, internal.get('name')))
+            for relation in internal.find_all('mitigationRelations', recursive=False):
+                if relation.get('threat') != None:
+                    output.append(('mitigates', id, 'mitigates', relation.get('threat')))
+                if relation.get('mitigatedAllocation') != None:
+                    output.append(('mitigates', id, 'mitigates', relation.get('mitigatedAllocation')))
+                    
+    return output

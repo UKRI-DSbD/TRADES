@@ -3,6 +3,7 @@ import plotly.express as px
 import streamlit as st
 import matplotlib.pyplot as plt
 import graphviz
+import streamlit_mermaid as stmd
 
 class Visualisation():
     def __init__(self, aird_reader, trades_reader):
@@ -51,26 +52,6 @@ class Visualisation():
         impact_difficulty_df = self.trades.get_threat_allocation_df()
         st.dataframe(impact_difficulty_df)
 
-    def list_rules(self):
-        rule_df = self.trades.get_rule_df()
-        st.dataframe(rule_df)
-
-    def list_component_types(self):
-        component_type_df = self.trades.get_component_type_df()
-        st.dataframe(component_type_df)
-
-    def list_threats(self):
-        threat_df = self.trades.get_threat_df()
-        st.dataframe(threat_df)
-
-    def list_internal_controls(self):
-        internal_control_df = self.trades.get_internal_control_df()
-        st.dataframe(internal_control_df)
-
-    def list_external_controls(self):
-        external_control_df = self.trades.get_external_control_df()
-        st.dataframe(external_control_df)
-
     def list_tree(self):
         tree_df = self.trades.get_tree_df()
         st.dataframe(tree_df)
@@ -100,6 +81,44 @@ class Visualisation():
                 parent_type = parent_type + ': '
             graph.edge(parent_name, child_name, label=relationship_type)
         st.graphviz_chart(graph)
+
+    def mermaid_network(self):
+        mermaid_string = 'graph TD'
+        for row in self.trades.get_mermaid_array():
+            child_type = row[0]
+            child_id = row[1]
+            child_name = row[2]
+            if child_type == 'impact':
+                mermaid_string = mermaid_string + '\n\t' + child_id + '[' + child_name + '-' + child_type + ':' + row[3] + ']'
+            elif child_type == 'difficulty':
+                mermaid_string = mermaid_string + '\n\t' + child_id + '[' + child_name + '-' + child_type + ':' + row[3] + ']'
+            elif child_type == 'component type':
+                mermaid_string = mermaid_string + '\n\t' + child_id + '(' + child_name + ')'
+            elif child_type == 'vulnerability':
+                mermaid_string = mermaid_string + '\n\t' + child_id + '{' + child_name + '}'
+            elif child_type == 'affects':
+                mermaid_string = mermaid_string + '\n\t' + child_id + ' -->|' + child_name + '| ' + row[3]
+            elif child_type == 'threat':
+                mermaid_string = mermaid_string + '\n\t' + child_id + '((' + child_name + '))'
+            elif child_type == 'threatAllocation':
+                mermaid_string = mermaid_string + '\n\t' + child_id + ' -->|' + child_name + '| ' + row[3]
+            elif child_type == 'exploits':
+                mermaid_string = mermaid_string + '\n\t' + child_id + ' -->|' + child_name + '| ' + row[3]
+            elif child_type == 'control':
+                mermaid_string = mermaid_string + '\n\t' + child_id + '[(' + child_name + ')]'
+            elif child_type == 'mitigates':
+                mermaid_string = mermaid_string + '\n\t' + child_id + ' -->|' + child_name + '| ' + row[3]
+            elif child_type == 'rule':
+                mermaid_string = mermaid_string + '\n\t' + child_id + '[/' + child_name + '/]'
+            elif child_type == 'rule_part':
+                mermaid_string = mermaid_string + '\n\t' + child_id + ' -->|' + child_name + '| ' + row[3]
+            elif child_type == 'component':
+                mermaid_string = mermaid_string + '\n\t' + child_id + '{{' + child_name + '}}'
+            elif child_type == 'type of component':
+                mermaid_string = mermaid_string + '\n\t' + child_id + ' -->|' + child_name + '| ' + row[3]
+
+        mermaid = stmd.st_mermaid(mermaid_string)
+        st.write(mermaid)
     
     def render(self):
         placeholder = st.empty()
@@ -118,28 +137,13 @@ class Visualisation():
                 st.write(fig)
 
             st.markdown("## Detailed Data View")
-            #impact_difficulty_col, rule_col, component_type_col = st.columns(3)
             impact_difficulty_col, tree_col = st.columns(2)
             with impact_difficulty_col:
                 self.list_threat_allocations()
-
-            #with rule_col:
-            #    list_rules()
-
-            #with component_type_col:
-            #    list_component_types()
-
-            #threats_col, internal_controls_col, external_controls_col = st.columns(3)
-            #with threats_col:
-            #    list_threats()
-
-            #with internal_controls_col:
-            #    list_internal_controls()
-
-            #with external_controls_col:
-            #    list_external_controls()
 
             with tree_col:
                 self.list_tree()
 
             self.network_tree()
+
+            self.mermaid_network()
