@@ -15,12 +15,12 @@
  */
 package dsm.cve.model.CVECatalog.util;
 
-import dsm.TRADES.ElementWithId;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
+import dsm.TRADES.ElementWithId;
 import dsm.TRADES.NamedElement;
 import dsm.cve.model.CVECatalog.CVECatalogPackage;
 import dsm.cve.model.CVECatalog.Vulnerability;

@@ -57,7 +57,6 @@ import org.eclipse.swt.widgets.ProgressBar;
 import org.eclipse.swt.widgets.Text;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 
 import dsm.TRADES.Analysis;
 import dsm.TRADES.ComponentType;
@@ -274,7 +273,7 @@ public class CVECatalogSelectionPage extends WizardPage {
 			Document doc = builder.parse(input);
 			Node analysisNode = doc.getDocumentElement();
 			extractAPIKey(analysisNode);
-			extractCPEs(analysisNode, analysis);			
+			extractCPEs(analysis);			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -289,45 +288,17 @@ public class CVECatalogSelectionPage extends WizardPage {
 		}
     }
     
-    private void extractCPEs(Node analysisNode, Analysis analysis) {
-    	if (this.apiKey != null) {
-    		NodeList analysisChildList = analysisNode.getChildNodes();
-    		for (int i = 0; i < analysisChildList.getLength(); i++) {
-    			Node analysisChild = analysisChildList.item(i);
-    			if (analysisChild.getNodeName().equals("componentTypeOwner")) {
-    				NodeList componentTypeList = analysisChild.getChildNodes();
-    				for (int j = 0; j < componentTypeList.getLength(); j++) {
-    					Node componentTypeNode = componentTypeList.item(j);
-    					//ignore text nodes
-						if (componentTypeNode.getNodeType() != Node.TEXT_NODE) {
-    						Node cpeAttribute = componentTypeNode.getAttributes().getNamedItem("name");
-    						if (cpeAttribute != null) {
-                                String cpeName = cpeAttribute.getNodeValue();
-    							addComponentTypeToDictionary(cpeName, analysis);
-                                
-    						}
-    					}
-    				}
-    			}
+    private void extractCPEs(Analysis analysis) {
+    	ComponentTypeOwner componentTypeOwner = analysis.getComponentTypeOwner();
+        for (ComponentType componentType : componentTypeOwner.getComponentTypes()) {
+        	if (componentType.getName() != null) {
+        		cpeToComponentTypeDictionary.put(componentType.getName(), componentType);
     		}
-    		cpeViewer.setInput(Collections.list(cpeToComponentTypeDictionary.keys()));
-    		if (cpeFromComponentType == null) {
-                ISelection selection = new StructuredSelection(cpeToComponentTypeDictionary.keys()); 
-                cpeViewer.setSelection(selection);
-            }
     	}
-    }
-
-    private void addComponentTypeToDictionary(String cpeName, Analysis analysis) {
-    	if (cpeName != null) {
-    		ComponentTypeOwner componentTypeOwner = analysis.getComponentTypeOwner();
-            for (ComponentType componentType : componentTypeOwner.getComponentTypes()) {
-            	if (componentType.getName() != null) {
-            		if (componentType.getName().equals(cpeName)) {
-            			cpeToComponentTypeDictionary.put(cpeName, componentType);
-            		}
-            	}
-            }
+    	cpeViewer.setInput(Collections.list(cpeToComponentTypeDictionary.keys()));
+    	if (cpeFromComponentType == null) {
+            ISelection selection = new StructuredSelection(cpeToComponentTypeDictionary.keys()); 
+            cpeViewer.setSelection(selection);
     	}
     }
 

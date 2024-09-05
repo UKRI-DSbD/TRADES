@@ -33,6 +33,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -181,7 +182,11 @@ public class ImportCWECatalogWizard extends Wizard implements IImportWizard {
 						monitor.worked(1);
 						try {
 							monitor.setTaskName("Saving the resource");
-							existingResource.save(Collections.emptyMap());
+							for (Resource resource : existingResource.getResourceSet().getResources()) {
+								if (!(resource instanceof XMIResourceImpl)) {
+									resource.save(Collections.emptyMap());
+								}								
+							}
 							monitor.worked(1);
 						} catch (IOException e) {
 							TRADESRCPActivator.logError("Problem while saving catalog " + e.getMessage(), e);
