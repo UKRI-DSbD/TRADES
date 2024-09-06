@@ -143,20 +143,20 @@ public class ImportCVEViaParametersWizard extends Wizard implements IImportWizar
 
 						session.addSemanticResource(cveLibURI, new NullProgressMonitor());
 						monitor.worked(1);
-						try {
-							monitor.setTaskName("Saving the resource");
-							for (Resource resource : existingResource.getResourceSet().getResources()) {
-								if (!(resource instanceof XMIResourceImpl)) {
-									resource.save(Collections.emptyMap());
-								}
+                        monitor.setTaskName("Saving the resource");
+                        for (Resource resource : existingResource.getResourceSet().getResources()) {
+                        	if (resource.getURI().isFile() || resource.getURI().isPlatformResource()) {
+                        		try {
+                                    resource.save(Collections.emptyMap());
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                    System.err.println(e.getMessage());
+                                }                                
 							}
-							monitor.worked(1);
-						} catch (IOException e) {
-							TRADESRCPActivator.logError("Problem while saving catalog " + e.getMessage(), e);
-						}
-
-					}
-				};
+                            monitor.worked(1);
+                        }
+                    }
+                };
 				transactionalEditingDomain.getCommandStack().execute(cmd);
 
 				monitor.done();
