@@ -48,7 +48,8 @@ class NVDAPIUtils {
     static String requestJsonString(String cpeName, SelectionEvent event, FetchProgress fetchProgress, String apiKey) {
         String cveUrl = urlWithQuestionMark
         	+ "startIndex=" + fetchProgress.startIndex
-            + "&cpeName=" + URLEncoder.encode(cpeName, StandardCharsets.UTF_8);
+            + "&cpeName=" + URLEncoder.encode(cpeName, StandardCharsets.UTF_8)
+            + "&isVulnerable";
         try {
             HttpRequest.Builder requestBuilder = HttpRequest.newBuilder(new URI(cveUrl));
             if (apiKey != null && !apiKey.isEmpty()) {
