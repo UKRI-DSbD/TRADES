@@ -1,5 +1,5 @@
 /**
- * Copyright Israel Aerospace Industries, Eclipse contributors and others 2021. All rights reserved.
+ * University of Oxford, Eclipse contributors and others 2021. All rights reserved.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: EPL-2.0
  * 
  * Contributors:
- *     ELTA Ltd - initial API and implementation
+ *     University of Oxford - initial API and implementation
  * 
  */
 
@@ -203,8 +203,11 @@ public class ImportCVEViaParametersWizard extends Wizard implements IImportWizar
 			List<String> weaknesses = cveToCWEDictionary.get(cveId);
 			CVECatalogFactory cveCatalogFactory = CVECatalogFactory.eINSTANCE;
 			dsm.cve.model.CVECatalog.Vulnerability cve = cveCatalogFactory.createVulnerability();			
-			cve.setId(cveId);
+			cve.setName(cveId);
             cve.setVulnerabilityType(VulnerabilityTypeENUM.CVE);
+            
+            //placeholder for linking with cpe component types
+            
 			for (String weakness : weaknesses) {
 				//assume CWEs already loaded
 				try {
