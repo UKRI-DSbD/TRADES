@@ -1,5 +1,5 @@
 /**
- * Copyright Israel Aerospace Industries, Eclipse contributors and others 2021. All rights reserved.
+ * Copyright University of Oxford, Eclipse contributors and others 2021. All rights reserved.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: EPL-2.0
  * 
  * Contributors:
- *     ELTA Ltd - initial API and implementation
+ *     University of Oxford - initial API and implementation
  * 
  */
 
@@ -67,8 +67,10 @@ import dsm.TRADES.ComponentTypeOwner;
  */
 public class CVECatalogSelectionPage extends WizardPage {
 
-    private List<String> chosenCVEs;
+    private static final Text NULL = null;
+	private List<String> chosenCVEs;
     private List<String> chosenCPEs;
+    private String apiOptionString; //NVD API Parameters
     private TableViewer cpeViewer;
     private TableViewer cveViewer;
     private ViewerFilter filterViewer;
@@ -79,6 +81,7 @@ public class CVECatalogSelectionPage extends WizardPage {
     private IProject project;
     private String cpeFromComponentType;
     private ProgressBarWrapper progressBar;
+    
 
     public CVECatalogSelectionPage(IProject project) {
         super("CVE Catalog selection page");
@@ -104,6 +107,9 @@ public class CVECatalogSelectionPage extends WizardPage {
 
         // Type and fetch button
         createFetchGroup(composite);
+        
+        // NVD API Option
+        createURLSearchGroup(composite);
         
         // Search Results
         createSearchResultsViewer(composite);
@@ -154,8 +160,25 @@ public class CVECatalogSelectionPage extends WizardPage {
             }
         };
     }
- 
-    private void createFetchGroup(Composite parent) {
+    private void createURLSearchGroup(Composite parent) {
+        Group searchGroup = new Group(parent, SWT.NONE);
+        searchGroup.setText("Enter optional NVD API parameters below.");
+        searchGroup.setLayout(new GridLayout(1, false));
+        searchGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));        
+        Text apiOption = new Text(searchGroup, SWT.COLOR_WHITE);        
+        apiOption.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+        apiOption.setText("&isVulnerable");
+        apiOptionString = apiOption.getText();
+        
+        apiOption.addModifyListener(new ModifyListener() {
+            @Override
+            public void modifyText(ModifyEvent e) {
+                apiOptionString = apiOption.getText(); // Get the updated text                
+            }
+        });
+    }
+        
+    private void createFetchGroup(Composite parent) {    	
         Group fetchGroup = new Group(parent, SWT.NONE);
         fetchGroup.setText("CPEs found :");
         fetchGroup.setLayout(new GridLayout(2, false));
@@ -197,7 +220,7 @@ public class CVECatalogSelectionPage extends WizardPage {
             public void widgetSelected(SelectionEvent e) {
                 fetchButton.setEnabled(false);
                 NVDAPIUtils.RunOnBackgroundThread(() -> {
-            		NVDAPIUtils.queryCVEEndpoint(e, chosenCPEs, apiKey, cveViewer, cveToCWEDictionary, cveToCPEDictionary, progressBar);
+                	NVDAPIUtils.queryCVEEndpoint(e, chosenCPEs, apiOptionString, apiKey, cveViewer, cveToCWEDictionary, cveToCPEDictionary, progressBar);
                     //Update the UI on the UI thread
             		NVDAPIUtils.RunOnUiThreadSync(e, () -> fetchButton.setEnabled(true));
             	});

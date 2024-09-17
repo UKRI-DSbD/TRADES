@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: EPL-2.0
  * 
  * Contributors:
- *     University of Oxford - implementation
+ *     University of Oxford - implementationNVDAPIUtils.queryCVEEndpoint(e, searchText, apiKey, resultsText, cveViewer, cveToCWEDictionary);
  * 
  */
 
@@ -45,11 +45,12 @@ class NVDAPIUtils {
     public static String urlWithQuestionMark = "https://services.nvd.nist.gov/rest/json/cves/2.0?";
     public static int pageLength = 2000; //JSON pages seem to have a maximum size of 2000.
 
-    static String requestJsonString(String cpeName, SelectionEvent event, FetchProgress fetchProgress, String apiKey) {
+    static String requestJsonString(String cpeName, String apiOption, SelectionEvent event, FetchProgress fetchProgress, String apiKey) {
         String cveUrl = urlWithQuestionMark
         	+ "startIndex=" + fetchProgress.startIndex
-            + "&cpeName=" + URLEncoder.encode(cpeName, StandardCharsets.UTF_8)
-            + "&isVulnerable";
+            + "&cpeName=" + URLEncoder.encode(cpeName, StandardCharsets.UTF_8)            
+            + apiOption
+            ;
         try {
             HttpRequest.Builder requestBuilder = HttpRequest.newBuilder(new URI(cveUrl));
             if (apiKey != null && !apiKey.isEmpty()) {
@@ -172,11 +173,11 @@ class NVDAPIUtils {
         }
     }
 
-    static FetchProgress requestAndParseJson(String cpeName, SelectionEvent event, 
+    static FetchProgress requestAndParseJson(String cpeName, String apiOption, SelectionEvent event, 
             FetchProgress fetchProgress, List<String> cvesToDisplay, String apiKey, 
     		Hashtable<String, List<String>> cveToCWEDictionary,
             Hashtable<String, List<String>> cveToCPEDictionary) {
-        String jsonString = requestJsonString(cpeName, event, fetchProgress, apiKey);
+        String jsonString = requestJsonString(cpeName, apiOption, event, fetchProgress, apiKey);
         if (jsonString != null) {
             try {
                 ObjectMapper objectMapper = new ObjectMapper();
@@ -246,7 +247,7 @@ class NVDAPIUtils {
         }
     }
 
-    static void queryCVEEndpoint(SelectionEvent event, List<String> chosenCPEs, String apiKey, TableViewer cveViewer, 
+    static void queryCVEEndpoint(SelectionEvent event, List<String> chosenCPEs, String apiOption, String apiKey, TableViewer cveViewer, 
     		Hashtable<String, List<String>> cveToCWEDictionary,
             Hashtable<String, List<String>> cveToCPEDictionary,
             ProgressBarWrapper progressBar) {
@@ -269,7 +270,7 @@ class NVDAPIUtils {
             }
 
             FetchProgress fetchProgress = requestAndParseJson(
-                cpeName, event, new FetchProgress(), cvesToDisplay, 
+                cpeName, apiOption, event, new FetchProgress(), cvesToDisplay, 
                 apiKey, cveToCWEDictionary, cveToCPEDictionary);
            	while (fetchProgress != null && !fetchProgress.isComplete()) {
             	progressBar.setValue(Math.max(initialProgress, cpeCount + fetchProgress.fractionalProgress()));
@@ -281,7 +282,7 @@ class NVDAPIUtils {
                 }
 
                 fetchProgress = requestAndParseJson(
-                    cpeName, event, fetchProgress, cvesToDisplay, 
+                    cpeName, apiOption, event, fetchProgress, cvesToDisplay, 
                     apiKey, cveToCWEDictionary, cveToCPEDictionary);
             }
 

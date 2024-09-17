@@ -46,6 +46,7 @@ import org.eclipse.ui.IWorkbench;
 
 import dsm.TRADES.VulnerabilityTypeENUM;
 import dsm.cve.design.wizards.CVEParameterSearchPage;
+
 import dsm.cve.model.CVECatalog.CVECatalogFactory;
 import dsm.cwe.model.CWECatalog.Weakness;
 import dsm.cwe.model.CWECatalog.WeaknessCatalog;
@@ -207,6 +208,7 @@ public class ImportCVEViaParametersWizard extends Wizard implements IImportWizar
             cve.setVulnerabilityType(VulnerabilityTypeENUM.CVE);
             
             //placeholder for linking with cpe component types
+            //NVDAPIUtils.queryCVEEndpoint(e, searchText, apiKey, resultsText, cveViewer, cveToCWEDictionary);
             
 			for (String weakness : weaknesses) {
 				//assume CWEs already loaded
