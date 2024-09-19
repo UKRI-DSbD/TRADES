@@ -17,16 +17,18 @@ class TradesReader:
                 for threat_allocation in component.find_all('threatAllocations', recursive=False):
                     threat_id = threat_allocation.get('threat')
                     threat_node = get_threat_by_id(self.filepath, threat_id)
-                    component_type_id = component.get('componentTypes')
-                    component_node = get_node_by_id_tag_owner('componentTypeOwner', 'componentTypes', component_type_id, self.filepath)
-                    impact_score_id = threat_allocation.get('impactScore')
-                    difficulty_score_id = threat_allocation.get('difficultyScore')
-                    if (impact_score_id != None) and (difficulty_score_id != None):
-                        impact_node = get_node_by_id_tag_owner('scoreSystem', 'impactScores', impact_score_id, self.filepath)
-                        difficulty_node = get_node_by_id_tag_owner('scoreSystem', 'difficultyScores', difficulty_score_id, self.filepath)
-                        output.append([component_node.get('name'), component.get('name'), threat_node.get('name'), impact_node.get('name'), difficulty_node.get('name')])
-                    else:
-                        output.append([component_node.get('name'), component.get('name'), threat_node.get('name'), '', ''])
+                    component_type_ids = component.get('componentTypes')
+                    if component_type_ids != None:
+                        for component_type_id in component_type_ids.split(' '):
+                            component_node = get_node_by_id_tag_owner('componentTypeOwner', 'componentTypes', component_type_id, self.filepath)
+                            impact_score_id = threat_allocation.get('impactScore')
+                            difficulty_score_id = threat_allocation.get('difficultyScore')
+                            if (impact_score_id != None) and (difficulty_score_id != None):
+                                impact_node = get_node_by_id_tag_owner('scoreSystem', 'impactScores', impact_score_id, self.filepath)
+                                difficulty_node = get_node_by_id_tag_owner('scoreSystem', 'difficultyScores', difficulty_score_id, self.filepath)
+                                output.append([component_node.get('name'), component.get('name'), threat_node.get('name'), impact_node.get('name'), difficulty_node.get('name')])
+                            else:
+                                output.append([component_node.get('name'), component.get('name'), threat_node.get('name'), '', ''])
             return output
 
     def get_risk_dictionary(self):
@@ -145,8 +147,9 @@ class TradesReader:
             for internal in threat_owner.find_all('internals', recursive=False):
                 id = internal.get('xmi:id')
                 output.append(('threat', id, internal.get('name')))
-                for vulnerability_id in internal.get('exploitsVulnerability').split(' '):
-                    output.append(('exploits', id, 'exploits', vulnerability_id))
+                if internal.get('exploitsVulnerability') != None:
+                    for vulnerability_id in internal.get('exploitsVulnerability').split(' '):
+                        output.append(('exploits', id, 'exploits', vulnerability_id))
             for external in threat_owner.find_all('externals', recursive=False):
                 id = external.get('xmi:id')
                 output.append(('threat', id, external.get('name')))
@@ -160,9 +163,12 @@ class TradesReader:
             for rule in rule_owner.find_all('rules'):
                 id = rule.get('xmi:id')
                 output.append(('rule', id, 'Rule'))
-                output.append(('rule_part', id, 'related to', rule.get('vulnerabilities')))
-                output.append(('rule_part', id, 'affects', rule.get('componentTypesAffected')))
-                output.append(('rule_part', id, 'uses', rule.get('controls')))
+                if rule.get('vulnerabilities') != None:
+                    output.append(('rule_part', id, 'related to', rule.get('vulnerabilities')))
+                if rule.get('componentTypesAffected') != None:
+                    output.append(('rule_part', id, 'affects', rule.get('componentTypesAffected')))
+                if rule.get('controls') != None:
+                    output.append(('rule_part', id, 'uses', rule.get('controls')))
         #Component
         for component in node.find_all('components', recursive=True):
             id = component.get('xmi:id')
