@@ -14,7 +14,7 @@ class AirdReader:
             cells = xml.find_all('cells', recursive=True)
             for cell in cells:
                 target_node = cell.find('target', recursive=False)
-                configuration_id = target_node.get('href').replace("uploaded.trades#", "")
+                configuration_id = target_node.get('href').replace(self.trades_filepath + "#", "")
                 configuration_node = get_node_from_string('configurations', configuration_id, self.trades_filepath)
                 difficulty_id = configuration_node.get('difficulty')
                 difficulty_node = get_node_from_string('difficultyScores', difficulty_id, self.trades_filepath)
