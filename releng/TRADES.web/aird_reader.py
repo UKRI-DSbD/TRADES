@@ -14,15 +14,16 @@ class AirdReader:
             cells = xml.find_all('cells', recursive=True)
             for cell in cells:
                 target_node = cell.find('target', recursive=False)
-                configuration_id = target_node.get('href').replace(self.trades_filepath + "#", "")
-                configuration_node = get_node_from_string('configurations', configuration_id, self.trades_filepath)
-                difficulty_id = configuration_node.get('difficulty')
-                difficulty_node = get_node_from_string('difficultyScores', difficulty_id, self.trades_filepath)
-                difficulty_name = difficulty_node.get('name')
-                current_style = cell.find('currentStyle', recursive=False)
-                colour = self.normalise_colour(current_style.get('backgroundColor'))
-                impact_name = get_impact_name_from_configuration_id(configuration_node.get("xmi:id"), self.trades_filepath)
-                output[impact_name, difficulty_name] = colour
+                if target_node.get('xmi:type') == 'TRADES:ImpactConfiguration':
+                    configuration_id = target_node.get('href').replace(self.trades_filepath + "#", "")
+                    configuration_node = get_node_from_string('configurations', configuration_id, self.trades_filepath)
+                    difficulty_id = configuration_node.get('difficulty')
+                    difficulty_node = get_node_from_string('difficultyScores', difficulty_id, self.trades_filepath)
+                    difficulty_name = difficulty_node.get('name')
+                    current_style = cell.find('currentStyle', recursive=False)
+                    colour = self.normalise_colour(current_style.get('backgroundColor'))
+                    impact_name = get_impact_name_from_configuration_id(configuration_node.get("xmi:id"), self.trades_filepath)
+                    output[impact_name, difficulty_name] = colour
         return output
 
     def normalise_colour(self, colour):
