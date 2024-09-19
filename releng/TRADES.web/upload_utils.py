@@ -5,8 +5,9 @@ from io import StringIO
 
 def save_uploaded_files(uploaded_aird_file, uploaded_trades_file):
     if uploaded_aird_file is not None and uploaded_trades_file is not None:
-        save_uploaded_file('uploaded.aird', uploaded_aird_file)
-        save_uploaded_file('uploaded.trades', uploaded_trades_file)
+        save_uploaded_file(uploaded_aird_file.name, uploaded_aird_file)
+        save_uploaded_file(uploaded_trades_file.name, uploaded_trades_file)
+        return (AirdReader(uploaded_aird_file.name, uploaded_trades_file.name), TradesReader(uploaded_trades_file.name))
     return (AirdReader('uploaded.aird', 'uploaded.trades'), TradesReader('uploaded.trades'))
     
 def save_uploaded_file(file_name, uploaded_file):
