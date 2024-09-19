@@ -1378,7 +1378,7 @@
       </defaultLayer>
       <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="TRADES Vulnerability diagram" initialisation="true" showOnStartup="true" domainClass="TRADES::Analysis" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="TRADES Vulnerability diagram" domainClass="TRADES::Analysis" enablePopupBars="true">
       <dropDescriptions href="#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='copyThreatDragDrop']"/>
       <dropDescriptions href="#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DropCatalogControl_TD']"/>
       <dropDescriptions href="#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DropCatalogThreat_TD']"/>
@@ -1630,7 +1630,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.eContainerOrSelf(TRADES::Analysis).threatOwner">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="TRADES::Threat" referenceName="internals"/>/
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="TRADES::Threat" referenceName="internals"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
