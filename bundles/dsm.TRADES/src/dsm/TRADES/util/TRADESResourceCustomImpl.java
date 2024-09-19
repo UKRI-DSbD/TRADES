@@ -21,6 +21,7 @@ public class TRADESResourceCustomImpl extends TRADESResourceImpl {
 		super(uri);
 	}
 
+	//Use UUIDs at Resource level
 	@Override
 	protected boolean useUUIDs() {
 		return true;
