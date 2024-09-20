@@ -22,7 +22,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -109,8 +108,6 @@ public class InitMitre implements IApplication {
 									String external_id = ext.getExternal_id();
 									if (external_id != null) {
 										threat.setId(external_id);
-									} else {
-										threat.setId(UUID.randomUUID().toString());
 									}
 									threat.setSource(analysisName);
 									threat.setSourceID(analysisName);
@@ -136,8 +133,6 @@ public class InitMitre implements IApplication {
 										String external_id = ext.getExternal_id();
 										if (external_id != null) {
 											control.setId(external_id);
-										} else {
-											control.setId(UUID.randomUUID().toString());
 										}
 										control.setSource(analysisName);
 										control.setSourceID(analysisName);

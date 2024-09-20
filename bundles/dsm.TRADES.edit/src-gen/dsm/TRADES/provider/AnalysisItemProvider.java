@@ -34,7 +34,7 @@ import dsm.TRADES.TRADESPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AnalysisItemProvider extends ComponentOwnerItemProvider {
+public class AnalysisItemProvider extends AbstractComponentOwnerItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

@@ -48,7 +48,9 @@ public class ActionFetchCVEs extends Action {
             String apiKey = analysis.getNVDAPIKey();
             ComponentTypeOwner componentTypeOwner = analysis.getComponentTypeOwner();
             for (ComponentType componentType : componentTypeOwner.getComponentTypes()) {
-            	cpeToComponentTypeDictionary.put(componentType.getName(), componentType);
+            	if (componentType.getName() != null) {
+            		cpeToComponentTypeDictionary.put(componentType.getName(), componentType);
+            	}
             }
             wizard.setAPIKey(apiKey);
             wizard.setCPEToComponentTypeDictionary(cpeToComponentTypeDictionary);

@@ -47,6 +47,8 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 
+import dsm.oscal.model.OscalCatalog.presentation.OscalEditorPlugin;
+
 /**
  * This is the action bar contributor for the OscalMetadata model editor.
  * <!-- begin-user-doc -->

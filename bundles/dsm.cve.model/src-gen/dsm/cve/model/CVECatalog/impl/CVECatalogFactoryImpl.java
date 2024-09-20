@@ -82,7 +82,7 @@ public class CVECatalogFactoryImpl extends EFactoryImpl implements CVECatalogFac
 	 */
 	@Override
 	public Vulnerability createVulnerability() {
-		VulnerabilityImpl vulnerability = new VulnerabilityImpl();
+		VulnerabilityCustomImpl vulnerability = new VulnerabilityCustomImpl();
 		return vulnerability;
 	}
 

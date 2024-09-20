@@ -76,14 +76,14 @@ public interface TRADESPackage extends EPackage {
 	TRADESPackage eINSTANCE = dsm.TRADES.impl.TRADESPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link dsm.TRADES.impl.ComponentOwnerImpl <em>Component Owner</em>}' class.
+	 * The meta object id for the '{@link dsm.TRADES.impl.AbstractComponentOwnerImpl <em>Abstract Component Owner</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see dsm.TRADES.impl.ComponentOwnerImpl
-	 * @see dsm.TRADES.impl.TRADESPackageImpl#getComponentOwner()
+	 * @see dsm.TRADES.impl.AbstractComponentOwnerImpl
+	 * @see dsm.TRADES.impl.TRADESPackageImpl#getAbstractComponentOwner()
 	 * @generated
 	 */
-	int COMPONENT_OWNER = 14;
+	int ABSTRACT_COMPONENT_OWNER = 14;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -92,25 +92,25 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_OWNER__COMPONENTS = 0;
+	int ABSTRACT_COMPONENT_OWNER__COMPONENTS = 0;
 
 	/**
-	 * The number of structural features of the '<em>Component Owner</em>' class.
+	 * The number of structural features of the '<em>Abstract Component Owner</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_OWNER_FEATURE_COUNT = 1;
+	int ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT = 1;
 
 	/**
-	 * The number of operations of the '<em>Component Owner</em>' class.
+	 * The number of operations of the '<em>Abstract Component Owner</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_OWNER_OPERATION_COUNT = 0;
+	int ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.impl.AnalysisImpl <em>Analysis</em>}' class.
@@ -129,7 +129,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__COMPONENTS = COMPONENT_OWNER__COMPONENTS;
+	int ANALYSIS__COMPONENTS = ABSTRACT_COMPONENT_OWNER__COMPONENTS;
 
 	/**
 	 * The feature id for the '<em><b>Data Owner</b></em>' containment reference.
@@ -138,7 +138,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__DATA_OWNER = COMPONENT_OWNER_FEATURE_COUNT + 0;
+	int ANALYSIS__DATA_OWNER = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -147,7 +147,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__NAME = COMPONENT_OWNER_FEATURE_COUNT + 1;
+	int ANALYSIS__NAME = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Control Owner</b></em>' containment reference.
@@ -156,7 +156,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__CONTROL_OWNER = COMPONENT_OWNER_FEATURE_COUNT + 2;
+	int ANALYSIS__CONTROL_OWNER = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Threat Owner</b></em>' containment reference.
@@ -165,7 +165,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__THREAT_OWNER = COMPONENT_OWNER_FEATURE_COUNT + 3;
+	int ANALYSIS__THREAT_OWNER = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -174,7 +174,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__ID = COMPONENT_OWNER_FEATURE_COUNT + 4;
+	int ANALYSIS__ID = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Vulnerability Owner</b></em>' containment reference.
@@ -183,7 +183,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__VULNERABILITY_OWNER = COMPONENT_OWNER_FEATURE_COUNT + 5;
+	int ANALYSIS__VULNERABILITY_OWNER = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Component Type Owner</b></em>' containment reference.
@@ -192,7 +192,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__COMPONENT_TYPE_OWNER = COMPONENT_OWNER_FEATURE_COUNT + 6;
+	int ANALYSIS__COMPONENT_TYPE_OWNER = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Rule Owner</b></em>' containment reference.
@@ -201,7 +201,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__RULE_OWNER = COMPONENT_OWNER_FEATURE_COUNT + 7;
+	int ANALYSIS__RULE_OWNER = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Score System</b></em>' containment reference.
@@ -210,7 +210,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__SCORE_SYSTEM = COMPONENT_OWNER_FEATURE_COUNT + 8;
+	int ANALYSIS__SCORE_SYSTEM = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Link Types</b></em>' containment reference list.
@@ -219,7 +219,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__LINK_TYPES = COMPONENT_OWNER_FEATURE_COUNT + 9;
+	int ANALYSIS__LINK_TYPES = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>NVDAPI Key</b></em>' attribute.
@@ -228,7 +228,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__NVDAPI_KEY = COMPONENT_OWNER_FEATURE_COUNT + 10;
+	int ANALYSIS__NVDAPI_KEY = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Property Vulnerability Mitigation Rules Available</b></em>' attribute.
@@ -237,7 +237,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__PROPERTY_VULNERABILITY_MITIGATION_RULES_AVAILABLE = COMPONENT_OWNER_FEATURE_COUNT + 11;
+	int ANALYSIS__PROPERTY_VULNERABILITY_MITIGATION_RULES_AVAILABLE = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Property Weakness Mitigation Rules Available</b></em>' attribute.
@@ -246,7 +246,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__PROPERTY_WEAKNESS_MITIGATION_RULES_AVAILABLE = COMPONENT_OWNER_FEATURE_COUNT + 12;
+	int ANALYSIS__PROPERTY_WEAKNESS_MITIGATION_RULES_AVAILABLE = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Property Design Addresses Vulnerabilities</b></em>' attribute.
@@ -255,7 +255,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__PROPERTY_DESIGN_ADDRESSES_VULNERABILITIES = COMPONENT_OWNER_FEATURE_COUNT + 13;
+	int ANALYSIS__PROPERTY_DESIGN_ADDRESSES_VULNERABILITIES = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Property Design Addresses Weaknesses</b></em>' attribute.
@@ -264,7 +264,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__PROPERTY_DESIGN_ADDRESSES_WEAKNESSES = COMPONENT_OWNER_FEATURE_COUNT + 14;
+	int ANALYSIS__PROPERTY_DESIGN_ADDRESSES_WEAKNESSES = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Vulnerabilities Uncovered By Rule</b></em>' reference list.
@@ -273,7 +273,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__VULNERABILITIES_UNCOVERED_BY_RULE = COMPONENT_OWNER_FEATURE_COUNT + 15;
+	int ANALYSIS__VULNERABILITIES_UNCOVERED_BY_RULE = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Weaknesses Uncovered By Rule</b></em>' reference list.
@@ -282,7 +282,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__WEAKNESSES_UNCOVERED_BY_RULE = COMPONENT_OWNER_FEATURE_COUNT + 16;
+	int ANALYSIS__WEAKNESSES_UNCOVERED_BY_RULE = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Vulnerable Components</b></em>' reference list.
@@ -291,7 +291,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__VULNERABLE_COMPONENTS = COMPONENT_OWNER_FEATURE_COUNT + 17;
+	int ANALYSIS__VULNERABLE_COMPONENTS = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 17;
 
 	/**
 	 * The number of structural features of the '<em>Analysis</em>' class.
@@ -300,7 +300,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_FEATURE_COUNT = COMPONENT_OWNER_FEATURE_COUNT + 18;
+	int ANALYSIS_FEATURE_COUNT = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Get Datas</em>' operation.
@@ -309,7 +309,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___GET_DATAS = COMPONENT_OWNER_OPERATION_COUNT + 0;
+	int ANALYSIS___GET_DATAS = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Inherited Datas</em>' operation.
@@ -318,7 +318,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___GET_INHERITED_DATAS = COMPONENT_OWNER_OPERATION_COUNT + 1;
+	int ANALYSIS___GET_INHERITED_DATAS = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get All Datas</em>' operation.
@@ -327,7 +327,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___GET_ALL_DATAS = COMPONENT_OWNER_OPERATION_COUNT + 2;
+	int ANALYSIS___GET_ALL_DATAS = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get All Controls</em>' operation.
@@ -336,7 +336,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___GET_ALL_CONTROLS = COMPONENT_OWNER_OPERATION_COUNT + 3;
+	int ANALYSIS___GET_ALL_CONTROLS = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get External Controls</em>' operation.
@@ -345,7 +345,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___GET_EXTERNAL_CONTROLS__STRING_STRING = COMPONENT_OWNER_OPERATION_COUNT + 4;
+	int ANALYSIS___GET_EXTERNAL_CONTROLS__STRING_STRING = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Get External Threats</em>' operation.
@@ -354,7 +354,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___GET_EXTERNAL_THREATS__STRING_STRING = COMPONENT_OWNER_OPERATION_COUNT + 5;
+	int ANALYSIS___GET_EXTERNAL_THREATS__STRING_STRING = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Direct Rule Exists</em>' operation.
@@ -363,7 +363,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___DIRECT_RULE_EXISTS__VULNERABILITY_COMPONENTTYPE = COMPONENT_OWNER_OPERATION_COUNT + 6;
+	int ANALYSIS___DIRECT_RULE_EXISTS__VULNERABILITY_COMPONENTTYPE = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Proxy Rule Exists</em>' operation.
@@ -372,7 +372,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___PROXY_RULE_EXISTS__VULNERABILITY_COMPONENTTYPE = COMPONENT_OWNER_OPERATION_COUNT + 7;
+	int ANALYSIS___PROXY_RULE_EXISTS__VULNERABILITY_COMPONENTTYPE = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Rule Exists</em>' operation.
@@ -381,7 +381,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___RULE_EXISTS__VULNERABILITY_COMPONENTTYPE = COMPONENT_OWNER_OPERATION_COUNT + 8;
+	int ANALYSIS___RULE_EXISTS__VULNERABILITY_COMPONENTTYPE = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Analysis</em>' class.
@@ -390,7 +390,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_OPERATION_COUNT = COMPONENT_OWNER_OPERATION_COUNT + 9;
+	int ANALYSIS_OPERATION_COUNT = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -600,7 +600,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__COMPONENTS = COMPONENT_OWNER__COMPONENTS;
+	int COMPONENT__COMPONENTS = ABSTRACT_COMPONENT_OWNER__COMPONENTS;
 
 	/**
 	 * The feature id for the '<em><b>Data Owner</b></em>' containment reference.
@@ -609,7 +609,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__DATA_OWNER = COMPONENT_OWNER_FEATURE_COUNT + 0;
+	int COMPONENT__DATA_OWNER = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -618,7 +618,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__NAME = COMPONENT_OWNER_FEATURE_COUNT + 1;
+	int COMPONENT__NAME = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Control Owner</b></em>' containment reference.
@@ -627,7 +627,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__CONTROL_OWNER = COMPONENT_OWNER_FEATURE_COUNT + 2;
+	int COMPONENT__CONTROL_OWNER = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Category</b></em>' attribute list.
@@ -636,7 +636,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__CATEGORY = COMPONENT_OWNER_FEATURE_COUNT + 3;
+	int COMPONENT__CATEGORY = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Threat Allocations</b></em>' containment reference list.
@@ -645,7 +645,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__THREAT_ALLOCATIONS = COMPONENT_OWNER_FEATURE_COUNT + 4;
+	int COMPONENT__THREAT_ALLOCATIONS = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Affect Relations</b></em>' containment reference list.
@@ -654,7 +654,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__AFFECT_RELATIONS = COMPONENT_OWNER_FEATURE_COUNT + 5;
+	int COMPONENT__AFFECT_RELATIONS = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Links</b></em>' containment reference list.
@@ -663,7 +663,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__LINKS = COMPONENT_OWNER_FEATURE_COUNT + 6;
+	int COMPONENT__LINKS = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Component Types</b></em>' reference list.
@@ -672,7 +672,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__COMPONENT_TYPES = COMPONENT_OWNER_FEATURE_COUNT + 7;
+	int COMPONENT__COMPONENT_TYPES = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Rules</b></em>' reference list.
@@ -681,7 +681,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__RULES = COMPONENT_OWNER_FEATURE_COUNT + 8;
+	int COMPONENT__RULES = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Assigned Controls</b></em>' reference list.
@@ -690,7 +690,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__ASSIGNED_CONTROLS = COMPONENT_OWNER_FEATURE_COUNT + 9;
+	int COMPONENT__ASSIGNED_CONTROLS = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Vulnerable</b></em>' attribute.
@@ -699,7 +699,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__VULNERABLE = COMPONENT_OWNER_FEATURE_COUNT + 10;
+	int COMPONENT__VULNERABLE = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>CVA</b></em>' reference list.
@@ -708,7 +708,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__CVA = COMPONENT_OWNER_FEATURE_COUNT + 11;
+	int COMPONENT__CVA = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>CWA</b></em>' reference list.
@@ -717,7 +717,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__CWA = COMPONENT_OWNER_FEATURE_COUNT + 12;
+	int COMPONENT__CWA = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Associated Controls</b></em>' reference list.
@@ -726,7 +726,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__ASSOCIATED_CONTROLS = COMPONENT_OWNER_FEATURE_COUNT + 13;
+	int COMPONENT__ASSOCIATED_CONTROLS = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Unmitigated Vulnerabilities</b></em>' reference list.
@@ -735,7 +735,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__UNMITIGATED_VULNERABILITIES = COMPONENT_OWNER_FEATURE_COUNT + 14;
+	int COMPONENT__UNMITIGATED_VULNERABILITIES = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Unmitigated Weaknesses</b></em>' reference list.
@@ -744,7 +744,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__UNMITIGATED_WEAKNESSES = COMPONENT_OWNER_FEATURE_COUNT + 15;
+	int COMPONENT__UNMITIGATED_WEAKNESSES = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 15;
 
 	/**
 	 * The number of structural features of the '<em>Component</em>' class.
@@ -753,7 +753,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = COMPONENT_OWNER_FEATURE_COUNT + 16;
+	int COMPONENT_FEATURE_COUNT = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Get Datas</em>' operation.
@@ -762,7 +762,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT___GET_DATAS = COMPONENT_OWNER_OPERATION_COUNT + 0;
+	int COMPONENT___GET_DATAS = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Inherited Datas</em>' operation.
@@ -771,7 +771,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT___GET_INHERITED_DATAS = COMPONENT_OWNER_OPERATION_COUNT + 1;
+	int COMPONENT___GET_INHERITED_DATAS = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get All Datas</em>' operation.
@@ -780,7 +780,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT___GET_ALL_DATAS = COMPONENT_OWNER_OPERATION_COUNT + 2;
+	int COMPONENT___GET_ALL_DATAS = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get All Controls</em>' operation.
@@ -789,7 +789,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT___GET_ALL_CONTROLS = COMPONENT_OWNER_OPERATION_COUNT + 3;
+	int COMPONENT___GET_ALL_CONTROLS = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get External Controls</em>' operation.
@@ -798,7 +798,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT___GET_EXTERNAL_CONTROLS__STRING_STRING = COMPONENT_OWNER_OPERATION_COUNT + 4;
+	int COMPONENT___GET_EXTERNAL_CONTROLS__STRING_STRING = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Of Type</em>' operation.
@@ -807,7 +807,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT___OF_TYPE__COMPONENTTYPE = COMPONENT_OWNER_OPERATION_COUNT + 5;
+	int COMPONENT___OF_TYPE__COMPONENTTYPE = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Mitigated V</em>' operation.
@@ -816,7 +816,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT___MITIGATED_V__VULNERABILITY = COMPONENT_OWNER_OPERATION_COUNT + 6;
+	int COMPONENT___MITIGATED_V__VULNERABILITY = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Mitigated W</em>' operation.
@@ -825,7 +825,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT___MITIGATED_W__VULNERABILITY = COMPONENT_OWNER_OPERATION_COUNT + 7;
+	int COMPONENT___MITIGATED_W__VULNERABILITY = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Mitigated By W</em>' operation.
@@ -834,7 +834,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT___MITIGATED_BY_W__VULNERABILITY = COMPONENT_OWNER_OPERATION_COUNT + 8;
+	int COMPONENT___MITIGATED_BY_W__VULNERABILITY = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Mitigated</em>' operation.
@@ -843,7 +843,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT___MITIGATED__VULNERABILITY = COMPONENT_OWNER_OPERATION_COUNT + 9;
+	int COMPONENT___MITIGATED__VULNERABILITY = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Vulnerable W</em>' operation.
@@ -852,7 +852,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT___VULNERABLE_W = COMPONENT_OWNER_OPERATION_COUNT + 10;
+	int COMPONENT___VULNERABLE_W = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Vulnerable V</em>' operation.
@@ -861,7 +861,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT___VULNERABLE_V = COMPONENT_OWNER_OPERATION_COUNT + 11;
+	int COMPONENT___VULNERABLE_V = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 11;
 
 	/**
 	 * The number of operations of the '<em>Component</em>' class.
@@ -870,7 +870,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_OPERATION_COUNT = COMPONENT_OWNER_OPERATION_COUNT + 12;
+	int COMPONENT_OPERATION_COUNT = ABSTRACT_COMPONENT_OWNER_OPERATION_COUNT + 12;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.impl.ControlImpl <em>Control</em>}' class.
@@ -2569,13 +2569,22 @@ public interface TRADESPackage extends EPackage {
 	int LINK__NAME = NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK__COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Link Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__LINK_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int LINK__LINK_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Link Conveyed</b></em>' reference list.
@@ -2584,7 +2593,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__LINK_CONVEYED = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int LINK__LINK_CONVEYED = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Conveying Link</b></em>' reference list.
@@ -2593,16 +2602,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__CONVEYING_LINK = NAMED_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Components</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LINK__COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int LINK__CONVEYING_LINK = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Link</em>' class.
@@ -2752,13 +2752,49 @@ public interface TRADESPackage extends EPackage {
 	int CATALOG__ID = ABSTRACT_THREAT_OWNER_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Vulnerability Owner</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATALOG__VULNERABILITY_OWNER = ABSTRACT_THREAT_OWNER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Rule Owner</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATALOG__RULE_OWNER = ABSTRACT_THREAT_OWNER_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Component Type Owner</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATALOG__COMPONENT_TYPE_OWNER = ABSTRACT_THREAT_OWNER_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATALOG__COMPONENTS = ABSTRACT_THREAT_OWNER_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Catalog</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATALOG_FEATURE_COUNT = ABSTRACT_THREAT_OWNER_FEATURE_COUNT + 3;
+	int CATALOG_FEATURE_COUNT = ABSTRACT_THREAT_OWNER_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Get All Controls</em>' operation.
@@ -2833,23 +2869,40 @@ public interface TRADESPackage extends EPackage {
 	int CATALOG___GET_NAME = ABSTRACT_THREAT_OWNER_OPERATION_COUNT + 7;
 
 	/**
+	 * The operation id for the '<em>Get Rule By Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATALOG___GET_RULE_BY_ID__STRING = ABSTRACT_THREAT_OWNER_OPERATION_COUNT + 8;
+
+	/**
+	 * The operation id for the '<em>Get Vulnerability By Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATALOG___GET_VULNERABILITY_BY_ID__STRING = ABSTRACT_THREAT_OWNER_OPERATION_COUNT + 9;
+
+	/**
+	 * The operation id for the '<em>Get Component Type By Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATALOG___GET_COMPONENT_TYPE_BY_ID__STRING = ABSTRACT_THREAT_OWNER_OPERATION_COUNT + 10;
+
+	/**
 	 * The number of operations of the '<em>Catalog</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATALOG_OPERATION_COUNT = ABSTRACT_THREAT_OWNER_OPERATION_COUNT + 8;
-
-	/**
-	 * The meta object id for the '{@link dsm.TRADES.impl.AbstractVulnerabilityOwnerImpl <em>Abstract Vulnerability Owner</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see dsm.TRADES.impl.AbstractVulnerabilityOwnerImpl
-	 * @see dsm.TRADES.impl.TRADESPackageImpl#getAbstractVulnerabilityOwner()
-	 * @generated
-	 */
-	int ABSTRACT_VULNERABILITY_OWNER = 36;
+	int CATALOG_OPERATION_COUNT = ABSTRACT_THREAT_OWNER_OPERATION_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.IElementWithSource <em>IElement With Source</em>}' class.
@@ -3126,13 +3179,40 @@ public interface TRADESPackage extends EPackage {
 	int ICATALOG_DEFINITION___GET_NAME = 5;
 
 	/**
+	 * The operation id for the '<em>Get Rule By Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ICATALOG_DEFINITION___GET_RULE_BY_ID__STRING = 6;
+
+	/**
+	 * The operation id for the '<em>Get Vulnerability By Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ICATALOG_DEFINITION___GET_VULNERABILITY_BY_ID__STRING = 7;
+
+	/**
+	 * The operation id for the '<em>Get Component Type By Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ICATALOG_DEFINITION___GET_COMPONENT_TYPE_BY_ID__STRING = 8;
+
+	/**
 	 * The number of operations of the '<em>ICatalog Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICATALOG_DEFINITION_OPERATION_COUNT = 6;
+	int ICATALOG_DEFINITION_OPERATION_COUNT = 9;
 
 	/**
 	 * The meta object id for the '{@link dsm.TRADES.impl.ElementWithIdImpl <em>Element With Id</em>}' class.
@@ -3255,6 +3335,16 @@ public interface TRADESPackage extends EPackage {
 	int DOMAIN_ASSET_OPERATION_COUNT = ASSET_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link dsm.TRADES.impl.AbstractVulnerabilityOwnerImpl <em>Abstract Vulnerability Owner</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see dsm.TRADES.impl.AbstractVulnerabilityOwnerImpl
+	 * @see dsm.TRADES.impl.TRADESPackageImpl#getAbstractVulnerabilityOwner()
+	 * @generated
+	 */
+	int ABSTRACT_VULNERABILITY_OWNER = 36;
+
+	/**
 	 * The feature id for the '<em><b>Vulnerability Owner</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3338,13 +3428,22 @@ public interface TRADESPackage extends EPackage {
 	int VULNERABILITY__NAME = NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VULNERABILITY__ID = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Manifests</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY__MANIFESTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int VULNERABILITY__MANIFESTS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Vulnerability Type</b></em>' attribute.
@@ -3353,7 +3452,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY__VULNERABILITY_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int VULNERABILITY__VULNERABILITY_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Affects</b></em>' reference list.
@@ -3362,7 +3461,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY__AFFECTS = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int VULNERABILITY__AFFECTS = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Vulnerability</em>' class.
@@ -3371,7 +3470,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int VULNERABILITY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Vulnerability</em>' class.
@@ -3476,13 +3575,22 @@ public interface TRADESPackage extends EPackage {
 	int COMPONENT_TYPE__NAME = NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT_TYPE__ID = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Manifests</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_TYPE__MANIFESTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int COMPONENT_TYPE__MANIFESTS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Subject To Threats</b></em>' reference list.
@@ -3491,7 +3599,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_TYPE__SUBJECT_TO_THREATS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int COMPONENT_TYPE__SUBJECT_TO_THREATS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Affected By</b></em>' reference list.
@@ -3500,7 +3608,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_TYPE__AFFECTED_BY = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int COMPONENT_TYPE__AFFECTED_BY = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Component Type</em>' class.
@@ -3509,7 +3617,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_TYPE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int COMPONENT_TYPE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Component Type</em>' class.
@@ -3614,13 +3722,22 @@ public interface TRADESPackage extends EPackage {
 	int RULE__NAME = ASSET__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__ID = ASSET_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Vulnerabilities</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE__VULNERABILITIES = ASSET_FEATURE_COUNT + 0;
+	int RULE__VULNERABILITIES = ASSET_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Component Types Affected</b></em>' reference list.
@@ -3629,7 +3746,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RULE__COMPONENT_TYPES_AFFECTED = ASSET_FEATURE_COUNT + 1;
+	int RULE__COMPONENT_TYPES_AFFECTED = ASSET_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Controls</b></em>' reference list.
@@ -3638,7 +3755,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RULE__CONTROLS = ASSET_FEATURE_COUNT + 2;
+	int RULE__CONTROLS = ASSET_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Rule</em>' class.
@@ -3647,7 +3764,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_FEATURE_COUNT = ASSET_FEATURE_COUNT + 3;
+	int RULE_FEATURE_COUNT = ASSET_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Rule</em>' class.
@@ -4945,25 +5062,25 @@ public interface TRADESPackage extends EPackage {
 	EOperation getDataOwnerElement__GetAllDatas();
 
 	/**
-	 * Returns the meta object for class '{@link dsm.TRADES.ComponentOwner <em>Component Owner</em>}'.
+	 * Returns the meta object for class '{@link dsm.TRADES.AbstractComponentOwner <em>Abstract Component Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Component Owner</em>'.
-	 * @see dsm.TRADES.ComponentOwner
+	 * @return the meta object for class '<em>Abstract Component Owner</em>'.
+	 * @see dsm.TRADES.AbstractComponentOwner
 	 * @generated
 	 */
-	EClass getComponentOwner();
+	EClass getAbstractComponentOwner();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link dsm.TRADES.ComponentOwner#getComponents <em>Components</em>}'.
+	 * Returns the meta object for the containment reference list '{@link dsm.TRADES.AbstractComponentOwner#getComponents <em>Components</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Components</em>'.
-	 * @see dsm.TRADES.ComponentOwner#getComponents()
-	 * @see #getComponentOwner()
+	 * @see dsm.TRADES.AbstractComponentOwner#getComponents()
+	 * @see #getAbstractComponentOwner()
 	 * @generated
 	 */
-	EReference getComponentOwner_Components();
+	EReference getAbstractComponentOwner_Components();
 
 	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.NamedElement <em>Named Element</em>}'.
@@ -5251,17 +5368,6 @@ public interface TRADESPackage extends EPackage {
 	EReference getLink_ConveyingLink();
 
 	/**
-	 * Returns the meta object for the reference list '{@link dsm.TRADES.Link#getComponents <em>Components</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Components</em>'.
-	 * @see dsm.TRADES.Link#getComponents()
-	 * @see #getLink()
-	 * @generated
-	 */
-	EReference getLink_Components();
-
-	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.LinkType <em>Link Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5301,27 +5407,6 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAbstractThreatOwner_ThreatOwner();
-
-	/**
-	 * Returns the meta object for class '{@link dsm.TRADES.AbstractVulnerabilityOwner <em>Abstract Vulnerability Owner</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Abstract Vulnerability Owner</em>'.
-	 * @see dsm.TRADES.AbstractVulnerabilityOwner
-	 * @generated
-	 */
-	EClass getAbstractVulnerabilityOwner();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link dsm.TRADES.AbstractVulnerabilityOwner#getVulnerabilityOwner <em>Vulnerability Owner</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Vulnerability Owner</em>'.
-	 * @see dsm.TRADES.AbstractVulnerabilityOwner#getVulnerabilityOwner()
-	 * @see #getAbstractVulnerabilityOwner()
-	 * @generated
-	 */
-	EReference getAbstractVulnerabilityOwner_VulnerabilityOwner();
 
 	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.IThreatDefinition <em>IThreat Definition</em>}'.
@@ -5484,6 +5569,36 @@ public interface TRADESPackage extends EPackage {
 	EOperation getICatalogDefinition__GetName();
 
 	/**
+	 * Returns the meta object for the '{@link dsm.TRADES.ICatalogDefinition#getRuleById(java.lang.String) <em>Get Rule By Id</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Rule By Id</em>' operation.
+	 * @see dsm.TRADES.ICatalogDefinition#getRuleById(java.lang.String)
+	 * @generated
+	 */
+	EOperation getICatalogDefinition__GetRuleById__String();
+
+	/**
+	 * Returns the meta object for the '{@link dsm.TRADES.ICatalogDefinition#getVulnerabilityById(java.lang.String) <em>Get Vulnerability By Id</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Vulnerability By Id</em>' operation.
+	 * @see dsm.TRADES.ICatalogDefinition#getVulnerabilityById(java.lang.String)
+	 * @generated
+	 */
+	EOperation getICatalogDefinition__GetVulnerabilityById__String();
+
+	/**
+	 * Returns the meta object for the '{@link dsm.TRADES.ICatalogDefinition#getComponentTypeById(java.lang.String) <em>Get Component Type By Id</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Component Type By Id</em>' operation.
+	 * @see dsm.TRADES.ICatalogDefinition#getComponentTypeById(java.lang.String)
+	 * @generated
+	 */
+	EOperation getICatalogDefinition__GetComponentTypeById__String();
+
+	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.IMitigationLink <em>IMitigation Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5607,6 +5722,27 @@ public interface TRADESPackage extends EPackage {
 	EAttribute getDomainAsset_Category();
 
 	/**
+	 * Returns the meta object for class '{@link dsm.TRADES.AbstractVulnerabilityOwner <em>Abstract Vulnerability Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract Vulnerability Owner</em>'.
+	 * @see dsm.TRADES.AbstractVulnerabilityOwner
+	 * @generated
+	 */
+	EClass getAbstractVulnerabilityOwner();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link dsm.TRADES.AbstractVulnerabilityOwner#getVulnerabilityOwner <em>Vulnerability Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Vulnerability Owner</em>'.
+	 * @see dsm.TRADES.AbstractVulnerabilityOwner#getVulnerabilityOwner()
+	 * @see #getAbstractVulnerabilityOwner()
+	 * @generated
+	 */
+	EReference getAbstractVulnerabilityOwner_VulnerabilityOwner();
+
+	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.VulnerabilityOwner <em>Vulnerability Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5649,17 +5785,6 @@ public interface TRADESPackage extends EPackage {
 	EReference getVulnerability_Manifests();
 
 	/**
-	 * Returns the meta object for the reference list '{@link dsm.TRADES.Vulnerability#getAffects <em>Affects</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Affects</em>'.
-	 * @see dsm.TRADES.Vulnerability#getAffects()
-	 * @see #getVulnerability()
-	 * @generated
-	 */
-	EReference getVulnerability_Affects();
-
-	/**
 	 * Returns the meta object for the attribute '{@link dsm.TRADES.Vulnerability#getVulnerabilityType <em>Vulnerability Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5669,6 +5794,17 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getVulnerability_VulnerabilityType();
+
+	/**
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.Vulnerability#getAffects <em>Affects</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Affects</em>'.
+	 * @see dsm.TRADES.Vulnerability#getAffects()
+	 * @see #getVulnerability()
+	 * @generated
+	 */
+	EReference getVulnerability_Affects();
 
 	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.AbstractComponentTypeOwner <em>Abstract Component Type Owner</em>}'.
@@ -6897,14 +7033,14 @@ public interface TRADESPackage extends EPackage {
 		EOperation DATA_OWNER_ELEMENT___GET_ALL_DATAS = eINSTANCE.getDataOwnerElement__GetAllDatas();
 
 		/**
-		 * The meta object literal for the '{@link dsm.TRADES.impl.ComponentOwnerImpl <em>Component Owner</em>}' class.
+		 * The meta object literal for the '{@link dsm.TRADES.impl.AbstractComponentOwnerImpl <em>Abstract Component Owner</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see dsm.TRADES.impl.ComponentOwnerImpl
-		 * @see dsm.TRADES.impl.TRADESPackageImpl#getComponentOwner()
+		 * @see dsm.TRADES.impl.AbstractComponentOwnerImpl
+		 * @see dsm.TRADES.impl.TRADESPackageImpl#getAbstractComponentOwner()
 		 * @generated
 		 */
-		EClass COMPONENT_OWNER = eINSTANCE.getComponentOwner();
+		EClass ABSTRACT_COMPONENT_OWNER = eINSTANCE.getAbstractComponentOwner();
 
 		/**
 		 * The meta object literal for the '<em><b>Components</b></em>' containment reference list feature.
@@ -6912,7 +7048,7 @@ public interface TRADESPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPONENT_OWNER__COMPONENTS = eINSTANCE.getComponentOwner_Components();
+		EReference ABSTRACT_COMPONENT_OWNER__COMPONENTS = eINSTANCE.getAbstractComponentOwner_Components();
 
 		/**
 		 * The meta object literal for the '{@link dsm.TRADES.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -7152,14 +7288,6 @@ public interface TRADESPackage extends EPackage {
 		EReference LINK__CONVEYING_LINK = eINSTANCE.getLink_ConveyingLink();
 
 		/**
-		 * The meta object literal for the '<em><b>Components</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LINK__COMPONENTS = eINSTANCE.getLink_Components();
-
-		/**
 		 * The meta object literal for the '{@link dsm.TRADES.impl.LinkTypeImpl <em>Link Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7196,25 +7324,6 @@ public interface TRADESPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ABSTRACT_THREAT_OWNER__THREAT_OWNER = eINSTANCE.getAbstractThreatOwner_ThreatOwner();
-
-		/**
-		 * The meta object literal for the '{@link dsm.TRADES.impl.AbstractVulnerabilityOwnerImpl <em>Abstract Vulnerability Owner</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see dsm.TRADES.impl.AbstractVulnerabilityOwnerImpl
-		 * @see dsm.TRADES.impl.TRADESPackageImpl#getAbstractVulnerabilityOwner()
-		 * @generated
-		 */
-		EClass ABSTRACT_VULNERABILITY_OWNER = eINSTANCE.getAbstractVulnerabilityOwner();
-
-		/**
-		 * The meta object literal for the '<em><b>Vulnerability Owner</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ABSTRACT_VULNERABILITY_OWNER__VULNERABILITY_OWNER = eINSTANCE
-				.getAbstractVulnerabilityOwner_VulnerabilityOwner();
 
 		/**
 		 * The meta object literal for the '{@link dsm.TRADES.IThreatDefinition <em>IThreat Definition</em>}' class.
@@ -7356,6 +7465,33 @@ public interface TRADESPackage extends EPackage {
 		EOperation ICATALOG_DEFINITION___GET_NAME = eINSTANCE.getICatalogDefinition__GetName();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Rule By Id</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ICATALOG_DEFINITION___GET_RULE_BY_ID__STRING = eINSTANCE
+				.getICatalogDefinition__GetRuleById__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Vulnerability By Id</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ICATALOG_DEFINITION___GET_VULNERABILITY_BY_ID__STRING = eINSTANCE
+				.getICatalogDefinition__GetVulnerabilityById__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Component Type By Id</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ICATALOG_DEFINITION___GET_COMPONENT_TYPE_BY_ID__STRING = eINSTANCE
+				.getICatalogDefinition__GetComponentTypeById__String();
+
+		/**
 		 * The meta object literal for the '{@link dsm.TRADES.IMitigationLink <em>IMitigation Link</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7463,6 +7599,25 @@ public interface TRADESPackage extends EPackage {
 		EAttribute DOMAIN_ASSET__CATEGORY = eINSTANCE.getDomainAsset_Category();
 
 		/**
+		 * The meta object literal for the '{@link dsm.TRADES.impl.AbstractVulnerabilityOwnerImpl <em>Abstract Vulnerability Owner</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see dsm.TRADES.impl.AbstractVulnerabilityOwnerImpl
+		 * @see dsm.TRADES.impl.TRADESPackageImpl#getAbstractVulnerabilityOwner()
+		 * @generated
+		 */
+		EClass ABSTRACT_VULNERABILITY_OWNER = eINSTANCE.getAbstractVulnerabilityOwner();
+
+		/**
+		 * The meta object literal for the '<em><b>Vulnerability Owner</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_VULNERABILITY_OWNER__VULNERABILITY_OWNER = eINSTANCE
+				.getAbstractVulnerabilityOwner_VulnerabilityOwner();
+
+		/**
 		 * The meta object literal for the '{@link dsm.TRADES.impl.VulnerabilityOwnerImpl <em>Vulnerability Owner</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7499,20 +7654,20 @@ public interface TRADESPackage extends EPackage {
 		EReference VULNERABILITY__MANIFESTS = eINSTANCE.getVulnerability_Manifests();
 
 		/**
-		 * The meta object literal for the '<em><b>Affects</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VULNERABILITY__AFFECTS = eINSTANCE.getVulnerability_Affects();
-
-		/**
 		 * The meta object literal for the '<em><b>Vulnerability Type</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute VULNERABILITY__VULNERABILITY_TYPE = eINSTANCE.getVulnerability_VulnerabilityType();
+
+		/**
+		 * The meta object literal for the '<em><b>Affects</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VULNERABILITY__AFFECTS = eINSTANCE.getVulnerability_Affects();
 
 		/**
 		 * The meta object literal for the '{@link dsm.TRADES.impl.AbstractComponentTypeOwnerImpl <em>Abstract Component Type Owner</em>}' class.

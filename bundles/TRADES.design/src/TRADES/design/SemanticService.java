@@ -23,7 +23,6 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -40,12 +39,12 @@ import org.eclipse.sirius.diagram.AbstractDNode;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.ui.PlatformUI;
 
+import dsm.TRADES.AbstractComponentOwner;
 import dsm.TRADES.AbstractControlOwner;
 import dsm.TRADES.AffectRelation;
 import dsm.TRADES.Analysis;
 import dsm.TRADES.AttackChain;
 import dsm.TRADES.Component;
-import dsm.TRADES.ComponentOwner;
 import dsm.TRADES.Control;
 import dsm.TRADES.ControlOwner;
 import dsm.TRADES.Data;
@@ -138,7 +137,7 @@ public class SemanticService {
 
 	}
 
-	private static void getSubDataOwners(ComponentOwner o, List<DataOwnerElement> collector) {
+	private static void getSubDataOwners(AbstractComponentOwner o, List<DataOwnerElement> collector) {
 		for (Component sub : o.getComponents()) {
 			collector.add(sub);
 			getSubDataOwners(sub, collector);
@@ -174,12 +173,7 @@ public class SemanticService {
 
 	public static Control createInternalControl(AbstractControlOwner cmp) {
 		Control control = SemanticUtil.addControl(cmp, TRADESFactory.eINSTANCE.createControl());
-		control.setId(UUID.randomUUID().toString());
 		return control;
-	}
-
-	public String generateUUID(EObject any) {
-		return UUID.randomUUID().toString();
 	}
 
 	public static Data createData(DataOwnerElement element) {

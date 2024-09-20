@@ -434,20 +434,20 @@ public class OscalMetadataPackageImpl extends EPackageImpl implements OscalMetad
 		EcorePackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(OscalCatalogCommonPackage.eNS_URI);
-		OscalCatalogCommonPackageImpl theOscalCatalogCommonPackage = (OscalCatalogCommonPackageImpl)(registeredPackage instanceof OscalCatalogCommonPackageImpl ? registeredPackage : OscalCatalogCommonPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(OscalCatalogPackage.eNS_URI);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(OscalCatalogPackage.eNS_URI);
 		OscalCatalogPackageImpl theOscalCatalogPackage = (OscalCatalogPackageImpl)(registeredPackage instanceof OscalCatalogPackageImpl ? registeredPackage : OscalCatalogPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(OscalCatalogCommonPackage.eNS_URI);
+		OscalCatalogCommonPackageImpl theOscalCatalogCommonPackage = (OscalCatalogCommonPackageImpl)(registeredPackage instanceof OscalCatalogCommonPackageImpl ? registeredPackage : OscalCatalogCommonPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theOscalMetadataPackage.createPackageContents();
-		theOscalCatalogCommonPackage.createPackageContents();
 		theOscalCatalogPackage.createPackageContents();
+		theOscalCatalogCommonPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theOscalMetadataPackage.initializePackageContents();
-		theOscalCatalogCommonPackage.initializePackageContents();
 		theOscalCatalogPackage.initializePackageContents();
+		theOscalCatalogCommonPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theOscalMetadataPackage.freeze();
@@ -2062,7 +2062,7 @@ public class OscalMetadataPackageImpl extends EPackageImpl implements OscalMetad
 		initEClass(oscalElementEClass, OscalElement.class, "OscalElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = initEOperation(getOscalElement__Resolve__URI(), ecorePackage.getEObject(), "resolve", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getUriReferenceType(), "uri", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getUriType(), "uri", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(parameterOwnerEClass, ParameterOwner.class, "ParameterOwner", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParameterOwner_Params(), theOscalCatalogCommonPackage.getParameter(), null, "params", null, 0, -1, ParameterOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

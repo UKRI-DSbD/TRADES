@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="ASCII"?>
+<TRADES:Analysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:TRADES="dsm.TRADES" xmi:id="_Qy2mwFMCEe-KKdRtgpmX8w" name="testsix" id="a4d94c26-a306-4f1d-9a44-068009b5cf2b" nVDAPIKey="">
+  <components xmi:id="_Qy2mwVMCEe-KKdRtgpmX8w" name="System Scope"/>
+  <components xmi:id="_YKwocFMCEe-KKdRtgpmX8w" name="Alpha" componentTypes="_8JjOMFMGEe-KKdRtgpmX8w">
+    <controlOwner xmi:id="_PF1O0FMDEe-KKdRtgpmX8w">
+      <internals xmi:id="_PF1O0VMDEe-KKdRtgpmX8w" name="Control 1" id="615287d3-0389-4c74-b297-0ece59a719cb">
+        <mitigationRelations xmi:id="_CvCmYFMFEe-KKdRtgpmX8w" threat="_igROQFMDEe-KKdRtgpmX8w"/>
+      </internals>
+    </controlOwner>
+    <threatAllocations xmi:id="_zJCh4FMEEe-KKdRtgpmX8w" threat="_igROQFMDEe-KKdRtgpmX8w" impactScore="_Qy2myVMCEe-KKdRtgpmX8w" difficultyScore="_Qy2m11MCEe-KKdRtgpmX8w"/>
+  </components>
+  <components xmi:id="_ijbFYFMCEe-KKdRtgpmX8w" name="Beta" componentTypes="_A8q-8FMHEe-KKdRtgpmX8w">
+    <controlOwner xmi:id="_PkaoQFMDEe-KKdRtgpmX8w">
+      <internals xmi:id="_PkaoQVMDEe-KKdRtgpmX8w" name="Control 2" id="2d1ba630-1ac2-4bca-b6a1-df656527e930" mitigatesVulnerability="_j93Q0FMHEe-KKdRtgpmX8w"/>
+    </controlOwner>
+    <threatAllocations xmi:id="_zyZA4FMEEe-KKdRtgpmX8w" threat="_oIroQFMDEe-KKdRtgpmX8w" impactScore="_Qy2mzVMCEe-KKdRtgpmX8w" difficultyScore="_Qy2m1VMCEe-KKdRtgpmX8w"/>
+    <threatAllocations xmi:id="_0qHBIFMGEe-KKdRtgpmX8w" threat="_igROQFMDEe-KKdRtgpmX8w" impactScore="_Qy2m0VMCEe-KKdRtgpmX8w" difficultyScore="_Qy2m1VMCEe-KKdRtgpmX8w"/>
+  </components>
+  <components xmi:id="_mI6lYFMCEe-KKdRtgpmX8w" name="Theta" componentTypes="_CbtIwFMHEe-KKdRtgpmX8w">
+    <controlOwner xmi:id="_P81IQFMDEe-KKdRtgpmX8w">
+      <internals xmi:id="_P81IQVMDEe-KKdRtgpmX8w" name="Control 3" id="641bd2f3-4e51-4337-b5dc-626062781799">
+        <mitigationRelations xmi:id="_Tyj8UFMGEe-KKdRtgpmX8w" threat="_oIroQFMDEe-KKdRtgpmX8w"/>
+      </internals>
+    </controlOwner>
+    <threatAllocations xmi:id="_0PwSUFMEEe-KKdRtgpmX8w" threat="_oIroQFMDEe-KKdRtgpmX8w" impactScore="_Qy2myVMCEe-KKdRtgpmX8w" difficultyScore="_Qy2m1lMCEe-KKdRtgpmX8w"/>
+  </components>
+  <components xmi:id="_pOq1YFMCEe-KKdRtgpmX8w" name="Delta" componentTypes="_EGcMQFMHEe-KKdRtgpmX8w">
+    <controlOwner xmi:id="_QT8nwFMDEe-KKdRtgpmX8w">
+      <internals xmi:id="_QT8nwVMDEe-KKdRtgpmX8w" name="Control 4" id="45c7e26c-4863-46e8-ae2a-d20ffa96e177">
+        <mitigationRelations xmi:id="_YHn4EFMGEe-KKdRtgpmX8w" mitigatedAllocation="_BfWgIFMFEe-KKdRtgpmX8w"/>
+      </internals>
+    </controlOwner>
+  </components>
+  <components xmi:id="_r2-UYFMCEe-KKdRtgpmX8w" name="Epsilon" componentTypes="_b49mQFMHEe-KKdRtgpmX8w">
+    <controlOwner xmi:id="_QvWKUFMDEe-KKdRtgpmX8w">
+      <internals xmi:id="_QvWKUVMDEe-KKdRtgpmX8w" name="Control 5" id="fe11d8ad-8e81-4b3e-9878-ffd7414edbfe">
+        <mitigationRelations xmi:id="_aetEMFMGEe-KKdRtgpmX8w" threat="_66_QsFMDEe-KKdRtgpmX8w"/>
+      </internals>
+    </controlOwner>
+    <threatAllocations xmi:id="_BfWgIFMFEe-KKdRtgpmX8w" threat="_rS2eMFMDEe-KKdRtgpmX8w" impactScore="_Qy2mzVMCEe-KKdRtgpmX8w" difficultyScore="_Qy2m1lMCEe-KKdRtgpmX8w"/>
+  </components>
+  <components xmi:id="_v9gr8FMCEe-KKdRtgpmX8w" name="Gamma" componentTypes="_eJT4QFMHEe-KKdRtgpmX8w">
+    <controlOwner xmi:id="_REZNQFMDEe-KKdRtgpmX8w">
+      <internals xmi:id="_REZNQVMDEe-KKdRtgpmX8w" name="Control 6" id="9cb46997-a9a8-4c2c-bc08-7f4095d3c547">
+        <mitigationRelations xmi:id="_bR_iUFMGEe-KKdRtgpmX8w" threat="_66_QsFMDEe-KKdRtgpmX8w"/>
+      </internals>
+    </controlOwner>
+    <threatAllocations xmi:id="_B8l1wFMFEe-KKdRtgpmX8w" threat="_66_QsFMDEe-KKdRtgpmX8w" impactScore="_Qy2m0VMCEe-KKdRtgpmX8w" difficultyScore="_Qy2m11MCEe-KKdRtgpmX8w"/>
+  </components>
+  <dataOwner xmi:id="_Qy2mwlMCEe-KKdRtgpmX8w"/>
+  <controlOwner xmi:id="_Qy2mw1MCEe-KKdRtgpmX8w"/>
+  <threatOwner xmi:id="_Qy2mxFMCEe-KKdRtgpmX8w">
+    <internals xmi:id="_igROQFMDEe-KKdRtgpmX8w" name="Blue" id="0220b3de-65ee-47ee-83d7-8be3192ef9d7" threatAllocations="_zJCh4FMEEe-KKdRtgpmX8w _0qHBIFMGEe-KKdRtgpmX8w" exploitsVulnerability="_j93Q0FMHEe-KKdRtgpmX8w _9IDWcFMJEe-KKdRtgpmX8w"/>
+    <internals xmi:id="_oIroQFMDEe-KKdRtgpmX8w" name="Orange" id="7a2e3add-c3c2-4cde-85e7-386c891bc927" threatAllocations="_zyZA4FMEEe-KKdRtgpmX8w _0PwSUFMEEe-KKdRtgpmX8w" exploitsVulnerability="_9IDWcFMJEe-KKdRtgpmX8w __AiiEFMJEe-KKdRtgpmX8w"/>
+    <internals xmi:id="_rS2eMFMDEe-KKdRtgpmX8w" name="Purple" id="35c2bf95-a7ac-4263-8608-029587679010" threatAllocations="_BfWgIFMFEe-KKdRtgpmX8w" exploitsVulnerability="_GCW_AFMKEe-KKdRtgpmX8w"/>
+    <internals xmi:id="_66_QsFMDEe-KKdRtgpmX8w" name="Brown" id="47a3db38-0230-4bd4-a143-df8777b5abea" threatAllocations="_B8l1wFMFEe-KKdRtgpmX8w" exploitsVulnerability="_IqQ1YFMKEe-KKdRtgpmX8w"/>
+  </threatOwner>
+  <vulnerabilityOwner xmi:id="_Qy2mxVMCEe-KKdRtgpmX8w">
+    <vulnerabilities xmi:id="_j93Q0FMHEe-KKdRtgpmX8w" name="Vulnerability 1" id="2ed7494d-d6e7-469e-939f-dbe593750a25" vulnerabilityType="CVE" affects="_8JjOMFMGEe-KKdRtgpmX8w"/>
+    <vulnerabilities xmi:id="_9IDWcFMJEe-KKdRtgpmX8w" name="Vulnerability 2" id="14110a16-59d0-4b83-82b5-d81538ac01c5" vulnerabilityType="CVE" affects="_A8q-8FMHEe-KKdRtgpmX8w"/>
+    <vulnerabilities xmi:id="__AiiEFMJEe-KKdRtgpmX8w" name="Vulnerability 3" id="9a4022d8-0dff-46c6-8630-36a32e168525" vulnerabilityType="CVE" affects="_CbtIwFMHEe-KKdRtgpmX8w"/>
+    <vulnerabilities xmi:id="_Elq-kFMKEe-KKdRtgpmX8w" name="Vulnerability 4" id="0104d778-3fcf-4999-ba8b-9fa2f9675d43" affects="_EGcMQFMHEe-KKdRtgpmX8w"/>
+    <vulnerabilities xmi:id="_GCW_AFMKEe-KKdRtgpmX8w" name="Vulnerability 5" id="b481bae5-a93f-4e31-ac33-99fbc6831289" affects="_b49mQFMHEe-KKdRtgpmX8w"/>
+    <vulnerabilities xmi:id="_IqQ1YFMKEe-KKdRtgpmX8w" name="Vulnerability 6" id="6dac8c70-b6a7-43fd-901e-d95cef4464a1" affects="_eJT4QFMHEe-KKdRtgpmX8w"/>
+  </vulnerabilityOwner>
+  <componentTypeOwner xmi:id="_Qy2mxlMCEe-KKdRtgpmX8w">
+    <componentTypes xmi:id="_8JjOMFMGEe-KKdRtgpmX8w" name="Component Type 1" id="2320a2ae-78f8-40a4-997e-95766804dbf0" affectedBy="_j93Q0FMHEe-KKdRtgpmX8w"/>
+    <componentTypes xmi:id="_A8q-8FMHEe-KKdRtgpmX8w" name="Component Type 2" id="ab2af4ef-9291-4687-857b-30ac37c0a9fe" affectedBy="_9IDWcFMJEe-KKdRtgpmX8w"/>
+    <componentTypes xmi:id="_CbtIwFMHEe-KKdRtgpmX8w" name="Component Type 3" id="5ec08bfa-5076-4428-ab03-a73d89ef9647" affectedBy="__AiiEFMJEe-KKdRtgpmX8w"/>
+    <componentTypes xmi:id="_EGcMQFMHEe-KKdRtgpmX8w" name="Component Type 4" id="9df1f25e-b6d2-4d29-9bb1-4d6579b456fc" affectedBy="_Elq-kFMKEe-KKdRtgpmX8w"/>
+    <componentTypes xmi:id="_b49mQFMHEe-KKdRtgpmX8w" name="Component Type 5" id="6e009d1d-b1a6-42f9-add7-90186ff61437" affectedBy="_GCW_AFMKEe-KKdRtgpmX8w"/>
+    <componentTypes xmi:id="_eJT4QFMHEe-KKdRtgpmX8w" name="Component Type 6" id="1dc2194e-238f-4cd9-81f9-92067116a61e" affectedBy="_IqQ1YFMKEe-KKdRtgpmX8w"/>
+  </componentTypeOwner>
+  <ruleOwner xmi:id="_Qy2mx1MCEe-KKdRtgpmX8w">
+    <rules xmi:id="_w-qtUFMKEe-KKdRtgpmX8w" name="Rule 1" id="6bd18671-a972-4420-b060-47426accf28c" vulnerabilities="_j93Q0FMHEe-KKdRtgpmX8w" componentTypesAffected="_8JjOMFMGEe-KKdRtgpmX8w" controls="_PF1O0VMDEe-KKdRtgpmX8w"/>
+    <rules xmi:id="_MFMOsFMLEe-KKdRtgpmX8w" name="Rule 2" id="777686ae-d563-4821-91f0-d476bfd2cd73" vulnerabilities="_9IDWcFMJEe-KKdRtgpmX8w" componentTypesAffected="_A8q-8FMHEe-KKdRtgpmX8w" controls="_PkaoQVMDEe-KKdRtgpmX8w"/>
+    <rules xmi:id="_n_2iwFMLEe-KKdRtgpmX8w" name="Rule 3" id="5ee166c4-21b1-4b27-a0a6-1eaace3f6966" vulnerabilities="__AiiEFMJEe-KKdRtgpmX8w" componentTypesAffected="_CbtIwFMHEe-KKdRtgpmX8w" controls="_P81IQVMDEe-KKdRtgpmX8w"/>
+    <rules xmi:id="_wXm7EFMPEe-KKdRtgpmX8w" name="Rule 5" id="51faca56-e88d-494c-aca9-dca3d3914415" vulnerabilities="_GCW_AFMKEe-KKdRtgpmX8w" componentTypesAffected="_b49mQFMHEe-KKdRtgpmX8w" controls="_QvWKUVMDEe-KKdRtgpmX8w"/>
+    <rules xmi:id="_0iAe8FMPEe-KKdRtgpmX8w" name="Rule 6" id="dd22e62f-a268-42d0-af12-970714c4fd89" vulnerabilities="_IqQ1YFMKEe-KKdRtgpmX8w" componentTypesAffected="_eJT4QFMHEe-KKdRtgpmX8w" controls="_REZNQVMDEe-KKdRtgpmX8w"/>
+  </ruleOwner>
+  <scoreSystem xmi:id="_Qy2myFMCEe-KKdRtgpmX8w">
+    <impactScores xmi:id="_Qy2myVMCEe-KKdRtgpmX8w" name="Low" impact="1">
+      <configurations xmi:id="_Qy2mylMCEe-KKdRtgpmX8w" color="13347666" difficulty="_Qy2m1VMCEe-KKdRtgpmX8w"/>
+      <configurations xmi:id="_Qy2my1MCEe-KKdRtgpmX8w" color="10157901" difficulty="_Qy2m1lMCEe-KKdRtgpmX8w"/>
+      <configurations xmi:id="_Qy2mzFMCEe-KKdRtgpmX8w" color="10157901" difficulty="_Qy2m11MCEe-KKdRtgpmX8w"/>
+    </impactScores>
+    <impactScores xmi:id="_Qy2mzVMCEe-KKdRtgpmX8w" name="Medium" impact="2">
+      <configurations xmi:id="_Qy2mzlMCEe-KKdRtgpmX8w" color="16537174" difficulty="_Qy2m1VMCEe-KKdRtgpmX8w"/>
+      <configurations xmi:id="_Qy2mz1MCEe-KKdRtgpmX8w" color="13347666" difficulty="_Qy2m1lMCEe-KKdRtgpmX8w"/>
+      <configurations xmi:id="_Qy2m0FMCEe-KKdRtgpmX8w" color="13347666" difficulty="_Qy2m11MCEe-KKdRtgpmX8w"/>
+    </impactScores>
+    <impactScores xmi:id="_Qy2m0VMCEe-KKdRtgpmX8w" name="High" impact="3">
+      <configurations xmi:id="_Qy2m0lMCEe-KKdRtgpmX8w" color="16537174" difficulty="_Qy2m1VMCEe-KKdRtgpmX8w"/>
+      <configurations xmi:id="_Qy2m01MCEe-KKdRtgpmX8w" color="13347666" difficulty="_Qy2m1lMCEe-KKdRtgpmX8w"/>
+      <configurations xmi:id="_Qy2m1FMCEe-KKdRtgpmX8w" color="13347666" difficulty="_Qy2m11MCEe-KKdRtgpmX8w"/>
+    </impactScores>
+    <difficultyScores xmi:id="_Qy2m1VMCEe-KKdRtgpmX8w" name="Low" difficulty="1"/>
+    <difficultyScores xmi:id="_Qy2m1lMCEe-KKdRtgpmX8w" name="Medium" difficulty="2"/>
+    <difficultyScores xmi:id="_Qy2m11MCEe-KKdRtgpmX8w" name="High" difficulty="3"/>
+  </scoreSystem>
+</TRADES:Analysis>

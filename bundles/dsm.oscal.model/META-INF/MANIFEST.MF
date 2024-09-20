@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: dsm.oscal.model;singleton:=true
 Automatic-Module-Name: dsm.oscal.model
-Bundle-Version: 3.7.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
@@ -22,6 +22,6 @@ Export-Package: dsm.oscal.model,
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  dsm.TRADES;visibility:=reexport,
  org.eclipse.core.runtime,
- dsm.oscal.ext;bundle-version="2.5.0"
+ dsm.oscal.ext;bundle-version="4.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: dsm.oscal.model.OSCALModelActivator

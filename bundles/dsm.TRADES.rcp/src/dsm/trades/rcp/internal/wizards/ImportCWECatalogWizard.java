@@ -33,6 +33,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -179,16 +180,20 @@ public class ImportCWECatalogWizard extends Wizard implements IImportWizard {
 
 						session.addSemanticResource(cweLibURI, new NullProgressMonitor());
 						monitor.worked(1);
-						try {
-							monitor.setTaskName("Saving the resource");
-							existingResource.save(Collections.emptyMap());
-							monitor.worked(1);
-						} catch (IOException e) {
-							TRADESRCPActivator.logError("Problem while saving catalog " + e.getMessage(), e);
-						}
-
-					}
-				};
+                        monitor.setTaskName("Saving the resource");
+                        for (Resource resource : existingResource.getResourceSet().getResources()) {
+                        	if (resource.getURI().isFile() || resource.getURI().isPlatformResource()) {
+                        		try {
+                                    resource.save(Collections.emptyMap());
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                    System.err.println(e.getMessage());
+                                }                                
+							}
+                            monitor.worked(1);
+                        }
+                    }
+                };
 				transactionalEditingDomain.getCommandStack().execute(cmd);
 
 				//CWEUtils.activateCWEViewpointIfMissing(session, monitor);

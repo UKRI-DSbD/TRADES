@@ -15,15 +15,18 @@ package dsm.TRADES.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import dsm.TRADES.ComponentType;
+import dsm.TRADES.ElementWithId;
 import dsm.TRADES.TRADESPackage;
 import dsm.TRADES.Threat;
 import dsm.TRADES.Vulnerability;
@@ -36,6 +39,7 @@ import dsm.TRADES.Vulnerability;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link dsm.TRADES.impl.ComponentTypeImpl#getId <em>Id</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentTypeImpl#getManifests <em>Manifests</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentTypeImpl#getSubjectToThreats <em>Subject To Threats</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentTypeImpl#getAffectedBy <em>Affected By</em>}</li>
@@ -45,6 +49,26 @@ import dsm.TRADES.Vulnerability;
  */
 public class ComponentTypeImpl extends NamedElementImpl implements ComponentType {
 	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
+
+	/**
 	 * The cached value of the '{@link #getManifests() <em>Manifests</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -53,6 +77,7 @@ public class ComponentTypeImpl extends NamedElementImpl implements ComponentType
 	 * @ordered
 	 */
 	protected EList<ComponentType> manifests;
+
 	/**
 	 * The cached value of the '{@link #getSubjectToThreats() <em>Subject To Threats</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -90,6 +115,29 @@ public class ComponentTypeImpl extends NamedElementImpl implements ComponentType
 	@Override
 	protected EClass eStaticClass() {
 		return TRADESPackage.Literals.COMPONENT_TYPE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.COMPONENT_TYPE__ID, oldId, id));
 	}
 
 	/**
@@ -171,6 +219,8 @@ public class ComponentTypeImpl extends NamedElementImpl implements ComponentType
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+		case TRADESPackage.COMPONENT_TYPE__ID:
+			return getId();
 		case TRADESPackage.COMPONENT_TYPE__MANIFESTS:
 			return getManifests();
 		case TRADESPackage.COMPONENT_TYPE__SUBJECT_TO_THREATS:
@@ -190,6 +240,9 @@ public class ComponentTypeImpl extends NamedElementImpl implements ComponentType
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case TRADESPackage.COMPONENT_TYPE__ID:
+			setId((String) newValue);
+			return;
 		case TRADESPackage.COMPONENT_TYPE__MANIFESTS:
 			getManifests().clear();
 			getManifests().addAll((Collection<? extends ComponentType>) newValue);
@@ -214,6 +267,9 @@ public class ComponentTypeImpl extends NamedElementImpl implements ComponentType
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case TRADESPackage.COMPONENT_TYPE__ID:
+			setId(ID_EDEFAULT);
+			return;
 		case TRADESPackage.COMPONENT_TYPE__MANIFESTS:
 			getManifests().clear();
 			return;
@@ -235,6 +291,8 @@ public class ComponentTypeImpl extends NamedElementImpl implements ComponentType
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+		case TRADESPackage.COMPONENT_TYPE__ID:
+			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		case TRADESPackage.COMPONENT_TYPE__MANIFESTS:
 			return manifests != null && !manifests.isEmpty();
 		case TRADESPackage.COMPONENT_TYPE__SUBJECT_TO_THREATS:
@@ -243,6 +301,59 @@ public class ComponentTypeImpl extends NamedElementImpl implements ComponentType
 			return affectedBy != null && !affectedBy.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == ElementWithId.class) {
+			switch (derivedFeatureID) {
+			case TRADESPackage.COMPONENT_TYPE__ID:
+				return TRADESPackage.ELEMENT_WITH_ID__ID;
+			default:
+				return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == ElementWithId.class) {
+			switch (baseFeatureID) {
+			case TRADESPackage.ELEMENT_WITH_ID__ID:
+				return TRADESPackage.COMPONENT_TYPE__ID;
+			default:
+				return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (id: ");
+		result.append(id);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ComponentTypeImpl

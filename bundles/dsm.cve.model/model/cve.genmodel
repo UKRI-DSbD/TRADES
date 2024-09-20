@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="&#xD;&#xA; Copyright Israel Aerospace Industries, Eclipse contributors and others 2021. All rights reserved.&#xD;&#xA; This program and the accompanying materials&#xD;&#xA; are made available under the terms of the Eclipse Public License 2.0&#xD;&#xA; which accompanies this distribution, and is available at&#xD;&#xA; https://www.eclipse.org/legal/epl-2.0/&#xD;&#xA; &#xD;&#xA; SPDX-License-Identifier: EPL-2.0&#xD;&#xA; &#xD;&#xA; Contributors:&#xD;&#xA;     ELTA Ltd - initial API and implementation&#xD;&#xA; &#xD;&#xA;"
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    copyrightText="&#xD;&#xA; Copyright Israel Aerospace Industries, Eclipse contributors and others 2021. All rights reserved.&#xD;&#xA; This program and the accompanying materials&#xD;&#xA; are made available under the terms of the Eclipse Public License 2.0&#xD;&#xA; which accompanies this distribution, and is available at&#xD;&#xA; https://www.eclipse.org/legal/epl-2.0/&#xD;&#xA; &#xD;&#xA; SPDX-License-Identifier: EPL-2.0&#xD;&#xA; &#xD;&#xA; Contributors:&#xD;&#xA;     ELTA Ltd - initial API and implementation&#xD;&#xA; &#xD;&#xA;"
     modelDirectory="/dsm.cve.model/src-gen" editDirectory="/dsm.cve.model.edit/src-gen"
     editorDirectory="/dsm.cve.model.editor/src-gen" modelPluginID="dsm.cve.model"
     modelName="CVE" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
@@ -10,8 +10,6 @@
   <foreignModel>../../dsm.TRADES/model/TRADES.ecore</foreignModel>
   <genPackages prefix="CVECatalog" basePackage="dsm.cve.model" disposableProviderFactory="true"
       fileExtensions="cve" ecorePackage="cve-catalog.ecore#/">
-    <genClasses ecoreClass="cve-catalog.ecore#//Vulnerability">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cve-catalog.ecore#//Vulnerability/id"/>
-    </genClasses>
+    <genClasses ecoreClass="cve-catalog.ecore#//Vulnerability"/>
   </genPackages>
 </genmodel:GenModel>

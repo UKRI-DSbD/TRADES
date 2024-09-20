@@ -15,7 +15,6 @@
  */
 package dsm.cve.model.CVECatalog.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
@@ -120,16 +119,6 @@ public class CVECatalogPackageImpl extends EPackageImpl implements CVECatalogPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getVulnerability_Id() {
-		return (EAttribute)vulnerabilityEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public CVECatalogFactory getCVECatalogFactory() {
 		return (CVECatalogFactory)getEFactoryInstance();
 	}
@@ -154,7 +143,6 @@ public class CVECatalogPackageImpl extends EPackageImpl implements CVECatalogPac
 
 		// Create classes and their features
 		vulnerabilityEClass = createEClass(VULNERABILITY);
-		createEAttribute(vulnerabilityEClass, VULNERABILITY__ID);
 	}
 
 	/**
@@ -182,7 +170,6 @@ public class CVECatalogPackageImpl extends EPackageImpl implements CVECatalogPac
 
 		// Obtain other dependent packages
 		TRADESPackage theTRADESPackage = (TRADESPackage)EPackage.Registry.INSTANCE.getEPackage(TRADESPackage.eNS_URI);
-		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -193,7 +180,6 @@ public class CVECatalogPackageImpl extends EPackageImpl implements CVECatalogPac
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(vulnerabilityEClass, Vulnerability.class, "Vulnerability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getVulnerability_Id(), theEcorePackage.getEString(), "id", null, 0, 1, Vulnerability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

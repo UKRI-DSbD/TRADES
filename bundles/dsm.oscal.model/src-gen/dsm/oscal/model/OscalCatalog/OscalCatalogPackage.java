@@ -217,13 +217,40 @@ public interface OscalCatalogPackage extends EPackage {
 	int CATALOG___GET_NAME = OscalMetadataPackage.OSCAL_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
+	 * The operation id for the '<em>Get Rule By Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATALOG___GET_RULE_BY_ID__STRING = OscalMetadataPackage.OSCAL_ELEMENT_OPERATION_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Get Vulnerability By Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATALOG___GET_VULNERABILITY_BY_ID__STRING = OscalMetadataPackage.OSCAL_ELEMENT_OPERATION_COUNT + 8;
+
+	/**
+	 * The operation id for the '<em>Get Component Type By Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATALOG___GET_COMPONENT_TYPE_BY_ID__STRING = OscalMetadataPackage.OSCAL_ELEMENT_OPERATION_COUNT + 9;
+
+	/**
 	 * The number of operations of the '<em>Catalog</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATALOG_OPERATION_COUNT = OscalMetadataPackage.OSCAL_ELEMENT_OPERATION_COUNT + 7;
+	int CATALOG_OPERATION_COUNT = OscalMetadataPackage.OSCAL_ELEMENT_OPERATION_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link dsm.oscal.model.OscalCatalog.impl.ControlImpl <em>Control</em>}' class.

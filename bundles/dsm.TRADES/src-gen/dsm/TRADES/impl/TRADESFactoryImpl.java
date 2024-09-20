@@ -499,7 +499,7 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 	 */
 	@Override
 	public Vulnerability createVulnerability() {
-		VulnerabilityImpl vulnerability = new VulnerabilityImpl();
+		VulnerabilityCustomImpl vulnerability = new VulnerabilityCustomImpl();
 		return vulnerability;
 	}
 
@@ -521,7 +521,7 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 	 */
 	@Override
 	public ComponentType createComponentType() {
-		ComponentTypeImpl componentType = new ComponentTypeImpl();
+		ComponentTypeCustomImpl componentType = new ComponentTypeCustomImpl();
 		return componentType;
 	}
 
@@ -543,7 +543,7 @@ public class TRADESFactoryImpl extends EFactoryImpl implements TRADESFactory {
 	 */
 	@Override
 	public Rule createRule() {
-		RuleImpl rule = new RuleImpl();
+		RuleCustomImpl rule = new RuleCustomImpl();
 		return rule;
 	}
 

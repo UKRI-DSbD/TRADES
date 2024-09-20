@@ -29,10 +29,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import dsm.TRADES.ComponentType;
 import dsm.TRADES.ICatalogDefinition;
 import dsm.TRADES.IControlDefinition;
 import dsm.TRADES.IThreatDefinition;
+import dsm.TRADES.Rule;
 import dsm.TRADES.TRADESPackage;
+import dsm.TRADES.Vulnerability;
 import dsm.oscal.model.OscalCatalog.Catalog;
 import dsm.oscal.model.OscalCatalog.Control;
 import dsm.oscal.model.OscalCatalog.Group;
@@ -384,6 +387,42 @@ public class CatalogImpl extends OscalElementCustomImpl implements Catalog {
 	 * @generated
 	 */
 	@Override
+	public Rule getRuleById(String id) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Vulnerability getVulnerabilityById(String id) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ComponentType getComponentTypeById(String id) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Map<String, String> getParameterValues() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -621,6 +660,9 @@ public class CatalogImpl extends OscalElementCustomImpl implements Catalog {
 				case TRADESPackage.ICATALOG_DEFINITION___GET_CONTROL_DEFINITIONS: return OscalCatalogPackage.CATALOG___GET_CONTROL_DEFINITIONS;
 				case TRADESPackage.ICATALOG_DEFINITION___GET_IDENTIFIER: return OscalCatalogPackage.CATALOG___GET_IDENTIFIER;
 				case TRADESPackage.ICATALOG_DEFINITION___GET_NAME: return OscalCatalogPackage.CATALOG___GET_NAME;
+				case TRADESPackage.ICATALOG_DEFINITION___GET_RULE_BY_ID__STRING: return OscalCatalogPackage.CATALOG___GET_RULE_BY_ID__STRING;
+				case TRADESPackage.ICATALOG_DEFINITION___GET_VULNERABILITY_BY_ID__STRING: return OscalCatalogPackage.CATALOG___GET_VULNERABILITY_BY_ID__STRING;
+				case TRADESPackage.ICATALOG_DEFINITION___GET_COMPONENT_TYPE_BY_ID__STRING: return OscalCatalogPackage.CATALOG___GET_COMPONENT_TYPE_BY_ID__STRING;
 				default: return -1;
 			}
 		}
@@ -647,6 +689,12 @@ public class CatalogImpl extends OscalElementCustomImpl implements Catalog {
 				return getIdentifier();
 			case OscalCatalogPackage.CATALOG___GET_NAME:
 				return getName();
+			case OscalCatalogPackage.CATALOG___GET_RULE_BY_ID__STRING:
+				return getRuleById((String)arguments.get(0));
+			case OscalCatalogPackage.CATALOG___GET_VULNERABILITY_BY_ID__STRING:
+				return getVulnerabilityById((String)arguments.get(0));
+			case OscalCatalogPackage.CATALOG___GET_COMPONENT_TYPE_BY_ID__STRING:
+				return getComponentTypeById((String)arguments.get(0));
 			case OscalCatalogPackage.CATALOG___GET_PARAMETER_VALUES:
 				return getParameterValues();
 		}

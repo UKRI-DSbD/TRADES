@@ -6,4 +6,8 @@ target
 *.bak
 .DS_Store
 .directory
-
+__pycache__/
+/pom.xml.versionsBackup
+xtend-gen/
+*.jar
+result/

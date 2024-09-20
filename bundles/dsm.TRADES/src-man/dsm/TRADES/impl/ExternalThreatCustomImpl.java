@@ -14,7 +14,14 @@
 
 package dsm.TRADES.impl;
 
+import java.util.UUID;
+
 public class ExternalThreatCustomImpl extends ExternalThreatImpl {
+
+	public ExternalThreatCustomImpl() {
+		this.setId(UUID.randomUUID().toString());
+	}
+
 	@Override
 	public String getSourceName() {
 		return getSource();

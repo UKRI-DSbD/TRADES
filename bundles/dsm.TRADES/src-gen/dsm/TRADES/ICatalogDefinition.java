@@ -81,4 +81,28 @@ public interface ICatalogDefinition extends EObject {
 	 */
 	String getName();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Rule getRuleById(String id);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Vulnerability getVulnerabilityById(String id);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	ComponentType getComponentTypeById(String id);
+
 } // ICatalogDefinition

@@ -13,8 +13,6 @@
 *******************************************************************************************************/
 package dsm.TRADES;
 
-import java.util.UUID;
-
 import org.eclipse.emf.ecore.EObject;
 
 public class SemanticUtil {
@@ -41,7 +39,6 @@ public class SemanticUtil {
 	public static Analysis createInitialModel(String rootObjectName, String nvdAPIKey) {
 		Analysis analysis = TRADESFactory.eINSTANCE.createAnalysis();
 		analysis.setName(rootObjectName);
-		analysis.setId(UUID.randomUUID().toString());
 		analysis.setNVDAPIKey(nvdAPIKey);
 
 		Component root = TRADESFactory.eINSTANCE.createComponent();
@@ -87,13 +84,21 @@ public class SemanticUtil {
 	public static Catalog createInitialCatalog(String rootObjectName) {
 		Catalog catalog = TRADESFactory.eINSTANCE.createCatalog();
 		catalog.setName(rootObjectName);
-		catalog.setId(UUID.randomUUID().toString());
 
 		ThreatsOwner threatOwner = TRADESFactory.eINSTANCE.createThreatsOwner();
 		catalog.setThreatOwner(threatOwner);
 
 		ControlOwner controlOwner = TRADESFactory.eINSTANCE.createControlOwner();
 		catalog.setControlOwner(controlOwner);
+
+		VulnerabilityOwner vulnerabilityOwner = TRADESFactory.eINSTANCE.createVulnerabilityOwner();
+		catalog.setVulnerabilityOwner(vulnerabilityOwner);
+
+		ComponentTypeOwner componentTypeOwner = TRADESFactory.eINSTANCE.createComponentTypeOwner();
+		catalog.setComponentTypeOwner(componentTypeOwner);
+
+		RuleOwner ruleOwner = TRADESFactory.eINSTANCE.createRuleOwner();
+		catalog.setRuleOwner(ruleOwner);
 
 		return catalog;
 	}

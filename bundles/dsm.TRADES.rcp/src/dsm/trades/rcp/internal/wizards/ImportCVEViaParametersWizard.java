@@ -1,5 +1,5 @@
 /**
- * Copyright Israel Aerospace Industries, Eclipse contributors and others 2021. All rights reserved.
+ * University of Oxford, Eclipse contributors and others 2021. All rights reserved.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: EPL-2.0
  * 
  * Contributors:
- *     ELTA Ltd - initial API and implementation
+ *     University of Oxford - initial API and implementation
  * 
  */
 
@@ -32,6 +32,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -45,6 +46,7 @@ import org.eclipse.ui.IWorkbench;
 
 import dsm.TRADES.VulnerabilityTypeENUM;
 import dsm.cve.design.wizards.CVEParameterSearchPage;
+
 import dsm.cve.model.CVECatalog.CVECatalogFactory;
 import dsm.cwe.model.CWECatalog.Weakness;
 import dsm.cwe.model.CWECatalog.WeaknessCatalog;
@@ -142,16 +144,20 @@ public class ImportCVEViaParametersWizard extends Wizard implements IImportWizar
 
 						session.addSemanticResource(cveLibURI, new NullProgressMonitor());
 						monitor.worked(1);
-						try {
-							monitor.setTaskName("Saving the resource");
-							existingResource.save(Collections.emptyMap());
-							monitor.worked(1);
-						} catch (IOException e) {
-							TRADESRCPActivator.logError("Problem while saving catalog " + e.getMessage(), e);
-						}
-
-					}
-				};
+                        monitor.setTaskName("Saving the resource");
+                        for (Resource resource : existingResource.getResourceSet().getResources()) {
+                        	if (resource.getURI().isFile() || resource.getURI().isPlatformResource()) {
+                        		try {
+                                    resource.save(Collections.emptyMap());
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                    System.err.println(e.getMessage());
+                                }                                
+							}
+                            monitor.worked(1);
+                        }
+                    }
+                };
 				transactionalEditingDomain.getCommandStack().execute(cmd);
 
 				monitor.done();
@@ -198,19 +204,21 @@ public class ImportCVEViaParametersWizard extends Wizard implements IImportWizar
 			List<String> weaknesses = cveToCWEDictionary.get(cveId);
 			CVECatalogFactory cveCatalogFactory = CVECatalogFactory.eINSTANCE;
 			dsm.cve.model.CVECatalog.Vulnerability cve = cveCatalogFactory.createVulnerability();			
-			cve.setId(cveId);
+			cve.setName(cveId);
             cve.setVulnerabilityType(VulnerabilityTypeENUM.CVE);
-			if (weaknesses.size() > 0) {
-				for (int i = 0; i < weaknesses.size(); i++) {
-					//assume CWEs already loaded
-					try {
-						dsm.TRADES.Vulnerability cwe = getCWEByID(weaknesses.get(i), existingResource);
-						if (cwe != null) {
-							cve.getManifests().add(cwe);
-						}
-					} catch (Exception ex) {
-						ex.printStackTrace();
+            
+            //placeholder for linking with cpe component types
+            //NVDAPIUtils.queryCVEEndpoint(e, searchText, apiKey, resultsText, cveViewer, cveToCWEDictionary);
+            
+			for (String weakness : weaknesses) {
+				//assume CWEs already loaded
+				try {
+					dsm.TRADES.Vulnerability cwe = getCWEByID(weakness, existingResource);
+					if (cwe != null) {
+						cve.getManifests().add(cwe);
 					}
+				} catch (Exception ex) {
+					ex.printStackTrace();
 				}
 			}
 

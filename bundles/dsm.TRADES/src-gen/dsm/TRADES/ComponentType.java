@@ -33,7 +33,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface ComponentType extends NamedElement {
+public interface ComponentType extends NamedElement, ElementWithId {
 	/**
 	 * Returns the value of the '<em><b>Manifests</b></em>' reference list.
 	 * The list contents are of type {@link dsm.TRADES.ComponentType}.

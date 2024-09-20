@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
+import dsm.TRADES.ElementWithId;
 import dsm.TRADES.NamedElement;
 import dsm.cve.model.CVECatalog.CVECatalogPackage;
 import dsm.cve.model.CVECatalog.Vulnerability;
@@ -85,6 +86,7 @@ public class CVECatalogSwitch<T> extends Switch<T> {
 				T result = caseVulnerability(vulnerability);
 				if (result == null) result = caseTRADES_Vulnerability(vulnerability);
 				if (result == null) result = caseNamedElement(vulnerability);
+				if (result == null) result = caseElementWithId(vulnerability);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -119,6 +121,21 @@ public class CVECatalogSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNamedElement(NamedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element With Id</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element With Id</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseElementWithId(ElementWithId object) {
 		return null;
 	}
 

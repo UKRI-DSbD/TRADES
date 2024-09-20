@@ -31,6 +31,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -145,16 +146,20 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 
 						session.addSemanticResource(cveLibURI, new NullProgressMonitor());
 						monitor.worked(1);
-						try {
-							monitor.setTaskName("Saving the resource");
-							existingResource.save(Collections.emptyMap());
-							monitor.worked(1);
-						} catch (IOException e) {
-							TRADESRCPActivator.logError("Problem while saving catalog " + e.getMessage(), e);
-						}
-
-					}
-				};
+                        monitor.setTaskName("Saving the resource");
+                        for (Resource resource : existingResource.getResourceSet().getResources()) {
+                        	if (resource.getURI().isFile() || resource.getURI().isPlatformResource()) {
+                        		try {
+                                    resource.save(Collections.emptyMap());
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                    System.err.println(e.getMessage());
+                                }                                
+							}
+                            monitor.worked(1);
+                        }
+                    }
+                };
 				transactionalEditingDomain.getCommandStack().execute(cmd);
 
 				monitor.done();
@@ -196,17 +201,17 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 	}
 
 	private void transformCVEs(Resource existingResource, List<String> chosenCVEs) {
-		for (String cveId : chosenCVEs) {
+		for (String cveName : chosenCVEs) {
 			Hashtable<String, List<String>> cveToCWEDictionary = catalogSelectionPage.getCVEToCWEDictionary();
-			List<String> weaknesses = cveToCWEDictionary.get(cveId);
+			List<String> weaknesses = cveToCWEDictionary.get(cveName);
 			CVECatalogFactory cveCatalogFactory = CVECatalogFactory.eINSTANCE;
 			dsm.cve.model.CVECatalog.Vulnerability cve = cveCatalogFactory.createVulnerability();			
-			cve.setId(cveId);
+			cve.setName(cveName);
             cve.setVulnerabilityType(VulnerabilityTypeENUM.CVE);
             
 			Hashtable<String, ComponentType> cpeToComponentTypeDictionary = catalogSelectionPage.getCPEToComponentTypeDictionary();
 			Hashtable<String, List<String>> cveToCPEDictionary = catalogSelectionPage.getCVEToCPEDictionary();
-			List<String> cpeList = cveToCPEDictionary.get(cveId);
+			List<String> cpeList = cveToCPEDictionary.get(cveName);
 			for (String cpeName : cpeList) {
 				ComponentType cpe = cpeToComponentTypeDictionary.get(cpeName);
 				if (cpe !=  null) {
@@ -214,18 +219,15 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 				}
 			}
 
-            if (weaknesses.size() > 0) {
-				for (int i = 0; i < weaknesses.size(); i++) {
-					//assume CWEs already loaded
-					try {
-						dsm.TRADES.Vulnerability cwe = getCWEByID(weaknesses.get(i), existingResource);
-						if (cwe != null) {
-							cve.getManifests().add(cwe);
-						}
-                        
-					} catch (Exception ex) {
-						ex.printStackTrace();
+            for (String weakness : weaknesses) {
+            	//assume CWEs already loaded
+				try {
+					dsm.TRADES.Vulnerability cwe = getCWEByID(weakness, existingResource);
+					if (cwe != null) {
+						cve.getManifests().add(cwe);
 					}
+				} catch (Exception ex) {
+					ex.printStackTrace();
 				}
 			}
 			addCVE(existingResource, cve);
@@ -254,18 +256,30 @@ public class ImportCVECatalogWizard extends Wizard implements IImportWizard {
 
 		for (EObject item : existingResource.getContents()) {
 			dsm.cve.model.CVECatalog.Vulnerability vulnerability = (dsm.cve.model.CVECatalog.Vulnerability) item;
-			if (vulnerability.getId().equals(cve.getId())) {
+			if (vulnerability.getName().equals(cve.getName())) {
 				foundCVE = true;
 				for (ComponentType newComponentType : cve.getAffects()) {
 					boolean matchExists = false;
                     for (ComponentType existingComponentType : vulnerability.getAffects()) {
                         if (existingComponentType.getName().equals(newComponentType.getName())) {
                             matchExists = true;
-                            break;
+							break;
                         }
                     }
                     if (!matchExists) {
                         vulnerability.getAffects().add(newComponentType);
+                    }
+				}
+				for (dsm.TRADES.Vulnerability newVulnerability : cve.getManifests()) {
+					boolean matchExists = false;
+                    for (dsm.TRADES.Vulnerability existingVulnerability : vulnerability.getManifests()) {
+                        if (existingVulnerability.getName().equals(newVulnerability.getName())) {
+                            matchExists = true;
+							break;
+                        }
+                    }
+                    if (!matchExists) {
+                        vulnerability.getManifests().add(newVulnerability);
                     }
 				}
 			}

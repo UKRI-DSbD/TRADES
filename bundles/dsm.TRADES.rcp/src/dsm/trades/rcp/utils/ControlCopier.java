@@ -71,4 +71,8 @@ public class ControlCopier {
 		return result;
 	}
 
+	public Map<Control, ExternalControl> getOldToNewControls() {
+		return oldToNew;
+	}
+
 }

@@ -17,6 +17,7 @@ package dsm.TRADES.impl;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -31,6 +32,10 @@ import dsm.TRADES.ThreatMitigationRelation;
 
 public class ControlCustomImpl extends ControlImpl {
 
+	public ControlCustomImpl() {
+		this.setId(UUID.randomUUID().toString());
+	}
+	
 	@Override
 	public EList<IMitigationLink> getMitigatedThreatDefinitions() {
 		List<IMitigationLink> definitions = new ArrayList<IMitigationLink>();

@@ -16,6 +16,7 @@ package dsm.TRADES.impl;
 
 import java.text.MessageFormat;
 import java.util.Map;
+import java.util.UUID;
 
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -28,6 +29,10 @@ import dsm.TRADES.util.EcoreUtils;
 import dsm.TRADES.util.TRADESValidator;
 
 public class ThreatCustomImpl extends ThreatImpl {
+
+	public ThreatCustomImpl() {
+		this.setId(UUID.randomUUID().toString());
+	}
 
 	@Override
 	public boolean checkIsUsed(DiagnosticChain chain, Map context) {

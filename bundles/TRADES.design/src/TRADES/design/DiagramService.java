@@ -46,12 +46,12 @@ import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.navigator.CommonNavigator;
 
+import dsm.TRADES.AbstractComponentOwner;
 import dsm.TRADES.AffectRelation;
 import dsm.TRADES.Analysis;
 import dsm.TRADES.AttackChainStep;
 import dsm.TRADES.Catalog;
 import dsm.TRADES.Component;
-import dsm.TRADES.ComponentOwner;
 import dsm.TRADES.Control;
 import dsm.TRADES.ControlOwner;
 import dsm.TRADES.Data;
@@ -244,8 +244,8 @@ public class DiagramService {
 			cmp.getThreatAllocations().stream().map(rel -> rel.getThreat()).forEach(collector::add);
 		}
 
-		if (o instanceof ComponentOwner) {
-			for (Component c : ((ComponentOwner) o).getComponents()) {
+		if (o instanceof AbstractComponentOwner) {
+			for (Component c : ((AbstractComponentOwner) o).getComponents()) {
 				getLinkedThreat(c, collector);
 			}
 		}

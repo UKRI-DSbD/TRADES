@@ -1,5 +1,5 @@
 /**
- * Copyright Israel Aerospace Industries, Eclipse contributors and others 2021. All rights reserved.
+ * Copyright University of Oxford, Eclipse contributors and others 2021. All rights reserved.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: EPL-2.0
  * 
  * Contributors:
- *     ELTA Ltd - initial API and implementation
+ *     University of Oxford - implementationNVDAPIUtils.queryCVEEndpoint(e, searchText, apiKey, resultsText, cveViewer, cveToCWEDictionary);
  * 
  */
 
@@ -45,10 +45,12 @@ class NVDAPIUtils {
     public static String urlWithQuestionMark = "https://services.nvd.nist.gov/rest/json/cves/2.0?";
     public static int pageLength = 2000; //JSON pages seem to have a maximum size of 2000.
 
-    static String requestJsonString(String cpeName, SelectionEvent event, FetchProgress fetchProgress, String apiKey) {
+    static String requestJsonString(String cpeName, String apiOption, SelectionEvent event, FetchProgress fetchProgress, String apiKey) {
         String cveUrl = urlWithQuestionMark
         	+ "startIndex=" + fetchProgress.startIndex
-            + "&cpeName=" + URLEncoder.encode(cpeName, StandardCharsets.UTF_8);
+            + "&cpeName=" + URLEncoder.encode(cpeName, StandardCharsets.UTF_8)            
+            + apiOption
+            ;
         try {
             HttpRequest.Builder requestBuilder = HttpRequest.newBuilder(new URI(cveUrl));
             if (apiKey != null && !apiKey.isEmpty()) {
@@ -143,16 +145,21 @@ class NVDAPIUtils {
                         cveToCWEDictionary.put(cveId, new ArrayList<String>());
                     }
 
-                    ArrayNode weaknesses = (ArrayNode) vulnerabilities.get(i).get("cve").get("weaknesses").get(0).get("description");
+                    ArrayNode weaknesses = (ArrayNode) vulnerabilities.get(i).get("cve").get("weaknesses");
                     for (int j = 0; j < weaknesses.size(); j++) {
                         if (weaknesses.get(j).getNodeType() == JsonNodeType.OBJECT) {
-                            String cweId = weaknesses.get(j).get("value").asText();
-                            if (cweId.startsWith("CWE-")) {
-                                cveToCWEDictionary.get(cveId).add(cweId.substring(4));
-                            } else {
-                                cveToCWEDictionary.get(cveId).add(cweId);
+                            ArrayNode descriptions = (ArrayNode) weaknesses.get(j).get("description");
+                            for (int k = 0; k < descriptions.size(); k++) {
+                                if (descriptions.get(k).getNodeType() == JsonNodeType.OBJECT) {
+                                    String cweId = descriptions.get(k).get("value").asText();
+                                    if (cweId.startsWith("CWE-")) {
+                                        cveToCWEDictionary.get(cveId).add(cweId.substring(4));
+                                    } else {
+                                        cveToCWEDictionary.get(cveId).add(cweId);
+                                    }
+
+                                }
                             }
-                            
                         }
                     }
                 }
@@ -166,11 +173,11 @@ class NVDAPIUtils {
         }
     }
 
-    static FetchProgress requestAndParseJson(String cpeName, SelectionEvent event, 
+    static FetchProgress requestAndParseJson(String cpeName, String apiOption, SelectionEvent event, 
             FetchProgress fetchProgress, List<String> cvesToDisplay, String apiKey, 
     		Hashtable<String, List<String>> cveToCWEDictionary,
             Hashtable<String, List<String>> cveToCPEDictionary) {
-        String jsonString = requestJsonString(cpeName, event, fetchProgress, apiKey);
+        String jsonString = requestJsonString(cpeName, apiOption, event, fetchProgress, apiKey);
         if (jsonString != null) {
             try {
                 ObjectMapper objectMapper = new ObjectMapper();
@@ -199,19 +206,23 @@ class NVDAPIUtils {
                         cveToCPEDictionary.get(cveId).add(cpeName);
                     }
 
-                    ArrayNode weaknesses = (ArrayNode) vulnerabilities.get(i).get("cve").get("weaknesses").get(0).get("description");
+                    ArrayNode weaknesses = (ArrayNode) vulnerabilities.get(i).get("cve").get("weaknesses");
                     for (int j = 0; j < weaknesses.size(); j++) {
                         if (weaknesses.get(j).getNodeType() == JsonNodeType.OBJECT) {
-                            String cweId = weaknesses.get(j).get("value").asText();
-                            if (cweId.startsWith("CWE-")) {
-                                cveToCWEDictionary.get(cveId).add(cweId.substring(4));
-                            } else {
-                                cveToCWEDictionary.get(cveId).add(cweId);
+                            ArrayNode descriptions = (ArrayNode) weaknesses.get(j).get("description");
+                            for (int k = 0; k < descriptions.size(); k++) {
+                                if (descriptions.get(k).getNodeType() == JsonNodeType.OBJECT) {
+                                    String cweId = descriptions.get(k).get("value").asText();
+                                    if (cweId.startsWith("CWE-")) {
+                                        cveToCWEDictionary.get(cveId).add(cweId.substring(4));
+                                    } else {
+                                        cveToCWEDictionary.get(cveId).add(cweId);
+                                    }
+
+                                }
                             }
-                            
                         }
                     }
-                    
                 }
                 return new FetchProgress(fetchProgress.startIndex + resultsPerPage, totalResultsToBeReturned);
             } catch (Exception e) {
@@ -236,7 +247,7 @@ class NVDAPIUtils {
         }
     }
 
-    static void queryCVEEndpoint(SelectionEvent event, List<String> chosenCPEs, String apiKey, TableViewer cveViewer, 
+    static void queryCVEEndpoint(SelectionEvent event, List<String> chosenCPEs, String apiOption, String apiKey, TableViewer cveViewer, 
     		Hashtable<String, List<String>> cveToCWEDictionary,
             Hashtable<String, List<String>> cveToCPEDictionary,
             ProgressBarWrapper progressBar) {
@@ -259,7 +270,7 @@ class NVDAPIUtils {
             }
 
             FetchProgress fetchProgress = requestAndParseJson(
-                cpeName, event, new FetchProgress(), cvesToDisplay, 
+                cpeName, apiOption, event, new FetchProgress(), cvesToDisplay, 
                 apiKey, cveToCWEDictionary, cveToCPEDictionary);
            	while (fetchProgress != null && !fetchProgress.isComplete()) {
             	progressBar.setValue(Math.max(initialProgress, cpeCount + fetchProgress.fractionalProgress()));
@@ -271,7 +282,7 @@ class NVDAPIUtils {
                 }
 
                 fetchProgress = requestAndParseJson(
-                    cpeName, event, fetchProgress, cvesToDisplay, 
+                    cpeName, apiOption, event, fetchProgress, cvesToDisplay, 
                     apiKey, cveToCWEDictionary, cveToCPEDictionary);
             }
 

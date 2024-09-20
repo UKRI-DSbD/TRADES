@@ -520,7 +520,7 @@ public class OscalCatalogEditor
 					}
 				}
 				catch (CoreException exception) {
-					dsm.oscal.model.OscalCatalogCommon.presentation.OscalEditorPlugin.INSTANCE.log(exception);
+					OscalEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -637,7 +637,7 @@ public class OscalCatalogEditor
 					showTabs();
 				}
 				catch (PartInitException exception) {
-					dsm.oscal.model.OscalCatalogCommon.presentation.OscalEditorPlugin.INSTANCE.log(exception);
+					OscalEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 
@@ -646,7 +646,7 @@ public class OscalCatalogEditor
 					markerHelper.updateMarkers(diagnostic);
 				}
 				catch (CoreException exception) {
-					dsm.oscal.model.OscalCatalogCommon.presentation.OscalEditorPlugin.INSTANCE.log(exception);
+					OscalEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		}
@@ -689,8 +689,8 @@ public class OscalCatalogEditor
 		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new OscalCatalogCommonItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new OscalCatalogItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new OscalCatalogCommonItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new OscalMetadataItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TRADESItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
@@ -1529,7 +1529,7 @@ public class OscalCatalogEditor
 		catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
-			dsm.oscal.model.OscalCatalogCommon.presentation.OscalEditorPlugin.INSTANCE.log(exception);
+			OscalEditorPlugin.INSTANCE.log(exception);
 		}
 		updateProblemIndication = true;
 		updateProblemIndication();
@@ -1738,7 +1738,7 @@ public class OscalCatalogEditor
 	 * @generated
 	 */
 	private static String getString(String key) {
-		return dsm.oscal.model.OscalCatalogCommon.presentation.OscalEditorPlugin.INSTANCE.getString(key);
+		return OscalEditorPlugin.INSTANCE.getString(key);
 	}
 
 	/**
@@ -1748,7 +1748,7 @@ public class OscalCatalogEditor
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return dsm.oscal.model.OscalCatalogCommon.presentation.OscalEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+		return OscalEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
 	}
 
 	/**

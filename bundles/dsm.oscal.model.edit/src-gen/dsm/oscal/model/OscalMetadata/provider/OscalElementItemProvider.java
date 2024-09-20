@@ -30,8 +30,6 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
-import dsm.oscal.model.OscalCatalogCommon.provider.OscalEditPlugin;
-
 /**
  * This is the item provider adapter for a {@link dsm.oscal.model.OscalMetadata.OscalElement} object.
  * <!-- begin-user-doc -->
@@ -116,7 +114,7 @@ public class OscalElementItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return OscalEditPlugin.INSTANCE;
+		return dsm.oscal.model.OscalCatalog.provider.OscalEditPlugin.INSTANCE;
 	}
 
 }

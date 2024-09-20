@@ -228,7 +228,7 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
-        <containerMappings name="ComponentPackage_TD" detailDescriptions="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SubComponentDiagramCreation'] //@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ComponentDesignDiagramCreation']" navigationDescriptions="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ComponentDiagNavTool']" preconditionExpression="aql: self->notEmpty() = true" labelDirectEdit="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Change%20name']" semanticCandidatesExpression="aql:self.components" domainClass="TRADES::ComponentOwner" reusedNodeMappings="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@nodeMappings[name='ControlNode']" reusedContainerMappings="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@containerMappings[name='ComponentPackage_TD']">
+        <containerMappings name="ComponentPackage_TD" detailDescriptions="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SubComponentDiagramCreation'] //@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ComponentDesignDiagramCreation']" navigationDescriptions="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ComponentDiagNavTool']" preconditionExpression="aql: self->notEmpty() = true" labelDirectEdit="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Change%20name']" semanticCandidatesExpression="aql:self.components" domainClass="TRADES::AbstractComponentOwner" reusedNodeMappings="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@nodeMappings[name='ControlNode']" reusedContainerMappings="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@containerMappings[name='ComponentPackage_TD']">
           <dropDescriptions href="#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DnDThreatOnComponent_TD']"/>
           <dropDescriptions href="#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DropCatalogControl_TD']"/>
           <dropDescriptions href="../../dsm.oscal.design/description/oscal.odesign#//@ownedViewpoints[name='OscalViewPoint']/@ownedRepresentationExtensions[name='TRADES.design']/@layers[name='OscalLayer']/@toolSections.0/@ownedTools[name='DropOScalControl']"/>
@@ -261,9 +261,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.eContainerOrSelf(TRADES::Analysis).threatOwner">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="TRADES::Threat" referenceName="internals">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="aql:self.generateUUID()"/>
-                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="TRADES::Threat" referenceName="internals"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -456,7 +454,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Representation Tools" label="Diagram tools" icon="/TRADES.design/Images/icons/diagram.gif">
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Hide details" precondition="aql:self.oclAsType(TRADES::ComponentOwner)" candidatesExpression="aql:self.oclAsType(TRADES::ComponentOwner).components" multiple="true" message="Select components to hide in this diagram" iconPath="/TRADES.design/Images/inspectEncapSmall.png" windowTitle="Component encapsulation">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Hide details" precondition="aql:self.oclAsType(TRADES::AbstractComponentOwner)" candidatesExpression="aql:self.oclAsType(TRADES::AbstractComponentOwner).components" multiple="true" message="Select components to hide in this diagram" iconPath="/TRADES.design/Images/inspectEncapSmall.png" windowTitle="Component encapsulation">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
@@ -464,7 +462,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element->filter(TRADES::Component).encapsulateElements(containerView)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Unhide details" precondition="aql:self.oclAsType(TRADES::ComponentOwner)" candidatesExpression="aql:self.oclAsType(TRADES::ComponentOwner).components" multiple="true" message="Select components to show in this diagram" iconPath="/TRADES.design/Images/inspectDeEncapSmall.png" windowTitle="Cancel Component Encapsulation">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Unhide details" precondition="aql:self.oclAsType(TRADES::AbstractComponentOwner)" candidatesExpression="aql:self.oclAsType(TRADES::AbstractComponentOwner).components" multiple="true" message="Select components to show in this diagram" iconPath="/TRADES.design/Images/inspectDeEncapSmall.png" windowTitle="Cancel Component Encapsulation">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
@@ -595,7 +593,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" documentation="Displays all the threats allocated to the target and its descendants." name="RelatedThreatTool_TD" label="Display All Allocated threats" precondition="aql:container.oclIsKindOf(TRADES::ComponentOwner)" candidatesExpression="aql:containerView.getRelatedThreats()" multiple="true" iconPath="/TRADES.design/Images/icons/Display.png" windowImagePath="/TRADES.design/Images/icons/Display.png">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" documentation="Displays all the threats allocated to the target and its descendants." name="RelatedThreatTool_TD" label="Display All Allocated threats" precondition="aql:container.oclIsKindOf(TRADES::AbstractComponentOwner)" candidatesExpression="aql:containerView.getRelatedThreats()" multiple="true" iconPath="/TRADES.design/Images/icons/Display.png" windowImagePath="/TRADES.design/Images/icons/Display.png">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
@@ -1287,7 +1285,7 @@
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
-          <subContainerMappings name="ComponentPackage_SD" detailDescriptions="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SubComponentDiagramCreation'] //@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ComponentDesignDiagramCreation']" navigationDescriptions="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ComponentDiagNavTool']" preconditionExpression="aql: self->notEmpty() = true" labelDirectEdit="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Change%20name']" semanticCandidatesExpression="aql:self.components" domainClass="TRADES::ComponentOwner" dropDescriptions="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DnDThreatOnComponent_TD'] //@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DropCatalogControl_TD'] //@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ExternalControlDrop_TD']" reusedNodeMappings="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@nodeMappings[name='ControlNode'] //@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='System%20Design']/@defaultLayer/@containerMappings[name='ComponentContainer_SD']/@subNodeMappings[name='componentLinks']" reusedContainerMappings="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='System%20Design']/@defaultLayer/@containerMappings[name='ComponentContainer_SD']/@subContainerMappings[name='ComponentPackage_SD']">
+          <subContainerMappings name="ComponentPackage_SD" detailDescriptions="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SubComponentDiagramCreation'] //@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ComponentDesignDiagramCreation']" navigationDescriptions="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ComponentDiagNavTool']" preconditionExpression="aql: self->notEmpty() = true" labelDirectEdit="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Change%20name']" semanticCandidatesExpression="aql:self.components" domainClass="TRADES::AbstractComponentOwner" dropDescriptions="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DnDThreatOnComponent_TD'] //@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DropCatalogControl_TD'] //@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ExternalControlDrop_TD']" reusedNodeMappings="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@nodeMappings[name='ControlNode'] //@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='System%20Design']/@defaultLayer/@containerMappings[name='ComponentContainer_SD']/@subNodeMappings[name='componentLinks']" reusedContainerMappings="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='System%20Design']/@defaultLayer/@containerMappings[name='ComponentContainer_SD']/@subContainerMappings[name='ComponentPackage_SD']">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']" foregroundColor="//@userColorsPalettes[name='Colors']/@entries[name='ComponentBGColor']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
@@ -1380,7 +1378,7 @@
       </defaultLayer>
       <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="TRADES Vulnerability diagram" initialisation="true" showOnStartup="true" domainClass="TRADES::Analysis" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="TRADES Vulnerability diagram" domainClass="TRADES::Analysis" enablePopupBars="true">
       <dropDescriptions href="#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='copyThreatDragDrop']"/>
       <dropDescriptions href="#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DropCatalogControl_TD']"/>
       <dropDescriptions href="#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DropCatalogThreat_TD']"/>
@@ -1584,7 +1582,7 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
-        <containerMappings name="ComponentPackage_TD" detailDescriptions="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SubComponentDiagramCreation'] //@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ComponentDesignDiagramCreation']" navigationDescriptions="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ComponentDiagNavTool']" preconditionExpression="aql: self->notEmpty() = true" labelDirectEdit="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Change%20name']" semanticCandidatesExpression="aql:self.components" domainClass="TRADES::ComponentOwner" reusedNodeMappings="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@nodeMappings[name='ControlNode']" reusedContainerMappings="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@containerMappings[name='ComponentPackage_TD']">
+        <containerMappings name="ComponentPackage_TD" detailDescriptions="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SubComponentDiagramCreation'] //@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ComponentDesignDiagramCreation']" navigationDescriptions="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ComponentDiagNavTool']" preconditionExpression="aql: self->notEmpty() = true" labelDirectEdit="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Change%20name']" semanticCandidatesExpression="aql:self.components" domainClass="TRADES::AbstractComponentOwner" reusedNodeMappings="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@nodeMappings[name='ControlNode']" reusedContainerMappings="//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@containerMappings[name='ComponentPackage_TD']">
           <dropDescriptions href="#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DnDThreatOnComponent_TD']"/>
           <dropDescriptions href="#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20Vulnerability%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DropCatalogControl_TD']"/>
           <dropDescriptions href="../../dsm.oscal.design/description/oscal.odesign#//@ownedViewpoints[name='OscalViewPoint']/@ownedRepresentationExtensions[name='TRADES.design']/@layers[name='OscalLayer']/@toolSections.0/@ownedTools[name='DropOScalControl']"/>
@@ -1632,9 +1630,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.eContainerOrSelf(TRADES::Analysis).threatOwner">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="TRADES::Threat" referenceName="internals">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="aql:self.generateUUID()"/>
-                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="TRADES::Threat" referenceName="internals"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -1827,7 +1823,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Representation Tools" label="Diagram tools" icon="/TRADES.design/Images/icons/diagram.gif">
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Hide details" precondition="aql:self.oclAsType(TRADES::ComponentOwner)" candidatesExpression="aql:self.oclAsType(TRADES::ComponentOwner).components" multiple="true" message="Select components to hide in this diagram" iconPath="/TRADES.design/Images/inspectEncapSmall.png" windowTitle="Component encapsulation">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Hide details" precondition="aql:self.oclAsType(TRADES::AbstractComponentOwner)" candidatesExpression="aql:self.oclAsType(TRADES::AbstractComponentOwner).components" multiple="true" message="Select components to hide in this diagram" iconPath="/TRADES.design/Images/inspectEncapSmall.png" windowTitle="Component encapsulation">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
@@ -1835,7 +1831,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element->filter(TRADES::Component).encapsulateElements(containerView)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Unhide details" precondition="aql:self.oclAsType(TRADES::ComponentOwner)" candidatesExpression="aql:self.oclAsType(TRADES::ComponentOwner).components" multiple="true" message="Select components to show in this diagram" iconPath="/TRADES.design/Images/inspectDeEncapSmall.png" windowTitle="Cancel Component Encapsulation">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Unhide details" precondition="aql:self.oclAsType(TRADES::AbstractComponentOwner)" candidatesExpression="aql:self.oclAsType(TRADES::AbstractComponentOwner).components" multiple="true" message="Select components to show in this diagram" iconPath="/TRADES.design/Images/inspectDeEncapSmall.png" windowTitle="Cancel Component Encapsulation">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
@@ -1966,7 +1962,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" documentation="Displays all the threats allocated to the target and its descendants." name="RelatedThreatTool_TD" label="Display All Allocated threats" precondition="aql:container.oclIsKindOf(TRADES::ComponentOwner)" candidatesExpression="aql:containerView.getRelatedThreats()" multiple="true" iconPath="/TRADES.design/Images/icons/Display.png" windowImagePath="/TRADES.design/Images/icons/Display.png">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" documentation="Displays all the threats allocated to the target and its descendants." name="RelatedThreatTool_TD" label="Display All Allocated threats" precondition="aql:container.oclIsKindOf(TRADES::AbstractComponentOwner)" candidatesExpression="aql:containerView.getRelatedThreats()" multiple="true" iconPath="/TRADES.design/Images/icons/Display.png" windowImagePath="/TRADES.design/Images/icons/Display.png">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>

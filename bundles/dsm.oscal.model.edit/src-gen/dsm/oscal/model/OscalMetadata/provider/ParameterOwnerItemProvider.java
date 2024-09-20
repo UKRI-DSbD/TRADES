@@ -32,7 +32,6 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import dsm.oscal.model.OscalCatalogCommon.OscalCatalogCommonFactory;
-import dsm.oscal.model.OscalCatalogCommon.provider.OscalEditPlugin;
 import dsm.oscal.model.OscalMetadata.OscalMetadataPackage;
 import dsm.oscal.model.OscalMetadata.ParameterOwner;
 
@@ -142,7 +141,7 @@ public class ParameterOwnerItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return OscalEditPlugin.INSTANCE;
+		return dsm.oscal.model.OscalCatalog.provider.OscalEditPlugin.INSTANCE;
 	}
 
 }
