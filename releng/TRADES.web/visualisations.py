@@ -127,19 +127,28 @@ class Visualisation():
             fig_col1, fig_col2 = st.columns(2)
             with fig_col1:
                 st.markdown("### First Chart")
-                fig = self.draw_risk_matrix_table()
-                st.write(fig)
+                try:
+                    fig = self.draw_risk_matrix_table()
+                    st.write(fig)
+                except:
+                    print('No impacts or difficulties found.')
 
             with fig_col2:
                 st.markdown("### Second Chart")
                 #https://plotly.com/python/builtin-colorscales/
-                fig = self.draw_risk_matrix('Emrld')
-                st.write(fig)
+                try:
+                    fig = self.draw_risk_matrix('Emrld')
+                    st.write(fig)
+                except:
+                    print('No impacts or difficulties found.')
 
             st.markdown("## Detailed Data View")
             impact_difficulty_col, tree_col = st.columns(2)
             with impact_difficulty_col:
-                self.list_threat_allocations()
+                try:
+                    self.list_threat_allocations()
+                except:
+                    print('No impacts or difficulties found.')                
 
             with tree_col:
                 self.list_tree()
