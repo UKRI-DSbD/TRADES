@@ -53,8 +53,10 @@ class TradesReader:
 
     def get_threat_allocation_df(self):
         impact_difficulty_table = self.get_threat_allocation_table()
-        df = pd.DataFrame(data=np.array(impact_difficulty_table), columns=['Component Type', 'Component', 'Threat', 'Impact', 'Difficulty'])
-        return df
+        if len(impact_difficulty_table) > 0:
+            df = pd.DataFrame(data=np.array(impact_difficulty_table), columns=['Component Type', 'Component', 'Threat', 'Impact', 'Difficulty'])
+            return df
+        raise ValueError('No impacts or difficulties.')
     
     def get_tree_df(self):
         with open(self.filepath, 'r') as trades_file:
