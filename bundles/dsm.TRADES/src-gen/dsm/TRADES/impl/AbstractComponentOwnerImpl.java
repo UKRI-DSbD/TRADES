@@ -14,10 +14,15 @@
 package dsm.TRADES.impl;
 
 import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import dsm.TRADES.AbstractComponentOwner;
 import dsm.TRADES.Component;
 import dsm.TRADES.TRADESPackage;
@@ -38,7 +43,7 @@ import dsm.TRADES.TRADESPackage;
 public abstract class AbstractComponentOwnerImpl extends MinimalEObjectImpl.Container
 		implements AbstractComponentOwner {
 	/**
-	 * The cached value of the '{@link #getComponents() <em>Components</em>}' reference list.
+	 * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getComponents()
@@ -74,10 +79,24 @@ public abstract class AbstractComponentOwnerImpl extends MinimalEObjectImpl.Cont
 	@Override
 	public EList<Component> getComponents() {
 		if (components == null) {
-			components = new EObjectResolvingEList<Component>(Component.class, this,
+			components = new EObjectContainmentEList<Component>(Component.class, this,
 					TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENTS);
 		}
 		return components;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENTS:
+			return ((InternalEList<?>) getComponents()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

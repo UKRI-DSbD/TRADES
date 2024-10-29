@@ -34,13 +34,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface AbstractComponentOwner extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Components</b></em>' reference list.
+	 * Returns the value of the '<em><b>Components</b></em>' containment reference list.
 	 * The list contents are of type {@link dsm.TRADES.Component}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Components</em>' reference list.
+	 * @return the value of the '<em>Components</em>' containment reference list.
 	 * @see dsm.TRADES.TRADESPackage#getAbstractComponentOwner_Components()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Component> getComponents();

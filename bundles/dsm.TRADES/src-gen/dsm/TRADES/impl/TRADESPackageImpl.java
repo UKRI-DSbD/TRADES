@@ -2986,6 +2986,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		externalControlEClass.getESuperTypes().add(this.getExternalElement());
 		externalControlEClass.getESuperTypes().add(this.getControl());
 		linkEClass.getESuperTypes().add(this.getNamedElement());
+		linkEClass.getESuperTypes().add(this.getAbstractComponentOwner());
 		linkTypeEClass.getESuperTypes().add(this.getNamedElement());
 		linkTypeEClass.getESuperTypes().add(this.getColoredElement());
 		catalogEClass.getESuperTypes().add(this.getAbstractThreatOwner());
@@ -3339,8 +3340,8 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		initEClass(abstractComponentOwnerEClass, AbstractComponentOwner.class, "AbstractComponentOwner", IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAbstractComponentOwner_Components(), this.getComponent(), null, "components", null, 0, -1,
-				AbstractComponentOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				AbstractComponentOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

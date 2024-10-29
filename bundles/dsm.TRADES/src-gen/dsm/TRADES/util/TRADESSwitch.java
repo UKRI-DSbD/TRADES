@@ -392,6 +392,8 @@ public class TRADESSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(link);
 			if (result == null)
+				result = caseAbstractComponentOwner(link);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
