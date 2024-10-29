@@ -86,7 +86,7 @@ public interface TRADESPackage extends EPackage {
 	int ABSTRACT_COMPONENT_OWNER = 14;
 
 	/**
-	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Components</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -123,7 +123,7 @@ public interface TRADESPackage extends EPackage {
 	int ANALYSIS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Components</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -594,7 +594,7 @@ public interface TRADESPackage extends EPackage {
 	int COMPONENT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Components</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2569,22 +2569,13 @@ public interface TRADESPackage extends EPackage {
 	int LINK__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LINK__COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Link Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__LINK_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int LINK__LINK_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Link Conveyed</b></em>' reference list.
@@ -2593,7 +2584,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__LINK_CONVEYED = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int LINK__LINK_CONVEYED = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Conveying Link</b></em>' reference list.
@@ -2602,7 +2593,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__CONVEYING_LINK = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int LINK__CONVEYING_LINK = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Link</em>' class.
@@ -2611,7 +2602,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINK_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int LINK_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Link</em>' class.
@@ -2779,7 +2770,7 @@ public interface TRADESPackage extends EPackage {
 	int CATALOG__COMPONENT_TYPE_OWNER = ABSTRACT_THREAT_OWNER_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Components</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5072,10 +5063,10 @@ public interface TRADESPackage extends EPackage {
 	EClass getAbstractComponentOwner();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link dsm.TRADES.AbstractComponentOwner#getComponents <em>Components</em>}'.
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.AbstractComponentOwner#getComponents <em>Components</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Components</em>'.
+	 * @return the meta object for the reference list '<em>Components</em>'.
 	 * @see dsm.TRADES.AbstractComponentOwner#getComponents()
 	 * @see #getAbstractComponentOwner()
 	 * @generated
@@ -7043,7 +7034,7 @@ public interface TRADESPackage extends EPackage {
 		EClass ABSTRACT_COMPONENT_OWNER = eINSTANCE.getAbstractComponentOwner();
 
 		/**
-		 * The meta object literal for the '<em><b>Components</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Components</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

@@ -33,7 +33,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Link extends NamedElement, AbstractComponentOwner {
+public interface Link extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Link Type</b></em>' reference.
 	 * <!-- begin-user-doc -->

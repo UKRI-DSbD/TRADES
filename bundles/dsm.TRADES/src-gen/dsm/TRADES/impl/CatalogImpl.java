@@ -22,9 +22,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import dsm.TRADES.AbstractComponentOwner;
 import dsm.TRADES.AbstractComponentTypeOwner;
 import dsm.TRADES.AbstractControlOwner;
@@ -149,7 +147,7 @@ public class CatalogImpl extends AbstractThreatOwnerImpl implements Catalog {
 	protected ComponentTypeOwner componentTypeOwner;
 
 	/**
-	 * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
+	 * The cached value of the '{@link #getComponents() <em>Components</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getComponents()
@@ -441,8 +439,7 @@ public class CatalogImpl extends AbstractThreatOwnerImpl implements Catalog {
 	@Override
 	public EList<Component> getComponents() {
 		if (components == null) {
-			components = new EObjectContainmentEList<Component>(Component.class, this,
-					TRADESPackage.CATALOG__COMPONENTS);
+			components = new EObjectResolvingEList<Component>(Component.class, this, TRADESPackage.CATALOG__COMPONENTS);
 		}
 		return components;
 	}
@@ -583,8 +580,6 @@ public class CatalogImpl extends AbstractThreatOwnerImpl implements Catalog {
 			return basicSetRuleOwner(null, msgs);
 		case TRADESPackage.CATALOG__COMPONENT_TYPE_OWNER:
 			return basicSetComponentTypeOwner(null, msgs);
-		case TRADESPackage.CATALOG__COMPONENTS:
-			return ((InternalEList<?>) getComponents()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}

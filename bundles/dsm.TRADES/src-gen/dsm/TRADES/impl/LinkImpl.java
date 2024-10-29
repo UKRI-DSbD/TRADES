@@ -21,12 +21,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import dsm.TRADES.AbstractComponentOwner;
-import dsm.TRADES.Component;
 import dsm.TRADES.Link;
 import dsm.TRADES.LinkType;
 import dsm.TRADES.TRADESPackage;
@@ -39,7 +35,6 @@ import dsm.TRADES.TRADESPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dsm.TRADES.impl.LinkImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link dsm.TRADES.impl.LinkImpl#getLinkType <em>Link Type</em>}</li>
  *   <li>{@link dsm.TRADES.impl.LinkImpl#getLinkConveyed <em>Link Conveyed</em>}</li>
  *   <li>{@link dsm.TRADES.impl.LinkImpl#getConveyingLink <em>Conveying Link</em>}</li>
@@ -48,16 +43,6 @@ import dsm.TRADES.TRADESPackage;
  * @generated
  */
 public class LinkImpl extends NamedElementImpl implements Link {
-	/**
-	 * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getComponents()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Component> components;
-
 	/**
 	 * The cached value of the '{@link #getLinkType() <em>Link Type</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -105,19 +90,6 @@ public class LinkImpl extends NamedElementImpl implements Link {
 	@Override
 	protected EClass eStaticClass() {
 		return TRADESPackage.Literals.LINK;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Component> getComponents() {
-		if (components == null) {
-			components = new EObjectContainmentEList<Component>(Component.class, this, TRADESPackage.LINK__COMPONENTS);
-		}
-		return components;
 	}
 
 	/**
@@ -215,8 +187,6 @@ public class LinkImpl extends NamedElementImpl implements Link {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case TRADESPackage.LINK__COMPONENTS:
-			return ((InternalEList<?>) getComponents()).basicRemove(otherEnd, msgs);
 		case TRADESPackage.LINK__LINK_CONVEYED:
 			return ((InternalEList<?>) getLinkConveyed()).basicRemove(otherEnd, msgs);
 		case TRADESPackage.LINK__CONVEYING_LINK:
@@ -233,8 +203,6 @@ public class LinkImpl extends NamedElementImpl implements Link {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TRADESPackage.LINK__COMPONENTS:
-			return getComponents();
 		case TRADESPackage.LINK__LINK_TYPE:
 			if (resolve)
 				return getLinkType();
@@ -256,10 +224,6 @@ public class LinkImpl extends NamedElementImpl implements Link {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TRADESPackage.LINK__COMPONENTS:
-			getComponents().clear();
-			getComponents().addAll((Collection<? extends Component>) newValue);
-			return;
 		case TRADESPackage.LINK__LINK_TYPE:
 			setLinkType((LinkType) newValue);
 			return;
@@ -283,9 +247,6 @@ public class LinkImpl extends NamedElementImpl implements Link {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TRADESPackage.LINK__COMPONENTS:
-			getComponents().clear();
-			return;
 		case TRADESPackage.LINK__LINK_TYPE:
 			setLinkType((LinkType) null);
 			return;
@@ -307,8 +268,6 @@ public class LinkImpl extends NamedElementImpl implements Link {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TRADESPackage.LINK__COMPONENTS:
-			return components != null && !components.isEmpty();
 		case TRADESPackage.LINK__LINK_TYPE:
 			return linkType != null;
 		case TRADESPackage.LINK__LINK_CONVEYED:
@@ -317,42 +276,6 @@ public class LinkImpl extends NamedElementImpl implements Link {
 			return conveyingLink != null && !conveyingLink.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == AbstractComponentOwner.class) {
-			switch (derivedFeatureID) {
-			case TRADESPackage.LINK__COMPONENTS:
-				return TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENTS;
-			default:
-				return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == AbstractComponentOwner.class) {
-			switch (baseFeatureID) {
-			case TRADESPackage.ABSTRACT_COMPONENT_OWNER__COMPONENTS:
-				return TRADESPackage.LINK__COMPONENTS;
-			default:
-				return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //LinkImpl
