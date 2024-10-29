@@ -2569,22 +2569,13 @@ public interface TRADESPackage extends EPackage {
 	int LINK__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LINK__COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Link Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__LINK_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int LINK__LINK_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Link Conveyed</b></em>' reference list.
@@ -2593,7 +2584,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__LINK_CONVEYED = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int LINK__LINK_CONVEYED = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Conveying Link</b></em>' reference list.
@@ -2602,7 +2593,16 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__CONVEYING_LINK = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int LINK__CONVEYING_LINK = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Components</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK__COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Link</em>' class.
@@ -5368,6 +5368,17 @@ public interface TRADESPackage extends EPackage {
 	EReference getLink_ConveyingLink();
 
 	/**
+	 * Returns the meta object for the reference list '{@link dsm.TRADES.Link#getComponents <em>Components</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Components</em>'.
+	 * @see dsm.TRADES.Link#getComponents()
+	 * @see #getLink()
+	 * @generated
+	 */
+	EReference getLink_Components();
+
+	/**
 	 * Returns the meta object for class '{@link dsm.TRADES.LinkType <em>Link Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7286,6 +7297,14 @@ public interface TRADESPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LINK__CONVEYING_LINK = eINSTANCE.getLink_ConveyingLink();
+
+		/**
+		 * The meta object literal for the '<em><b>Components</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LINK__COMPONENTS = eINSTANCE.getLink_Components();
 
 		/**
 		 * The meta object literal for the '{@link dsm.TRADES.impl.LinkTypeImpl <em>Link Type</em>}' class.

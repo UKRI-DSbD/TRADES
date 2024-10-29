@@ -18,7 +18,7 @@
       <!-- @generated TRADES -->
       <parser
             type="trades"
-            class="dsm.TRADES.util.TRADESResourceFactoryCustomImpl"/>
+            class="dsm.TRADES.util.TRADESResourceFactoryImpl"/>
    </extension>
 
 </plugin>
