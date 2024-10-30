@@ -458,13 +458,22 @@ public interface TRADESPackage extends EPackage {
 	int THREAT__ID = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Characteristics</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THREAT__CHARACTERISTICS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Threat Allocations</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int THREAT__THREAT_ALLOCATIONS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int THREAT__THREAT_ALLOCATIONS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Threat Type</b></em>' attribute.
@@ -473,7 +482,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int THREAT__THREAT_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int THREAT__THREAT_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -482,7 +491,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int THREAT__DESCRIPTION = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int THREAT__DESCRIPTION = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Applicability</b></em>' attribute.
@@ -491,7 +500,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int THREAT__APPLICABILITY = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int THREAT__APPLICABILITY = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Exploits Vulnerability</b></em>' reference list.
@@ -500,7 +509,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int THREAT__EXPLOITS_VULNERABILITY = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int THREAT__EXPLOITS_VULNERABILITY = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
@@ -509,7 +518,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int THREAT__REFINES = NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int THREAT__REFINES = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Threat</em>' class.
@@ -518,7 +527,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int THREAT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int THREAT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Get Source Name</em>' operation.
@@ -639,13 +648,22 @@ public interface TRADESPackage extends EPackage {
 	int COMPONENT__CATEGORY = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Characteristics</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__CHARACTERISTICS = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Threat Allocations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__THREAT_ALLOCATIONS = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 4;
+	int COMPONENT__THREAT_ALLOCATIONS = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Affect Relations</b></em>' containment reference list.
@@ -654,7 +672,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__AFFECT_RELATIONS = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 5;
+	int COMPONENT__AFFECT_RELATIONS = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Links</b></em>' containment reference list.
@@ -663,7 +681,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__LINKS = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 6;
+	int COMPONENT__LINKS = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Component Types</b></em>' reference list.
@@ -672,7 +690,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__COMPONENT_TYPES = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 7;
+	int COMPONENT__COMPONENT_TYPES = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Rules</b></em>' reference list.
@@ -681,7 +699,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__RULES = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 8;
+	int COMPONENT__RULES = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Assigned Controls</b></em>' reference list.
@@ -690,7 +708,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__ASSIGNED_CONTROLS = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 9;
+	int COMPONENT__ASSIGNED_CONTROLS = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Vulnerable</b></em>' attribute.
@@ -699,7 +717,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__VULNERABLE = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 10;
+	int COMPONENT__VULNERABLE = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>CVA</b></em>' reference list.
@@ -708,7 +726,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__CVA = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 11;
+	int COMPONENT__CVA = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>CWA</b></em>' reference list.
@@ -717,7 +735,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__CWA = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 12;
+	int COMPONENT__CWA = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Associated Controls</b></em>' reference list.
@@ -726,7 +744,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__ASSOCIATED_CONTROLS = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 13;
+	int COMPONENT__ASSOCIATED_CONTROLS = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Unmitigated Vulnerabilities</b></em>' reference list.
@@ -735,7 +753,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__UNMITIGATED_VULNERABILITIES = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 14;
+	int COMPONENT__UNMITIGATED_VULNERABILITIES = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Unmitigated Weaknesses</b></em>' reference list.
@@ -744,7 +762,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__UNMITIGATED_WEAKNESSES = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 15;
+	int COMPONENT__UNMITIGATED_WEAKNESSES = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 16;
 
 	/**
 	 * The number of structural features of the '<em>Component</em>' class.
@@ -753,7 +771,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 16;
+	int COMPONENT_FEATURE_COUNT = ABSTRACT_COMPONENT_OWNER_FEATURE_COUNT + 17;
 
 	/**
 	 * The operation id for the '<em>Get Datas</em>' operation.
@@ -1865,6 +1883,15 @@ public interface TRADESPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTERNAL_THREAT__ID = THREAT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Characteristics</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_THREAT__CHARACTERISTICS = THREAT__CHARACTERISTICS;
 
 	/**
 	 * The feature id for the '<em><b>Threat Allocations</b></em>' reference list.
@@ -3437,13 +3464,22 @@ public interface TRADESPackage extends EPackage {
 	int VULNERABILITY__ID = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Characteristics</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VULNERABILITY__CHARACTERISTICS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Manifests</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY__MANIFESTS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int VULNERABILITY__MANIFESTS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Vulnerability Type</b></em>' attribute.
@@ -3452,7 +3488,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY__VULNERABILITY_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int VULNERABILITY__VULNERABILITY_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Affects</b></em>' reference list.
@@ -3461,7 +3497,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY__AFFECTS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int VULNERABILITY__AFFECTS = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Vulnerability</em>' class.
@@ -3470,7 +3506,7 @@ public interface TRADESPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VULNERABILITY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int VULNERABILITY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Vulnerability</em>' class.

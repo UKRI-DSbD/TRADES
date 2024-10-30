@@ -269,6 +269,7 @@ public class ComponentItemProvider extends AbstractComponentOwnerItemProvider {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(TRADESPackage.Literals.DATA_OWNER_ELEMENT__DATA_OWNER);
 			childrenFeatures.add(TRADESPackage.Literals.ABSTRACT_CONTROL_OWNER__CONTROL_OWNER);
+			childrenFeatures.add(TRADESPackage.Literals.CHARACTERISTIC_OWNER__CHARACTERISTICS);
 			childrenFeatures.add(TRADESPackage.Literals.COMPONENT__THREAT_ALLOCATIONS);
 			childrenFeatures.add(TRADESPackage.Literals.COMPONENT__AFFECT_RELATIONS);
 			childrenFeatures.add(TRADESPackage.Literals.COMPONENT__LINKS);
@@ -342,6 +343,7 @@ public class ComponentItemProvider extends AbstractComponentOwnerItemProvider {
 			return;
 		case TRADESPackage.COMPONENT__DATA_OWNER:
 		case TRADESPackage.COMPONENT__CONTROL_OWNER:
+		case TRADESPackage.COMPONENT__CHARACTERISTICS:
 		case TRADESPackage.COMPONENT__THREAT_ALLOCATIONS:
 		case TRADESPackage.COMPONENT__AFFECT_RELATIONS:
 		case TRADESPackage.COMPONENT__LINKS:
@@ -367,6 +369,9 @@ public class ComponentItemProvider extends AbstractComponentOwnerItemProvider {
 
 		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.ABSTRACT_CONTROL_OWNER__CONTROL_OWNER,
 				TRADESFactory.eINSTANCE.createControlOwner()));
+
+		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.CHARACTERISTIC_OWNER__CHARACTERISTICS,
+				TRADESFactory.eINSTANCE.createCharacteristic()));
 
 		newChildDescriptors.add(createChildParameter(TRADESPackage.Literals.COMPONENT__THREAT_ALLOCATIONS,
 				TRADESFactory.eINSTANCE.createThreatAllocationRelation()));

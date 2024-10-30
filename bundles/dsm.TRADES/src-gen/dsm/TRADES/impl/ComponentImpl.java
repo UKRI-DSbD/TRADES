@@ -31,6 +31,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import dsm.TRADES.AbstractControlOwner;
 import dsm.TRADES.AffectRelation;
 import dsm.TRADES.Asset;
+import dsm.TRADES.Characteristic;
+import dsm.TRADES.CharacteristicOwner;
 import dsm.TRADES.Component;
 import dsm.TRADES.ComponentCategoryENUM;
 import dsm.TRADES.ComponentType;
@@ -60,6 +62,7 @@ import dsm.TRADES.Vulnerability;
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getName <em>Name</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getControlOwner <em>Control Owner</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getCategory <em>Category</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ComponentImpl#getCharacteristics <em>Characteristics</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getThreatAllocations <em>Threat Allocations</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getAffectRelations <em>Affect Relations</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ComponentImpl#getLinks <em>Links</em>}</li>
@@ -126,6 +129,16 @@ public class ComponentImpl extends AbstractComponentOwnerImpl implements Compone
 	 * @ordered
 	 */
 	protected EList<ComponentCategoryENUM> category;
+
+	/**
+	 * The cached value of the '{@link #getCharacteristics() <em>Characteristics</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCharacteristics()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Characteristic> characteristics;
 
 	/**
 	 * The cached value of the '{@link #getThreatAllocations() <em>Threat Allocations</em>}' containment reference list.
@@ -405,6 +418,20 @@ public class ComponentImpl extends AbstractComponentOwnerImpl implements Compone
 					TRADESPackage.COMPONENT__CATEGORY);
 		}
 		return category;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Characteristic> getCharacteristics() {
+		if (characteristics == null) {
+			characteristics = new EObjectContainmentEList<Characteristic>(Characteristic.class, this,
+					TRADESPackage.COMPONENT__CHARACTERISTICS);
+		}
+		return characteristics;
 	}
 
 	/**
@@ -756,6 +783,8 @@ public class ComponentImpl extends AbstractComponentOwnerImpl implements Compone
 			return basicSetDataOwner(null, msgs);
 		case TRADESPackage.COMPONENT__CONTROL_OWNER:
 			return basicSetControlOwner(null, msgs);
+		case TRADESPackage.COMPONENT__CHARACTERISTICS:
+			return ((InternalEList<?>) getCharacteristics()).basicRemove(otherEnd, msgs);
 		case TRADESPackage.COMPONENT__THREAT_ALLOCATIONS:
 			return ((InternalEList<?>) getThreatAllocations()).basicRemove(otherEnd, msgs);
 		case TRADESPackage.COMPONENT__AFFECT_RELATIONS:
@@ -782,6 +811,8 @@ public class ComponentImpl extends AbstractComponentOwnerImpl implements Compone
 			return getControlOwner();
 		case TRADESPackage.COMPONENT__CATEGORY:
 			return getCategory();
+		case TRADESPackage.COMPONENT__CHARACTERISTICS:
+			return getCharacteristics();
 		case TRADESPackage.COMPONENT__THREAT_ALLOCATIONS:
 			return getThreatAllocations();
 		case TRADESPackage.COMPONENT__AFFECT_RELATIONS:
@@ -831,6 +862,10 @@ public class ComponentImpl extends AbstractComponentOwnerImpl implements Compone
 		case TRADESPackage.COMPONENT__CATEGORY:
 			getCategory().clear();
 			getCategory().addAll((Collection<? extends ComponentCategoryENUM>) newValue);
+			return;
+		case TRADESPackage.COMPONENT__CHARACTERISTICS:
+			getCharacteristics().clear();
+			getCharacteristics().addAll((Collection<? extends Characteristic>) newValue);
 			return;
 		case TRADESPackage.COMPONENT__THREAT_ALLOCATIONS:
 			getThreatAllocations().clear();
@@ -903,6 +938,9 @@ public class ComponentImpl extends AbstractComponentOwnerImpl implements Compone
 		case TRADESPackage.COMPONENT__CATEGORY:
 			getCategory().clear();
 			return;
+		case TRADESPackage.COMPONENT__CHARACTERISTICS:
+			getCharacteristics().clear();
+			return;
 		case TRADESPackage.COMPONENT__THREAT_ALLOCATIONS:
 			getThreatAllocations().clear();
 			return;
@@ -959,6 +997,8 @@ public class ComponentImpl extends AbstractComponentOwnerImpl implements Compone
 			return controlOwner != null;
 		case TRADESPackage.COMPONENT__CATEGORY:
 			return category != null && !category.isEmpty();
+		case TRADESPackage.COMPONENT__CHARACTERISTICS:
+			return characteristics != null && !characteristics.isEmpty();
 		case TRADESPackage.COMPONENT__THREAT_ALLOCATIONS:
 			return threatAllocations != null && !threatAllocations.isEmpty();
 		case TRADESPackage.COMPONENT__AFFECT_RELATIONS:
@@ -1032,6 +1072,14 @@ public class ComponentImpl extends AbstractComponentOwnerImpl implements Compone
 				return -1;
 			}
 		}
+		if (baseClass == CharacteristicOwner.class) {
+			switch (derivedFeatureID) {
+			case TRADESPackage.COMPONENT__CHARACTERISTICS:
+				return TRADESPackage.CHARACTERISTIC_OWNER__CHARACTERISTICS;
+			default:
+				return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -1076,6 +1124,14 @@ public class ComponentImpl extends AbstractComponentOwnerImpl implements Compone
 			switch (baseFeatureID) {
 			case TRADESPackage.DOMAIN_ASSET__CATEGORY:
 				return TRADESPackage.COMPONENT__CATEGORY;
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == CharacteristicOwner.class) {
+			switch (baseFeatureID) {
+			case TRADESPackage.CHARACTERISTIC_OWNER__CHARACTERISTICS:
+				return TRADESPackage.COMPONENT__CHARACTERISTICS;
 			default:
 				return -1;
 			}
@@ -1125,6 +1181,12 @@ public class ComponentImpl extends AbstractComponentOwnerImpl implements Compone
 			}
 		}
 		if (baseClass == DomainAsset.class) {
+			switch (baseOperationID) {
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == CharacteristicOwner.class) {
 			switch (baseOperationID) {
 			default:
 				return -1;

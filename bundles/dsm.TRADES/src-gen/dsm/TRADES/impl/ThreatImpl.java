@@ -13,6 +13,8 @@
  */
 package dsm.TRADES.impl;
 
+import dsm.TRADES.Characteristic;
+import dsm.TRADES.CharacteristicOwner;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Map;
@@ -27,6 +29,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
@@ -51,6 +54,7 @@ import dsm.TRADES.util.TRADESValidator;
  * </p>
  * <ul>
  *   <li>{@link dsm.TRADES.impl.ThreatImpl#getId <em>Id</em>}</li>
+ *   <li>{@link dsm.TRADES.impl.ThreatImpl#getCharacteristics <em>Characteristics</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ThreatImpl#getThreatAllocations <em>Threat Allocations</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ThreatImpl#getThreatType <em>Threat Type</em>}</li>
  *   <li>{@link dsm.TRADES.impl.ThreatImpl#getDescription <em>Description</em>}</li>
@@ -81,6 +85,16 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCharacteristics() <em>Characteristics</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCharacteristics()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Characteristic> characteristics;
 
 	/**
 	 * The cached value of the '{@link #getThreatAllocations() <em>Threat Allocations</em>}' reference list.
@@ -212,6 +226,20 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TRADESPackage.THREAT__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Characteristic> getCharacteristics() {
+		if (characteristics == null) {
+			characteristics = new EObjectContainmentEList<Characteristic>(Characteristic.class, this,
+					TRADESPackage.THREAT__CHARACTERISTICS);
+		}
+		return characteristics;
 	}
 
 	/**
@@ -400,6 +428,8 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case TRADESPackage.THREAT__CHARACTERISTICS:
+			return ((InternalEList<?>) getCharacteristics()).basicRemove(otherEnd, msgs);
 		case TRADESPackage.THREAT__THREAT_ALLOCATIONS:
 			return ((InternalEList<?>) getThreatAllocations()).basicRemove(otherEnd, msgs);
 		}
@@ -416,6 +446,8 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 		switch (featureID) {
 		case TRADESPackage.THREAT__ID:
 			return getId();
+		case TRADESPackage.THREAT__CHARACTERISTICS:
+			return getCharacteristics();
 		case TRADESPackage.THREAT__THREAT_ALLOCATIONS:
 			return getThreatAllocations();
 		case TRADESPackage.THREAT__THREAT_TYPE:
@@ -443,6 +475,10 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 		switch (featureID) {
 		case TRADESPackage.THREAT__ID:
 			setId((String) newValue);
+			return;
+		case TRADESPackage.THREAT__CHARACTERISTICS:
+			getCharacteristics().clear();
+			getCharacteristics().addAll((Collection<? extends Characteristic>) newValue);
 			return;
 		case TRADESPackage.THREAT__THREAT_ALLOCATIONS:
 			getThreatAllocations().clear();
@@ -480,6 +516,9 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 		case TRADESPackage.THREAT__ID:
 			setId(ID_EDEFAULT);
 			return;
+		case TRADESPackage.THREAT__CHARACTERISTICS:
+			getCharacteristics().clear();
+			return;
 		case TRADESPackage.THREAT__THREAT_ALLOCATIONS:
 			getThreatAllocations().clear();
 			return;
@@ -512,6 +551,8 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 		switch (featureID) {
 		case TRADESPackage.THREAT__ID:
 			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+		case TRADESPackage.THREAT__CHARACTERISTICS:
+			return characteristics != null && !characteristics.isEmpty();
 		case TRADESPackage.THREAT__THREAT_ALLOCATIONS:
 			return threatAllocations != null && !threatAllocations.isEmpty();
 		case TRADESPackage.THREAT__THREAT_TYPE:
@@ -556,6 +597,14 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 				return -1;
 			}
 		}
+		if (baseClass == CharacteristicOwner.class) {
+			switch (derivedFeatureID) {
+			case TRADESPackage.THREAT__CHARACTERISTICS:
+				return TRADESPackage.CHARACTERISTIC_OWNER__CHARACTERISTICS;
+			default:
+				return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -582,6 +631,14 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 			switch (baseFeatureID) {
 			case TRADESPackage.ELEMENT_WITH_ID__ID:
 				return TRADESPackage.THREAT__ID;
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == CharacteristicOwner.class) {
+			switch (baseFeatureID) {
+			case TRADESPackage.CHARACTERISTIC_OWNER__CHARACTERISTICS:
+				return TRADESPackage.THREAT__CHARACTERISTICS;
 			default:
 				return -1;
 			}
@@ -619,6 +676,12 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 			}
 		}
 		if (baseClass == ElementWithId.class) {
+			switch (baseOperationID) {
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == CharacteristicOwner.class) {
 			switch (baseOperationID) {
 			default:
 				return -1;

@@ -2974,11 +2974,13 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		threatEClass.getESuperTypes().add(this.getNamedElement());
 		threatEClass.getESuperTypes().add(this.getIThreatDefinition());
 		threatEClass.getESuperTypes().add(this.getElementWithId());
+		threatEClass.getESuperTypes().add(this.getCharacteristicOwner());
 		componentEClass.getESuperTypes().add(this.getAbstractComponentOwner());
 		componentEClass.getESuperTypes().add(this.getDataOwnerElement());
 		componentEClass.getESuperTypes().add(this.getNamedElement());
 		componentEClass.getESuperTypes().add(this.getAbstractControlOwner());
 		componentEClass.getESuperTypes().add(this.getDomainAsset());
+		componentEClass.getESuperTypes().add(this.getCharacteristicOwner());
 		controlEClass.getESuperTypes().add(this.getNamedElement());
 		controlEClass.getESuperTypes().add(this.getIControlDefinition());
 		controlEClass.getESuperTypes().add(this.getElementWithId());
@@ -3013,6 +3015,7 @@ public class TRADESPackageImpl extends EPackageImpl implements TRADESPackage {
 		domainAssetEClass.getESuperTypes().add(this.getAsset());
 		vulnerabilityEClass.getESuperTypes().add(this.getNamedElement());
 		vulnerabilityEClass.getESuperTypes().add(this.getElementWithId());
+		vulnerabilityEClass.getESuperTypes().add(this.getCharacteristicOwner());
 		componentTypeEClass.getESuperTypes().add(this.getNamedElement());
 		componentTypeEClass.getESuperTypes().add(this.getElementWithId());
 		assetEClass.getESuperTypes().add(this.getNamedElement());

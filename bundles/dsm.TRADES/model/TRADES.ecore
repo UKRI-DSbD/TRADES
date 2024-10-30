@@ -45,7 +45,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="vulnerableComponents" upperBound="-1"
         eType="#//Component" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Threat" eSuperTypes="#//NamedElement #//IThreatDefinition #//ElementWithId">
+  <eClassifiers xsi:type="ecore:EClass" name="Threat" eSuperTypes="#//NamedElement #//IThreatDefinition #//ElementWithId #//CharacteristicOwner">
     <eOperations name="checkIsUsed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="chain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
       <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
@@ -60,7 +60,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="refines" upperBound="-1"
         eType="#//Threat"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//AbstractComponentOwner #//DataOwnerElement #//NamedElement #//AbstractControlOwner #//DomainAsset">
+  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//AbstractComponentOwner #//DataOwnerElement #//NamedElement #//AbstractControlOwner #//DomainAsset #//CharacteristicOwner">
     <eOperations name="ofType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="type" eType="#//ComponentType"/>
     </eOperations>
@@ -370,7 +370,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="vulnerabilities" upperBound="-1"
         eType="#//Vulnerability" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Vulnerability" eSuperTypes="#//NamedElement #//ElementWithId">
+  <eClassifiers xsi:type="ecore:EClass" name="Vulnerability" eSuperTypes="#//NamedElement #//ElementWithId #//CharacteristicOwner">
     <eStructuralFeatures xsi:type="ecore:EReference" name="manifests" upperBound="-1"
         eType="#//Vulnerability"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="vulnerabilityType" eType="#//VulnerabilityTypeENUM"/>

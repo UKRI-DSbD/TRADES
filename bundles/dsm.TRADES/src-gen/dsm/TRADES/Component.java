@@ -42,8 +42,8 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Component
-		extends AbstractComponentOwner, DataOwnerElement, NamedElement, AbstractControlOwner, DomainAsset {
+public interface Component extends AbstractComponentOwner, DataOwnerElement, NamedElement, AbstractControlOwner,
+		DomainAsset, CharacteristicOwner {
 	/**
 	 * Returns the value of the '<em><b>Threat Allocations</b></em>' containment reference list.
 	 * The list contents are of type {@link dsm.TRADES.ThreatAllocationRelation}.

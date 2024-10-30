@@ -13,6 +13,7 @@
  */
 package dsm.TRADES.util;
 
+import dsm.TRADES.*;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
@@ -159,6 +160,8 @@ public class TRADESSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseElementWithId(threat);
 			if (result == null)
+				result = caseCharacteristicOwner(threat);
+			if (result == null)
 				result = caseIElementWithSource(threat);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -175,6 +178,8 @@ public class TRADESSwitch<T> extends Switch<T> {
 				result = caseAbstractControlOwner(component);
 			if (result == null)
 				result = caseDomainAsset(component);
+			if (result == null)
+				result = caseCharacteristicOwner(component);
 			if (result == null)
 				result = caseAsset(component);
 			if (result == null)
@@ -315,6 +320,8 @@ public class TRADESSwitch<T> extends Switch<T> {
 				result = caseIThreatDefinition(externalThreat);
 			if (result == null)
 				result = caseElementWithId(externalThreat);
+			if (result == null)
+				result = caseCharacteristicOwner(externalThreat);
 			if (result == null)
 				result = caseIElementWithSource(externalThreat);
 			if (result == null)
@@ -523,6 +530,8 @@ public class TRADESSwitch<T> extends Switch<T> {
 				result = caseNamedElement(vulnerability);
 			if (result == null)
 				result = caseElementWithId(vulnerability);
+			if (result == null)
+				result = caseCharacteristicOwner(vulnerability);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
