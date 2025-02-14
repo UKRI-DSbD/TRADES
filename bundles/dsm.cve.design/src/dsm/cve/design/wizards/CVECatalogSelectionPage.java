@@ -98,21 +98,24 @@ public class CVECatalogSelectionPage extends WizardPage {
     }
 
     @Override
-    public void createControl(Composite parent) {
+    public void createControl(Composite parent) {  	
         Composite composite = new Composite(parent, SWT.None);
         composite.setLayout(new GridLayout(1, true));
 
         //Filter existing CPEs
-        createFilterGroup(composite);
+        createCpeFilterGroup(composite);
 
         // Type and fetch button
-        createFetchGroup(composite);
+        createCpeSelectAndFetchGroup(composite);
         
         // NVD API Option
-        createURLSearchGroup(composite);
+        createUrlParametersGroup(composite);
+        
+        // Progress bar
+        createProgressBarGroup(composite);
         
         // Search Results
-        createSearchResultsViewer(composite);
+        createCveResultsGroup(composite);
         
         Label disclaimerText = new Label(composite, SWT.COLOR_TRANSPARENT);
         disclaimerText.setText(System.lineSeparator() + 
@@ -133,9 +136,9 @@ public class CVECatalogSelectionPage extends WizardPage {
         }
     }
 
-    private void createFilterGroup(Composite parent) {
+    private void createCpeFilterGroup(Composite parent) {
         Group filterGroup = new Group(parent, SWT.NONE);
-        filterGroup.setText("Enter the first few characters of a CPE to filter the below list :");
+        filterGroup.setText("Enter the first few characters of a CPE to filter the below list:");
         filterGroup.setLayout(new GridLayout(1, false));
         filterGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
@@ -160,34 +163,18 @@ public class CVECatalogSelectionPage extends WizardPage {
             }
         };
     }
-    private void createURLSearchGroup(Composite parent) {
-        Group searchGroup = new Group(parent, SWT.NONE);
-        searchGroup.setText("Enter optional NVD API parameters below.");
-        searchGroup.setLayout(new GridLayout(1, false));
-        searchGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));        
-        Text apiOption = new Text(searchGroup, SWT.COLOR_WHITE);        
-        apiOption.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-        apiOption.setText("&isVulnerable");
-        apiOptionString = apiOption.getText();
         
-        apiOption.addModifyListener(new ModifyListener() {
-            @Override
-            public void modifyText(ModifyEvent e) {
-                apiOptionString = apiOption.getText(); // Get the updated text                
-            }
-        });
-    }
-        
-    private void createFetchGroup(Composite parent) {    	
-        Group fetchGroup = new Group(parent, SWT.NONE);
-        fetchGroup.setText("CPEs found :");
-        fetchGroup.setLayout(new GridLayout(2, false));
-        fetchGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+    private void createCpeSelectAndFetchGroup(Composite parent) {    	
+        Group group = new Group(parent, SWT.NONE);
+        group.setText("CPEs found :");
+        group.setLayout(new GridLayout(2, false));
+        GridData gridData = new GridData(GridData.FILL_BOTH);
+        gridData.heightHint = 300;
+        gridData.minimumHeight = 100;
+        group.setLayoutData(gridData);
 
-        this.cpeViewer = new TableViewer(fetchGroup);
-        GridData gridData = new GridData();
-        gridData.widthHint = 500;
-        cpeViewer.getControl().setLayoutData(gridData);
+        cpeViewer = new TableViewer(group);
+        cpeViewer.getControl().setLayoutData(new GridData(GridData.FILL_BOTH));
         cpeViewer.setContentProvider(ArrayContentProvider.getInstance());
         cpeViewer.setLabelProvider(new LabelProvider() {
             @Override
@@ -211,7 +198,7 @@ public class CVECatalogSelectionPage extends WizardPage {
             }
         });
         
-        Button fetchButton = new Button(fetchGroup, SWT.PUSH);
+        Button fetchButton = new Button(group, SWT.PUSH);
         fetchButton.setLayoutData(new GridData(GridData.END));
         fetchButton.setText("Fetch");
         fetchButton.addSelectionListener(new SelectionAdapter() {
@@ -228,17 +215,45 @@ public class CVECatalogSelectionPage extends WizardPage {
         });
 
         cpeViewer.addFilter(this.filterViewer);
-
-        progressBar = new ProgressBarWrapper(new ProgressBar(parent, SWT.HORIZONTAL));
+    }
+    
+    private void createUrlParametersGroup(Composite parent) {
+        Group searchGroup = new Group(parent, SWT.NONE);
+        searchGroup.setText("Enter optional NVD API parameters below:");
+        searchGroup.setLayout(new GridLayout(1, false));
+        searchGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));        
+        Text apiOption = new Text(searchGroup, SWT.COLOR_WHITE);        
+        apiOption.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+        apiOption.setText("&isVulnerable");
+        apiOptionString = apiOption.getText();
+        
+        apiOption.addModifyListener(new ModifyListener() {
+            @Override
+            public void modifyText(ModifyEvent e) {
+                apiOptionString = apiOption.getText(); // Get the updated text                
+            }
+        });
     }
 
-    private void createSearchResultsViewer(Composite parent) {
-        Group embeddedGroup = new Group(parent, SWT.NONE);
-        embeddedGroup.setText("Select CVEs from below : ");
-        embeddedGroup.setLayout(new FillLayout());
-        embeddedGroup.setLayoutData(new GridData(GridData.FILL_BOTH));
+    private void createProgressBarGroup(Composite parent) {
+    	Group group = new Group(parent, SWT.NONE);
+    	group.setText("Download progress:");
+    	group.setLayout(new GridLayout(1, false));
+    	group.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+        progressBar = new ProgressBarWrapper(new ProgressBar(group, SWT.HORIZONTAL));
+    }
+    
+    private void createCveResultsGroup(Composite parent) {
+        Group group = new Group(parent, SWT.NONE);
+        group.setText("Select CVEs from below : ");
+        group.setLayout(new GridLayout(1, false));
+        GridData gridData = new GridData(GridData.FILL_BOTH); 
+        gridData.heightHint = 200;
+        gridData.minimumHeight = 100;
+        group.setLayoutData(gridData);
 
-        this.cveViewer = new TableViewer(embeddedGroup);
+        cveViewer = new TableViewer(group);
+        cveViewer.getControl().setLayoutData(new GridData(GridData.FILL_BOTH));
         cveViewer.setContentProvider(ArrayContentProvider.getInstance());
         cveViewer.setLabelProvider(new LabelProvider() {
             @Override
