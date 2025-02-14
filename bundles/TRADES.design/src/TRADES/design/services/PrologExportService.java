@@ -83,7 +83,8 @@ public class PrologExportService {
 		}
 		
 		try {
-			Files.write(builder.toString().getBytes(), file);
+			String prolog = builder.toString();
+			Files.write(prolog.getBytes(), file);
 		} catch (IOException e) {
 			throw new IOException("Error exporting Prolog to file: " + file.toString());
 		}

@@ -7,6 +7,8 @@ public class PluginProperties {
 	
 	public static final String PROLOG_EXPORT_PREFIX_FILE_PREF_NAME = "PrologExportPrefixFile";
 	public static final String PROLOG_EXPORT_PREFIX_TYPE_PREF_NAME = "PrologExportPrefixType";
+	public static final String PROLOG_COMMAND_PREF_NAME = "PrologCommand";
+	public static final String PROLOG_COMMAND_SHOULD_BE_RUN_BY_DEFAULT_PREF_NAME = "PrologCommandShouldBeRun";
 	
 	//Value constants
 	
@@ -17,6 +19,8 @@ public class PluginProperties {
 	
 	public String prologExportPrefixType = PROLOG_EXPORT_PREFIX_TYPE_VALUE_EMBEDDED; 
 	public String prologExportPrefixFile = "";
+	public String prologCommand = "";
+	public boolean prologCommandShouldBeRunByDefault = false;
 	
 	//Methods
 	
@@ -32,6 +36,11 @@ public class PluginProperties {
 		fromStore = store.getString(PROLOG_EXPORT_PREFIX_FILE_PREF_NAME);
 		if(fromStore != "")
 			prologExportPrefixFile = fromStore;
+		fromStore = store.getString(PROLOG_COMMAND_PREF_NAME);
+		if(fromStore != "")
+			prologCommand = fromStore;
+		boolean fromStoreBoolean = store.getBoolean(PROLOG_COMMAND_SHOULD_BE_RUN_BY_DEFAULT_PREF_NAME);
+		prologCommandShouldBeRunByDefault = fromStoreBoolean;
 	}
 	
 	public boolean getIsPrologPrefixEmbedded() {
@@ -42,5 +51,7 @@ public class PluginProperties {
 		PluginProperties defaultInstance = new PluginProperties();
 		store.setDefault(PROLOG_EXPORT_PREFIX_TYPE_PREF_NAME, defaultInstance.prologExportPrefixType);
 		store.setDefault(PROLOG_EXPORT_PREFIX_FILE_PREF_NAME, defaultInstance.prologExportPrefixFile);
+		store.setDefault(PROLOG_COMMAND_PREF_NAME, defaultInstance.prologCommand);
+		store.setDefault(PROLOG_COMMAND_SHOULD_BE_RUN_BY_DEFAULT_PREF_NAME, defaultInstance.prologCommandShouldBeRunByDefault);
 	}	
 }

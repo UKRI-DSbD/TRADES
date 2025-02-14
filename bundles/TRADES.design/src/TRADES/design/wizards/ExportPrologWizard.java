@@ -3,6 +3,7 @@ package TRADES.design.wizards;
 import static java.util.stream.Collectors.toList;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.stream.Stream;
@@ -20,6 +21,7 @@ import org.eclipse.ui.IWorkbench;
 
 import TRADES.design.Activator;
 import TRADES.design.PluginProperties;
+import TRADES.design.services.ExternalAppExecutionService;
 import TRADES.design.services.PrologExportService;
 
 /**
@@ -66,7 +68,8 @@ public class ExportPrologWizard extends Wizard implements IExportWizard {
 		
 		IProject project = page.getSelectedProject();
 		IPreferenceStore preferenceStore = Activator.getDefault().getPreferenceStore();
-		PrologExportService exportService = new PrologExportService(new PluginProperties(preferenceStore));
+		PluginProperties pluginProperties = new PluginProperties(preferenceStore);
+		PrologExportService exportService = new PrologExportService(pluginProperties);
 		
 		try {
 			exportService.Export(project, prologFile);
@@ -75,7 +78,21 @@ public class ExportPrologWizard extends Wizard implements IExportWizard {
 		} catch (Exception e) {
 			System.out.println("Error exporting Prolog for project " + project.getName() + " to file " + prologFilePath);
 			MessageDialog.openError(getShell(), "Prolog export failed", "The export of project " + project.getName() + " to file " + prologFilePath + " failed.");
-			e.printStackTrace();
+			e.printStackTrace();	
+			return false;
+		}
+		
+		ExternalAppExecutionService externalAppService = new ExternalAppExecutionService();
+		
+		if(page.getShouldExecuteCommand()) {
+			try {
+				String command = pluginProperties.prologCommand.formatted(prologFile.toString());
+				externalAppService.ExecuteAsync(command, "Prolog execution (" + prologFile.toString() + ")");
+			} catch (Exception e) {
+				MessageDialog.openError(getShell(), "Prolog exection failed", "The execution of prolog for " + project.getName() + " failed.");
+				e.printStackTrace();	
+				return false;
+			}
 		}
 		
 		return true;

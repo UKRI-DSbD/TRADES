@@ -1,6 +1,5 @@
 package TRADES.design.wizards;
 
-import java.io.File;
 import java.nio.file.Path;
 import java.util.List;
 
@@ -32,6 +31,7 @@ public class ExportPrologPage extends WizardPage {
 	
 	private Path selectedFile;
 	private IProject selectedProject;
+	private boolean shouldExecuteCommand;
 	
 	protected ExportPrologPage(List<IProject> availableProjects, IProject initiallySelectedProject) {
 		super("Export models to Prolog");
@@ -40,7 +40,6 @@ public class ExportPrologPage extends WizardPage {
 		
 		this.availableProjects = availableProjects;
 		this.initiallySelectedProject = initiallySelectedProject;
-		selectedProject = null; 
 	}
 	
 	@Override
@@ -49,6 +48,8 @@ public class ExportPrologPage extends WizardPage {
 		
 		Composite container = new Composite(parent, SWT.NONE);
 		container.setLayout(new GridLayout(2, false));
+		
+		PluginProperties pluginProperties = new PluginProperties(Activator.getDefault().getPreferenceStore());
 		
 		//Project selector
 		
@@ -78,20 +79,21 @@ public class ExportPrologPage extends WizardPage {
 		//Prefix
 		
 		Text prefixLabel = new Text(container, SWT.READ_ONLY);
-		prefixLabel.setText("Prefix source:");
+		prefixLabel.setText("Prefix source");
 		String tooltip = "The file prefix is set in the TRADES project properties";
 		prefixLabel.setToolTipText(tooltip);
+		prefixLabel.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_END));
 		
 		Text prefixValue = new Text(container, SWT.READ_ONLY);
-		PluginProperties projectProperties = new PluginProperties(Activator.getDefault().getPreferenceStore());
-		prefixValue.setText(projectProperties.getIsPrologPrefixEmbedded() ? "Embedded" : projectProperties.prologExportPrefixFile);
+		prefixValue.setText(pluginProperties.getIsPrologPrefixEmbedded() ? "Embedded" : pluginProperties.prologExportPrefixFile);
 		prefixValue.setToolTipText(tooltip);
 		
 		//File selector
 		
 		Button fileBrowseButton = new Button(container, SWT.PUSH);
 		fileBrowseButton.setLayoutData(new GridData(GridData.END));
-		fileBrowseButton.setText("Output file");	
+		fileBrowseButton.setText("Output file");
+		fileBrowseButton.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_FILL));
 		
 		Text fileSelectionLabel = new Text(container, SWT.READ_ONLY | SWT.BORDER);
 		fileSelectionLabel.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
@@ -128,6 +130,26 @@ public class ExportPrologPage extends WizardPage {
 			}
 		});
 		
+		//Execute command?
+		//"Execute exported file (using command set in preferences)"
+		Button runCommandCheckbox = new Button(container, SWT.CHECK);
+		runCommandCheckbox.addSelectionListener(new SelectionAdapter() {
+			
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				shouldExecuteCommand = runCommandCheckbox.getSelection();
+			}
+		});
+		boolean shouldEnabledCheckbox = pluginProperties.prologCommand != "";
+		runCommandCheckbox.setEnabled(shouldEnabledCheckbox);
+		shouldExecuteCommand = shouldEnabledCheckbox && pluginProperties.prologCommandShouldBeRunByDefault;
+		runCommandCheckbox.setSelection(shouldExecuteCommand);
+		runCommandCheckbox.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_END));
+		
+		Text runCommandLabel = new Text(container, SWT.READ_ONLY);
+		runCommandLabel.setText("Execute exported file (using command set in TRADES project properties)");
+		runCommandLabel.setToolTipText("Current command: '" + pluginProperties.prologCommand + "'");
+		
 		setControl(container);
 	}
 	
@@ -142,5 +164,9 @@ public class ExportPrologPage extends WizardPage {
 	
 	public IProject getSelectedProject() {
 		return selectedProject;
+	}
+	
+	public boolean getShouldExecuteCommand() {
+		return shouldExecuteCommand;
 	}
 }
