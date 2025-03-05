@@ -9,6 +9,8 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
@@ -32,6 +34,8 @@ public class ExportPrologPage extends WizardPage {
 	private Path selectedFile;
 	private IProject selectedProject;
 	private boolean shouldExecuteCommand;
+	
+	private Text fileSelectionText;
 	
 	protected ExportPrologPage(List<IProject> availableProjects, IProject initiallySelectedProject) {
 		super("Export models to Prolog");
@@ -61,14 +65,11 @@ public class ExportPrologPage extends WizardPage {
 		projectSelector.setContentProvider(new BaseWorkbenchContentProvider());
 		projectSelector.setLabelProvider(new WorkbenchLabelProvider());
 		projectSelector.setInput(new AdaptableList(availableProjects));
-		if (initiallySelectedProject != null) {
-			this.selectedProject = initiallySelectedProject;
-            projectSelector.setSelection(new StructuredSelection(this.initiallySelectedProject));
-		}
 		projectSelector.addSelectionChangedListener(event -> {
 			var untypedSelectionList = projectSelector.getStructuredSelection().toList();
 			if(untypedSelectionList.size() == 1) {
 				selectedProject = (IProject)untypedSelectionList.get(0);
+				setDefaultFilePathForProjectIfNotEmpty(selectedProject);
 			} else {
 				selectedProject = null;
 			}
@@ -95,22 +96,22 @@ public class ExportPrologPage extends WizardPage {
 		fileBrowseButton.setText("Output file");
 		fileBrowseButton.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_FILL));
 		
-		Text fileSelectionLabel = new Text(container, SWT.READ_ONLY | SWT.BORDER);
-		fileSelectionLabel.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-		
-		if(initiallySelectedProject != null) {
-			try {
-				IPath projectPath = initiallySelectedProject.getLocation();
-				//Remove all chars but a-z, A-Z, 0-9 and _ from the project name
-				String safeProjectName = initiallySelectedProject.getName().replaceAll("\\W+", "");
-				Path outputFilePath = Path.of(projectPath.toOSString(), safeProjectName + ".pl");
-				selectedFile = outputFilePath;
-				fileSelectionLabel.setText(outputFilePath.toString());
+		fileSelectionText = new Text(container, SWT.BORDER);
+		fileSelectionText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		fileSelectionText.setToolTipText("File paths can either be absolute (starting with e.g. 'C:\\') or relative to the project folder");
+		fileSelectionText.addModifyListener(new ModifyListener() {
+			@Override
+			public void modifyText(ModifyEvent e) {
+				String value = ((Text)e.widget).getText();
+				if(value.length() == 0)
+				{
+					selectedFile = null;
+					return;
+				}
+				
+				selectedFile = Path.of(value);
 			}
-			catch(Exception e) {
-				System.err.println("Failed to obtain default export file path: " + e.getLocalizedMessage());
-			}
-		}
+		});
 		
 		fileBrowseButton.addSelectionListener(new SelectionAdapter() {
 
@@ -121,14 +122,19 @@ public class ExportPrologPage extends WizardPage {
 				String fileFullName = fileDialog.open();
 				if (fileFullName != null) {
 					selectedFile = Path.of(fileFullName);
-					fileSelectionLabel.setText(fileFullName);
+					fileSelectionText.setText(fileFullName);
 				} else {
 					selectedFile = null;
-					fileSelectionLabel.setText("");
+					fileSelectionText.setText("");
 				}
 				getContainer().updateButtons();
 			}
 		});
+		
+		//Set initial project and trigger handlers
+		if (initiallySelectedProject != null) {
+            projectSelector.setSelection(new StructuredSelection(this.initiallySelectedProject));
+		}
 		
 		//Execute command?
 		//"Execute exported file (using command set in preferences)"
@@ -155,10 +161,19 @@ public class ExportPrologPage extends WizardPage {
 	
 	@Override
 	public boolean isPageComplete() {
-		return selectedProject != null && selectedFile != null;
+		return selectedProject != null && getSelectedFile() != null;
 	}
 	
 	public Path getSelectedFile() {
+		
+		if(selectedFile == null)
+			return null;
+		
+		if(selectedFile.getRoot() == null) {
+			//Path is not rooted, so make it relative to the project location
+			return selectedProject != null ? Path.of(selectedProject.getLocation().toOSString(), selectedFile.toString()) : null;
+		}
+		
 		return selectedFile;
 	}
 	
@@ -168,5 +183,22 @@ public class ExportPrologPage extends WizardPage {
 	
 	public boolean getShouldExecuteCommand() {
 		return shouldExecuteCommand;
+	}
+	
+	private void setDefaultFilePathForProjectIfNotEmpty(IProject project) {
+		
+		if(fileSelectionText.getText().length() > 0)
+			return;
+		
+		try {
+			IPath projectPath = project.getLocation();
+			//Remove all chars but a-z, A-Z, 0-9 and _ from the project name
+			String safeProjectName = project.getName().replaceAll("\\W+", "");
+			Path outputFilePath = Path.of(projectPath.toOSString(), safeProjectName + ".pl");
+			fileSelectionText.setText(outputFilePath.toString());
+		}
+		catch(Exception e) {
+			System.err.println("Failed to obtain default export file path: " + e.getLocalizedMessage());
+		}
 	}
 }

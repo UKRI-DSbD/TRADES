@@ -2,6 +2,14 @@ package TRADES.design;
 
 import org.eclipse.jface.preference.IPreferenceStore;
 
+/**
+ * A class representation of the TRADES plug-in properties dialog settings, as stored in a preference store
+ * The controls in the dialog as wired directly to the store, not via this class, following the FieldEditorPreferencePage pattern
+ * but this class:
+ * - contains the names of the items in the store / on the UI,
+ * - provides the default values, and
+ * - enables code elsewhere to read from the store (via a constructor of this class and its properties)
+ * */
 public class PluginProperties {
 	//Store field names
 	

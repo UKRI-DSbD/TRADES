@@ -49,7 +49,8 @@ public class PluginPropertiesPage extends FieldEditorPreferencePage implements I
 		text.setLayoutData(gridData);
 		
 		Text gap = new Text(composite, SWT.READ_ONLY);
-				//Prolog prefix
+		
+		//Prolog prefix source
 		String[][] prologExportPrefixTypeOptions = new String[][] {
 			{ "Embedded", PluginProperties.PROLOG_EXPORT_PREFIX_TYPE_VALUE_EMBEDDED },
 			{ "External file", PluginProperties.PROLOG_EXPORT_PREFIX_TYPE_VALUE_EXTERNAL }
