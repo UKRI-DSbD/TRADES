@@ -14,22 +14,11 @@
 
 package dsm.cve.design.wizards;
 
-import java.io.FileInputStream;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Hashtable;
 import java.util.List;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -46,7 +35,6 @@ import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -55,19 +43,13 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.ProgressBar;
 import org.eclipse.swt.widgets.Text;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import dsm.TRADES.Analysis;
 import dsm.TRADES.ComponentType;
-import dsm.TRADES.ComponentTypeOwner;
 
 /**
  * Page used to select an CVE catalog to import
  */
 public class CVECatalogSelectionPage extends WizardPage {
 
-    private static final Text NULL = null;
 	private List<String> chosenCVEs;
     private List<String> chosenCPEs;
     private String apiOptionString; //NVD API Parameters
@@ -78,23 +60,30 @@ public class CVECatalogSelectionPage extends WizardPage {
     private Hashtable<String, ComponentType> cpeToComponentTypeDictionary = new Hashtable<String, ComponentType>();
     private Hashtable<String, List<String>> cveToCPEDictionary = new Hashtable<String, List<String>>();
     private String apiKey;
-    private IProject project;
     private String cpeFromComponentType;
     private ProgressBarWrapper progressBar;
     
-
-    public CVECatalogSelectionPage(IProject project) {
+    public CVECatalogSelectionPage() {
         super("CVE Catalog selection page");
         setMessage("Select a CPE name to search for its vulnerabilities.");
-        this.project = project;
     }
 
     public CVECatalogSelectionPage(String cpeFromComponentType, String apiKey, Hashtable<String, ComponentType> cpeToComponentTypeDictionary) {
-        super("CVE Catalog selection page");
-        setMessage("Select a CPE name to search for its vulnerabilities.");
-        this.apiKey = apiKey;
+        this();
         this.cpeFromComponentType = cpeFromComponentType;
-        this.cpeToComponentTypeDictionary = cpeToComponentTypeDictionary;
+        initialise(apiKey, cpeToComponentTypeDictionary);
+    }
+    
+    public void initialise(String apiKey, Hashtable<String, ComponentType> cpeToComponentTypeDictionary) {
+	   this.apiKey = apiKey;
+	   this.cpeToComponentTypeDictionary = cpeToComponentTypeDictionary;
+	   
+	   if(cpeViewer != null)
+	   {
+	       cpeViewer.setInput(Collections.list(cpeToComponentTypeDictionary.keys()));
+		   ISelection selection = new StructuredSelection(cpeToComponentTypeDictionary.keys()); 
+		   cpeViewer.setSelection(selection); //TODO This does not seem to work
+	   }
     }
 
     @Override
@@ -123,14 +112,10 @@ public class CVECatalogSelectionPage extends WizardPage {
 
         setControl(composite);
         
-        if (this.project != null) {
-            setupPage();
-        } else {
-            cpeViewer.setInput(Collections.list(cpeToComponentTypeDictionary.keys()));
+        cpeViewer.setInput(Collections.list(cpeToComponentTypeDictionary.keys()));
+        if (cpeFromComponentType != null) {
             List<String> singleCPE = new ArrayList<String>();
-            if (cpeFromComponentType != null) {
-            	singleCPE.add(cpeFromComponentType);
-            }
+            singleCPE.add(cpeFromComponentType);
             ISelection selection = new StructuredSelection(singleCPE); 
             cpeViewer.setSelection(selection);
         }
@@ -276,68 +261,6 @@ public class CVECatalogSelectionPage extends WizardPage {
                 getContainer().updateButtons();
             }
         });
-    }
-
-    private void setupPage() {
-    	try {
-			IResource[] members = this.project.members();
-        	for (IResource resource : members) {
-        		String resourceExtension;
-        		if (resource.getFileExtension() == null) {
-        			resourceExtension = "";
-        		} else {
-        			resourceExtension = resource.getFileExtension();
-        		}
-        		
-        		if (resourceExtension.endsWith("trades")) {
-        			String platformPath = '/' + project.getName() + '/' + resource.getName().toLowerCase();
-        			ResourceSet resourceSet = new ResourceSetImpl();
-    				Resource tradesResource = resourceSet
-    						.getResource(URI.createPlatformResourceURI(platformPath), true);
-    				Analysis analysis = (Analysis) tradesResource.getContents().get(0);
-                    extractAPIKeyAndCPEs(resource.getLocationURI().getPath().toString(), analysis);
-        		}
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-    }
-
-    private void extractAPIKeyAndCPEs(String filePath, Analysis analysis) {
-		DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
-		try (InputStream input = new FileInputStream(filePath)) {
-			DocumentBuilder builder = documentFactory.newDocumentBuilder();
-			Document doc = builder.parse(input);
-			Node analysisNode = doc.getDocumentElement();
-			extractAPIKey(analysisNode);
-			extractCPEs(analysis);			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-    }
-    
-    private void extractAPIKey(Node analysisNode) {
-    	Node attribute = analysisNode.getAttributes().getNamedItem("nVDAPIKey");
-		if (attribute != null) {
-			this.apiKey = attribute.getNodeValue();
-		} else {
-			this.apiKey = null;
-		}
-    }
-    
-    private void extractCPEs(Analysis analysis) {
-    	ComponentTypeOwner componentTypeOwner = analysis.getComponentTypeOwner();
-        for (ComponentType componentType : componentTypeOwner.getComponentTypes()) {
-        	if (componentType.getName() != null) {
-        		cpeToComponentTypeDictionary.put(componentType.getName(), componentType);
-    		}
-    	}
-    	cpeViewer.setInput(Collections.list(cpeToComponentTypeDictionary.keys()));
-    	if (cpeFromComponentType == null) {
-            ISelection selection = new StructuredSelection(cpeToComponentTypeDictionary.keys()); 
-            cpeViewer.setSelection(selection);
-    	}
     }
 
     public List<String> getChosenCVEs() {

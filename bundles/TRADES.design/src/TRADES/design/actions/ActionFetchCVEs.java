@@ -43,7 +43,7 @@ public class ActionFetchCVEs extends Action {
     public void runWithEvent(Event event) {
         if (componentType != null) {
 		    FetchCVEsForComponentTypeWizard wizard = new FetchCVEsForComponentTypeWizard();
-            wizard.setCPE(componentType.getName());
+            wizard.setCPE(componentType);
             Analysis analysis = (Analysis) componentType.eContainer().eContainer();
             String apiKey = analysis.getNVDAPIKey();
             ComponentTypeOwner componentTypeOwner = analysis.getComponentTypeOwner();

@@ -38,8 +38,7 @@ public class ContextMenuFiller implements IMenuListener, IMenuListener2 {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public void menuAboutToShow(IMenuManager manager) {
-
+	public void menuAboutToShow(IMenuManager manager) {		
 		if (selection != null) {
 			Object first = selection.getFirstElement();
 			if (first instanceof ComponentType) {
