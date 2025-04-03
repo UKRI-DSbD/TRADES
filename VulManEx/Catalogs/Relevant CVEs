@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:cve-catalog="dsm.cve.model">
+  <cve-catalog:Vulnerability name="CVE-2011-2895" id="795e7bdc-e7c1-4e06-966e-163957995c25" vulnerabilityType="CVE">
+    <manifests href="cwec_v4.16.cwe#//@weaknesses/@weaknesses.122"/>
+    <affects href="../vulmanex.trades#//@componentTypeOwner/@componentTypes.2"/>
+  </cve-catalog:Vulnerability>
+  <cve-catalog:Vulnerability name="CVE-2020-10565" id="259843b5-e70f-4b62-8bec-a8d0ee7c8874" vulnerabilityType="CVE">
+    <manifests href="cwec_v4.16.cwe#//@weaknesses/@weaknesses.122"/>
+    <affects href="../vulmanex.trades#//@componentTypeOwner/@componentTypes.2"/>
+  </cve-catalog:Vulnerability>
+</xmi:XMI>

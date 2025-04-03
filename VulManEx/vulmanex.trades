@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<TRADES:Analysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:TRADES="dsm.TRADES" name="VulManEx" id="532769a3-0331-406e-9b47-8a1c6f0bbd48" nVDAPIKey="">
+  <components name="System Scope">
+    <components name="OperatingSystem" componentTypes="//@componentTypeOwner/@componentTypes.0 //@componentTypeOwner/@componentTypes.2" assignedControls="//@controlOwner/@internals.3"/>
+    <components name="Application" componentTypes="//@componentTypeOwner/@componentTypes.1" assignedControls="//@controlOwner/@internals.0"/>
+  </components>
+  <dataOwner/>
+  <controlOwner>
+    <internals name="use_memory_safe_languages" id="bfe9efef-aa68-43e4-8f03-5ab02c0b9596"/>
+    <internals name="FreeBSD_patch1" id="754887ea-cc0d-4652-b729-c9c5bee1d5cb"/>
+    <internals name="FreeBSD_patch2" id="e21da6f3-48e1-461a-98f2-86291b9ada90"/>
+    <internals name="use_a_capability_based_addressing_hardware" id="ddc0ea7b-dc56-4a4a-8e3e-b68b4eff5787"/>
+  </controlOwner>
+  <threatOwner/>
+  <vulnerabilityOwner/>
+  <componentTypeOwner>
+    <componentTypes name="UNIX_like_operating_system" id="6b711e5d-b109-45dc-9596-f04adfa13399"/>
+    <componentTypes name="internally_developed_application" id="3b780488-0b4d-4594-94b2-a25acaa9aa7a">
+      <affectedBy href="Catalogs/cwec_v4.16.cwe#//@weaknesses/@weaknesses.122"/>
+    </componentTypes>
+    <componentTypes name="cpe:2.3:o:freebsd:freebsd:14.0:-:*:*:*:*:*:*" id="6f9577c4-49a9-4a70-9fd4-8c2a66d42561" manifests="//@componentTypeOwner/@componentTypes.0">
+      <affectedBy href="Catalogs/Relevant%20CVEs#/0"/>
+      <affectedBy href="Catalogs/Relevant%20CVEs#/1"/>
+    </componentTypes>
+  </componentTypeOwner>
+  <ruleOwner>
+    <rules name="rule1" id="b4c37895-e7d0-41a9-ac5a-5edc3fe13af9" componentTypesAffected="//@componentTypeOwner/@componentTypes.1" controls="//@controlOwner/@internals.0">
+      <vulnerabilities href="Catalogs/cwec_v4.16.cwe#//@weaknesses/@weaknesses.122"/>
+    </rules>
+    <rules name="rule2" id="d4aa65aa-b5eb-4abd-bc15-03976c22b1f1" componentTypesAffected="//@componentTypeOwner/@componentTypes.2" controls="//@controlOwner/@internals.1">
+      <vulnerabilities href="Catalogs/Relevant%20CVEs#/1"/>
+    </rules>
+    <rules name="rule3" id="3f6a2843-6b6b-457b-a1b6-21e23000c06b" componentTypesAffected="//@componentTypeOwner/@componentTypes.2" controls="//@controlOwner/@internals.2">
+      <vulnerabilities href="Catalogs/Relevant%20CVEs#/0"/>
+    </rules>
+    <rules name="rule4" id="553cb4d8-20b5-4c11-80ee-ad420b2b3b2d" componentTypesAffected="//@componentTypeOwner/@componentTypes.2" controls="//@controlOwner/@internals.3">
+      <vulnerabilities href="Catalogs/cwec_v4.16.cwe#//@weaknesses/@weaknesses.122"/>
+    </rules>
+  </ruleOwner>
+  <scoreSystem>
+    <impactScores name="Low" impact="1">
+      <configurations difficulty="//@scoreSystem/@difficultyScores.0"/>
+      <configurations difficulty="//@scoreSystem/@difficultyScores.1"/>
+      <configurations difficulty="//@scoreSystem/@difficultyScores.2"/>
+    </impactScores>
+    <impactScores name="Medium" impact="2">
+      <configurations difficulty="//@scoreSystem/@difficultyScores.0"/>
+      <configurations difficulty="//@scoreSystem/@difficultyScores.1"/>
+      <configurations difficulty="//@scoreSystem/@difficultyScores.2"/>
+    </impactScores>
+    <impactScores name="High" impact="3">
+      <configurations difficulty="//@scoreSystem/@difficultyScores.0"/>
+      <configurations difficulty="//@scoreSystem/@difficultyScores.1"/>
+      <configurations difficulty="//@scoreSystem/@difficultyScores.2"/>
+    </impactScores>
+    <difficultyScores name="Low" difficulty="1"/>
+    <difficultyScores name="Medium" difficulty="2"/>
+    <difficultyScores name="High" difficulty="3"/>
+  </scoreSystem>
+</TRADES:Analysis>

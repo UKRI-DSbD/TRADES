@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TRADES="dsm.TRADES" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_9k-W0AC_EfC905rpnEnlUg" selectedViews="_9ssIYAC_EfC905rpnEnlUg _9xNcAAC_EfC905rpnEnlUg" version="15.2.0.202303281325">
+    <semanticResources>vulmanex.trades</semanticResources>
+    <semanticResources>Catalogs/cwec_v4.16.cwe</semanticResources>
+    <semanticResources>Catalogs/Relevant%20CVEs</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_9ssIYAC_EfC905rpnEnlUg">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='NoOp']"/>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="_9xNcAAC_EfC905rpnEnlUg">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_9yX5oAC_EfC905rpnEnlUg" name="TRADES diagram" repPath="#_9xw1oAC_EfC905rpnEnlUg" changeId="1741952274344">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']"/>
+        <target xmi:type="TRADES:Analysis" href="vulmanex.trades#/"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_-RNKsgC_EfC905rpnEnlUg" name="VulManEx Risk Management Summary" repPath="#_-QnU0AC_EfC905rpnEnlUg">
+        <description xmi:type="description_2:CrossTableDescription" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']"/>
+        <target xmi:type="TRADES:Analysis" href="vulmanex.trades#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram uid="_9xw1oAC_EfC905rpnEnlUg">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_9yvGAAC_EfC905rpnEnlUg" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_9yvGAQC_EfC905rpnEnlUg" type="Sirius" element="_9xw1oAC_EfC905rpnEnlUg" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_-QNsMAC_EfC905rpnEnlUg" type="2002" element="_-PpEcAC_EfC905rpnEnlUg">
+          <children xmi:type="notation:Node" xmi:id="_-QVA8AC_EfC905rpnEnlUg" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_-QXdMAC_EfC905rpnEnlUg" type="7001">
+            <children xmi:type="notation:Node" xmi:id="_AnuWIADAEfC905rpnEnlUg" type="3008" element="_Ang6wADAEfC905rpnEnlUg">
+              <children xmi:type="notation:Node" xmi:id="_Anu9MADAEfC905rpnEnlUg" type="5005"/>
+              <children xmi:type="notation:Node" xmi:id="_AnwLUADAEfC905rpnEnlUg" type="7002">
+                <styles xmi:type="notation:SortingStyle" xmi:id="_AnwLUQDAEfC905rpnEnlUg"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_AnwLUgDAEfC905rpnEnlUg"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_AnuWIQDAEfC905rpnEnlUg" fontName="Segoe UI" fontHeight="12" bold="true" underline="true"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AnuWIgDAEfC905rpnEnlUg" x="83" y="46"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_J8VVEADAEfC905rpnEnlUg" type="3008" element="_J8NZQADAEfC905rpnEnlUg">
+              <children xmi:type="notation:Node" xmi:id="_J8V8IADAEfC905rpnEnlUg" type="5005"/>
+              <children xmi:type="notation:Node" xmi:id="_J8V8IQDAEfC905rpnEnlUg" type="7002">
+                <styles xmi:type="notation:SortingStyle" xmi:id="_J8V8IgDAEfC905rpnEnlUg"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_J8V8IwDAEfC905rpnEnlUg"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_J8VVEQDAEfC905rpnEnlUg" fontName="Segoe UI" fontHeight="12" bold="true" underline="true"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_J8VVEgDAEfC905rpnEnlUg" x="83" y="154"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_-QXdMQC_EfC905rpnEnlUg"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_-QXdMgC_EfC905rpnEnlUg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_-QNsMQC_EfC905rpnEnlUg" fontName="Segoe UI" fontHeight="12" bold="true" underline="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-QNsMgC_EfC905rpnEnlUg" x="20" y="20" width="433" height="289"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_YwS4oADAEfC905rpnEnlUg" type="2001" element="_YwJHoADAEfC905rpnEnlUg">
+          <children xmi:type="notation:Node" xmi:id="_YwTfsADAEfC905rpnEnlUg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_YwTfsQDAEfC905rpnEnlUg" x="61" y="16"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Y0p0MADAEfC905rpnEnlUg" type="3005" element="_YwPOQADAEfC905rpnEnlUg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_Y0p0MQDAEfC905rpnEnlUg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Y0p0MgDAEfC905rpnEnlUg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_YwS4oQDAEfC905rpnEnlUg" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YwS4ogDAEfC905rpnEnlUg" width="60" height="60"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_9yvGAgC_EfC905rpnEnlUg"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_-P_CsAC_EfC905rpnEnlUg" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_-P_pwAC_EfC905rpnEnlUg"/>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_-PpEcAC_EfC905rpnEnlUg" name="System Scope" tooltipText="System Scope">
+      <target xmi:type="TRADES:Component" href="vulmanex.trades#//@components.0"/>
+      <semanticElements xmi:type="TRADES:Component" href="vulmanex.trades#//@components.0"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_-P2f0AC_EfC905rpnEnlUg" labelSize="12" showIcon="false" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" backgroundColor="245,245,245" foregroundColor="245,245,245">
+        <labelFormat>bold</labelFormat>
+        <labelFormat>underline</labelFormat>
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@containerMappings[name='ComponentPackage_TD']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@containerMappings[name='ComponentPackage_TD']"/>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_Ang6wADAEfC905rpnEnlUg" name="OperatingSystem" tooltipText="OperatingSystem">
+        <target xmi:type="TRADES:Component" href="vulmanex.trades#//@components.0/@components.0"/>
+        <semanticElements xmi:type="TRADES:Component" href="vulmanex.trades#//@components.0/@components.0"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_Ang6wQDAEfC905rpnEnlUg" labelSize="12" showIcon="false" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" backgroundColor="245,245,245" foregroundColor="245,245,245">
+          <labelFormat>bold</labelFormat>
+          <labelFormat>underline</labelFormat>
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@containerMappings[name='ComponentPackage_TD']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@containerMappings[name='ComponentPackage_TD']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_J8NZQADAEfC905rpnEnlUg" name="Application" tooltipText="Application">
+        <target xmi:type="TRADES:Component" href="vulmanex.trades#//@components.0/@components.1"/>
+        <semanticElements xmi:type="TRADES:Component" href="vulmanex.trades#//@components.0/@components.1"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_J8NZQQDAEfC905rpnEnlUg" labelSize="12" showIcon="false" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" backgroundColor="245,245,245" foregroundColor="245,245,245">
+          <labelFormat>bold</labelFormat>
+          <labelFormat>underline</labelFormat>
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@containerMappings[name='ComponentPackage_TD']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@containerMappings[name='ComponentPackage_TD']"/>
+      </ownedDiagramElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_YwJHoADAEfC905rpnEnlUg" name="use_memory_safe_languages" tooltipText="use_memory_safe_languages" width="-1" height="-1">
+      <target xmi:type="TRADES:Control" href="vulmanex.trades#//@controlOwner/@internals.0"/>
+      <semanticElements xmi:type="TRADES:Control" href="vulmanex.trades#//@controlOwner/@internals.0"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_YwPOQADAEfC905rpnEnlUg" labelSize="12" showIcon="false" workspacePath="/TRADES.design/Images/controlImage.svg">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@nodeMappings[name='ControlNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer/@nodeMappings[name='ControlNode']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_9x9p8AC_EfC905rpnEnlUg"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='TRADES%20diagram']/@defaultLayer"/>
+    <target xmi:type="TRADES:Analysis" href="vulmanex.trades#/"/>
+  </diagram:DSemanticDiagram>
+  <table:DTable uid="_-QnU0AC_EfC905rpnEnlUg">
+    <target xmi:type="TRADES:Analysis" href="vulmanex.trades#/"/>
+    <lines xmi:type="table:DLine" uid="_-Q0wMAC_EfC905rpnEnlUg" label=" Low [1]">
+      <target xmi:type="TRADES:ImpactScore" href="vulmanex.trades#//@scoreSystem/@impactScores.0"/>
+      <semanticElements xmi:type="TRADES:ImpactScore" href="vulmanex.trades#//@scoreSystem/@impactScores.0"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@ownedLineMappings[name='ImpactRow_RMS']"/>
+      <cells xmi:type="table:DCell" uid="_-RGdAAC_EfC905rpnEnlUg" label="[]" column="_-Q_IQAC_EfC905rpnEnlUg">
+        <target xmi:type="TRADES:ImpactConfiguration" href="vulmanex.trades#//@scoreSystem/@impactScores.0/@configurations.0"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_-RHrIAC_EfC905rpnEnlUg" labelSize="10" defaultBackgroundStyle="true" backgroundColor="170,170,170">
+          <foregroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+          <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+      </cells>
+      <cells xmi:type="table:DCell" uid="_-RKHYAC_EfC905rpnEnlUg" label="[]" column="_-RAWYQC_EfC905rpnEnlUg">
+        <target xmi:type="TRADES:ImpactConfiguration" href="vulmanex.trades#//@scoreSystem/@impactScores.0/@configurations.1"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_-RKHYQC_EfC905rpnEnlUg" labelSize="10" defaultBackgroundStyle="true" backgroundColor="170,170,170">
+          <foregroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+          <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+      </cells>
+      <cells xmi:type="table:DCell" uid="_-RKucAC_EfC905rpnEnlUg" label="[]" column="_-RAWYwC_EfC905rpnEnlUg">
+        <target xmi:type="TRADES:ImpactConfiguration" href="vulmanex.trades#//@scoreSystem/@impactScores.0/@configurations.2"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_-RKucQC_EfC905rpnEnlUg" labelSize="10" defaultBackgroundStyle="true" backgroundColor="170,170,170">
+          <foregroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+          <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+      </cells>
+      <currentStyle xmi:type="table:DTableElementStyle" uid="_-Q8E8AC_EfC905rpnEnlUg" labelSize="15" defaultForegroundStyle="true"/>
+    </lines>
+    <lines xmi:type="table:DLine" uid="_-Q8sAAC_EfC905rpnEnlUg" label=" Medium [2]">
+      <target xmi:type="TRADES:ImpactScore" href="vulmanex.trades#//@scoreSystem/@impactScores.1"/>
+      <semanticElements xmi:type="TRADES:ImpactScore" href="vulmanex.trades#//@scoreSystem/@impactScores.1"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@ownedLineMappings[name='ImpactRow_RMS']"/>
+      <cells xmi:type="table:DCell" uid="_-RKucgC_EfC905rpnEnlUg" label="[]" column="_-Q_IQAC_EfC905rpnEnlUg">
+        <target xmi:type="TRADES:ImpactConfiguration" href="vulmanex.trades#//@scoreSystem/@impactScores.1/@configurations.0"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_-RKucwC_EfC905rpnEnlUg" labelSize="10" defaultBackgroundStyle="true" backgroundColor="170,170,170">
+          <foregroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+          <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+      </cells>
+      <cells xmi:type="table:DCell" uid="_-RLVgAC_EfC905rpnEnlUg" label="[]" column="_-RAWYQC_EfC905rpnEnlUg">
+        <target xmi:type="TRADES:ImpactConfiguration" href="vulmanex.trades#//@scoreSystem/@impactScores.1/@configurations.1"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_-RLVgQC_EfC905rpnEnlUg" labelSize="10" defaultBackgroundStyle="true" backgroundColor="170,170,170">
+          <foregroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+          <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+      </cells>
+      <cells xmi:type="table:DCell" uid="_-RLVggC_EfC905rpnEnlUg" label="[]" column="_-RAWYwC_EfC905rpnEnlUg">
+        <target xmi:type="TRADES:ImpactConfiguration" href="vulmanex.trades#//@scoreSystem/@impactScores.1/@configurations.2"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_-RLVgwC_EfC905rpnEnlUg" labelSize="10" defaultBackgroundStyle="true" backgroundColor="170,170,170">
+          <foregroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+          <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+      </cells>
+      <currentStyle xmi:type="table:DTableElementStyle" uid="_-Q8sAQC_EfC905rpnEnlUg" labelSize="15" defaultForegroundStyle="true"/>
+    </lines>
+    <lines xmi:type="table:DLine" uid="_-Q8sAgC_EfC905rpnEnlUg" label=" High [3]">
+      <target xmi:type="TRADES:ImpactScore" href="vulmanex.trades#//@scoreSystem/@impactScores.2"/>
+      <semanticElements xmi:type="TRADES:ImpactScore" href="vulmanex.trades#//@scoreSystem/@impactScores.2"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@ownedLineMappings[name='ImpactRow_RMS']"/>
+      <cells xmi:type="table:DCell" uid="_-RL8kAC_EfC905rpnEnlUg" label="[]" column="_-Q_IQAC_EfC905rpnEnlUg">
+        <target xmi:type="TRADES:ImpactConfiguration" href="vulmanex.trades#//@scoreSystem/@impactScores.2/@configurations.0"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_-RL8kQC_EfC905rpnEnlUg" labelSize="10" defaultBackgroundStyle="true" backgroundColor="170,170,170">
+          <foregroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+          <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+      </cells>
+      <cells xmi:type="table:DCell" uid="_-RL8kgC_EfC905rpnEnlUg" label="[]" column="_-RAWYQC_EfC905rpnEnlUg">
+        <target xmi:type="TRADES:ImpactConfiguration" href="vulmanex.trades#//@scoreSystem/@impactScores.2/@configurations.1"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_-RL8kwC_EfC905rpnEnlUg" labelSize="10" defaultBackgroundStyle="true" backgroundColor="170,170,170">
+          <foregroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+          <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+      </cells>
+      <cells xmi:type="table:DCell" uid="_-RNKsAC_EfC905rpnEnlUg" label="[]" column="_-RAWYwC_EfC905rpnEnlUg">
+        <target xmi:type="TRADES:ImpactConfiguration" href="vulmanex.trades#//@scoreSystem/@impactScores.2/@configurations.2"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_-RNKsQC_EfC905rpnEnlUg" labelSize="10" defaultBackgroundStyle="true" backgroundColor="170,170,170">
+          <foregroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+          <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@intersection.0"/>
+      </cells>
+      <currentStyle xmi:type="table:DTableElementStyle" uid="_-Q8sAwC_EfC905rpnEnlUg" labelSize="15" defaultForegroundStyle="true"/>
+    </lines>
+    <columns xmi:type="table:DTargetColumn" uid="_-Q_IQAC_EfC905rpnEnlUg" label=" Low [1]" cells="_-RGdAAC_EfC905rpnEnlUg _-RKucgC_EfC905rpnEnlUg _-RL8kAC_EfC905rpnEnlUg">
+      <target xmi:type="TRADES:DifficultyScore" href="vulmanex.trades#//@scoreSystem/@difficultyScores.0"/>
+      <semanticElements xmi:type="TRADES:DifficultyScore" href="vulmanex.trades#//@scoreSystem/@difficultyScores.0"/>
+      <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@ownedColumnMappings.0"/>
+    </columns>
+    <columns xmi:type="table:DTargetColumn" uid="_-RAWYQC_EfC905rpnEnlUg" label=" Medium [2]" cells="_-RKHYAC_EfC905rpnEnlUg _-RLVgAC_EfC905rpnEnlUg _-RL8kgC_EfC905rpnEnlUg">
+      <target xmi:type="TRADES:DifficultyScore" href="vulmanex.trades#//@scoreSystem/@difficultyScores.1"/>
+      <semanticElements xmi:type="TRADES:DifficultyScore" href="vulmanex.trades#//@scoreSystem/@difficultyScores.1"/>
+      <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@ownedColumnMappings.0"/>
+    </columns>
+    <columns xmi:type="table:DTargetColumn" uid="_-RAWYwC_EfC905rpnEnlUg" label=" High [3]" cells="_-RKucAC_EfC905rpnEnlUg _-RLVggC_EfC905rpnEnlUg _-RNKsAC_EfC905rpnEnlUg">
+      <target xmi:type="TRADES:DifficultyScore" href="vulmanex.trades#//@scoreSystem/@difficultyScores.2"/>
+      <semanticElements xmi:type="TRADES:DifficultyScore" href="vulmanex.trades#//@scoreSystem/@difficultyScores.2"/>
+      <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']/@ownedColumnMappings.0"/>
+    </columns>
+    <description xmi:type="description_2:CrossTableDescription" href="platform:/plugin/TRADES.design/description/TRADES.odesign#//@ownedViewpoints[name='TRADESview']/@ownedRepresentations[name='RiskManagementSummaryTable']"/>
+  </table:DTable>
+</xmi:XMI>
