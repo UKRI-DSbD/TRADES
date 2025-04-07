@@ -123,4 +123,35 @@
            label="TRADES EEFLifecycleManagerProvide">
      </descriptor>
   </extension>
+    <extension
+        point="org.eclipse.ui.exportWizards">
+     <wizard
+           category="dsm.TRADES.rcp.export"
+           class="TRADES.design.wizards.ExportPrologWizard"
+           icon="Images\icons\diagram.gif"
+           id="TRADES.design.ExportProlog"
+           name="Export to Prolog">
+        <selection
+              class="org.eclipse.core.resources.IProject">
+        </selection>
+     </wizard>
+  </extension>
+  <extension
+        point="org.eclipse.ui.navigator.navigatorContent">
+        <commonWizard
+           type="export"
+           wizardId="TRADES.design.ExportProlog">
+        <enablement></enablement>
+     </commonWizard>
+  </extension>
+     <extension point="org.eclipse.ui.propertyPages">
+      <page name="TRADES"
+            class="TRADES.design.PluginPropertiesPage"
+            id="TRADES.design.ProjectPropertiesPage">
+        <enabledWhen>
+            <adapt type="org.eclipse.core.resources.IProject">
+            </adapt>         
+        </enabledWhen>
+      </page>
+   </extension>
 </plugin>

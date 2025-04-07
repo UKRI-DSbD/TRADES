@@ -24,7 +24,7 @@ import dsm.trades.rcp.TRADESRCPActivator;
 
 public class CatalogUtils {
 
-	private static final String CATALOGS_FOLDER = "Catalogs";
+	public static final String CATALOGS_FOLDER = "Catalogs";
 
 	public static void createCatalogFolder(IProject selectedProject0, IProgressMonitor monitor) {
 		IFolder catalogFolder = selectedProject0.getFolder(CATALOGS_FOLDER);

@@ -40,7 +40,10 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.eef.common.ui,
  org.eclipse.eef.common,
  org.eclipse.egit.core,
- org.eclipse.egit.ui
+ org.eclipse.egit.ui,
+ org.eclipse.emf.ecore,
+ org.eclipse.jface,
+ org.eclipse.swt
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: %providerName

@@ -160,5 +160,4 @@ public class Activator extends AbstractUIPlugin {
 		}
 		return img;
 	}
-
 }

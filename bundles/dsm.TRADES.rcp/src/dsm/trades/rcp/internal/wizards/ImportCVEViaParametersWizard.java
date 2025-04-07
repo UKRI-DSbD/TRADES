@@ -70,7 +70,7 @@ public class ImportCVEViaParametersWizard extends Wizard implements IImportWizar
 		super.addPages();
 		List<IProject> modelingProjects = Stream.of(ResourcesPlugin.getWorkspace().getRoot().getProjects())
 				.filter(p -> ModelingProject.asModelingProject(p).some()).collect(toList());
-		this.projectSelectionPage = new ProjectSelectionPage(modelingProjects, getSelectedProject(selection));
+		this.projectSelectionPage = new ProjectSelectionPage(modelingProjects, getSelectedProject(selection), null);
 		addPage(projectSelectionPage);
 		this.parameterSearchPage = new CVEParameterSearchPage(getProject(modelingProjects));
 		addPage(parameterSearchPage);

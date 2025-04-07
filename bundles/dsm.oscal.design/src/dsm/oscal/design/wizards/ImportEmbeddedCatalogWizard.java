@@ -75,8 +75,7 @@ public class ImportEmbeddedCatalogWizard extends Wizard implements IImportWizard
 		super.addPages();
 		List<IProject> modelingProjects = Stream.of(ResourcesPlugin.getWorkspace().getRoot().getProjects())
 				.filter(p -> ModelingProject.asModelingProject(p).some()).collect(toList());
-		this.projectSelectionPage = new ProjectSelectionPage(modelingProjects,
-				OSCALUtils.getSelectedProject(selection));
+		this.projectSelectionPage = new ProjectSelectionPage(modelingProjects, OSCALUtils.getSelectedProject(selection), null);
 		addPage(projectSelectionPage);
 		this.catalogSelectionPage = new CatalogSelectionPage();
 		addPage(catalogSelectionPage);

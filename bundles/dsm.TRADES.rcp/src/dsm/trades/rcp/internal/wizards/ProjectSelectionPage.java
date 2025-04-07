@@ -15,6 +15,7 @@
 package dsm.trades.rcp.internal.wizards;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.viewers.StructuredSelection;
@@ -34,12 +35,14 @@ public class ProjectSelectionPage extends WizardPage {
 	private List<IProject> projects;
 	private IProject initialSelection;
 	private IProject selectedProject;
+	private Consumer<IProject> onSelection;
 
-	public ProjectSelectionPage(List<IProject> projects, IProject initialSelection) {
+	public ProjectSelectionPage(List<IProject> projects, IProject initialSelection, Consumer<IProject> onSelection) {
 		super("Trades project selection page");
 		setMessage("Select a TRADES project");
 		this.projects = projects;
 		this.initialSelection = initialSelection;
+		this.onSelection = onSelection;
 	}
 
 	@Override
@@ -59,8 +62,13 @@ public class ProjectSelectionPage extends WizardPage {
 		projectViewer.addSelectionChangedListener(event -> {
 			selectedProject = (IProject) projectViewer.getStructuredSelection().getFirstElement();
 			getContainer().updateButtons();
+			if(onSelection != null)
+				onSelection.accept(selectedProject);
 		});
 
+		if(initialSelection != null && onSelection != null)
+			onSelection.accept(initialSelection);
+		
 		setControl(composite);
 
 	}

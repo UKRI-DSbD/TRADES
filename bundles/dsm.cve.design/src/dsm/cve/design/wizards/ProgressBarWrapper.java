@@ -1,6 +1,7 @@
 package dsm.cve.design.wizards;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.ProgressBar;
 
 /**
@@ -17,10 +18,13 @@ class ProgressBarWrapper {
         progressBar.setState(SWT.NORMAL);
         progressBar.setMinimum(0);
         progressBar.setMaximum(displayMax);
+        progressBar.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
     }
+    
     public void setMaximum(double maximum) {
         max = maximum;
     }
+    
     public void setValue(double currentValue) {
         value = currentValue;
         progressBar.getDisplay().syncExec(new Runnable() {
