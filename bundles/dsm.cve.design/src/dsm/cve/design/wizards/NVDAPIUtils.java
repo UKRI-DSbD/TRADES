@@ -70,23 +70,15 @@ class NVDAPIUtils {
                         (fetchProgress.totalResultsToFetch > 0 ? "/" + 
                         fetchProgress.totalResultsToFetch : "") + " CVEs obtained for CPE " + cpeName;
 
-                    MessageDialog.openError(
-                        event.display.getActiveShell(), 
-                        "CVE load aborted", 
-                        "The NVD API returned HTTP Status Code " + response.statusCode() + "." + System.lineSeparator()
-                            + progressMessage + System.lineSeparator()                  
-                            + "Please try again later.");
-                    });
+                    System.out.println(cpeName + ": returned HTTP Status Code " + response.statusCode());
+                });
         		return null;
             }
         } catch (Exception e) {
             e.printStackTrace();
             RunOnUiThreadSync(event, () -> {
-                MessageDialog.openError(
-                    event.display.getActiveShell(), 
-                    "No CVEs affecting CPE found", 
-                    "No CVEs found that affect " + cpeName + ". Please check for typing errors in the CPE name.");
-	            });
+                System.out.println(cpeName + ": returned 0 vulnerabilities. Please check for typing errors in the CPE name.");
+	        });
             return null;
         }
     }
@@ -285,6 +277,7 @@ class NVDAPIUtils {
                     cpeName, apiOption, event, fetchProgress, cvesToDisplay, 
                     apiKey, cveToCWEDictionary, cveToCPEDictionary);
             }
+            System.out.println(cpeName + ": returned " + fetchProgress.totalResultsToFetch + " vulnerabilities.");
 
             cpeCount++;
             progressBar.setValue(cpeCount);
